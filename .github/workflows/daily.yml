@@ -1,0 +1,101 @@
+name: arXiv daily digest
+
+on:
+  schedule:
+    - cron: "20 5 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Rebuild and resend the current arXiv batch
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: arxiv-daily-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        run: python -m pip install --requirement requirements.txt
+
+      - name: Fetch, enrich and render
+        id: digest
+        env:
+          CATS: ${{ vars.CATS }}
+          ANNOUNCE_TYPES: ${{ vars.ANNOUNCE_TYPES }}
+          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
+          AI_BASE_URL: ${{ vars.AI_BASE_URL }}
+          AI_MODEL: ${{ vars.AI_MODEL }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          ARXIV_CONTACT: ${{ vars.ARXIV_CONTACT }}
+          MAX_PAPERS_PER_RUN: ${{ vars.MAX_PAPERS_PER_RUN }}
+          MAX_FLAGGED_RATIO: ${{ vars.MAX_FLAGGED_RATIO }}
+          AI_CONCURRENCY: ${{ vars.AI_CONCURRENCY }}
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force }}
+        shell: bash
+        run: |
+          if [ "$FORCE" = "true" ]; then
+            python scripts/run.py --force
+          else
+            python scripts/run.py
+          fi
+
+      - name: Upload Pages artifact
+        if: steps.digest.outputs.skipped != 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: outputs-public
+
+      - name: Deploy GitHub Pages
+        if: steps.digest.outputs.skipped != 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Send PushPlus notification
+        if: steps.digest.outputs.skipped != 'true'
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          PUSHPLUS_TOPIC: ${{ vars.PUSHPLUS_TOPIC }}
+          PUSH_MAX_ITEMS: ${{ vars.PUSH_MAX_ITEMS }}
+          DEPLOYMENT_URL: ${{ steps.deployment.outputs.page_url }}
+        run: python scripts/notify.py runtime/notification.json
+
+      - name: Persist state and cache
+        if: steps.digest.outputs.skipped != 'true'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state data outputs-public
+          if git diff --cached --quiet; then
+            echo "No persistent changes"
+          else
+            git commit -m "Update arXiv digest ${{ steps.digest.outputs.batch_id }}"
+            git push
+          fi
