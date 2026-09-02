@@ -45,6 +45,14 @@ def build_content(
         f"{html.escape(str(category))}: {int(count)}"
         for category, count in counts.items()
     )
+    category_links = " ".join(
+        (
+            f"<a href=\"{html.escape(urljoin(root_url, f'{category}-latest.html'), quote=True)}\">"
+            f"{html.escape(str(category))}（{int(count)}）</a>"
+        )
+        for category, count in counts.items()
+        if int(count) > 0
+    )
 
     rows: list[str] = []
     for item in notification["items"][:max_items]:
@@ -68,6 +76,7 @@ def build_content(
         f"<p>官方公告日：{html.escape(str(notification.get('announcement_date', '')))}</p>"
         f"<p>去重后共 {int(notification.get('total_unique', len(notification['items'])))} 篇。"
         f"{count_text}</p>"
+        f"<p>分类页面：{category_links}</p>"
         f"<ol>{''.join(rows)}</ol>"
         f"{more}"
         f"<p><a href=\"{html.escape(latest_url, quote=True)}\">打开完整日报</a></p>"

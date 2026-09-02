@@ -123,6 +123,9 @@ def main() -> None:
             20,
         )
         assert "https://example.github.io/arxiv/latest.html" in content
+        assert "https://example.github.io/arxiv/hep-th-latest.html" in content
+        assert "https://example.github.io/arxiv/gr-qc-latest.html" in content
+        assert "hep-ph-latest.html" not in content
         assert "&lt;b&gt;不是标签&lt;/b&gt;" in content
 
         state_path = temporary_root / "state.json"
