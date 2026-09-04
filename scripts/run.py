@@ -39,6 +39,67 @@ ARXIV = "http://arxiv.org/schemas/atom"
 DC = "http://purl.org/dc/elements/1.1/"
 NS = {"atom": ATOM, "arxiv": ARXIV, "dc": DC}
 
+CATEGORY_LABELS = {
+    "hep-th": "高能理论",
+    "hep-ph": "高能唯象",
+    "hep-lat": "格点量子色动力学",
+    "hep-ex": "高能实验",
+    "nucl-th": "核理论",
+    "nucl-ex": "核实验",
+    "gr-qc": "广义相对论与量子宇宙学",
+    "astro-ph": "天体物理",
+    "quant-ph": "量子物理",
+}
+
+PAGE_CSS = """
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(980px, calc(100% - 32px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 24px 0 40px; }
+    .card { display: block; background: white; border-radius: 14px; padding: 22px 22px 18px; text-decoration: none; color: inherit; box-shadow: 0 5px 18px rgba(31,41,51,.07); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: .95rem; color: #3266a8; font-weight: 650; }
+    .card-name { margin-top: 4px; color: #465563; }
+    .card-count { margin-top: 18px; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .card-count span { font-size: 1rem; font-weight: 500; color: #667; margin-left: 4px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 640px) {
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+"""
+
 
 def env_text(name: str, default: str = "") -> str:
     value = os.environ.get(name)
@@ -112,6 +173,34 @@ def paper_anchor(versioned_id: str) -> str:
 def category_matches(subscription: str, paper_categories: list[str]) -> bool:
     prefix = subscription + "."
     return any(item == subscription or item.startswith(prefix) for item in paper_categories)
+
+
+def category_label(category: str) -> str:
+    if category in CATEGORY_LABELS:
+        return CATEGORY_LABELS[category]
+    archive = category.split(".", 1)[0]
+    return CATEGORY_LABELS.get(archive, category)
+
+
+def is_primary_for_subscription(subscription: str, paper: dict[str, Any]) -> bool:
+    primary = paper.get("primary_category") or ""
+    if not primary and paper.get("categories"):
+        primary = paper["categories"][0]
+    return bool(primary) and category_matches(subscription, [primary])
+
+
+def partition_by_primary(
+    subscription: str,
+    papers: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    primary: list[dict[str, Any]] = []
+    cross: list[dict[str, Any]] = []
+    for paper in papers:
+        if is_primary_for_subscription(subscription, paper):
+            primary.append(paper)
+        else:
+            cross.append(paper)
+    return primary, cross
 
 
 def compact_text(value: str) -> str:
@@ -549,7 +638,11 @@ def render_paragraphs(value: str) -> str:
     )
 
 
-def render_paper(paper: dict[str, Any], translated: dict[str, Any]) -> str:
+def render_paper(
+    paper: dict[str, Any],
+    translated: dict[str, Any],
+    badge: str = "",
+) -> str:
     identifier = escape_text(paper["id"])
     anchor = escape_text(paper_anchor(paper["id"]))
     authors = "、".join(paper["authors"]) if paper["authors"] else "未提供"
@@ -564,10 +657,11 @@ def render_paper(paper: dict[str, Any], translated: dict[str, Any]) -> str:
     )
     evaluation = translated["evaluation"]
     url = f"https://arxiv.org/abs/{quote(paper['id'], safe='v./')}"
+    badge_html = f'<span class="badge">{escape_text(badge)}</span>' if badge else ""
     return f"""
 <article class="paper" id="{anchor}">
   <div class="paper-head">
-    <h2>{escape_text(translated["cn_title"])}</h2>
+    <h2>{escape_text(translated["cn_title"])}{badge_html}</h2>
     <a href="{escape_text(url)}" rel="noopener noreferrer">{identifier}</a>
   </div>
   <p class="original-title">{escape_text(paper["title"])}</p>
@@ -591,75 +685,169 @@ def render_paper(paper: dict[str, Any], translated: dict[str, Any]) -> str:
 """.strip()
 
 
-def render_document(
+def render_page(
     page_title: str,
+    body: str,
+    include_mathjax: bool,
+) -> str:
+    mathjax = ""
+    if include_mathjax:
+        mathjax = """
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\\\(', '\\\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+"""
+    generated_at = datetime.now(UTC).strftime("%Y-%m-%d %H:%M UTC")
+    return (
+        "<!doctype html>\n"
+        "<html lang=\"zh-CN\">\n"
+        "<head>\n"
+        "  <meta charset=\"utf-8\">\n"
+        "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
+        "  <meta http-equiv=\"Content-Security-Policy\"\n"
+        "        content=\"default-src 'self'; script-src 'self' 'unsafe-inline' "
+        "https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; "
+        "font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; "
+        "object-src 'none'; base-uri 'self'\">\n"
+        f"  <title>{escape_text(page_title)}</title>\n"
+        "  <style>"
+        + PAGE_CSS
+        + "</style>"
+        + mathjax
+        + "\n</head>\n<body>\n"
+        + body
+        + "  <footer>\n"
+        f"    生成时间：{escape_text(generated_at)}。"
+        "中文内容由模型辅助生成，请以论文原文为准。\n"
+        "  </footer>\n"
+        "</body>\n"
+        "</html>\n"
+    )
+
+
+def render_home(
     announcement_date: str,
+    categories: list[str],
+    category_counts: dict[str, int],
+    total_unique: int,
+) -> str:
+    cards: list[str] = []
+    for category in categories:
+        count = int(category_counts.get(category, 0))
+        label = category_label(category)
+        if count > 0:
+            href = f"{escape_text(category)}-latest.html"
+            card = (
+                f'<a class="card" href="{href}">'
+                f'<div class="card-code">{escape_text(category)}</div>'
+                f'<div class="card-name">{escape_text(label)}</div>'
+                f'<div class="card-count">{count}<span>篇</span></div>'
+                f"</a>"
+            )
+        else:
+            card = (
+                f'<div class="card disabled">'
+                f'<div class="card-code">{escape_text(category)}</div>'
+                f'<div class="card-name">{escape_text(label)}</div>'
+                f'<div class="card-count">0<span>篇</span></div>'
+                f"</div>"
+            )
+        cards.append(card)
+    body = f"""
+  <header>
+    <h1>arXiv 每日论文</h1>
+    <p class="lede">官方公告日：{escape_text(announcement_date)} · 去重后共 {total_unique} 篇</p>
+    <p class="lede">点击分类进入当日论文目录与摘要。</p>
+  </header>
+  <main class="grid">
+    {"".join(cards)}
+  </main>
+"""
+    return render_page("arXiv 每日论文总览", body, include_mathjax=False)
+
+
+def render_toc_list(
     papers: list[dict[str, Any]],
+    translations: dict[str, dict[str, Any]],
+) -> str:
+    items: list[str] = []
+    for paper in papers:
+        translated = translations[paper["id"]]
+        items.append(
+            "<li>"
+            f"<a href=\"#{escape_text(paper_anchor(paper['id']))}\">"
+            f"{escape_text(translated['cn_title'])}</a>"
+            f" <small>{escape_text(paper['id'])}</small>"
+            "</li>"
+        )
+    return f'<ol class="toc-list">{"".join(items)}</ol>'
+
+
+def render_category_page(
+    category: str,
+    announcement_date: str,
+    primary_papers: list[dict[str, Any]],
+    cross_papers: list[dict[str, Any]],
     translations: dict[str, dict[str, Any]],
     subscribed_categories: list[str],
 ) -> str:
+    total = len(primary_papers) + len(cross_papers)
+    label = category_label(category)
     navigation = " ".join(
-        f"<a href=\"{escape_text(category)}-latest.html\">"
-        f"{escape_text(category)}</a>"
-        for category in subscribed_categories
+        f"<a href=\"{escape_text(item)}-latest.html\">{escape_text(item)}</a>"
+        for item in subscribed_categories
     )
-    articles = "\n".join(
-        render_paper(paper, translations[paper["id"]])
-        for paper in papers
+    toc_parts: list[str] = []
+    if primary_papers:
+        toc_parts.append(
+            f"<h3>主分类（{len(primary_papers)}）</h3>"
+            + render_toc_list(primary_papers, translations)
+        )
+    if cross_papers:
+        toc_parts.append(
+            f"<h3>交叉列表（{len(cross_papers)}）</h3>"
+            + render_toc_list(cross_papers, translations)
+        )
+    toc_html = (
+        f'<section class="toc"><h2>目录</h2>{"".join(toc_parts)}</section>'
+        if toc_parts
+        else '<section class="toc"><h2>目录</h2><p>今日该分类无新论文。</p></section>'
     )
-    generated_at = datetime.now(UTC).strftime("%Y-%m-%d %H:%M UTC")
-    return f"""<!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
-  <title>{escape_text(page_title)}</title>
-  <style>
-    :root {{ color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }}
-    body {{ margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }}
-    header, main, footer {{ width: min(980px, calc(100% - 32px)); margin: auto; }}
-    header {{ padding: 40px 0 18px; }}
-    h1 {{ margin: 0 0 8px; line-height: 1.25; }}
-    nav {{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }}
-    nav a, .tag {{ border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; }}
-    .paper {{ background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }}
-    .paper-head {{ display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }}
-    .paper h2 {{ margin: 0; line-height: 1.35; }}
-    .paper h3 {{ border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }}
-    .paper h4 {{ margin-bottom: 0; color: #345; }}
-    .paper p {{ margin-top: 7px; }}
-    .original-title {{ color: #566574; font-style: italic; }}
-    .meta {{ color: #465563; }}
-    .tags {{ display: flex; flex-wrap: wrap; gap: 6px; }}
-    .tag {{ font-size: .85rem; }}
-    .evaluation {{ background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }}
-    .warning {{ color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }}
-    footer {{ padding: 24px 0 46px; color: #667; }}
-    @media (max-width: 640px) {{
-      .paper {{ padding: 18px; }}
-      .paper-head {{ display: block; }}
-    }}
-  </style>
-  <script>
-    window.MathJax = {{ tex: {{ inlineMath: [['$', '$'], ['\\(', '\\)']] }} }};
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
+    article_parts: list[str] = []
+    if primary_papers:
+        article_parts.append(f'<h2 class="section-title">主分类</h2>')
+        article_parts.extend(
+            render_paper(paper, translations[paper["id"]], "主分类")
+            for paper in primary_papers
+        )
+    if cross_papers:
+        article_parts.append(f'<h2 class="section-title">交叉列表</h2>')
+        article_parts.extend(
+            render_paper(paper, translations[paper["id"]], "交叉列表")
+            for paper in cross_papers
+        )
+    body = f"""
   <header>
-    <h1>{escape_text(page_title)}</h1>
-    <p>arXiv 官方公告日：{escape_text(announcement_date)} · 共 {len(papers)} 篇</p>
+    <h1>{escape_text(category)} · {escape_text(label)}</h1>
+    <p class="lede">官方公告日：{escape_text(announcement_date)}</p>
     <nav><a href="index.html">总览</a>{navigation}</nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">{total}</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">{len(primary_papers)}</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">{len(cross_papers)}</div></div>
+    </div>
   </header>
-  <main>{articles}</main>
-  <footer>
-    生成时间：{escape_text(generated_at)}。中文内容由模型辅助生成，请以论文原文为准。
-  </footer>
-</body>
-</html>
+  <main>
+    {toc_html}
+    {"".join(article_parts)}
+  </main>
 """
+    return render_page(
+        f"arXiv {category} 每日论文",
+        body,
+        include_mathjax=True,
+    )
 
 
 def announcement_date_for(papers: list[dict[str, Any]], feed_updated: str) -> str:
@@ -685,37 +873,43 @@ def build_outputs(
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     RUNTIME_DIR.mkdir(parents=True, exist_ok=True)
 
-    combined = render_document(
-        "arXiv 每日论文总览",
-        announcement_date,
-        papers,
-        translations,
-        categories,
-    )
-    write_text(OUTPUT_DIR / "index.html", combined)
-    write_text(OUTPUT_DIR / "latest.html", combined)
-    write_text(
-        OUTPUT_DIR / "archive" / announcement_date / "index.html",
-        combined,
-    )
-
     category_counts: dict[str, int] = {}
     memberships: dict[str, list[str]] = {paper["id"]: [] for paper in papers}
+    partitioned: dict[str, tuple[list[dict[str, Any]], list[dict[str, Any]]]] = {}
     for category in categories:
         selected = [
             paper
             for paper in papers
             if category_matches(category, paper["categories"])
         ]
+        primary_papers, cross_papers = partition_by_primary(category, selected)
+        partitioned[category] = (primary_papers, cross_papers)
         category_counts[category] = len(selected)
         for paper in selected:
             memberships[paper["id"]].append(category)
-        if not selected:
+
+    home = render_home(
+        announcement_date,
+        categories,
+        category_counts,
+        len(papers),
+    )
+    write_text(OUTPUT_DIR / "index.html", home)
+    write_text(OUTPUT_DIR / "latest.html", home)
+    write_text(
+        OUTPUT_DIR / "archive" / announcement_date / "index.html",
+        home,
+    )
+
+    for category in categories:
+        primary_papers, cross_papers = partitioned[category]
+        if not primary_papers and not cross_papers:
             continue
-        category_page = render_document(
-            f"arXiv {category} 每日论文",
+        category_page = render_category_page(
+            category,
             announcement_date,
-            selected,
+            primary_papers,
+            cross_papers,
             translations,
             categories,
         )

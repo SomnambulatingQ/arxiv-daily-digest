@@ -89,6 +89,10 @@ def main() -> None:
     batch_b = digest.make_batch_id(["gr-qc", "hep-th"], {"cross", "new"}, papers)
     assert batch_a == batch_b
 
+    assert digest.partition_by_primary("hep-th", papers)[0] == papers
+    assert digest.partition_by_primary("gr-qc", papers)[1] == papers
+    assert digest.category_label("hep-th") == "高能理论"
+
     checked = digest.validate_translation(translated_result())
     assert not checked["flagged"]
 
@@ -108,8 +112,23 @@ def main() -> None:
         )
 
         latest = (digest.OUTPUT_DIR / "latest.html").read_text(encoding="utf-8")
-        assert "&lt;script&gt;alert(1)&lt;/script&gt;" in latest
-        assert "&lt;b&gt;不是标签&lt;/b&gt;" in latest
+        hep_th = (digest.OUTPUT_DIR / "hep-th-latest.html").read_text(encoding="utf-8")
+        gr_qc = (digest.OUTPUT_DIR / "gr-qc-latest.html").read_text(encoding="utf-8")
+        assert 'class="paper"' not in latest
+        assert "hep-th-latest.html" in latest
+        assert "高能理论" in latest
+        assert ">1<span>篇</span>" in latest
+        assert "class=\"card disabled\"" in latest
+        assert "&lt;script&gt;alert(1)&lt;/script&gt;" in hep_th
+        assert "&lt;b&gt;不是标签&lt;/b&gt;" in hep_th
+        assert "论文总数" in hep_th
+        assert "主分类" in hep_th
+        assert "交叉列表" in hep_th
+        assert "目录" in hep_th
+        assert "安全的中文标题" in hep_th
+        assert "安全的中文标题" not in latest
+        assert "交叉列表（1）" in gr_qc
+        assert "主分类（1）" in hep_th
         assert (digest.OUTPUT_DIR / "hep-th-latest.html").exists()
         assert (digest.OUTPUT_DIR / "gr-qc-latest.html").exists()
         assert preserved.read_text(encoding="utf-8") == "previous digest"
@@ -124,6 +143,7 @@ def main() -> None:
         )
         assert "https://example.github.io/arxiv/latest.html" in content
         assert "https://example.github.io/arxiv/hep-th-latest.html" in content
+        assert "https://example.github.io/arxiv/hep-th-latest.html#paper-2608.12345v1" in content
         assert "https://example.github.io/arxiv/gr-qc-latest.html" in content
         assert "hep-ph-latest.html" not in content
         assert "&lt;b&gt;不是标签&lt;/b&gt;" in content

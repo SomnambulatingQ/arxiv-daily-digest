@@ -59,8 +59,14 @@ def build_content(
         identifier = str(item.get("id", ""))
         title = html.escape(str(item.get("cn_title", identifier)))
         anchor = paper_anchor(identifier)
-        link = html.escape(latest_url + "#" + anchor, quote=True)
-        categories = " / ".join(str(value) for value in item.get("categories", []))
+        item_categories = [
+            str(value) for value in item.get("categories", []) if str(value)
+        ]
+        target_page = (
+            f"{item_categories[0]}-latest.html" if item_categories else "latest.html"
+        )
+        link = html.escape(urljoin(root_url, target_page) + "#" + anchor, quote=True)
+        categories = " / ".join(item_categories)
         warning = " ⚠" if item.get("flagged") else ""
         rows.append(
             "<li>"
