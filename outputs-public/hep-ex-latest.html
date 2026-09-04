@@ -12,8 +12,28 @@
     header, main, footer { width: min(980px, calc(100% - 32px)); margin: auto; }
     header { padding: 40px 0 18px; }
     h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
     nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 24px 0 40px; }
+    .card { display: block; background: white; border-radius: 14px; padding: 22px 22px 18px; text-decoration: none; color: inherit; box-shadow: 0 5px 18px rgba(31,41,51,.07); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: .95rem; color: #3266a8; font-weight: 650; }
+    .card-name { margin-top: 4px; color: #465563; }
+    .card-count { margin-top: 18px; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .card-count span { font-size: 1rem; font-weight: 500; color: #667; margin-left: 4px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
     .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
     .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
     .paper h2 { margin: 0; line-height: 1.35; }
@@ -24,51 +44,39 @@
     .meta { color: #465563; }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
     .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
     .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
     footer { padding: 24px 0 46px; color: #667; }
     @media (max-width: 640px) {
       .paper { padding: 18px; }
       .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
     }
-  </style>
+</style>
   <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] } };
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
 </head>
 <body>
+
   <header>
-    <h1>arXiv hep-ex 每日论文</h1>
-    <p>arXiv 官方公告日：2026-09-04 · 共 20 篇</p>
+    <h1>hep-ex · 高能实验</h1>
+    <p class="lede">官方公告日：2026-09-04</p>
     <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">20</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">14</div></div>
+    </div>
   </header>
-  <main><article class="paper" id="paper-2509.07982v2">
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2609.02923v1">基于CMS开放数据与流匹配的强子单Z暗物质灵敏度研究</a> <small>2609.02923v1</small></li><li><a href="#paper-2609.02950v1">关于arXiv:2608.29450的评论：在keV尺度通过弹性中微子-电子散射首次测量太阳中微子</a> <small>2609.02950v1</small></li><li><a href="#paper-2609.02973v1">η 和 η′(958) 反常衰变的分支比测量</a> <small>2609.02973v1</small></li><li><a href="#paper-2609.02989v1">利用HADES在T=4.53 GeV和T=1.60 GeV下质子-质子弹性散射测量微分截面与积分亮度</a> <small>2609.02989v1</small></li><li><a href="#paper-2609.03462v1">D^0 → K_S^0 ω 与 D^0 → K_L^0 ω 衰变中 K_S^0-K_L^0 不对称性的研究</a> <small>2609.03462v1</small></li><li><a href="#paper-2609.03879v1">高温超导腔的多特斯拉运行加速轴子暗物质搜索</a> <small>2609.03879v1</small></li></ol><h3>交叉列表（14）</h3><ol class="toc-list"><li><a href="#paper-2509.07982v2">LHAASO银道面γ射线对重暗物质的强约束</a> <small>2509.07982v2</small></li><li><a href="#paper-2609.03002v1">关于从事件形状确定强耦合常数的特别工作组</a> <small>2609.03002v1</small></li><li><a href="#paper-2609.03072v1">质子-质子碰撞中Z标记喷注内的能量-能量关联函数</a> <small>2609.03072v1</small></li><li><a href="#paper-2609.03368v1">HERA和EIC的前导中子电产生：Sullivan过程、靶碎裂与π介子部分子分布函数</a> <small>2609.03368v1</small></li><li><a href="#paper-2609.03417v1">基于似然和图神经网络方法的NEON簇射事件重建</a> <small>2609.03417v1</small></li><li><a href="#paper-2609.03431v1">银河系日心距1.5至13千秒差距范围内甲醇CH3OH热谱线对μ变化的约束</a> <small>2609.03431v1</small></li><li><a href="#paper-2609.03434v1">CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器</a> <small>2609.03434v1</small></li><li><a href="#paper-2609.03579v1">中子近阈值J/ψ光生截面的首次测量</a> <small>2609.03579v1</small></li><li><a href="#paper-2609.03822v1">Geant4稀有事件屏蔽模拟中重要性采样实现的优化</a> <small>2609.03822v1</small></li><li><a href="#paper-2609.04042v1">Timepix4读出3D硅传感器的束流测试表征</a> <small>2609.04042v1</small></li><li><a href="#paper-2609.04049v1">全重四夸克产生的TQ4Q2.0碎裂函数</a> <small>2609.04049v1</small></li><li><a href="#paper-2609.04078v1">利用CMOS探测器在密集径迹环境中监测反质子数量</a> <small>2609.04078v1</small></li><li><a href="#paper-2609.04144v1">电弱暗物质的非弹性散射特征</a> <small>2609.04144v1</small></li><li><a href="#paper-2609.04185v1">大气中微子升散射对LZ 2026年过量事件的解释</a> <small>2609.04185v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2609.02923v1">
   <div class="paper-head">
-    <h2>LHAASO银道面γ射线对重暗物质的强约束</h2>
-    <a href="https://arxiv.org/abs/2509.07982v2" rel="noopener noreferrer">2509.07982v2</a>
-  </div>
-  <p class="original-title">LHAASO Galactic Plane $γ$-rays Strongly Constrain Heavy Dark Matter</p>
-  <p class="meta"><strong>作者：</strong>Celine Boehm、Ranjan Laha、Tarak Nath Maity</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span> <span class="tag">hep-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>LHAASO作为地面观测站，正在开辟高能γ射线和宇宙线研究的新前沿。近期，它观测到了银道面TeV-PeV能段的弥散γ射线。我们首次利用这些数据来寻找质量在10^5-10^11 GeV范围内的重暗物质衰变和湮灭信号。我们计算了来自银河系和河外暗物质的预期光子通量，并考虑了光子对产生导致的衰减。对于银河系贡献，我们包含了直接光子和通过逆康普顿散射产生的次级光子，并考虑了电子/正电子的传播。对于河外成分，除了直接光子和逆康普顿贡献外，我们还包含了由对产生的电子和正电子经逆康普顿散射产生的级联光子。综合所有这些贡献，我们推导出对暗物质参数空间的约束。对于各种双体标准模型末态，我们的界限是目前最强的。这凸显了LHAASO在揭示重暗物质本质方面的能力。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>利用LHAASO观测到的银道面TeV-PeV弥散γ射线数据，寻找质量在10^5-10^11 GeV范围内的重暗物质衰变和湮灭信号，并对其参数空间给出约束。</p>
-    <h4>方法</h4><p>计算银河系和河外暗物质产生的光子通量，包括直接光子、逆康普顿散射产生的次级光子以及级联光子，并考虑光子对产生衰减和电子/正电子传播效应，与LHAASO数据比较得出约束。</p>
-    <h4>主要发现</h4><p>对于多种双体标准模型末态，得到的暗物质参数空间约束是目前最强的。</p>
-    <h4>局限与展望</h4><p>该结果凸显了LHAASO在探测重暗物质方面的能力，但约束依赖于暗物质分布模型和传播假设，未来更精确的数据和模型改进可能进一步收紧约束或发现信号。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.02923v1">
-  <div class="paper-head">
-    <h2>基于CMS开放数据与流匹配的强子单Z暗物质灵敏度研究</h2>
+    <h2>基于CMS开放数据与流匹配的强子单Z暗物质灵敏度研究<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.02923v1" rel="noopener noreferrer">2609.02923v1</a>
   </div>
   <p class="original-title">Hadronic Mono-Z Dark Matter Sensitivity with Flow Matching on CMS Open Data</p>
@@ -88,10 +96,9 @@
     <h4>主要发现</h4><p>基线分析对三个简化模型基准的预期显著性分别为2.89σ、7.62σ和7.41σ；消融研究显示移除额外喷注运动学会使预期显著性降低53%–71%，表明额外喷注拓扑具有显著判别能力。</p>
     <h4>局限与展望</h4><p>本研究为预期灵敏度，未进行解盲，结果依赖于特定数据集和模拟条件，实际灵敏度可能因数据特征和系统不确定性而有所不同。后续可考虑在完整Run 2数据上验证，并纳入系统不确定性以更精确评估。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.02950v1">
+</article><article class="paper" id="paper-2609.02950v1">
   <div class="paper-head">
-    <h2>关于arXiv:2608.29450的评论：在keV尺度通过弹性中微子-电子散射首次测量太阳中微子</h2>
+    <h2>关于arXiv:2608.29450的评论：在keV尺度通过弹性中微子-电子散射首次测量太阳中微子<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.02950v1" rel="noopener noreferrer">2609.02950v1</a>
   </div>
   <p class="original-title">Comment on arXiv:2608.29450: &quot;First Measurement of Solar Neutrinos through Elastic Neutrino-Electron Scattering at the keV Scale&quot;</p>
@@ -111,10 +118,9 @@
     <h4>主要发现</h4><p>原文明确指出XENONnT合作组的总结图存在一个重要遗漏，但未具体说明遗漏内容。</p>
     <h4>局限与展望</h4><p>评论可能旨在提醒读者注意该遗漏，并可能影响对测量结果的解读。后续可能由XENONnT合作组或评论作者补充说明遗漏的具体内容。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.02973v1">
+</article><article class="paper" id="paper-2609.02973v1">
   <div class="paper-head">
-    <h2>η 和 η′(958) 反常衰变的分支比测量</h2>
+    <h2>η 和 η′(958) 反常衰变的分支比测量<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.02973v1" rel="noopener noreferrer">2609.02973v1</a>
   </div>
   <p class="original-title">Branching fraction measurements of $η$ and $η^\prime(958)$ anomalous decays</p>
@@ -134,10 +140,9 @@
     <h4>主要发现</h4><p>测得 B(η→μ+μ−)=(5.30±0.14±0.18±0.26)×10−6，为迄今最精确测量；对 η′(958)→μ+μ− 给出 90% 置信水平上限 1.9×10−7；对 η→π+π−μ+μ− 给出 90% 置信水平上限 5.4×10−7；测得 B(η′(958)→π+π−μ+μ−)=(2.73±0.14±0.13±0.14)×10−5。</p>
     <h4>局限与展望</h4><p>该研究首次对 η′(958) 衰变进行实验搜寻，但未发现 η′(958)→μ+μ− 信号，仅给出上限。未来可结合更多数据或改进分析方法，以进一步提高灵敏度或测量精度。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.02989v1">
+</article><article class="paper" id="paper-2609.02989v1">
   <div class="paper-head">
-    <h2>利用HADES在T=4.53 GeV和T=1.60 GeV下质子-质子弹性散射测量微分截面与积分亮度</h2>
+    <h2>利用HADES在T=4.53 GeV和T=1.60 GeV下质子-质子弹性散射测量微分截面与积分亮度<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.02989v1" rel="noopener noreferrer">2609.02989v1</a>
   </div>
   <p class="original-title">Measurement of Differential Cross Sections and Integrated Luminosity using Proton-Proton Elastic Scattering with HADES at T = 4.53 GeV and T = 1.60 GeV</p>
@@ -157,148 +162,9 @@
     <h4>主要发现</h4><p>在T=4.53 GeV和1.60 GeV下，斜率参数B分别为8.98 ± 0.3 (GeV/c)^-2和7.3 ± 0.1 (GeV/c)^-2；成功确定了束流能量和实验亮度；提供了微分截面数据。</p>
     <h4>局限与展望</h4><p>该测量为质子-质子弹性散射提供了新的数据点，可用于改进理论模型；同时为未来同能区实验的亮度监测提供了参考。但本文未明确讨论系统误差和模型依赖性，后续研究可进一步分析这些因素。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03002v1">
+</article><article class="paper" id="paper-2609.03462v1">
   <div class="paper-head">
-    <h2>关于从事件形状确定强耦合常数的特别工作组</h2>
-    <a href="https://arxiv.org/abs/2609.03002v1" rel="noopener noreferrer">2609.03002v1</a>
-  </div>
-  <p class="original-title">A Task Force on Strong Coupling Determinations from Event Shapes</p>
-  <p class="meta"><strong>作者：</strong>Anthony Badea、Luca Buonocore、Gherardo Vita、Simone Alioli、Zeno Capatti、Yi Chen、David d&#x27;Enterria、Thomas Gehrmann、Andre H. Hoang、Alexander Huss、Sebastian Jaskiewicz、Alexander Karlberg、Yen-Jie Lee、Michelangelo L. Mangano、Vicent Mateu、Jiahao Miao、Pier Francesco Monni、Paolo Nason、Luca Rottoli、Iain W. Stewart、Paolo Torrielli、Giulia Zanderighi</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>强耦合常数α_s是标准模型的基本参数，其精确确定对于准确预测、研究和理解大型强子对撞机及未来实验（如未来环形对撞机）中的过程至关重要。在正负电子对撞机上测量的事件形状和关联函数观测量，由于其对α_s的敏感性以及大型正负电子对撞机提供的高精度数据，为提取α_s提供了最干净的环境之一。更广泛地说，这些观测量为发展和检验量子色动力学中微扰和非微扰部分的理解提供了理想场所，这将在未来几十年支撑该领域的精度和发现前沿。尽管取得了这些进展，但从事件形状确定α_s的不同结果之间仍存在显著差异，无论是在提取的中心值还是估计的不确定性方面。本文档旨在推动建立一个专门的特别工作组，以协调社区范围内的努力解决这些开放问题。我们报告了2025年11月在CERN举行的首次为期两天的会议，总结了科学讨论，记录了会议期间确定的优先实验分析，以及理论界为准备未来会议而需执行的具体任务清单。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文旨在解决从事件形状确定强耦合常数α_s时存在的显著差异问题，并提议建立特别工作组以协调社区努力。</p>
-    <h4>方法</h4><p>论文报告了2025年11月在CERN举行的首次特别工作组会议，总结了科学讨论，并确定了优先实验分析和理论任务清单。</p>
-    <h4>主要发现</h4><p>论文指出，从事件形状确定α_s的不同结果之间存在显著差异，包括中心值和不确定性；会议确定了优先实验分析和理论任务，但未给出具体数值结果。</p>
-    <h4>局限与展望</h4><p>该特别工作组旨在通过协调社区努力解决差异，未来会议将基于理论任务进展进一步推进；但具体成果尚待后续工作，本文档仅作为初步报告。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03072v1">
-  <div class="paper-head">
-    <h2>质子-质子碰撞中Z标记喷注内的能量-能量关联函数</h2>
-    <a href="https://arxiv.org/abs/2609.03072v1" rel="noopener noreferrer">2609.03072v1</a>
-  </div>
-  <p class="original-title">Energy-Energy Correlators in $Z$-Tagged Jets in $pp$ Collisions</p>
-  <p class="meta"><strong>作者：</strong>João Barata、Zhong-Bo Kang、Xoán Mayo López、Jani Penttala、Yiyu Zhou</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们给出了在质子-质子碰撞中，跨越禁闭转变的Z标记喷注内共线能量-能量关联函数（EEC）的预言。我们的框架将背对背Z+jet产生的横动量依赖因子化与包含微扰演化和味道依赖非微扰碎裂的独有微分EEC喷注函数相结合。EEC喷注函数在NLL&#x27;精度下计算，其中夸克和胶子的非微扰标度分别由现有的e+e-和 inclusive-jet 数据约束。我们提供了在质心能量 sqrt(s)=8 TeV 和 13 TeV 下，喷注横动量区间为 (20,30), (30,50) 和 (50,100) GeV 的前向Z+jet产生的预言。作为 z_chi 函数的EEC分布在小的 z_chi 处呈现有限平台，而相应的角分布在禁闭转变处表现出特征性的转折。味道分解表明，随着喷注横动量的增加，该转变越来越由夸克起始的喷注主导。因此，前向Z标记喷注提供了非微扰夸克碎裂的干净探针，并直接检验从e+e-碰撞中提取的特征禁闭标度在强子环境中是否具有普适性。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究在质子-质子碰撞中，Z标记喷注内的共线能量-能量关联函数（EEC）如何跨越禁闭转变，并检验从e+e-碰撞中提取的禁闭标度在强子环境中的普适性。</p>
-    <h4>方法</h4><p>采用横动量依赖因子化框架，结合NLL&#x27;精度的EEC喷注函数，并利用e+e-和inclusive-jet数据约束夸克和胶子的非微扰标度，对前向Z+jet产生进行理论预言。</p>
-    <h4>主要发现</h4><p>预言了EEC分布在小z_chi处呈现有限平台，角分布在禁闭转变处出现特征性转折；味道分解显示随着喷注横动量增加，夸克起始喷注的贡献增大。</p>
-    <h4>局限与展望</h4><p>该研究为在强子环境中探测非微扰夸克碎裂提供了理论工具，但预言尚未与实验数据比较，未来可期待LHC实验验证，并可能推广到其他标记喷注过程。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03368v1">
-  <div class="paper-head">
-    <h2>HERA和EIC的前导中子电产生：Sullivan过程、靶碎裂与π介子部分子分布函数</h2>
-    <a href="https://arxiv.org/abs/2609.03368v1" rel="noopener noreferrer">2609.03368v1</a>
-  </div>
-  <p class="original-title">Leading-Neutron Electroproduction at HERA and the EIC: Sullivan Process, Target Fragmentation, and Pion PDFs</p>
-  <p class="meta"><strong>作者：</strong>Wen-Chen Chang、Chia-Yu Hsieh、Satyajit Puhan</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>HERA上H1和ZEUS实验的前导中子电产生测量已被用于在Sullivan单π交换（OPE）框架内约束小动量分数x_π处的π介子部分子分布函数（PDFs），补充了π诱导的Drell-Yan测量在大x_π处的约束。以往的分析主要集中在大中子纵向动量分数x_L区域，在该区域深非弹性散射（DIS）靶碎裂的贡献受到抑制。本工作使用Pythia事件生成器对靶碎裂贡献进行建模，并表明其与OPE贡献的组合能够再现HERA前导中子数据在整个测量的x_L范围内的主要特征，而无需引入额外的特设归一化因子。这一结果展示了将更广泛的前导中子数据纳入未来全局分析的可能性，从而扩展对更小π动量分数x_π的敏感性。我们研究了与π-核子顶点形状因子相关的模型依赖性，并表明HERA数据对Pythia中实现的不同靶碎裂处理方式敏感。最后，我们给出了未来美国电子-离子对撞机（EIC）上前导中子产生的预测，确定了能够增强对π结构敏感性同时抑制DIS靶碎裂贡献的束流能量配置和运动学区域。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是如何利用HERA的前导中子电产生数据在Sullivan框架内约束π介子部分子分布函数，并探讨靶碎裂贡献的影响以及未来EIC的敏感性。</p>
-    <h4>方法</h4><p>使用Pythia事件生成器模拟靶碎裂贡献，并与OPE贡献结合，与HERA数据比较；研究π-核子顶点形状因子的模型依赖性；基于EIC设计进行预测。</p>
-    <h4>主要发现</h4><p>OPE与靶碎裂贡献的组合无需额外归一化因子即可再现HERA数据在整个x_L范围内的主要特征；HERA数据对靶碎裂处理方式敏感；EIC的某些束流能量和运动学区域能增强对π结构的敏感性并抑制靶碎裂贡献。</p>
-    <h4>局限与展望</h4><p>论文表明将更广泛的前导中子数据纳入未来全局分析是可行的，但模型依赖性（如形状因子和靶碎裂处理）仍需进一步研究；EIC的预测依赖于模拟，实际灵敏度需实验验证。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03417v1">
-  <div class="paper-head">
-    <h2>基于似然和图神经网络方法的NEON簇射事件重建</h2>
-    <a href="https://arxiv.org/abs/2609.03417v1" rel="noopener noreferrer">2609.03417v1</a>
-  </div>
-  <p class="original-title">Reconstruction of Shower-like Events in NEON Using Likelihood and Graph Neural Network Methods</p>
-  <p class="meta"><strong>作者：</strong>Sujie Lin、Weiqin Huang、Yihan Liu、Chengyu Shao、Lili Yang、Huiming Zhang</p>
-  <p class="meta"><strong>主分类：</strong>astro-ph.IM
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">astro-ph.IM</span> <span class="tag">hep-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>南海中微子观测站（NEON）是一个拟议中的深海中微子望远镜。精确重建簇射事件对于中微子能量测量和多信使天文学至关重要，但由于海水光学衰减、不规则探测器几何以及显著的40K本底，这带来了巨大挑战。本文首次提出了NEON簇射事件重建的完整框架，包括基于物理的最大似然估计（MLE）方法和基于数据的图神经网络（GNN）。传统的MLE框架整合了空间等时命中选择、基于时间残差M估计量最小化的顶点重建，以及基于预计算光子分布表的解耦方向和能量估计。物理校准，包括PMT角度接受度、命中级时间游动校正和有效线源簇射扩展，被纳入似然公式。同时，开发了一个两阶段GNN来捕捉DOM内PMT相关性和距离加权的DOM间拓扑模式。模拟研究表明，MLE方法在1 TeV至1 PeV范围内实现了总体中值角分辨率4.19°和能量分辨率25%-37%，且系统偏差可忽略。GNN进一步提高了低至中等能量区域的重建保真度，在30 TeV时实现中值角分辨率1.8°，在40至300 TeV之间能量分辨率约20%。基于这些重建性能，评估了NEON的有效面积和点源发现潜力。该框架为NEON建立了必要的重建基准，并为未来下一代深海望远镜提供了实用方法。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>NEON探测器如何准确重建簇射事件，以支持中微子能量测量和多信使天文学？</p>
-    <h4>方法</h4><p>提出了一个综合重建框架，包括基于物理的最大似然估计（MLE）方法，结合空间等时命中选择、顶点重建、解耦方向和能量估计，以及物理校准；同时开发了一个两阶段图神经网络（GNN）来捕捉探测器拓扑相关性。</p>
-    <h4>主要发现</h4><p>模拟研究表明，MLE方法在1 TeV至1 PeV范围内实现了总体中值角分辨率4.19°和能量分辨率25%-37%，且系统偏差可忽略。GNN在低至中等能量区域表现更好，在30 TeV时角分辨率达到1.8°，在40至300 TeV之间能量分辨率约20%。基于这些性能，评估了NEON的有效面积和点源发现潜力。</p>
-    <h4>局限与展望</h4><p>该框架为NEON提供了重建基准，但其性能基于模拟，实际部署可能受环境因素影响。未来可进一步优化算法以适应真实探测器条件，并探索在其他深海望远镜中的应用。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03431v1">
-  <div class="paper-head">
-    <h2>银河系日心距1.5至13千秒差距范围内甲醇CH3OH热谱线对μ变化的约束</h2>
-    <a href="https://arxiv.org/abs/2609.03431v1" rel="noopener noreferrer">2609.03431v1</a>
-  </div>
-  <p class="original-title">Constraints on mu-variations from the methanol CH3OH thermal lines in the Galaxy at galactocentric distances of 1.5 &lt; D_GC &lt; 13 kpc</p>
-  <p class="meta"><strong>作者：</strong>A. I. Shtein、J. S. Vorotyntseva、S. A. Levshakov</p>
-  <p class="meta"><strong>主分类：</strong>astro-ph.GA
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">astro-ph.GA</span> <span class="tag">hep-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>本研究基于E-甲醇（CH3OH）在216-220 GHz频率范围内的热发射谱线，对基本物理常数μ = m_e/m_p（电子与质子质量比）的假设性变化设定了约束。分析了位于银河系日心距1.5至13千秒差距（D_GC）范围内的七个大质量分子云的光谱。获得的加权平均值&lt;Δμ/μ&gt; = (0.5±0.5)×10^(-7)在1σ置信水平（5×10^(-8)）下未显示μ的统计显著变化，这与先前在银河系盘多个分子云中建立的上限一致。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>该研究旨在约束银河系不同日心距处基本物理常数μ（电子与质子质量比）的可能变化，具体利用甲醇热发射谱线进行测量。</p>
-    <h4>方法</h4><p>分析七个大质量分子云在216-220 GHz频段的甲醇热发射谱线，通过谱线频率测量推导μ的变化，并计算加权平均值。</p>
-    <h4>主要发现</h4><p>加权平均值为&lt;Δμ/mu&gt; = (0.5±0.5)×10^(-7)，在1σ置信水平（5×10^(-8)）下未发现μ的统计显著变化，与先前在银河系盘分子云中的上限一致。</p>
-    <h4>局限与展望</h4><p>该结果将μ变化约束扩展至更广的银河系日心距范围，但样本仅包含七个云，且未涵盖银河系中心或外盘极端区域。未来可增加样本或结合其他分子谱线以提高灵敏度，并探索不同环境下的可能变化。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03434v1">
-  <div class="paper-head">
-    <h2>CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器</h2>
-    <a href="https://arxiv.org/abs/2609.03434v1" rel="noopener noreferrer">2609.03434v1</a>
-  </div>
-  <p class="original-title">CGC-py: A Monte Carlo Event Generator for Gluon Saturation Physics</p>
-  <p class="meta"><strong>作者：</strong>Haowu Duan、Cong Yi、Si-Wei Dai、Shu-Yi Wei、Wenbin Zhao、Liang Zheng</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们开发了CGC-py，一个用于深非弹性散射的蒙特卡洛事件产生器。它将γ*p(A)→q qbar+X的完整色玻璃凝聚（CGC）截面与基于部分子分支的横向动量依赖的后向初态簇射耦合，而Pythia 8处理末态辐射和强子化。CGC-py保留了完整的靶弹性和靶非弹性贡献，不采用背对背关联极限，从而允许从同一事件样本一致地产生单强子和双强子观测量。我们通过单包含夸克谱的解析闭合性测试以及ep碰撞中带电强子谱与H1数据的比较来验证该产生器，发现符合得很好。预测的核修正因子R_{eAu}^h显示出预期的饱和模式：在低p_T*处压低，随后在高p_T*处向1上升。与Pythia 6基线的比较以及x_g重标度研究表明，小x CGC演化和共线DGLAP动力学对双强子背对侧宽度随能量的增长贡献相当。真正的饱和驱动的展宽仅出现在所考虑的最高能量处。在CGC-py内，eAu碰撞相对于ep碰撞表现出增强的背对侧宽度和压低的背对背产额。这些核效应对EIC运动学而言仍然温和，这促使在最前向可及运动学处进行测量，并使用互补观测量以最大化对胶子饱和的灵敏度。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文旨在开发一个蒙特卡洛事件产生器，用于研究胶子饱和物理，特别是小x区域的CGC动力学，并能够一致地产生单强子和双强子观测量。</p>
-    <h4>方法</h4><p>将完整的CGC截面与部分子分支后向初态簇射耦合，结合Pythia 8进行末态辐射和强子化，保留靶弹性和非弹性贡献，不采用背对背关联极限。</p>
-    <h4>主要发现</h4><p>通过解析闭合性测试和H1数据比较验证了产生器；预测的核修正因子显示饱和模式；小x CGC演化和DGLAP动力学对双强子背对侧宽度增长贡献相当，真正的饱和展宽仅出现在最高能量；eAu碰撞相对于ep表现出增强的背对侧宽度和压低的背对背产额。</p>
-    <h4>局限与展望</h4><p>核效应在EIC运动学中温和，可能需要最前向运动学测量和互补观测量以增强对胶子饱和的灵敏度。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03462v1">
-  <div class="paper-head">
-    <h2>D^0 → K_S^0 ω 与 D^0 → K_L^0 ω 衰变中 K_S^0-K_L^0 不对称性的研究</h2>
+    <h2>D^0 → K_S^0 ω 与 D^0 → K_L^0 ω 衰变中 K_S^0-K_L^0 不对称性的研究<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03462v1" rel="noopener noreferrer">2609.03462v1</a>
   </div>
   <p class="original-title">Study of $K_{S}^{0}$-$K_{L}^{0}$ asymmetry in the decays $D^0 \to K_{S}^{0}ω$ and $D^0 \to K_{L}^{0} ω$</p>
@@ -318,56 +184,9 @@
     <h4>主要发现</h4><p>测得 D^0 → K_S^0 ω 和 D^0 → K_L^0 ω 的分支比分别为 (11.79 ± 0.19 ± 0.26 ± 0.47) × 10^{-3} 和 (10.84 ± 0.14 ± 0.23 ± 0.44) × 10^{-3}，不对称性为 (4.2 ± 1.0 ± 0.9 ± 2.8)%，其中第三项不确定度来自非共振过程的干涉。</p>
     <h4>局限与展望</h4><p>该测量结果可用于检验标准模型预言，并为未来更精确的 CP 对称性研究提供参考。由于干涉效应贡献显著，后续研究可考虑更精细地分离共振与非共振贡献，以减小系统不确定度。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03579v1">
+</article><article class="paper" id="paper-2609.03879v1">
   <div class="paper-head">
-    <h2>中子近阈值J/ψ光生截面的首次测量</h2>
-    <a href="https://arxiv.org/abs/2609.03579v1" rel="noopener noreferrer">2609.03579v1</a>
-  </div>
-  <p class="original-title">First Measurement of Near-Threshold J/ψ Photoproduction on the Neutron</p>
-  <p class="meta"><strong>作者：</strong>R. Tyson、D. G. Ireland、B. McKinnon、P. Chatagnon、V. Kubarovsky、S. Stepanyan、A. G. Acar、P. Achenbach、J. S. Alvarado、M. J. Amaryan、W. R. Armstrong、H. Avakian、L. Barion、M. Bashkanov、M. Battaglieri、F. Benmokhtar、A. Bianconi、A. S. Biselli、A. Biswas、M. Bondi、F. Bossù、S. Boiarinov、K. -Th. Brinkmann、W. J. Briscoe、W. K. Brooks、J Bryce、N. L. Bucuru、S. Bueltmann、V. D. Burkert、T. Cao、D. S. Carman、A. Celentano、H. Chinchay、G. Ciullo、E. W. Cline、P. L. Cole、M. Contalbrigo、A. D&#x27;Angelo、N. Dashyan、R. De Vita、A. Deur、S. Diehl、C. Dilks、C. Djalali、R. Dupre、H. Egiyan、M. Ehrhart、A. El Alaoui、L. El Fassi、L. Elouadrhiri、C. Fanelli、M. Farooq、S. Fegan、I. P. Fernando、E. Ferrand、A. Filippi、C. Fogler、S. Frantzen、K. Gates、G. P. Gilfoyle、D. I. Glazier、R. W. Gothe、Y. Gotra、S. Gramigna、B. Gualtieri、K. Hafidi、H. Hakobyan、M. Hattawy、T. B. Hayward、D. Heddle、T. Hellstern、M. Hoballah、M. Holtrop、Y. Ilieva、E. L. Isupov、H. S. Jo、S. Joosten、M. Kerr、H. T. Klest、V. Klimenko、A. Kripko、C. Lama、L. Lanza、S. Lee、P. Lenisa、D. Martiryan、V. Mascagna、A. Mehta、R. G. Milner、R. Milton、M. Mirazita、V. Mokeev、E. F. Molina Cardenas、C. Munoz Camacho、P. Nadel-Turonski、T. Nagorna、K. Neupane、S. Niccolai、M. Osipenko、P. Pandey、M. Paolone、L. L. Pappalardo、R. Paremuzyan、E. Pasyuk、C. Paudel、S. J. Paul、L. Polizzi、J. Poudel、Y. Prok、A. Radic、K. Ramage、M. Ripani、M Ronayette、P. Rossi、A. A. Rusova、S. Schadmand、A. Schmidt、Y. G. Sharabian、E. V. Shirokov、S. Shrestha、E. Sidoretti、N. Sparveris、I. I. Strakovsky、S. Strauch、M. Tenorio、F. Touchte Codjo、M. Ungaro、S. Vallarino、C. Velasquez、L. Venturelli、H. Voskanyan、E. Voutier、Y. Wang、D. P. Watts、U. Weerasinghe、X. Wei、N. Wuerfel、Z. Xu、Z. W. Zhao、M. Zurek</p>
-  <p class="meta"><strong>主分类：</strong>nucl-ex
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们报告了在托马斯·杰斐逊国家加速器设施使用CLAS12探测器对中子近阈值J/ψ光生总截面和t微分截面的首次测量。测量使用液氘靶进行，同时提供了束缚质子的非相干总截面和t微分截面，从而首次实现了对束缚质子和中子近阈值J/ψ光生的直接比较。在矢量介子主导、全息QCD和GPD框架下的解释中，这些数据可用于研究束缚核子的胶子结构。与自由质子结果的比较揭示了在核介质中核子胶子结构可能发生改变的迹象，但这依赖于提取假设和底层产生机制。束缚中子与束缚质子截面的比较为近阈值J/ψ产生机制提供了新的约束，这对于确立J/ψ光生作为核子胶子结构探针至关重要。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文旨在首次测量中子近阈值J/ψ光生截面，并比较束缚中子和质子的截面，以探究核介质中核子胶子结构的可能修正，并约束J/ψ产生机制。</p>
-    <h4>方法</h4><p>利用CLAS12探测器和液氘靶，测量了总截面和t微分截面，并通过与自由质子结果比较及理论框架（矢量介子主导、全息QCD、GPD）解释数据。</p>
-    <h4>主要发现</h4><p>首次给出了中子近阈值J/ψ光生的总截面和t微分截面，以及束缚质子的非相干截面；束缚中子与束缚质子截面的比较提供了对产生机制的新约束；与自由质子结果比较显示核介质中胶子结构可能有修正的迹象，但依赖于提取假设和产生机制。</p>
-    <h4>局限与展望</h4><p>由于测量基于液氘靶，束缚核子效应可能影响结果；结论依赖于理论模型和提取假设，未来需要更高精度数据和更完善的理论模型来确认核介质中胶子结构的修正，并进一步验证J/ψ光生作为胶子结构探针的可靠性。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03822v1">
-  <div class="paper-head">
-    <h2>Geant4稀有事件屏蔽模拟中重要性采样实现的优化</h2>
-    <a href="https://arxiv.org/abs/2609.03822v1" rel="noopener noreferrer">2609.03822v1</a>
-  </div>
-  <p class="original-title">Optimisation of importance sampling implementation in rare-event shielding simulations using Geant4</p>
-  <p class="meta"><strong>作者：</strong>P. Knights、L. J. Milligan、K. Nikolopoulos</p>
-  <p class="meta"><strong>主分类：</strong>physics.ins-det
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span> <span class="tag">physics.comp-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>稀有事件搜索实验要求极低的本底，由此产生的超纯材料和抑制性屏蔽使得相关本底模拟在无事件偏倚时计算成本高昂。我们提出了一种优化稀有事件搜索中广泛使用的重要性分裂和俄罗斯轮盘赌技术的方法，其中整数个等宽重要性层填充屏蔽几何体。在平衡相对不确定度与执行时间的基础上，我们针对γ射线和中子，以及不同的屏蔽材料和厚度，优化了层厚度。以初级粒子平均自由程的倍数表示，最优厚度对于给定粒子类型在不同能量下具有普适性，并产生适用于任何屏蔽设计的基于物理的预测。同一趋势揭示了过度偏倚的可能性，即在固定执行时间下，高分层数会导致相对不确定度恶化。最优配置相比无偏倚情况可实现约20倍的计算效率提升。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>如何优化稀有事件屏蔽模拟中重要性分裂和俄罗斯轮盘赌技术的实现，以在给定计算时间内最小化相对不确定度？</p>
-    <h4>方法</h4><p>通过将屏蔽几何体划分为整数个等宽重要性层，并针对不同粒子类型（γ射线和中子）、屏蔽材料和厚度，平衡相对不确定度与执行时间，优化层厚度。</p>
-    <h4>主要发现</h4><p>最优层厚度以初级粒子平均自由程的倍数表示时，对于给定粒子类型在不同能量下具有普适性；过度偏倚（层数过多）会导致相对不确定度恶化；最优配置相比无偏倚情况可实现约20倍的计算效率提升。</p>
-    <h4>局限与展望</h4><p>该优化方法基于特定屏蔽材料和厚度的模拟，其普适性预测可推广至其他屏蔽设计，但实际应用中需考虑具体几何和源项的影响。后续可探索自适应层厚度或结合其他偏倚技术以进一步提升效率。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03879v1">
-  <div class="paper-head">
-    <h2>高温超导腔的多特斯拉运行加速轴子暗物质搜索</h2>
+    <h2>高温超导腔的多特斯拉运行加速轴子暗物质搜索<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03879v1" rel="noopener noreferrer">2609.03879v1</a>
   </div>
   <p class="original-title">Multi-tesla operation of high-temperature superconducting cavities for accelerated axion dark matter searches</p>
@@ -387,10 +206,207 @@
     <h4>主要发现</h4><p>在8 T磁场下，5.4 GHz腔实现了1.4×10^7的无载品质因数，比铜高两个数量级；2.3 GHz腔在CAPP-PACE实验中实现了180 mK的噪声温度和比铜高5倍的Q增强，扫描速率加速约8.4倍。</p>
     <h4>局限与展望</h4><p>该技术展示了高温超导腔在轴子搜索中的潜力，但实际应用中可能面临REBCO带材的规模化制备、机械剥离的一致性和长期稳定性等挑战。后续研究可探索进一步优化腔体设计以最大化体积利用率，并评估在更高磁场和更宽频率范围内的性能。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04042v1">
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2509.07982v2">
   <div class="paper-head">
-    <h2>Timepix4读出3D硅传感器的束流测试表征</h2>
+    <h2>LHAASO银道面γ射线对重暗物质的强约束<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2509.07982v2" rel="noopener noreferrer">2509.07982v2</a>
+  </div>
+  <p class="original-title">LHAASO Galactic Plane $γ$-rays Strongly Constrain Heavy Dark Matter</p>
+  <p class="meta"><strong>作者：</strong>Celine Boehm、Ranjan Laha、Tarak Nath Maity</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>LHAASO作为地面观测站，正在开辟高能γ射线和宇宙线研究的新前沿。近期，它观测到了银道面TeV-PeV能段的弥散γ射线。我们首次利用这些数据来寻找质量在10^5-10^11 GeV范围内的重暗物质衰变和湮灭信号。我们计算了来自银河系和河外暗物质的预期光子通量，并考虑了光子对产生导致的衰减。对于银河系贡献，我们包含了直接光子和通过逆康普顿散射产生的次级光子，并考虑了电子/正电子的传播。对于河外成分，除了直接光子和逆康普顿贡献外，我们还包含了由对产生的电子和正电子经逆康普顿散射产生的级联光子。综合所有这些贡献，我们推导出对暗物质参数空间的约束。对于各种双体标准模型末态，我们的界限是目前最强的。这凸显了LHAASO在揭示重暗物质本质方面的能力。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>利用LHAASO观测到的银道面TeV-PeV弥散γ射线数据，寻找质量在10^5-10^11 GeV范围内的重暗物质衰变和湮灭信号，并对其参数空间给出约束。</p>
+    <h4>方法</h4><p>计算银河系和河外暗物质产生的光子通量，包括直接光子、逆康普顿散射产生的次级光子以及级联光子，并考虑光子对产生衰减和电子/正电子传播效应，与LHAASO数据比较得出约束。</p>
+    <h4>主要发现</h4><p>对于多种双体标准模型末态，得到的暗物质参数空间约束是目前最强的。</p>
+    <h4>局限与展望</h4><p>该结果凸显了LHAASO在探测重暗物质方面的能力，但约束依赖于暗物质分布模型和传播假设，未来更精确的数据和模型改进可能进一步收紧约束或发现信号。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03002v1">
+  <div class="paper-head">
+    <h2>关于从事件形状确定强耦合常数的特别工作组<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03002v1" rel="noopener noreferrer">2609.03002v1</a>
+  </div>
+  <p class="original-title">A Task Force on Strong Coupling Determinations from Event Shapes</p>
+  <p class="meta"><strong>作者：</strong>Anthony Badea、Luca Buonocore、Gherardo Vita、Simone Alioli、Zeno Capatti、Yi Chen、David d&#x27;Enterria、Thomas Gehrmann、Andre H. Hoang、Alexander Huss、Sebastian Jaskiewicz、Alexander Karlberg、Yen-Jie Lee、Michelangelo L. Mangano、Vicent Mateu、Jiahao Miao、Pier Francesco Monni、Paolo Nason、Luca Rottoli、Iain W. Stewart、Paolo Torrielli、Giulia Zanderighi</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>强耦合常数α_s是标准模型的基本参数，其精确确定对于准确预测、研究和理解大型强子对撞机及未来实验（如未来环形对撞机）中的过程至关重要。在正负电子对撞机上测量的事件形状和关联函数观测量，由于其对α_s的敏感性以及大型正负电子对撞机提供的高精度数据，为提取α_s提供了最干净的环境之一。更广泛地说，这些观测量为发展和检验量子色动力学中微扰和非微扰部分的理解提供了理想场所，这将在未来几十年支撑该领域的精度和发现前沿。尽管取得了这些进展，但从事件形状确定α_s的不同结果之间仍存在显著差异，无论是在提取的中心值还是估计的不确定性方面。本文档旨在推动建立一个专门的特别工作组，以协调社区范围内的努力解决这些开放问题。我们报告了2025年11月在CERN举行的首次为期两天的会议，总结了科学讨论，记录了会议期间确定的优先实验分析，以及理论界为准备未来会议而需执行的具体任务清单。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文旨在解决从事件形状确定强耦合常数α_s时存在的显著差异问题，并提议建立特别工作组以协调社区努力。</p>
+    <h4>方法</h4><p>论文报告了2025年11月在CERN举行的首次特别工作组会议，总结了科学讨论，并确定了优先实验分析和理论任务清单。</p>
+    <h4>主要发现</h4><p>论文指出，从事件形状确定α_s的不同结果之间存在显著差异，包括中心值和不确定性；会议确定了优先实验分析和理论任务，但未给出具体数值结果。</p>
+    <h4>局限与展望</h4><p>该特别工作组旨在通过协调社区努力解决差异，未来会议将基于理论任务进展进一步推进；但具体成果尚待后续工作，本文档仅作为初步报告。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03072v1">
+  <div class="paper-head">
+    <h2>质子-质子碰撞中Z标记喷注内的能量-能量关联函数<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03072v1" rel="noopener noreferrer">2609.03072v1</a>
+  </div>
+  <p class="original-title">Energy-Energy Correlators in $Z$-Tagged Jets in $pp$ Collisions</p>
+  <p class="meta"><strong>作者：</strong>João Barata、Zhong-Bo Kang、Xoán Mayo López、Jani Penttala、Yiyu Zhou</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们给出了在质子-质子碰撞中，跨越禁闭转变的Z标记喷注内共线能量-能量关联函数（EEC）的预言。我们的框架将背对背Z+jet产生的横动量依赖因子化与包含微扰演化和味道依赖非微扰碎裂的独有微分EEC喷注函数相结合。EEC喷注函数在NLL&#x27;精度下计算，其中夸克和胶子的非微扰标度分别由现有的e+e-和 inclusive-jet 数据约束。我们提供了在质心能量 sqrt(s)=8 TeV 和 13 TeV 下，喷注横动量区间为 (20,30), (30,50) 和 (50,100) GeV 的前向Z+jet产生的预言。作为 z_chi 函数的EEC分布在小的 z_chi 处呈现有限平台，而相应的角分布在禁闭转变处表现出特征性的转折。味道分解表明，随着喷注横动量的增加，该转变越来越由夸克起始的喷注主导。因此，前向Z标记喷注提供了非微扰夸克碎裂的干净探针，并直接检验从e+e-碰撞中提取的特征禁闭标度在强子环境中是否具有普适性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究在质子-质子碰撞中，Z标记喷注内的共线能量-能量关联函数（EEC）如何跨越禁闭转变，并检验从e+e-碰撞中提取的禁闭标度在强子环境中的普适性。</p>
+    <h4>方法</h4><p>采用横动量依赖因子化框架，结合NLL&#x27;精度的EEC喷注函数，并利用e+e-和inclusive-jet数据约束夸克和胶子的非微扰标度，对前向Z+jet产生进行理论预言。</p>
+    <h4>主要发现</h4><p>预言了EEC分布在小z_chi处呈现有限平台，角分布在禁闭转变处出现特征性转折；味道分解显示随着喷注横动量增加，夸克起始喷注的贡献增大。</p>
+    <h4>局限与展望</h4><p>该研究为在强子环境中探测非微扰夸克碎裂提供了理论工具，但预言尚未与实验数据比较，未来可期待LHC实验验证，并可能推广到其他标记喷注过程。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03368v1">
+  <div class="paper-head">
+    <h2>HERA和EIC的前导中子电产生：Sullivan过程、靶碎裂与π介子部分子分布函数<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03368v1" rel="noopener noreferrer">2609.03368v1</a>
+  </div>
+  <p class="original-title">Leading-Neutron Electroproduction at HERA and the EIC: Sullivan Process, Target Fragmentation, and Pion PDFs</p>
+  <p class="meta"><strong>作者：</strong>Wen-Chen Chang、Chia-Yu Hsieh、Satyajit Puhan</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>HERA上H1和ZEUS实验的前导中子电产生测量已被用于在Sullivan单π交换（OPE）框架内约束小动量分数x_π处的π介子部分子分布函数（PDFs），补充了π诱导的Drell-Yan测量在大x_π处的约束。以往的分析主要集中在大中子纵向动量分数x_L区域，在该区域深非弹性散射（DIS）靶碎裂的贡献受到抑制。本工作使用Pythia事件生成器对靶碎裂贡献进行建模，并表明其与OPE贡献的组合能够再现HERA前导中子数据在整个测量的x_L范围内的主要特征，而无需引入额外的特设归一化因子。这一结果展示了将更广泛的前导中子数据纳入未来全局分析的可能性，从而扩展对更小π动量分数x_π的敏感性。我们研究了与π-核子顶点形状因子相关的模型依赖性，并表明HERA数据对Pythia中实现的不同靶碎裂处理方式敏感。最后，我们给出了未来美国电子-离子对撞机（EIC）上前导中子产生的预测，确定了能够增强对π结构敏感性同时抑制DIS靶碎裂贡献的束流能量配置和运动学区域。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是如何利用HERA的前导中子电产生数据在Sullivan框架内约束π介子部分子分布函数，并探讨靶碎裂贡献的影响以及未来EIC的敏感性。</p>
+    <h4>方法</h4><p>使用Pythia事件生成器模拟靶碎裂贡献，并与OPE贡献结合，与HERA数据比较；研究π-核子顶点形状因子的模型依赖性；基于EIC设计进行预测。</p>
+    <h4>主要发现</h4><p>OPE与靶碎裂贡献的组合无需额外归一化因子即可再现HERA数据在整个x_L范围内的主要特征；HERA数据对靶碎裂处理方式敏感；EIC的某些束流能量和运动学区域能增强对π结构的敏感性并抑制靶碎裂贡献。</p>
+    <h4>局限与展望</h4><p>论文表明将更广泛的前导中子数据纳入未来全局分析是可行的，但模型依赖性（如形状因子和靶碎裂处理）仍需进一步研究；EIC的预测依赖于模拟，实际灵敏度需实验验证。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03417v1">
+  <div class="paper-head">
+    <h2>基于似然和图神经网络方法的NEON簇射事件重建<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03417v1" rel="noopener noreferrer">2609.03417v1</a>
+  </div>
+  <p class="original-title">Reconstruction of Shower-like Events in NEON Using Likelihood and Graph Neural Network Methods</p>
+  <p class="meta"><strong>作者：</strong>Sujie Lin、Weiqin Huang、Yihan Liu、Chengyu Shao、Lili Yang、Huiming Zhang</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.IM
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.IM</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>南海中微子观测站（NEON）是一个拟议中的深海中微子望远镜。精确重建簇射事件对于中微子能量测量和多信使天文学至关重要，但由于海水光学衰减、不规则探测器几何以及显著的40K本底，这带来了巨大挑战。本文首次提出了NEON簇射事件重建的完整框架，包括基于物理的最大似然估计（MLE）方法和基于数据的图神经网络（GNN）。传统的MLE框架整合了空间等时命中选择、基于时间残差M估计量最小化的顶点重建，以及基于预计算光子分布表的解耦方向和能量估计。物理校准，包括PMT角度接受度、命中级时间游动校正和有效线源簇射扩展，被纳入似然公式。同时，开发了一个两阶段GNN来捕捉DOM内PMT相关性和距离加权的DOM间拓扑模式。模拟研究表明，MLE方法在1 TeV至1 PeV范围内实现了总体中值角分辨率4.19°和能量分辨率25%-37%，且系统偏差可忽略。GNN进一步提高了低至中等能量区域的重建保真度，在30 TeV时实现中值角分辨率1.8°，在40至300 TeV之间能量分辨率约20%。基于这些重建性能，评估了NEON的有效面积和点源发现潜力。该框架为NEON建立了必要的重建基准，并为未来下一代深海望远镜提供了实用方法。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>NEON探测器如何准确重建簇射事件，以支持中微子能量测量和多信使天文学？</p>
+    <h4>方法</h4><p>提出了一个综合重建框架，包括基于物理的最大似然估计（MLE）方法，结合空间等时命中选择、顶点重建、解耦方向和能量估计，以及物理校准；同时开发了一个两阶段图神经网络（GNN）来捕捉探测器拓扑相关性。</p>
+    <h4>主要发现</h4><p>模拟研究表明，MLE方法在1 TeV至1 PeV范围内实现了总体中值角分辨率4.19°和能量分辨率25%-37%，且系统偏差可忽略。GNN在低至中等能量区域表现更好，在30 TeV时角分辨率达到1.8°，在40至300 TeV之间能量分辨率约20%。基于这些性能，评估了NEON的有效面积和点源发现潜力。</p>
+    <h4>局限与展望</h4><p>该框架为NEON提供了重建基准，但其性能基于模拟，实际部署可能受环境因素影响。未来可进一步优化算法以适应真实探测器条件，并探索在其他深海望远镜中的应用。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03431v1">
+  <div class="paper-head">
+    <h2>银河系日心距1.5至13千秒差距范围内甲醇CH3OH热谱线对μ变化的约束<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03431v1" rel="noopener noreferrer">2609.03431v1</a>
+  </div>
+  <p class="original-title">Constraints on mu-variations from the methanol CH3OH thermal lines in the Galaxy at galactocentric distances of 1.5 &lt; D_GC &lt; 13 kpc</p>
+  <p class="meta"><strong>作者：</strong>A. I. Shtein、J. S. Vorotyntseva、S. A. Levshakov</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.GA
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.GA</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本研究基于E-甲醇（CH3OH）在216-220 GHz频率范围内的热发射谱线，对基本物理常数μ = m_e/m_p（电子与质子质量比）的假设性变化设定了约束。分析了位于银河系日心距1.5至13千秒差距（D_GC）范围内的七个大质量分子云的光谱。获得的加权平均值&lt;Δμ/μ&gt; = (0.5±0.5)×10^(-7)在1σ置信水平（5×10^(-8)）下未显示μ的统计显著变化，这与先前在银河系盘多个分子云中建立的上限一致。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>该研究旨在约束银河系不同日心距处基本物理常数μ（电子与质子质量比）的可能变化，具体利用甲醇热发射谱线进行测量。</p>
+    <h4>方法</h4><p>分析七个大质量分子云在216-220 GHz频段的甲醇热发射谱线，通过谱线频率测量推导μ的变化，并计算加权平均值。</p>
+    <h4>主要发现</h4><p>加权平均值为&lt;Δμ/mu&gt; = (0.5±0.5)×10^(-7)，在1σ置信水平（5×10^(-8)）下未发现μ的统计显著变化，与先前在银河系盘分子云中的上限一致。</p>
+    <h4>局限与展望</h4><p>该结果将μ变化约束扩展至更广的银河系日心距范围，但样本仅包含七个云，且未涵盖银河系中心或外盘极端区域。未来可增加样本或结合其他分子谱线以提高灵敏度，并探索不同环境下的可能变化。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03434v1">
+  <div class="paper-head">
+    <h2>CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03434v1" rel="noopener noreferrer">2609.03434v1</a>
+  </div>
+  <p class="original-title">CGC-py: A Monte Carlo Event Generator for Gluon Saturation Physics</p>
+  <p class="meta"><strong>作者：</strong>Haowu Duan、Cong Yi、Si-Wei Dai、Shu-Yi Wei、Wenbin Zhao、Liang Zheng</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们开发了CGC-py，一个用于深非弹性散射的蒙特卡洛事件产生器。它将γ*p(A)→q qbar+X的完整色玻璃凝聚（CGC）截面与基于部分子分支的横向动量依赖的后向初态簇射耦合，而Pythia 8处理末态辐射和强子化。CGC-py保留了完整的靶弹性和靶非弹性贡献，不采用背对背关联极限，从而允许从同一事件样本一致地产生单强子和双强子观测量。我们通过单包含夸克谱的解析闭合性测试以及ep碰撞中带电强子谱与H1数据的比较来验证该产生器，发现符合得很好。预测的核修正因子R_{eAu}^h显示出预期的饱和模式：在低p_T*处压低，随后在高p_T*处向1上升。与Pythia 6基线的比较以及x_g重标度研究表明，小x CGC演化和共线DGLAP动力学对双强子背对侧宽度随能量的增长贡献相当。真正的饱和驱动的展宽仅出现在所考虑的最高能量处。在CGC-py内，eAu碰撞相对于ep碰撞表现出增强的背对侧宽度和压低的背对背产额。这些核效应对EIC运动学而言仍然温和，这促使在最前向可及运动学处进行测量，并使用互补观测量以最大化对胶子饱和的灵敏度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文旨在开发一个蒙特卡洛事件产生器，用于研究胶子饱和物理，特别是小x区域的CGC动力学，并能够一致地产生单强子和双强子观测量。</p>
+    <h4>方法</h4><p>将完整的CGC截面与部分子分支后向初态簇射耦合，结合Pythia 8进行末态辐射和强子化，保留靶弹性和非弹性贡献，不采用背对背关联极限。</p>
+    <h4>主要发现</h4><p>通过解析闭合性测试和H1数据比较验证了产生器；预测的核修正因子显示饱和模式；小x CGC演化和DGLAP动力学对双强子背对侧宽度增长贡献相当，真正的饱和展宽仅出现在最高能量；eAu碰撞相对于ep表现出增强的背对侧宽度和压低的背对背产额。</p>
+    <h4>局限与展望</h4><p>核效应在EIC运动学中温和，可能需要最前向运动学测量和互补观测量以增强对胶子饱和的灵敏度。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03579v1">
+  <div class="paper-head">
+    <h2>中子近阈值J/ψ光生截面的首次测量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03579v1" rel="noopener noreferrer">2609.03579v1</a>
+  </div>
+  <p class="original-title">First Measurement of Near-Threshold J/ψ Photoproduction on the Neutron</p>
+  <p class="meta"><strong>作者：</strong>R. Tyson、D. G. Ireland、B. McKinnon、P. Chatagnon、V. Kubarovsky、S. Stepanyan、A. G. Acar、P. Achenbach、J. S. Alvarado、M. J. Amaryan、W. R. Armstrong、H. Avakian、L. Barion、M. Bashkanov、M. Battaglieri、F. Benmokhtar、A. Bianconi、A. S. Biselli、A. Biswas、M. Bondi、F. Bossù、S. Boiarinov、K. -Th. Brinkmann、W. J. Briscoe、W. K. Brooks、J Bryce、N. L. Bucuru、S. Bueltmann、V. D. Burkert、T. Cao、D. S. Carman、A. Celentano、H. Chinchay、G. Ciullo、E. W. Cline、P. L. Cole、M. Contalbrigo、A. D&#x27;Angelo、N. Dashyan、R. De Vita、A. Deur、S. Diehl、C. Dilks、C. Djalali、R. Dupre、H. Egiyan、M. Ehrhart、A. El Alaoui、L. El Fassi、L. Elouadrhiri、C. Fanelli、M. Farooq、S. Fegan、I. P. Fernando、E. Ferrand、A. Filippi、C. Fogler、S. Frantzen、K. Gates、G. P. Gilfoyle、D. I. Glazier、R. W. Gothe、Y. Gotra、S. Gramigna、B. Gualtieri、K. Hafidi、H. Hakobyan、M. Hattawy、T. B. Hayward、D. Heddle、T. Hellstern、M. Hoballah、M. Holtrop、Y. Ilieva、E. L. Isupov、H. S. Jo、S. Joosten、M. Kerr、H. T. Klest、V. Klimenko、A. Kripko、C. Lama、L. Lanza、S. Lee、P. Lenisa、D. Martiryan、V. Mascagna、A. Mehta、R. G. Milner、R. Milton、M. Mirazita、V. Mokeev、E. F. Molina Cardenas、C. Munoz Camacho、P. Nadel-Turonski、T. Nagorna、K. Neupane、S. Niccolai、M. Osipenko、P. Pandey、M. Paolone、L. L. Pappalardo、R. Paremuzyan、E. Pasyuk、C. Paudel、S. J. Paul、L. Polizzi、J. Poudel、Y. Prok、A. Radic、K. Ramage、M. Ripani、M Ronayette、P. Rossi、A. A. Rusova、S. Schadmand、A. Schmidt、Y. G. Sharabian、E. V. Shirokov、S. Shrestha、E. Sidoretti、N. Sparveris、I. I. Strakovsky、S. Strauch、M. Tenorio、F. Touchte Codjo、M. Ungaro、S. Vallarino、C. Velasquez、L. Venturelli、H. Voskanyan、E. Voutier、Y. Wang、D. P. Watts、U. Weerasinghe、X. Wei、N. Wuerfel、Z. Xu、Z. W. Zhao、M. Zurek</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们报告了在托马斯·杰斐逊国家加速器设施使用CLAS12探测器对中子近阈值J/ψ光生总截面和t微分截面的首次测量。测量使用液氘靶进行，同时提供了束缚质子的非相干总截面和t微分截面，从而首次实现了对束缚质子和中子近阈值J/ψ光生的直接比较。在矢量介子主导、全息QCD和GPD框架下的解释中，这些数据可用于研究束缚核子的胶子结构。与自由质子结果的比较揭示了在核介质中核子胶子结构可能发生改变的迹象，但这依赖于提取假设和底层产生机制。束缚中子与束缚质子截面的比较为近阈值J/ψ产生机制提供了新的约束，这对于确立J/ψ光生作为核子胶子结构探针至关重要。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文旨在首次测量中子近阈值J/ψ光生截面，并比较束缚中子和质子的截面，以探究核介质中核子胶子结构的可能修正，并约束J/ψ产生机制。</p>
+    <h4>方法</h4><p>利用CLAS12探测器和液氘靶，测量了总截面和t微分截面，并通过与自由质子结果比较及理论框架（矢量介子主导、全息QCD、GPD）解释数据。</p>
+    <h4>主要发现</h4><p>首次给出了中子近阈值J/ψ光生的总截面和t微分截面，以及束缚质子的非相干截面；束缚中子与束缚质子截面的比较提供了对产生机制的新约束；与自由质子结果比较显示核介质中胶子结构可能有修正的迹象，但依赖于提取假设和产生机制。</p>
+    <h4>局限与展望</h4><p>由于测量基于液氘靶，束缚核子效应可能影响结果；结论依赖于理论模型和提取假设，未来需要更高精度数据和更完善的理论模型来确认核介质中胶子结构的修正，并进一步验证J/ψ光生作为胶子结构探针的可靠性。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03822v1">
+  <div class="paper-head">
+    <h2>Geant4稀有事件屏蔽模拟中重要性采样实现的优化<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03822v1" rel="noopener noreferrer">2609.03822v1</a>
+  </div>
+  <p class="original-title">Optimisation of importance sampling implementation in rare-event shielding simulations using Geant4</p>
+  <p class="meta"><strong>作者：</strong>P. Knights、L. J. Milligan、K. Nikolopoulos</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span> <span class="tag">physics.comp-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>稀有事件搜索实验要求极低的本底，由此产生的超纯材料和抑制性屏蔽使得相关本底模拟在无事件偏倚时计算成本高昂。我们提出了一种优化稀有事件搜索中广泛使用的重要性分裂和俄罗斯轮盘赌技术的方法，其中整数个等宽重要性层填充屏蔽几何体。在平衡相对不确定度与执行时间的基础上，我们针对γ射线和中子，以及不同的屏蔽材料和厚度，优化了层厚度。以初级粒子平均自由程的倍数表示，最优厚度对于给定粒子类型在不同能量下具有普适性，并产生适用于任何屏蔽设计的基于物理的预测。同一趋势揭示了过度偏倚的可能性，即在固定执行时间下，高分层数会导致相对不确定度恶化。最优配置相比无偏倚情况可实现约20倍的计算效率提升。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何优化稀有事件屏蔽模拟中重要性分裂和俄罗斯轮盘赌技术的实现，以在给定计算时间内最小化相对不确定度？</p>
+    <h4>方法</h4><p>通过将屏蔽几何体划分为整数个等宽重要性层，并针对不同粒子类型（γ射线和中子）、屏蔽材料和厚度，平衡相对不确定度与执行时间，优化层厚度。</p>
+    <h4>主要发现</h4><p>最优层厚度以初级粒子平均自由程的倍数表示时，对于给定粒子类型在不同能量下具有普适性；过度偏倚（层数过多）会导致相对不确定度恶化；最优配置相比无偏倚情况可实现约20倍的计算效率提升。</p>
+    <h4>局限与展望</h4><p>该优化方法基于特定屏蔽材料和厚度的模拟，其普适性预测可推广至其他屏蔽设计，但实际应用中需考虑具体几何和源项的影响。后续可探索自适应层厚度或结合其他偏倚技术以进一步提升效率。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04042v1">
+  <div class="paper-head">
+    <h2>Timepix4读出3D硅传感器的束流测试表征<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04042v1" rel="noopener noreferrer">2609.04042v1</a>
   </div>
   <p class="original-title">Testbeam characterization of a 3D silicon sensor read out by Timepix4</p>
@@ -410,10 +426,9 @@
     <h4>主要发现</h4><p>垂直入射时时间分辨率为245 ps，效率为97%；最佳角度为8°，时间分辨率提高6%，效率超过99%，空间分辨率约7 μm；像素内电极间击中在信号电荷最概然值处时间分辨率可达153 ps，但旋转后性能下降；时间分辨率沿传感器深度存在依赖性。</p>
     <h4>局限与展望</h4><p>该研究为3D硅传感器在时间测量应用中的优化提供了实验依据，但结果可能受限于特定的传感器厚度、几何结构及Timepix4读出芯片特性，后续可进一步研究不同几何参数或优化工作条件以改善性能。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04049v1">
+</article><article class="paper" id="paper-2609.04049v1">
   <div class="paper-head">
-    <h2>全重四夸克产生的TQ4Q2.0碎裂函数</h2>
+    <h2>全重四夸克产生的TQ4Q2.0碎裂函数<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04049v1" rel="noopener noreferrer">2609.04049v1</a>
   </div>
   <p class="original-title">TQ4Q2.0 Fragmentation Functions for Fully Heavy Tetraquark Production</p>
@@ -433,10 +448,9 @@
     <h4>主要发现</h4><p>论文提供了TQ4Q2.0碎裂函数集，该框架能够描述全重四夸克产生，并特别指出轴矢量扇区对LHC和FCC能量下的内禀粲夸克贡献敏感。</p>
     <h4>局限与展望</h4><p>论文未明确讨论局限性，但可推断该框架可用于更广泛的运动学范围，并可能为奇特强子谱学与质子部分子结构的关联提供工具。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04078v1">
+</article><article class="paper" id="paper-2609.04078v1">
   <div class="paper-head">
-    <h2>利用CMOS探测器在密集径迹环境中监测反质子数量</h2>
+    <h2>利用CMOS探测器在密集径迹环境中监测反质子数量<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04078v1" rel="noopener noreferrer">2609.04078v1</a>
   </div>
   <p class="original-title">Monitoring antiproton numbers with a CMOS detector in a dense-track environment</p>
@@ -456,10 +470,9 @@
     <h4>主要发现</h4><p>CMOS探测器能以接近100%效率探测最小电离粒子，对伽马不敏感；簇长度可用于估计耗尽层厚度和径迹角度；反质子数量重建的最终误差约为10%。</p>
     <h4>局限与展望</h4><p>该方法适用于高密度径迹环境，但可能受限于探测器几何和材料效应，未来可优化校准方法以进一步降低系统误差。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04144v1">
+</article><article class="paper" id="paper-2609.04144v1">
   <div class="paper-head">
-    <h2>电弱暗物质的非弹性散射特征</h2>
+    <h2>电弱暗物质的非弹性散射特征<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04144v1" rel="noopener noreferrer">2609.04144v1</a>
   </div>
   <p class="original-title">Inelastic Signatures of Electroweak Dark Matter</p>
@@ -479,10 +492,9 @@
     <h4>主要发现</h4><p>主要结果：该模型可以解释LZ事件；对于多种多重态组合，劈裂和非弹性相互作用在固定参数下具有普适性；高反冲能量对应几百keV的劈裂；通过要求一个预期事件确定了质量依赖的δ_LZ(m_χ)及其90%泊松带；在(m_χ,y)平面上定义了普适区域，并与热 relic 轨迹相交得到每个多重态的基准点；预测了相关的环诱导弹性自旋无关信号。</p>
     <h4>局限与展望</h4><p>局限与展望：论文未明确讨论模型的其他约束或实验背景，但可合理推断该模型需要进一步与直接探测实验的完整数据比较，并考虑其他可能的过程（如湮灭）对热 relic 密度的影响。后续方向可能包括对基准点进行更详细的唯象学研究，以及探索其他多重态组合或参数空间。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04185v1">
+</article><article class="paper" id="paper-2609.04185v1">
   <div class="paper-head">
-    <h2>大气中微子升散射对LZ 2026年过量事件的解释</h2>
+    <h2>大气中微子升散射对LZ 2026年过量事件的解释<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04185v1" rel="noopener noreferrer">2609.04185v1</a>
   </div>
   <p class="original-title">Atmospheric neutrino up-scattering explanation of LZ 2026 excess</p>
@@ -502,9 +514,10 @@
     <h4>主要发现</h4><p>发现当m_χ≈1 GeV，且√(y_χ y_q)/m_φ=2×10^{-2} GeV^{-1}时，可以产生该孤立事件，同时满足其他现有约束。</p>
     <h4>局限与展望</h4><p>本文分析基于标量中介子模型，未指定χ的性质，因此结果可能适用于更广泛的模型。但未考虑其他可能的背景或系统效应，且参数空间可能受其他实验限制，后续可结合更多数据进一步检验该解释。</p>
   </section>
-</article></main>
+</article>
+  </main>
   <footer>
-    生成时间：2026-09-04 05:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+    生成时间：2026-09-04 15:50 UTC。中文内容由模型辅助生成，请以论文原文为准。
   </footer>
 </body>
 </html>

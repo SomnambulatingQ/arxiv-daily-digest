@@ -12,8 +12,28 @@
     header, main, footer { width: min(980px, calc(100% - 32px)); margin: auto; }
     header { padding: 40px 0 18px; }
     h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
     nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 24px 0 40px; }
+    .card { display: block; background: white; border-radius: 14px; padding: 22px 22px 18px; text-decoration: none; color: inherit; box-shadow: 0 5px 18px rgba(31,41,51,.07); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: .95rem; color: #3266a8; font-weight: 650; }
+    .card-name { margin-top: 4px; color: #465563; }
+    .card-count { margin-top: 18px; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .card-count span { font-size: 1rem; font-weight: 500; color: #667; margin-left: 4px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
     .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
     .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
     .paper h2 { margin: 0; line-height: 1.35; }
@@ -24,28 +44,127 @@
     .meta { color: #465563; }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
     .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
     .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
     footer { padding: 24px 0 46px; color: #667; }
     @media (max-width: 640px) {
       .paper { padding: 18px; }
       .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
     }
-  </style>
+</style>
   <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] } };
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
 </head>
 <body>
+
   <header>
-    <h1>arXiv hep-lat 每日论文</h1>
-    <p>arXiv 官方公告日：2026-09-04 · 共 5 篇</p>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-09-04</p>
     <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">1</div></div>
+    </div>
   </header>
-  <main><article class="paper" id="paper-2609.03525v1">
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（4）</h3><ol class="toc-list"><li><a href="#paper-2609.04114v1">三维格点量子电动力学中的实时弦动力学</a> <small>2609.04114v1</small></li><li><a href="#paper-2609.04117v1">开放格点规范理论中的非阿贝尔弦熔化与热化</a> <small>2609.04117v1</small></li><li><a href="#paper-2609.04129v1">QCD Θ项诱导的π-核子耦合常数ḡ₀的格点QCD计算</a> <small>2609.04129v1</small></li><li><a href="#paper-2609.04142v1">QCD中首个双强子形状因子的计算</a> <small>2609.04142v1</small></li></ol><h3>交叉列表（1）</h3><ol class="toc-list"><li><a href="#paper-2609.03525v1">中心扭转Gribov谱与精化Gribov–Zwanziger框架中的有限体积高斯响应</a> <small>2609.03525v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2609.04114v1">
   <div class="paper-head">
-    <h2>中心扭转Gribov谱与精化Gribov–Zwanziger框架中的有限体积高斯响应</h2>
+    <h2>三维格点量子电动力学中的实时弦动力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04114v1" rel="noopener noreferrer">2609.04114v1</a>
+  </div>
+  <p class="original-title">Real-Time String Dynamics in $3+1$D Lattice Quantum Electrodynamics</p>
+  <p class="meta"><strong>作者：</strong>Helen Zwölfer、Giovanni Cataldi、Umberto Borla、Jad C. Halimeh</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.quant-gas</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>理解三维空间中的实时弦动力学对于将格点规范理论的量子模拟与QED和QCD的物理维度联系起来至关重要，在这些维度中横向涨落和竞争性局域过程大量存在。我们首次展示了三维格点量子电动力学中弦断裂的实时模拟。利用树张量网络，我们模拟了具有动态物质的3+1维U(1)格点规范理论中电通量弦的淬火动力学。在强耦合下，弦在质量和规范耦合的尖锐共振条件下共振断裂，将电能转化为屏蔽静态电荷的物质-反物质对。在非共振情况下，我们对所有竞争通道进行了分类——粒子产生、弦形变和延伸以及磁通环——这些通道的多重性（对于粒子产生和磁通环是广延的）即使在远离共振时也会耗尽弦扇区。通道分辨的微扰理论定量地再现了这些动力学及其傅里叶谱。我们的结果为即将到来的高维格点规范理论量子模拟器建立了诊断和基准。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是什么？</p>
+    <h4>方法</h4><p>采用树张量网络模拟3+1维U(1)格点规范理论中电通量弦的淬火动力学，并结合通道分辨的微扰理论分析。</p>
+    <h4>主要发现</h4><p>首次实现了3+1维格点QED中弦断裂的实时模拟；在强耦合下，弦在共振条件下断裂产生物质-反物质对；非共振时，竞争通道（粒子产生、弦形变和延伸、磁通环）的多重性耗尽弦扇区；微扰理论定量复现了动力学和傅里叶谱。</p>
+    <h4>局限与展望</h4><p>该研究为高维格点规范理论的量子模拟提供了诊断和基准，但未讨论其局限性；可合理推断后续工作可能扩展至非平衡态热化、有限温度或更接近QCD的模型，但需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04117v1">
+  <div class="paper-head">
+    <h2>开放格点规范理论中的非阿贝尔弦熔化与热化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04117v1" rel="noopener noreferrer">2609.04117v1</a>
+  </div>
+  <p class="original-title">Non-Abelian string melting and thermalization in an open lattice gauge theory</p>
+  <p class="meta"><strong>作者：</strong>Erick Parra Verde、Giovanni Cataldi、Stefan Kühn、Giuseppe Magnifico、Jad C. Halimeh</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.quant-gas</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>开放系统格点规范理论（LGT）迄今主要在阿贝尔框架下发展，尚不清楚真正的非阿贝尔规范结构如何重塑耗散实时动力学。本文研究了一个1+1维SU(2)杨-米尔斯LGT，其中动态物质通过规范保持的Lindblad演化与热标量环境耦合，并使用张量网络求解。从由色电场通量弦连接的正反夸克对出发，我们发现热介质通过离域色荷和屏蔽通量使弦熔化；在共振条件下，这种耗散熔化与相干弦断裂竞争并延迟后者。热化时间随环境耦合非单调变化：在弱耗散下，环境辅助输运使其减小，随后在量子芝诺区域增大。在强退相极限下，Schrieffer-Wolff展开将动力学映射为经典排斥过程，并解析给出Liouvillian热化时间。除这些一般开放系统效应外，非阿贝尔物质结构在稳态中产生系统的介子偏向，而热化时间随温度降低，这与阿贝尔Schwinger模型的趋势相反，并与pNRQCD对夸克-胶子等离子体的研究定性一致。这些结果为开放非阿贝尔格点规范理论中的热化和弦动力学建立了一个规范保持的框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>非阿贝尔规范结构如何影响开放格点规范理论中的耗散实时动力学，特别是弦熔化和热化行为？</p>
+    <h4>方法</h4><p>采用1+1维SU(2)杨-米尔斯格点规范理论，通过规范保持的Lindblad演化与热标量环境耦合，并使用张量网络方法求解动力学。</p>
+    <h4>主要发现</h4><p>热介质通过离域色荷和屏蔽通量使弦熔化；共振时耗散熔化与相干弦断裂竞争并延迟后者。热化时间随环境耦合非单调变化，弱耗散时减小，强耗散时增大。强退相极限下，Schrieffer-Wolff展开映射为经典排斥过程并解析给出热化时间。稳态中非阿贝尔物质结构产生介子偏向，热化时间随温度降低，与阿贝尔Schwinger模型趋势相反。</p>
+    <h4>局限与展望</h4><p>该框架可推广到更高维或更复杂非阿贝尔群，但需注意本文结果基于1+1维和特定环境模型，其普适性有待验证。后续可研究非平衡相变或与量子模拟实验的关联。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04129v1">
+  <div class="paper-head">
+    <h2>QCD Θ项诱导的π-核子耦合常数ḡ₀的格点QCD计算<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04129v1" rel="noopener noreferrer">2609.04129v1</a>
+  </div>
+  <p class="original-title">Lattice QCD calculation of the pion-nucleon coupling $\bar{g}_0$ induced by the QCD $Θ$-term</p>
+  <p class="meta"><strong>作者：</strong>Fangcheng He、Tanmoy Bhattacharya、Rajan Gupta、Emanuele Mereghetti</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们给出了由QCD Θ项诱导的CP破坏π-核子耦合常数ḡ₀的格点QCD计算结果。该结果基于MILC合作组生成的三个2+1+1味高度改进交错夸克（HISQ）系综，格点间距a≈0.09 fm，π介子质量分别为313、226和138 MeV。我们通过两种方式提取耦合常数ḡ₀。第一种方法利用核子基态中赝标量流与拓扑荷关联的矩阵元。赝标量和轴矢量关联函数的数据均显示出来自Nπ激发态的大污染。我们证明这些污染可以在领头阶通过手征微扰论（χPT）和轴矢量Ward恒等式（AWI，也称为部分守恒轴矢量流（PCAC）关系）加以控制。在去除Nπ污染并外推到物理π介子质量后，结果噪声较大：ḡ₀/(2F_π) = -7(63)×10⁻³ Θ̄。更精确的结果ḡ₀/(2F_π) = 17.4(1.9)×10⁻³ Θ̄是通过低能有效场论方法或等价地利用AWI获得的。由于Nπ激发态的污染出现在许多核子矩阵元的计算中，我们对其进行了详细讨论，并讨论了在ḡ₀计算中利用AWI控制这些污染的方法。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：通过格点QCD计算由QCD Θ项诱导的CP破坏π-核子耦合常数ḡ₀，并处理Nπ激发态污染以获得可靠结果。</p>
+    <h4>方法</h4><p>采用的方法包括：使用MILC合作组的2+1+1味HISQ系综（a≈0.09 fm，m_π=313,226,138 MeV）；从核子基态中赝标量流与拓扑荷关联的矩阵元提取ḡ₀；利用手征微扰论（χPT）和轴矢量Ward恒等式（AWI/PCAC）在领头阶控制Nπ激发态污染；并进行物理π介子质量外推。</p>
+    <h4>主要发现</h4><p>原文明确支持的主要结果包括：直接矩阵元方法在去除Nπ污染并外推后得到ḡ₀/(2F_π) = -7(63)×10⁻³ Θ̄（噪声较大）；而利用低能有效场论方法或AWI得到更精确的结果ḡ₀/(2F_π) = 17.4(1.9)×10⁻³ Θ̄。</p>
+    <h4>局限与展望</h4><p>论文指出Nπ激发态污染在许多核子矩阵元计算中普遍存在，因此所讨论的AWI控制方法可能适用于其他类似计算。但论文未明确讨论局限性，可合理推断的结果需要进一步验证，例如在更小的格点间距和更大的体积上确认，或考虑更高阶的手征修正。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04142v1">
+  <div class="paper-head">
+    <h2>QCD中首个双强子形状因子的计算<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04142v1" rel="noopener noreferrer">2609.04142v1</a>
+  </div>
+  <p class="original-title">First Two-Hadron Form Factor from QCD</p>
+  <p class="meta"><strong>作者：</strong>Felipe G. Ortega-Gama、Raúl A. Briceño、Ivan M. Burbano、Robert G. Edwards</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们首次从QCD确定了能量依赖的双强子散射态形状因子。具体而言，我们在m_π≈400 MeV下，利用格点QCD计算了前向电磁π^+π^+ + γ→π^+π^+振幅的QCD贡献。由于格点计算在有限欧几里得时空中进行，其中不存在渐近散射态，因此该振幅无法直接从关联函数获得。相反，我们通过有限体积形式论非微扰地约束该振幅及相关振幅，这需要两个要素：离散的有限体积谱和电磁流的有限体积矩阵元。我们计算了耦合π^+π^+有限体积态的三点关联函数，并提取了相应的电磁矩阵元。将这些结果与先前确定的谱相结合，我们约束了前向极限下的无穷体积π^+π^+ + γ→π^+π^+振幅。利用洛伦兹对称性、幺正性和解析性的约束，我们将该振幅描述为单个实值能量依赖的双强子形状因子。所得振幅和形状因子在所有考虑的能量和运动框架下均满足Ward-Takahashi恒等式，这为该有限体积方法提供了首次QCD验证，并为从第一性原理研究共振态和多强子束缚态的电磁结构及电弱响应开辟了途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文旨在从QCD第一性原理确定双强子散射态的能量依赖形状因子，具体为计算前向电磁π^+π^+ + γ→π^+π^+振幅，并验证有限体积形式论的有效性。</p>
+    <h4>方法</h4><p>采用格点QCD方法，在有限体积中计算三点关联函数以提取电磁矩阵元，结合先前确定的有限体积谱，利用有限体积形式论约束无穷体积振幅，并基于洛伦兹对称性、幺正性和解析性将振幅参数化为单一形状因子。</p>
+    <h4>主要发现</h4><p>在m_π≈400 MeV下，计算得到的前向π^+π^+ + γ→π^+π^+振幅和形状因子在所有考虑的能量和运动框架下均满足Ward-Takahashi恒等式，提供了该有限体积方法的首次QCD验证。</p>
+    <h4>局限与展望</h4><p>该研究仅限于单一种类的双强子态和特定动量转移（前向极限），且π介子质量非物理。未来可推广到其他强子态、非前向运动学以及物理π介子质量，以研究共振态和多强子束缚态的电磁结构及电弱响应。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2609.03525v1">
+  <div class="paper-head">
+    <h2>中心扭转Gribov谱与精化Gribov–Zwanziger框架中的有限体积高斯响应<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.03525v1" rel="noopener noreferrer">2609.03525v1</a>
   </div>
   <p class="original-title">Center-twisted Gribov spectra and the finite-volume Gaussian response in the refined Gribov--Zwanziger framework</p>
@@ -66,100 +185,9 @@
     <h4>局限与展望</h4><p>论文未给出Z[B]/Z[0]的最终数值，因此强中心涡旋凝聚判据的验证仍需进一步处理全局零模/稳定子归一化问题。后续工作可能涉及非微扰方法或对全局测度的具体计算，以确定无质量因子的贡献。</p>
   </section>
 </article>
-<article class="paper" id="paper-2609.04114v1">
-  <div class="paper-head">
-    <h2>三维格点量子电动力学中的实时弦动力学</h2>
-    <a href="https://arxiv.org/abs/2609.04114v1" rel="noopener noreferrer">2609.04114v1</a>
-  </div>
-  <p class="original-title">Real-Time String Dynamics in $3+1$D Lattice Quantum Electrodynamics</p>
-  <p class="meta"><strong>作者：</strong>Helen Zwölfer、Giovanni Cataldi、Umberto Borla、Jad C. Halimeh</p>
-  <p class="meta"><strong>主分类：</strong>hep-lat
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.quant-gas</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>理解三维空间中的实时弦动力学对于将格点规范理论的量子模拟与QED和QCD的物理维度联系起来至关重要，在这些维度中横向涨落和竞争性局域过程大量存在。我们首次展示了三维格点量子电动力学中弦断裂的实时模拟。利用树张量网络，我们模拟了具有动态物质的3+1维U(1)格点规范理论中电通量弦的淬火动力学。在强耦合下，弦在质量和规范耦合的尖锐共振条件下共振断裂，将电能转化为屏蔽静态电荷的物质-反物质对。在非共振情况下，我们对所有竞争通道进行了分类——粒子产生、弦形变和延伸以及磁通环——这些通道的多重性（对于粒子产生和磁通环是广延的）即使在远离共振时也会耗尽弦扇区。通道分辨的微扰理论定量地再现了这些动力学及其傅里叶谱。我们的结果为即将到来的高维格点规范理论量子模拟器建立了诊断和基准。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是什么？</p>
-    <h4>方法</h4><p>采用树张量网络模拟3+1维U(1)格点规范理论中电通量弦的淬火动力学，并结合通道分辨的微扰理论分析。</p>
-    <h4>主要发现</h4><p>首次实现了3+1维格点QED中弦断裂的实时模拟；在强耦合下，弦在共振条件下断裂产生物质-反物质对；非共振时，竞争通道（粒子产生、弦形变和延伸、磁通环）的多重性耗尽弦扇区；微扰理论定量复现了动力学和傅里叶谱。</p>
-    <h4>局限与展望</h4><p>该研究为高维格点规范理论的量子模拟提供了诊断和基准，但未讨论其局限性；可合理推断后续工作可能扩展至非平衡态热化、有限温度或更接近QCD的模型，但需进一步验证。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04117v1">
-  <div class="paper-head">
-    <h2>开放格点规范理论中的非阿贝尔弦熔化与热化</h2>
-    <a href="https://arxiv.org/abs/2609.04117v1" rel="noopener noreferrer">2609.04117v1</a>
-  </div>
-  <p class="original-title">Non-Abelian string melting and thermalization in an open lattice gauge theory</p>
-  <p class="meta"><strong>作者：</strong>Erick Parra Verde、Giovanni Cataldi、Stefan Kühn、Giuseppe Magnifico、Jad C. Halimeh</p>
-  <p class="meta"><strong>主分类：</strong>hep-lat
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.quant-gas</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-ph</span> <span class="tag">quant-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>开放系统格点规范理论（LGT）迄今主要在阿贝尔框架下发展，尚不清楚真正的非阿贝尔规范结构如何重塑耗散实时动力学。本文研究了一个1+1维SU(2)杨-米尔斯LGT，其中动态物质通过规范保持的Lindblad演化与热标量环境耦合，并使用张量网络求解。从由色电场通量弦连接的正反夸克对出发，我们发现热介质通过离域色荷和屏蔽通量使弦熔化；在共振条件下，这种耗散熔化与相干弦断裂竞争并延迟后者。热化时间随环境耦合非单调变化：在弱耗散下，环境辅助输运使其减小，随后在量子芝诺区域增大。在强退相极限下，Schrieffer-Wolff展开将动力学映射为经典排斥过程，并解析给出Liouvillian热化时间。除这些一般开放系统效应外，非阿贝尔物质结构在稳态中产生系统的介子偏向，而热化时间随温度降低，这与阿贝尔Schwinger模型的趋势相反，并与pNRQCD对夸克-胶子等离子体的研究定性一致。这些结果为开放非阿贝尔格点规范理论中的热化和弦动力学建立了一个规范保持的框架。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>非阿贝尔规范结构如何影响开放格点规范理论中的耗散实时动力学，特别是弦熔化和热化行为？</p>
-    <h4>方法</h4><p>采用1+1维SU(2)杨-米尔斯格点规范理论，通过规范保持的Lindblad演化与热标量环境耦合，并使用张量网络方法求解动力学。</p>
-    <h4>主要发现</h4><p>热介质通过离域色荷和屏蔽通量使弦熔化；共振时耗散熔化与相干弦断裂竞争并延迟后者。热化时间随环境耦合非单调变化，弱耗散时减小，强耗散时增大。强退相极限下，Schrieffer-Wolff展开映射为经典排斥过程并解析给出热化时间。稳态中非阿贝尔物质结构产生介子偏向，热化时间随温度降低，与阿贝尔Schwinger模型趋势相反。</p>
-    <h4>局限与展望</h4><p>该框架可推广到更高维或更复杂非阿贝尔群，但需注意本文结果基于1+1维和特定环境模型，其普适性有待验证。后续可研究非平衡相变或与量子模拟实验的关联。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04129v1">
-  <div class="paper-head">
-    <h2>QCD Θ项诱导的π-核子耦合常数ḡ₀的格点QCD计算</h2>
-    <a href="https://arxiv.org/abs/2609.04129v1" rel="noopener noreferrer">2609.04129v1</a>
-  </div>
-  <p class="original-title">Lattice QCD calculation of the pion-nucleon coupling $\bar{g}_0$ induced by the QCD $Θ$-term</p>
-  <p class="meta"><strong>作者：</strong>Fangcheng He、Tanmoy Bhattacharya、Rajan Gupta、Emanuele Mereghetti</p>
-  <p class="meta"><strong>主分类：</strong>hep-lat
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们给出了由QCD Θ项诱导的CP破坏π-核子耦合常数ḡ₀的格点QCD计算结果。该结果基于MILC合作组生成的三个2+1+1味高度改进交错夸克（HISQ）系综，格点间距a≈0.09 fm，π介子质量分别为313、226和138 MeV。我们通过两种方式提取耦合常数ḡ₀。第一种方法利用核子基态中赝标量流与拓扑荷关联的矩阵元。赝标量和轴矢量关联函数的数据均显示出来自Nπ激发态的大污染。我们证明这些污染可以在领头阶通过手征微扰论（χPT）和轴矢量Ward恒等式（AWI，也称为部分守恒轴矢量流（PCAC）关系）加以控制。在去除Nπ污染并外推到物理π介子质量后，结果噪声较大：ḡ₀/(2F_π) = -7(63)×10⁻³ Θ̄。更精确的结果ḡ₀/(2F_π) = 17.4(1.9)×10⁻³ Θ̄是通过低能有效场论方法或等价地利用AWI获得的。由于Nπ激发态的污染出现在许多核子矩阵元的计算中，我们对其进行了详细讨论，并讨论了在ḡ₀计算中利用AWI控制这些污染的方法。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是：通过格点QCD计算由QCD Θ项诱导的CP破坏π-核子耦合常数ḡ₀，并处理Nπ激发态污染以获得可靠结果。</p>
-    <h4>方法</h4><p>采用的方法包括：使用MILC合作组的2+1+1味HISQ系综（a≈0.09 fm，m_π=313,226,138 MeV）；从核子基态中赝标量流与拓扑荷关联的矩阵元提取ḡ₀；利用手征微扰论（χPT）和轴矢量Ward恒等式（AWI/PCAC）在领头阶控制Nπ激发态污染；并进行物理π介子质量外推。</p>
-    <h4>主要发现</h4><p>原文明确支持的主要结果包括：直接矩阵元方法在去除Nπ污染并外推后得到ḡ₀/(2F_π) = -7(63)×10⁻³ Θ̄（噪声较大）；而利用低能有效场论方法或AWI得到更精确的结果ḡ₀/(2F_π) = 17.4(1.9)×10⁻³ Θ̄。</p>
-    <h4>局限与展望</h4><p>论文指出Nπ激发态污染在许多核子矩阵元计算中普遍存在，因此所讨论的AWI控制方法可能适用于其他类似计算。但论文未明确讨论局限性，可合理推断的结果需要进一步验证，例如在更小的格点间距和更大的体积上确认，或考虑更高阶的手征修正。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04142v1">
-  <div class="paper-head">
-    <h2>QCD中首个双强子形状因子的计算</h2>
-    <a href="https://arxiv.org/abs/2609.04142v1" rel="noopener noreferrer">2609.04142v1</a>
-  </div>
-  <p class="original-title">First Two-Hadron Form Factor from QCD</p>
-  <p class="meta"><strong>作者：</strong>Felipe G. Ortega-Gama、Raúl A. Briceño、Ivan M. Burbano、Robert G. Edwards</p>
-  <p class="meta"><strong>主分类：</strong>hep-lat
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们首次从QCD确定了能量依赖的双强子散射态形状因子。具体而言，我们在m_π≈400 MeV下，利用格点QCD计算了前向电磁π^+π^+ + γ→π^+π^+振幅的QCD贡献。由于格点计算在有限欧几里得时空中进行，其中不存在渐近散射态，因此该振幅无法直接从关联函数获得。相反，我们通过有限体积形式论非微扰地约束该振幅及相关振幅，这需要两个要素：离散的有限体积谱和电磁流的有限体积矩阵元。我们计算了耦合π^+π^+有限体积态的三点关联函数，并提取了相应的电磁矩阵元。将这些结果与先前确定的谱相结合，我们约束了前向极限下的无穷体积π^+π^+ + γ→π^+π^+振幅。利用洛伦兹对称性、幺正性和解析性的约束，我们将该振幅描述为单个实值能量依赖的双强子形状因子。所得振幅和形状因子在所有考虑的能量和运动框架下均满足Ward-Takahashi恒等式，这为该有限体积方法提供了首次QCD验证，并为从第一性原理研究共振态和多强子束缚态的电磁结构及电弱响应开辟了途径。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文旨在从QCD第一性原理确定双强子散射态的能量依赖形状因子，具体为计算前向电磁π^+π^+ + γ→π^+π^+振幅，并验证有限体积形式论的有效性。</p>
-    <h4>方法</h4><p>采用格点QCD方法，在有限体积中计算三点关联函数以提取电磁矩阵元，结合先前确定的有限体积谱，利用有限体积形式论约束无穷体积振幅，并基于洛伦兹对称性、幺正性和解析性将振幅参数化为单一形状因子。</p>
-    <h4>主要发现</h4><p>在m_π≈400 MeV下，计算得到的前向π^+π^+ + γ→π^+π^+振幅和形状因子在所有考虑的能量和运动框架下均满足Ward-Takahashi恒等式，提供了该有限体积方法的首次QCD验证。</p>
-    <h4>局限与展望</h4><p>该研究仅限于单一种类的双强子态和特定动量转移（前向极限），且π介子质量非物理。未来可推广到其他强子态、非前向运动学以及物理π介子质量，以研究共振态和多强子束缚态的电磁结构及电弱响应。</p>
-  </section>
-</article></main>
+  </main>
   <footer>
-    生成时间：2026-09-04 05:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+    生成时间：2026-09-04 15:50 UTC。中文内容由模型辅助生成，请以论文原文为准。
   </footer>
 </body>
 </html>

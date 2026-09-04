@@ -12,8 +12,28 @@
     header, main, footer { width: min(980px, calc(100% - 32px)); margin: auto; }
     header { padding: 40px 0 18px; }
     h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
     nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 24px 0 40px; }
+    .card { display: block; background: white; border-radius: 14px; padding: 22px 22px 18px; text-decoration: none; color: inherit; box-shadow: 0 5px 18px rgba(31,41,51,.07); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: .95rem; color: #3266a8; font-weight: 650; }
+    .card-name { margin-top: 4px; color: #465563; }
+    .card-count { margin-top: 18px; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .card-count span { font-size: 1rem; font-weight: 500; color: #667; margin-left: 4px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
     .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
     .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
     .paper h2 { margin: 0; line-height: 1.35; }
@@ -24,120 +44,39 @@
     .meta { color: #465563; }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
     .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
     .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
     footer { padding: 24px 0 46px; color: #667; }
     @media (max-width: 640px) {
       .paper { padding: 18px; }
       .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
     }
-  </style>
+</style>
   <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] } };
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
 </head>
 <body>
+
   <header>
-    <h1>arXiv nucl-ex 每日论文</h1>
-    <p>arXiv 官方公告日：2026-09-04 · 共 9 篇</p>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-09-04</p>
     <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">9</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">6</div></div>
+    </div>
   </header>
-  <main><article class="paper" id="paper-2608.00389v1">
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（3）</h3><ol class="toc-list"><li><a href="#paper-2609.03579v1">中子近阈值J/ψ光生截面的首次测量</a> <small>2609.03579v1</small></li><li><a href="#paper-2609.03636v1">62 MeV/核子下12C+12C前向角碎裂微分截面的测量</a> <small>2609.03636v1</small></li><li><a href="#paper-2609.03914v1">中子丰度氧离子与碳-12融合中的中子动力学</a> <small>2609.03914v1</small></li></ol><h3>交叉列表（6）</h3><ol class="toc-list"><li><a href="#paper-2608.00389v1">利用镜像核电荷半径差约束张量力项</a> <small>2608.00389v1</small></li><li><a href="#paper-2609.02989v1">利用HADES在T=4.53 GeV和T=1.60 GeV下质子-质子弹性散射测量微分截面与积分亮度</a> <small>2609.02989v1</small></li><li><a href="#paper-2609.03368v1">HERA和EIC的前导中子电产生：Sullivan过程、靶碎裂与π介子部分子分布函数</a> <small>2609.03368v1</small></li><li><a href="#paper-2609.03434v1">CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器</a> <small>2609.03434v1</small></li><li><a href="#paper-2609.03997v1">用共线激光荧光光谱测定$^{169}$Tm II中15个能级的磁偶极超精细常数</a> <small>2609.03997v1</small></li><li><a href="#paper-2609.04049v1">全重四夸克产生的TQ4Q2.0碎裂函数</a> <small>2609.04049v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2609.03579v1">
   <div class="paper-head">
-    <h2>利用镜像核电荷半径差约束张量力项</h2>
-    <a href="https://arxiv.org/abs/2608.00389v1" rel="noopener noreferrer">2608.00389v1</a>
-  </div>
-  <p class="original-title">Constraining tensor force terms with the charge radii difference of mirror-pair nuclei</p>
-  <p class="meta"><strong>作者：</strong>Yan Ya、Na Tang、Rong An</p>
-  <p class="meta"><strong>主分类：</strong>nucl-th
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>镜像核电荷半径差为确定非对称核物质中的相互作用成分提供了另一种探针。本工作利用近球形镜像核$^{54}$Ni-$^{54}$Fe和$^{36}$Ca-$^{36}$S的电荷半径差来约束Skyrme相互作用中张量项的强度。计算结果表明，镜像核电荷半径差与所采用的三重奇性和三重偶性张量分量强度之间存在线性关联。此外，镜像核电荷半径差对三重奇性参数$U$的强度比对三重偶性参数$T$的强度更为敏感。结合从磁偶极（M1）激发、电荷交换Gamow-Teller（GT）态和自旋偶极（SD）激发中获得的三重偶性张量部分的定量约束强度，进一步约束了SLy5和SGII有效相互作用中的三重奇性强度。这为约束张量力的适当强度提供了一种替代方法。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>如何利用镜像核电荷半径差来约束Skyrme相互作用中的张量力项强度？</p>
-    <h4>方法</h4><p>采用Skyrme Hartree-Fock（或类似）模型，计算近球形镜像核$^{54}$Ni-$^{54}$Fe和$^{36}$Ca-$^{36}$S的电荷半径差，并系统改变张量力参数（三重奇性$U$和三重偶性$T$）的强度，研究电荷半径差对参数的依赖性。</p>
-    <h4>主要发现</h4><p>镜像核电荷半径差与张量力三重奇性和三重偶性强度之间存在线性关联，且对三重奇性参数$U$更敏感。结合M1、GT和SD激发的约束，进一步限定了SLy5和SGII相互作用中三重奇性强度。</p>
-    <h4>局限与展望</h4><p>该方法为约束张量力强度提供了新途径，但可能依赖于模型假设（如近球形近似）和所选核素。未来可推广至其他镜像核或结合更多实验数据以增强约束。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.02989v1">
-  <div class="paper-head">
-    <h2>利用HADES在T=4.53 GeV和T=1.60 GeV下质子-质子弹性散射测量微分截面与积分亮度</h2>
-    <a href="https://arxiv.org/abs/2609.02989v1" rel="noopener noreferrer">2609.02989v1</a>
-  </div>
-  <p class="original-title">Measurement of Differential Cross Sections and Integrated Luminosity using Proton-Proton Elastic Scattering with HADES at T = 4.53 GeV and T = 1.60 GeV</p>
-  <p class="meta"><strong>作者：</strong>HADES Collaboration、R. Abou Yassine、J. Adamczewski-Musch、G. A. Appagere、M. Becker、A. Blanco、C. Blume、M. Bohman、Y. Bondar、L. Chlad、I. Ciepał、S. Deb、M. D. Doncel Monasterio、M. Duerr、W. Esmail、L. Fabbietti、M. Firlej、T. Fiutowski、A. M. Foda、J. Förtsch、P. Fonte、J. Friese、I. Fröhlich、T. Galatyuk、R. Gernhäuser、M. Grunwald、D. Grzonka、M. Gumberidze、S. Harabasz、T. Heinz、C. Höhne、F. Hojeij、R. Holzmann、M. Idzik、B. Kämpfer、K. -H. Kampert、B. Kardan、V. Kedych、S. Kim、V. Kladov、A. Kodym、M. Kohls、J. Kolas、G. Korcyl、G. Kornakov、W. Krueger、A. Kugler、R. Lalik、S. Lebedev、T. Leontiou、S. Linev、F. Linz、L. Lopes、M. Lorenz、A. Malige、P. Marciniewski、J. Markert、T. Matulewicz、J. G. Messchendorp、V. Metag、J. Michel、A. Molenda、J. Moron、C. Müntz、A. Mukherjee、M. Nabroth、A. Opíchal、J. Orliński、J. -H. Otto、M. Papenbrock、Y. Parpottas、M. Parschau、S. Pattnaik、C. Pauly、D. Pawlowska-Szymanska、V. Pechenov、O. Pechenova、G. Perez Andrade、J. Phan、K. Piasecki、J. Pietraszko、T. Povar、M. Predota、K. Prościński、A. Prozorov、W. Przygoda、B. Ramstein、N. Rathod、J. T. Rieger、J. Ritman、A. Rost、A. Rustamov、S. Sahu、P. Salabura、J. Saraiva、K. Scharmann、N. Schild、K. Schönning、E. Schwab、F. Seck、I. Selyuzhenkov、J. Smyrski、M. Sobiella、S. Spies、A. Sreejith、A. Strach、H. Ströbele、J. Stroth、P. Subramani、K. Sumara、O. Svoboda、K. Swientek、J. Taylor、P. E. Tegner、P. Tlusty、M. Traxler、S. Treliński、I. C. Udrea、F. Ulrich-Pur、V. Wagner、A. A. Weber、C. Wendisch、D. Wielanek、P. Wintz、A. Władyszewska、H. P. Zbroszczyk、M. Zieliński、P. Zumbruch</p>
-  <p class="meta"><strong>主分类：</strong>hep-ex
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>本文基于升级后的HADES探测器，利用动能为T=4.53 GeV和T=1.60 GeV的质子束轰击液氢靶，对质子-质子弹性散射进行了研究。这是升级后的探测器装置（包括为PANDA实验设计的、带有漂移管径迹探测平面的前向探测器）获得的首次测量。利用弹性散射的两体运动学约束关系，研究了探测器对准、束流对准，并给出了束流能量的最终测量值。此外，通过将HADES数据在四动量转移平方t的范围内与全球先前实验的测量结果进行归一化，确定了实验记录的亮度。进一步地，在较大的t范围内确定了微分截面，并提取了斜率参数B，在T=4.53 GeV和T=1.60 GeV下分别得到B = 8.98 ± 0.3 (GeV/c)^-2 和 7.3 ± 0.1 (GeV/c)^-2。这项工作为质子-质子弹性散射的世界数据库提供了贡献，为理论建模提供了输入，并为未来同能区实验的亮度测定提供了参考。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>利用升级后的HADES探测器测量质子-质子弹性散射的微分截面和积分亮度，并研究探测器对准和束流能量。</p>
-    <h4>方法</h4><p>使用HADES探测器收集质子束（T=4.53 GeV和1.60 GeV）与液氢靶的弹性散射数据；利用两体运动学约束进行对准和能量标定；通过将t分布与已有实验数据归一化确定亮度；在较大t范围内提取微分截面和斜率参数B。</p>
-    <h4>主要发现</h4><p>在T=4.53 GeV和1.60 GeV下，斜率参数B分别为8.98 ± 0.3 (GeV/c)^-2和7.3 ± 0.1 (GeV/c)^-2；成功确定了束流能量和实验亮度；提供了微分截面数据。</p>
-    <h4>局限与展望</h4><p>该测量为质子-质子弹性散射提供了新的数据点，可用于改进理论模型；同时为未来同能区实验的亮度监测提供了参考。但本文未明确讨论系统误差和模型依赖性，后续研究可进一步分析这些因素。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03368v1">
-  <div class="paper-head">
-    <h2>HERA和EIC的前导中子电产生：Sullivan过程、靶碎裂与π介子部分子分布函数</h2>
-    <a href="https://arxiv.org/abs/2609.03368v1" rel="noopener noreferrer">2609.03368v1</a>
-  </div>
-  <p class="original-title">Leading-Neutron Electroproduction at HERA and the EIC: Sullivan Process, Target Fragmentation, and Pion PDFs</p>
-  <p class="meta"><strong>作者：</strong>Wen-Chen Chang、Chia-Yu Hsieh、Satyajit Puhan</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>HERA上H1和ZEUS实验的前导中子电产生测量已被用于在Sullivan单π交换（OPE）框架内约束小动量分数x_π处的π介子部分子分布函数（PDFs），补充了π诱导的Drell-Yan测量在大x_π处的约束。以往的分析主要集中在大中子纵向动量分数x_L区域，在该区域深非弹性散射（DIS）靶碎裂的贡献受到抑制。本工作使用Pythia事件生成器对靶碎裂贡献进行建模，并表明其与OPE贡献的组合能够再现HERA前导中子数据在整个测量的x_L范围内的主要特征，而无需引入额外的特设归一化因子。这一结果展示了将更广泛的前导中子数据纳入未来全局分析的可能性，从而扩展对更小π动量分数x_π的敏感性。我们研究了与π-核子顶点形状因子相关的模型依赖性，并表明HERA数据对Pythia中实现的不同靶碎裂处理方式敏感。最后，我们给出了未来美国电子-离子对撞机（EIC）上前导中子产生的预测，确定了能够增强对π结构敏感性同时抑制DIS靶碎裂贡献的束流能量配置和运动学区域。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是如何利用HERA的前导中子电产生数据在Sullivan框架内约束π介子部分子分布函数，并探讨靶碎裂贡献的影响以及未来EIC的敏感性。</p>
-    <h4>方法</h4><p>使用Pythia事件生成器模拟靶碎裂贡献，并与OPE贡献结合，与HERA数据比较；研究π-核子顶点形状因子的模型依赖性；基于EIC设计进行预测。</p>
-    <h4>主要发现</h4><p>OPE与靶碎裂贡献的组合无需额外归一化因子即可再现HERA数据在整个x_L范围内的主要特征；HERA数据对靶碎裂处理方式敏感；EIC的某些束流能量和运动学区域能增强对π结构的敏感性并抑制靶碎裂贡献。</p>
-    <h4>局限与展望</h4><p>论文表明将更广泛的前导中子数据纳入未来全局分析是可行的，但模型依赖性（如形状因子和靶碎裂处理）仍需进一步研究；EIC的预测依赖于模拟，实际灵敏度需实验验证。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03434v1">
-  <div class="paper-head">
-    <h2>CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器</h2>
-    <a href="https://arxiv.org/abs/2609.03434v1" rel="noopener noreferrer">2609.03434v1</a>
-  </div>
-  <p class="original-title">CGC-py: A Monte Carlo Event Generator for Gluon Saturation Physics</p>
-  <p class="meta"><strong>作者：</strong>Haowu Duan、Cong Yi、Si-Wei Dai、Shu-Yi Wei、Wenbin Zhao、Liang Zheng</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们开发了CGC-py，一个用于深非弹性散射的蒙特卡洛事件产生器。它将γ*p(A)→q qbar+X的完整色玻璃凝聚（CGC）截面与基于部分子分支的横向动量依赖的后向初态簇射耦合，而Pythia 8处理末态辐射和强子化。CGC-py保留了完整的靶弹性和靶非弹性贡献，不采用背对背关联极限，从而允许从同一事件样本一致地产生单强子和双强子观测量。我们通过单包含夸克谱的解析闭合性测试以及ep碰撞中带电强子谱与H1数据的比较来验证该产生器，发现符合得很好。预测的核修正因子R_{eAu}^h显示出预期的饱和模式：在低p_T*处压低，随后在高p_T*处向1上升。与Pythia 6基线的比较以及x_g重标度研究表明，小x CGC演化和共线DGLAP动力学对双强子背对侧宽度随能量的增长贡献相当。真正的饱和驱动的展宽仅出现在所考虑的最高能量处。在CGC-py内，eAu碰撞相对于ep碰撞表现出增强的背对侧宽度和压低的背对背产额。这些核效应对EIC运动学而言仍然温和，这促使在最前向可及运动学处进行测量，并使用互补观测量以最大化对胶子饱和的灵敏度。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文旨在开发一个蒙特卡洛事件产生器，用于研究胶子饱和物理，特别是小x区域的CGC动力学，并能够一致地产生单强子和双强子观测量。</p>
-    <h4>方法</h4><p>将完整的CGC截面与部分子分支后向初态簇射耦合，结合Pythia 8进行末态辐射和强子化，保留靶弹性和非弹性贡献，不采用背对背关联极限。</p>
-    <h4>主要发现</h4><p>通过解析闭合性测试和H1数据比较验证了产生器；预测的核修正因子显示饱和模式；小x CGC演化和DGLAP动力学对双强子背对侧宽度增长贡献相当，真正的饱和展宽仅出现在最高能量；eAu碰撞相对于ep表现出增强的背对侧宽度和压低的背对背产额。</p>
-    <h4>局限与展望</h4><p>核效应在EIC运动学中温和，可能需要最前向运动学测量和互补观测量以增强对胶子饱和的灵敏度。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03579v1">
-  <div class="paper-head">
-    <h2>中子近阈值J/ψ光生截面的首次测量</h2>
+    <h2>中子近阈值J/ψ光生截面的首次测量<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03579v1" rel="noopener noreferrer">2609.03579v1</a>
   </div>
   <p class="original-title">First Measurement of Near-Threshold J/ψ Photoproduction on the Neutron</p>
@@ -157,10 +96,9 @@
     <h4>主要发现</h4><p>首次给出了中子近阈值J/ψ光生的总截面和t微分截面，以及束缚质子的非相干截面；束缚中子与束缚质子截面的比较提供了对产生机制的新约束；与自由质子结果比较显示核介质中胶子结构可能有修正的迹象，但依赖于提取假设和产生机制。</p>
     <h4>局限与展望</h4><p>由于测量基于液氘靶，束缚核子效应可能影响结果；结论依赖于理论模型和提取假设，未来需要更高精度数据和更完善的理论模型来确认核介质中胶子结构的修正，并进一步验证J/ψ光生作为胶子结构探针的可靠性。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03636v1">
+</article><article class="paper" id="paper-2609.03636v1">
   <div class="paper-head">
-    <h2>62 MeV/核子下12C+12C前向角碎裂微分截面的测量</h2>
+    <h2>62 MeV/核子下12C+12C前向角碎裂微分截面的测量<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03636v1" rel="noopener noreferrer">2609.03636v1</a>
   </div>
   <p class="original-title">Measurement of the forward angle $^{12}$C+$^{12}$C fragmentation differential cross sections at 62 MeV/nucleon</p>
@@ -180,10 +118,9 @@
     <h4>主要发现</h4><p>较重碎片的角分布更符合Van Bibber公式而非Goldhaber模型，表明耗散过程贡献显著；α粒子呈现异常窄的角分布，可能源于12C的团簇结构；与已有数据一致，并提出了运动学标度。</p>
     <h4>局限与展望</h4><p>该测量为约束反应机制和核结构模型提供了数据，但结果可能受限于特定角度范围和能量，未来可扩展至更广角度和能量范围以进一步验证模型。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03914v1">
+</article><article class="paper" id="paper-2609.03914v1">
   <div class="paper-head">
-    <h2>中子丰度氧离子与碳-12融合中的中子动力学</h2>
+    <h2>中子丰度氧离子与碳-12融合中的中子动力学<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03914v1" rel="noopener noreferrer">2609.03914v1</a>
   </div>
   <p class="original-title">Neutron dynamics in the fusion of neutron-rich O ions with $^{12}$C</p>
@@ -203,10 +140,97 @@
     <h4>主要发现</h4><p>首次测量了$^{21}$O + $^{12}$C的融合激发函数；实验数据表明提取的势垒高度V$_B$和势垒位置R$_B$依赖于中子过剩。</p>
     <h4>局限与展望</h4><p>论文未明确讨论局限，但可合理推断：DCTDHF与DCFHF的比较可能用于揭示中子动力学效应，但具体结论需进一步分析原文；后续研究可扩展至其他中子丰度体系或更重靶核。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03997v1">
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2608.00389v1">
   <div class="paper-head">
-    <h2>用共线激光荧光光谱测定$^{169}$Tm II中15个能级的磁偶极超精细常数</h2>
+    <h2>利用镜像核电荷半径差约束张量力项<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2608.00389v1" rel="noopener noreferrer">2608.00389v1</a>
+  </div>
+  <p class="original-title">Constraining tensor force terms with the charge radii difference of mirror-pair nuclei</p>
+  <p class="meta"><strong>作者：</strong>Yan Ya、Na Tang、Rong An</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>镜像核电荷半径差为确定非对称核物质中的相互作用成分提供了另一种探针。本工作利用近球形镜像核$^{54}$Ni-$^{54}$Fe和$^{36}$Ca-$^{36}$S的电荷半径差来约束Skyrme相互作用中张量项的强度。计算结果表明，镜像核电荷半径差与所采用的三重奇性和三重偶性张量分量强度之间存在线性关联。此外，镜像核电荷半径差对三重奇性参数$U$的强度比对三重偶性参数$T$的强度更为敏感。结合从磁偶极（M1）激发、电荷交换Gamow-Teller（GT）态和自旋偶极（SD）激发中获得的三重偶性张量部分的定量约束强度，进一步约束了SLy5和SGII有效相互作用中的三重奇性强度。这为约束张量力的适当强度提供了一种替代方法。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用镜像核电荷半径差来约束Skyrme相互作用中的张量力项强度？</p>
+    <h4>方法</h4><p>采用Skyrme Hartree-Fock（或类似）模型，计算近球形镜像核$^{54}$Ni-$^{54}$Fe和$^{36}$Ca-$^{36}$S的电荷半径差，并系统改变张量力参数（三重奇性$U$和三重偶性$T$）的强度，研究电荷半径差对参数的依赖性。</p>
+    <h4>主要发现</h4><p>镜像核电荷半径差与张量力三重奇性和三重偶性强度之间存在线性关联，且对三重奇性参数$U$更敏感。结合M1、GT和SD激发的约束，进一步限定了SLy5和SGII相互作用中三重奇性强度。</p>
+    <h4>局限与展望</h4><p>该方法为约束张量力强度提供了新途径，但可能依赖于模型假设（如近球形近似）和所选核素。未来可推广至其他镜像核或结合更多实验数据以增强约束。</p>
+  </section>
+</article><article class="paper" id="paper-2609.02989v1">
+  <div class="paper-head">
+    <h2>利用HADES在T=4.53 GeV和T=1.60 GeV下质子-质子弹性散射测量微分截面与积分亮度<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.02989v1" rel="noopener noreferrer">2609.02989v1</a>
+  </div>
+  <p class="original-title">Measurement of Differential Cross Sections and Integrated Luminosity using Proton-Proton Elastic Scattering with HADES at T = 4.53 GeV and T = 1.60 GeV</p>
+  <p class="meta"><strong>作者：</strong>HADES Collaboration、R. Abou Yassine、J. Adamczewski-Musch、G. A. Appagere、M. Becker、A. Blanco、C. Blume、M. Bohman、Y. Bondar、L. Chlad、I. Ciepał、S. Deb、M. D. Doncel Monasterio、M. Duerr、W. Esmail、L. Fabbietti、M. Firlej、T. Fiutowski、A. M. Foda、J. Förtsch、P. Fonte、J. Friese、I. Fröhlich、T. Galatyuk、R. Gernhäuser、M. Grunwald、D. Grzonka、M. Gumberidze、S. Harabasz、T. Heinz、C. Höhne、F. Hojeij、R. Holzmann、M. Idzik、B. Kämpfer、K. -H. Kampert、B. Kardan、V. Kedych、S. Kim、V. Kladov、A. Kodym、M. Kohls、J. Kolas、G. Korcyl、G. Kornakov、W. Krueger、A. Kugler、R. Lalik、S. Lebedev、T. Leontiou、S. Linev、F. Linz、L. Lopes、M. Lorenz、A. Malige、P. Marciniewski、J. Markert、T. Matulewicz、J. G. Messchendorp、V. Metag、J. Michel、A. Molenda、J. Moron、C. Müntz、A. Mukherjee、M. Nabroth、A. Opíchal、J. Orliński、J. -H. Otto、M. Papenbrock、Y. Parpottas、M. Parschau、S. Pattnaik、C. Pauly、D. Pawlowska-Szymanska、V. Pechenov、O. Pechenova、G. Perez Andrade、J. Phan、K. Piasecki、J. Pietraszko、T. Povar、M. Predota、K. Prościński、A. Prozorov、W. Przygoda、B. Ramstein、N. Rathod、J. T. Rieger、J. Ritman、A. Rost、A. Rustamov、S. Sahu、P. Salabura、J. Saraiva、K. Scharmann、N. Schild、K. Schönning、E. Schwab、F. Seck、I. Selyuzhenkov、J. Smyrski、M. Sobiella、S. Spies、A. Sreejith、A. Strach、H. Ströbele、J. Stroth、P. Subramani、K. Sumara、O. Svoboda、K. Swientek、J. Taylor、P. E. Tegner、P. Tlusty、M. Traxler、S. Treliński、I. C. Udrea、F. Ulrich-Pur、V. Wagner、A. A. Weber、C. Wendisch、D. Wielanek、P. Wintz、A. Władyszewska、H. P. Zbroszczyk、M. Zieliński、P. Zumbruch</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文基于升级后的HADES探测器，利用动能为T=4.53 GeV和T=1.60 GeV的质子束轰击液氢靶，对质子-质子弹性散射进行了研究。这是升级后的探测器装置（包括为PANDA实验设计的、带有漂移管径迹探测平面的前向探测器）获得的首次测量。利用弹性散射的两体运动学约束关系，研究了探测器对准、束流对准，并给出了束流能量的最终测量值。此外，通过将HADES数据在四动量转移平方t的范围内与全球先前实验的测量结果进行归一化，确定了实验记录的亮度。进一步地，在较大的t范围内确定了微分截面，并提取了斜率参数B，在T=4.53 GeV和T=1.60 GeV下分别得到B = 8.98 ± 0.3 (GeV/c)^-2 和 7.3 ± 0.1 (GeV/c)^-2。这项工作为质子-质子弹性散射的世界数据库提供了贡献，为理论建模提供了输入，并为未来同能区实验的亮度测定提供了参考。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>利用升级后的HADES探测器测量质子-质子弹性散射的微分截面和积分亮度，并研究探测器对准和束流能量。</p>
+    <h4>方法</h4><p>使用HADES探测器收集质子束（T=4.53 GeV和1.60 GeV）与液氢靶的弹性散射数据；利用两体运动学约束进行对准和能量标定；通过将t分布与已有实验数据归一化确定亮度；在较大t范围内提取微分截面和斜率参数B。</p>
+    <h4>主要发现</h4><p>在T=4.53 GeV和1.60 GeV下，斜率参数B分别为8.98 ± 0.3 (GeV/c)^-2和7.3 ± 0.1 (GeV/c)^-2；成功确定了束流能量和实验亮度；提供了微分截面数据。</p>
+    <h4>局限与展望</h4><p>该测量为质子-质子弹性散射提供了新的数据点，可用于改进理论模型；同时为未来同能区实验的亮度监测提供了参考。但本文未明确讨论系统误差和模型依赖性，后续研究可进一步分析这些因素。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03368v1">
+  <div class="paper-head">
+    <h2>HERA和EIC的前导中子电产生：Sullivan过程、靶碎裂与π介子部分子分布函数<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03368v1" rel="noopener noreferrer">2609.03368v1</a>
+  </div>
+  <p class="original-title">Leading-Neutron Electroproduction at HERA and the EIC: Sullivan Process, Target Fragmentation, and Pion PDFs</p>
+  <p class="meta"><strong>作者：</strong>Wen-Chen Chang、Chia-Yu Hsieh、Satyajit Puhan</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>HERA上H1和ZEUS实验的前导中子电产生测量已被用于在Sullivan单π交换（OPE）框架内约束小动量分数x_π处的π介子部分子分布函数（PDFs），补充了π诱导的Drell-Yan测量在大x_π处的约束。以往的分析主要集中在大中子纵向动量分数x_L区域，在该区域深非弹性散射（DIS）靶碎裂的贡献受到抑制。本工作使用Pythia事件生成器对靶碎裂贡献进行建模，并表明其与OPE贡献的组合能够再现HERA前导中子数据在整个测量的x_L范围内的主要特征，而无需引入额外的特设归一化因子。这一结果展示了将更广泛的前导中子数据纳入未来全局分析的可能性，从而扩展对更小π动量分数x_π的敏感性。我们研究了与π-核子顶点形状因子相关的模型依赖性，并表明HERA数据对Pythia中实现的不同靶碎裂处理方式敏感。最后，我们给出了未来美国电子-离子对撞机（EIC）上前导中子产生的预测，确定了能够增强对π结构敏感性同时抑制DIS靶碎裂贡献的束流能量配置和运动学区域。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是如何利用HERA的前导中子电产生数据在Sullivan框架内约束π介子部分子分布函数，并探讨靶碎裂贡献的影响以及未来EIC的敏感性。</p>
+    <h4>方法</h4><p>使用Pythia事件生成器模拟靶碎裂贡献，并与OPE贡献结合，与HERA数据比较；研究π-核子顶点形状因子的模型依赖性；基于EIC设计进行预测。</p>
+    <h4>主要发现</h4><p>OPE与靶碎裂贡献的组合无需额外归一化因子即可再现HERA数据在整个x_L范围内的主要特征；HERA数据对靶碎裂处理方式敏感；EIC的某些束流能量和运动学区域能增强对π结构的敏感性并抑制靶碎裂贡献。</p>
+    <h4>局限与展望</h4><p>论文表明将更广泛的前导中子数据纳入未来全局分析是可行的，但模型依赖性（如形状因子和靶碎裂处理）仍需进一步研究；EIC的预测依赖于模拟，实际灵敏度需实验验证。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03434v1">
+  <div class="paper-head">
+    <h2>CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03434v1" rel="noopener noreferrer">2609.03434v1</a>
+  </div>
+  <p class="original-title">CGC-py: A Monte Carlo Event Generator for Gluon Saturation Physics</p>
+  <p class="meta"><strong>作者：</strong>Haowu Duan、Cong Yi、Si-Wei Dai、Shu-Yi Wei、Wenbin Zhao、Liang Zheng</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们开发了CGC-py，一个用于深非弹性散射的蒙特卡洛事件产生器。它将γ*p(A)→q qbar+X的完整色玻璃凝聚（CGC）截面与基于部分子分支的横向动量依赖的后向初态簇射耦合，而Pythia 8处理末态辐射和强子化。CGC-py保留了完整的靶弹性和靶非弹性贡献，不采用背对背关联极限，从而允许从同一事件样本一致地产生单强子和双强子观测量。我们通过单包含夸克谱的解析闭合性测试以及ep碰撞中带电强子谱与H1数据的比较来验证该产生器，发现符合得很好。预测的核修正因子R_{eAu}^h显示出预期的饱和模式：在低p_T*处压低，随后在高p_T*处向1上升。与Pythia 6基线的比较以及x_g重标度研究表明，小x CGC演化和共线DGLAP动力学对双强子背对侧宽度随能量的增长贡献相当。真正的饱和驱动的展宽仅出现在所考虑的最高能量处。在CGC-py内，eAu碰撞相对于ep碰撞表现出增强的背对侧宽度和压低的背对背产额。这些核效应对EIC运动学而言仍然温和，这促使在最前向可及运动学处进行测量，并使用互补观测量以最大化对胶子饱和的灵敏度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文旨在开发一个蒙特卡洛事件产生器，用于研究胶子饱和物理，特别是小x区域的CGC动力学，并能够一致地产生单强子和双强子观测量。</p>
+    <h4>方法</h4><p>将完整的CGC截面与部分子分支后向初态簇射耦合，结合Pythia 8进行末态辐射和强子化，保留靶弹性和非弹性贡献，不采用背对背关联极限。</p>
+    <h4>主要发现</h4><p>通过解析闭合性测试和H1数据比较验证了产生器；预测的核修正因子显示饱和模式；小x CGC演化和DGLAP动力学对双强子背对侧宽度增长贡献相当，真正的饱和展宽仅出现在最高能量；eAu碰撞相对于ep表现出增强的背对侧宽度和压低的背对背产额。</p>
+    <h4>局限与展望</h4><p>核效应在EIC运动学中温和，可能需要最前向运动学测量和互补观测量以增强对胶子饱和的灵敏度。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03997v1">
+  <div class="paper-head">
+    <h2>用共线激光荧光光谱测定$^{169}$Tm II中15个能级的磁偶极超精细常数<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.03997v1" rel="noopener noreferrer">2609.03997v1</a>
   </div>
   <p class="original-title">Magnetic Dipole Hyperfine Constants of 15 Energy Levels in $^{169}$Tm II Determined by Collinear Laser Fluorescence Spectroscopy</p>
@@ -226,10 +250,9 @@
     <h4>主要发现</h4><p>确定了15个能级的磁偶极超精细常数，其中14个达到亚MHz精度；五个能级为首次测量，其余与文献一致且精度提高1-2个数量级；同时提供了改进的跃迁频率和相对强度。</p>
     <h4>局限与展望</h4><p>这些结果可用于量子计算、恒星光谱中Tm$^+$丰度建模，以及ISOLDE/CERN的短寿命Tm同位素测量项目。但论文未明确讨论局限性，后续可能扩展到其他同位素或更高精度测量。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04049v1">
+</article><article class="paper" id="paper-2609.04049v1">
   <div class="paper-head">
-    <h2>全重四夸克产生的TQ4Q2.0碎裂函数</h2>
+    <h2>全重四夸克产生的TQ4Q2.0碎裂函数<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04049v1" rel="noopener noreferrer">2609.04049v1</a>
   </div>
   <p class="original-title">TQ4Q2.0 Fragmentation Functions for Fully Heavy Tetraquark Production</p>
@@ -249,9 +272,10 @@
     <h4>主要发现</h4><p>论文提供了TQ4Q2.0碎裂函数集，该框架能够描述全重四夸克产生，并特别指出轴矢量扇区对LHC和FCC能量下的内禀粲夸克贡献敏感。</p>
     <h4>局限与展望</h4><p>论文未明确讨论局限性，但可推断该框架可用于更广泛的运动学范围，并可能为奇特强子谱学与质子部分子结构的关联提供工具。</p>
   </section>
-</article></main>
+</article>
+  </main>
   <footer>
-    生成时间：2026-09-04 05:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+    生成时间：2026-09-04 15:50 UTC。中文内容由模型辅助生成，请以论文原文为准。
   </footer>
 </body>
 </html>

@@ -12,8 +12,28 @@
     header, main, footer { width: min(980px, calc(100% - 32px)); margin: auto; }
     header { padding: 40px 0 18px; }
     h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
     nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 24px 0 40px; }
+    .card { display: block; background: white; border-radius: 14px; padding: 22px 22px 18px; text-decoration: none; color: inherit; box-shadow: 0 5px 18px rgba(31,41,51,.07); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: .95rem; color: #3266a8; font-weight: 650; }
+    .card-name { margin-top: 4px; color: #465563; }
+    .card-count { margin-top: 18px; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .card-count span { font-size: 1rem; font-weight: 500; color: #667; margin-left: 4px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
     .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
     .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
     .paper h2 { margin: 0; line-height: 1.35; }
@@ -24,74 +44,39 @@
     .meta { color: #465563; }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
     .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
     .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
     footer { padding: 24px 0 46px; color: #667; }
     @media (max-width: 640px) {
       .paper { padding: 18px; }
       .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
     }
-  </style>
+</style>
   <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] } };
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
 </head>
 <body>
+
   <header>
-    <h1>arXiv hep-th 每日论文</h1>
-    <p>arXiv 官方公告日：2026-09-04 · 共 29 篇</p>
+    <h1>hep-th · 高能理论</h1>
+    <p class="lede">官方公告日：2026-09-04</p>
     <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">29</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">17</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">12</div></div>
+    </div>
   </header>
-  <main><article class="paper" id="paper-2609.02142v1">
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（17）</h3><ol class="toc-list"><li><a href="#paper-2609.03001v1">渐近极限中势能的分类学</a> <small>2609.03001v1</small></li><li><a href="#paper-2609.03008v1">德西特时空中的引力反作用：正则ADM方法</a> <small>2609.03008v1</small></li><li><a href="#paper-2609.03013v1">从Z到a：高温关系、次领头半普适性与共形反常</a> <small>2609.03013v1</small></li><li><a href="#paper-2609.03023v1">表观奇点引发的全息零点与极点</a> <small>2609.03023v1</small></li><li><a href="#paper-2609.03043v1">怪兽准费米子缺陷与手征CFT中的其他非可逆对称性</a> <small>2609.03043v1</small></li><li><a href="#paper-2609.03071v1">跨普朗克问题与引力相互作用</a> <small>2609.03071v1</small></li><li><a href="#paper-2609.03126v1">IIB型超引力中的边值问题与全息原理</a> <small>2609.03126v1</small></li><li><a href="#paper-2609.03347v1">BF理论中的JT引力锥形缺陷：量子化、融合与加权模空间</a> <small>2609.03347v1</small></li><li><a href="#paper-2609.03525v1">中心扭转Gribov谱与精化Gribov–Zwanziger框架中的有限体积高斯响应</a> <small>2609.03525v1</small></li><li><a href="#paper-2609.03530v1">Kadyshevsky场论中的若干专题</a> <small>2609.03530v1</small></li><li><a href="#paper-2609.04016v1">α-z Rényi QNEC 的准局域形式：来自固定射线 escort 表示</a> <small>2609.04016v1</small></li><li><a href="#paper-2609.04035v1">尖角缺陷：尖角算子展开、共形性质与自举应用</a> <small>2609.04035v1</small></li><li><a href="#paper-2609.04041v1">切割角落：从尖点自举得到的令人兴奋的魔幻界限</a> <small>2609.04041v1</small></li><li><a href="#paper-2609.04099v1">SCFT/VOA对应与(A2,D3n-2) Argyres-Douglas理论的R-twisted约化</a> <small>2609.04099v1</small></li><li><a href="#paper-2609.04107v1">II型弦理论中SO(9)超表示的增长</a> <small>2609.04107v1</small></li><li><a href="#paper-2609.04137v1">轴子虫洞的边界条件、虚距离界限与KSW容许性</a> <small>2609.04137v1</small></li><li><a href="#paper-2609.04191v1">虫洞诱导引力轴子质量间隙的婴宇宙态依赖性</a> <small>2609.04191v1</small></li></ol><h3>交叉列表（12）</h3><ol class="toc-list"><li><a href="#paper-2609.02142v1">准晶暴胀：从宇宙学偶极到原初衍射</a> <small>2609.02142v1</small></li><li><a href="#paper-2609.02706v1">关于纽结的扭转长度猜想</a> <small>2609.02706v1</small></li><li><a href="#paper-2609.03007v1">极端质量比旋进中的潮汐增强共振：通向混沌的第三条路径</a> <small>2609.03007v1</small></li><li><a href="#paper-2609.03012v1">单场暴胀产生的宇宙微波背景辐射的普适相位相干性</a> <small>2609.03012v1</small></li><li><a href="#paper-2609.03034v1">中间维度（d=3,4,5,6）整数分拆渐近性的估计</a> <small>2609.03034v1</small></li><li><a href="#paper-2609.03053v1">多边界多体量子隐形传态</a> <small>2609.03053v1</small></li><li><a href="#paper-2609.03082v1">熵引力框架下的引力波与物质约束</a> <small>2609.03082v1</small></li><li><a href="#paper-2609.03152v1">膜、映射与层的实验</a> <small>2609.03152v1</small></li><li><a href="#paper-2609.03289v1">嵌入三维O(N)临界体的对称性破缺线缺陷</a> <small>2609.03289v1</small></li><li><a href="#paper-2609.03409v1">测量问题的与解释无关的表述</a> <small>2609.03409v1</small></li><li><a href="#paper-2609.04111v1">带有五维暗能量的旋转宇宙黑洞的动力学解</a> <small>2609.04111v1</small></li><li><a href="#paper-2609.04114v1">三维格点量子电动力学中的实时弦动力学</a> <small>2609.04114v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2609.03001v1">
   <div class="paper-head">
-    <h2>准晶暴胀：从宇宙学偶极到原初衍射</h2>
-    <a href="https://arxiv.org/abs/2609.02142v1" rel="noopener noreferrer">2609.02142v1</a>
-  </div>
-  <p class="original-title">Quasicrystalline Inflation: From the Cosmological Dipole to Primordial Diffraction</p>
-  <p class="meta"><strong>作者：</strong>Jiro Soda</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span> <span class="tag">gr-qc</span> <span class="tag">hep-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们提出准晶暴胀。六个准周期相位分解为三个声子和三个相位子。结果表明，相干纯相位子位移可以产生局域功率偶极，而线性无迹四极矩为零。从空间变化的二次有效场论出发，我们推导出非对角关联，其动量转移被限制为六个二十面体波矢的整数组合。这些关联的非对角信号提供了原初准周期序的特征性观测信号，即原初衍射。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文提出准晶暴胀模型，研究准周期序在暴胀期间可能留下的观测特征，特别是宇宙学偶极和原初衍射信号。</p>
-    <h4>方法</h4><p>通过将六个准周期相位分解为声子和相位子，分析纯相位子位移对功率偶极和四极矩的影响，并利用空间变化的二次有效场论推导非对角关联。</p>
-    <h4>主要发现</h4><p>相干纯相位子位移可以产生局域功率偶极，同时线性无迹四极矩为零；非对角关联的动量转移被限制为六个二十面体波矢的整数组合，形成原初衍射特征。</p>
-    <h4>局限与展望</h4><p>该模型提供了准周期序的独特观测特征，但尚未讨论具体观测可行性或与现有宇宙学数据的对比，后续可研究其信号强度及可探测性。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.02706v1">
-  <div class="paper-head">
-    <h2>关于纽结的扭转长度猜想</h2>
-    <a href="https://arxiv.org/abs/2609.02706v1" rel="noopener noreferrer">2609.02706v1</a>
-  </div>
-  <p class="original-title">On the length conjecture for twist knots</p>
-  <p class="meta"><strong>作者：</strong>Samuel Panitch、Mauricio Romo</p>
-  <p class="meta"><strong>主分类：</strong>math.GT
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">math.GT</span> <span class="tag">hep-th</span> <span class="tag">math.QA</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>利用新发展的三维量子迹映射，我们为长度猜想提供了更多证据。长度猜想是全阶体积猜想的细化，它考虑了纽结补的 skein 模中额外链环的插入。特别地，我们证明了对于无限族扭转纽结，长度猜想在一阶近似下成立。在此过程中，我们提出了一个猜想：三维量子迹映射在 Dehn 填充下具有自然行为。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>长度猜想是否对无限族扭转纽结成立？</p>
-    <h4>方法</h4><p>使用新发展的三维量子迹映射，并考虑 Dehn 填充下的自然性。</p>
-    <h4>主要发现</h4><p>证明了长度猜想对无限族扭转纽结在一阶近似下成立。</p>
-    <h4>局限与展望</h4><p>该证明仅涉及一阶近似，且依赖于三维量子迹映射的性质；未来可能推广到更高阶或更一般的纽结，但需进一步验证。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03001v1">
-  <div class="paper-head">
-    <h2>渐近极限中势能的分类学</h2>
+    <h2>渐近极限中势能的分类学<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03001v1" rel="noopener noreferrer">2609.03001v1</a>
   </div>
   <p class="original-title">Taxonomy of Potentials in Asymptotic Limits</p>
@@ -111,33 +96,9 @@
     <h4>主要发现</h4><p>主要结果包括：势能的主要贡献通常按余维1膜张力平方或余维0膜张力标度；势能贡献可由整数标记，对应Weyl变换性质和弦圈阶数；矢量 $\vec v$ 与余维0膜的 $\vec \alpha$ 位于同一格点；分类规则蕴含强渐近de Sitter猜想，并导致高阶导数修正被物种尺度压低。</p>
     <h4>局限与展望</h4><p>论文未明确讨论局限性，但可合理推断其分类规则在更广泛的量子引力框架中可能适用，但需进一步验证；后续方向可能包括探索非微扰效应或更一般的势能形式，以及分类规则在具体紧致化模型中的应用。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03007v1">
+</article><article class="paper" id="paper-2609.03008v1">
   <div class="paper-head">
-    <h2>极端质量比旋进中的潮汐增强共振：通向混沌的第三条路径</h2>
-    <a href="https://arxiv.org/abs/2609.03007v1" rel="noopener noreferrer">2609.03007v1</a>
-  </div>
-  <p class="original-title">Tidally-enhanced resonances in extreme-mass-ratio inspirals: A tertiary path to chaos</p>
-  <p class="meta"><strong>作者：</strong>Kyriakos Destounis、Takuya Katagiri、Sajal Mukherjee、Kostas D. Kokkotas</p>
-  <p class="meta"><strong>主分类：</strong>gr-qc
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nlin.CD</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>极端质量比旋进（EMRIs）为探测强场引力和复杂相对论动力学提供了独特实验室。我们研究了一个潮汐变形的EMRI系统，其中恒星质量次级体绕嵌入外部绝热变化潮汐环境的超大质量（非）旋转黑洞运行。这些系统提供了相对论三体问题的一种受限但具有天体物理动机的实现，预期出现在活动星系核中，具有清晰的质量层级和辐射反作用时间尺度。外部潮汐形变破坏了Kerr时空的轴对称性，使测地线动力学不可积并产生混沌运动。通过庞加莱截面和由束缚径向、极向和方位角运动基本频率之比构建的旋转曲线，刻画了不可积性的特征。我们识别出两个显著平台，其宽度随潮汐场振幅增加而增大，标志着从弱混沌到强混沌的转变。随后，我们展示了混沌动力学对轨道相对于潮汐场取向的敏感性。进一步分析作用-角变量的固有时演化，表明与主导共振相关的角组合被相位锁定，从而使相关潮汐贡献引起运动常数的长期变化，而平台外的角组合则循环。这些结果阐明了显著平台的动力学意义，并为EMRIs中的潮汐共振提供了新的相空间表征。最后，我们讨论了辐射反作用效应在驱动EMRIs穿越潮汐岛交叉中的潜在作用及其对未来探测器引力波推断的影响。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究外部绝热潮汐环境对极端质量比旋进（EMRI）系统动力学的影响，特别是潮汐形变如何破坏Kerr时空的轴对称性并导致混沌运动，以及这种混沌对引力波观测的潜在意义。</p>
-    <h4>方法</h4><p>采用理论分析和数值模拟方法，通过庞加莱截面和旋转曲线表征混沌，分析作用-角变量的演化以揭示共振的相位锁定效应，并讨论辐射反作用的影响。</p>
-    <h4>主要发现</h4><p>外部潮汐形变使测地线动力学不可积并产生混沌；识别出两个平台，其宽度随潮汐振幅增加而增大，表明从弱混沌到强混沌的转变；混沌动力学对轨道取向敏感；与主导共振相关的角组合被相位锁定，导致运动常数的长期变化，而平台外的角组合则循环。</p>
-    <h4>局限与展望</h4><p>论文讨论了辐射反作用可能驱动EMRI穿越潮汐岛交叉，但未定量分析；未来工作可进一步研究辐射反作用与混沌的耦合及其对引力波模板的影响，但需谨慎推断。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03008v1">
-  <div class="paper-head">
-    <h2>德西特时空中的引力反作用：正则ADM方法</h2>
+    <h2>德西特时空中的引力反作用：正则ADM方法<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03008v1" rel="noopener noreferrer">2609.03008v1</a>
   </div>
   <p class="original-title">Gravitational Backreaction in de Sitter: A Canonical ADM Approach</p>
@@ -157,33 +118,9 @@
     <h4>主要发现</h4><p>在单圈水平，标量场和引力子的反作用仅重新归一化宇宙学常数与哈勃参数之间的关系，不会引起对德西特演化的长期偏离。使用固定物理截断时，均匀背景方程可以用与时间和背景无关的系数进行重整化，而固定共动截断则不然。反作用的显式表示依赖于规范条件和背景-涨落分割，但不同表示通过规范变换等价。</p>
     <h4>局限与展望</h4><p>该研究仅限于精确德西特背景和单圈阶，对于暴胀期间更一般的几何（如慢滚近似）以及更高圈阶的效应尚未涉及。此外，规范依赖性的讨论表明，物理结果需通过规范不变观测来提取，未来可进一步研究规范不变的观测效应或扩展到非德西特背景。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03012v1">
+</article><article class="paper" id="paper-2609.03013v1">
   <div class="paper-head">
-    <h2>单场暴胀产生的宇宙微波背景辐射的普适相位相干性</h2>
-    <a href="https://arxiv.org/abs/2609.03012v1" rel="noopener noreferrer">2609.03012v1</a>
-  </div>
-  <p class="original-title">Universal CMB Phase Coherence from Single-Field Inflation</p>
-  <p class="meta"><strong>作者：</strong>Siméon Vareilles、Thomas Colas、Julien Grain、Federico Piazza、Vincent Vennin</p>
-  <p class="meta"><strong>主分类：</strong>astro-ph.CO
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">astro-ph.CO</span> <span class="tag">gr-qc</span> <span class="tag">hep-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>原初扰动的相位相干性塑造了宇宙微波背景辐射（CMB）的声学峰，并被视为暴胀的关键特征。不同能量尺度、因而具有不同持续时间的暴胀场景通常被认为会留下不同程度的相干性。我们表明这一预期是错误的：由于曲率扰动在超哈勃尺度上守恒，复合时期的相干性继承了仅由观测到的原初谱所确定的值。这一结论与暴胀能量尺度及随后的膨胀历史无关。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是：不同能量尺度（即不同持续时间）的暴胀场景是否会导致不同的CMB相位相干性？</p>
-    <h4>方法</h4><p>论文通过分析曲率扰动在超哈勃尺度上的守恒性，论证了复合时期CMB的相位相干性仅由观测到的原初谱决定，与暴胀能量尺度和后续膨胀历史无关。</p>
-    <h4>主要发现</h4><p>论文的主要结果是：暴胀场景的相位相干性并非依赖于暴胀能量尺度或持续时间，而是由原初谱唯一确定，因此具有普适性。</p>
-    <h4>局限与展望</h4><p>该结论的适用范围可能受限于单场暴胀模型以及曲率扰动在超哈勃尺度上严格守恒的假设。后续研究可探讨在多场暴胀或存在等曲率扰动的情况下，该普适性是否仍然成立。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03013v1">
-  <div class="paper-head">
-    <h2>从Z到a：高温关系、次领头半普适性与共形反常</h2>
+    <h2>从Z到a：高温关系、次领头半普适性与共形反常<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03013v1" rel="noopener noreferrer">2609.03013v1</a>
   </div>
   <p class="original-title">From $Z$ to $a$: High-temperature relations, subleading semi-universality, and conformal anomalies</p>
@@ -203,10 +140,9 @@
     <h4>主要发现</h4><p>主要结果是：局域性迫使 ln Z 在高温展开所有阶取简单解析形式，并施加无穷多尖锐关系（除 β^1 阶因外尔反常外均齐次）；a 反常可从配分函数提取；关系在快速转动展开中重求和为半普适极限及其修正的微分方程；这些关系在多种 CFT 中得到验证，并推广到任意偶数维，但奇数维无类似关系。</p>
     <h4>局限与展望</h4><p>论文未明确讨论局限，但可合理推断：结果适用于偶数维共形场论，奇数维不适用；验证限于若干具体模型，普适性有待进一步证明；后续方向可能包括探索这些关系在非共形或非局域理论中的推广，或利用微分方程更深入地理解半普适极限的结构。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03023v1">
+</article><article class="paper" id="paper-2609.03023v1">
   <div class="paper-head">
-    <h2>表观奇点引发的全息零点与极点</h2>
+    <h2>表观奇点引发的全息零点与极点<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03023v1" rel="noopener noreferrer">2609.03023v1</a>
   </div>
   <p class="original-title">Holographic zeros and poles from apparent singularities</p>
@@ -226,33 +162,9 @@
     <h4>主要发现</h4><p>表观奇点与边界的融合根据方程性质可能产生谱函数的零点或极点；全息乘积公式在存在表观奇点的情况下仍然适用。</p>
     <h4>局限与展望</h4><p>该结果可能对全息对偶中谱函数的解析结构有更深入的理解，但具体物理应用和更一般情形下的推广尚需进一步研究。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03034v1">
+</article><article class="paper" id="paper-2609.03043v1">
   <div class="paper-head">
-    <h2>中间维度（d=3,4,5,6）整数分拆渐近性的估计</h2>
-    <a href="https://arxiv.org/abs/2609.03034v1" rel="noopener noreferrer">2609.03034v1</a>
-  </div>
-  <p class="original-title">Estimating the asymptotics of integer partitions in intermediate dimensions ($d = 3,4,5,6$)</p>
-  <p class="meta"><strong>作者：</strong>Avinandan Mondal</p>
-  <p class="meta"><strong>主分类：</strong>math-ph
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">math-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-th</span> <span class="tag">math.CO</span> <span class="tag">math.MP</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>最近Yeliussizov证明了维度d≥7的整数分拆的渐近增长严格快于MacMahon数。由于MacMahon数与维度d=1,2的整数分拆一致，中间维度（d=3,4,5,6）的整数分拆渐近性与MacMahon数的比较仍是开放问题。本文采用自适应权重学习结合常规马尔可夫链蒙特卡洛（MCMC）步骤，对N=15000进行模拟，数值估计这些中间维度的整数分拆渐近性。我们数值上证实，在这些中间维度，分拆的渐近增长快于MacMahon数。具体地，假设极限存在，我们得到：lim_{n→∞} n^{-3/4} log p_3(n) = 1.8196 ± 0.0019，lim_{n→∞} n^{-4/5} log p_4(n) = 1.7215 ± 0.0045，lim_{n→∞} n^{-5/6} log p_5(n) = 1.6521 ± 0.0059，以及lim_{n→∞} n^{-6/7} log p_6(n) = 1.652 ± 0.021，分别对应维度d=3,4,5,6。这些数值均大于MacMahon数的首阶渐近系数1.7898, 1.6614, 1.5737和1.509。此外，我们还给出了各维度log p_d(n)中部分次主导渐近项的估计。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>在中间维度d=3,4,5,6，整数分拆的渐近增长是否快于MacMahon数？</p>
-    <h4>方法</h4><p>采用自适应权重学习结合常规马尔可夫链蒙特卡洛（MCMC）模拟，直至N=15000，数值估计渐近常数。</p>
-    <h4>主要发现</h4><p>数值结果表明，在d=3,4,5,6时，整数分拆的渐近增长快于MacMahon数，具体极限值（假设存在）分别为1.8196±0.0019, 1.7215±0.0045, 1.6521±0.0059, 1.652±0.021，均大于对应的MacMahon首阶系数。</p>
-    <h4>局限与展望</h4><p>由于结果是数值性的，且依赖于极限存在性假设，严格证明可能需要解析方法。此外，模拟误差和有限N可能影响精度，未来工作可考虑更高阶修正或更精确的数值方法。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03043v1">
-  <div class="paper-head">
-    <h2>怪兽准费米子缺陷与手征CFT中的其他非可逆对称性</h2>
+    <h2>怪兽准费米子缺陷与手征CFT中的其他非可逆对称性<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03043v1" rel="noopener noreferrer">2609.03043v1</a>
   </div>
   <p class="original-title">Monstrous parafermionic defects and other non-invertible symmetries in chiral CFTs</p>
@@ -272,33 +184,9 @@
     <h4>主要发现</h4><p>对于怪兽CFT V^♮，对每个Fricke非反常怪兽元素，证明了parafermion代数 su(2)_N/u(1) 的嵌入，并计算了交换子特征标；给出了全纯VOA自轨形的充分条件；在杂弦CFT中发现了新的拓扑缺陷；证明了若干VOA嵌入和拓扑缺陷的存在。</p>
     <h4>局限与展望</h4><p>本文的方法可能推广到其他CFT，但具体推广的适用范围和潜在限制未在原文中明确讨论，需进一步研究。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03053v1">
+</article><article class="paper" id="paper-2609.03071v1">
   <div class="paper-head">
-    <h2>多边界多体量子隐形传态</h2>
-    <a href="https://arxiv.org/abs/2609.03053v1" rel="noopener noreferrer">2609.03053v1</a>
-  </div>
-  <p class="original-title">Multi-Boundary Many-Body Quantum Teleportation</p>
-  <p class="meta"><strong>作者：</strong>Tal Schwartzman、Antonio F. Rotundo、Raz Monsonego、Shira Chapman</p>
-  <p class="meta"><strong>主分类：</strong>quant-ph
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>与标准量子隐形传态不同，多体隐形传态利用量子混沌（scrambling）来传输量子信息。该协议中，初始局域化的信息在多个自由度上扩散，随后通过系统间的简单耦合在接收端重新聚焦，再经过进一步的多体演化。该协议源于全息原理中的可穿越虫洞模型，已成为探测量子混沌的有效工具，尤其能在OTOC失效时区分真正的混沌与退相干或噪声，并揭示不同混沌机制的信号，包括全息系统预期的特殊行为。全息原理预言相关协议可在多边界虫洞几何的选定边界间传输信息。受此启发，我们研究了三个量子比特系统间的单比特多体隐形传态。初始态由分布在它们之间的EPR对构成，作为无限温度三边界全息态的简单类比。我们使用一维和全连接动力学，通过解析方法和随机电路数值模拟进行分析。我们发现，一旦扩散的信息到达与第三系统纠缠的量子比特区域，第三系统会抑制隐形传态。在一维情形下，成功隐形传态所需的最小耦合强度以及保真度都依赖于注入点到该区域的距离，这一特征类似于全息因果阴影。对于全连接动力学，成功隐形传态仅限于早期时间且与第三系统纠缠的量子比特数足够少。因此，第三系统提供了信息扩散的空间（或子系统）分辨能力，这是双边协议所不具备的。我们的结果向多体隐形传态网络迈出了一步。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究多边界多体量子隐形传态协议，具体探讨三个量子比特系统（三边界）中单比特信息的传输，以及第三系统如何影响隐形传态的成功率和保真度。</p>
-    <h4>方法</h4><p>采用解析和数值方法，使用随机电路模拟一维和全连接动力学，分析三系统间的EPR纠缠态下的隐形传态协议。</p>
-    <h4>主要发现</h4><p>第三系统会抑制隐形传态，当扩散的信息到达与第三系统纠缠的量子比特区域时。在一维动力学中，最小耦合强度和保真度依赖于注入点到纠缠区域的距离，类似全息因果阴影；在全连接动力学中，成功隐形传态仅限于早期时间和少量纠缠量子比特。</p>
-    <h4>局限与展望</h4><p>该研究为多体隐形传态网络提供了初步步骤，但仅限于单比特和三系统情形，未来可推广到更多边界或更高维系统，并探索与全息模型的更直接联系。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03071v1">
-  <div class="paper-head">
-    <h2>跨普朗克问题与引力相互作用</h2>
+    <h2>跨普朗克问题与引力相互作用<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03071v1" rel="noopener noreferrer">2609.03071v1</a>
   </div>
   <p class="original-title">The trans-Planckian problem and gravitational interactions</p>
@@ -318,33 +206,9 @@
     <h4>主要发现</h4><p>文章主要阐述Renaud Parentani的尝试，即通过上述方法捕捉可能抑制跨普朗克关联的机制，但未给出具体结果。</p>
     <h4>局限与展望</h4><p>文章指出存在相关问题与未决问题，但未明确说明局限性或后续方向。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03082v1">
+</article><article class="paper" id="paper-2609.03126v1">
   <div class="paper-head">
-    <h2>熵引力框架下的引力波与物质约束</h2>
-    <a href="https://arxiv.org/abs/2609.03082v1" rel="noopener noreferrer">2609.03082v1</a>
-  </div>
-  <p class="original-title">Gravitational Waves and Matter Constraints in Gravity from Entropy</p>
-  <p class="meta"><strong>作者：</strong>David S. Pereira</p>
-  <p class="meta"><strong>主分类：</strong>gr-qc
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">hep-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们证明，在一般的FLRW背景上，熵引力（GfE）表现出张量传播的病理现象。在真空中，在对称继承的单多重态扇区内，以及对于代数理想流体本构嵌入，严格主部TT系统仅在\dot H=K/a^2时具有非零实特征值。偏离该轨迹时，时间主根变为复数，表明存在高频双曲性障碍。在所陈述的各向同性假设下，秩定理进一步表明，一个基础多重态无法提供消除该问题所需的各向同性双矢响应。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>熵引力框架在一般FLRW背景上是否具有良性的张量传播性质？</p>
-    <h4>方法</h4><p>通过分析严格主部TT系统的特征值，并利用秩定理考察基础多重态能否提供各向同性双矢响应。</p>
-    <h4>主要发现</h4><p>在真空、对称继承单多重态扇区及代数理想流体本构嵌入下，仅当\dot H=K/a^2时存在非零实特征；否则时间主根为复数，表明高频双曲性障碍。此外，秩定理显示一个基础多重态无法提供所需的各向同性双矢响应。</p>
-    <h4>局限与展望</h4><p>该结果可能表明熵引力在一般FLRW背景上存在超曲性障碍，但结论限于所考虑的对称性和本构假设；未来工作可探索其他多重态组合或更一般的本构关系是否能恢复良性的传播性质。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03126v1">
-  <div class="paper-head">
-    <h2>IIB型超引力中的边值问题与全息原理</h2>
+    <h2>IIB型超引力中的边值问题与全息原理<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03126v1" rel="noopener noreferrer">2609.03126v1</a>
   </div>
   <p class="original-title">Boundary-Value Problem in Type IIB Supergravity and Holography</p>
@@ -364,56 +228,9 @@
     <h4>主要发现</h4><p>对于固定五形式荷系综，边界项重现了拓扑修正；在EAdS_3×S^3×M_4和EAdS_6×S^2×Σ背景上，十维在壳作用量与低维超引力精确匹配，从而与对偶SCFT的前导大N自由能一致。</p>
     <h4>局限与展望</h4><p>该工作将边界条件选择作为精确全息的关键要素，但仅限于特定背景；未来可推广到更一般的IIB超引力背景，并可能对全息对偶的系综解释提供进一步见解。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03152v1">
+</article><article class="paper" id="paper-2609.03347v1">
   <div class="paper-head">
-    <h2>膜、映射与层的实验</h2>
-    <a href="https://arxiv.org/abs/2609.03152v1" rel="noopener noreferrer">2609.03152v1</a>
-  </div>
-  <p class="original-title">Experiments with membranes, maps and sheaves</p>
-  <p class="meta"><strong>作者：</strong>Daniel Holmes、Yannik Schuler</p>
-  <p class="meta"><strong>主分类：</strong>math.AG
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">math.AG</span> <span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>受M理论猜想存在的启发，我们研究了具有环面作用的Calabi-Yau五维流形Z的计数不变量之间的对应关系网络。这包括五维Gromov-Witten不变量与三维流形X⊂Z的K理论Pandharipande-Thomas不变量之间的对应，该对应通过所谓的膜指标（Gopakumar-Vafa不变量的推广）实现。我们针对受限环面作用建立了条带几何的对应关系，并对一般环面作用进行了数值检验。此外，我们为闭顶点、局部曲面和局部射影空间提供了进一步的数值证据。对于后者，我们给出了其低度膜指标的猜想公式。当五维流形是仿射平面与合适环面簇的乘积时，我们证明了几何工程化，并将Pandharipande-Thomas不变量的生成级数与相应的瞬子配分函数等同，而Gromov-Witten级数的相等性则通过数值探测。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究了什么数学或物理问题？</p>
-    <h4>方法</h4><p>作者采用了什么方法？</p>
-    <h4>主要发现</h4><p>作者得到了哪些主要结果？</p>
-    <h4>局限与展望</h4><p>这些结果有什么局限或后续方向？</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03289v1">
-  <div class="paper-head">
-    <h2>嵌入三维O(N)临界体的对称性破缺线缺陷</h2>
-    <a href="https://arxiv.org/abs/2609.03289v1" rel="noopener noreferrer">2609.03289v1</a>
-  </div>
-  <p class="original-title">Symmetry-breaking line defects embedded to a 3D $O(N)$ critical bulk</p>
-  <p class="meta"><strong>作者：</strong>Shuai Yang、Liang-dong Hu、Yan Chen、W. Zhu</p>
-  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>在一维经典短程相互作用系统中，离散对称性的自发破缺通常不会发生，但嵌入临界体中的线缺陷可能表现出稳定的离散对称性自发破缺。本文研究了浸入保持在O(N) Wilson-Fisher临界点的三维体中的钉扎场线缺陷的行为。利用模糊球技术，我们提供了存在稳定缺陷共形不动点的有力证据，并通过g函数证明其重整化群稳定性，显示没有相关算符且有效自由度少于体不动点。此外，我们研究了不同N值下的缺陷畴壁算符，发现对于N≳3它变得无关，而对于N&lt;3则是相关的。这些证据表明，对于N&lt;3的Wilson-Fisher普适类，由于畴壁增殖，耦合到临界体的一维缺陷不能支持稳定的对称性破缺缺陷不动点，而对于N≳3，对称性破缺缺陷是可能的。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>嵌入三维O(N)临界体中的线缺陷是否能够表现出稳定的离散对称性自发破缺，以及其稳定性如何依赖于N？</p>
-    <h4>方法</h4><p>采用模糊球技术，研究钉扎场线缺陷在O(N) Wilson-Fisher临界点处的行为，通过g函数分析重整化群稳定性，并考察缺陷畴壁算符的相关性。</p>
-    <h4>主要发现</h4><p>存在稳定的缺陷共形不动点，且无相关算符，有效自由度少于体不动点；缺陷畴壁算符在N≳3时无关，在N&lt;3时相关。</p>
-    <h4>局限与展望</h4><p>结果表明，对于N&lt;3，缺陷不能支持对称性破缺，而对于N≳3则可能。该结论基于特定数值技术，可能受限于有限尺寸效应，未来可探索其他N值或更高精度验证，并推广到其他临界体或缺陷类型。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03347v1">
-  <div class="paper-head">
-    <h2>BF理论中的JT引力锥形缺陷：量子化、融合与加权模空间</h2>
+    <h2>BF理论中的JT引力锥形缺陷：量子化、融合与加权模空间<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03347v1" rel="noopener noreferrer">2609.03347v1</a>
   </div>
   <p class="original-title">Conical Defects in JT Gravity from BF Theory: Quantization, Fusion, and Weighted Moduli Spaces</p>
@@ -433,33 +250,9 @@
     <h4>主要发现</h4><p>原文明确支持的主要结果包括：BF可观测量能再现度规缺陷插入及其曲率源，并固定椭圆完整类；单缺陷圆盘振幅可直接从边界量子化获得；同一BF算符描述尖锐和钝缺陷，差异仅出现在多缺陷位置积分时；缺陷融合的容许条件与稳定性条件分别对应Hassett加权曲线的容许与稳定条件；结合Hassett紧化可恢复变形JT引力的团展开。</p>
     <h4>局限与展望</h4><p>论文主要针对亏格零情况，其方法可能推广到更高亏格或更一般的缺陷配置，但需进一步验证；BF形式与矩阵模型的等价性在缺陷存在时可能需更深入探讨；加权模空间与引力相变的联系可作为后续研究方向。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03409v1">
+</article><article class="paper" id="paper-2609.03525v1">
   <div class="paper-head">
-    <h2>测量问题的与解释无关的表述</h2>
-    <a href="https://arxiv.org/abs/2609.03409v1" rel="noopener noreferrer">2609.03409v1</a>
-  </div>
-  <p class="original-title">An interpretation-independent formulation of the measurement problem</p>
-  <p class="meta"><strong>作者：</strong>Antoine Soulas</p>
-  <p class="meta"><strong>主分类：</strong>quant-ph
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-th</span> <span class="tag">physics.hist-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>本文不试图解决测量问题，而是旨在恰当地表述它。测量问题缺乏精确且公认定义的原因之一是，该问题可能因所采用的量子力学解释不同而呈现非常不同的方面。受贝尔定理等与理论无关结果的方法论启发，我们提出以与解释无关的方式识别该谜团的共同根源，即仅作为经验统计的性质，然后再推导其哲学后果。关键观察是量子物质无法用柯尔莫哥洛夫概率论描述。论证概率论的柯尔莫哥洛夫公理是认识论不确定性的假设，我们从而将测量问题重新表述为：为量子物质构建独立于认识论的本体论是不可能的。换言之，不存在对量子系统的上帝视角。尽管以这种方式定义的测量问题无法解决，因为它是宇宙统计的一个特征，但这种表述可能带来额外益处。特别是，我们认为它能够：(i) 为各种解释的多样性提供新视角；(ii) 提出量子力学与广义相对论如此不相容的根本原因，而非依赖纯数学或技术论证；(iii) 为量子引力探索提供指导。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>如何以与解释无关的方式表述量子力学中的测量问题，从而识别其共同根源？</p>
-    <h4>方法</h4><p>借鉴贝尔定理等与理论无关结果的方法论，基于经验统计性质进行分析，论证量子物质无法用柯尔莫哥洛夫概率论描述，并将概率公理视为认识论不确定性的假设。</p>
-    <h4>主要发现</h4><p>测量问题可重新表述为：为量子物质构建独立于认识论的本体论是不可能的，即不存在对量子系统的上帝视角。该表述能解释各种解释的多样性，提供量子力学与广义相对论不相容的根本原因，并指导量子引力探索。</p>
-    <h4>局限与展望</h4><p>本文提出的表述将测量问题视为宇宙统计的特征，因此无法解决，但可能带来额外益处。后续方向可能包括进一步探讨该表述对量子引力研究的具体指导作用，以及其在不同解释框架下的适用性。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03525v1">
-  <div class="paper-head">
-    <h2>中心扭转Gribov谱与精化Gribov–Zwanziger框架中的有限体积高斯响应</h2>
+    <h2>中心扭转Gribov谱与精化Gribov–Zwanziger框架中的有限体积高斯响应<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03525v1" rel="noopener noreferrer">2609.03525v1</a>
   </div>
   <p class="original-title">Center-twisted Gribov spectra and the finite-volume Gaussian response in the refined Gribov--Zwanziger framework</p>
@@ -479,10 +272,9 @@
     <h4>主要发现</h4><p>对于最小不可约扭转，扭转谱等价于扩大环面上移除普通子格点的标量谱，且平坦代表处存在有限Faddeev–Popov间隙。RGZ核下，高斯积分中Zwanziger行列式抵消，鬼场扇区贡献无质量素数行列式，非扭转扇区含常数胶子模。有质量响应在大体积下指数抑制，无质量因子依赖全局零模归一化。高斯计算本身不能确立强中心涡旋凝聚判据，但分离了全局归一化问题并区分了全局扭转与动力学涡旋。</p>
     <h4>局限与展望</h4><p>论文未给出Z[B]/Z[0]的最终数值，因此强中心涡旋凝聚判据的验证仍需进一步处理全局零模/稳定子归一化问题。后续工作可能涉及非微扰方法或对全局测度的具体计算，以确定无质量因子的贡献。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03530v1">
+</article><article class="paper" id="paper-2609.03530v1">
   <div class="paper-head">
-    <h2>Kadyshevsky场论中的若干专题</h2>
+    <h2>Kadyshevsky场论中的若干专题<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03530v1" rel="noopener noreferrer">2609.03530v1</a>
   </div>
   <p class="original-title">Topics in Kadyshevsky Field Theory</p>
@@ -502,10 +294,9 @@
     <h4>主要发现</h4><p>本文构建了第二量子化准粒子形式，并基于此发展了泛函积分形式；建立了费曼与Kadyshevsky微扰论的关系；将Gross-Jackiw方法应用于含导数相互作用，特别是π-核子相互作用中的赝矢量NNπ、矢量NNρ和规范不变Δ33Nπ耦合。</p>
     <h4>局限与展望</h4><p>本文是讲义性质的笔记，未明确讨论局限性和后续方向。可合理推断，Kadyshevsky形式论中粒子在质壳上的特性可能有助于唯象应用，但需要进一步研究其与标准量子场论的可观测结果的一致性。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04016v1">
+</article><article class="paper" id="paper-2609.04016v1">
   <div class="paper-head">
-    <h2>α-z Rényi QNEC 的准局域形式：来自固定射线 escort 表示</h2>
+    <h2>α-z Rényi QNEC 的准局域形式：来自固定射线 escort 表示<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.04016v1" rel="noopener noreferrer">2609.04016v1</a>
   </div>
   <p class="original-title">Quasi-local form for $α$--$z$ Rényi QNEC from fixed-ray escorts</p>
@@ -525,10 +316,9 @@
     <h4>主要发现</h4><p>导出了 escort 平均的纠缠第一定律、α-z 信息核的 escort 平均表示，以及球状区域的 escort 平均 Bekenstein 型界。获得了 α-z QNEC 的准局域形式，其中包含 escort 输运项，并特化到 z=α 得到 Rényi QNEC 的类似形式。在自由标量场论中，对相干态激发显式计算了 Rényi QNEC，并验证了该族的对角 α-z QNEC（通过正零 Hessian）。</p>
     <h4>局限与展望</h4><p>论文主要针对共形场论中的球状区域和自由标量场论的相干态，其结论可能推广到更一般的态或区域，但需要进一步验证。escort 输运项的具体形式可能依赖于理论细节，其普适性尚待研究。此外，α-z QNEC 的猜想在更广泛背景下的证明仍需未来工作。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04035v1">
+</article><article class="paper" id="paper-2609.04035v1">
   <div class="paper-head">
-    <h2>尖角缺陷：尖角算子展开、共形性质与自举应用</h2>
+    <h2>尖角缺陷：尖角算子展开、共形性质与自举应用<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.04035v1" rel="noopener noreferrer">2609.04035v1</a>
   </div>
   <p class="original-title">Cusped Defects: Cusp Operator Expansion, Conformal Properties and Bootstrap Applications</p>
@@ -548,10 +338,9 @@
     <h4>主要发现</h4><p>证明了适当定义的尖角标度算子在一般共形变换下表现为初级算子；建立了尖角算子展开，使得一般形状的缺陷可展开为尖角缺陷的基；在局域磁场缺陷中验证了这些结果；并利用交叉方程得到了动力学尖角数据的解析约束。</p>
     <h4>局限与展望</h4><p>论文的结果可能为数值共形自举提供新的应用，但具体应用细节和局限性未在摘要中明确说明，需进一步研究。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04041v1">
+</article><article class="paper" id="paper-2609.04041v1">
   <div class="paper-head">
-    <h2>切割角落：从尖点自举得到的令人兴奋的魔幻界限</h2>
+    <h2>切割角落：从尖点自举得到的令人兴奋的魔幻界限<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.04041v1" rel="noopener noreferrer">2609.04041v1</a>
   </div>
   <p class="original-title">Cutting corners: exciting and magical bounds from the cusp bootstrap</p>
@@ -571,10 +360,9 @@
     <h4>主要发现</h4><p>证明了对于共轭缺陷的尖点，最轻单态尖点与任何非单态尖点之间禁止能级交叉，因此单态尖点是最轻的；找到了一个解析的“魔幻”泛函，给出了直角裸尖点维度的最优普适下界，该下界由缺陷与共轭缺陷在平直空间中的普适卡西米尔能量决定。</p>
     <h4>局限与展望</h4><p>该结果可能推广到其他几何或更一般的缺陷，但论文未明确讨论；未来可探索“魔幻”泛函在其他自举问题中的应用，或考虑非共形情况，但需谨慎推断。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04099v1">
+</article><article class="paper" id="paper-2609.04099v1">
   <div class="paper-head">
-    <h2>SCFT/VOA对应与(A2,D3n-2) Argyres-Douglas理论的R-twisted约化</h2>
+    <h2>SCFT/VOA对应与(A2,D3n-2) Argyres-Douglas理论的R-twisted约化<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.04099v1" rel="noopener noreferrer">2609.04099v1</a>
   </div>
   <p class="original-title">SCFT/VOA correspondence and R-twisted reductions of $(A_2,D_{3n-2})$ Argyres--Douglas theories</p>
@@ -594,10 +382,9 @@
     <h4>主要发现</h4><p>提出关联VOA为对数双重代数A(4n-2)；提出3d N=2阿贝尔Chern-Simons物质理论族，其流向3d N=4 SCFT；Coulomb分支为C^2/Z_2；超共形指标支持红外不动点及N=4增强。</p>
     <h4>局限与展望</h4><p>该对应和3d构造可能进一步推广至其他Argyres-Douglas理论或更一般的VOA，但需进一步研究。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04107v1">
+</article><article class="paper" id="paper-2609.04107v1">
   <div class="paper-head">
-    <h2>II型弦理论中SO(9)超表示的增长</h2>
+    <h2>II型弦理论中SO(9)超表示的增长<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.04107v1" rel="noopener noreferrer">2609.04107v1</a>
   </div>
   <p class="original-title">The growth of $SO(9)$ super-representations in Type II string theory</p>
@@ -617,10 +404,273 @@
     <h4>主要发现</h4><p>找到了指定每个能级出现的表示的经验公式，计算了单个表示和所有表示的多重性，推导了任意表示增长的渐近公式，并发现表示多重性同时包含偶数和奇数Rademacher项的贡献，而超弦配分函数仅包含奇数项。</p>
     <h4>局限与展望</h4><p>论文的方法可应用于普通表示，且简化的配分函数提高了计算速度。未来可能进一步研究更高能级或更一般的表示，但文中未明确提及，需谨慎推断。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04111v1">
+</article><article class="paper" id="paper-2609.04137v1">
   <div class="paper-head">
-    <h2>带有五维暗能量的旋转宇宙黑洞的动力学解</h2>
+    <h2>轴子虫洞的边界条件、虚距离界限与KSW容许性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04137v1" rel="noopener noreferrer">2609.04137v1</a>
+  </div>
+  <p class="original-title">Boundary conditions for axionic wormholes, imaginary distance bound and KSW allowability</p>
+  <p class="meta"><strong>作者：</strong>Shubhashis Mallik、Neha、Gaurav Narain</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们利用对偶标量场和三形式通量表述，在洛伦兹迷你超空间路径积分中研究四维轴子虫洞。我们针对一般度量边界条件和实lapse积分轮廓分析该对偶性，并证明其在任意背景（包括复背景）下成立。在度量上采用Dirichlet条件时，固定通量路径积分可精确计算。在欧几里得区域，鞍点几何根据两个边界位于喉部同侧或对侧，组织成Giddings-Strominger (GS)虫洞的同侧段和跨喉段。在lapse覆盖平面上的Picard-Lefschetz分析表明，跨喉鞍点的相交数为零，因此不贡献。在渐近平坦极限中，它对应于饱和虚距离界限(IDB)的虚虫洞。同样的结论独立地在对偶标量侧得出，并由精确振幅确认。将Dirichlet条件替换为单参数Neumann条件，导致虚虫洞的跨喉鞍点对于轮廓的物理提升仍然无关。表征Neumann条件的纯虚参数在半虫洞和完整虫洞几何之间连续插值。固定电荷扇区求和的收敛性施加了一个相应的插值界限，不仅对边界轴子的虚部，而且对表征Neumann边界条件的参数。基于KSW准则的独立分析精确地再现了相同的界限，强调其与IDB的兼容性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究四维轴子虫洞在洛伦兹迷你超空间路径积分中的边界条件，特别是Dirichlet和Neumann边界条件对虫洞贡献的影响，以及虚距离界限(IDB)与KSW容许性之间的关系。</p>
+    <h4>方法</h4><p>采用对偶标量场和三形式通量表述，通过精确计算固定通量路径积分，结合Picard-Lefschetz分析鞍点贡献，并比较不同边界条件（Dirichlet和单参数Neumann）下的结果，最后用KSW准则独立验证。</p>
+    <h4>主要发现</h4><p>在Dirichlet边界条件下，跨喉鞍点相交数为零，不贡献，对应虚虫洞并饱和IDB；在Neumann条件下，跨喉鞍点仍不相关，且参数插值界限与KSW准则给出的界限一致。</p>
+    <h4>局限与展望</h4><p>该研究主要限于迷你超空间模型，未来可推广到更一般的背景或更高维情形，并进一步探讨边界条件对虫洞物理的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04191v1">
+  <div class="paper-head">
+    <h2>虫洞诱导引力轴子质量间隙的婴宇宙态依赖性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04191v1" rel="noopener noreferrer">2609.04191v1</a>
+  </div>
+  <p class="original-title">Baby-universe state dependence of the wormhole-induced gravi-axion mass gap</p>
+  <p class="meta"><strong>作者：</strong>Amin Rezaei Akbarieh</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>欧几里得虫洞可以破坏轴子的平移对称性，当这种对称性被破坏时，轴子会获得周期性势能，该势能极小点处的曲率可给出轴子质量。本文认真对待以下假设：虫洞的存在本身并不意味着轴子质量被唯一确定，还需要更多信息才能确定它。我们首先证明，对于具有O(4)对称性的Giddings-Strominger虫洞，引力Pontryagin密度为零，因此动力学Chern-Simons相互作用可以影响量子效应，包括行列式相位和费米子选择定则，而不改变经典虫洞作用量。我们还得出结论，在固定的α扇区中，轴子可以具有特定质量，但该质量依赖于婴宇宙态，并非普适值。然后，对于给出条件质量分布的α扇区混合情况，我们证明平均谱测度的下边缘由条件质量平方在α分布上的本质下确界决定。最后，我们得出结论：即使几乎所有单个扇区都有质量且平均质量平方非零，如果测度的支集在对称点α=0处累积，平均谱测度将是无隙的。为澄清讨论，我们考虑一个清晰的例子，即高斯婴宇宙态，并证明在该态中谱阈值从零开始且不存在孤立的质量极点。因此，在不指定婴宇宙态的情况下，从虫洞预测引力轴子的质量和宇宙学并非唯一的、与态无关的预测。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在欧几里得虫洞诱导轴子质量的情境下，轴子质量是否唯一确定，以及它如何依赖于婴宇宙态？</p>
+    <h4>方法</h4><p>采用理论分析方法，结合Giddings-Strominger虫洞的对称性，分析引力Pontryagin密度和Chern-Simons相互作用对量子效应的影响，并研究固定α扇区和混合α扇区中轴子质量谱的性质，通过高斯婴宇宙态的例子进行说明。</p>
+    <h4>主要发现</h4><p>主要结果包括：1) 对于O(4)对称的Giddings-Strominger虫洞，引力Pontryagin密度为零，因此Chern-Simons相互作用不影响经典虫洞作用量，但影响量子效应；2) 在固定α扇区中，轴子质量依赖于婴宇宙态，并非普适；3) 在混合α扇区中，平均谱测度的下边缘由条件质量平方的本质下确界决定；4) 即使几乎所有扇区都有质量且平均质量平方非零，若测度支集在α=0处累积，平均谱测度将无隙；5) 高斯婴宇宙态的例子表明谱阈值从零开始，无孤立质量极点。</p>
+    <h4>局限与展望</h4><p>论文的结论表明，从虫洞预测引力轴子质量需要指定婴宇宙态，否则预测不是唯一的。这暗示了在量子引力背景下，轴子质量可能依赖于宇宙波函数的具体形式，未来研究可探索其他婴宇宙态或更一般的态对轴子质量谱的影响，以及这种依赖性对宇宙学观测的可能影响。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2609.02142v1">
+  <div class="paper-head">
+    <h2>准晶暴胀：从宇宙学偶极到原初衍射<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.02142v1" rel="noopener noreferrer">2609.02142v1</a>
+  </div>
+  <p class="original-title">Quasicrystalline Inflation: From the Cosmological Dipole to Primordial Diffraction</p>
+  <p class="meta"><strong>作者：</strong>Jiro Soda</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span> <span class="tag">gr-qc</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们提出准晶暴胀。六个准周期相位分解为三个声子和三个相位子。结果表明，相干纯相位子位移可以产生局域功率偶极，而线性无迹四极矩为零。从空间变化的二次有效场论出发，我们推导出非对角关联，其动量转移被限制为六个二十面体波矢的整数组合。这些关联的非对角信号提供了原初准周期序的特征性观测信号，即原初衍射。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文提出准晶暴胀模型，研究准周期序在暴胀期间可能留下的观测特征，特别是宇宙学偶极和原初衍射信号。</p>
+    <h4>方法</h4><p>通过将六个准周期相位分解为声子和相位子，分析纯相位子位移对功率偶极和四极矩的影响，并利用空间变化的二次有效场论推导非对角关联。</p>
+    <h4>主要发现</h4><p>相干纯相位子位移可以产生局域功率偶极，同时线性无迹四极矩为零；非对角关联的动量转移被限制为六个二十面体波矢的整数组合，形成原初衍射特征。</p>
+    <h4>局限与展望</h4><p>该模型提供了准周期序的独特观测特征，但尚未讨论具体观测可行性或与现有宇宙学数据的对比，后续可研究其信号强度及可探测性。</p>
+  </section>
+</article><article class="paper" id="paper-2609.02706v1">
+  <div class="paper-head">
+    <h2>关于纽结的扭转长度猜想<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.02706v1" rel="noopener noreferrer">2609.02706v1</a>
+  </div>
+  <p class="original-title">On the length conjecture for twist knots</p>
+  <p class="meta"><strong>作者：</strong>Samuel Panitch、Mauricio Romo</p>
+  <p class="meta"><strong>主分类：</strong>math.GT
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.GT</span> <span class="tag">hep-th</span> <span class="tag">math.QA</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>利用新发展的三维量子迹映射，我们为长度猜想提供了更多证据。长度猜想是全阶体积猜想的细化，它考虑了纽结补的 skein 模中额外链环的插入。特别地，我们证明了对于无限族扭转纽结，长度猜想在一阶近似下成立。在此过程中，我们提出了一个猜想：三维量子迹映射在 Dehn 填充下具有自然行为。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>长度猜想是否对无限族扭转纽结成立？</p>
+    <h4>方法</h4><p>使用新发展的三维量子迹映射，并考虑 Dehn 填充下的自然性。</p>
+    <h4>主要发现</h4><p>证明了长度猜想对无限族扭转纽结在一阶近似下成立。</p>
+    <h4>局限与展望</h4><p>该证明仅涉及一阶近似，且依赖于三维量子迹映射的性质；未来可能推广到更高阶或更一般的纽结，但需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03007v1">
+  <div class="paper-head">
+    <h2>极端质量比旋进中的潮汐增强共振：通向混沌的第三条路径<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03007v1" rel="noopener noreferrer">2609.03007v1</a>
+  </div>
+  <p class="original-title">Tidally-enhanced resonances in extreme-mass-ratio inspirals: A tertiary path to chaos</p>
+  <p class="meta"><strong>作者：</strong>Kyriakos Destounis、Takuya Katagiri、Sajal Mukherjee、Kostas D. Kokkotas</p>
+  <p class="meta"><strong>主分类：</strong>gr-qc
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>极端质量比旋进（EMRIs）为探测强场引力和复杂相对论动力学提供了独特实验室。我们研究了一个潮汐变形的EMRI系统，其中恒星质量次级体绕嵌入外部绝热变化潮汐环境的超大质量（非）旋转黑洞运行。这些系统提供了相对论三体问题的一种受限但具有天体物理动机的实现，预期出现在活动星系核中，具有清晰的质量层级和辐射反作用时间尺度。外部潮汐形变破坏了Kerr时空的轴对称性，使测地线动力学不可积并产生混沌运动。通过庞加莱截面和由束缚径向、极向和方位角运动基本频率之比构建的旋转曲线，刻画了不可积性的特征。我们识别出两个显著平台，其宽度随潮汐场振幅增加而增大，标志着从弱混沌到强混沌的转变。随后，我们展示了混沌动力学对轨道相对于潮汐场取向的敏感性。进一步分析作用-角变量的固有时演化，表明与主导共振相关的角组合被相位锁定，从而使相关潮汐贡献引起运动常数的长期变化，而平台外的角组合则循环。这些结果阐明了显著平台的动力学意义，并为EMRIs中的潮汐共振提供了新的相空间表征。最后，我们讨论了辐射反作用效应在驱动EMRIs穿越潮汐岛交叉中的潜在作用及其对未来探测器引力波推断的影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究外部绝热潮汐环境对极端质量比旋进（EMRI）系统动力学的影响，特别是潮汐形变如何破坏Kerr时空的轴对称性并导致混沌运动，以及这种混沌对引力波观测的潜在意义。</p>
+    <h4>方法</h4><p>采用理论分析和数值模拟方法，通过庞加莱截面和旋转曲线表征混沌，分析作用-角变量的演化以揭示共振的相位锁定效应，并讨论辐射反作用的影响。</p>
+    <h4>主要发现</h4><p>外部潮汐形变使测地线动力学不可积并产生混沌；识别出两个平台，其宽度随潮汐振幅增加而增大，表明从弱混沌到强混沌的转变；混沌动力学对轨道取向敏感；与主导共振相关的角组合被相位锁定，导致运动常数的长期变化，而平台外的角组合则循环。</p>
+    <h4>局限与展望</h4><p>论文讨论了辐射反作用可能驱动EMRI穿越潮汐岛交叉，但未定量分析；未来工作可进一步研究辐射反作用与混沌的耦合及其对引力波模板的影响，但需谨慎推断。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03012v1">
+  <div class="paper-head">
+    <h2>单场暴胀产生的宇宙微波背景辐射的普适相位相干性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03012v1" rel="noopener noreferrer">2609.03012v1</a>
+  </div>
+  <p class="original-title">Universal CMB Phase Coherence from Single-Field Inflation</p>
+  <p class="meta"><strong>作者：</strong>Siméon Vareilles、Thomas Colas、Julien Grain、Federico Piazza、Vincent Vennin</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.CO
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.CO</span> <span class="tag">gr-qc</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>原初扰动的相位相干性塑造了宇宙微波背景辐射（CMB）的声学峰，并被视为暴胀的关键特征。不同能量尺度、因而具有不同持续时间的暴胀场景通常被认为会留下不同程度的相干性。我们表明这一预期是错误的：由于曲率扰动在超哈勃尺度上守恒，复合时期的相干性继承了仅由观测到的原初谱所确定的值。这一结论与暴胀能量尺度及随后的膨胀历史无关。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：不同能量尺度（即不同持续时间）的暴胀场景是否会导致不同的CMB相位相干性？</p>
+    <h4>方法</h4><p>论文通过分析曲率扰动在超哈勃尺度上的守恒性，论证了复合时期CMB的相位相干性仅由观测到的原初谱决定，与暴胀能量尺度和后续膨胀历史无关。</p>
+    <h4>主要发现</h4><p>论文的主要结果是：暴胀场景的相位相干性并非依赖于暴胀能量尺度或持续时间，而是由原初谱唯一确定，因此具有普适性。</p>
+    <h4>局限与展望</h4><p>该结论的适用范围可能受限于单场暴胀模型以及曲率扰动在超哈勃尺度上严格守恒的假设。后续研究可探讨在多场暴胀或存在等曲率扰动的情况下，该普适性是否仍然成立。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03034v1">
+  <div class="paper-head">
+    <h2>中间维度（d=3,4,5,6）整数分拆渐近性的估计<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03034v1" rel="noopener noreferrer">2609.03034v1</a>
+  </div>
+  <p class="original-title">Estimating the asymptotics of integer partitions in intermediate dimensions ($d = 3,4,5,6$)</p>
+  <p class="meta"><strong>作者：</strong>Avinandan Mondal</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-th</span> <span class="tag">math.CO</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>最近Yeliussizov证明了维度d≥7的整数分拆的渐近增长严格快于MacMahon数。由于MacMahon数与维度d=1,2的整数分拆一致，中间维度（d=3,4,5,6）的整数分拆渐近性与MacMahon数的比较仍是开放问题。本文采用自适应权重学习结合常规马尔可夫链蒙特卡洛（MCMC）步骤，对N=15000进行模拟，数值估计这些中间维度的整数分拆渐近性。我们数值上证实，在这些中间维度，分拆的渐近增长快于MacMahon数。具体地，假设极限存在，我们得到：lim_{n→∞} n^{-3/4} log p_3(n) = 1.8196 ± 0.0019，lim_{n→∞} n^{-4/5} log p_4(n) = 1.7215 ± 0.0045，lim_{n→∞} n^{-5/6} log p_5(n) = 1.6521 ± 0.0059，以及lim_{n→∞} n^{-6/7} log p_6(n) = 1.652 ± 0.021，分别对应维度d=3,4,5,6。这些数值均大于MacMahon数的首阶渐近系数1.7898, 1.6614, 1.5737和1.509。此外，我们还给出了各维度log p_d(n)中部分次主导渐近项的估计。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在中间维度d=3,4,5,6，整数分拆的渐近增长是否快于MacMahon数？</p>
+    <h4>方法</h4><p>采用自适应权重学习结合常规马尔可夫链蒙特卡洛（MCMC）模拟，直至N=15000，数值估计渐近常数。</p>
+    <h4>主要发现</h4><p>数值结果表明，在d=3,4,5,6时，整数分拆的渐近增长快于MacMahon数，具体极限值（假设存在）分别为1.8196±0.0019, 1.7215±0.0045, 1.6521±0.0059, 1.652±0.021，均大于对应的MacMahon首阶系数。</p>
+    <h4>局限与展望</h4><p>由于结果是数值性的，且依赖于极限存在性假设，严格证明可能需要解析方法。此外，模拟误差和有限N可能影响精度，未来工作可考虑更高阶修正或更精确的数值方法。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03053v1">
+  <div class="paper-head">
+    <h2>多边界多体量子隐形传态<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03053v1" rel="noopener noreferrer">2609.03053v1</a>
+  </div>
+  <p class="original-title">Multi-Boundary Many-Body Quantum Teleportation</p>
+  <p class="meta"><strong>作者：</strong>Tal Schwartzman、Antonio F. Rotundo、Raz Monsonego、Shira Chapman</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>与标准量子隐形传态不同，多体隐形传态利用量子混沌（scrambling）来传输量子信息。该协议中，初始局域化的信息在多个自由度上扩散，随后通过系统间的简单耦合在接收端重新聚焦，再经过进一步的多体演化。该协议源于全息原理中的可穿越虫洞模型，已成为探测量子混沌的有效工具，尤其能在OTOC失效时区分真正的混沌与退相干或噪声，并揭示不同混沌机制的信号，包括全息系统预期的特殊行为。全息原理预言相关协议可在多边界虫洞几何的选定边界间传输信息。受此启发，我们研究了三个量子比特系统间的单比特多体隐形传态。初始态由分布在它们之间的EPR对构成，作为无限温度三边界全息态的简单类比。我们使用一维和全连接动力学，通过解析方法和随机电路数值模拟进行分析。我们发现，一旦扩散的信息到达与第三系统纠缠的量子比特区域，第三系统会抑制隐形传态。在一维情形下，成功隐形传态所需的最小耦合强度以及保真度都依赖于注入点到该区域的距离，这一特征类似于全息因果阴影。对于全连接动力学，成功隐形传态仅限于早期时间且与第三系统纠缠的量子比特数足够少。因此，第三系统提供了信息扩散的空间（或子系统）分辨能力，这是双边协议所不具备的。我们的结果向多体隐形传态网络迈出了一步。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究多边界多体量子隐形传态协议，具体探讨三个量子比特系统（三边界）中单比特信息的传输，以及第三系统如何影响隐形传态的成功率和保真度。</p>
+    <h4>方法</h4><p>采用解析和数值方法，使用随机电路模拟一维和全连接动力学，分析三系统间的EPR纠缠态下的隐形传态协议。</p>
+    <h4>主要发现</h4><p>第三系统会抑制隐形传态，当扩散的信息到达与第三系统纠缠的量子比特区域时。在一维动力学中，最小耦合强度和保真度依赖于注入点到纠缠区域的距离，类似全息因果阴影；在全连接动力学中，成功隐形传态仅限于早期时间和少量纠缠量子比特。</p>
+    <h4>局限与展望</h4><p>该研究为多体隐形传态网络提供了初步步骤，但仅限于单比特和三系统情形，未来可推广到更多边界或更高维系统，并探索与全息模型的更直接联系。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03082v1">
+  <div class="paper-head">
+    <h2>熵引力框架下的引力波与物质约束<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03082v1" rel="noopener noreferrer">2609.03082v1</a>
+  </div>
+  <p class="original-title">Gravitational Waves and Matter Constraints in Gravity from Entropy</p>
+  <p class="meta"><strong>作者：</strong>David S. Pereira</p>
+  <p class="meta"><strong>主分类：</strong>gr-qc
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们证明，在一般的FLRW背景上，熵引力（GfE）表现出张量传播的病理现象。在真空中，在对称继承的单多重态扇区内，以及对于代数理想流体本构嵌入，严格主部TT系统仅在\dot H=K/a^2时具有非零实特征值。偏离该轨迹时，时间主根变为复数，表明存在高频双曲性障碍。在所陈述的各向同性假设下，秩定理进一步表明，一个基础多重态无法提供消除该问题所需的各向同性双矢响应。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>熵引力框架在一般FLRW背景上是否具有良性的张量传播性质？</p>
+    <h4>方法</h4><p>通过分析严格主部TT系统的特征值，并利用秩定理考察基础多重态能否提供各向同性双矢响应。</p>
+    <h4>主要发现</h4><p>在真空、对称继承单多重态扇区及代数理想流体本构嵌入下，仅当\dot H=K/a^2时存在非零实特征；否则时间主根为复数，表明高频双曲性障碍。此外，秩定理显示一个基础多重态无法提供所需的各向同性双矢响应。</p>
+    <h4>局限与展望</h4><p>该结果可能表明熵引力在一般FLRW背景上存在超曲性障碍，但结论限于所考虑的对称性和本构假设；未来工作可探索其他多重态组合或更一般的本构关系是否能恢复良性的传播性质。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03152v1">
+  <div class="paper-head">
+    <h2>膜、映射与层的实验<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03152v1" rel="noopener noreferrer">2609.03152v1</a>
+  </div>
+  <p class="original-title">Experiments with membranes, maps and sheaves</p>
+  <p class="meta"><strong>作者：</strong>Daniel Holmes、Yannik Schuler</p>
+  <p class="meta"><strong>主分类：</strong>math.AG
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.AG</span> <span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>受M理论猜想存在的启发，我们研究了具有环面作用的Calabi-Yau五维流形Z的计数不变量之间的对应关系网络。这包括五维Gromov-Witten不变量与三维流形X⊂Z的K理论Pandharipande-Thomas不变量之间的对应，该对应通过所谓的膜指标（Gopakumar-Vafa不变量的推广）实现。我们针对受限环面作用建立了条带几何的对应关系，并对一般环面作用进行了数值检验。此外，我们为闭顶点、局部曲面和局部射影空间提供了进一步的数值证据。对于后者，我们给出了其低度膜指标的猜想公式。当五维流形是仿射平面与合适环面簇的乘积时，我们证明了几何工程化，并将Pandharipande-Thomas不变量的生成级数与相应的瞬子配分函数等同，而Gromov-Witten级数的相等性则通过数值探测。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究了什么数学或物理问题？</p>
+    <h4>方法</h4><p>作者采用了什么方法？</p>
+    <h4>主要发现</h4><p>作者得到了哪些主要结果？</p>
+    <h4>局限与展望</h4><p>这些结果有什么局限或后续方向？</p>
+  </section>
+</article><article class="paper" id="paper-2609.03289v1">
+  <div class="paper-head">
+    <h2>嵌入三维O(N)临界体的对称性破缺线缺陷<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03289v1" rel="noopener noreferrer">2609.03289v1</a>
+  </div>
+  <p class="original-title">Symmetry-breaking line defects embedded to a 3D $O(N)$ critical bulk</p>
+  <p class="meta"><strong>作者：</strong>Shuai Yang、Liang-dong Hu、Yan Chen、W. Zhu</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在一维经典短程相互作用系统中，离散对称性的自发破缺通常不会发生，但嵌入临界体中的线缺陷可能表现出稳定的离散对称性自发破缺。本文研究了浸入保持在O(N) Wilson-Fisher临界点的三维体中的钉扎场线缺陷的行为。利用模糊球技术，我们提供了存在稳定缺陷共形不动点的有力证据，并通过g函数证明其重整化群稳定性，显示没有相关算符且有效自由度少于体不动点。此外，我们研究了不同N值下的缺陷畴壁算符，发现对于N≳3它变得无关，而对于N&lt;3则是相关的。这些证据表明，对于N&lt;3的Wilson-Fisher普适类，由于畴壁增殖，耦合到临界体的一维缺陷不能支持稳定的对称性破缺缺陷不动点，而对于N≳3，对称性破缺缺陷是可能的。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>嵌入三维O(N)临界体中的线缺陷是否能够表现出稳定的离散对称性自发破缺，以及其稳定性如何依赖于N？</p>
+    <h4>方法</h4><p>采用模糊球技术，研究钉扎场线缺陷在O(N) Wilson-Fisher临界点处的行为，通过g函数分析重整化群稳定性，并考察缺陷畴壁算符的相关性。</p>
+    <h4>主要发现</h4><p>存在稳定的缺陷共形不动点，且无相关算符，有效自由度少于体不动点；缺陷畴壁算符在N≳3时无关，在N&lt;3时相关。</p>
+    <h4>局限与展望</h4><p>结果表明，对于N&lt;3，缺陷不能支持对称性破缺，而对于N≳3则可能。该结论基于特定数值技术，可能受限于有限尺寸效应，未来可探索其他N值或更高精度验证，并推广到其他临界体或缺陷类型。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03409v1">
+  <div class="paper-head">
+    <h2>测量问题的与解释无关的表述<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03409v1" rel="noopener noreferrer">2609.03409v1</a>
+  </div>
+  <p class="original-title">An interpretation-independent formulation of the measurement problem</p>
+  <p class="meta"><strong>作者：</strong>Antoine Soulas</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-th</span> <span class="tag">physics.hist-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文不试图解决测量问题，而是旨在恰当地表述它。测量问题缺乏精确且公认定义的原因之一是，该问题可能因所采用的量子力学解释不同而呈现非常不同的方面。受贝尔定理等与理论无关结果的方法论启发，我们提出以与解释无关的方式识别该谜团的共同根源，即仅作为经验统计的性质，然后再推导其哲学后果。关键观察是量子物质无法用柯尔莫哥洛夫概率论描述。论证概率论的柯尔莫哥洛夫公理是认识论不确定性的假设，我们从而将测量问题重新表述为：为量子物质构建独立于认识论的本体论是不可能的。换言之，不存在对量子系统的上帝视角。尽管以这种方式定义的测量问题无法解决，因为它是宇宙统计的一个特征，但这种表述可能带来额外益处。特别是，我们认为它能够：(i) 为各种解释的多样性提供新视角；(ii) 提出量子力学与广义相对论如此不相容的根本原因，而非依赖纯数学或技术论证；(iii) 为量子引力探索提供指导。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何以与解释无关的方式表述量子力学中的测量问题，从而识别其共同根源？</p>
+    <h4>方法</h4><p>借鉴贝尔定理等与理论无关结果的方法论，基于经验统计性质进行分析，论证量子物质无法用柯尔莫哥洛夫概率论描述，并将概率公理视为认识论不确定性的假设。</p>
+    <h4>主要发现</h4><p>测量问题可重新表述为：为量子物质构建独立于认识论的本体论是不可能的，即不存在对量子系统的上帝视角。该表述能解释各种解释的多样性，提供量子力学与广义相对论不相容的根本原因，并指导量子引力探索。</p>
+    <h4>局限与展望</h4><p>本文提出的表述将测量问题视为宇宙统计的特征，因此无法解决，但可能带来额外益处。后续方向可能包括进一步探讨该表述对量子引力研究的具体指导作用，以及其在不同解释框架下的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04111v1">
+  <div class="paper-head">
+    <h2>带有五维暗能量的旋转宇宙黑洞的动力学解<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04111v1" rel="noopener noreferrer">2609.04111v1</a>
   </div>
   <p class="original-title">Dyonic rotating cosmological black hole surrounded by quintessence</p>
@@ -640,10 +690,9 @@
     <h4>主要发现</h4><p>构建了新的度规，计算了事件视界条件、总应力-能量张量、Kretschmann和Ricci标量，分析了$\Lambda$和$\alpha$对事件视界和能层的影响，发现$\alpha\rightarrow 0$时标量曲率不同于真空结果，奇点区域不变，并研究了测试粒子的速度及能量条件。</p>
     <h4>局限与展望</h4><p>该解可能适用于描述带有暗能量的旋转黑洞，但需要进一步研究其热力学性质、稳定性以及观测效应。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04114v1">
+</article><article class="paper" id="paper-2609.04114v1">
   <div class="paper-head">
-    <h2>三维格点量子电动力学中的实时弦动力学</h2>
+    <h2>三维格点量子电动力学中的实时弦动力学<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04114v1" rel="noopener noreferrer">2609.04114v1</a>
   </div>
   <p class="original-title">Real-Time String Dynamics in $3+1$D Lattice Quantum Electrodynamics</p>
@@ -664,54 +713,9 @@
     <h4>局限与展望</h4><p>该研究为高维格点规范理论的量子模拟提供了诊断和基准，但未讨论其局限性；可合理推断后续工作可能扩展至非平衡态热化、有限温度或更接近QCD的模型，但需进一步验证。</p>
   </section>
 </article>
-<article class="paper" id="paper-2609.04137v1">
-  <div class="paper-head">
-    <h2>轴子虫洞的边界条件、虚距离界限与KSW容许性</h2>
-    <a href="https://arxiv.org/abs/2609.04137v1" rel="noopener noreferrer">2609.04137v1</a>
-  </div>
-  <p class="original-title">Boundary conditions for axionic wormholes, imaginary distance bound and KSW allowability</p>
-  <p class="meta"><strong>作者：</strong>Shubhashis Mallik、Neha、Gaurav Narain</p>
-  <p class="meta"><strong>主分类：</strong>hep-th
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们利用对偶标量场和三形式通量表述，在洛伦兹迷你超空间路径积分中研究四维轴子虫洞。我们针对一般度量边界条件和实lapse积分轮廓分析该对偶性，并证明其在任意背景（包括复背景）下成立。在度量上采用Dirichlet条件时，固定通量路径积分可精确计算。在欧几里得区域，鞍点几何根据两个边界位于喉部同侧或对侧，组织成Giddings-Strominger (GS)虫洞的同侧段和跨喉段。在lapse覆盖平面上的Picard-Lefschetz分析表明，跨喉鞍点的相交数为零，因此不贡献。在渐近平坦极限中，它对应于饱和虚距离界限(IDB)的虚虫洞。同样的结论独立地在对偶标量侧得出，并由精确振幅确认。将Dirichlet条件替换为单参数Neumann条件，导致虚虫洞的跨喉鞍点对于轮廓的物理提升仍然无关。表征Neumann条件的纯虚参数在半虫洞和完整虫洞几何之间连续插值。固定电荷扇区求和的收敛性施加了一个相应的插值界限，不仅对边界轴子的虚部，而且对表征Neumann边界条件的参数。基于KSW准则的独立分析精确地再现了相同的界限，强调其与IDB的兼容性。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究四维轴子虫洞在洛伦兹迷你超空间路径积分中的边界条件，特别是Dirichlet和Neumann边界条件对虫洞贡献的影响，以及虚距离界限(IDB)与KSW容许性之间的关系。</p>
-    <h4>方法</h4><p>采用对偶标量场和三形式通量表述，通过精确计算固定通量路径积分，结合Picard-Lefschetz分析鞍点贡献，并比较不同边界条件（Dirichlet和单参数Neumann）下的结果，最后用KSW准则独立验证。</p>
-    <h4>主要发现</h4><p>在Dirichlet边界条件下，跨喉鞍点相交数为零，不贡献，对应虚虫洞并饱和IDB；在Neumann条件下，跨喉鞍点仍不相关，且参数插值界限与KSW准则给出的界限一致。</p>
-    <h4>局限与展望</h4><p>该研究主要限于迷你超空间模型，未来可推广到更一般的背景或更高维情形，并进一步探讨边界条件对虫洞物理的影响。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04191v1">
-  <div class="paper-head">
-    <h2>虫洞诱导引力轴子质量间隙的婴宇宙态依赖性</h2>
-    <a href="https://arxiv.org/abs/2609.04191v1" rel="noopener noreferrer">2609.04191v1</a>
-  </div>
-  <p class="original-title">Baby-universe state dependence of the wormhole-induced gravi-axion mass gap</p>
-  <p class="meta"><strong>作者：</strong>Amin Rezaei Akbarieh</p>
-  <p class="meta"><strong>主分类：</strong>hep-th
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>欧几里得虫洞可以破坏轴子的平移对称性，当这种对称性被破坏时，轴子会获得周期性势能，该势能极小点处的曲率可给出轴子质量。本文认真对待以下假设：虫洞的存在本身并不意味着轴子质量被唯一确定，还需要更多信息才能确定它。我们首先证明，对于具有O(4)对称性的Giddings-Strominger虫洞，引力Pontryagin密度为零，因此动力学Chern-Simons相互作用可以影响量子效应，包括行列式相位和费米子选择定则，而不改变经典虫洞作用量。我们还得出结论，在固定的α扇区中，轴子可以具有特定质量，但该质量依赖于婴宇宙态，并非普适值。然后，对于给出条件质量分布的α扇区混合情况，我们证明平均谱测度的下边缘由条件质量平方在α分布上的本质下确界决定。最后，我们得出结论：即使几乎所有单个扇区都有质量且平均质量平方非零，如果测度的支集在对称点α=0处累积，平均谱测度将是无隙的。为澄清讨论，我们考虑一个清晰的例子，即高斯婴宇宙态，并证明在该态中谱阈值从零开始且不存在孤立的质量极点。因此，在不指定婴宇宙态的情况下，从虫洞预测引力轴子的质量和宇宙学并非唯一的、与态无关的预测。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是：在欧几里得虫洞诱导轴子质量的情境下，轴子质量是否唯一确定，以及它如何依赖于婴宇宙态？</p>
-    <h4>方法</h4><p>采用理论分析方法，结合Giddings-Strominger虫洞的对称性，分析引力Pontryagin密度和Chern-Simons相互作用对量子效应的影响，并研究固定α扇区和混合α扇区中轴子质量谱的性质，通过高斯婴宇宙态的例子进行说明。</p>
-    <h4>主要发现</h4><p>主要结果包括：1) 对于O(4)对称的Giddings-Strominger虫洞，引力Pontryagin密度为零，因此Chern-Simons相互作用不影响经典虫洞作用量，但影响量子效应；2) 在固定α扇区中，轴子质量依赖于婴宇宙态，并非普适；3) 在混合α扇区中，平均谱测度的下边缘由条件质量平方的本质下确界决定；4) 即使几乎所有扇区都有质量且平均质量平方非零，若测度支集在α=0处累积，平均谱测度将无隙；5) 高斯婴宇宙态的例子表明谱阈值从零开始，无孤立质量极点。</p>
-    <h4>局限与展望</h4><p>论文的结论表明，从虫洞预测引力轴子质量需要指定婴宇宙态，否则预测不是唯一的。这暗示了在量子引力背景下，轴子质量可能依赖于宇宙波函数的具体形式，未来研究可探索其他婴宇宙态或更一般的态对轴子质量谱的影响，以及这种依赖性对宇宙学观测的可能影响。</p>
-  </section>
-</article></main>
+  </main>
   <footer>
-    生成时间：2026-09-04 05:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+    生成时间：2026-09-04 15:50 UTC。中文内容由模型辅助生成，请以论文原文为准。
   </footer>
 </body>
 </html>

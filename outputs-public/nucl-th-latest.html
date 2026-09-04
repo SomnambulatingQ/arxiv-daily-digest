@@ -12,8 +12,28 @@
     header, main, footer { width: min(980px, calc(100% - 32px)); margin: auto; }
     header { padding: 40px 0 18px; }
     h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
     nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 24px 0 40px; }
+    .card { display: block; background: white; border-radius: 14px; padding: 22px 22px 18px; text-decoration: none; color: inherit; box-shadow: 0 5px 18px rgba(31,41,51,.07); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: .95rem; color: #3266a8; font-weight: 650; }
+    .card-name { margin-top: 4px; color: #465563; }
+    .card-count { margin-top: 18px; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .card-count span { font-size: 1rem; font-weight: 500; color: #667; margin-left: 4px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
     .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
     .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
     .paper h2 { margin: 0; line-height: 1.35; }
@@ -24,28 +44,39 @@
     .meta { color: #465563; }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
     .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
     .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
     footer { padding: 24px 0 46px; color: #667; }
     @media (max-width: 640px) {
       .paper { padding: 18px; }
       .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
     }
-  </style>
+</style>
   <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] } };
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
 </head>
 <body>
+
   <header>
-    <h1>arXiv nucl-th 每日论文</h1>
-    <p>arXiv 官方公告日：2026-09-04 · 共 12 篇</p>
+    <h1>nucl-th · 核理论</h1>
+    <p class="lede">官方公告日：2026-09-04</p>
     <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">12</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">7</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">5</div></div>
+    </div>
   </header>
-  <main><article class="paper" id="paper-2608.00389v1">
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（7）</h3><ol class="toc-list"><li><a href="#paper-2608.00389v1">利用镜像核电荷半径差约束张量力项</a> <small>2608.00389v1</small></li><li><a href="#paper-2609.03499v1">一种实用的分波方法用于识别重离子碰撞中不稳定轻核共振态</a> <small>2609.03499v1</small></li><li><a href="#paper-2609.03545v1">组态相互作用对超允许0+→0+β衰变中同位旋杂质及同位旋对称性破缺修正的影响</a> <small>2609.03545v1</small></li><li><a href="#paper-2609.03902v1">超重核α衰变：α衰变能的四分之一次方依赖</a> <small>2609.03902v1</small></li><li><a href="#paper-2609.03903v1">核密度泛函理论中线性响应的约化基方法</a> <small>2609.03903v1</small></li><li><a href="#paper-2609.04044v1">奇特原子核中电四极有效电荷的微观计算</a> <small>2609.04044v1</small></li><li><a href="#paper-2609.04154v1">B(E2)作为N=32,34壳层演化的稳健信号</a> <small>2609.04154v1</small></li></ol><h3>交叉列表（5）</h3><ol class="toc-list"><li><a href="#paper-2609.03240v1">核散射与裂变动力学中的量子复杂性</a> <small>2609.03240v1</small></li><li><a href="#paper-2609.03434v1">CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器</a> <small>2609.03434v1</small></li><li><a href="#paper-2609.03964v1">含玻色子暗物质混合状态方程的超紧凑双星</a> <small>2609.03964v1</small></li><li><a href="#paper-2609.04049v1">全重四夸克产生的TQ4Q2.0碎裂函数</a> <small>2609.04049v1</small></li><li><a href="#paper-2609.04142v1">QCD中首个双强子形状因子的计算</a> <small>2609.04142v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2608.00389v1">
   <div class="paper-head">
-    <h2>利用镜像核电荷半径差约束张量力项</h2>
+    <h2>利用镜像核电荷半径差约束张量力项<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2608.00389v1" rel="noopener noreferrer">2608.00389v1</a>
   </div>
   <p class="original-title">Constraining tensor force terms with the charge radii difference of mirror-pair nuclei</p>
@@ -65,56 +96,9 @@
     <h4>主要发现</h4><p>镜像核电荷半径差与张量力三重奇性和三重偶性强度之间存在线性关联，且对三重奇性参数$U$更敏感。结合M1、GT和SD激发的约束，进一步限定了SLy5和SGII相互作用中三重奇性强度。</p>
     <h4>局限与展望</h4><p>该方法为约束张量力强度提供了新途径，但可能依赖于模型假设（如近球形近似）和所选核素。未来可推广至其他镜像核或结合更多实验数据以增强约束。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03240v1">
+</article><article class="paper" id="paper-2609.03499v1">
   <div class="paper-head">
-    <h2>核散射与裂变动力学中的量子复杂性</h2>
-    <a href="https://arxiv.org/abs/2609.03240v1" rel="noopener noreferrer">2609.03240v1</a>
-  </div>
-  <p class="original-title">Quantum Complexity in Nuclear Scattering and Fission Dynamics</p>
-  <p class="meta"><strong>作者：</strong>Saurabh V. Kadam、Antonio Bjelčić、Nicolas Schunck、Kyle Wendt</p>
-  <p class="meta"><strong>主分类：</strong>quant-ph
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">nucl-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>量子计算机有望在模拟强关联量子多体系统（如原子核）方面展现优势，这些系统超出了经典计算机的能力范围。实现这一潜力需要理解目标问题的量子复杂性结构。我们研究了核反应动力学中两个量子复杂性关键指标——二分纠缠熵和非局域魔法（非稳定化子性）——的时间演化。我们分析了两个代表性的动力学过程：由Negele势描述的强相互作用费米子一维模型中的散射，以及基于含时Hartree-Fock-Bogoliubov（TDHFB）理论的$^{240}$Pu裂变的现实模拟。在前一种情况下，我们发现相互作用动态地产生纠缠和非局域魔法，在出射态中留下量子复杂性的持久特征。在后一种情况下，我们观察到在断裂后，子碎片的空间二分中仍保留着显著的量子复杂性。两种情况下存在的显著非局域魔法和纠缠强烈表明，量子计算机将在精确模拟核反应动力学方面提供显著优势。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>核散射和裂变动力学过程中，量子复杂性（以二分纠缠熵和非局域魔法为指标）如何随时间演化，以及这些复杂性是否表明量子计算机在模拟核反应方面具有优势？</p>
-    <h4>方法</h4><p>通过数值模拟分析两个代表性过程：一维强相互作用费米子散射（Negele势）和$^{240}$Pu裂变的TDHFB模拟，计算并追踪二分纠缠熵和非局域魔法的时间演化。</p>
-    <h4>主要发现</h4><p>在散射过程中，相互作用动态产生纠缠和非局域魔法，并在出射态中留下持久特征；在裂变过程中，断裂后子碎片的空间二分中仍保留显著的量子复杂性。这些结果表明量子计算机在模拟核反应动力学方面可能具有显著优势。</p>
-    <h4>局限与展望</h4><p>该研究局限于一维模型和特定裂变模拟，但所发现的显著非局域魔法和纠缠暗示量子模拟的优势可能适用于更广泛的核反应。未来工作可探索更高维系统或更复杂的核过程，以验证这些发现的普适性。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03434v1">
-  <div class="paper-head">
-    <h2>CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器</h2>
-    <a href="https://arxiv.org/abs/2609.03434v1" rel="noopener noreferrer">2609.03434v1</a>
-  </div>
-  <p class="original-title">CGC-py: A Monte Carlo Event Generator for Gluon Saturation Physics</p>
-  <p class="meta"><strong>作者：</strong>Haowu Duan、Cong Yi、Si-Wei Dai、Shu-Yi Wei、Wenbin Zhao、Liang Zheng</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们开发了CGC-py，一个用于深非弹性散射的蒙特卡洛事件产生器。它将γ*p(A)→q qbar+X的完整色玻璃凝聚（CGC）截面与基于部分子分支的横向动量依赖的后向初态簇射耦合，而Pythia 8处理末态辐射和强子化。CGC-py保留了完整的靶弹性和靶非弹性贡献，不采用背对背关联极限，从而允许从同一事件样本一致地产生单强子和双强子观测量。我们通过单包含夸克谱的解析闭合性测试以及ep碰撞中带电强子谱与H1数据的比较来验证该产生器，发现符合得很好。预测的核修正因子R_{eAu}^h显示出预期的饱和模式：在低p_T*处压低，随后在高p_T*处向1上升。与Pythia 6基线的比较以及x_g重标度研究表明，小x CGC演化和共线DGLAP动力学对双强子背对侧宽度随能量的增长贡献相当。真正的饱和驱动的展宽仅出现在所考虑的最高能量处。在CGC-py内，eAu碰撞相对于ep碰撞表现出增强的背对侧宽度和压低的背对背产额。这些核效应对EIC运动学而言仍然温和，这促使在最前向可及运动学处进行测量，并使用互补观测量以最大化对胶子饱和的灵敏度。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文旨在开发一个蒙特卡洛事件产生器，用于研究胶子饱和物理，特别是小x区域的CGC动力学，并能够一致地产生单强子和双强子观测量。</p>
-    <h4>方法</h4><p>将完整的CGC截面与部分子分支后向初态簇射耦合，结合Pythia 8进行末态辐射和强子化，保留靶弹性和非弹性贡献，不采用背对背关联极限。</p>
-    <h4>主要发现</h4><p>通过解析闭合性测试和H1数据比较验证了产生器；预测的核修正因子显示饱和模式；小x CGC演化和DGLAP动力学对双强子背对侧宽度增长贡献相当，真正的饱和展宽仅出现在最高能量；eAu碰撞相对于ep表现出增强的背对侧宽度和压低的背对背产额。</p>
-    <h4>局限与展望</h4><p>核效应在EIC运动学中温和，可能需要最前向运动学测量和互补观测量以增强对胶子饱和的灵敏度。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03499v1">
-  <div class="paper-head">
-    <h2>一种实用的分波方法用于识别重离子碰撞中不稳定轻核共振态</h2>
+    <h2>一种实用的分波方法用于识别重离子碰撞中不稳定轻核共振态<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03499v1" rel="noopener noreferrer">2609.03499v1</a>
   </div>
   <p class="original-title">A Practical Partial-Wave Method for Identifying Unstable Light Nucleus Resonances in Heavy-Ion Collisions</p>
@@ -134,10 +118,9 @@
     <h4>主要发现</h4><p>该方法成功应用于p-^3He和p-^4He系统，关联函数中出现的峰分别位于k≈72 MeV/c（^4Li）和k≈50 MeV/c（^5Li），与已知共振参数一致；并利用STAR数据给出了提取的横动量谱和快度分布。</p>
     <h4>局限与展望</h4><p>该方法为实验研究不稳定轻核提供了实用工具，可推广至更广泛的共振态；但当前演示仅限于特定系统，其普适性及对数据质量的依赖需进一步验证。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03545v1">
+</article><article class="paper" id="paper-2609.03545v1">
   <div class="paper-head">
-    <h2>组态相互作用对超允许0+→0+β衰变中同位旋杂质及同位旋对称性破缺修正的影响</h2>
+    <h2>组态相互作用对超允许0+→0+β衰变中同位旋杂质及同位旋对称性破缺修正的影响<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03545v1" rel="noopener noreferrer">2609.03545v1</a>
   </div>
   <p class="original-title">Influence of configuration-interaction on isospin impurities and isospin symmetry breaking corrections to superallowed $0^+\rightarrow 0^+$ beta decays</p>
@@ -157,10 +140,9 @@
     <h4>主要发现</h4><p>CI对基态同位旋杂质影响可忽略，但显著改变激发态杂质；ISB修正对短程CSB项不敏感，但对核对称能敏感。</p>
     <h4>局限与展望</h4><p>核对称能在有限核中的值难以约束，可能影响ISB修正的精度；未来需改进对有效相互作用动量依赖项的处理。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03902v1">
+</article><article class="paper" id="paper-2609.03902v1">
   <div class="paper-head">
-    <h2>超重核α衰变：α衰变能的四分之一次方依赖</h2>
+    <h2>超重核α衰变：α衰变能的四分之一次方依赖<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03902v1" rel="noopener noreferrer">2609.03902v1</a>
   </div>
   <p class="original-title">\texorpdfstring{$α$}{}-decay for superheavy nucleus: The alpha decay energy to the one-fourth power</p>
@@ -180,10 +162,9 @@
     <h4>主要发现</h4><p>扩展公式在400个核上给出均方根偏差0.97，SVR模型将偏差降至0.56；对Z=120和Z=122偶偶核的半衰期预测与Sobhani和Poenaru公式一致，且两种方法均支持N=184为下一个中子幻数。</p>
     <h4>局限与展望</h4><p>该研究仅限于偶偶核的预测，对于奇A核或奇奇核的适用性尚待验证；此外，SVR模型的性能可能依赖于训练集的选择，未来可考虑纳入更多核素或引入其他物理量以进一步提高精度。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03903v1">
+</article><article class="paper" id="paper-2609.03903v1">
   <div class="paper-head">
-    <h2>核密度泛函理论中线性响应的约化基方法</h2>
+    <h2>核密度泛函理论中线性响应的约化基方法<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03903v1" rel="noopener noreferrer">2609.03903v1</a>
   </div>
   <p class="original-title">Reduced-basis method for linear response within nuclear density functional theory</p>
@@ -203,33 +184,9 @@
     <h4>主要发现</h4><p>RBM仿真器能准确重现巨共振和低能区域的FAM强度分布，以及虚QRPA模；在稀土Dy同位素的K^π=0^+模中，重现强度分布和最低0^+集体态，精度与完整FAM相当，计算成本降低一个数量级以上。</p>
     <h4>局限与展望</h4><p>该方法有望用于密度泛函优化、集体惯性计算和大规模核集体激发调查，但需注意其适用性依赖于训练集覆盖相关能量域，且目前仅针对特定模式（如K^π=0^+）验证，未来可推广至其他模式或核素。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03964v1">
+</article><article class="paper" id="paper-2609.04044v1">
   <div class="paper-head">
-    <h2>含玻色子暗物质混合状态方程的超紧凑双星</h2>
-    <a href="https://arxiv.org/abs/2609.03964v1" rel="noopener noreferrer">2609.03964v1</a>
-  </div>
-  <p class="original-title">Ultra-compact twin stars with hybrid equations of state from bosonic dark matter</p>
-  <p class="meta"><strong>作者：</strong>Ishfaq Ahmad Rather、Sarah Louisa Pitz、Jürgen Schaffner-Bielich</p>
-  <p class="meta"><strong>主分类：</strong>astro-ph.HE
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们研究了具有强一级相变到夸克物质以及额外自相互作用玻色子暗物质（DM）流体的致密星性质。我们发现，与朴素的一流体判据相比，DM的加入显著改变了质量-半径构型的稳定性。对于具有相似质量和不同半径的致密星构型（即所谓的双星），DM的存在消除了强子分支与混合分支之间的不稳定段，使得相变到夸克物质后的稳定质量-半径序列变得连续。我们还发现了稳定的超紧凑天体（UCOs），其总致密度C = M_tot/R_grav ≥ 1/3。我们观察到两类不同的UCOs：DM晕类（f_DM ≳ 0.9）和DM核类（f_DM ≲ 0.02）。这两类可以通过正常物质的表面红移来区分，DM核类的红移达到z=0.73–0.77，而DM晕类的红移低于0.45。最后，我们发现了“终极双星”的混合星解，其质量和可见半径相似，但暗物质含量不同，导致不同的潮汐形变性和表面红移。未来的X射线和引力波测量，如果探测到半径和质量超出中子星允许范围的超紧凑中子星，可以探测除一级相变到夸克物质之外的DM的存在及其性质。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是：在包含强一级相变到夸克物质以及额外自相互作用玻色子暗物质流体的混合状态方程下，致密星（特别是双星和超紧凑天体）的稳定性、质量-半径关系以及可观测特征如何变化？</p>
-    <h4>方法</h4><p>采用理论模型和数值计算，研究包含强子物质、夸克物质和玻色子暗物质的多流体致密星结构，分析其质量-半径关系、稳定性判据、表面红移和潮汐形变性。</p>
-    <h4>主要发现</h4><p>主要结果包括：1) DM的加入改变了质量-半径构型的稳定性，消除了双星分支之间的不稳定段，使稳定序列连续；2) 存在两类稳定的超紧凑天体（UCOs），即DM晕类（f_DM ≳ 0.9）和DM核类（f_DM ≲ 0.02），可通过表面红移区分（DM核类z=0.73-0.77，DM晕类z&lt;0.45）；3) 存在“终极双星”解，具有相似质量和可见半径但不同DM含量，导致不同的潮汐形变性和表面红移。</p>
-    <h4>局限与展望</h4><p>论文指出，未来的X射线和引力波观测如果发现半径和质量超出中子星允许范围的超紧凑天体，可以探测DM的存在及其性质，并可能区分一级相变和DM效应。但该研究基于特定的状态方程模型，其结论可能依赖于模型假设，且未考虑旋转效应等复杂因素，这些可作为后续研究方向。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04044v1">
-  <div class="paper-head">
-    <h2>奇特原子核中电四极有效电荷的微观计算</h2>
+    <h2>奇特原子核中电四极有效电荷的微观计算<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.04044v1" rel="noopener noreferrer">2609.04044v1</a>
   </div>
   <p class="original-title">Microscopic Calculation of Electric Quadrupole Effective Charges in Exotic Nuclei</p>
@@ -249,10 +206,97 @@
     <h4>主要发现</h4><p>CI-RHF计算能很好地再现氖同位素从稳定线到中子滴线的B(E2)强度；与连续态相关的极化电荷被显著淬灭；CI-RHF预测^30Ne中B(E2; 2^+_2 → 0^+_2)被抑制，而yrast带内B(E2)强度较强，表明存在近球形激发0^+_2态与形变基态的共存。</p>
     <h4>局限与展望</h4><p>该研究强调了连续态效应对奇特原子核E2跃迁评估的重要性，但结果可能依赖于所采用的TDA近似和相对论Hartree-Fock框架，未来可考虑更高级的关联效应或推广到其他质量区域以验证其普适性。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04049v1">
+</article><article class="paper" id="paper-2609.04154v1">
   <div class="paper-head">
-    <h2>全重四夸克产生的TQ4Q2.0碎裂函数</h2>
+    <h2>B(E2)作为N=32,34壳层演化的稳健信号<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04154v1" rel="noopener noreferrer">2609.04154v1</a>
+  </div>
+  <p class="original-title">B(E2) Serves as a Robust Signature of N = 32,34 Shell Evolution</p>
+  <p class="meta"><strong>作者：</strong>Jia Liu、Yi Fei Niu、Xiao Hua Lia、Wen Luo、Wen Hui Long</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>电四极跃迁概率B(E2)是核壳层演化的关键探针，然而奇异核中异常的B(E2)值使得新幻数的识别复杂化。在本快报中，我们采用组态相互作用的相对论Hartree-Fock模型，证明了有效电荷对轨道半径敏感，且这种轨道依赖性被价核子的晕结构显著放大。该机制对于可靠描述E2跃迁和理解奇异核中B(E2)的异常行为至关重要。我们的计算预测了$^{52,54}$Ca中约化的$B(E2; 2^+_1 \rightarrow 0^+_1)$值，表明在N=32和34处出现子壳闭合。此外，$^{53}$Sc中抑制的$B(E2; 7/2^{-}_{1} \rightarrow 11/2^{-}_{1})$跃迁强调了N=32新幻数的稳健性，而$^{55}$Sc中增强的跃迁强度则表明N=34壳层间隙随着质子轨道$\pi1f_{7/2}$的占据而迅速侵蚀。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：B(E2)值如何作为N=32和34壳层演化的稳健信号，以及如何解释奇异核中异常的B(E2)行为。</p>
+    <h4>方法</h4><p>采用组态相互作用的相对论Hartree-Fock模型，研究有效电荷对轨道半径的依赖性，并考虑价核子的晕结构效应。</p>
+    <h4>主要发现</h4><p>原文明确支持的主要结果包括：有效电荷对轨道半径敏感，且晕结构放大这种依赖性；预测$^{52,54}$Ca中约化的B(E2)值，表明N=32和34子壳闭合；$^{53}$Sc中抑制的B(E2)跃迁支持N=32幻数，而$^{55}$Sc中增强的跃迁表明N=34壳层间隙因质子$\pi1f_{7/2}$占据而快速侵蚀。</p>
+    <h4>局限与展望</h4><p>论文未明确讨论局限性和后续方向，但可合理推断：该机制可能适用于其他奇异核的E2跃迁描述，且需要更多实验数据验证预测；此外，模型对晕结构的敏感度可能影响远离稳定线核素的预测精度，未来可探索更精确的有效电荷参数化或更高阶关联效应。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2609.03240v1">
+  <div class="paper-head">
+    <h2>核散射与裂变动力学中的量子复杂性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03240v1" rel="noopener noreferrer">2609.03240v1</a>
+  </div>
+  <p class="original-title">Quantum Complexity in Nuclear Scattering and Fission Dynamics</p>
+  <p class="meta"><strong>作者：</strong>Saurabh V. Kadam、Antonio Bjelčić、Nicolas Schunck、Kyle Wendt</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子计算机有望在模拟强关联量子多体系统（如原子核）方面展现优势，这些系统超出了经典计算机的能力范围。实现这一潜力需要理解目标问题的量子复杂性结构。我们研究了核反应动力学中两个量子复杂性关键指标——二分纠缠熵和非局域魔法（非稳定化子性）——的时间演化。我们分析了两个代表性的动力学过程：由Negele势描述的强相互作用费米子一维模型中的散射，以及基于含时Hartree-Fock-Bogoliubov（TDHFB）理论的$^{240}$Pu裂变的现实模拟。在前一种情况下，我们发现相互作用动态地产生纠缠和非局域魔法，在出射态中留下量子复杂性的持久特征。在后一种情况下，我们观察到在断裂后，子碎片的空间二分中仍保留着显著的量子复杂性。两种情况下存在的显著非局域魔法和纠缠强烈表明，量子计算机将在精确模拟核反应动力学方面提供显著优势。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>核散射和裂变动力学过程中，量子复杂性（以二分纠缠熵和非局域魔法为指标）如何随时间演化，以及这些复杂性是否表明量子计算机在模拟核反应方面具有优势？</p>
+    <h4>方法</h4><p>通过数值模拟分析两个代表性过程：一维强相互作用费米子散射（Negele势）和$^{240}$Pu裂变的TDHFB模拟，计算并追踪二分纠缠熵和非局域魔法的时间演化。</p>
+    <h4>主要发现</h4><p>在散射过程中，相互作用动态产生纠缠和非局域魔法，并在出射态中留下持久特征；在裂变过程中，断裂后子碎片的空间二分中仍保留显著的量子复杂性。这些结果表明量子计算机在模拟核反应动力学方面可能具有显著优势。</p>
+    <h4>局限与展望</h4><p>该研究局限于一维模型和特定裂变模拟，但所发现的显著非局域魔法和纠缠暗示量子模拟的优势可能适用于更广泛的核反应。未来工作可探索更高维系统或更复杂的核过程，以验证这些发现的普适性。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03434v1">
+  <div class="paper-head">
+    <h2>CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03434v1" rel="noopener noreferrer">2609.03434v1</a>
+  </div>
+  <p class="original-title">CGC-py: A Monte Carlo Event Generator for Gluon Saturation Physics</p>
+  <p class="meta"><strong>作者：</strong>Haowu Duan、Cong Yi、Si-Wei Dai、Shu-Yi Wei、Wenbin Zhao、Liang Zheng</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们开发了CGC-py，一个用于深非弹性散射的蒙特卡洛事件产生器。它将γ*p(A)→q qbar+X的完整色玻璃凝聚（CGC）截面与基于部分子分支的横向动量依赖的后向初态簇射耦合，而Pythia 8处理末态辐射和强子化。CGC-py保留了完整的靶弹性和靶非弹性贡献，不采用背对背关联极限，从而允许从同一事件样本一致地产生单强子和双强子观测量。我们通过单包含夸克谱的解析闭合性测试以及ep碰撞中带电强子谱与H1数据的比较来验证该产生器，发现符合得很好。预测的核修正因子R_{eAu}^h显示出预期的饱和模式：在低p_T*处压低，随后在高p_T*处向1上升。与Pythia 6基线的比较以及x_g重标度研究表明，小x CGC演化和共线DGLAP动力学对双强子背对侧宽度随能量的增长贡献相当。真正的饱和驱动的展宽仅出现在所考虑的最高能量处。在CGC-py内，eAu碰撞相对于ep碰撞表现出增强的背对侧宽度和压低的背对背产额。这些核效应对EIC运动学而言仍然温和，这促使在最前向可及运动学处进行测量，并使用互补观测量以最大化对胶子饱和的灵敏度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文旨在开发一个蒙特卡洛事件产生器，用于研究胶子饱和物理，特别是小x区域的CGC动力学，并能够一致地产生单强子和双强子观测量。</p>
+    <h4>方法</h4><p>将完整的CGC截面与部分子分支后向初态簇射耦合，结合Pythia 8进行末态辐射和强子化，保留靶弹性和非弹性贡献，不采用背对背关联极限。</p>
+    <h4>主要发现</h4><p>通过解析闭合性测试和H1数据比较验证了产生器；预测的核修正因子显示饱和模式；小x CGC演化和DGLAP动力学对双强子背对侧宽度增长贡献相当，真正的饱和展宽仅出现在最高能量；eAu碰撞相对于ep表现出增强的背对侧宽度和压低的背对背产额。</p>
+    <h4>局限与展望</h4><p>核效应在EIC运动学中温和，可能需要最前向运动学测量和互补观测量以增强对胶子饱和的灵敏度。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03964v1">
+  <div class="paper-head">
+    <h2>含玻色子暗物质混合状态方程的超紧凑双星<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03964v1" rel="noopener noreferrer">2609.03964v1</a>
+  </div>
+  <p class="original-title">Ultra-compact twin stars with hybrid equations of state from bosonic dark matter</p>
+  <p class="meta"><strong>作者：</strong>Ishfaq Ahmad Rather、Sarah Louisa Pitz、Jürgen Schaffner-Bielich</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们研究了具有强一级相变到夸克物质以及额外自相互作用玻色子暗物质（DM）流体的致密星性质。我们发现，与朴素的一流体判据相比，DM的加入显著改变了质量-半径构型的稳定性。对于具有相似质量和不同半径的致密星构型（即所谓的双星），DM的存在消除了强子分支与混合分支之间的不稳定段，使得相变到夸克物质后的稳定质量-半径序列变得连续。我们还发现了稳定的超紧凑天体（UCOs），其总致密度C = M_tot/R_grav ≥ 1/3。我们观察到两类不同的UCOs：DM晕类（f_DM ≳ 0.9）和DM核类（f_DM ≲ 0.02）。这两类可以通过正常物质的表面红移来区分，DM核类的红移达到z=0.73–0.77，而DM晕类的红移低于0.45。最后，我们发现了“终极双星”的混合星解，其质量和可见半径相似，但暗物质含量不同，导致不同的潮汐形变性和表面红移。未来的X射线和引力波测量，如果探测到半径和质量超出中子星允许范围的超紧凑中子星，可以探测除一级相变到夸克物质之外的DM的存在及其性质。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在包含强一级相变到夸克物质以及额外自相互作用玻色子暗物质流体的混合状态方程下，致密星（特别是双星和超紧凑天体）的稳定性、质量-半径关系以及可观测特征如何变化？</p>
+    <h4>方法</h4><p>采用理论模型和数值计算，研究包含强子物质、夸克物质和玻色子暗物质的多流体致密星结构，分析其质量-半径关系、稳定性判据、表面红移和潮汐形变性。</p>
+    <h4>主要发现</h4><p>主要结果包括：1) DM的加入改变了质量-半径构型的稳定性，消除了双星分支之间的不稳定段，使稳定序列连续；2) 存在两类稳定的超紧凑天体（UCOs），即DM晕类（f_DM ≳ 0.9）和DM核类（f_DM ≲ 0.02），可通过表面红移区分（DM核类z=0.73-0.77，DM晕类z&lt;0.45）；3) 存在“终极双星”解，具有相似质量和可见半径但不同DM含量，导致不同的潮汐形变性和表面红移。</p>
+    <h4>局限与展望</h4><p>论文指出，未来的X射线和引力波观测如果发现半径和质量超出中子星允许范围的超紧凑天体，可以探测DM的存在及其性质，并可能区分一级相变和DM效应。但该研究基于特定的状态方程模型，其结论可能依赖于模型假设，且未考虑旋转效应等复杂因素，这些可作为后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04049v1">
+  <div class="paper-head">
+    <h2>全重四夸克产生的TQ4Q2.0碎裂函数<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04049v1" rel="noopener noreferrer">2609.04049v1</a>
   </div>
   <p class="original-title">TQ4Q2.0 Fragmentation Functions for Fully Heavy Tetraquark Production</p>
@@ -272,10 +316,9 @@
     <h4>主要发现</h4><p>论文提供了TQ4Q2.0碎裂函数集，该框架能够描述全重四夸克产生，并特别指出轴矢量扇区对LHC和FCC能量下的内禀粲夸克贡献敏感。</p>
     <h4>局限与展望</h4><p>论文未明确讨论局限性，但可推断该框架可用于更广泛的运动学范围，并可能为奇特强子谱学与质子部分子结构的关联提供工具。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04142v1">
+</article><article class="paper" id="paper-2609.04142v1">
   <div class="paper-head">
-    <h2>QCD中首个双强子形状因子的计算</h2>
+    <h2>QCD中首个双强子形状因子的计算<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04142v1" rel="noopener noreferrer">2609.04142v1</a>
   </div>
   <p class="original-title">First Two-Hadron Form Factor from QCD</p>
@@ -296,31 +339,9 @@
     <h4>局限与展望</h4><p>该研究仅限于单一种类的双强子态和特定动量转移（前向极限），且π介子质量非物理。未来可推广到其他强子态、非前向运动学以及物理π介子质量，以研究共振态和多强子束缚态的电磁结构及电弱响应。</p>
   </section>
 </article>
-<article class="paper" id="paper-2609.04154v1">
-  <div class="paper-head">
-    <h2>B(E2)作为N=32,34壳层演化的稳健信号</h2>
-    <a href="https://arxiv.org/abs/2609.04154v1" rel="noopener noreferrer">2609.04154v1</a>
-  </div>
-  <p class="original-title">B(E2) Serves as a Robust Signature of N = 32,34 Shell Evolution</p>
-  <p class="meta"><strong>作者：</strong>Jia Liu、Yi Fei Niu、Xiao Hua Lia、Wen Luo、Wen Hui Long</p>
-  <p class="meta"><strong>主分类：</strong>nucl-th
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">nucl-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>电四极跃迁概率B(E2)是核壳层演化的关键探针，然而奇异核中异常的B(E2)值使得新幻数的识别复杂化。在本快报中，我们采用组态相互作用的相对论Hartree-Fock模型，证明了有效电荷对轨道半径敏感，且这种轨道依赖性被价核子的晕结构显著放大。该机制对于可靠描述E2跃迁和理解奇异核中B(E2)的异常行为至关重要。我们的计算预测了$^{52,54}$Ca中约化的$B(E2; 2^+_1 \rightarrow 0^+_1)$值，表明在N=32和34处出现子壳闭合。此外，$^{53}$Sc中抑制的$B(E2; 7/2^{-}_{1} \rightarrow 11/2^{-}_{1})$跃迁强调了N=32新幻数的稳健性，而$^{55}$Sc中增强的跃迁强度则表明N=34壳层间隙随着质子轨道$\pi1f_{7/2}$的占据而迅速侵蚀。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是：B(E2)值如何作为N=32和34壳层演化的稳健信号，以及如何解释奇异核中异常的B(E2)行为。</p>
-    <h4>方法</h4><p>采用组态相互作用的相对论Hartree-Fock模型，研究有效电荷对轨道半径的依赖性，并考虑价核子的晕结构效应。</p>
-    <h4>主要发现</h4><p>原文明确支持的主要结果包括：有效电荷对轨道半径敏感，且晕结构放大这种依赖性；预测$^{52,54}$Ca中约化的B(E2)值，表明N=32和34子壳闭合；$^{53}$Sc中抑制的B(E2)跃迁支持N=32幻数，而$^{55}$Sc中增强的跃迁表明N=34壳层间隙因质子$\pi1f_{7/2}$占据而快速侵蚀。</p>
-    <h4>局限与展望</h4><p>论文未明确讨论局限性和后续方向，但可合理推断：该机制可能适用于其他奇异核的E2跃迁描述，且需要更多实验数据验证预测；此外，模型对晕结构的敏感度可能影响远离稳定线核素的预测精度，未来可探索更精确的有效电荷参数化或更高阶关联效应。</p>
-  </section>
-</article></main>
+  </main>
   <footer>
-    生成时间：2026-09-04 05:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+    生成时间：2026-09-04 15:50 UTC。中文内容由模型辅助生成，请以论文原文为准。
   </footer>
 </body>
 </html>

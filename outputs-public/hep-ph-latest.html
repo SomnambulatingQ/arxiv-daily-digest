@@ -12,8 +12,28 @@
     header, main, footer { width: min(980px, calc(100% - 32px)); margin: auto; }
     header { padding: 40px 0 18px; }
     h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
     nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 24px 0 40px; }
+    .card { display: block; background: white; border-radius: 14px; padding: 22px 22px 18px; text-decoration: none; color: inherit; box-shadow: 0 5px 18px rgba(31,41,51,.07); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: .95rem; color: #3266a8; font-weight: 650; }
+    .card-name { margin-top: 4px; color: #465563; }
+    .card-count { margin-top: 18px; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .card-count span { font-size: 1rem; font-weight: 500; color: #667; margin-left: 4px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
     .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
     .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
     .paper h2 { margin: 0; line-height: 1.35; }
@@ -24,28 +44,39 @@
     .meta { color: #465563; }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
     .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
     .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
     footer { padding: 24px 0 46px; color: #667; }
     @media (max-width: 640px) {
       .paper { padding: 18px; }
       .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
     }
-  </style>
+</style>
   <script>
-    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\(', '\)']] } };
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
 </head>
 <body>
+
   <header>
-    <h1>arXiv hep-ph 每日论文</h1>
-    <p>arXiv 官方公告日：2026-09-04 · 共 39 篇</p>
+    <h1>hep-ph · 高能唯象</h1>
+    <p class="lede">官方公告日：2026-09-04</p>
     <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">39</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">27</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">12</div></div>
+    </div>
   </header>
-  <main><article class="paper" id="paper-2509.07982v2">
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（27）</h3><ol class="toc-list"><li><a href="#paper-2509.07982v2">LHAASO银道面γ射线对重暗物质的强约束</a> <small>2509.07982v2</small></li><li><a href="#paper-2609.02142v1">准晶暴胀：从宇宙学偶极到原初衍射</a> <small>2609.02142v1</small></li><li><a href="#paper-2609.02970v1">有限持续时间非慢滚效应对超轻矢量暗物质暴胀产生的影响</a> <small>2609.02970v1</small></li><li><a href="#paper-2609.02972v1">在碰撞测量中解析分布函数的局部结构</a> <small>2609.02972v1</small></li><li><a href="#paper-2609.02975v1">长基线中微子振荡中的量子基础探测：从MINOS数据到DUNE预测的波包方法</a> <small>2609.02975v1</small></li><li><a href="#paper-2609.02994v1">人马座A*与LUX-ZEPLIN核反冲事件启示下的亚TeV单态子暗物质研究</a> <small>2609.02994v1</small></li><li><a href="#paper-2609.03000v1">四夸克相互作用引起的Yukawa耦合偏差</a> <small>2609.03000v1</small></li><li><a href="#paper-2609.03002v1">关于从事件形状确定强耦合常数的特别工作组</a> <small>2609.03002v1</small></li><li><a href="#paper-2609.03016v1">亚暗晕中暗物质湮灭线信号的强约束</a> <small>2609.03016v1</small></li><li><a href="#paper-2609.03072v1">质子-质子碰撞中Z标记喷注内的能量-能量关联函数</a> <small>2609.03072v1</small></li><li><a href="#paper-2609.03204v1">具有三个希格斯二重态和S3模对称性在τ=i处的夸克混合模型</a> <small>2609.03204v1</small></li><li><a href="#paper-2609.03312v1">随机标量二重态场论中的统计对称性破缺与涌现色噪声</a> <small>2609.03312v1</small></li><li><a href="#paper-2609.03368v1">HERA和EIC的前导中子电产生：Sullivan过程、靶碎裂与π介子部分子分布函数</a> <small>2609.03368v1</small></li><li><a href="#paper-2609.03385v1">同位旋QCD介质中介子质量谱：来自N_f=2+1夸克-介子模型的研究</a> <small>2609.03385v1</small></li><li><a href="#paper-2609.03399v1">实验室与天体物理强场环境下毫电荷粒子的探索</a> <small>2609.03399v1</small></li><li><a href="#paper-2609.03434v1">CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器</a> <small>2609.03434v1</small></li><li><a href="#paper-2609.03646v1">基于贝叶斯像素方法的模型无关横向动量依赖分布重建</a> <small>2609.03646v1</small></li><li><a href="#paper-2609.03648v1">暗区中的轻轻子夸克：标量暗物质、中微子质量与对撞机特征</a> <small>2609.03648v1</small></li><li><a href="#paper-2609.03812v1">探测可行的 Froggatt-Nielsen 类味纹理的几何结构</a> <small>2609.03812v1</small></li><li><a href="#paper-2609.04039v1">通过FCC-ee的Higgsstrahlung过程探索扩展的Higgs动力学</a> <small>2609.04039v1</small></li><li><a href="#paper-2609.04049v1">全重四夸克产生的TQ4Q2.0碎裂函数</a> <small>2609.04049v1</small></li><li><a href="#paper-2609.04144v1">电弱暗物质的非弹性散射特征</a> <small>2609.04144v1</small></li><li><a href="#paper-2609.04163v1">LZ高反冲事件的TeV Higgsino解释与中等尺度电弱规范子</a> <small>2609.04163v1</small></li><li><a href="#paper-2609.04175v1">用高能边带检验LZ事件的中性微子解释</a> <small>2609.04175v1</small></li><li><a href="#paper-2609.04181v1">来自LUX-ZEPLIN高能事件的季节性暗物质</a> <small>2609.04181v1</small></li><li><a href="#paper-2609.04185v1">大气中微子升散射对LZ 2026年过量事件的解释</a> <small>2609.04185v1</small></li><li><a href="#paper-2609.04186v1">轴子门户暗物质与LUX-ZEPLIN高反冲事件</a> <small>2609.04186v1</small></li></ol><h3>交叉列表（12）</h3><ol class="toc-list"><li><a href="#paper-2609.02908v1">Luciano-Saridakis全息暗能量的观测约束</a> <small>2609.02908v1</small></li><li><a href="#paper-2609.02923v1">基于CMS开放数据与流匹配的强子单Z暗物质灵敏度研究</a> <small>2609.02923v1</small></li><li><a href="#paper-2609.03007v1">极端质量比旋进中的潮汐增强共振：通向混沌的第三条路径</a> <small>2609.03007v1</small></li><li><a href="#paper-2609.03051v1">超越孤立曲率峰：集体坍缩与多重原初黑洞形成</a> <small>2609.03051v1</small></li><li><a href="#paper-2609.03314v1">激光干涉仪中的量子真空非线性效应</a> <small>2609.03314v1</small></li><li><a href="#paper-2609.03499v1">一种实用的分波方法用于识别重离子碰撞中不稳定轻核共振态</a> <small>2609.03499v1</small></li><li><a href="#paper-2609.03964v1">含玻色子暗物质混合状态方程的超紧凑双星</a> <small>2609.03964v1</small></li><li><a href="#paper-2609.04035v1">尖角缺陷：尖角算子展开、共形性质与自举应用</a> <small>2609.04035v1</small></li><li><a href="#paper-2609.04114v1">三维格点量子电动力学中的实时弦动力学</a> <small>2609.04114v1</small></li><li><a href="#paper-2609.04117v1">开放格点规范理论中的非阿贝尔弦熔化与热化</a> <small>2609.04117v1</small></li><li><a href="#paper-2609.04129v1">QCD Θ项诱导的π-核子耦合常数ḡ₀的格点QCD计算</a> <small>2609.04129v1</small></li><li><a href="#paper-2609.04142v1">QCD中首个双强子形状因子的计算</a> <small>2609.04142v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2509.07982v2">
   <div class="paper-head">
-    <h2>LHAASO银道面γ射线对重暗物质的强约束</h2>
+    <h2>LHAASO银道面γ射线对重暗物质的强约束<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2509.07982v2" rel="noopener noreferrer">2509.07982v2</a>
   </div>
   <p class="original-title">LHAASO Galactic Plane $γ$-rays Strongly Constrain Heavy Dark Matter</p>
@@ -65,10 +96,9 @@
     <h4>主要发现</h4><p>对于多种双体标准模型末态，得到的暗物质参数空间约束是目前最强的。</p>
     <h4>局限与展望</h4><p>该结果凸显了LHAASO在探测重暗物质方面的能力，但约束依赖于暗物质分布模型和传播假设，未来更精确的数据和模型改进可能进一步收紧约束或发现信号。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.02142v1">
+</article><article class="paper" id="paper-2609.02142v1">
   <div class="paper-head">
-    <h2>准晶暴胀：从宇宙学偶极到原初衍射</h2>
+    <h2>准晶暴胀：从宇宙学偶极到原初衍射<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.02142v1" rel="noopener noreferrer">2609.02142v1</a>
   </div>
   <p class="original-title">Quasicrystalline Inflation: From the Cosmological Dipole to Primordial Diffraction</p>
@@ -88,56 +118,9 @@
     <h4>主要发现</h4><p>相干纯相位子位移可以产生局域功率偶极，同时线性无迹四极矩为零；非对角关联的动量转移被限制为六个二十面体波矢的整数组合，形成原初衍射特征。</p>
     <h4>局限与展望</h4><p>该模型提供了准周期序的独特观测特征，但尚未讨论具体观测可行性或与现有宇宙学数据的对比，后续可研究其信号强度及可探测性。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.02908v1">
+</article><article class="paper" id="paper-2609.02970v1">
   <div class="paper-head">
-    <h2>Luciano-Saridakis全息暗能量的观测约束</h2>
-    <a href="https://arxiv.org/abs/2609.02908v1" rel="noopener noreferrer">2609.02908v1</a>
-  </div>
-  <p class="original-title">Observational constraints on Luciano-Saridakis holographic dark energy</p>
-  <p class="meta"><strong>作者：</strong>Matías Leizerovich、Susana J. Landau、Giuseppe Gaetano Luciano、Andreas Papatriantafyllou、Emmanuel N. Saridakis</p>
-  <p class="meta"><strong>主分类：</strong>physics.gen-ph
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">physics.gen-ph</span> <span class="tag">hep-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>全息暗能量（HDE）模型为引力热力学与宇宙晚期加速膨胀之间的联系提供了自然框架。本文研究了一种由最近提出的广义熵导出的扩展HDE场景的观测可行性。对于有界系统，该熵表现出具有两个独立面积贡献的广义全息标度，从而产生修正的HDE密度，其包含标准HDE和ΛCDM作为极限情况。聚焦于哈勃视界红外截断，我们使用宇宙学计时器、Pantheon$^+$+SH0ES Ia型超新星样本、DESI DR2重子声学振荡以及压缩的Planck 2018 CMB位移参数来约束该模型。我们发现该模型对组合数据集提供了极佳的拟合，并允许参数空间区域同时容纳Pantheon$^+$+SH0ES和CMB的约束。优选解接近ΛCDM区域，尽管非标准熵贡献仍与当前观测兼容。我们进一步将包含两个独立面积贡献的完整模型与其简化的单贡献极限进行比较，发现两者对数据的描述基本等价，且后者略受偏好。我们的结果确立了广义熵HDE作为标准宇宙学场景的可行且理论动机充分的扩展，并提供了对该宇宙学框架的首次观测评估。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>该研究探讨了基于广义熵的扩展全息暗能量模型（Luciano-Saridakis熵）在哈勃视界截断下是否与当前多种观测数据兼容，并比较了完整模型与简化模型的优劣。</p>
-    <h4>方法</h4><p>采用广义熵导出的修正HDE密度，结合哈勃视界红外截断，利用宇宙学计时器、Pantheon$^+$+SH0ES超新星、DESI DR2重子声学振荡和Planck 2018 CMB位移参数进行贝叶斯约束和模型比较。</p>
-    <h4>主要发现</h4><p>模型对组合数据拟合极佳，存在同时满足Pantheon$^+$+SH0ES和CMB约束的参数区域；优选解接近ΛCDM，非标准熵贡献仍与观测兼容；完整模型与单贡献极限对数据描述基本等价，但后者略受偏好。</p>
-    <h4>局限与展望</h4><p>该模型作为标准宇宙学的扩展具有理论动机和观测可行性，但当前数据偏好接近ΛCDM，且简化模型略优，可能表明额外熵贡献的观测特征较弱；未来更高精度的数据（如DESI后续或CMB实验）可能进一步区分完整模型与简化模型，并检验非标准熵贡献的偏离。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.02923v1">
-  <div class="paper-head">
-    <h2>基于CMS开放数据与流匹配的强子单Z暗物质灵敏度研究</h2>
-    <a href="https://arxiv.org/abs/2609.02923v1" rel="noopener noreferrer">2609.02923v1</a>
-  </div>
-  <p class="original-title">Hadronic Mono-Z Dark Matter Sensitivity with Flow Matching on CMS Open Data</p>
-  <p class="meta"><strong>作者：</strong>Hitesh Rasineni、Bhavishya Chebrolu</p>
-  <p class="meta"><strong>主分类：</strong>hep-ex
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">cs.LG</span> <span class="tag">hep-ph</span> <span class="tag">physics.ins-det</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>本文利用CMS Run 2015D HTMHT开放数据（对应积分亮度2.256382381 fb^-1）对强子单Z暗物质产生过程进行了预期灵敏度研究。在满足强子单Z选择条件的事件中，共筛选出1,439,523个事例。背景通过条件流匹配连续归一化流建模，该模型在选定的HTMHT事件上训练，并在重新加权至完整选定总体的保留验证集上评估。为减轻缺失对象特征带来的伪影并避免样本内评分偏差，对未定义的角特征采用哨兵插补，保留训练/验证分割索引，并在选择工作点时强制要求最低报告背景产额为20个事件。对模拟信号在评分前应用信号侧离线触发代理。在此流程下，基线分析对三个简化模型基准的预期显著性分别为2.89σ、7.62σ和7.41σ。消融研究表明，移除详细的额外喷注运动学会使预期显著性降低53%–71%，表明额外喷注拓扑在强子单Z通道中具有显著的判别能力。这些结果为预期灵敏度（未进行解盲），研究的局限性和可复现性在相应章节中讨论。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>研究强子单Z暗物质产生过程的预期灵敏度，并评估额外喷注拓扑在其中的判别能力。</p>
-    <h4>方法</h4><p>利用CMS开放数据，采用条件流匹配连续归一化流对背景建模，并应用哨兵插补、固定数据分割和最小背景产额等策略，对模拟信号施加离线触发代理，进行预期灵敏度分析及消融研究。</p>
-    <h4>主要发现</h4><p>基线分析对三个简化模型基准的预期显著性分别为2.89σ、7.62σ和7.41σ；消融研究显示移除额外喷注运动学会使预期显著性降低53%–71%，表明额外喷注拓扑具有显著判别能力。</p>
-    <h4>局限与展望</h4><p>本研究为预期灵敏度，未进行解盲，结果依赖于特定数据集和模拟条件，实际灵敏度可能因数据特征和系统不确定性而有所不同。后续可考虑在完整Run 2数据上验证，并纳入系统不确定性以更精确评估。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.02970v1">
-  <div class="paper-head">
-    <h2>有限持续时间非慢滚效应对超轻矢量暗物质暴胀产生的影响</h2>
+    <h2>有限持续时间非慢滚效应对超轻矢量暗物质暴胀产生的影响<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.02970v1" rel="noopener noreferrer">2609.02970v1</a>
   </div>
   <p class="original-title">Finite-duration non-slow-roll effects in inflationary production of ultralight vector dark matter</p>
@@ -157,10 +140,9 @@
     <h4>主要发现</h4><p>主要结果包括：有限持续时间保留了红外增强，抑制了能够分辨跃迁的模式，并引入了对遗迹丰度的轮廓依赖修正；在固定暗物质丰度后，引力波信号保留了独立的横向无迹源依赖性，因此丰度重新缩放不足以消除轮廓信息。</p>
     <h4>局限与展望</h4><p>论文的局限性在于其分析基于特定的平滑轮廓，可能不适用于所有非慢滚场景；后续方向可以探索不同轮廓参数对结果的影响，以及将有限持续时间效应纳入更广泛的暴胀模型预测中。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.02972v1">
+</article><article class="paper" id="paper-2609.02972v1">
   <div class="paper-head">
-    <h2>在碰撞测量中解析分布函数的局部结构</h2>
+    <h2>在碰撞测量中解析分布函数的局部结构<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.02972v1" rel="noopener noreferrer">2609.02972v1</a>
   </div>
   <p class="original-title">Resolving Local Structure of Distribution Functions in Collider Measurements</p>
@@ -180,10 +162,9 @@
     <h4>主要发现</h4><p>论文表明，基线归一化的$F_{\rm dir}(X)$在零宽度时给出局部值，否则给出受控平均值，且协方差决定主要偏差。此外，一个EIC光子辐射可观测量可实现精确的零宽度极限。</p>
     <h4>局限与展望</h4><p>论文的结果可用于指导选择能保留意外精细结构的过程和可观测量，但未明确讨论局限性，后续可探索其他碰撞环境或更复杂可观测量下的适用性。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.02975v1">
+</article><article class="paper" id="paper-2609.02975v1">
   <div class="paper-head">
-    <h2>长基线中微子振荡中的量子基础探测：从MINOS数据到DUNE预测的波包方法</h2>
+    <h2>长基线中微子振荡中的量子基础探测：从MINOS数据到DUNE预测的波包方法<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.02975v1" rel="noopener noreferrer">2609.02975v1</a>
   </div>
   <p class="original-title">Probing Quantum Foundations in Long-Baseline Neutrino Oscillations: Wave Packet Approach from MINOS Data to DUNE Predictions</p>
@@ -203,10 +184,9 @@
     <h4>主要发现</h4><p>原文明确支持的主要结果包括：波包宽度对振荡概率的影响在低能区域最为显著，Fisher信息灵敏度集中于此；即使振荡概率与平面波结果无法区分，波包结构仍会在三重性度量中留下可观测印记；波包方法为长基线实验提供了理论一致且实验激励的框架。</p>
     <h4>局限与展望</h4><p>论文的局限可能包括未考虑实际实验的系统误差和统计涨落，以及波包宽度参数的具体值依赖于实验环境。后续方向可能包括将波包方法应用于其他长基线实验（如T2K、NOvA）的数据分析，或进一步研究波包宽度与量子退相干机制的关系，但这些推断需谨慎措辞。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.02994v1">
+</article><article class="paper" id="paper-2609.02994v1">
   <div class="paper-head">
-    <h2>人马座A*与LUX-ZEPLIN核反冲事件启示下的亚TeV单态子暗物质研究</h2>
+    <h2>人马座A*与LUX-ZEPLIN核反冲事件启示下的亚TeV单态子暗物质研究<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.02994v1" rel="noopener noreferrer">2609.02994v1</a>
   </div>
   <p class="original-title">Sub-TeV Singlino Dark Matter in light from Sagittarius A$^\ast$ and LUX-ZEPLIN Nuclear-Recoil Event</p>
@@ -226,10 +206,9 @@
     <h4>主要发现</h4><p>原文摘要未提供具体数值结果，但指出单态子暗物质在传统晕中间接探测信号弱，且LHC和直接探测难以触及；LUX-ZEPLIN事件可能支持质量大于200 GeV的单态子暗物质；研究考察了通过伽马射线观测Sgr A*和XTE J1118+480周围区域来探测这些亚TeV暗物质情景的前景。</p>
     <h4>局限与展望</h4><p>由于摘要未给出明确结论，可合理推断该研究可能表明密度尖峰增强能提高间接探测灵敏度，但具体探测前景需依赖详细计算；后续方向可能包括考虑其他天体或改进探测技术。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03000v1">
+</article><article class="paper" id="paper-2609.03000v1">
   <div class="paper-head">
-    <h2>四夸克相互作用引起的Yukawa耦合偏差</h2>
+    <h2>四夸克相互作用引起的Yukawa耦合偏差<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03000v1" rel="noopener noreferrer">2609.03000v1</a>
   </div>
   <p class="original-title">Yukawa coupling deviations from four-quark interactions</p>
@@ -249,10 +228,9 @@
     <h4>主要发现</h4><p>主要结果包括：味物理和顶夸克对产生对四夸克算符有强约束，但Higgs-粲和Higgs-底耦合对某些标量流四夸克算符仍很敏感；在FCC-ee上可测试更多算符和味结构；在某些模型中，Yukawa耦合偏差可能成为新物理的首个迹象。</p>
     <h4>局限与展望</h4><p>局限在于研究限于特定类型的四夸克算符和简单模型，未涵盖所有可能的新物理场景。后续方向可推断为在FCC-ee上进一步实验检验，以及探索更复杂的模型或算符组合。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03002v1">
+</article><article class="paper" id="paper-2609.03002v1">
   <div class="paper-head">
-    <h2>关于从事件形状确定强耦合常数的特别工作组</h2>
+    <h2>关于从事件形状确定强耦合常数的特别工作组<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03002v1" rel="noopener noreferrer">2609.03002v1</a>
   </div>
   <p class="original-title">A Task Force on Strong Coupling Determinations from Event Shapes</p>
@@ -272,33 +250,9 @@
     <h4>主要发现</h4><p>论文指出，从事件形状确定α_s的不同结果之间存在显著差异，包括中心值和不确定性；会议确定了优先实验分析和理论任务，但未给出具体数值结果。</p>
     <h4>局限与展望</h4><p>该特别工作组旨在通过协调社区努力解决差异，未来会议将基于理论任务进展进一步推进；但具体成果尚待后续工作，本文档仅作为初步报告。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03007v1">
+</article><article class="paper" id="paper-2609.03016v1">
   <div class="paper-head">
-    <h2>极端质量比旋进中的潮汐增强共振：通向混沌的第三条路径</h2>
-    <a href="https://arxiv.org/abs/2609.03007v1" rel="noopener noreferrer">2609.03007v1</a>
-  </div>
-  <p class="original-title">Tidally-enhanced resonances in extreme-mass-ratio inspirals: A tertiary path to chaos</p>
-  <p class="meta"><strong>作者：</strong>Kyriakos Destounis、Takuya Katagiri、Sajal Mukherjee、Kostas D. Kokkotas</p>
-  <p class="meta"><strong>主分类：</strong>gr-qc
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nlin.CD</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>极端质量比旋进（EMRIs）为探测强场引力和复杂相对论动力学提供了独特实验室。我们研究了一个潮汐变形的EMRI系统，其中恒星质量次级体绕嵌入外部绝热变化潮汐环境的超大质量（非）旋转黑洞运行。这些系统提供了相对论三体问题的一种受限但具有天体物理动机的实现，预期出现在活动星系核中，具有清晰的质量层级和辐射反作用时间尺度。外部潮汐形变破坏了Kerr时空的轴对称性，使测地线动力学不可积并产生混沌运动。通过庞加莱截面和由束缚径向、极向和方位角运动基本频率之比构建的旋转曲线，刻画了不可积性的特征。我们识别出两个显著平台，其宽度随潮汐场振幅增加而增大，标志着从弱混沌到强混沌的转变。随后，我们展示了混沌动力学对轨道相对于潮汐场取向的敏感性。进一步分析作用-角变量的固有时演化，表明与主导共振相关的角组合被相位锁定，从而使相关潮汐贡献引起运动常数的长期变化，而平台外的角组合则循环。这些结果阐明了显著平台的动力学意义，并为EMRIs中的潮汐共振提供了新的相空间表征。最后，我们讨论了辐射反作用效应在驱动EMRIs穿越潮汐岛交叉中的潜在作用及其对未来探测器引力波推断的影响。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究外部绝热潮汐环境对极端质量比旋进（EMRI）系统动力学的影响，特别是潮汐形变如何破坏Kerr时空的轴对称性并导致混沌运动，以及这种混沌对引力波观测的潜在意义。</p>
-    <h4>方法</h4><p>采用理论分析和数值模拟方法，通过庞加莱截面和旋转曲线表征混沌，分析作用-角变量的演化以揭示共振的相位锁定效应，并讨论辐射反作用的影响。</p>
-    <h4>主要发现</h4><p>外部潮汐形变使测地线动力学不可积并产生混沌；识别出两个平台，其宽度随潮汐振幅增加而增大，表明从弱混沌到强混沌的转变；混沌动力学对轨道取向敏感；与主导共振相关的角组合被相位锁定，导致运动常数的长期变化，而平台外的角组合则循环。</p>
-    <h4>局限与展望</h4><p>论文讨论了辐射反作用可能驱动EMRI穿越潮汐岛交叉，但未定量分析；未来工作可进一步研究辐射反作用与混沌的耦合及其对引力波模板的影响，但需谨慎推断。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03016v1">
-  <div class="paper-head">
-    <h2>亚暗晕中暗物质湮灭线信号的强约束</h2>
+    <h2>亚暗晕中暗物质湮灭线信号的强约束<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03016v1" rel="noopener noreferrer">2609.03016v1</a>
   </div>
   <p class="original-title">Strong Constraints for Line Signals from Dark Matter Annihilation in Sub-halo</p>
@@ -318,33 +272,9 @@
     <h4>主要发现</h4><p>未发现统计显著的谱线信号；最大超出在28 GeV处，局部显著性为2.5σ；在95%置信水平下给出的湮灭截面上限在大部分质量范围内强于银河系中心限制；这些约束排除了部分WIMP模型参数空间。</p>
     <h4>局限与展望</h4><p>该结果依赖于亚暗晕的密度分布模型（NFW），若实际亚暗晕结构不同，约束强度可能变化；未来更精确的亚暗晕模型或更长的观测数据可能进一步提高灵敏度，或探测到微弱信号。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03051v1">
+</article><article class="paper" id="paper-2609.03072v1">
   <div class="paper-head">
-    <h2>超越孤立曲率峰：集体坍缩与多重原初黑洞形成</h2>
-    <a href="https://arxiv.org/abs/2609.03051v1" rel="noopener noreferrer">2609.03051v1</a>
-  </div>
-  <p class="original-title">Beyond isolated curvature peaks: collective collapse and multiple Primordial Black Hole formation</p>
-  <p class="meta"><strong>作者：</strong>Albert Escrivà</p>
-  <p class="meta"><strong>主分类：</strong>astro-ph.CO
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">astro-ph.CO</span> <span class="tag">gr-qc</span> <span class="tag">hep-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>原初黑洞（PBH）的计算通常将罕见的曲率峰视为孤立的坍缩区域。通过在辐射主导宇宙中进行全非线性3+1数值相对论模拟，我们证明了邻近的原初曲率扰动不必与PBH一一对应：它们可能最终弥散、集体坍缩成单个PBH，或经历不同的局部坍缩而形成多个PBH。在我们研究的双分量轮廓族中，后一种结果表现为一对PBH，其特征是在至少一个时间切片上存在两个不相连的表观视界。我们引入了一种基于霍金质量并参考等面积圆FLRW球面的非球面准局域压实诊断。它保留了曲率场的角结构，并在球对称情况下退化为标准的Misner-Sharp压实函数。该诊断的全局最大值$\mathcal K_{\rm form}$提供了是否至少形成一个PBH的经验指标，其转变点接近$\mathcal K_{\rm form,c}\approx0.56$，且具有适度的轮廓依赖散布。对于形成双峰轮廓的情况，我们在同一探测球面上补充了带符号的线性表面强度。较弱局部分支的可行性以及局部与共同包络分支之间的竞争，改善了对单PBH和双PBH结果的经验区分。因此，我们的结果表明，最大曲率振幅本身并不能决定坍缩结果，结果还取决于周围曲率环境的空间范围、特征尺度和几何形状。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是：在辐射主导宇宙中，邻近的原初曲率扰动是否必然与PBH一一对应，即是否总是形成孤立坍缩，还是可能集体坍缩或形成多个PBH？</p>
-    <h4>方法</h4><p>采用全非线性3+1数值相对论模拟，研究双分量曲率轮廓的坍缩；引入基于霍金质量的非球面准局域压实诊断，并辅以线性表面强度，用于区分单PBH和双PBH结果。</p>
-    <h4>主要发现</h4><p>邻近扰动可能弥散、集体坍缩成单个PBH，或形成多个PBH（如双PBH）；全局压实最大值$\mathcal K_{\rm form}$可经验指示至少一个PBH的形成，转变点约0.56；最大曲率振幅单独不能决定坍缩结果，还依赖空间范围、特征尺度和几何形状。</p>
-    <h4>局限与展望</h4><p>研究限于双分量轮廓族，结果可能不适用于更复杂的扰动形态；诊断指标的经验性质表明其普适性需进一步验证；后续可探索更一般轮廓下的坍缩判据，或考虑非辐射主导背景的影响。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03072v1">
-  <div class="paper-head">
-    <h2>质子-质子碰撞中Z标记喷注内的能量-能量关联函数</h2>
+    <h2>质子-质子碰撞中Z标记喷注内的能量-能量关联函数<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03072v1" rel="noopener noreferrer">2609.03072v1</a>
   </div>
   <p class="original-title">Energy-Energy Correlators in $Z$-Tagged Jets in $pp$ Collisions</p>
@@ -364,10 +294,9 @@
     <h4>主要发现</h4><p>预言了EEC分布在小z_chi处呈现有限平台，角分布在禁闭转变处出现特征性转折；味道分解显示随着喷注横动量增加，夸克起始喷注的贡献增大。</p>
     <h4>局限与展望</h4><p>该研究为在强子环境中探测非微扰夸克碎裂提供了理论工具，但预言尚未与实验数据比较，未来可期待LHC实验验证，并可能推广到其他标记喷注过程。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03204v1">
+</article><article class="paper" id="paper-2609.03204v1">
   <div class="paper-head">
-    <h2>具有三个希格斯二重态和S3模对称性在τ=i处的夸克混合模型</h2>
+    <h2>具有三个希格斯二重态和S3模对称性在τ=i处的夸克混合模型<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03204v1" rel="noopener noreferrer">2609.03204v1</a>
   </div>
   <p class="original-title">Quark Mixing Model with Three Higgs Doublets and $S_3$ Modular Symmetry at $τ=i$</p>
@@ -387,10 +316,9 @@
     <h4>主要发现</h4><p>提出了两种参数设置：一种具有三个有效参数但过度约束，另一种具有四个有效参数，后者能够精确拟合V_CKM矩阵。</p>
     <h4>局限与展望</h4><p>该模型在四个有效参数下能精确拟合CKM矩阵，但三个参数设置过于约束，可能暗示需要额外机制或放宽某些假设。未来可探索将该模型推广到轻子扇区，或考虑其他模对称性，但需进一步研究。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03312v1">
+</article><article class="paper" id="paper-2609.03312v1">
   <div class="paper-head">
-    <h2>随机标量二重态场论中的统计对称性破缺与涌现色噪声</h2>
+    <h2>随机标量二重态场论中的统计对称性破缺与涌现色噪声<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03312v1" rel="noopener noreferrer">2609.03312v1</a>
   </div>
   <p class="original-title">Statistical Symmetry Breaking and Emergent Colored Noise in a Stochastic Scalar-Doublet Field Theory</p>
@@ -410,33 +338,9 @@
     <h4>主要发现</h4><p>论文发现：在统计层面保持对称性的同时，单个实现中对称性破缺；标量二重态经历噪声驱动的随机游走，其幅值系综平均随时间有限；标量场解分解为尾部（有效质量）和光锥（色噪声）分量，后者在费米子中诱导空间相关的随机相位，并解析推导了色噪声的统计性质和关联长度。</p>
     <h4>局限与展望</h4><p>论文为探索性研究，其结论基于无规范场扇区和特定近似，可能不适用于一般情况。后续可考虑引入规范场、更复杂的相互作用或超越近似的方法，以验证结果的普适性。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03314v1">
+</article><article class="paper" id="paper-2609.03368v1">
   <div class="paper-head">
-    <h2>激光干涉仪中的量子真空非线性效应</h2>
-    <a href="https://arxiv.org/abs/2609.03314v1" rel="noopener noreferrer">2609.03314v1</a>
-  </div>
-  <p class="original-title">Quantum Vacuum Nonlinearities in Laser Interferometers</p>
-  <p class="meta"><strong>作者：</strong>Zain Mehdi、Joseph J. Hope、Simon A. Haine</p>
-  <p class="meta"><strong>主分类：</strong>quant-ph
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们提出利用驻波激光干涉仪在物质真空中进行光子-光子相互作用的全光学测试，该方案无需外部磁场，且使用常规激光源。我们证明，量子电动力学所预言的光子-光子散射的干涉检测可通过实验室规模的实验实现，其灵敏度随腔内的循环功率呈非线性提高。我们概述了如何将该实验用于探测粒子物理标准模型之外的量子场性质。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>如何在不使用外部磁场和常规激光源的条件下，通过激光干涉仪探测真空中的光子-光子相互作用？</p>
-    <h4>方法</h4><p>提出使用驻波激光干涉仪的全光学方案，分析其灵敏度和可行性，并讨论其扩展应用。</p>
-    <h4>主要发现</h4><p>光子-光子散射的干涉检测可通过实验室规模实验实现，灵敏度随腔内循环功率非线性提高。</p>
-    <h4>局限与展望</h4><p>该方案可进一步用于探测标准模型之外的量子场性质，但具体探测能力需进一步研究。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03368v1">
-  <div class="paper-head">
-    <h2>HERA和EIC的前导中子电产生：Sullivan过程、靶碎裂与π介子部分子分布函数</h2>
+    <h2>HERA和EIC的前导中子电产生：Sullivan过程、靶碎裂与π介子部分子分布函数<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03368v1" rel="noopener noreferrer">2609.03368v1</a>
   </div>
   <p class="original-title">Leading-Neutron Electroproduction at HERA and the EIC: Sullivan Process, Target Fragmentation, and Pion PDFs</p>
@@ -456,10 +360,9 @@
     <h4>主要发现</h4><p>OPE与靶碎裂贡献的组合无需额外归一化因子即可再现HERA数据在整个x_L范围内的主要特征；HERA数据对靶碎裂处理方式敏感；EIC的某些束流能量和运动学区域能增强对π结构的敏感性并抑制靶碎裂贡献。</p>
     <h4>局限与展望</h4><p>论文表明将更广泛的前导中子数据纳入未来全局分析是可行的，但模型依赖性（如形状因子和靶碎裂处理）仍需进一步研究；EIC的预测依赖于模拟，实际灵敏度需实验验证。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03385v1">
+</article><article class="paper" id="paper-2609.03385v1">
   <div class="paper-head">
-    <h2>同位旋QCD介质中介子质量谱：来自N_f=2+1夸克-介子模型的研究</h2>
+    <h2>同位旋QCD介质中介子质量谱：来自N_f=2+1夸克-介子模型的研究<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03385v1" rel="noopener noreferrer">2609.03385v1</a>
   </div>
   <p class="original-title">Meson mass spectrum in isospin QCD medium from the $N_f=2+1$ quark-meson model</p>
@@ -479,10 +382,9 @@
     <h4>主要发现</h4><p>在低温下π凝聚 onset 为二级相变，在较高温度可能为一级；π_+质量在超流相中精确为零；中性π介子质量在π凝聚相中随μ_I线性增长；声速平方呈现与相变相关的特征结构；增强的U(1)_A反常效应使冷介质中声速峰变得不明显。</p>
     <h4>局限与展望</h4><p>论文结果可为未来格点QCD模拟提供介子质量谱的对称性参考，但模型依赖平均场近似，可能不适用于强耦合区域，且未包含量子涨落效应，后续可考虑超越平均场或非微扰方法。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03399v1">
+</article><article class="paper" id="paper-2609.03399v1">
   <div class="paper-head">
-    <h2>实验室与天体物理强场环境下毫电荷粒子的探索</h2>
+    <h2>实验室与天体物理强场环境下毫电荷粒子的探索<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03399v1" rel="noopener noreferrer">2609.03399v1</a>
   </div>
   <p class="original-title">Exploring millicharged particles in laboratory and astrophysical strong-field regimes</p>
@@ -502,10 +404,9 @@
     <h4>主要发现</h4><p>强磁化磁星对MCPs的约束与实验室激光实验的搜索潜力具有互补性。</p>
     <h4>局限与展望</h4><p>本文主要基于理论推导，未涉及具体实验参数优化或数据分析；未来可结合具体实验设计（如激光参数、电子束能量）进一步评估可行性，或扩展至其他天体物理环境（如脉冲星）以增强约束。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03434v1">
+</article><article class="paper" id="paper-2609.03434v1">
   <div class="paper-head">
-    <h2>CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器</h2>
+    <h2>CGC-py：用于胶子饱和物理的蒙特卡洛事件产生器<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03434v1" rel="noopener noreferrer">2609.03434v1</a>
   </div>
   <p class="original-title">CGC-py: A Monte Carlo Event Generator for Gluon Saturation Physics</p>
@@ -525,33 +426,9 @@
     <h4>主要发现</h4><p>通过解析闭合性测试和H1数据比较验证了产生器；预测的核修正因子显示饱和模式；小x CGC演化和DGLAP动力学对双强子背对侧宽度增长贡献相当，真正的饱和展宽仅出现在最高能量；eAu碰撞相对于ep表现出增强的背对侧宽度和压低的背对背产额。</p>
     <h4>局限与展望</h4><p>核效应在EIC运动学中温和，可能需要最前向运动学测量和互补观测量以增强对胶子饱和的灵敏度。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03499v1">
+</article><article class="paper" id="paper-2609.03646v1">
   <div class="paper-head">
-    <h2>一种实用的分波方法用于识别重离子碰撞中不稳定轻核共振态</h2>
-    <a href="https://arxiv.org/abs/2609.03499v1" rel="noopener noreferrer">2609.03499v1</a>
-  </div>
-  <p class="original-title">A Practical Partial-Wave Method for Identifying Unstable Light Nucleus Resonances in Heavy-Ion Collisions</p>
-  <p class="meta"><strong>作者：</strong>Junlin Wu、Hongchan Li、Ke Mi、Yaping Wang、Guannan Xie</p>
-  <p class="meta"><strong>主分类：</strong>nucl-th
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>相对论性重离子碰撞中轻核的产生为理解这些极端环境下产生的热密物质动力学提供了宝贵见解。虽然稳定轻核已被广泛研究，但作为短寿命共振态的不稳定轻核在很大程度上仍未被探索，为探测末态相互作用和冻结条件提供了独特机会。本文基于Lednický–Lyuboshitz（LL）框架提出了一种分波方法，用于从重离子碰撞中测量的两粒子关联函数中提取不稳定轻核的共振信号。通过将LL模型扩展到高阶分波并直接纳入低能核散射的实验相移数据，该方法避免了模型依赖的势参数化，并实现了共振分波与非共振背景的干净分解。作为演示，我们将该方法应用于p-^3He和p-^4He系统，分别对应^4Li和^5Li的基态共振。数值结果表明，共振引起的关联过剩可以被有效分离，关联函数中的峰出现在k≈72 MeV/c（^4Li）和k≈50 MeV/c（^5Li），与已知共振参数一致。利用STAR在√s_NN=3 GeV下测量的质子与轻核谱，给出了提取的横动量谱和快度分布。该方法为相对论性重离子碰撞中不稳定轻核的实验研究提供了实用工具，并可扩展到更广泛的共振态。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>如何从重离子碰撞的两粒子关联函数中提取不稳定轻核共振信号，避免模型依赖的势参数化？</p>
-    <h4>方法</h4><p>基于Lednický–Lyuboshitz框架，扩展至高阶分波，并直接使用低能核散射的实验相移数据，实现共振分波与非共振背景的分解。</p>
-    <h4>主要发现</h4><p>该方法成功应用于p-^3He和p-^4He系统，关联函数中出现的峰分别位于k≈72 MeV/c（^4Li）和k≈50 MeV/c（^5Li），与已知共振参数一致；并利用STAR数据给出了提取的横动量谱和快度分布。</p>
-    <h4>局限与展望</h4><p>该方法为实验研究不稳定轻核提供了实用工具，可推广至更广泛的共振态；但当前演示仅限于特定系统，其普适性及对数据质量的依赖需进一步验证。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.03646v1">
-  <div class="paper-head">
-    <h2>基于贝叶斯像素方法的模型无关横向动量依赖分布重建</h2>
+    <h2>基于贝叶斯像素方法的模型无关横向动量依赖分布重建<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03646v1" rel="noopener noreferrer">2609.03646v1</a>
   </div>
   <p class="original-title">A Bayesian Pixel Based Approach for Model Independent TMD Reconstruction</p>
@@ -571,10 +448,9 @@
     <h4>主要发现</h4><p>框架通过多尺度闭合检验验证；奇异值分解表明存在零模TMD（观测无法约束的成分），而多尺度数据能打破这些简并，实现三维部分子成像。</p>
     <h4>局限与展望</h4><p>该框架为TMD成像提供了新工具，但零模TMD的存在表明某些方向可能仍受限制；未来可探索更复杂的数据集或扩展至其他分布，但需进一步验证。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03648v1">
+</article><article class="paper" id="paper-2609.03648v1">
   <div class="paper-head">
-    <h2>暗区中的轻轻子夸克：标量暗物质、中微子质量与对撞机特征</h2>
+    <h2>暗区中的轻轻子夸克：标量暗物质、中微子质量与对撞机特征<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03648v1" rel="noopener noreferrer">2609.03648v1</a>
   </div>
   <p class="original-title">Light Leptoquarks in a Dark Sector: Scalar Dark Matter, Neutrino Mass, and Collider Signatures</p>
@@ -594,10 +470,9 @@
     <h4>主要发现</h4><p>主要结果：该模型允许亚TeV暗LQs与TeV尺度暗VLQs共存；亚TeV暗LQs通过共湮灭有助于实现单态暗物质的观测遗迹丰度；LQs的Z2奇性使其逃避标准LHC约束，从而提供独特的对撞机特征。</p>
     <h4>局限与展望</h4><p>局限或后续方向：论文未明确讨论局限性，但可合理推断该模型的具体参数空间需要进一步扫描以确定可行的暗物质区域；未来μ子对撞机的探测能力需要更详细的研究，包括信号和背景的模拟；此外，该模型可能对轻子味破坏过程或宇宙学观测产生影响，但原文未涉及，需进一步研究。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03812v1">
+</article><article class="paper" id="paper-2609.03812v1">
   <div class="paper-head">
-    <h2>探测可行的 Froggatt-Nielsen 类味纹理的几何结构</h2>
+    <h2>探测可行的 Froggatt-Nielsen 类味纹理的几何结构<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.03812v1" rel="noopener noreferrer">2609.03812v1</a>
   </div>
   <p class="original-title">Probing the Geometry of Viable Froggatt-Nielsen-like Flavor Textures</p>
@@ -617,56 +492,9 @@
     <h4>主要发现</h4><p>主要结果：在所有基准中，PCA 需要十五个主成分才能解释 90% 的方差；TwoNN 和 Levina-Bickel 估计器给出约 10-12 的高有效维度，表明原始指数空间中没有强线性压缩或低维结构。</p>
     <h4>局限与展望</h4><p>局限与展望：结果不排除在其他坐标中存在隐藏的味理论几何结构，但表明原始 Froggatt-Nielsen 指数可能不是揭示这种几何结构的自然坐标；后续研究可探索其他坐标或更完整的模型约束。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.03964v1">
+</article><article class="paper" id="paper-2609.04039v1">
   <div class="paper-head">
-    <h2>含玻色子暗物质混合状态方程的超紧凑双星</h2>
-    <a href="https://arxiv.org/abs/2609.03964v1" rel="noopener noreferrer">2609.03964v1</a>
-  </div>
-  <p class="original-title">Ultra-compact twin stars with hybrid equations of state from bosonic dark matter</p>
-  <p class="meta"><strong>作者：</strong>Ishfaq Ahmad Rather、Sarah Louisa Pitz、Jürgen Schaffner-Bielich</p>
-  <p class="meta"><strong>主分类：</strong>astro-ph.HE
-     <strong>公告类型：</strong>cross</p>
-  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们研究了具有强一级相变到夸克物质以及额外自相互作用玻色子暗物质（DM）流体的致密星性质。我们发现，与朴素的一流体判据相比，DM的加入显著改变了质量-半径构型的稳定性。对于具有相似质量和不同半径的致密星构型（即所谓的双星），DM的存在消除了强子分支与混合分支之间的不稳定段，使得相变到夸克物质后的稳定质量-半径序列变得连续。我们还发现了稳定的超紧凑天体（UCOs），其总致密度C = M_tot/R_grav ≥ 1/3。我们观察到两类不同的UCOs：DM晕类（f_DM ≳ 0.9）和DM核类（f_DM ≲ 0.02）。这两类可以通过正常物质的表面红移来区分，DM核类的红移达到z=0.73–0.77，而DM晕类的红移低于0.45。最后，我们发现了“终极双星”的混合星解，其质量和可见半径相似，但暗物质含量不同，导致不同的潮汐形变性和表面红移。未来的X射线和引力波测量，如果探测到半径和质量超出中子星允许范围的超紧凑中子星，可以探测除一级相变到夸克物质之外的DM的存在及其性质。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是：在包含强一级相变到夸克物质以及额外自相互作用玻色子暗物质流体的混合状态方程下，致密星（特别是双星和超紧凑天体）的稳定性、质量-半径关系以及可观测特征如何变化？</p>
-    <h4>方法</h4><p>采用理论模型和数值计算，研究包含强子物质、夸克物质和玻色子暗物质的多流体致密星结构，分析其质量-半径关系、稳定性判据、表面红移和潮汐形变性。</p>
-    <h4>主要发现</h4><p>主要结果包括：1) DM的加入改变了质量-半径构型的稳定性，消除了双星分支之间的不稳定段，使稳定序列连续；2) 存在两类稳定的超紧凑天体（UCOs），即DM晕类（f_DM ≳ 0.9）和DM核类（f_DM ≲ 0.02），可通过表面红移区分（DM核类z=0.73-0.77，DM晕类z&lt;0.45）；3) 存在“终极双星”解，具有相似质量和可见半径但不同DM含量，导致不同的潮汐形变性和表面红移。</p>
-    <h4>局限与展望</h4><p>论文指出，未来的X射线和引力波观测如果发现半径和质量超出中子星允许范围的超紧凑天体，可以探测DM的存在及其性质，并可能区分一级相变和DM效应。但该研究基于特定的状态方程模型，其结论可能依赖于模型假设，且未考虑旋转效应等复杂因素，这些可作为后续研究方向。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04035v1">
-  <div class="paper-head">
-    <h2>尖角缺陷：尖角算子展开、共形性质与自举应用</h2>
-    <a href="https://arxiv.org/abs/2609.04035v1" rel="noopener noreferrer">2609.04035v1</a>
-  </div>
-  <p class="original-title">Cusped Defects: Cusp Operator Expansion, Conformal Properties and Bootstrap Applications</p>
-  <p class="meta"><strong>作者：</strong>Lorenzo Bianchi、Andrea Cavaglià、A. David Gutiérrez、Stefanos R. Kousvos、Marco Meineri</p>
-  <p class="meta"><strong>主分类：</strong>hep-th
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>我们分析了嵌入一般共形场论（CFT）中的尖角缺陷线的一般性质。我们证明了适当定义的尖角标度算子在一般共形变换下像初级算子一样变换。我们表明，通过尖角算子展开（COE），一般形状的缺陷可以在尖角缺陷的基础上展开。这些发现在局域磁场缺陷的情况下得到验证和例证。最后，我们利用交叉方程推导了动力学尖角数据的解析约束，并讨论了我们的结果在数值自举中的可能应用。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究嵌入一般共形场论中的尖角缺陷线的一般性质，包括其共形变换行为、展开性质以及自举应用。</p>
-    <h4>方法</h4><p>采用理论分析方法，包括定义尖角标度算子并证明其共形变换性质，建立尖角算子展开（COE），并通过局域磁场缺陷进行验证，最后利用交叉方程推导解析约束。</p>
-    <h4>主要发现</h4><p>证明了适当定义的尖角标度算子在一般共形变换下表现为初级算子；建立了尖角算子展开，使得一般形状的缺陷可展开为尖角缺陷的基；在局域磁场缺陷中验证了这些结果；并利用交叉方程得到了动力学尖角数据的解析约束。</p>
-    <h4>局限与展望</h4><p>论文的结果可能为数值共形自举提供新的应用，但具体应用细节和局限性未在摘要中明确说明，需进一步研究。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04039v1">
-  <div class="paper-head">
-    <h2>通过FCC-ee的Higgsstrahlung过程探索扩展的Higgs动力学</h2>
+    <h2>通过FCC-ee的Higgsstrahlung过程探索扩展的Higgs动力学<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.04039v1" rel="noopener noreferrer">2609.04039v1</a>
   </div>
   <p class="original-title">Exploring Extended Higgs Dynamics via Higgsstrahlung at FCC-ee</p>
@@ -686,10 +514,9 @@
     <h4>主要发现</h4><p>FCC-ee的预期精度能够对接近对齐极限的2HDM参数空间进行精确分析，且2HDM中导致截面偏离标准模型的特征也存在于更复杂的扩展模型中，表明FCC-ee具有间接发现BSM物理的潜力。</p>
     <h4>局限与展望</h4><p>该研究仅限于2HDM模型，但结论可推广至具有类似特征的更复杂模型；后续可考虑其他产生过程或更高能量运行以增强探测能力。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04049v1">
+</article><article class="paper" id="paper-2609.04049v1">
   <div class="paper-head">
-    <h2>全重四夸克产生的TQ4Q2.0碎裂函数</h2>
+    <h2>全重四夸克产生的TQ4Q2.0碎裂函数<span class="badge">主分类</span></h2>
     <a href="https://arxiv.org/abs/2609.04049v1" rel="noopener noreferrer">2609.04049v1</a>
   </div>
   <p class="original-title">TQ4Q2.0 Fragmentation Functions for Fully Heavy Tetraquark Production</p>
@@ -709,10 +536,317 @@
     <h4>主要发现</h4><p>论文提供了TQ4Q2.0碎裂函数集，该框架能够描述全重四夸克产生，并特别指出轴矢量扇区对LHC和FCC能量下的内禀粲夸克贡献敏感。</p>
     <h4>局限与展望</h4><p>论文未明确讨论局限性，但可推断该框架可用于更广泛的运动学范围，并可能为奇特强子谱学与质子部分子结构的关联提供工具。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04114v1">
+</article><article class="paper" id="paper-2609.04144v1">
   <div class="paper-head">
-    <h2>三维格点量子电动力学中的实时弦动力学</h2>
+    <h2>电弱暗物质的非弹性散射特征<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04144v1" rel="noopener noreferrer">2609.04144v1</a>
+  </div>
+  <p class="original-title">Inelastic Signatures of Electroweak Dark Matter</p>
+  <p class="meta"><strong>作者：</strong>Juri Smirnov、Spencer Griffith、John F. Beacom</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>由马约拉纳（M）和狄拉克（D）多重态通过希格斯相互作用耦合构成的最小电弱暗物质模型，为高能非弹性核反冲提供了一个可预测的框架。我们证明该框架可以解释LUX-ZEPLIN（LZ）合作组最近报道的事件类型。在 custodial 点，电弱对称性破缺诱导出中性态劈裂 δ 和非对角 Z 相互作用。对于耦合多重态 3_M2_D、5_M4_D、7_M6_D、9_M8_D、11_M10_D 和 13_M12_D，劈裂和主要的非弹性相互作用在固定 (m_χ, y) 下是普适的，与电弱表示无关。观测到的高反冲能量指向几百 keV 的劈裂，而固定的 Z 介导速率使我们能够通过要求在 LZ 曝光中有一个预期的非弹性事件来确定质量相关的 δ_LZ(m_χ)，并带有双侧 90% 泊松带。这定义了 (m_χ, y) 平面上的一个普适区域。将其与依赖于表示的热 relic 轨迹相交，为每个多重态选择一个基准点。相应的电弱表示随后预测了在较低反冲能量下相关的环诱导弹性自旋无关信号。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：最小电弱暗物质模型能否解释LZ实验观测到的高能非弹性核反冲事件，并预测相关的暗物质性质。</p>
+    <h4>方法</h4><p>采用的方法：构建由马约拉纳和狄拉克多重态通过希格斯相互作用耦合的模型，在custodial点计算电弱对称性破缺导致的态劈裂和非弹性散射截面，利用LZ实验的曝光量和事件数确定参数区域，并与热 relic 轨迹相交得到基准点。</p>
+    <h4>主要发现</h4><p>主要结果：该模型可以解释LZ事件；对于多种多重态组合，劈裂和非弹性相互作用在固定参数下具有普适性；高反冲能量对应几百keV的劈裂；通过要求一个预期事件确定了质量依赖的δ_LZ(m_χ)及其90%泊松带；在(m_χ,y)平面上定义了普适区域，并与热 relic 轨迹相交得到每个多重态的基准点；预测了相关的环诱导弹性自旋无关信号。</p>
+    <h4>局限与展望</h4><p>局限与展望：论文未明确讨论模型的其他约束或实验背景，但可合理推断该模型需要进一步与直接探测实验的完整数据比较，并考虑其他可能的过程（如湮灭）对热 relic 密度的影响。后续方向可能包括对基准点进行更详细的唯象学研究，以及探索其他多重态组合或参数空间。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04163v1">
+  <div class="paper-head">
+    <h2>LZ高反冲事件的TeV Higgsino解释与中等尺度电弱规范子<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04163v1" rel="noopener noreferrer">2609.04163v1</a>
+  </div>
+  <p class="original-title">TeV Higgsino Interpretation of the LZ High-Recoil Event with Intermediate-Scale Electroweak Gauginos</p>
+  <p class="meta"><strong>作者：</strong>Xiaokang Du、Fei Wang</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>LUX-ZEPLIN实验报道的高反冲事件暗示了一个具有亚MeV中性态劈裂的TeV级Higgsino。在无抵消的情况下，MSSM中如此小的劈裂要求电弱规范子质量约为10^7 GeV，远高于Higgsino质量。我们证明，在SU(5)大统一能标处的非普适边界条件M1^G/M2^G=-3/5可以抵消主要的bino和wino贡献，并且该条件在均匀单圈演化下保持到Higgsino能标。剩余的有限规范子项允许一个受控的树级解，其中wino质量约为120 TeV，对应350 keV的劈裂、1.091 TeV的Higgsino和tanβ=10。我们识别了能实现所需规范子比率的混合SU(5)表示，并检查了该构造的辐射敏感性和谱一致性。由于非弹性Z耦合基本未被抑制，在全密度热Higgsino情形下，该模型仍受已发表的太阳俘获约束的限制，前提是采用其天体物理和输运假设。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何解释LUX-ZEPLIN实验观测到的高反冲事件，并使其与中等尺度电弱规范子模型相容？</p>
+    <h4>方法</h4><p>通过分析MSSM中Higgsino质量劈裂与规范子质量的关系，提出非普适GUT边界条件M1^G/M2^G=-3/5，并研究其在一圈演化下的保持性，进而构造具体的规范子质量谱和SU(5)表示。</p>
+    <h4>主要发现</h4><p>非普适边界条件M1^G/M2^G=-3/5能抵消主要贡献并保持到低能标；存在一个树级解，wino质量约120 TeV，对应350 keV劈裂、1.091 TeV Higgsino和tanβ=10；混合SU(5)表示可实现所需规范子比率；该构造的辐射敏感性和谱一致性被检查；非弹性Z耦合未受抑制，因此热Higgsino仍受太阳俘获约束。</p>
+    <h4>局限与展望</h4><p>该模型依赖于特定的GUT边界条件，其紫外完备性尚需进一步研究；太阳俘获约束的适用性取决于天体物理和输运假设，若这些假设放宽，模型可能仍有参数空间；后续可探索其他能实现类似规范子比率的GUT表示或非均匀演化效应。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04175v1">
+  <div class="paper-head">
+    <h2>用高能边带检验LZ事件的中性微子解释<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04175v1" rel="noopener noreferrer">2609.04175v1</a>
+  </div>
+  <p class="original-title">Confronting the Higgsino Interpretation of the LZ Event with the High-Energy Sideband</p>
+  <p class="meta"><strong>作者：</strong>Nicholas L. Rodd、Benjamin R. Safdi、Tracy R. Slatyer、Weishuang Linda Xu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>LZ实验在2.84吨·年的氙靶曝光中报告了一个能量为248 keV的单个核反冲事件。较低能量核反冲事件的缺失可以通过非弹性散射暗物质自然解释，因为其核反冲能谱从零向上偏移。令人兴奋的是，观测到的速率和能谱与一个热产生的1.1 TeV higgsino暗物质模型一致，该模型解释了全部暗物质，其两个最低Majorana态之间的质量劈裂δ约为370-490 keV，具体范围取决于暗物质速度分布。然而，在本工作中，我们证明具有这些性质的higgsino暗物质通常会在LZ S1c能量轴的高能边带中产生更多的高能反冲事件，而LZ实验在该区间未报告任何事件。这表明可能存在张力，需要LZ合作组进一步探索，因为该区间的接受度尚未公开。我们还证明，非热产生的约500 GeV higgsino可能规避边带约束，未来使用重靶的实验有可能检验该事件的中性微子解释。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>LZ实验观测到的单个248 keV核反冲事件是否真的由热产生的1.1 TeV higgsino暗物质解释？</p>
+    <h4>方法</h4><p>作者计算了higgsino暗物质在LZ探测器高能边带（沿S1c能量轴）产生的核反冲事件率，并与LZ实验在该区间未观测到事件的事实进行比较。</p>
+    <h4>主要发现</h4><p>具有质量劈裂δ~370-490 keV的热产生1.1 TeV higgsino暗物质会在高能边带产生更多事件，与LZ零观测存在张力；而非热产生的约500 GeV higgsino可能规避该约束。</p>
+    <h4>局限与展望</h4><p>由于LZ合作组未公开高能边带的接受度，该张力尚不能最终确定；未来使用重靶的实验（如LZ后续或下一代实验）可能进一步检验该事件的中性微子解释。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04181v1">
+  <div class="paper-head">
+    <h2>来自LUX-ZEPLIN高能事件的季节性暗物质<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04181v1" rel="noopener noreferrer">2609.04181v1</a>
+  </div>
+  <p class="original-title">Seasonal dark matter from the LUX-ZEPLIN high-energy event</p>
+  <p class="meta"><strong>作者：</strong>Christopher McCabe</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>LUX-ZEPLIN实验在扩展搜索窗口中报告了一个能量为$248\pm23({\rm stat})\pm23({\rm sys})\keV$的单个核反冲事件。非弹性暗物质（其中散射是吸热的）是在如此高能量下产生信号的自然机制。我们将该事件拟合到暗物质质量和两个暗物质态之间的质量劈裂，发现数据倾向于将劈裂推近由晕逃逸速度设定的运动学极限。然后，信号由晕速度分布尾部的暗物质提供。这导致强烈的季节性信号：年调制在参数空间的有利区域上升超过50%，甚至对于某些参数达到100%，这意味着信号在一年中的部分时间消失。如此强的调制将这种解释与非调制信号明显区分开来，我们量化了确立这种区分所需的事件数。具有比LZ更大靶质量的实验，特别是XLZD和PandaX，将能够直接检验这一点。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>LUX-ZEPLIN实验报告的高能核反冲事件是否可由非弹性暗物质解释，以及该解释是否导致强烈的季节性信号？</p>
+    <h4>方法</h4><p>将事件拟合到暗物质质量和质量劈裂参数，并分析信号的时间调制特征。</p>
+    <h4>主要发现</h4><p>数据倾向于质量劈裂接近运动学极限，信号来自晕速度分布尾部，导致年调制超过50%甚至达到100%，信号在部分时间消失。</p>
+    <h4>局限与展望</h4><p>强调制特性可与非调制信号区分，但需要更多事件来确认；更大靶质量的实验（如XLZD和PandaX）可直接检验该解释。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04185v1">
+  <div class="paper-head">
+    <h2>大气中微子升散射对LZ 2026年过量事件的解释<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04185v1" rel="noopener noreferrer">2609.04185v1</a>
+  </div>
+  <p class="original-title">Atmospheric neutrino up-scattering explanation of LZ 2026 excess</p>
+  <p class="meta"><strong>作者：</strong>Sk Jeesun、Anirban Majumdar</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>LUX-ZEPLIN (LZ) 实验最近观测到一个能量为 248±23±23 keV 的孤立核反冲事件，标准模型背景估计无法解释该事件，这促使研究者寻找新物理解释。现有文献大多考虑具有较重伴子的银河系晕暗物质。本文探索另一途径：大气中微子（ν）的升散射，产生一个超出标准模型（BSM）的大质量粒子 χ。此类散射的运动学要求对较低反冲能量设置截断，从而解释了该高反冲能量孤立事件。这种与核子（N）的升散射 νN→χN 可在惰性中微子模型中自然实现，但我们的分析保持通用性，不指定 χ 的具体性质。我们假设标量中介子质量为 m_φ，耦合为 y_{χ,q}，确定了能产生此类孤立事件的参数空间区域。例如，当 m_χ≈1 GeV，且 √(y_χ y_q)/m_φ = 2×10^{-2} GeV^{-1} 时，可以满足该过量事件，同时仍允许其他现有约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>LZ实验观测到的高能孤立核反冲事件能否由大气中微子升散射产生新粒子来解释？</p>
+    <h4>方法</h4><p>采用大气中微子与核子通过标量中介子发生升散射（νN→χN）的模型，不指定χ的具体性质，通过运动学分析和参数扫描寻找能解释该事件的参数空间。</p>
+    <h4>主要发现</h4><p>发现当m_χ≈1 GeV，且√(y_χ y_q)/m_φ=2×10^{-2} GeV^{-1}时，可以产生该孤立事件，同时满足其他现有约束。</p>
+    <h4>局限与展望</h4><p>本文分析基于标量中介子模型，未指定χ的性质，因此结果可能适用于更广泛的模型。但未考虑其他可能的背景或系统效应，且参数空间可能受其他实验限制，后续可结合更多数据进一步检验该解释。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04186v1">
+  <div class="paper-head">
+    <h2>轴子门户暗物质与LUX-ZEPLIN高反冲事件<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.04186v1" rel="noopener noreferrer">2609.04186v1</a>
+  </div>
+  <p class="original-title">Axion Portal Dark Matter and the LUX-ZEPLIN High-Recoil Event</p>
+  <p class="meta"><strong>作者：</strong>James Unwin</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>LUX-ZEPLIN (LZ) 实验报告了一个与248 keV核反冲相容的事件。虽然最初的关注集中在非弹性暗物质上，但该解释敏感地依赖于不确定的银河系晕高速尾部。我们转而发展弹性实现的赝标量-赝标量相互作用 $L_4=(\bar\chi i\gamma^5\chi)(\bar N i\gamma^5N)$，其接触模板给出了LZ识别出的最大局部显著性之一。所提出的最小模型主要涉及狄拉克费米子暗物质，以及一个导致赝标量介质的复标量。最小规范不变的UV完备化还需要一个多TeV矢量样重夸克。一个实现热退耦的代表性模型具有 $m_\chi=400~{\rm GeV}$ 和 $m_a=1~{\rm GeV}$。最简单的模型打破了同位旋标量/矢量假设，响应级反冲谱介于LZ的弹性 $O_4^v$ 和接触 $L_4^v$ 模板之间，表明局部显著性为 $2.6$-$3.2\sigma$。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>LZ实验观测到的高反冲事件能否用弹性暗物质模型解释，而非依赖不确定的银河系晕高速尾部的非弹性暗物质？</p>
+    <h4>方法</h4><p>提出一个最小模型，包含狄拉克费米子暗物质、复标量导致的赝标量介质，以及一个多TeV矢量样重夸克作为UV完备化；计算响应级反冲谱并与LZ的弹性O4^v和接触L4^v模板比较，评估局部显著性。</p>
+    <h4>主要发现</h4><p>该弹性模型能解释LZ事件，代表性热退耦模型参数为m_χ=400 GeV, m_a=1 GeV；响应级反冲谱介于LZ的弹性O4^v和接触L4^v模板之间，局部显著性为2.6-3.2σ。</p>
+    <h4>局限与展望</h4><p>该模型打破了同位旋标量/矢量假设，可能影响其他直接探测实验的解释；但显著性较低，需要更多数据确认。后续可研究该模型的唯象学，如对太阳中微子或宇宙线的影响，但原文未明确提及，需谨慎推断。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2609.02908v1">
+  <div class="paper-head">
+    <h2>Luciano-Saridakis全息暗能量的观测约束<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.02908v1" rel="noopener noreferrer">2609.02908v1</a>
+  </div>
+  <p class="original-title">Observational constraints on Luciano-Saridakis holographic dark energy</p>
+  <p class="meta"><strong>作者：</strong>Matías Leizerovich、Susana J. Landau、Giuseppe Gaetano Luciano、Andreas Papatriantafyllou、Emmanuel N. Saridakis</p>
+  <p class="meta"><strong>主分类：</strong>physics.gen-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.gen-ph</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>全息暗能量（HDE）模型为引力热力学与宇宙晚期加速膨胀之间的联系提供了自然框架。本文研究了一种由最近提出的广义熵导出的扩展HDE场景的观测可行性。对于有界系统，该熵表现出具有两个独立面积贡献的广义全息标度，从而产生修正的HDE密度，其包含标准HDE和ΛCDM作为极限情况。聚焦于哈勃视界红外截断，我们使用宇宙学计时器、Pantheon$^+$+SH0ES Ia型超新星样本、DESI DR2重子声学振荡以及压缩的Planck 2018 CMB位移参数来约束该模型。我们发现该模型对组合数据集提供了极佳的拟合，并允许参数空间区域同时容纳Pantheon$^+$+SH0ES和CMB的约束。优选解接近ΛCDM区域，尽管非标准熵贡献仍与当前观测兼容。我们进一步将包含两个独立面积贡献的完整模型与其简化的单贡献极限进行比较，发现两者对数据的描述基本等价，且后者略受偏好。我们的结果确立了广义熵HDE作为标准宇宙学场景的可行且理论动机充分的扩展，并提供了对该宇宙学框架的首次观测评估。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>该研究探讨了基于广义熵的扩展全息暗能量模型（Luciano-Saridakis熵）在哈勃视界截断下是否与当前多种观测数据兼容，并比较了完整模型与简化模型的优劣。</p>
+    <h4>方法</h4><p>采用广义熵导出的修正HDE密度，结合哈勃视界红外截断，利用宇宙学计时器、Pantheon$^+$+SH0ES超新星、DESI DR2重子声学振荡和Planck 2018 CMB位移参数进行贝叶斯约束和模型比较。</p>
+    <h4>主要发现</h4><p>模型对组合数据拟合极佳，存在同时满足Pantheon$^+$+SH0ES和CMB约束的参数区域；优选解接近ΛCDM，非标准熵贡献仍与观测兼容；完整模型与单贡献极限对数据描述基本等价，但后者略受偏好。</p>
+    <h4>局限与展望</h4><p>该模型作为标准宇宙学的扩展具有理论动机和观测可行性，但当前数据偏好接近ΛCDM，且简化模型略优，可能表明额外熵贡献的观测特征较弱；未来更高精度的数据（如DESI后续或CMB实验）可能进一步区分完整模型与简化模型，并检验非标准熵贡献的偏离。</p>
+  </section>
+</article><article class="paper" id="paper-2609.02923v1">
+  <div class="paper-head">
+    <h2>基于CMS开放数据与流匹配的强子单Z暗物质灵敏度研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.02923v1" rel="noopener noreferrer">2609.02923v1</a>
+  </div>
+  <p class="original-title">Hadronic Mono-Z Dark Matter Sensitivity with Flow Matching on CMS Open Data</p>
+  <p class="meta"><strong>作者：</strong>Hitesh Rasineni、Bhavishya Chebrolu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">cs.LG</span> <span class="tag">hep-ph</span> <span class="tag">physics.ins-det</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用CMS Run 2015D HTMHT开放数据（对应积分亮度2.256382381 fb^-1）对强子单Z暗物质产生过程进行了预期灵敏度研究。在满足强子单Z选择条件的事件中，共筛选出1,439,523个事例。背景通过条件流匹配连续归一化流建模，该模型在选定的HTMHT事件上训练，并在重新加权至完整选定总体的保留验证集上评估。为减轻缺失对象特征带来的伪影并避免样本内评分偏差，对未定义的角特征采用哨兵插补，保留训练/验证分割索引，并在选择工作点时强制要求最低报告背景产额为20个事件。对模拟信号在评分前应用信号侧离线触发代理。在此流程下，基线分析对三个简化模型基准的预期显著性分别为2.89σ、7.62σ和7.41σ。消融研究表明，移除详细的额外喷注运动学会使预期显著性降低53%–71%，表明额外喷注拓扑在强子单Z通道中具有显著的判别能力。这些结果为预期灵敏度（未进行解盲），研究的局限性和可复现性在相应章节中讨论。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究强子单Z暗物质产生过程的预期灵敏度，并评估额外喷注拓扑在其中的判别能力。</p>
+    <h4>方法</h4><p>利用CMS开放数据，采用条件流匹配连续归一化流对背景建模，并应用哨兵插补、固定数据分割和最小背景产额等策略，对模拟信号施加离线触发代理，进行预期灵敏度分析及消融研究。</p>
+    <h4>主要发现</h4><p>基线分析对三个简化模型基准的预期显著性分别为2.89σ、7.62σ和7.41σ；消融研究显示移除额外喷注运动学会使预期显著性降低53%–71%，表明额外喷注拓扑具有显著判别能力。</p>
+    <h4>局限与展望</h4><p>本研究为预期灵敏度，未进行解盲，结果依赖于特定数据集和模拟条件，实际灵敏度可能因数据特征和系统不确定性而有所不同。后续可考虑在完整Run 2数据上验证，并纳入系统不确定性以更精确评估。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03007v1">
+  <div class="paper-head">
+    <h2>极端质量比旋进中的潮汐增强共振：通向混沌的第三条路径<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03007v1" rel="noopener noreferrer">2609.03007v1</a>
+  </div>
+  <p class="original-title">Tidally-enhanced resonances in extreme-mass-ratio inspirals: A tertiary path to chaos</p>
+  <p class="meta"><strong>作者：</strong>Kyriakos Destounis、Takuya Katagiri、Sajal Mukherjee、Kostas D. Kokkotas</p>
+  <p class="meta"><strong>主分类：</strong>gr-qc
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>极端质量比旋进（EMRIs）为探测强场引力和复杂相对论动力学提供了独特实验室。我们研究了一个潮汐变形的EMRI系统，其中恒星质量次级体绕嵌入外部绝热变化潮汐环境的超大质量（非）旋转黑洞运行。这些系统提供了相对论三体问题的一种受限但具有天体物理动机的实现，预期出现在活动星系核中，具有清晰的质量层级和辐射反作用时间尺度。外部潮汐形变破坏了Kerr时空的轴对称性，使测地线动力学不可积并产生混沌运动。通过庞加莱截面和由束缚径向、极向和方位角运动基本频率之比构建的旋转曲线，刻画了不可积性的特征。我们识别出两个显著平台，其宽度随潮汐场振幅增加而增大，标志着从弱混沌到强混沌的转变。随后，我们展示了混沌动力学对轨道相对于潮汐场取向的敏感性。进一步分析作用-角变量的固有时演化，表明与主导共振相关的角组合被相位锁定，从而使相关潮汐贡献引起运动常数的长期变化，而平台外的角组合则循环。这些结果阐明了显著平台的动力学意义，并为EMRIs中的潮汐共振提供了新的相空间表征。最后，我们讨论了辐射反作用效应在驱动EMRIs穿越潮汐岛交叉中的潜在作用及其对未来探测器引力波推断的影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究外部绝热潮汐环境对极端质量比旋进（EMRI）系统动力学的影响，特别是潮汐形变如何破坏Kerr时空的轴对称性并导致混沌运动，以及这种混沌对引力波观测的潜在意义。</p>
+    <h4>方法</h4><p>采用理论分析和数值模拟方法，通过庞加莱截面和旋转曲线表征混沌，分析作用-角变量的演化以揭示共振的相位锁定效应，并讨论辐射反作用的影响。</p>
+    <h4>主要发现</h4><p>外部潮汐形变使测地线动力学不可积并产生混沌；识别出两个平台，其宽度随潮汐振幅增加而增大，表明从弱混沌到强混沌的转变；混沌动力学对轨道取向敏感；与主导共振相关的角组合被相位锁定，导致运动常数的长期变化，而平台外的角组合则循环。</p>
+    <h4>局限与展望</h4><p>论文讨论了辐射反作用可能驱动EMRI穿越潮汐岛交叉，但未定量分析；未来工作可进一步研究辐射反作用与混沌的耦合及其对引力波模板的影响，但需谨慎推断。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03051v1">
+  <div class="paper-head">
+    <h2>超越孤立曲率峰：集体坍缩与多重原初黑洞形成<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03051v1" rel="noopener noreferrer">2609.03051v1</a>
+  </div>
+  <p class="original-title">Beyond isolated curvature peaks: collective collapse and multiple Primordial Black Hole formation</p>
+  <p class="meta"><strong>作者：</strong>Albert Escrivà</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.CO
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.CO</span> <span class="tag">gr-qc</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>原初黑洞（PBH）的计算通常将罕见的曲率峰视为孤立的坍缩区域。通过在辐射主导宇宙中进行全非线性3+1数值相对论模拟，我们证明了邻近的原初曲率扰动不必与PBH一一对应：它们可能最终弥散、集体坍缩成单个PBH，或经历不同的局部坍缩而形成多个PBH。在我们研究的双分量轮廓族中，后一种结果表现为一对PBH，其特征是在至少一个时间切片上存在两个不相连的表观视界。我们引入了一种基于霍金质量并参考等面积圆FLRW球面的非球面准局域压实诊断。它保留了曲率场的角结构，并在球对称情况下退化为标准的Misner-Sharp压实函数。该诊断的全局最大值$\mathcal K_{\rm form}$提供了是否至少形成一个PBH的经验指标，其转变点接近$\mathcal K_{\rm form,c}\approx0.56$，且具有适度的轮廓依赖散布。对于形成双峰轮廓的情况，我们在同一探测球面上补充了带符号的线性表面强度。较弱局部分支的可行性以及局部与共同包络分支之间的竞争，改善了对单PBH和双PBH结果的经验区分。因此，我们的结果表明，最大曲率振幅本身并不能决定坍缩结果，结果还取决于周围曲率环境的空间范围、特征尺度和几何形状。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在辐射主导宇宙中，邻近的原初曲率扰动是否必然与PBH一一对应，即是否总是形成孤立坍缩，还是可能集体坍缩或形成多个PBH？</p>
+    <h4>方法</h4><p>采用全非线性3+1数值相对论模拟，研究双分量曲率轮廓的坍缩；引入基于霍金质量的非球面准局域压实诊断，并辅以线性表面强度，用于区分单PBH和双PBH结果。</p>
+    <h4>主要发现</h4><p>邻近扰动可能弥散、集体坍缩成单个PBH，或形成多个PBH（如双PBH）；全局压实最大值$\mathcal K_{\rm form}$可经验指示至少一个PBH的形成，转变点约0.56；最大曲率振幅单独不能决定坍缩结果，还依赖空间范围、特征尺度和几何形状。</p>
+    <h4>局限与展望</h4><p>研究限于双分量轮廓族，结果可能不适用于更复杂的扰动形态；诊断指标的经验性质表明其普适性需进一步验证；后续可探索更一般轮廓下的坍缩判据，或考虑非辐射主导背景的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03314v1">
+  <div class="paper-head">
+    <h2>激光干涉仪中的量子真空非线性效应<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03314v1" rel="noopener noreferrer">2609.03314v1</a>
+  </div>
+  <p class="original-title">Quantum Vacuum Nonlinearities in Laser Interferometers</p>
+  <p class="meta"><strong>作者：</strong>Zain Mehdi、Joseph J. Hope、Simon A. Haine</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们提出利用驻波激光干涉仪在物质真空中进行光子-光子相互作用的全光学测试，该方案无需外部磁场，且使用常规激光源。我们证明，量子电动力学所预言的光子-光子散射的干涉检测可通过实验室规模的实验实现，其灵敏度随腔内的循环功率呈非线性提高。我们概述了如何将该实验用于探测粒子物理标准模型之外的量子场性质。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在不使用外部磁场和常规激光源的条件下，通过激光干涉仪探测真空中的光子-光子相互作用？</p>
+    <h4>方法</h4><p>提出使用驻波激光干涉仪的全光学方案，分析其灵敏度和可行性，并讨论其扩展应用。</p>
+    <h4>主要发现</h4><p>光子-光子散射的干涉检测可通过实验室规模实验实现，灵敏度随腔内循环功率非线性提高。</p>
+    <h4>局限与展望</h4><p>该方案可进一步用于探测标准模型之外的量子场性质，但具体探测能力需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03499v1">
+  <div class="paper-head">
+    <h2>一种实用的分波方法用于识别重离子碰撞中不稳定轻核共振态<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03499v1" rel="noopener noreferrer">2609.03499v1</a>
+  </div>
+  <p class="original-title">A Practical Partial-Wave Method for Identifying Unstable Light Nucleus Resonances in Heavy-Ion Collisions</p>
+  <p class="meta"><strong>作者：</strong>Junlin Wu、Hongchan Li、Ke Mi、Yaping Wang、Guannan Xie</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>相对论性重离子碰撞中轻核的产生为理解这些极端环境下产生的热密物质动力学提供了宝贵见解。虽然稳定轻核已被广泛研究，但作为短寿命共振态的不稳定轻核在很大程度上仍未被探索，为探测末态相互作用和冻结条件提供了独特机会。本文基于Lednický–Lyuboshitz（LL）框架提出了一种分波方法，用于从重离子碰撞中测量的两粒子关联函数中提取不稳定轻核的共振信号。通过将LL模型扩展到高阶分波并直接纳入低能核散射的实验相移数据，该方法避免了模型依赖的势参数化，并实现了共振分波与非共振背景的干净分解。作为演示，我们将该方法应用于p-^3He和p-^4He系统，分别对应^4Li和^5Li的基态共振。数值结果表明，共振引起的关联过剩可以被有效分离，关联函数中的峰出现在k≈72 MeV/c（^4Li）和k≈50 MeV/c（^5Li），与已知共振参数一致。利用STAR在√s_NN=3 GeV下测量的质子与轻核谱，给出了提取的横动量谱和快度分布。该方法为相对论性重离子碰撞中不稳定轻核的实验研究提供了实用工具，并可扩展到更广泛的共振态。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从重离子碰撞的两粒子关联函数中提取不稳定轻核共振信号，避免模型依赖的势参数化？</p>
+    <h4>方法</h4><p>基于Lednický–Lyuboshitz框架，扩展至高阶分波，并直接使用低能核散射的实验相移数据，实现共振分波与非共振背景的分解。</p>
+    <h4>主要发现</h4><p>该方法成功应用于p-^3He和p-^4He系统，关联函数中出现的峰分别位于k≈72 MeV/c（^4Li）和k≈50 MeV/c（^5Li），与已知共振参数一致；并利用STAR数据给出了提取的横动量谱和快度分布。</p>
+    <h4>局限与展望</h4><p>该方法为实验研究不稳定轻核提供了实用工具，可推广至更广泛的共振态；但当前演示仅限于特定系统，其普适性及对数据质量的依赖需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2609.03964v1">
+  <div class="paper-head">
+    <h2>含玻色子暗物质混合状态方程的超紧凑双星<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.03964v1" rel="noopener noreferrer">2609.03964v1</a>
+  </div>
+  <p class="original-title">Ultra-compact twin stars with hybrid equations of state from bosonic dark matter</p>
+  <p class="meta"><strong>作者：</strong>Ishfaq Ahmad Rather、Sarah Louisa Pitz、Jürgen Schaffner-Bielich</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们研究了具有强一级相变到夸克物质以及额外自相互作用玻色子暗物质（DM）流体的致密星性质。我们发现，与朴素的一流体判据相比，DM的加入显著改变了质量-半径构型的稳定性。对于具有相似质量和不同半径的致密星构型（即所谓的双星），DM的存在消除了强子分支与混合分支之间的不稳定段，使得相变到夸克物质后的稳定质量-半径序列变得连续。我们还发现了稳定的超紧凑天体（UCOs），其总致密度C = M_tot/R_grav ≥ 1/3。我们观察到两类不同的UCOs：DM晕类（f_DM ≳ 0.9）和DM核类（f_DM ≲ 0.02）。这两类可以通过正常物质的表面红移来区分，DM核类的红移达到z=0.73–0.77，而DM晕类的红移低于0.45。最后，我们发现了“终极双星”的混合星解，其质量和可见半径相似，但暗物质含量不同，导致不同的潮汐形变性和表面红移。未来的X射线和引力波测量，如果探测到半径和质量超出中子星允许范围的超紧凑中子星，可以探测除一级相变到夸克物质之外的DM的存在及其性质。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在包含强一级相变到夸克物质以及额外自相互作用玻色子暗物质流体的混合状态方程下，致密星（特别是双星和超紧凑天体）的稳定性、质量-半径关系以及可观测特征如何变化？</p>
+    <h4>方法</h4><p>采用理论模型和数值计算，研究包含强子物质、夸克物质和玻色子暗物质的多流体致密星结构，分析其质量-半径关系、稳定性判据、表面红移和潮汐形变性。</p>
+    <h4>主要发现</h4><p>主要结果包括：1) DM的加入改变了质量-半径构型的稳定性，消除了双星分支之间的不稳定段，使稳定序列连续；2) 存在两类稳定的超紧凑天体（UCOs），即DM晕类（f_DM ≳ 0.9）和DM核类（f_DM ≲ 0.02），可通过表面红移区分（DM核类z=0.73-0.77，DM晕类z&lt;0.45）；3) 存在“终极双星”解，具有相似质量和可见半径但不同DM含量，导致不同的潮汐形变性和表面红移。</p>
+    <h4>局限与展望</h4><p>论文指出，未来的X射线和引力波观测如果发现半径和质量超出中子星允许范围的超紧凑天体，可以探测DM的存在及其性质，并可能区分一级相变和DM效应。但该研究基于特定的状态方程模型，其结论可能依赖于模型假设，且未考虑旋转效应等复杂因素，这些可作为后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04035v1">
+  <div class="paper-head">
+    <h2>尖角缺陷：尖角算子展开、共形性质与自举应用<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.04035v1" rel="noopener noreferrer">2609.04035v1</a>
+  </div>
+  <p class="original-title">Cusped Defects: Cusp Operator Expansion, Conformal Properties and Bootstrap Applications</p>
+  <p class="meta"><strong>作者：</strong>Lorenzo Bianchi、Andrea Cavaglià、A. David Gutiérrez、Stefanos R. Kousvos、Marco Meineri</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们分析了嵌入一般共形场论（CFT）中的尖角缺陷线的一般性质。我们证明了适当定义的尖角标度算子在一般共形变换下像初级算子一样变换。我们表明，通过尖角算子展开（COE），一般形状的缺陷可以在尖角缺陷的基础上展开。这些发现在局域磁场缺陷的情况下得到验证和例证。最后，我们利用交叉方程推导了动力学尖角数据的解析约束，并讨论了我们的结果在数值自举中的可能应用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究嵌入一般共形场论中的尖角缺陷线的一般性质，包括其共形变换行为、展开性质以及自举应用。</p>
+    <h4>方法</h4><p>采用理论分析方法，包括定义尖角标度算子并证明其共形变换性质，建立尖角算子展开（COE），并通过局域磁场缺陷进行验证，最后利用交叉方程推导解析约束。</p>
+    <h4>主要发现</h4><p>证明了适当定义的尖角标度算子在一般共形变换下表现为初级算子；建立了尖角算子展开，使得一般形状的缺陷可展开为尖角缺陷的基；在局域磁场缺陷中验证了这些结果；并利用交叉方程得到了动力学尖角数据的解析约束。</p>
+    <h4>局限与展望</h4><p>论文的结果可能为数值共形自举提供新的应用，但具体应用细节和局限性未在摘要中明确说明，需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2609.04114v1">
+  <div class="paper-head">
+    <h2>三维格点量子电动力学中的实时弦动力学<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04114v1" rel="noopener noreferrer">2609.04114v1</a>
   </div>
   <p class="original-title">Real-Time String Dynamics in $3+1$D Lattice Quantum Electrodynamics</p>
@@ -732,10 +866,9 @@
     <h4>主要发现</h4><p>首次实现了3+1维格点QED中弦断裂的实时模拟；在强耦合下，弦在共振条件下断裂产生物质-反物质对；非共振时，竞争通道（粒子产生、弦形变和延伸、磁通环）的多重性耗尽弦扇区；微扰理论定量复现了动力学和傅里叶谱。</p>
     <h4>局限与展望</h4><p>该研究为高维格点规范理论的量子模拟提供了诊断和基准，但未讨论其局限性；可合理推断后续工作可能扩展至非平衡态热化、有限温度或更接近QCD的模型，但需进一步验证。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04117v1">
+</article><article class="paper" id="paper-2609.04117v1">
   <div class="paper-head">
-    <h2>开放格点规范理论中的非阿贝尔弦熔化与热化</h2>
+    <h2>开放格点规范理论中的非阿贝尔弦熔化与热化<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04117v1" rel="noopener noreferrer">2609.04117v1</a>
   </div>
   <p class="original-title">Non-Abelian string melting and thermalization in an open lattice gauge theory</p>
@@ -755,10 +888,9 @@
     <h4>主要发现</h4><p>热介质通过离域色荷和屏蔽通量使弦熔化；共振时耗散熔化与相干弦断裂竞争并延迟后者。热化时间随环境耦合非单调变化，弱耗散时减小，强耗散时增大。强退相极限下，Schrieffer-Wolff展开映射为经典排斥过程并解析给出热化时间。稳态中非阿贝尔物质结构产生介子偏向，热化时间随温度降低，与阿贝尔Schwinger模型趋势相反。</p>
     <h4>局限与展望</h4><p>该框架可推广到更高维或更复杂非阿贝尔群，但需注意本文结果基于1+1维和特定环境模型，其普适性有待验证。后续可研究非平衡相变或与量子模拟实验的关联。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04129v1">
+</article><article class="paper" id="paper-2609.04129v1">
   <div class="paper-head">
-    <h2>QCD Θ项诱导的π-核子耦合常数ḡ₀的格点QCD计算</h2>
+    <h2>QCD Θ项诱导的π-核子耦合常数ḡ₀的格点QCD计算<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04129v1" rel="noopener noreferrer">2609.04129v1</a>
   </div>
   <p class="original-title">Lattice QCD calculation of the pion-nucleon coupling $\bar{g}_0$ induced by the QCD $Θ$-term</p>
@@ -778,10 +910,9 @@
     <h4>主要发现</h4><p>原文明确支持的主要结果包括：直接矩阵元方法在去除Nπ污染并外推后得到ḡ₀/(2F_π) = -7(63)×10⁻³ Θ̄（噪声较大）；而利用低能有效场论方法或AWI得到更精确的结果ḡ₀/(2F_π) = 17.4(1.9)×10⁻³ Θ̄。</p>
     <h4>局限与展望</h4><p>论文指出Nπ激发态污染在许多核子矩阵元计算中普遍存在，因此所讨论的AWI控制方法可能适用于其他类似计算。但论文未明确讨论局限性，可合理推断的结果需要进一步验证，例如在更小的格点间距和更大的体积上确认，或考虑更高阶的手征修正。</p>
   </section>
-</article>
-<article class="paper" id="paper-2609.04142v1">
+</article><article class="paper" id="paper-2609.04142v1">
   <div class="paper-head">
-    <h2>QCD中首个双强子形状因子的计算</h2>
+    <h2>QCD中首个双强子形状因子的计算<span class="badge">交叉列表</span></h2>
     <a href="https://arxiv.org/abs/2609.04142v1" rel="noopener noreferrer">2609.04142v1</a>
   </div>
   <p class="original-title">First Two-Hadron Form Factor from QCD</p>
@@ -802,146 +933,9 @@
     <h4>局限与展望</h4><p>该研究仅限于单一种类的双强子态和特定动量转移（前向极限），且π介子质量非物理。未来可推广到其他强子态、非前向运动学以及物理π介子质量，以研究共振态和多强子束缚态的电磁结构及电弱响应。</p>
   </section>
 </article>
-<article class="paper" id="paper-2609.04144v1">
-  <div class="paper-head">
-    <h2>电弱暗物质的非弹性散射特征</h2>
-    <a href="https://arxiv.org/abs/2609.04144v1" rel="noopener noreferrer">2609.04144v1</a>
-  </div>
-  <p class="original-title">Inelastic Signatures of Electroweak Dark Matter</p>
-  <p class="meta"><strong>作者：</strong>Juri Smirnov、Spencer Griffith、John F. Beacom</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span> <span class="tag">hep-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>由马约拉纳（M）和狄拉克（D）多重态通过希格斯相互作用耦合构成的最小电弱暗物质模型，为高能非弹性核反冲提供了一个可预测的框架。我们证明该框架可以解释LUX-ZEPLIN（LZ）合作组最近报道的事件类型。在 custodial 点，电弱对称性破缺诱导出中性态劈裂 δ 和非对角 Z 相互作用。对于耦合多重态 3_M2_D、5_M4_D、7_M6_D、9_M8_D、11_M10_D 和 13_M12_D，劈裂和主要的非弹性相互作用在固定 (m_χ, y) 下是普适的，与电弱表示无关。观测到的高反冲能量指向几百 keV 的劈裂，而固定的 Z 介导速率使我们能够通过要求在 LZ 曝光中有一个预期的非弹性事件来确定质量相关的 δ_LZ(m_χ)，并带有双侧 90% 泊松带。这定义了 (m_χ, y) 平面上的一个普适区域。将其与依赖于表示的热 relic 轨迹相交，为每个多重态选择一个基准点。相应的电弱表示随后预测了在较低反冲能量下相关的环诱导弹性自旋无关信号。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>论文研究的问题是：最小电弱暗物质模型能否解释LZ实验观测到的高能非弹性核反冲事件，并预测相关的暗物质性质。</p>
-    <h4>方法</h4><p>采用的方法：构建由马约拉纳和狄拉克多重态通过希格斯相互作用耦合的模型，在custodial点计算电弱对称性破缺导致的态劈裂和非弹性散射截面，利用LZ实验的曝光量和事件数确定参数区域，并与热 relic 轨迹相交得到基准点。</p>
-    <h4>主要发现</h4><p>主要结果：该模型可以解释LZ事件；对于多种多重态组合，劈裂和非弹性相互作用在固定参数下具有普适性；高反冲能量对应几百keV的劈裂；通过要求一个预期事件确定了质量依赖的δ_LZ(m_χ)及其90%泊松带；在(m_χ,y)平面上定义了普适区域，并与热 relic 轨迹相交得到每个多重态的基准点；预测了相关的环诱导弹性自旋无关信号。</p>
-    <h4>局限与展望</h4><p>局限与展望：论文未明确讨论模型的其他约束或实验背景，但可合理推断该模型需要进一步与直接探测实验的完整数据比较，并考虑其他可能的过程（如湮灭）对热 relic 密度的影响。后续方向可能包括对基准点进行更详细的唯象学研究，以及探索其他多重态组合或参数空间。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04163v1">
-  <div class="paper-head">
-    <h2>LZ高反冲事件的TeV Higgsino解释与中等尺度电弱规范子</h2>
-    <a href="https://arxiv.org/abs/2609.04163v1" rel="noopener noreferrer">2609.04163v1</a>
-  </div>
-  <p class="original-title">TeV Higgsino Interpretation of the LZ High-Recoil Event with Intermediate-Scale Electroweak Gauginos</p>
-  <p class="meta"><strong>作者：</strong>Xiaokang Du、Fei Wang</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>LUX-ZEPLIN实验报道的高反冲事件暗示了一个具有亚MeV中性态劈裂的TeV级Higgsino。在无抵消的情况下，MSSM中如此小的劈裂要求电弱规范子质量约为10^7 GeV，远高于Higgsino质量。我们证明，在SU(5)大统一能标处的非普适边界条件M1^G/M2^G=-3/5可以抵消主要的bino和wino贡献，并且该条件在均匀单圈演化下保持到Higgsino能标。剩余的有限规范子项允许一个受控的树级解，其中wino质量约为120 TeV，对应350 keV的劈裂、1.091 TeV的Higgsino和tanβ=10。我们识别了能实现所需规范子比率的混合SU(5)表示，并检查了该构造的辐射敏感性和谱一致性。由于非弹性Z耦合基本未被抑制，在全密度热Higgsino情形下，该模型仍受已发表的太阳俘获约束的限制，前提是采用其天体物理和输运假设。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>如何解释LUX-ZEPLIN实验观测到的高反冲事件，并使其与中等尺度电弱规范子模型相容？</p>
-    <h4>方法</h4><p>通过分析MSSM中Higgsino质量劈裂与规范子质量的关系，提出非普适GUT边界条件M1^G/M2^G=-3/5，并研究其在一圈演化下的保持性，进而构造具体的规范子质量谱和SU(5)表示。</p>
-    <h4>主要发现</h4><p>非普适边界条件M1^G/M2^G=-3/5能抵消主要贡献并保持到低能标；存在一个树级解，wino质量约120 TeV，对应350 keV劈裂、1.091 TeV Higgsino和tanβ=10；混合SU(5)表示可实现所需规范子比率；该构造的辐射敏感性和谱一致性被检查；非弹性Z耦合未受抑制，因此热Higgsino仍受太阳俘获约束。</p>
-    <h4>局限与展望</h4><p>该模型依赖于特定的GUT边界条件，其紫外完备性尚需进一步研究；太阳俘获约束的适用性取决于天体物理和输运假设，若这些假设放宽，模型可能仍有参数空间；后续可探索其他能实现类似规范子比率的GUT表示或非均匀演化效应。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04175v1">
-  <div class="paper-head">
-    <h2>用高能边带检验LZ事件的中性微子解释</h2>
-    <a href="https://arxiv.org/abs/2609.04175v1" rel="noopener noreferrer">2609.04175v1</a>
-  </div>
-  <p class="original-title">Confronting the Higgsino Interpretation of the LZ Event with the High-Energy Sideband</p>
-  <p class="meta"><strong>作者：</strong>Nicholas L. Rodd、Benjamin R. Safdi、Tracy R. Slatyer、Weishuang Linda Xu</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>LZ实验在2.84吨·年的氙靶曝光中报告了一个能量为248 keV的单个核反冲事件。较低能量核反冲事件的缺失可以通过非弹性散射暗物质自然解释，因为其核反冲能谱从零向上偏移。令人兴奋的是，观测到的速率和能谱与一个热产生的1.1 TeV higgsino暗物质模型一致，该模型解释了全部暗物质，其两个最低Majorana态之间的质量劈裂δ约为370-490 keV，具体范围取决于暗物质速度分布。然而，在本工作中，我们证明具有这些性质的higgsino暗物质通常会在LZ S1c能量轴的高能边带中产生更多的高能反冲事件，而LZ实验在该区间未报告任何事件。这表明可能存在张力，需要LZ合作组进一步探索，因为该区间的接受度尚未公开。我们还证明，非热产生的约500 GeV higgsino可能规避边带约束，未来使用重靶的实验有可能检验该事件的中性微子解释。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>LZ实验观测到的单个248 keV核反冲事件是否真的由热产生的1.1 TeV higgsino暗物质解释？</p>
-    <h4>方法</h4><p>作者计算了higgsino暗物质在LZ探测器高能边带（沿S1c能量轴）产生的核反冲事件率，并与LZ实验在该区间未观测到事件的事实进行比较。</p>
-    <h4>主要发现</h4><p>具有质量劈裂δ~370-490 keV的热产生1.1 TeV higgsino暗物质会在高能边带产生更多事件，与LZ零观测存在张力；而非热产生的约500 GeV higgsino可能规避该约束。</p>
-    <h4>局限与展望</h4><p>由于LZ合作组未公开高能边带的接受度，该张力尚不能最终确定；未来使用重靶的实验（如LZ后续或下一代实验）可能进一步检验该事件的中性微子解释。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04181v1">
-  <div class="paper-head">
-    <h2>来自LUX-ZEPLIN高能事件的季节性暗物质</h2>
-    <a href="https://arxiv.org/abs/2609.04181v1" rel="noopener noreferrer">2609.04181v1</a>
-  </div>
-  <p class="original-title">Seasonal dark matter from the LUX-ZEPLIN high-energy event</p>
-  <p class="meta"><strong>作者：</strong>Christopher McCabe</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>LUX-ZEPLIN实验在扩展搜索窗口中报告了一个能量为$248\pm23({\rm stat})\pm23({\rm sys})\keV$的单个核反冲事件。非弹性暗物质（其中散射是吸热的）是在如此高能量下产生信号的自然机制。我们将该事件拟合到暗物质质量和两个暗物质态之间的质量劈裂，发现数据倾向于将劈裂推近由晕逃逸速度设定的运动学极限。然后，信号由晕速度分布尾部的暗物质提供。这导致强烈的季节性信号：年调制在参数空间的有利区域上升超过50%，甚至对于某些参数达到100%，这意味着信号在一年中的部分时间消失。如此强的调制将这种解释与非调制信号明显区分开来，我们量化了确立这种区分所需的事件数。具有比LZ更大靶质量的实验，特别是XLZD和PandaX，将能够直接检验这一点。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>LUX-ZEPLIN实验报告的高能核反冲事件是否可由非弹性暗物质解释，以及该解释是否导致强烈的季节性信号？</p>
-    <h4>方法</h4><p>将事件拟合到暗物质质量和质量劈裂参数，并分析信号的时间调制特征。</p>
-    <h4>主要发现</h4><p>数据倾向于质量劈裂接近运动学极限，信号来自晕速度分布尾部，导致年调制超过50%甚至达到100%，信号在部分时间消失。</p>
-    <h4>局限与展望</h4><p>强调制特性可与非调制信号区分，但需要更多事件来确认；更大靶质量的实验（如XLZD和PandaX）可直接检验该解释。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04185v1">
-  <div class="paper-head">
-    <h2>大气中微子升散射对LZ 2026年过量事件的解释</h2>
-    <a href="https://arxiv.org/abs/2609.04185v1" rel="noopener noreferrer">2609.04185v1</a>
-  </div>
-  <p class="original-title">Atmospheric neutrino up-scattering explanation of LZ 2026 excess</p>
-  <p class="meta"><strong>作者：</strong>Sk Jeesun、Anirban Majumdar</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>LUX-ZEPLIN (LZ) 实验最近观测到一个能量为 248±23±23 keV 的孤立核反冲事件，标准模型背景估计无法解释该事件，这促使研究者寻找新物理解释。现有文献大多考虑具有较重伴子的银河系晕暗物质。本文探索另一途径：大气中微子（ν）的升散射，产生一个超出标准模型（BSM）的大质量粒子 χ。此类散射的运动学要求对较低反冲能量设置截断，从而解释了该高反冲能量孤立事件。这种与核子（N）的升散射 νN→χN 可在惰性中微子模型中自然实现，但我们的分析保持通用性，不指定 χ 的具体性质。我们假设标量中介子质量为 m_φ，耦合为 y_{χ,q}，确定了能产生此类孤立事件的参数空间区域。例如，当 m_χ≈1 GeV，且 √(y_χ y_q)/m_φ = 2×10^{-2} GeV^{-1} 时，可以满足该过量事件，同时仍允许其他现有约束。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>LZ实验观测到的高能孤立核反冲事件能否由大气中微子升散射产生新粒子来解释？</p>
-    <h4>方法</h4><p>采用大气中微子与核子通过标量中介子发生升散射（νN→χN）的模型，不指定χ的具体性质，通过运动学分析和参数扫描寻找能解释该事件的参数空间。</p>
-    <h4>主要发现</h4><p>发现当m_χ≈1 GeV，且√(y_χ y_q)/m_φ=2×10^{-2} GeV^{-1}时，可以产生该孤立事件，同时满足其他现有约束。</p>
-    <h4>局限与展望</h4><p>本文分析基于标量中介子模型，未指定χ的性质，因此结果可能适用于更广泛的模型。但未考虑其他可能的背景或系统效应，且参数空间可能受其他实验限制，后续可结合更多数据进一步检验该解释。</p>
-  </section>
-</article>
-<article class="paper" id="paper-2609.04186v1">
-  <div class="paper-head">
-    <h2>轴子门户暗物质与LUX-ZEPLIN高反冲事件</h2>
-    <a href="https://arxiv.org/abs/2609.04186v1" rel="noopener noreferrer">2609.04186v1</a>
-  </div>
-  <p class="original-title">Axion Portal Dark Matter and the LUX-ZEPLIN High-Recoil Event</p>
-  <p class="meta"><strong>作者：</strong>James Unwin</p>
-  <p class="meta"><strong>主分类：</strong>hep-ph
-     <strong>公告类型：</strong>new</p>
-  <div class="tags"><span class="tag">hep-ph</span></div>
-  
-  <section>
-    <h3>中文摘要</h3>
-    <p>LUX-ZEPLIN (LZ) 实验报告了一个与248 keV核反冲相容的事件。虽然最初的关注集中在非弹性暗物质上，但该解释敏感地依赖于不确定的银河系晕高速尾部。我们转而发展弹性实现的赝标量-赝标量相互作用 $L_4=(\bar\chi i\gamma^5\chi)(\bar N i\gamma^5N)$，其接触模板给出了LZ识别出的最大局部显著性之一。所提出的最小模型主要涉及狄拉克费米子暗物质，以及一个导致赝标量介质的复标量。最小规范不变的UV完备化还需要一个多TeV矢量样重夸克。一个实现热退耦的代表性模型具有 $m_\chi=400~{\rm GeV}$ 和 $m_a=1~{\rm GeV}$。最简单的模型打破了同位旋标量/矢量假设，响应级反冲谱介于LZ的弹性 $O_4^v$ 和接触 $L_4^v$ 模板之间，表明局部显著性为 $2.6$-$3.2\sigma$。</p>
-  </section>
-  <section class="evaluation">
-    <h3>结构化评述</h3>
-    <h4>研究问题</h4><p>LZ实验观测到的高反冲事件能否用弹性暗物质模型解释，而非依赖不确定的银河系晕高速尾部的非弹性暗物质？</p>
-    <h4>方法</h4><p>提出一个最小模型，包含狄拉克费米子暗物质、复标量导致的赝标量介质，以及一个多TeV矢量样重夸克作为UV完备化；计算响应级反冲谱并与LZ的弹性O4^v和接触L4^v模板比较，评估局部显著性。</p>
-    <h4>主要发现</h4><p>该弹性模型能解释LZ事件，代表性热退耦模型参数为m_χ=400 GeV, m_a=1 GeV；响应级反冲谱介于LZ的弹性O4^v和接触L4^v模板之间，局部显著性为2.6-3.2σ。</p>
-    <h4>局限与展望</h4><p>该模型打破了同位旋标量/矢量假设，可能影响其他直接探测实验的解释；但显著性较低，需要更多数据确认。后续可研究该模型的唯象学，如对太阳中微子或宇宙线的影响，但原文未明确提及，需谨慎推断。</p>
-  </section>
-</article></main>
+  </main>
   <footer>
-    生成时间：2026-09-04 05:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+    生成时间：2026-09-04 15:50 UTC。中文内容由模型辅助生成，请以论文原文为准。
   </footer>
 </body>
 </html>
