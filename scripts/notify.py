@@ -3,7 +3,6 @@ from __future__ import annotations
 import html
 import json
 import os
-import re
 import sys
 import time
 from pathlib import Path
@@ -29,63 +28,38 @@ def load_notification(path: Path) -> dict[str, Any]:
     return value
 
 
-def paper_anchor(versioned_id: str) -> str:
-    return "paper-" + re.sub(r"[^A-Za-z0-9_.-]", "-", versioned_id)
-
-
 def build_content(
     notification: dict[str, Any],
     deployment_url: str,
     max_items: int,
 ) -> str:
+    del max_items
     root_url = deployment_url.rstrip("/") + "/"
     latest_url = urljoin(root_url, "latest.html")
     counts = notification.get("category_counts", {})
-    count_text = "；".join(
-        f"{html.escape(str(category))}: {int(count)}"
-        for category, count in counts.items()
-    )
-    category_links = " ".join(
-        (
-            f"<a href=\"{html.escape(urljoin(root_url, f'{category}-latest.html'), quote=True)}\">"
-            f"{html.escape(str(category))}（{int(count)}）</a>"
+    labels = notification.get("category_labels", {})
+    hubs: list[str] = []
+    for category, count in counts.items():
+        n = int(count)
+        if n <= 0:
+            continue
+        label = html.escape(str(labels.get(category, category)))
+        code = html.escape(str(category))
+        href = html.escape(urljoin(root_url, f"{category}-latest.html"), quote=True)
+        hubs.append(
+            "<p style=\"margin:16px 0;padding:14px 16px;background:#f4f6f8;"
+            "border-radius:12px;line-height:1.45;\">"
+            f"<a href=\"{href}\" style=\"font-size:20px;font-weight:700;"
+            f"text-decoration:none;\">{code} · {label}</a>"
+            f"<br><span style=\"font-size:28px;font-weight:700;\">{n}</span>"
+            "<span style=\"font-size:16px;\"> 篇</span>"
+            "</p>"
         )
-        for category, count in counts.items()
-        if int(count) > 0
-    )
-
-    rows: list[str] = []
-    for item in notification["items"][:max_items]:
-        identifier = str(item.get("id", ""))
-        title = html.escape(str(item.get("cn_title", identifier)))
-        anchor = paper_anchor(identifier)
-        item_categories = [
-            str(value) for value in item.get("categories", []) if str(value)
-        ]
-        target_page = (
-            f"{item_categories[0]}-latest.html" if item_categories else "latest.html"
-        )
-        link = html.escape(urljoin(root_url, target_page) + "#" + anchor, quote=True)
-        categories = " / ".join(item_categories)
-        warning = " ⚠" if item.get("flagged") else ""
-        rows.append(
-            "<li>"
-            f"<a href=\"{link}\">{title}</a>{warning}"
-            f"<br><small>{html.escape(identifier)} · "
-            f"{html.escape(categories)}</small>"
-            "</li>"
-        )
-
-    omitted = len(notification["items"]) - len(rows)
-    more = f"<p>另有 {omitted} 篇，请在网页查看。</p>" if omitted > 0 else ""
     return (
         f"<p>官方公告日：{html.escape(str(notification.get('announcement_date', '')))}</p>"
-        f"<p>去重后共 {int(notification.get('total_unique', len(notification['items'])))} 篇。"
-        f"{count_text}</p>"
-        f"<p>分类页面：{category_links}</p>"
-        f"<ol>{''.join(rows)}</ol>"
-        f"{more}"
-        f"<p><a href=\"{html.escape(latest_url, quote=True)}\">打开完整日报</a></p>"
+        f"<p>去重后共 {int(notification.get('total_unique', 0))} 篇。点击分类进入当日论文。</p>"
+        f"{''.join(hubs)}"
+        f"<p><a href=\"{html.escape(latest_url, quote=True)}\">打开分类总览</a></p>"
     )
 
 

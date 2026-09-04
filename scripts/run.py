@@ -54,20 +54,20 @@ CATEGORY_LABELS = {
 PAGE_CSS = """
     :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
     body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
-    header, main, footer { width: min(980px, calc(100% - 32px)); margin: auto; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
     header { padding: 40px 0 18px; }
     h1 { margin: 0 0 8px; line-height: 1.25; }
     .lede { color: #465563; margin: 0; }
     nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
     nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 24px 0 40px; }
-    .card { display: block; background: white; border-radius: 14px; padding: 22px 22px 18px; text-decoration: none; color: inherit; box-shadow: 0 5px 18px rgba(31,41,51,.07); border: 1px solid transparent; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
     a.card:hover { border-color: #3266a8; }
     .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
-    .card-code { font-size: .95rem; color: #3266a8; font-weight: 650; }
-    .card-name { margin-top: 4px; color: #465563; }
-    .card-count { margin-top: 18px; font-size: 2rem; font-weight: 700; line-height: 1; }
-    .card-count span { font-size: 1rem; font-weight: 500; color: #667; margin-left: 4px; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
     .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
     .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
     .stat-label { color: #667; font-size: .9rem; }
@@ -93,7 +93,10 @@ PAGE_CSS = """
     .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
     .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
     footer { padding: 24px 0 46px; color: #667; }
-    @media (max-width: 640px) {
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
       .paper { padding: 18px; }
       .paper-head { display: block; }
       .stats { grid-template-columns: 1fr; }
@@ -758,7 +761,6 @@ def render_home(
   <header>
     <h1>arXiv 每日论文</h1>
     <p class="lede">官方公告日：{escape_text(announcement_date)} · 去重后共 {total_unique} 篇</p>
-    <p class="lede">点击分类进入当日论文目录与摘要。</p>
   </header>
   <main class="grid">
     {"".join(cards)}
@@ -925,6 +927,9 @@ def build_outputs(
         "announcement_date": announcement_date,
         "total_unique": len(papers),
         "category_counts": category_counts,
+        "category_labels": {
+            category: category_label(category) for category in categories
+        },
         "items": [
             {
                 "id": paper["id"],

@@ -118,6 +118,7 @@ def main() -> None:
         assert "hep-th-latest.html" in latest
         assert "高能理论" in latest
         assert ">1<span>篇</span>" in latest
+        assert "min-height: 220px" in latest
         assert "class=\"card disabled\"" in latest
         assert "&lt;script&gt;alert(1)&lt;/script&gt;" in hep_th
         assert "&lt;b&gt;不是标签&lt;/b&gt;" in hep_th
@@ -143,10 +144,12 @@ def main() -> None:
         )
         assert "https://example.github.io/arxiv/latest.html" in content
         assert "https://example.github.io/arxiv/hep-th-latest.html" in content
-        assert "https://example.github.io/arxiv/hep-th-latest.html#paper-2608.12345v1" in content
         assert "https://example.github.io/arxiv/gr-qc-latest.html" in content
         assert "hep-ph-latest.html" not in content
-        assert "&lt;b&gt;不是标签&lt;/b&gt;" in content
+        assert "paper-2608.12345v1" not in content
+        assert "<ol>" not in content
+        assert "高能理论" in content
+        assert "&lt;b&gt;不是标签&lt;/b&gt;" not in content
 
         state_path = temporary_root / "state.json"
         digest.atomic_write_json(state_path, {"ok": True})
