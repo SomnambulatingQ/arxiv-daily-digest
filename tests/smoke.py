@@ -69,8 +69,12 @@ def translated_result() -> dict:
 
 def main() -> None:
     assert digest.parse_categories("hep-th, gr-qc hep-th") == ["hep-th", "gr-qc"]
+    assert digest.digest_slug("Quantum") == "quantum"
+    assert digest.digest_slug("") == ""
+    assert digest.digest_slug("quant-ph!") == "quant-ph"
     assert digest.parse_announce_types("") == {"new", "cross"}
     assert digest.category_matches("physics", ["physics.comp-ph"])
+    assert digest.category_matches("nlin", ["nlin.CD"])
     assert not digest.category_matches("hep-th", ["hep-ph"])
     assert (
         digest.arxiv_id_from_text(
@@ -92,6 +96,9 @@ def main() -> None:
     assert digest.partition_by_primary("hep-th", papers)[0] == papers
     assert digest.partition_by_primary("gr-qc", papers)[1] == papers
     assert digest.category_label("hep-th") == "高能理论"
+    assert digest.category_label("nlin") == "非线性科学"
+    assert digest.category_label("nlin.CD") == "混沌动力学"
+    assert digest.category_label("unknown-cat") == "unknown-cat"
 
     checked = digest.validate_translation(translated_result())
     assert not checked["flagged"]
@@ -150,6 +157,10 @@ def main() -> None:
         assert "<ol>" not in content
         assert "高能理论" in content
         assert "&lt;b&gt;不是标签&lt;/b&gt;" not in content
+
+        title = notify.build_title(notification, "arXiv 量子与非线性日报")
+        assert title.startswith("arXiv 量子与非线性日报 2026-08-31")
+        assert title.endswith("(1 篇)")
 
         state_path = temporary_root / "state.json"
         digest.atomic_write_json(state_path, {"ok": True})

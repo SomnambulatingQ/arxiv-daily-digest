@@ -1,8 +1,8 @@
-name: arXiv daily digest
+name: arXiv quantum digest
 
 on:
   schedule:
-    - cron: "20 5 * * 1-5"
+    - cron: "35 5 * * 1-5"
   workflow_dispatch:
     inputs:
       force:
@@ -47,7 +47,9 @@ jobs:
       - name: Fetch, enrich and render
         id: digest
         env:
-          CATS: ${{ vars.CATS }}
+          DIGEST_SLUG: quantum
+          DIGEST_TITLE: arXiv 量子与非线性论文
+          CATS: ${{ vars.CATS_QUANTUM }}
           ANNOUNCE_TYPES: ${{ vars.ANNOUNCE_TYPES }}
           AI_PROVIDER: ${{ vars.AI_PROVIDER }}
           AI_BASE_URL: ${{ vars.AI_BASE_URL }}
@@ -83,7 +85,8 @@ jobs:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
           PUSHPLUS_TOPIC: ${{ vars.PUSHPLUS_TOPIC }}
           PUSH_MAX_ITEMS: ${{ vars.PUSH_MAX_ITEMS }}
-          DEPLOYMENT_URL: ${{ steps.deployment.outputs.page_url }}
+          PUSH_TITLE_PREFIX: arXiv 量子与非线性日报
+          DEPLOYMENT_URL: ${{ steps.deployment.outputs.page_url }}quantum/
         run: python scripts/notify.py runtime/notification.json
 
       - name: Persist state and cache
@@ -96,7 +99,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No persistent changes"
           else
-            git commit -m "Update arXiv digest ${{ steps.digest.outputs.batch_id }}"
+            git commit -m "Update arXiv quantum digest ${{ steps.digest.outputs.batch_id }}"
             for attempt in 1 2 3; do
               if git push; then
                 break

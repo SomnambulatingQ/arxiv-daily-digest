@@ -95,6 +95,13 @@ def send_pushplus(payload: dict[str, Any]) -> dict[str, Any]:
     raise RuntimeError("PushPlus notification failed after retries") from last_error
 
 
+def build_title(notification: dict[str, Any], prefix: str) -> str:
+    return (
+        f"{prefix} {notification.get('announcement_date', '')} "
+        f"({notification.get('total_unique', len(notification['items']))} 篇)"
+    )
+
+
 def main() -> int:
     if len(sys.argv) != 2:
         raise SystemExit("usage: notify.py PATH_TO_NOTIFICATION_JSON")
@@ -114,12 +121,10 @@ def main() -> int:
         raise ValueError("PUSH_MAX_ITEMS must be positive")
 
     notification = load_notification(Path(sys.argv[1]))
+    title_prefix = env_text("PUSH_TITLE_PREFIX", "arXiv 日报")
     payload: dict[str, Any] = {
         "token": token,
-        "title": (
-            f"arXiv 日报 {notification.get('announcement_date', '')} "
-            f"({notification.get('total_unique', len(notification['items']))} 篇)"
-        ),
+        "title": build_title(notification, title_prefix),
         "content": build_content(notification, deployment_url, max_items),
         "template": "html",
     }

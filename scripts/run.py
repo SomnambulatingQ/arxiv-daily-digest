@@ -18,11 +18,22 @@ from urllib.parse import quote
 import requests
 
 
+def digest_slug(raw: str) -> str:
+    return re.sub(r"[^a-z0-9-]+", "-", raw.strip().lower()).strip("-")
+
+
 ROOT = Path(__file__).resolve().parents[1]
-STATE_FILE = ROOT / "state" / "state.json"
-CACHE_FILE = ROOT / "data" / "translations.json"
-OUTPUT_DIR = ROOT / "outputs-public"
 RUNTIME_DIR = ROOT / "runtime"
+
+DIGEST_SLUG = digest_slug(os.environ.get("DIGEST_SLUG", ""))
+SLUG_SUFFIX = f"-{DIGEST_SLUG}" if DIGEST_SLUG else ""
+DIGEST_TITLE = os.environ.get("DIGEST_TITLE", "").strip() or "arXiv 每日论文"
+
+STATE_FILE = ROOT / "state" / f"state{SLUG_SUFFIX}.json"
+CACHE_FILE = ROOT / "data" / f"translations{SLUG_SUFFIX}.json"
+OUTPUT_DIR = (
+    ROOT / "outputs-public" / DIGEST_SLUG if DIGEST_SLUG else ROOT / "outputs-public"
+)
 
 FEED_BASE = "https://rss.arxiv.org/atom/"
 API_URL = "https://export.arxiv.org/api/query"
@@ -49,6 +60,12 @@ CATEGORY_LABELS = {
     "gr-qc": "广义相对论与量子宇宙学",
     "astro-ph": "天体物理",
     "quant-ph": "量子物理",
+    "nlin": "非线性科学",
+    "nlin.CD": "混沌动力学",
+    "nlin.SI": "可积系统",
+    "nlin.AO": "适应与自组织",
+    "nlin.CG": "元胞自动机与格点气体",
+    "nlin.PS": "模式形成与孤子",
 }
 
 PAGE_CSS = """
@@ -759,14 +776,18 @@ def render_home(
         cards.append(card)
     body = f"""
   <header>
-    <h1>arXiv 每日论文</h1>
+    <h1>{escape_text(DIGEST_TITLE)}</h1>
     <p class="lede">官方公告日：{escape_text(announcement_date)} · 去重后共 {total_unique} 篇</p>
   </header>
   <main class="grid">
     {"".join(cards)}
   </main>
 """
-    return render_page("arXiv 每日论文总览", body, include_mathjax=False)
+    return render_page(
+        f"{DIGEST_TITLE}总览",
+        body,
+        include_mathjax=False,
+    )
 
 
 def render_toc_list(
