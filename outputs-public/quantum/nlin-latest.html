@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-09-28</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">9</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">8</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2609.30333v1">Yukawa-Sachdev-Ye-Kitaev模型中随机矩阵统计的起始：谱关联与Krylov复杂度</a> <small>2609.30333v1</small></li></ol><h3>交叉列表（8）</h3><ol class="toc-list"><li><a href="#paper-2609.30515v1">生态进化SIR模型中抗原进化的流行率与速率是共同决定的</a> <small>2609.30515v1</small></li><li><a href="#paper-2609.30522v1">耗散孤子共振区中弱光种子对噪声辅助多脉冲的能量选择性控制</a> <small>2609.30522v1</small></li><li><a href="#paper-2609.30589v1">无需流体力学的天气与气候</a> <small>2609.30589v1</small></li><li><a href="#paper-2609.30807v1">基于前端的玻色混合物中量子液滴、气泡与空穴态的构造</a> <small>2609.30807v1</small></li><li><a href="#paper-2609.30858v1">On the Cauchy problem for the Tzitzéica equation: Soliton resolution conjecture and asymptotic analysis</a> <small>2609.30858v1</small></li><li><a href="#paper-2609.31481v1">具有三次积分的第一积分多项式型旋转对称Zoll度量</a> <small>2609.31481v1</small></li><li><a href="#paper-2609.31536v1">观点形成对基于个体的流行病动力学的集体影响</a> <small>2609.31536v1</small></li><li><a href="#paper-2609.31618v1">量子表示选择中性斯格明子分子</a> <small>2609.31618v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2609.30333v1">
+  <div class="paper-head">
+    <h2>Yukawa-Sachdev-Ye-Kitaev模型中随机矩阵统计的起始：谱关联与Krylov复杂度<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2609.30333v1" rel="noopener noreferrer">2609.30333v1</a>
+  </div>
+  <p class="original-title">Onset of random-matrix statistics in the Yukawa-Sachdev-Ye-Kitaev model: Spectral correlations and Krylov complexity</p>
+  <p class="meta"><strong>作者：</strong>Sizheng Cao、Hyun-Sik Jeong、Yi-Li Wang</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Yukawa-Sachdev-Ye-Kitaev（YSYK）模型是一种可解的非费米液体模型，并已被提出可在腔量子电动力学（cavity-QED）中实现。该模型通过强度为$g$的随机Yukawa耦合，将$N$个复费米子与$M$个频率为$\omega_0$的玻色子耦合，其动力学仅依赖于$R\equiv\omega_0/g^{2/3}$。当$R\ll1$时，玻色子较慢，表现为静态随机背景，费米子在其中自由运动；当$R\gg1$时，玻色子仅被虚激发，并产生秩为$M$的随机四费米子相互作用，该相互作用在$M\geq2$时通常是混沌的。本文在无限温度下使用精确对角化，通过展开谱统计和热场双态的Krylov复杂度，追踪了这两个极限之间随机矩阵统计的出现。对于复耦合，能级间距分布从Poisson统计演化为高斯酉系综（GUE）统计，谱形状因子出现关联洞和斜坡，而在展开谱上计算的Krylov复杂度出现一个高于其晚期平台的峰，其高度达到GUE值。所有诊断量均将起始定位在$R\approx0.3$附近，增加玻色子模式数会将其移至更小的$R$。这刻画了腔QED实现中可显示随机矩阵谱关联的参数区域。另一方面，实耦合给出向高斯正交系综（GOE）统计的相同交叉，并且在两者之间的插值过程中，峰高度跟随平均能隙比，因此该峰既能识别对称类，也能识别混沌的起始。若不进行展开，两类中峰均比其随机矩阵值低约20$\%$，我们将其归因于非半圆形的态密度；在更大的$R$下，玻色子数带会减慢态在Krylov空间中的扩散。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>YSYK模型在从自由费米子背景（$R\ll1$）到虚玻色子诱导的随机四费米子相互作用（$R\gg1$）的过渡中，随机矩阵统计（谱关联与Krylov复杂度）如何出现，以及其起始参数位置和对称类依赖性。</p>
+    <h4>方法</h4><p>在无限温度下对YSYK模型进行精确对角化，计算展开后的能级间距分布、谱形状因子以及热场双态的Krylov复杂度；比较复耦合与实耦合情形，并考察玻色子模式数$M$的影响。</p>
+    <h4>主要发现</h4><p>对于复耦合，能级间距分布从Poisson演化为GUE统计，谱形状因子出现关联洞和斜坡，Krylov复杂度在展开谱上出现高于晚期平台的峰且高度达到GUE值；所有诊断量将起始定位在$R\approx0.3$附近，增加玻色子模式数使其移至更小的$R$。实耦合给出向GOE统计的相同交叉，插值过程中峰高度跟随平均能隙比，因此峰可识别对称类与混沌起始。不展开时峰比随机矩阵值低约20%，归因于非半圆形态密度；更大$R$下玻色子数带减慢Krylov空间中的扩散。</p>
+    <h4>局限与展望</h4><p>该工作界定了腔QED实现中可观测随机矩阵谱关联的参数区域；但结论基于无限温度下的精确对角化，有限尺寸与有限温度效应未在摘要中讨论。后续可合理推断的方向包括：在有限温度或更大系统尺寸下验证起始位置，以及实验上利用腔QED平台探测所预测的谱关联与Krylov复杂度特征。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2609.30515v1">
+  <div class="paper-head">
+    <h2>生态进化SIR模型中抗原进化的流行率与速率是共同决定的<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.30515v1" rel="noopener noreferrer">2609.30515v1</a>
+  </div>
+  <p class="original-title">Prevalence and the rate of antigenic evolution are jointly determined in an eco-evolutionary SIR model</p>
+  <p class="meta"><strong>作者：</strong>Daniel Gomez、Joshua B. Plotkin</p>
+  <p class="meta"><strong>主分类：</strong>q-bio.PE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">q-bio.PE</span> <span class="tag">math.AP</span> <span class="tag">math.DS</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>甲型流感通过不断改变宿主群体所识别的抗原来持续存在。其进化速度与感染宿主数量并非相互独立，因为选择新变异株的免疫压力是由病原体此前已造成的感染所产生的。本文分析了Andreasen等人的一个模型，该模型刻画了这种生态进化反馈，并将其推广至感染可能导致宿主死亡的情形。在模型中，感染宿主与康复宿主是定义在一维抗原空间上的分布，并通过交叉免疫相互耦合。地方性流行状态表现为一个行波脉冲：感染分布保持固定形状，并以恒定速度在抗原空间中推进。在弱抗原突变极限下，我们渐近地构造了该脉冲，并发现：(i) 抗原进化速度随流行率升高而降低；(ii) 较少的现存抗原变异伴随更快或更慢的抗原进化，取决于病原体是在免疫逃逸还是宿主寿命上存在差异；(iii) 当宿主出生率足够低时，总感染宿主数在中等毒力处达到最大。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>病原体的抗原进化速度与其流行率（感染宿主数量）如何通过免疫选择与感染之间的生态进化反馈相互关联，以及感染致死性如何影响这一关系。</p>
+    <h4>方法</h4><p>分析Andreasen等人的生态进化SIR模型，并将其扩展到感染可致死宿主的情形；模型将感染与康复宿主表示为受交叉免疫耦合的一维抗原空间分布；在弱抗原突变极限下渐近构造地方性流行状态的行波脉冲解。</p>
+    <h4>主要发现</h4><p>地方性流行状态为行波脉冲，感染分布保持固定形状并以恒定速度在抗原空间推进；在弱抗原突变极限下：(i) 抗原进化速度随流行率升高而降低；(ii) 较少的现存抗原变异伴随更快或更慢的抗原进化，取决于病原体差异体现在免疫逃逸还是宿主寿命；(iii) 当宿主出生率足够低时，总感染宿主数在中等毒力处最大。</p>
+    <h4>局限与展望</h4><p>上述结果基于弱抗原突变极限下的渐近构造，其适用范围受该极限及模型假设（一维抗原空间、交叉免疫耦合形式等）限制；向更强突变、更复杂抗原空间或不同免疫结构的推广有待进一步研究，本文未作此类断言。</p>
+  </section>
+</article><article class="paper" id="paper-2609.30522v1">
+  <div class="paper-head">
+    <h2>耗散孤子共振区中弱光种子对噪声辅助多脉冲的能量选择性控制<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.30522v1" rel="noopener noreferrer">2609.30522v1</a>
+  </div>
+  <p class="original-title">Energy-selective control of noise-assisted multipulsing by weak optical seeding in the dissipative-soliton-resonance regime</p>
+  <p class="meta"><strong>作者：</strong>Vladimir L. Kalashnikov、Alexander Rudenkov、Evgeni Sorokin、Irina T. Sorokina</p>
+  <p class="meta"><strong>主分类：</strong>physics.optics
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.optics</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在弱种子注入、正常色散的激光器所对应的随机三次-五次复金兹堡-朗道模型中，研究耗散孤子共振（DSR）区内的脉冲数选择问题。光种子注入抑制了依赖能量的多脉冲现象，并产生一个非单调的DSR能量窗口。噪声诱导的形成统计并未确立典型的随机共振，也未表明存在从预先存在的孤子中逃逸的过程。由弱单色种子实现的确定性控制可在明显更宽的能量窗口内产生持续的单脉冲行为，从而增强耗散孤子的能量可扩展性与DSR。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在弱种子注入、正常色散激光器的随机三次-五次复金兹堡-朗道模型中，耗散孤子共振（DSR）区内的脉冲数如何被选择与控制。</p>
+    <h4>方法</h4><p>采用随机三次-五次复金兹堡-朗道模型描述弱种子注入的正常色散激光器，在DSR区研究脉冲数选择；通过光种子注入进行确定性控制，并分析噪声诱导的形成统计。</p>
+    <h4>主要发现</h4><p>光种子注入抑制了依赖能量的多脉冲现象，并产生一个非单调的DSR能量窗口；噪声诱导的形成统计未确立典型随机共振，也未表明从预先存在的孤子中逃逸；弱单色种子的确定性控制可在明显更宽的能量窗口内产生持续的单脉冲行为，增强耗散孤子能量可扩展性与DSR。</p>
+    <h4>局限与展望</h4><p>原文未给出具体局限或后续工作；基于其结论可合理推断，弱单色种子作为确定性控制手段在更宽能量窗口内稳定单脉冲，可能有助于提升耗散孤子能量可扩展性，但该推断尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2609.30589v1">
+  <div class="paper-head">
+    <h2>无需流体力学的天气与气候<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.30589v1" rel="noopener noreferrer">2609.30589v1</a>
+  </div>
+  <p class="original-title">Weather and Climate Without Fluid Mechanics</p>
+  <p class="meta"><strong>作者：</strong>Thomas D. DeWitt</p>
+  <p class="meta"><strong>主分类：</strong>physics.ao-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ao-ph</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>直接追踪管道中每个分子来模拟流体运动即使可行也极其浪费计算资源，而流体力学中的涌现定律可在笔记本电脑上实现相同目标。但对于地球大气这类足够复杂的流体，解析天气场中的众多扭曲仍需数据中心。是否存在一组类似的涌现定律，无需在数值网格上显式表示这些扰动即可刻画其效应？本文认为，对称性原理的存在意味着此类定律很可能存在。大气具有尺度不变性，意味着在不变区域内，某一尺度上观测到的结构不过是其他尺度结构的拉伸版本。尽管已有基于尺度不变性的涌现定律，但其本体论基础颇具挑战，难以进一步发展。我们提出一条前进路径：首先引入大气的一个新基本构建块，称为“湍流子”（turbulon），其灵感来自湍流理论的一个较少为人知的推广，该推广考虑了浮力作用；然后构建湍流子与涡旋叠加大气模型（STEAM），并表明与最先进的流体动力学模拟输出相比，模拟的大气体积在总体上是合理的。STEAM 的某些方面显然需要改进，但其他统计量比流体动力学模型更好地再现了观测，且模拟云的可视化结果惊人地逼真。我们估计 STEAM 的计算成本比流体动力学模型低至多一百万倍，这表明 Navier-Stokes 方程可能并非模拟和预测地球天气与气候所必需。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否找到一组类似流体力学涌现定律的定律，无需在数值网格上显式表示大气扰动，即可模拟和预测地球天气与气候。</p>
+    <h4>方法</h4><p>基于大气尺度不变性这一对称性原理，引入受考虑浮力的湍流理论推广启发的新基本构建块“湍流子”（turbulon），并构建湍流子与涡旋叠加大气模型（STEAM），将其模拟的大气体积与最先进的流体动力学模拟输出进行比较。</p>
+    <h4>主要发现</h4><p>模拟的大气体积与最先进流体动力学模拟输出相比总体合理；STEAM 的某些方面需要改进，但其他统计量比流体动力学模型更好地再现了观测，模拟云的可视化结果惊人地逼真；估计 STEAM 的计算成本比流体动力学模型低至多一百万倍。</p>
+    <h4>局限与展望</h4><p>STEAM 的某些方面显然需要改进；其局限、适用范围及后续方向未在原文中明确说明，需进一步研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2609.30807v1">
+  <div class="paper-head">
+    <h2>基于前端的玻色混合物中量子液滴、气泡与空穴态的构造<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.30807v1" rel="noopener noreferrer">2609.30807v1</a>
+  </div>
+  <p class="original-title">Front-based construction of quantum droplets, bubbles, and hole states in a Bose mixture</p>
+  <p class="meta"><strong>作者：</strong>Sherzod R. Otajonov、Fatkhulla Kh. Abdullaev</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.quant-gas
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.quant-gas</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究细长玻色混合物中的非线性空穴、气泡、扭结前端以及类量子液滴态，其动力学由包含吸引三次平均场相互作用和排斥四次Lee-Huang-Yang贡献的扩展Gross-Pitaevskii方程描述。我们首先对常振幅背景进行分类：Bogoliubov-de Gennes谱表明上支是调制稳定的，而下支对长波扰动不稳定。巨势和压强确定了真空与有限密度共存点，以及唯一支持静止扭结与反扭结前端的背景。稳定背景上的对称空穴具有密度亏损，其积分宽度在共存点附近发散，同时空穴分离为两个非线性前端。乘性扭结-反扭结构造将钟形态与宽平顶液滴联系起来，并随着前端间距增大趋近于静止量子液滴族。等号的反扭结-扭结求和产生无相位跃变的气泡状密度耗尽，而二者之差则产生渐近背景间具有$\pi$相位差的暗空穴状剖面。气泡深度随前端间距增大而增加，从而区分灰状与暗状剖面。实时模拟表明，深气泡在弱随机扰动下持续存在，展示了有限时间鲁棒性，但未建立谱稳定性。在非对称双组分模型中，局域相对密度模式可在调制稳定背景上诱导旋量驱动的破碎，而鲁棒空穴在扭结极限附近持续存在。类液滴扭结-反扭结态之间的碰撞表现出相位依赖的合并、非对称粒子转移和有效反射。这些结果将非线性前端与超越平均场玻色混合物中的气泡、相位跃变空穴及自束缚液滴联系起来。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究细长玻色混合物在吸引三次平均场相互作用与排斥四次Lee-Huang-Yang贡献下的非线性空穴、气泡、扭结前端及类量子液滴态，并分类其常振幅背景与稳定性。</p>
+    <h4>方法</h4><p>采用扩展Gross-Pitaevskii方程，结合Bogoliubov-de Gennes谱分析常振幅背景的调制稳定性，利用巨势和压强确定共存点与支持静止前端的背景，并通过乘性扭结-反扭结构造、反扭结-扭结求和与差构造以及实时模拟研究空穴、气泡和液滴态。</p>
+    <h4>主要发现</h4><p>Bogoliubov-de Gennes谱显示上支调制稳定而下支对长波扰动不稳定；巨势和压强确定真空-有限密度共存点及唯一支持静止扭结与反扭结前端的背景；稳定背景上的对称空穴密度亏损且积分宽度在共存点附近发散并分离为两个非线性前端；乘性扭结-反扭结构造连接钟形态与宽平顶液滴并趋近静止量子液滴族；等号反扭结-扭结求和产生无相位跃变的气泡状密度耗尽，其差产生具有$\pi$相位差的暗空穴状剖面；气泡深度随前端间距增大而增加；实时模拟显示深气泡在弱随机扰动下持续存在；非对称双组分模型中局域相对密度模式可诱导旋量驱动破碎，鲁棒空穴在扭结极限附近持续存在；类液滴扭结-反扭结态碰撞显示相位依赖合并、非对称粒子转移和有效反射。</p>
+    <h4>局限与展望</h4><p>实时模拟仅展示深气泡在弱随机扰动下的有限时间鲁棒性，未建立谱稳定性；非对称双组分模型中的旋量驱动破碎与鲁棒空穴行为、以及碰撞中的相位依赖合并、非对称粒子转移和有效反射，其适用范围和机制仍需进一步分析；后续可合理推断为对气泡与空穴态的谱稳定性、非对称模型中的稳定性条件及碰撞动力学进行更系统的研究。</p>
+  </section>
+</article><article class="paper" id="paper-2609.30858v1">
+  <div class="paper-head">
+    <h2>On the Cauchy problem for the Tzitzéica equation: Soliton resolution conjecture and asymptotic analysis<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.30858v1" rel="noopener noreferrer">2609.30858v1</a>
+  </div>
+  <p class="original-title">On the Cauchy problem for the Tzitzéica equation: Soliton resolution conjecture and asymptotic analysis</p>
+  <p class="meta"><strong>作者：</strong>Shou-Fu Tian、Jia-Fu Tong</p>
+  <p class="meta"><strong>主分类：</strong>math.AP
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.AP</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  <p class="warning">⚠ 中文生成失败，本条目需要人工检查。</p>
+  <section>
+    <h3>中文摘要</h3>
+    <p>We study the Cauchy problem for the Tzitzéica equation, which is an important integrable model arising in affine differential geometry and characterizing proper affine spheres. Recently, Huang, Wang and Zhu (Math. Ann. \textbf{395}, 18 (2026)) reported the long-time asymptotic result for the Tzitzéica equation for the case of the purely continuous spectrum. Inspired by their work, we conduct in-depth research on the soliton resolution conjecture and asymptotic analysis of the Tzitzéica equation. Compared with the previous work, by developing the $\bar{\partial}$-nonlinear steepest descent method, we reveal that the solution of the Tzitzéica equation exhibits three different asymptotic regions depending on $ξ:=x/t$. For the region $ξ\in(-\infty,-1]\cup[1,\infty)$, where there are no stationary phase points, we rigorously prove that the solution of the Tzitzéica equation decays algebraically to zero with error $O(t^{-1})$. In the region $ξ\in(-1,1)$, the phase function $θ(z)$ has two stationary phase points. The corresponding asymptotic approximations can be characterized with an $N$-soliton solution as well as an interaction term between soliton solutions and the dispersion term with a residual error of order $O(t^{-3/4})$. In the transition regions $\{(x,t):1-\varepsilon&lt;|ξ|&lt;1\}$, the corresponding asymptotic approximation can be characterized by the $N$-soliton solution together with the interaction terms between the soliton solution and the dispersion term, with a residual error of order $O(t^{-3/4})$. Our results provide a rigorous analysis of the long-time asymptotic behavior of solutions of the Tzitzéica equation in different regions and confirm the soliton resolution conjecture for the Tzitzéica equation.</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>方法</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>主要发现</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>局限与展望</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+  </section>
+</article><article class="paper" id="paper-2609.31481v1">
+  <div class="paper-head">
+    <h2>具有三次积分的第一积分多项式型旋转对称Zoll度量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.31481v1" rel="noopener noreferrer">2609.31481v1</a>
+  </div>
+  <p class="original-title">Rotationally Symmetric Zoll Metrics with a Cubic Integral</p>
+  <p class="meta"><strong>作者：</strong>Holger R. Dullin、Vladimir S. Matveev、Gleb P. Palshin、Serena Scapucci</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">math.DG</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出了一种构造具有动量多项式首次积分的Zoll度量的新方法。该方法利用度量的Funk形式以及首次积分之间的代数关系，将问题约化为一个代数系统，从而可以显式确定所有未知函数。在非平凡三次积分的情形下，我们给出一个显式的双参数度量族，该族涵盖了2-球面上所有此类旋转对称Zoll度量：每个此类度量都等距于该族中的一个成员。我们将这些度量与Valent、Duval和Shevchishin的早期结果进行了比较。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构造具有动量多项式首次积分（特别是非平凡三次积分）的旋转对称Zoll度量，并刻画2-球面上所有此类度量。</p>
+    <h4>方法</h4><p>利用度量的Funk形式以及首次积分之间的代数关系，将构造问题约化为一个代数系统，并显式求解所有未知函数。</p>
+    <h4>主要发现</h4><p>在非平凡三次积分情形下，给出了一个显式的双参数度量族，并证明2-球面上每个此类旋转对称Zoll度量都等距于该族中的一个成员；同时将这些度量与Valent、Duval和Shevchishin的早期结果进行了比较。</p>
+    <h4>局限与展望</h4><p>原文未讨论该方法的适用范围是否可推广至更高维或更一般积分次数；后续可合理推断的方向包括将Funk形式与代数关系方法用于其他类型Zoll度量或更高阶首次积分，但需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2609.31536v1">
+  <div class="paper-head">
+    <h2>观点形成对基于个体的流行病动力学的集体影响<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.31536v1" rel="noopener noreferrer">2609.31536v1</a>
+  </div>
+  <p class="original-title">Collective impact of opinion formation on agent-based epidemic dynamics</p>
+  <p class="meta"><strong>作者：</strong>Andrea Bondesan、Riccardo Vecchio、Chiara Barbati、Jonathan Franceschi、Anna Odone、Mattia Zanella</p>
+  <p class="meta"><strong>主分类：</strong>physics.soc-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.soc-ph</span> <span class="tag">nlin.AO</span> <span class="tag">q-bio.PE</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>流行病传播与集体观点形成是紧密耦合的过程：个体对疫情严重程度及防护措施价值的信念塑造其行为，而不断演变的疫情又通过风险感知重塑公众情绪。本文提出一个基于个体的框架，将观点动力学与仓室流行病模型相耦合，其中每个个体同时携带健康状态和一个描述防护措施依从性的连续观点变量。观点演化由个体间的二元交互以及反映当前疫情状态的外源背景场驱动，而疾病传播率显式依赖于交互个体的观点。我们运用统计力学方法，在远离平衡与接近平衡两种情形下刻画了由仓室质量分数和平均观点构成的宏观系统。校准结果表明，纳入行为观点动力学可显著改善对疫情演化的解释。特别地，推断出的风险感知函数随观测到的疫情负担一致演变，表明行为适应能够解释部分原本会被吸收到时变传播参数中的时间变化。我们的结果说明，在动力学流行病模型中整合观点异质性，可为行为与疾病传播之间的反馈提供定量洞见。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究流行病传播与集体观点形成之间的双向耦合：个体对疫情严重性和防护措施的观点如何影响疾病传播，而疫情状态又如何通过风险感知反馈影响观点演化。</p>
+    <h4>方法</h4><p>提出一个基于个体的耦合框架，将观点动力学与仓室流行病模型结合；每个个体同时具有健康状态和连续观点变量，观点演化由个体间二元交互及反映疫情状态的外源背景场驱动，传播率显式依赖于交互个体的观点；采用统计力学方法，在远离平衡和接近平衡两种情形下刻画仓室质量分数与平均观点的宏观系统，并进行校准。</p>
+    <h4>主要发现</h4><p>校准结果表明，纳入行为观点动力学可显著改善对疫情演化的解释；推断出的风险感知函数随观测到的疫情负担一致演变，表明行为适应能够解释部分原本会被吸收到时变传播参数中的时间变化。</p>
+    <h4>局限与展望</h4><p>论文未明确讨论局限与后续方向；可合理推断，该框架的适用性可能受模型假设与校准数据范围限制，其定量结论向其他疫情或行为情境的推广需进一步验证，未来或可结合更丰富的实证数据检验风险感知函数与行为反馈机制。</p>
+  </section>
+</article><article class="paper" id="paper-2609.31618v1">
+  <div class="paper-head">
+    <h2>量子表示选择中性斯格明子分子<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.31618v1" rel="noopener noreferrer">2609.31618v1</a>
+  </div>
+  <p class="original-title">Quantum Representation Selects Neutral Skyrmion Molecules</p>
+  <p class="meta"><strong>作者：</strong>Vishnu Jejjala</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">cond-mat.mes-hall</span> <span class="tag">hep-th</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>斯格明子在运动时受到侧向的陀螺力。束缚分子可以抵消这一力，我们称之为陀螺中性。我们表明，磁体每个格点上可用的量子态决定了抵消所需的组成。在两种 $SU(3)$ 磁性模型中，该组成从二聚体变为三聚体。两个模型对其共同经典序参量的每一种构型赋予完全相同的能量，从而隔离了局域量子态的影响。当允许额外的局域态时，中性分子也可以解离。然而，平均场计算发现两种组成均束缚且局域稳定，其中中性三聚体在采样的相互作用变化下仍然存活。比较它们的运动揭示了改变后的抵消规则，并且制备的中性分子在短距离上平移时形变很小。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>斯格明子运动时受到侧向陀螺力，束缚分子可抵消该力（陀螺中性）；论文研究磁体每个格点上可用的量子态如何决定抵消所需的分子组成。</p>
+    <h4>方法</h4><p>在两种 $SU(3)$ 磁性模型中，对共同经典序参量的所有构型赋予相同能量以隔离局域量子态效应；采用平均场计算检验束缚与局域稳定性，并比较中性分子的运动。</p>
+    <h4>主要发现</h4><p>在两种 $SU(3)$ 磁性模型中，抵消陀螺力所需的组成从二聚体变为三聚体；当允许额外局域态时中性分子可解离；平均场计算发现两种组成均束缚且局域稳定，中性三聚体在采样的相互作用变化下仍然存活；比较运动揭示了改变后的抵消规则；制备的中性分子在短距离平移时形变很小。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；可合理推断，中性分子的稳定性与解离条件依赖于具体模型的局域量子态与相互作用，其结论向其他磁性模型或更一般量子表示的推广尚待进一步检验。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-09-28 12:16 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
