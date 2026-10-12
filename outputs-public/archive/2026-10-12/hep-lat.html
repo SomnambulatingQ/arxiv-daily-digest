@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-10-12</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">1</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2610.13791v1">欧几里得动力学三角剖分上Kähler-Dirac费米子味对称性恢复的证据</a> <small>2610.13791v1</small></li></ol><h3>交叉列表（1）</h3><ol class="toc-list"><li><a href="#paper-2610.12547v1">欧几里得德西特空间上λφ⁴的格点蒙特卡洛模拟</a> <small>2610.12547v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.13791v1">
+  <div class="paper-head">
+    <h2>欧几里得动力学三角剖分上Kähler-Dirac费米子味对称性恢复的证据<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.13791v1" rel="noopener noreferrer">2610.13791v1</a>
+  </div>
+  <p class="original-title">Evidence of Taste-Symmetry restoration for Kähler-Dirac fermions on Euclidean Dynamical Triangulations</p>
+  <p class="meta"><strong>作者：</strong>Mingwei Dai、Walter Freeman、Mason Grieb、Jack Laiho、Marc Schiffer、Judah Unmuth-Yockey</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了在欧几里得动力学三角剖分（EDT）中通过引力耦合的Kähler-Dirac费米子的双粒子束缚态谱。工作采用淬火近似，即几何允许涨落，但物质对几何没有反作用。Kähler-Dirac作用量保持一个与连续手征对称性相关的精确U(1)对称性，该U(1)对称性确保某些束缚态质量在费米子裸质量趋于零的手征极限下消失。不受U(1)对称性保护的束缚态质量在手征极限下不消失，但与对称性破缺相关的标度似乎不是普朗克质量或涌现de Sitter背景的曲率标度等物理标度。相反，与这种非简并性相关的质量标度表现为晶格间距的正幂次，并随着连续极限的逼近而减小。这表明EDT中的Kähler-Dirac费米子可以解释为平空间晶格场论中交错费米子的引力类比，并具有类似的行为。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在欧几里得动力学三角剖分（EDT）中，通过引力耦合的Kähler-Dirac费米子的双粒子束缚态谱具有什么特征？特别是，与连续手征对称性相关的精确U(1)对称性如何影响束缚态质量，以及不受该对称性保护的束缚态质量在连续极限下的行为如何？</p>
+    <h4>方法</h4><p>在淬火近似下，于欧几里得动力学三角剖分（EDT）上研究Kähler-Dirac费米子的双粒子束缚态谱。几何允许涨落，但忽略物质对几何的反作用。利用Kähler-Dirac作用量所保持的精确U(1)对称性分析束缚态质量在手征极限（裸质量趋于零）下的行为。</p>
+    <h4>主要发现</h4><p>Kähler-Dirac作用量保持一个与连续手征对称性相关的精确U(1)对称性，该对称性确保某些束缚态质量在费米子裸质量趋于零的手征极限下消失。不受U(1)对称性保护的束缚态质量在手征极限下不消失，但与对称性破缺相关的标度似乎不是普朗克质量或涌现de Sitter背景的曲率标度等物理标度；相反，与这种非简并性相关的质量标度表现为晶格间距的正幂次，并随着连续极限的逼近而减小。</p>
+    <h4>局限与展望</h4><p>原文指出，这些结果表明EDT中的Kähler-Dirac费米子可以解释为平空间晶格场论中交错费米子的引力类比，并具有类似的行为。原文未明确讨论研究的局限性或后续方向；可合理推断，未来需要在包含物质反作用的非淬火模拟中验证这些结果，并进一步检验连续极限下对称性恢复的行为。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.12547v1">
+  <div class="paper-head">
+    <h2>欧几里得德西特空间上λφ⁴的格点蒙特卡洛模拟<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.12547v1" rel="noopener noreferrer">2610.12547v1</a>
+  </div>
+  <p class="original-title">Lattice Monte Carlo of $λφ^4$ on Euclidean de Sitter</p>
+  <p class="meta"><strong>作者：</strong>Angelo Caravano</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次报道了在欧几里得德西特空间S⁴上进行量子场论的蒙特卡洛模拟。我们并未对空间进行离散化，而是采用基于球谐函数的谱格点方法，从而在有限截断下保持所有对称性精确成立。对于无质量λφ⁴理论，零模分布在弱耦合下重现了Starobinsky-Yokoyama平衡分布，其偏离与λ的单圈重整化密切相关。在强裸耦合下，重整化四次耦合在单圈重整化群流的上限附近饱和。这种饱和是平坦空间中限制希格斯质量的平庸性机制在德西特空间中的对应物。我们的结果非微扰地证实了德西特空间中轻标量场的红外发散可由随机形式正确重求和。更广泛地说，这项工作为将格点蒙特卡洛方法应用于德西特空间开辟了道路。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在欧几里得德西特空间S⁴上对量子场论进行非微扰的格点蒙特卡洛模拟，并检验无质量λφ⁴理论中红外发散是否可由随机形式正确重求和。</p>
+    <h4>方法</h4><p>采用基于球谐函数的谱格点方法，而非离散化空间，从而在有限截断下保持所有对称性精确成立；对无质量λφ⁴理论进行蒙特卡洛模拟，并分析零模分布与重整化耦合的行为。</p>
+    <h4>主要发现</h4><p>零模分布在弱耦合下重现Starobinsky-Yokoyama平衡分布，偏离与λ的单圈重整化一致；强裸耦合下重整化四次耦合在单圈重整化群流上限附近饱和，该饱和是平坦空间平庸性机制在德西特空间的对应物；结果非微扰地证实德西特空间中轻标量场的红外发散可由随机形式正确重求和。</p>
+    <h4>局限与展望</h4><p>该工作将德西特空间开放给格点蒙特卡洛方法；其局限与适用范围未在摘要中明确说明，后续方向可合理推断为将谱格点方法推广至其他场论模型或更一般的德西特空间背景。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-12 13:17 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

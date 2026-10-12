@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-th 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-th · 核理论</h1>
+    <p class="lede">官方公告日：2026-10-12</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">11</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">5</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2610.12935v1">基于PACIAE模型对 $\sqrt{s}=7$ TeV $pp$ 碰撞中 $\phi$ 介子核的宏观研究</a> <small>2610.12935v1</small></li><li><a href="#paper-2610.13048v1">锕系核激发0⁺态中的八极关联与双中子转移</a> <small>2610.13048v1</small></li><li><a href="#paper-2610.13352v1">相对论流体力学精确解给出的Lévy形飞秒尺度源</a> <small>2610.13352v1</small></li><li><a href="#paper-2610.13449v1">约束耦合簇计算给出负宇称转动带</a> <small>2610.13449v1</small></li><li><a href="#paper-2610.13828v1">相对论重离子模拟中基于神经网络的末态中心度定义</a> <small>2610.13828v1</small></li><li><a href="#paper-2610.13868v1">从头算E1强度对镍同位素链中子俘获率的影响</a> <small>2610.13868v1</small></li></ol><h3>交叉列表（5）</h3><ol class="toc-list"><li><a href="#paper-2610.12525v1">$\Xi_c$--$\Xi_c&#x27;$混合张力中的质量与衰变角：虚杂化态与单向性判据</a> <small>2610.12525v1</small></li><li><a href="#paper-2610.13046v1">双喷注强子化学：喷注诱导介质激发与扩散尾迹的层析成像</a> <small>2610.13046v1</small></li><li><a href="#paper-2610.13633v1">nCTEQ26 核部分子分布函数</a> <small>2610.13633v1</small></li><li><a href="#paper-2610.13727v1">全息超导体中的反常诱导输运</a> <small>2610.13727v1</small></li><li><a href="#paper-2610.13926v1">强子中子星的绝热演化</a> <small>2610.13926v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.12935v1">
+  <div class="paper-head">
+    <h2>基于PACIAE模型对 $\sqrt{s}=7$ TeV $pp$ 碰撞中 $\phi$ 介子核的宏观研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.12935v1" rel="noopener noreferrer">2610.12935v1</a>
+  </div>
+  <p class="original-title">Macroscopic study of $φ$-mesic nuclei in $pp$ collisions at $\sqrt{s}$ = 7 TeV with the PACIAE model</p>
+  <p class="meta"><strong>作者：</strong>Qiang Wang、Zhi-Lei She、An-Ke Lei、Dai-Mei Zhou、Wen-Chao Zhang、Hua Zheng、Li-Lin Zhu、Yu-Liang Yan、Zhong-Qi Wang、Ben-Hao Sa</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次采用部分子与强子级联模型 PACIAE 结合聚合模型 DCPC 的宏观方法，研究 $\sqrt{s}=7$ TeV $pp$ 碰撞中的 $\phi$ 介子核。基于 PACIAE 模型模拟的 $pp$ 碰撞末态强子态，利用 DCPC 模型以质子、中子和 $\phi$ 介子为组分重新聚合生成 $\phi$ 介子核：$\mathrm{^3_\phi H}(\phi-pn)$、$\mathrm{^4_\phi H}(\phi-pnn)$ 和 $\mathrm{^4_\phi He}(\phi-ppn)$。分别模拟了它们的产额、横动量谱和快度分布。这些理论预言有待实验证实。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 $\sqrt{s}=7$ TeV 的 $pp$ 碰撞中，能否通过宏观方法研究 $\phi$ 介子核（$\mathrm{^3_\phi H}$、$\mathrm{^4_\phi H}$、$\mathrm{^4_\phi He}$）的产生，并给出其产额、横动量谱和快度分布？</p>
+    <h4>方法</h4><p>采用部分子与强子级联模型 PACIAE 模拟 $pp$ 碰撞的末态强子态，再结合聚合模型 DCPC，以质子、中子和 $\phi$ 介子为组分重新聚合生成 $\phi$ 介子核，并分别模拟其产额、横动量谱和快度分布。</p>
+    <h4>主要发现</h4><p>原文明确给出了 $\mathrm{^3_\phi H}(\phi-pn)$、$\mathrm{^4_\phi H}(\phi-pnn)$ 和 $\mathrm{^4_\phi He}(\phi-ppn)$ 的产额、横动量谱和快度分布的模拟结果，并指出这些理论预言有待实验证实。</p>
+    <h4>局限与展望</h4><p>原文未讨论具体局限或后续方向，仅指出这些理论预言需要实验确认；因此后续工作可能包括实验检验，但该推断需明确标注为基于原文的合理推测。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13048v1">
+  <div class="paper-head">
+    <h2>锕系核激发0⁺态中的八极关联与双中子转移<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.13048v1" rel="noopener noreferrer">2610.13048v1</a>
+  </div>
+  <p class="original-title">Octupole correlations in the excited $0^+$ states and two-neutron transfers in actinide nuclei</p>
+  <p class="meta"><strong>作者：</strong>Kosuke Nomura</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在相互作用玻色子模型框架下，采用由微观核密度泛函理论计算得到的哈密顿量参数，分析了八极关联对Ra和Th同位素低能激发0⁺态及双中子转移强度的影响。在模型中引入八极自由度后，基态带能级得到总体合理的描述，且0⁺₂能级显著降低。计算给出多个激发0⁺态，其中多数由多于一个八极玻色子的组态构成。在八极集体性增强最显著的核中，八极关联对0⁺₁→0⁺₂的(p,t)和(t,p)转移强度有重要贡献。沿同位素链，预测的转移强度随中子数增加的变化反映了核结构的演化。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>八极关联如何影响Ra和Th同位素中低能激发0⁺态的性质以及双中子转移强度，并如何随中子数演化。</p>
+    <h4>方法</h4><p>在相互作用玻色子模型中引入八极自由度，使用从微观核密度泛函理论计算获得的哈密顿量参数，计算基态带能级、激发0⁺态以及0⁺₁→0⁺₂的(p,t)和(t,p)双中子转移强度。</p>
+    <h4>主要发现</h4><p>引入八极自由度后，基态带能级得到总体合理的描述，0⁺₂能级显著降低；计算得到多个激发0⁺态，多数由多于一个八极玻色子的组态构成；在八极集体性增强最显著的核中，八极关联对0⁺₁→0⁺₂的(p,t)和(t,p)转移强度有重要贡献；预测的转移强度随中子数增加的变化反映了核结构演化。</p>
+    <h4>局限与展望</h4><p>该分析限于Ra和Th同位素，其结论的普适性需进一步检验；后续可结合更多实验数据与其他理论方法，并明确八极关联对转移强度贡献的定量不确定性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13352v1">
+  <div class="paper-head">
+    <h2>相对论流体力学精确解给出的Lévy形飞秒尺度源<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.13352v1" rel="noopener noreferrer">2610.13352v1</a>
+  </div>
+  <p class="original-title">Levy-shaped femtoscopic sources from an exact solution of relativistic hydrodynamics</p>
+  <p class="meta"><strong>作者：</strong>Bence Szentkuti、Mate Csanad</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>高能物理的一个重要目标是更好地理解重离子碰撞中产生的粒子发射源的时空结构。在极短时间内会形成一种特殊形态的物质，即夸克-胶子等离子体（QGP），可用飞秒尺度关联技术（femtoscopy）加以研究。通过测量关联函数可以确定，Lévy分布能最准确地描述QGP源的形状，然而基于流体力学通常预期的是高斯分布。本文展示了一个相对论流体力学方程的精确解，旨在通过直接从流体力学给出Lévy分布来解决这一疑难。详细分析揭示了该解的预言是否与观测相符。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从相对论流体力学出发解释重离子碰撞中QGP粒子发射源呈现Lévy分布而非通常预期的高斯分布这一现象。</p>
+    <h4>方法</h4><p>给出相对论流体力学方程的一个精确解，并据此推导粒子发射源的形状，进而分析其是否给出Lévy分布并与观测进行比较。</p>
+    <h4>主要发现</h4><p>该精确解能够直接从流体力学产生Lévy分布；文中通过详细分析考察了该解的预言是否与观测相符。</p>
+    <h4>局限与展望</h4><p>该解是否与实验观测一致需依据文中详细分析判断；其适用范围与局限性取决于该精确解所依赖的对称性与初始条件假设，后续可进一步检验该解在更一般碰撞情形下的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13449v1">
+  <div class="paper-head">
+    <h2>约束耦合簇计算给出负宇称转动带<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.13449v1" rel="noopener noreferrer">2610.13449v1</a>
+  </div>
+  <p class="original-title">Constrained coupled-cluster computations yield negative-parity rotational bands</p>
+  <p class="meta"><strong>作者：</strong>Gaute Hagen、Benjamin Bally、Thomas Papenbrock</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>许多形变核存在低激发负宇称转动带。在平均场计算中，当变分解自发破坏宇称时，这类转动带可通过对称性恢复得到；此外，在宇称破缺并非自发、而是由八极约束强制引入的情形下，也可计算这类转动带。本文将上述技术推广至耦合簇计算，提出八极约束耦合簇理论：该理论显式破坏关联内禀态的宇称，并通过变分后投影将宇称与角动量恢复为好量子数。我们使用手性有效场论中的两核子与三核子力，对$^{20}$Ne进行了耦合簇单双激发（CCSD）计算。正宇称基态转动带的能量与实验数据接近，且仅微弱依赖于约束八极矩与Hartree--Fock参考态；相比之下，负宇称转动带的能量对这些辅助量更为敏感。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在耦合簇框架中计算形变核的低激发负宇称转动带，并考察其结果对约束八极矩与Hartree--Fock参考态的依赖性。</p>
+    <h4>方法</h4><p>提出八极约束耦合簇理论，显式破坏关联内禀态的宇称，并通过变分后投影恢复宇称与角动量；采用手性有效场论的两核子与三核子力，对$^{20}$Ne进行CCSD计算。</p>
+    <h4>主要发现</h4><p>正宇称基态转动带的能量与实验数据接近，且仅微弱依赖于约束八极矩和Hartree--Fock参考态；负宇称转动带的能量对这些辅助量更为敏感。</p>
+    <h4>局限与展望</h4><p>原文未讨论该方法的系统误差、收敛性及对其他核区的适用性；后续可合理推断需进一步检验其对约束参数与参考态的敏感性来源，并推广至更广泛核区。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13828v1">
+  <div class="paper-head">
+    <h2>相对论重离子模拟中基于神经网络的末态中心度定义<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.13828v1" rel="noopener noreferrer">2610.13828v1</a>
+  </div>
+  <p class="original-title">Final-state centrality in relativistic heavy-ion simulations from neural networks</p>
+  <p class="meta"><strong>作者：</strong>Anibal Bezerra、Fernando G. Gardim</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span> <span class="tag">physics.comp-ph</span> <span class="tag">physics.data-an</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>相对论重离子碰撞实验通常由末态量（一般为带电粒子多重数）确定中心度。在流体力学模拟中做同样的事需要数百万个事件，这对当前最先进的混合模型并不现实，因此中心度常用初始熵或初始能量来近似。我们表明，在数百个混合模型事件上训练的神经网络可以逐事件地预测多重数与平均横动量 $[p_T]$，相对误差为 1--2\%，从而能够以完整模拟成本的一小部分生成数百万次碰撞。对于 $2.76$~TeV 的 Pb--Pb 碰撞和 $200$~GeV 的 Au--Au 碰撞，在 10\% 宽的中心度分类中，初始态定义与末态定义选出的几乎是同一批事件，但当分类宽度为 1\% 时，多达 20\% 的事件会改变类别。随后我们计算了 $[p_T]$ 的涨落，以及它与椭圆流代理量（由初始偏心率估计）和与多重数的 Pearson 关联。第一个关联对中心度如何定义不敏感，而第二个关联则变化显著。该方法可以以适度的额外成本应用于贝叶斯分析的每一个设计点。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在相对论重离子碰撞的混合流体力学模拟中，如何以可承受的计算成本实现与实验一致的末态中心度定义，并考察中心度定义方式对 $[p_T]$ 涨落及其关联的影响。</p>
+    <h4>方法</h4><p>在数百个混合模型事件上训练神经网络，逐事件预测带电粒子多重数与平均横动量 $[p_T]$；据此以较低成本生成大量事件，并在 Pb--Pb $2.76$~TeV 与 Au--Au $200$~GeV 碰撞中比较初始态与末态中心度定义所选事件的一致性，进而计算 $[p_T]$ 的涨落及其与初始偏心率估计的椭圆流代理量和多重数的 Pearson 关联。</p>
+    <h4>主要发现</h4><p>神经网络对多重数和 $[p_T]$ 的逐事件预测相对误差为 1--2\%；在 10\% 宽的中心度分类中，初始态与末态定义选出的几乎是同一批事件，而在 1\% 宽的分类中多达 20\% 的事件改变类别；$[p_T]$ 与椭圆流代理量的 Pearson 关联对中心度定义不敏感，而 $[p_T]$ 与多重数的 Pearson 关联随中心度定义显著变化。</p>
+    <h4>局限与展望</h4><p>该方法可应用于贝叶斯分析的每个设计点且仅增加适度成本；其适用范围与精度依赖于训练所用混合模型事件及所预测的末态量，向其他碰撞能量、系统或模型的可迁移性尚需进一步验证（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13868v1">
+  <div class="paper-head">
+    <h2>从头算E1强度对镍同位素链中子俘获率的影响<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.13868v1" rel="noopener noreferrer">2610.13868v1</a>
+  </div>
+  <p class="original-title">Impact of ab initio E1 strength on neutron capture rates along the nickel isotopic chain</p>
+  <p class="meta"><strong>作者：</strong>Francesca Bonaiti、Joanna E. Sobczyk</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">astro-ph.HE</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>r过程核合成模拟需要富中子核的中子俘获率，而其中许多核素超出实验可及范围。预测这些速率依赖于对中子阈附近低能电偶极（E1）强度的理论计算。本文首次给出了沿镍同位素链的E1强度从头算计算，涵盖$^{58}$Ni及偶偶同位素$^{68-80}$Ni。E1强度通过洛伦兹积分变换耦合簇（LIT-CC）方法获得，该方法被扩展至轴对称参考态以处理开壳层核，并采用手性有效场论中的两核子和三核子相互作用。该方法以$^{58}$Ni的光吸收截面测量值和$^{68}$Ni的E1强度为基准进行了检验。沿该同位素链，我们发现中子阈之上存在低能E1强度，且随中子数增加而增强。将其纳入反应程序TALYS后，在3至10 GK温度范围内提高了形成$^{68-78}$Ni的中子俘获率，该效应随温度和中子数增加而增强，其不确定度主要来自积分变换的反演。对于$^{80}$Ni，由于强矮偶极强度恰好位于阈之上，增强效应在约0.5 GK时即已出现。这些结果共同为远离稳定线同位素链的中子俘获率提供了从头算输入途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从头算预测镍同位素链（$^{58}$Ni及$^{68-80}$Ni）中子阈附近的低能E1强度，并评估其对r过程相关中子俘获率的影响？</p>
+    <h4>方法</h4><p>采用扩展至轴对称参考态的洛伦兹积分变换耦合簇（LIT-CC）方法，结合手性有效场论的两核子和三核子相互作用，计算E1强度；以$^{58}$Ni光吸收截面和$^{68}$Ni E1强度进行基准检验；将所得E1强度纳入TALYS反应程序计算中子俘获率。</p>
+    <h4>主要发现</h4><p>沿镍同位素链发现中子阈之上存在低能E1强度，且随中子数增加而增强；纳入TALYS后，在3至10 GK温度范围内提高了形成$^{68-78}$Ni的中子俘获率，效应随温度和中子数增加而增强，不确定度主要来自积分变换的反演；对于$^{80}$Ni，强矮偶极强度位于阈上方附近，增强效应在约0.5 GK时即出现。</p>
+    <h4>局限与展望</h4><p>当前计算限于镍同位素链的特定核素，不确定度主要受积分变换反演限制；该方法可合理推断为向更远离稳定线的同位素链提供从头算中子俘获率输入，但需进一步验证其普适性。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.12525v1">
+  <div class="paper-head">
+    <h2>$\Xi_c$--$\Xi_c&#x27;$混合张力中的质量与衰变角：虚杂化态与单向性判据<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.12525v1" rel="noopener noreferrer">2610.12525v1</a>
+  </div>
+  <p class="original-title">Mass and decay angles in the $Ξ_c$--$Ξ_c&#x27;$ mixing tension: Virtual hybrids and a single-direction criterion</p>
+  <p class="meta"><strong>作者：</strong>Sanghoon Kim、Gihwan Nam、Jongheon Baek</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究$\Xi_c$--$\Xi_c&#x27;$系统中由质量计算得到的混合角与由衰变分析推断的混合角之间的关系。在组分夸克模型框架内，我们比较了三种定义：自旋分量概率角、共源重叠角以及SU(3)破缺质量算符角。概率角为$3.11^\circ$，而后两种定义给出$2.48$--$2.58^\circ$；另一组参数给出$2.38$--$2.49^\circ$。定义的变化减小了但与格点值$1.2(1)^\circ$和$0.810(50)(200)^\circ$的差异仍然存在。随后我们引入与常规$qsQ$态耦合的虚$qsQg$态，其中$q=u,d$，$Q=c,b$。在所检验的轨道$S$波模型中，包含$j_{Qg}=1/2$和$3/2$的色磁跃迁在其强度归一化到参考短程质量移动时，将源角和质量算符粲角提高至$2.67$--$3.16^\circ$。杂化态概率保持在$1.7\%$以下，相应的底角为$0.42$--$0.48^\circ$。我们还给出了诱导质量修正正比于单个秩一投影算符的单向性条件。该条件涉及质量算符，而非衰变振幅的普适角。消除杂化态扇区会同时改变流算符和哈密顿量；我们推导了这一关系，但未计算依赖于过程的衰变角。结果包括在指定连续谱和格点匹配方案中用于比较的投影超精细系数和能量截断求和。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究$\Xi_c$--$\Xi_c&#x27;$系统中由质量计算得到的混合角与由衰变分析推断的混合角之间的差异（张力），并考察虚杂化态对该差异的影响。</p>
+    <h4>方法</h4><p>在组分夸克模型框架内，比较自旋分量概率角、共源重叠角和SU(3)破缺质量算符角三种混合角定义；引入与常规$qsQ$态耦合的虚$qsQg$态（$q=u,d$，$Q=c,b$），在轨道$S$波模型中考虑包含$j_{Qg}=1/2$和$3/2$的色磁跃迁；推导诱导质量修正正比于单个秩一投影算符的单向性条件。</p>
+    <h4>主要发现</h4><p>概率角为$3.11^\circ$，共源重叠角和SU(3)破缺质量算符角给出$2.48$--$2.58^\circ$，另一组参数给出$2.38$--$2.49^\circ$；定义变化减小但未消除与格点值$1.2(1)^\circ$和$0.810(50)(200)^\circ$的差异。引入虚杂化态后，在强度归一化到参考短程质量移动时，源角和质量算符粲角提高至$2.67$--$3.16^\circ$，杂化态概率低于$1.7\%$，相应底角为$0.42$--$0.48^\circ$。</p>
+    <h4>局限与展望</h4><p>单向性条件仅涉及质量算符，并非衰变振幅的普适角；消除杂化态扇区会同时改变流算符和哈密顿量，本文推导了该关系但未计算依赖于过程的衰变角。后续工作可在此基础上计算过程相关的衰变角，并在指定连续谱和格点匹配方案中利用所给出的投影超精细系数和能量截断求和进行比较。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13046v1">
+  <div class="paper-head">
+    <h2>双喷注强子化学：喷注诱导介质激发与扩散尾迹的层析成像<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.13046v1" rel="noopener noreferrer">2610.13046v1</a>
+  </div>
+  <p class="original-title">Dijet hadrochemistry: tomography of jet-induced medium excitation and diffusion wake</p>
+  <p class="meta"><strong>作者：</strong>Cong Yi、Xiang-Yu Wu、Zhong Yang、Pi Duan、Guang-You Qin、Xin-Nian Wang、Wenbin Zhao</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在相对论重离子碰撞中，高能部分子穿越夸克-胶子等离子体时诱导介质响应，从而改变关联强子的产生，其化学组成对探测该响应十分敏感。本文采用耦合的线性玻尔兹曼输运与流体力学模型，并结合混合强子化方案（包含 Cooper--Frye 粒子化、夸克聚并与弦碎裂），研究喷注关联的强子化学。对于 $\sqrt{s_{\mathrm{NN}}}=5.02$~TeV 的 $p+p$ 与 0--10\% 中心 Pb+Pb 碰撞中的包容带电喷注，计算得到的锥内 $K/\pi$ 与 $p/\pi$ 比值在 Pb+Pb 中相对于 $p+p$ 增强，与 ALICE 初步测量一致，其中喷注簇射部分子与热部分子之间的聚并提供了显著贡献。将分析推广到双喷注事件，我们预测这两个比值在领头与次领头喷注附近均增强，在次领头喷注附近增强更强，且随径向尺寸增大而更明显。经过混合事件接受度修正与边带本底扣除后，关联 $\pi$、$K$、$p$ 的产额在 $|\Delta\phi|\simeq\pi/2$ 附近均变为负值，表明扩散尾迹导致的亏损。这些亏损对应的 $K/\pi$ 与 $p/\pi$ 比值保持有限，并在喷注峰附近超过 $p+p$ 值，说明缺失的强子来源于喷注激发的介质。这些结果确立了双喷注强子化学作为一种实验上可及的层析探针，用于探测喷注诱导的介质激发与扩散尾迹。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>高能部分子穿越夸克-胶子等离子体时诱导的介质响应如何改变关联强子的化学组成，以及能否利用双喷注强子化学对喷注诱导介质激发和扩散尾迹进行层析探测。</p>
+    <h4>方法</h4><p>采用耦合的线性玻尔兹曼输运与流体力学模型，结合由 Cooper--Frye 粒子化、夸克聚并与弦碎裂组成的混合强子化方案，计算 $\sqrt{s_{\mathrm{NN}}}=5.02$~TeV 下 $p+p$ 与 0--10\% 中心 Pb+Pb 碰撞中包容带电喷注及双喷注事件的关联强子产额与 $K/\pi$、$p/\pi$ 比值，并进行混合事件接受度修正与边带本底扣除。</p>
+    <h4>主要发现</h4><p>计算得到的锥内 $K/\pi$ 与 $p/\pi$ 比值在 Pb+Pb 中相对于 $p+p$ 增强，与 ALICE 初步测量一致，喷注簇射部分子与热部分子的聚并贡献显著；在双喷注事件中，两个比值在领头与次领头喷注附近均增强，次领头喷注附近更强，且随径向尺寸增大更明显；经修正与扣除后，关联 $\pi$、$K$、$p$ 产额在 $|\Delta\phi|\simeq\pi/2$ 附近均为负，对应扩散尾迹导致的亏损；这些亏损的 $K/\pi$ 与 $p/\pi$ 比值保持有限并在喷注峰附近超过 $p+p$ 值，表明缺失强子来源于喷注激发的介质。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论模型局限与适用范围；基于现有结果可合理推断，双喷注强子化学可作为实验上可及的层析探针，后续需在更多碰撞能量、中心度及不同喷注半径下检验该预言，并与实验数据进一步对比。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13633v1">
+  <div class="paper-head">
+    <h2>nCTEQ26 核部分子分布函数<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.13633v1" rel="noopener noreferrer">2610.13633v1</a>
+  </div>
+  <p class="original-title">nCTEQ26 nuclear parton distribution functions</p>
+  <p class="meta"><strong>作者：</strong>nCTEQ Collaboration、K. Greve、T. Ježo、A. Kusina、J. Wissmann、M. Klasen、K. Kovařík、C. Léger、J. G. Morfín、F. I. Olness、P. Risse、I. Schienbein、J. Y. Yu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>我们发布了 nCTEQ 合作组的新一代核部分子分布函数（nPDFs）：nCTEQ26。在该全局分析中，我们结合了近期针对不同实验测量所开展的更具选择性的研究，并在此基础上扩展，基于迄今最大规模的数据选择确定了一套现代 nPDFs。该数据选择包括中性流和带电流深度非弹性散射（DIS）、固定靶 Drell-Yan 过程，以及来自 RHIC 和 LHC Run I、Run II 的大量对撞机数据。在理论方面，为匹配显著扩展的运动学范围，我们采用了一种新的 nPDF 参数化，它将灵活的 x 依赖函数形式与核 A 依赖的二次对数形式相结合，并针对高 x DIS 数据的可靠纳入引入了靶质量修正和氘核修正。延续此前成功的工作，我们部分采用了数据驱动方法，从而不仅能够纳入开重夸克数据，还能纳入夸克偶素数据。此外，我们通过将该方法与仅基于开重夸克数据微扰预言的替代拟合进行比较，确立了该方法的一致性。我们使用 Hessian 误差分析确定 nCTEQ26 nPDFs 的不确定度，通过将我们的 nPDFs 与其他近期类似分析进行比较来检验其可靠性，并对当前和未来尚未纳入分析的实验测量给出预言。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何基于迄今最大规模的实验数据选择，确定一套现代核部分子分布函数（nPDFs），并检验其可靠性与一致性。</p>
+    <h4>方法</h4><p>开展全局分析，纳入中性流和带电流深度非弹性散射、固定靶 Drell-Yan 以及 RHIC 和 LHC Run I、Run II 的对撞机数据；采用结合灵活 x 依赖函数形式与核 A 依赖二次对数形式的新 nPDF 参数化，并引入靶质量修正和氘核修正；部分采用数据驱动方法以纳入开重夸克和夸克偶素数据；使用 Hessian 误差分析确定不确定度，并与仅基于开重夸克数据微扰预言的替代拟合进行比较。</p>
+    <h4>主要发现</h4><p>发布了 nCTEQ26 nPDFs；该分析基于迄今最大规模的数据选择；通过 Hessian 误差分析给出了不确定度；通过与其他近期类似分析比较检验了 nPDFs 的可靠性；并对当前和未来未纳入分析的实验测量给出了预言；通过比较确立了数据驱动方法与仅基于开重夸克数据微扰预言的替代拟合之间的一致性。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性；其适用范围受所纳入数据选择与理论框架约束。可合理推断的后续方向包括：将新实验测量纳入未来分析、进一步检验数据驱动方法在更广数据范围内的适用性，以及持续与其他 nPDF 分析进行交叉验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13727v1">
+  <div class="paper-head">
+    <h2>全息超导体中的反常诱导输运<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.13727v1" rel="noopener noreferrer">2610.13727v1</a>
+  </div>
+  <p class="original-title">Anomaly induced transport in holographic superconductors</p>
+  <p class="meta"><strong>作者：</strong>Ashis Tamang、Nishal Rai、Javier Esteban、Eugenio Megias</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.supr-con</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了具有自发对称破缺的全息超导体的反常诱导输运性质。该全息模型包含矢量与轴矢量规范场、一个额外的非反常 $U(1)$ 对称性，以及驱动相变的带电标量场。在探针极限下，我们针对标量场的两种可选量子化（分别对应标度维度 $\Delta=1$ 与 $\Delta=3$ 的算符，记为 $O_1$ 与 $O_2$ 理论）数值构造了超导背景。利用 Kubo 公式，我们计算了手征磁导率并考察其对标量凝聚的响应。结果表明，自发对称破缺使反常诱导输运得以超出反常流，并显著影响非反常部分。值得注意的是，该效应在两种理论中均出现，表明对非反常部分的影响不依赖于所选的量子化。将数值结果与 $O_i \to 0$ 及 $O_i \to \infty$ $(i=1,2)$ 的解析极限进行比较，显示两种理论的行为一致。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在全息超导体自发对称破缺背景下，反常诱导输运（特别是手征磁导率）如何受标量凝聚影响，以及该影响是否超出反常流并涉及非反常 $U(1)$ 部分。</p>
+    <h4>方法</h4><p>构建包含矢量与轴矢量规范场、额外非反常 $U(1)$ 对称性和带电标量场的全息模型；在探针极限下，对 $\Delta=1$ 与 $\Delta=3$ 两种标量场量子化（$O_1$ 与 $O_2$ 理论）数值构造超导背景，并利用 Kubo 公式计算手征磁导率，同时与 $O_i \to 0$ 和 $O_i \to \infty$ 的解析极限比较。</p>
+    <h4>主要发现</h4><p>自发对称破缺使反常诱导输运扩展到反常流之外，并显著影响非反常部分；该效应在 $O_1$ 与 $O_2$ 两种理论中均出现，表明对非反常部分的影响不依赖于所选量子化；数值结果与两种理论在 $O_i \to 0$ 和 $O_i \to \infty$ 极限下的解析结果一致。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；基于其探针极限与两种量子化设定，可合理推断后续工作或可考察超出探针极限的回反作用、其他标量量子化或更一般的反常输运系数，但此类推断需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13926v1">
+  <div class="paper-head">
+    <h2>强子中子星的绝热演化<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.13926v1" rel="noopener noreferrer">2610.13926v1</a>
+  </div>
+  <p class="original-title">Adiabatic evolution of hadronic neutron stars</p>
+  <p class="meta"><strong>作者：</strong>Domenico Logoteta、Francesco Zeno Constanzo、Ignazio Bombaci、Sebastiano Bernuzzi、Albino Perego、David Radice</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文计算了静态与转动中子星的若干结构性质，同时考虑刚体转动与较差转动。为此，我们采用有限温度β稳定状态方程（EOS），该方程扩展了Fortin等人（2017）给出的零温强子EOS，并考虑了超子的形成以及中微子俘获组分的存在。我们的目标是为核心坍缩超新星（CCSN）后形成的原中子星（PNS）或双中子星并合（BNSM）残余体的长期演化提供认识。该EOS在Hartree近似下由相对论平均场量子多体理论导出。耦合常数由超核与超核物质的实验数据确定，以更好地处理超子单粒子势的不确定性。我们的EOS模型再现了核子组分与超子组分下冷中子星和PNS的典型特征，尤其与已测质量（PSR J0348+0432的2.01 M_sun和PSR J0740+6620的2.14 M_sun）以及GW170817的无量纲潮汐形变率一致。热贡献的作用因组分和转动状态而异。最后，我们的演化方案为解释BNSM残余体或CCSN产生的PNS的长期演化提供了一种简单途径，可补充无法覆盖完整演化时标的动力学模拟。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何描述核心坍缩超新星后形成的原中子星或双中子星并合残余体的长期演化，并计算静态与转动中子星的结构性质？</p>
+    <h4>方法</h4><p>采用有限温度β稳定状态方程，扩展Fortin等人（2017）的零温强子EOS，考虑超子形成与中微子俘获组分；在Hartree近似下使用相对论平均场量子多体理论导出EOS，耦合常数由超核与超核物质实验数据确定；计算静态与转动（刚体转动和较差转动）中子星的结构性质，并建立演化方案。</p>
+    <h4>主要发现</h4><p>EOS模型再现了核子组分与超子组分下冷中子星和PNS的典型特征；与PSR J0348+0432（2.01 M_sun）和PSR J0740+6620（2.14 M_sun）的测量质量以及GW170817的无量纲潮汐形变率一致；热贡献的作用因组分和转动状态而异；演化方案可解释BNSM残余体或CCSN产生的PNS的长期演化。</p>
+    <h4>局限与展望</h4><p>该演化方案为无法覆盖完整演化时标的动力学模拟提供补充；其局限与适用范围原文未明确说明，后续可进一步检验不同EOS模型或转动假设下的适用性。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-12 13:17 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
