@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-10-12</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">10</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">8</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2610.12512v1">Lorenz-63系统中非线性滤波的二阶渐近展开</a> <small>2610.12512v1</small></li><li><a href="#paper-2610.13255v1">含赝拉曼项、反扩散增益与非线性损耗的非线性薛定谔方程中的孤子</a> <small>2610.13255v1</small></li></ol><h3>交叉列表（8）</h3><ol class="toc-list"><li><a href="#paper-2610.12798v1">有能隙 XYZ 自旋-1/2 链自发交错磁化强度的二次 XY 各向异性修正</a> <small>2610.12798v1</small></li><li><a href="#paper-2610.12982v1">太赫兹波段微扰极化展开的静默失效</a> <small>2610.12982v1</small></li><li><a href="#paper-2610.13388v1">量子极端学习用于预测实验混沌电子电路</a> <small>2610.13388v1</small></li><li><a href="#paper-2610.13501v1">可积辅助场 sigma 模型与类 $T\bar{T}$ 变形的度规方法</a> <small>2610.13501v1</small></li><li><a href="#paper-2610.13582v1">基于相对电阻边剪枝的高效输运网络</a> <small>2610.13582v1</small></li><li><a href="#paper-2610.13782v1">不等边Yang-Baxter三元组实现所有具有全局加性对称性的最近邻哈密顿量</a> <small>2610.13782v1</small></li><li><a href="#paper-2610.13825v1">第一性原理研究扭转双层过渡金属硫族化合物异质结构中的声子频率梳</a> <small>2610.13825v1</small></li><li><a href="#paper-2610.13842v1">稳健黄金比普适性作为循环对称性的结果</a> <small>2610.13842v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.12512v1">
+  <div class="paper-head">
+    <h2>Lorenz-63系统中非线性滤波的二阶渐近展开<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.12512v1" rel="noopener noreferrer">2610.12512v1</a>
+  </div>
+  <p class="original-title">A Second-Order Asymptotic Expansion for Nonlinear Filtering in the Lorenz--63 System</p>
+  <p class="meta"><strong>作者：</strong>Masahiro Kurisaki、Kota Takeda</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">math.PR</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>非线性滤波的一个挑战在于，在保持有限维递推算法的同时，将非线性效应纳入条件均值的近似。本文推导了滤波均值关于系统噪声强度的二阶渐近展开，并将其应用于Lorenz-63模型——一个典型的三维混沌动力系统。一阶近似通过围绕确定性参考轨迹线性化系统的Kalman-Bucy滤波器计算；二阶修正项包含Lorenz-63漂移项的Hessian矩阵，并通过一个由3+9+18=30个独立标量分量构成的闭式递推系统计算。包含参考轨迹以及一阶均值和协方差的完整系统共有42个独立标量分量。为支持在长时间区间内对混沌轨迹的稳定跟踪，本文引入了展开的重心化（recentering）以及高斯分量在不同展开阶数之间的再分配。在数值实验中，将所提算法与作为实用基准的集合变换Kalman滤波器（ETKF）以及作为数值参考的粒子滤波器（PF）进行比较。在全观测设置下，所提算法相对于真值的均方根误差低于20个成员的ETKF，且与10,000粒子PF参考的距离更小。这些结果表明，所提出的Kalman滤波二阶扩展有潜力在滤波精度与计算成本之间取得平衡。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在非线性滤波中，在保持有限维递推算法的同时，将非线性效应纳入条件均值的近似，并应用于Lorenz-63混沌系统。</p>
+    <h4>方法</h4><p>推导滤波均值关于系统噪声强度的二阶渐近展开；一阶近似采用围绕确定性参考轨迹线性化系统的Kalman-Bucy滤波器；二阶修正项包含Lorenz-63漂移项的Hessian矩阵，通过由30个独立标量分量构成的闭式递推系统计算；完整系统共42个独立标量分量；引入展开的重心化和高斯分量在展开阶数间的再分配以支持长时间混沌轨迹跟踪；数值实验中与20成员ETKF和10,000粒子PF进行比较。</p>
+    <h4>主要发现</h4><p>在全观测设置下，所提算法相对于真值的均方根误差低于20成员ETKF，且与10,000粒子PF参考的距离更小。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果表明所提出的Kalman滤波二阶扩展有潜力在滤波精度与计算成本之间取得平衡；原文未明确讨论局限或后续方向，但可合理推断其适用性可能受系统噪声强度、观测设置及混沌系统具体特性影响，后续可进一步检验更一般场景下的性能。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13255v1">
+  <div class="paper-head">
+    <h2>含赝拉曼项、反扩散增益与非线性损耗的非线性薛定谔方程中的孤子<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.13255v1" rel="noopener noreferrer">2610.13255v1</a>
+  </div>
+  <p class="original-title">Solitons in the nonlinear Schrödinger equation with the pseudo-Raman term, anti-diffusion gain and nonlinear loss</p>
+  <p class="meta"><strong>作者：</strong>Evgeny M. Gromov、Boris A. Malomed</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文引入一类非保守非线性薛定谔方程（NLSE），其中包含描述赝受激拉曼散射（pseudo-SRS）效应的附加非线性项以及三次损耗项。该模型的一个本质新特征是线性反扩散增益，它会在无限或空间周期系统中导致明显的爆破（blow-up）。我们采用吸收边界条件，以抑制该设置中由有效对流不稳定性驱动的爆破。该NLSE模型是在扩展绝热近似下，从底层的Zakharov系统导出的；该Zakharov系统包含作用于其低频分量的黏性项以及高频（HF）分量中的反扩散增益。当关于波数偏离的展开不是围绕最小损耗点（通常情形）而是围绕最大损耗点进行时，后一项便会出现。我们通过解析与数值方法研究该模型中运动孤子的动力学。对孤子采用sech近似，可将其预测为在运动参考系中导出的高频范数与波动量平衡方程组的稳定不动点（FP），并确定了该不动点的吸引域。这些预测得到了在吸收边界条件下对完整NLSE进行直接模拟的验证。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究含赝受激拉曼散射效应、线性反扩散增益与三次非线性损耗的非保守非线性薛定谔方程中运动孤子的存在性与稳定性，以及反扩散增益导致的爆破如何被吸收边界条件抑制。</p>
+    <h4>方法</h4><p>在扩展绝热近似下，从包含低频分量黏性项和高频分量反扩散增益的Zakharov系统导出NLSE模型；采用sech近似对运动孤子进行解析处理，在运动参考系中建立高频范数与波动量的平衡方程组并分析其不动点与吸引域；结合吸收边界条件下完整NLSE的直接数值模拟进行验证。</p>
+    <h4>主要发现</h4><p>sech近似将孤子预测为平衡方程组的一个稳定不动点，并确定了该不动点的吸引域；直接数值模拟结果与解析预测一致。线性反扩散增益在无限或空间周期系统中导致明显爆破，而吸收边界条件可抑制由有效对流不稳定性驱动的爆破。</p>
+    <h4>局限与展望</h4><p>该模型的反扩散增益源于围绕最大损耗点而非最小损耗点进行波数偏离展开，这一设定可能限制其适用范围；文中未明确讨论三维或非吸收边界等情形，相关推广需进一步研究。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.12798v1">
+  <div class="paper-head">
+    <h2>有能隙 XYZ 自旋-1/2 链自发交错磁化强度的二次 XY 各向异性修正<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.12798v1" rel="noopener noreferrer">2610.12798v1</a>
+  </div>
+  <p class="original-title">Quadratic XY-anisotropy correction to the spontaneous staggered magnetization of the gapped XYZ spin-$1/2$ chain</p>
+  <p class="meta"><strong>作者：</strong>Felipe Taha Sant&#x27;Ana</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>有能隙 XYZ 自旋-1/2 链的交错序参量可由八顶点解得到，但其椭圆变量仅隐式地确定哈密顿量耦合。本文在固定纵向各向异性的有能隙反铁磁区域，推导了自发交错磁化强度对 XY 各向异性领头二次响应系数的闭式表达式。从 Baxter--Kelland--Jimbo--Miwa--Nakayashiki 极化公式出发，我们证明在固定纵向各向异性时，公式中的模 nome 与交叉参数变量均随 XY 各向异性变化，且交叉参数变量的移动在固定椭圆变量下会反转展开的符号。该系数由一个有理项与一个 Lambert 级数组成。它严格为负，并被纵向各向异性的一个有理函数从上界控制，在 Ising 极限下该有理函数为其渐近形式。在各向同性点，该系数以到该点距离的负五分之二次幂发散；由于 Lambert 和具有余项指数小的渐近展开，发散的子领头项也可闭式给出。当 XY 各向异性按到各向同性点距离的五分之四次幂趋于零时，扰动与未扰动序参量之比在标度变量下趋于高斯形式，且当该变量较小时二次截断是受控的。自旋链中不依赖八顶点解的四阶微扰计算重现了领头强耦合行为，而有能隙区域四个各向异性下的无限 DMRG 计算与闭式结果一致。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究有能隙 XYZ 自旋-1/2 链中，自发交错磁化强度对 XY 各向异性的领头二次响应系数，并给出其闭式表达式及性质。</p>
+    <h4>方法</h4><p>从 Baxter--Kelland--Jimbo--Miwa--Nakayashiki 极化公式出发，在固定纵向各向异性下分析模 nome 与交叉参数变量随 XY 各向异性的变化；推导系数的闭式（有理项加 Lambert 级数）；辅以自旋链四阶微扰计算和无限 DMRG 数值计算。</p>
+    <h4>主要发现</h4><p>系数为有理项加 Lambert 级数；严格为负，并被纵向各向异性的有理函数从上界控制，在 Ising 极限下该有理函数为其渐近形式；在各向同性点以到该点距离的负五分之二次幂发散，且子领头项可闭式给出；当 XY 各向异性按到各向同性点距离的五分之四次幂趋于零时，扰动与未扰动序参量之比在标度变量下趋于高斯形式，且该变量较小时二次截断受控；四阶微扰计算重现领头强耦合行为；四个各向异性下的无限 DMRG 结果与闭式一致。</p>
+    <h4>局限与展望</h4><p>论文未明确讨论局限或后续方向；可合理推断，该闭式结果适用于有能隙反铁磁区域且固定纵向各向异性的情形，其向无能隙区域或更一般各向异性路径的推广尚待研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.12982v1">
+  <div class="paper-head">
+    <h2>太赫兹波段微扰极化展开的静默失效<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.12982v1" rel="noopener noreferrer">2610.12982v1</a>
+  </div>
+  <p class="original-title">Silent breakdown of the perturbative polarization expansion in the terahertz regime</p>
+  <p class="meta"><strong>作者：</strong>Yao Lu、Jiawei Zhang、Qiang Wu、Jingjun Xu</p>
+  <p class="meta"><strong>主分类：</strong>physics.optics
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.optics</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>非线性光学通常将极化强度按驱动场幂次展开并仅保留最低阶项。该截断在光学频率下是安全的，因为其收敛场远高于损伤阈值。在太赫兹波段，声子极化激元可将非线性极化率增强若干数量级，使收敛场降至损伤阈值以下，从而打开一个展开失效但晶体仍可恢复的窗口，作者称之为“静默失效”。在共振处，受驱晶格模式最近的奇点是一对位于多稳阈值以下的复共轭分支点，因此即使 $\chi^{(n)}$ 描述失效，响应仍保持光滑且单值。收敛场按 $Q^{-3/2}$ 标度，故锐化共振虽增强非线性，却缩小展开适用的范围。该收敛场仅由模式频移 $S$ 决定，$E_{\mathrm{conv}}=E_{\mathrm{ref}}(3\sqrt{3}QS)^{-1/2}$，对 $\mathrm{LiNbO}_{3}$ 给出 2$\sim$9 MV/cm。由于共振增强是太赫兹非线性光学的核心，该边界界定了基于极化率的描述在定量上可靠的电场的范围。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在太赫兹波段，非线性光学中按驱动场幂次截断的极化展开（仅保留最低阶项）是否仍然有效，其收敛场与损伤阈值的相对位置如何。</p>
+    <h4>方法</h4><p>通过分析受驱晶格模式在共振处最近奇点的性质（复共轭分支点对），推导收敛场的标度关系，并针对 $\mathrm{LiNbO}_{3}$ 给出数值估计。</p>
+    <h4>主要发现</h4><p>在太赫兹波段，声子极化激元将非线性极化率增强若干数量级，使收敛场降至损伤阈值以下，形成展开失效而晶体仍可恢复的“静默失效”窗口；共振处响应保持光滑且单值，尽管 $\chi^{(n)}$ 描述失效；收敛场按 $Q^{-3/2}$ 标度，并由 $E_{\mathrm{conv}}=E_{\mathrm{ref}}(3\sqrt{3}QS)^{-1/2}$ 给出，对 $\mathrm{LiNbO}_{3}$ 为 2$\sim$9 MV/cm。</p>
+    <h4>局限与展望</h4><p>该边界界定了基于极化率的描述在太赫兹非线性光学中定量可靠的电场的范围；对于其他材料或非共振条件，收敛场行为及静默失效窗口的适用性尚需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13388v1">
+  <div class="paper-head">
+    <h2>量子极端学习用于预测实验混沌电子电路<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.13388v1" rel="noopener noreferrer">2610.13388v1</a>
+  </div>
+  <p class="original-title">Quantum extreme learning for forecasting experimental chaotic electronic circuits</p>
+  <p class="meta"><strong>作者：</strong>Mohammad Sharifian、Qingyu Li、Chiranjib Mukhopadhyay、Abolfazl Bayat、Ludovico Minati</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子储备池计算及其特例量子极端学习是利用量子器件预测经典离散时间序列的有力工具。然而，预测连续信号需要谨慎的离散化：过采样会人为提高短期精度但在实际时间间隔上失效，而欠采样则捕获的特征过少导致预测效果差。本文通过实验从混沌电子电路生成四种连续时间序列信号，用于量子极端学习预测。由于简化电路模型无法完全捕捉真实行为，尚不清楚预测模拟时间序列的算法是否也适用于实验信号。我们通过两种方法解决离散化问题：(i) 采样局部峰/谷；(ii) 在自相关时间尺度上均匀采样。前者捕捉共振行为，后者充分捕捉混沌特征并允许重构混沌吸引子。我们的算法对模拟和实验信号均实现了高预测精度，展示了其在近期量子模拟器上进行连续信号处理的能力，并且对中等程度的退相干保持鲁棒。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>量子极端学习能否有效预测从混沌电子电路实验生成的连续时间序列信号，以及如何对连续信号进行离散化以平衡短期精度与长期预测能力。</p>
+    <h4>方法</h4><p>实验生成四种混沌电子电路的连续时间序列；采用量子极端学习进行预测；通过两种离散化方法处理连续信号：(i) 采样局部峰/谷；(ii) 在自相关时间尺度上均匀采样。</p>
+    <h4>主要发现</h4><p>两种离散化方法中，采样局部峰/谷捕捉共振行为，均匀采样在自相关时间尺度上充分捕捉混沌特征并允许重构混沌吸引子；算法对模拟和实验信号均实现高预测精度，且对中等程度退相干保持鲁棒。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限；可合理推断，该方法在更强退相干或更高维连续信号下的适用性有待进一步验证，且离散化策略可能需针对不同混沌系统调整。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13501v1">
+  <div class="paper-head">
+    <h2>可积辅助场 sigma 模型与类 $T\bar{T}$ 变形的度规方法<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.13501v1" rel="noopener noreferrer">2610.13501v1</a>
+  </div>
+  <p class="original-title">Integrable auxiliary field sigma model and the metric approach to $T\bar{T}$-like deformations</p>
+  <p class="meta"><strong>作者：</strong>Nicola Baglioni、Daniele Bielli、Parita Shah、Gabriele Tartaglino-Mazzucchelli</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文描述了一类保持可积性的二维度规变形。其种子为（经典）共形可积场论，而变形则与不同类别的辅助场 sigma 模型直接相关。作者引入一个主作用量，将 Lie 代数取值辅助场（即所谓 $\nu$-标架）所诱导的变形与由两个 Lorentz 荷标量所诱导的变形联系起来。这些辅助标量场可被识别为某个辅助二维度规的 Beltrami 微分，从而与类 $T\bar{T}$ 变形的度规方法建立直接联系。对于 Weyl 不变的种子物质理论，辅助度规部分由一个约化的引力势描述。作者表明，只要种子物质理论在一般弯曲二维时空上允许其运动方程的 Lax 表示，所得框架就保持经典 Lax 可积性。最后，在本文所考虑的 Lorentz 不变族以及共形物质理论的 zweibein 变形范围内，作者识别出 $T\bar{T}$ 是唯一可被解释为场依赖坐标变换的变形。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构造并刻画一类保持经典可积性的二维度规变形，并厘清其与类 $T\bar{T}$ 变形的度规方法之间的关系。</p>
+    <h4>方法</h4><p>以经典共形可积场论为种子，引入连接 Lie 代数取值辅助场（$\nu$-标架）变形与两个 Lorentz 荷标量变形的 master action；将辅助标量场识别为辅助二维度规的 Beltrami 微分；对 Weyl 不变种子理论使用约化引力势描述辅助度规部分；并借助种子理论在一般弯曲二维时空上的 Lax 表示讨论可积性保持。</p>
+    <h4>主要发现</h4><p>所构造的框架在种子物质理论于一般弯曲二维时空上具有运动方程 Lax 表示时保持经典 Lax 可积性；辅助标量场可解释为辅助度规的 Beltrami 微分，从而与类 $T\bar{T}$ 变形的度规方法直接关联；在 Lorentz 不变族及共形物质理论的 zweibein 变形范围内，$T\bar{T}$ 是唯一可解释为场依赖坐标变换的变形。</p>
+    <h4>局限与展望</h4><p>上述结论限于本文所考虑的 Lorentz 不变族与共形物质理论的 zweibein 变形；更一般的变形类别、量子层面的可积性以及与其他类 $T\bar{T}$ 变形的系统比较尚待进一步研究（后者为基于原文范围的合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13582v1">
+  <div class="paper-head">
+    <h2>基于相对电阻边剪枝的高效输运网络<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.13582v1" rel="noopener noreferrer">2610.13582v1</a>
+  </div>
+  <p class="original-title">Efficient Transport Networks through Edge Pruning by Relative Resistance</p>
+  <p class="meta"><strong>作者：</strong>Mathieu Le Verge-Serandour、Viktor Vasilev、Lara Szeimies、Karen Alim</p>
+  <p class="meta"><strong>主分类：</strong>physics.bio-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.bio-ph</span> <span class="tag">cond-mat.soft</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>输运网络是生命系统与工程系统的关键组成部分。本文研究如何仅依赖局部规则、无需全局目标或特定边界条件，使输运网络实现高效自适应。受生物输运网络观测的启发，作者通过按相对电阻逐步剪除边来调整网络，即移除那些电阻高于通过网络其余部分路由流动所需电阻的边。研究发现，这种基于拓扑本身、无需边界条件的局部冗余度量所驱动的自适应，能够产生稀疏、富含环路且低耗散的输运网络。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>输运网络能否仅依靠局部规则、无需全局目标或特定边界条件实现高效自适应。</p>
+    <h4>方法</h4><p>受生物输运网络观测启发，采用按相对电阻逐步剪除边的方法：移除电阻高于通过网络其余部分路由流动所需电阻的边。</p>
+    <h4>主要发现</h4><p>按相对电阻剪枝这种局部、无边界条件、仅由拓扑决定的冗余度量，可产生稀疏、富含环路且低耗散的输运网络。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；可合理推断，该局部剪枝规则在更一般网络结构或不同流动条件下的适用性仍需进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13782v1">
+  <div class="paper-head">
+    <h2>不等边Yang-Baxter三元组实现所有具有全局加性对称性的最近邻哈密顿量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.13782v1" rel="noopener noreferrer">2610.13782v1</a>
+  </div>
+  <p class="original-title">Scalene Yang-Baxter triples realize all nearest-neighbour Hamiltonians with global additive symmetries</p>
+  <p class="meta"><strong>作者：</strong>Pramod Padmanabhan、Somnath Maity、Akash Sinha、Vladimir Korepin</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文证明：对于一维最近邻哈密顿量，其键哈密顿密度在模去周期边界条件下求和为零的局域差分项后，属于键算符 $w_j\pm w_{j+1}$ 的中心化子，是哈密顿量守恒单点算符 $w_j$ 的均匀或交错求和的充要条件。基于这些局域中心化子，我们证明每个此类哈密顿量及其守恒荷均可由不等边Yang-Baxter三元组（scalene Yang-Baxter triples）的正则与非正则成员所构造的单值矩阵得到。结果适用于长度 $L\geq3$ 的周期链，交错情形要求链长为偶数。结果不要求平移不变性，因此每条键上的相互作用可独立地从相应的完整中心化子中选取。我们的构造与表示无关，适用于任意有限局域维度，并穷尽了具有指定加性对称性的哈密顿量，且不要求通常的Yang-Baxter可积性。我们以自旋-$\tfrac12$和自旋-1系统为例说明该构造，并讨论其与双中心化子定理的关系。对单点生成元 $w$ 及其关联键中心化子进行分类，为分类此类具有加性守恒荷的哈密顿量提供了途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>刻画一维最近邻哈密顿量在何种条件下守恒单点算符 $w_j$ 的均匀或交错求和，并给出此类哈密顿量及其守恒荷的构造与分类途径。</p>
+    <h4>方法</h4><p>通过键算符 $w_j\pm w_{j+1}$ 的中心化子给出局域充要条件；利用不等边Yang-Baxter三元组的正则与非正则成员构造单值矩阵，从而生成哈密顿量及其守恒荷；构造与表示无关，适用于任意有限局域维度，不要求平移不变性或通常的Yang-Baxter可积性。</p>
+    <h4>主要发现</h4><p>键哈密顿密度（模去周期边界下求和为零的局域差分项）属于键算符 $w_j\pm w_{j+1}$ 的中心化子，是哈密顿量守恒 $w_j$ 的均匀或交错求和的充要条件；每个此类哈密顿量及其守恒荷均可由不等边Yang-Baxter三元组构造的单值矩阵得到；结果在长度 $L\geq3$ 的周期链上成立，交错情形要求偶数长度；每条键的相互作用可独立选取；该构造穷尽了具有指定加性对称性的哈密顿量。</p>
+    <h4>局限与展望</h4><p>原文指出，对单点生成元 $w$ 及其关联键中心化子进行分类，可为分类此类具有加性守恒荷的哈密顿量提供途径；该构造不要求通常的Yang-Baxter可积性，其与双中心化子定理的关系在文中有所讨论。关于具体分类的完整实现及更一般局域维度下的系统分类，原文未给出结论，属于可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13825v1">
+  <div class="paper-head">
+    <h2>第一性原理研究扭转双层过渡金属硫族化合物异质结构中的声子频率梳<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.13825v1" rel="noopener noreferrer">2610.13825v1</a>
+  </div>
+  <p class="original-title">Phononic Frequency Combs in Twisted Bilayer Transition Metal Dichalcogenide Heterostructures from First Principles</p>
+  <p class="meta"><strong>作者：</strong>Naman Arora、Adarsh Ganesan</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.mtrl-sci
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.mtrl-sci</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>声子频率梳是驱动振动模式通过非谐模间耦合将能量转移至自参量激发的次谐波模式时产生的等间距频谱阶梯。以往研究中，控制该能量转移的耦合强度通常被当作自由参数、从制备器件中提取，或沿用针对特定模式对的早期计算，因此给定晶体能否支持声子频率梳以及所需驱动强度无法先验预测。本文从密度泛函理论获得完整参数集。处于公度角21.787°的MoSSe与MoSMoSe扭转双层采用空间群P3，位于42原子√7×√7莫尔超胞中。二阶力常数给出模式频率；三阶常数通过玻尔兹曼输运方程给出线宽，进而给出品质因子；同一三阶张量投影到所选模式对的声子本征矢上给出非谐耦合κt与κss。两种双层均构成接近2:1共振的模式对，偏差在0.8%以内，MoSSe中ω1/ω2=1.9923，MoSMoSe中为1.9943。通过积分所得双模方程，两种模式均通过不连续转变产生频率梳：在MoSSe中驱动强度为701 fth时，包络方差从2.1×10^3升至1.37×10^4，模式1的梳齿数在单个5 fth增量内从7增至16，表明该起始为亚临界。谱熵在此跃变之前达到峰值，位于341 fth。两种化合物的耦合相当，相差1.2倍。然而，频率梳激发阈值由信号模式的品质因子决定：MoSSe的Q2=672，MoSMoSe的Q2=3844。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>给定晶体能否支持声子频率梳以及所需驱动强度能否先验预测；具体研究扭转双层MoSSe与MoSMoSe异质结构中声子频率梳的产生条件与阈值。</p>
+    <h4>方法</h4><p>采用密度泛函理论计算完整参数集：二阶力常数给出模式频率，三阶常数通过玻尔兹曼输运方程给出线宽与品质因子，三阶张量投影到声子本征矢给出非谐耦合κt与κss；随后积分双模方程分析频率梳产生。</p>
+    <h4>主要发现</h4><p>两种扭转双层在21.787°公度角下均形成接近2:1共振的模式对（MoSSe中ω1/ω2=1.9923，MoSMoSe中为1.9943，偏差在0.8%以内）；两者均通过不连续（亚临界）转变产生频率梳，MoSSe在701 fth时包络方差从2.1×10^3升至1.37×10^4、模式1梳齿数在5 fth增量内从7增至16，谱熵在341 fth先于跃变达到峰值；两种化合物耦合强度相当（相差1.2倍），但激发阈值由信号模式品质因子决定（MoSSe的Q2=672，MoSMoSe的Q2=3844）。</p>
+    <h4>局限与展望</h4><p>本文结果基于特定公度角（21.787°）的两种扭转双层及所选模式对，其普适性有待进一步验证；后续可合理推断将第一性原理参数集方法推广至其他扭转角、材料体系或模式对，以检验声子频率梳可预测性的适用范围。</p>
+  </section>
+</article><article class="paper" id="paper-2610.13842v1">
+  <div class="paper-head">
+    <h2>稳健黄金比普适性作为循环对称性的结果<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.13842v1" rel="noopener noreferrer">2610.13842v1</a>
+  </div>
+  <p class="original-title">Robust Golden Ratio universality as a consequence of a circulant symmetry</p>
+  <p class="meta"><strong>作者：</strong>Luka Paljk、Johannes Schmidt、Vladislav Popkov</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.CG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出了一种黄金比（GR）动力学普适类出现的稳健机制，其特征动力学指数为 $z \equiv \varphi=\frac{1}{2}(1+\sqrt{5})$。此前，该普适类的出现需要对系统参数进行精细调节；本文表明，在一大类马尔可夫过程中，GR 普适类可作为一种通有现象出现，其根源是流雅可比矩阵具有全局循环（circulant）对称性。该对称性导致在守恒律总数为奇数且大于三的系统中出现 GR 普适性。作者引入了一个具有伯努利稳态测度的多车道排他过程作为最小且无参数模型，该模型对所有守恒模式均表现出 GR 普适性，其中大多数模式是二重简并的。基于推广至处理简并守恒模式的模式耦合理论的预测，得到了大规模蒙特卡洛模拟的证实。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在何种条件下黄金比（GR）动力学普适类（动力学指数 $z=\varphi$）能够稳健地出现，而非依赖于系统参数的精细调节。</p>
+    <h4>方法</h4><p>作者通过分析马尔可夫过程中流雅可比矩阵的全局循环对称性来识别 GR 普适类出现的条件，并引入一个具有伯努利稳态测度的多车道排他过程作为最小无参数模型；理论分析采用推广至处理简并守恒模式的模式耦合理论，并与大规模蒙特卡洛模拟进行对比验证。</p>
+    <h4>主要发现</h4><p>原文明确支持的主要结果包括：GR 普适类可在一大类马尔可夫过程中作为通有现象出现，其条件是流雅可比矩阵具有全局循环对称性；该对称性导致在守恒律总数为奇数且大于三的系统中出现 GR 普适性；所引入的多车道排他过程对所有守恒模式均表现出 GR 普适性，其中大多数模式为二重简并；基于推广模式耦合理论的预测得到大规模蒙特卡洛模拟的证实。</p>
+    <h4>局限与展望</h4><p>原文指出此前 GR 普适类的出现需要精细调节参数，而本文机制在满足循环对称性及守恒律数目为奇数且大于三的条件下适用。可合理推断的后续方向包括：将循环对称性机制推广至更一般的马尔可夫过程或其他守恒律数目的系统，以及进一步检验简并守恒模式对模式耦合理论预测的影响；这些推断需在原文未明确讨论的范围内谨慎对待。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-12 13:29 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
