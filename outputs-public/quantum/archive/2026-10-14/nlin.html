@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-10-14</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">29</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">16</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">13</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（16）</h3><ol class="toc-list"><li><a href="#paper-2610.14026v1">面向新型异步更新奇偶规则的探索：受Fatès规则启发</a> <small>2610.14026v1</small></li><li><a href="#paper-2610.14469v1">关于反自对偶 Yang–Mills 方程解结构之间等价性的研究</a> <small>2610.14469v1</small></li><li><a href="#paper-2610.14718v1">尾流诱导软碰撞振子的动力学：分析与电子实验验证</a> <small>2610.14718v1</small></li><li><a href="#paper-2610.14722v1">耦合非对称等离子体振子链中的非线性信号传输与谐波产生</a> <small>2610.14722v1</small></li><li><a href="#paper-2610.14752v1">单向耦合等离子体振子网络中的能量传输与谐波传播</a> <small>2610.14752v1</small></li><li><a href="#paper-2610.14949v1">(2+1)维非局部多分量Yajima-Oikawa系统的高阶半有理解</a> <small>2610.14949v1</small></li><li><a href="#paper-2610.15041v1">非对称连杆系统中的奇异边缘模式实现极端局域化</a> <small>2610.15041v1</small></li><li><a href="#paper-2610.15201v1">边界条件对临界稳定斑图的选择作用</a> <small>2610.15201v1</small></li><li><a href="#paper-2610.15333v1">分支-合并排他过程中的几何控制初始密度依赖性</a> <small>2610.15333v1</small></li><li><a href="#paper-2610.15598v1">句法动力学中可推断参数与残余参数的相互作用</a> <small>2610.15598v1</small></li><li><a href="#paper-2610.16495v1">间歇混沌中潜在动力学的几何转变：基于SVD的有效维度检测与主动控制</a> <small>2610.16495v1</small></li><li><a href="#paper-2610.16564v1">聚焦耦合Kundu-Eckhaus方程的长时渐近行为</a> <small>2610.16564v1</small></li><li><a href="#paper-2610.16608v1">移动振子如何重塑复杂网络中的动力学鲁棒性</a> <small>2610.16608v1</small></li><li><a href="#paper-2610.17150v1">时变有向高阶网络中的全局同步</a> <small>2610.17150v1</small></li><li><a href="#paper-2610.17529v1">信息传递作为接近局部分岔的新指标：鞍结、叉式与Hopf分岔</a> <small>2610.17529v1</small></li><li><a href="#paper-2610.18390v1">超越RMSE与Granger增益：面向非线性预测耦合的多步预测误差熵</a> <small>2610.18390v1</small></li></ol><h3>交叉列表（13）</h3><ol class="toc-list"><li><a href="#paper-2610.14565v1">信任-不信任联合结构塑造信念传播与集体动力学</a> <small>2610.14565v1</small></li><li><a href="#paper-2610.14608v1">切特拉罗讲义：可积系统与曲线模空间</a> <small>2610.14608v1</small></li><li><a href="#paper-2610.15918v1">动量分馏微态几何上的随机波混沌</a> <small>2610.15918v1</small></li><li><a href="#paper-2610.15990v1">对称双呼吸子模式作为微小粒子质量的动力学起源</a> <small>2610.15990v1</small></li><li><a href="#paper-2610.16290v1">负耦合圆映射晶格中的通用布尔计算</a> <small>2610.16290v1</small></li><li><a href="#paper-2610.16422v1">集合预报的多变量相空间解释：物理模型与AI模型的比较</a> <small>2610.16422v1</small></li><li><a href="#paper-2610.16626v1">玻色量子条件互信息与玻色-爱因斯坦凝聚</a> <small>2610.16626v1</small></li><li><a href="#paper-2610.16638v1">逆向量子老化：从量子老化态恢复节律性</a> <small>2610.16638v1</small></li><li><a href="#paper-2610.16847v1">极限环主导时空变化材料中的波能积累</a> <small>2610.16847v1</small></li><li><a href="#paper-2610.17052v1">参数激励Duffing纳米谐振器中双迟滞与孤立分支的分岔结构</a> <small>2610.17052v1</small></li><li><a href="#paper-2610.17137v1">Floquet多体量子动力学中的分圆结构与精确回归</a> <small>2610.17137v1</small></li><li><a href="#paper-2610.18191v1">反馈控制下的孤子自捕获</a> <small>2610.18191v1</small></li><li><a href="#paper-2610.18480v1">惰性与可逆元胞自动机何时生成全部元胞自动机？</a> <small>2610.18480v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.14026v1">
+  <div class="paper-head">
+    <h2>面向新型异步更新奇偶规则的探索：受Fatès规则启发<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.14026v1" rel="noopener noreferrer">2610.14026v1</a>
+  </div>
+  <p class="original-title">Towards New Parity Rules with Asynchronous Updating Inspired by Fatès&#x27;s Rule</p>
+  <p class="meta"><strong>作者：</strong>Rolf Hoffmann</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CG
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>一维元胞自动机中的奇偶问题是一种基于局部规则的分类器：若二元环中1的个数为奇数，则自动机应收敛到全1（11...11），否则收敛到全0（00...00）。本文的目标是寻找与Fatès平衡规则F相关、但使用更少活跃邻域（动作）的规则。方法为分析规则F所用12个动作中每个动作的效果，并寻找一个可正常工作的动作子集。由此定义了新规则HA、HB、HC、HF，分别使用10、6、4、8个动作。其中规则HC和HF仅需三个输入，其余规则均需四个输入。通过大量随机初始构型的模拟运行取平均，确定了各规则的分类时间：规则HA与F几乎相同，而规则HB、HC、HF则更长。此外，还定义了规则HD，它并行更新三个元胞且运行更快。未来工作应以更形式化的方式处理所提规则的功能与性能，并考虑相关规则（包括采用不同更新方案）。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否找到与Fatès平衡规则F相关、但使用更少活跃邻域（动作）的一维元胞自动机局部规则，以解决奇偶分类问题，并比较其分类时间？</p>
+    <h4>方法</h4><p>分析Fatès规则F中12个动作各自的效果，寻找可正常工作的动作子集，据此定义使用更少动作的新规则HA、HB、HC、HF；通过大量随机初始构型的模拟运行取平均来确定各规则的分类时间；另外定义并行更新三个元胞的规则HD。</p>
+    <h4>主要发现</h4><p>新规则HA、HB、HC、HF分别使用10、6、4、8个动作；HC和HF仅需三个输入，其余需四个输入。分类时间上，HA与F几乎相同，HB、HC、HF更长；规则HD并行更新三个元胞且运行更快。</p>
+    <h4>局限与展望</h4><p>原文指出未来工作应以更形式化的方式处理所提规则的功能与性能，并考虑相关规则（包括采用不同更新方案）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.14469v1">
+  <div class="paper-head">
+    <h2>关于反自对偶 Yang–Mills 方程解结构之间等价性的研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.14469v1" rel="noopener noreferrer">2610.14469v1</a>
+  </div>
+  <p class="original-title">On equivalence between solution structures of the anti-self-dual Yang--Mills equations</p>
+  <p class="meta"><strong>作者：</strong>Shangshuai Li</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对具有复 \(2\times2\) 矩阵值场的反自对偶 Yang–Mills（ASDYM）方程，建立了准 Wronskian 构造与准 Grammian 构造之间的精确对应关系。从与 \(2M\) 个两两不同的非零常数谱参数相关联的真空波函数出发，我们将讨论限制在相应的插值矩阵可逆的非空局部区域上。我们证明，这两种构造由同一个唯一可解的矩阵多项式插值问题所支配。特别地，准 Wronskian Darboux 多项式 \(T(\lambda)\) 与准 Grammian 有理 dressing 矩阵 \(W(\lambda)\) 满足 \[ T(\lambda)=q_\xi(\lambda)W(\lambda), \] 其中 \(q_\xi(\lambda)\) 是以 \(W(\lambda)\) 的指定极点为根的首一标量多项式。该恒等式给出了相应 Yang 矩阵与势矩阵之间的显式关系，并表明这两种构造在同一规范下生成相同的 ASDYM 规范势。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>对于具有复 \(2\times2\) 矩阵值场的反自对偶 Yang–Mills（ASDYM）方程，准 Wronskian 构造与准 Grammian 构造之间是否存在精确对应关系，以及二者是否生成相同的规范势。</p>
+    <h4>方法</h4><p>从与 \(2M\) 个两两不同的非零常数谱参数相关联的真空波函数出发，将讨论限制在相应插值矩阵可逆的非空局部区域上，通过证明两种构造受同一个唯一可解的矩阵多项式插值问题支配，建立准 Wronskian Darboux 多项式 \(T(\lambda)\) 与准 Grammian 有理 dressing 矩阵 \(W(\lambda)\) 之间的恒等式 \(T(\lambda)=q_\xi(\lambda)W(\lambda)\)。</p>
+    <h4>主要发现</h4><p>两种构造由同一个唯一可解的矩阵多项式插值问题所支配；准 Wronskian Darboux 多项式 \(T(\lambda)\) 与准 Grammian 有理 dressing 矩阵 \(W(\lambda)\) 满足 \(T(\lambda)=q_\xi(\lambda)W(\lambda)\)，其中 \(q_\xi(\lambda)\) 是以 \(W(\lambda)\) 的指定极点为根的首一标量多项式；该恒等式给出相应 Yang 矩阵与势矩阵之间的显式关系，并表明两种构造在同一规范下生成相同的 ASDYM 规范势。</p>
+    <h4>局限与展望</h4><p>原文的结论建立在复 \(2\times2\) 矩阵值场、\(2M\) 个两两不同的非零常数谱参数以及插值矩阵可逆的非空局部区域等限制条件之上；超出这些条件的适用范围需进一步研究。可合理推断的后续方向包括将对应关系推广到更一般的矩阵尺寸、谱参数配置或非局部区域，但原文未作此类断言。</p>
+  </section>
+</article><article class="paper" id="paper-2610.14718v1">
+  <div class="paper-head">
+    <h2>尾流诱导软碰撞振子的动力学：分析与电子实验验证<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.14718v1" rel="noopener noreferrer">2610.14718v1</a>
+  </div>
+  <p class="original-title">Wake-induced dynamics of soft-impact oscillators: Analysis and electronic experimental validation</p>
+  <p class="meta"><strong>作者：</strong>Rohit Chawla、Soumyajit Seth、Vikram Pakrashi</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对尾流诱导动力系统中的不连续诱导分岔（包括周期添加级联）进行了电子实验验证，该系统受到软碰撞作用。置于横流中的圆柱结构发生涡激振动，并在响应的上、下分支期间与可移动屏障相互作用。结构运动被建模为谐振子，而脉动升力由 Van der Pol 振子表示。结构与可移动屏障之间的软接触相互作用采用双线性恢复力建模，从而得到一个分段光滑的尾流振子模型。系统的数值研究表明，随着屏障距离和流速的变化，周期轨道出现周期添加级联，并夹杂混沌响应。结果通过由运算放大器构成的分段光滑尾流模型的无电感电子模拟电路进行了实验验证，该电路制作在印刷电路板上以提高实验稳健性。进一步利用 Floquet 乘子和 Lyapunov 指数刻画了周期与非周期响应失稳的路径。在稳定性分析中，采用零时间横向不连续映射来考虑不连续边界局部邻域内扰动的演化。数值、实验与稳定性分析相结合，表明软碰撞在尾流诱导系统中产生复杂非线性响应方面的作用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究尾流诱导动力系统在软碰撞作用下的不连续诱导分岔（包括周期添加级联）及其动力学行为，并通过电子实验进行验证。</p>
+    <h4>方法</h4><p>将结构运动建模为谐振子、脉动升力建模为 Van der Pol 振子，结构-屏障软接触采用双线性恢复力，得到分段光滑尾流振子模型；进行系统数值研究，并构建基于运算放大器的无电感电子模拟电路在印刷电路板上实现实验验证；利用 Floquet 乘子和 Lyapunov 指数分析稳定性，并采用零时间横向不连续映射处理不连续边界邻域内扰动演化。</p>
+    <h4>主要发现</h4><p>数值研究揭示，随屏障距离和流速变化，周期轨道出现周期添加级联并夹杂混沌响应；电子实验验证了这些不连续诱导分岔结果；Floquet 乘子和 Lyapunov 指数刻画了周期与非周期响应失稳的路径；零时间横向不连续映射用于稳定性分析中扰动演化；综合数值、实验与稳定性分析表明软碰撞在尾流诱导系统中产生复杂非线性响应。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；基于其方法可合理推断，该电子模拟验证框架或可推广至其他分段光滑流固耦合系统的实验研究，但此推断需进一步工作确认。</p>
+  </section>
+</article><article class="paper" id="paper-2610.14722v1">
+  <div class="paper-head">
+    <h2>耦合非对称等离子体振子链中的非线性信号传输与谐波产生<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.14722v1" rel="noopener noreferrer">2610.14722v1</a>
+  </div>
+  <p class="original-title">Nonlinear Signal Transmission and Harmonic Generation in Plasma Oscillator Chain with Coupling Asymmetry</p>
+  <p class="meta"><strong>作者：</strong>K. Abirami、Miguel A. Prado-Reynoso、Miguel A. F. Sanjuán</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">physics.class-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了一维 $n$ 个局域耦合等离子体振子链中的信号传输，其中双向耦合具有非对称性 $(\varepsilon_1,\varepsilon_2)$。结果表明，对称耦合与非对称相互作用之间存在明显对比：对称耦合抑制信号传播，而耦合非对称性则使网络能够实现高效的非线性传输。特别地，当正向耦合强度大于反向耦合强度（$\varepsilon_1 &gt; \varepsilon_2$）时，可实现持续的长程传输，这一点通过 $(\varepsilon_1,\varepsilon_2)$ 参数空间中的完整相图得到展示。此外，在非对称扩散耦合下，即使链中前几个振子发生振荡死亡，信号传输仍可维持。本研究的一个核心发现是，非线性相互作用会内在地产生高次谐波，从而导致振动共振的显著反转。这种能量的非线性再分配促进了特定频率成分的选择性放大与稳健传播。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究一维局域耦合等离子体振子链中，双向耦合的非对称性如何影响信号传输，以及非线性相互作用在其中的作用。</p>
+    <h4>方法</h4><p>构建由 $n$ 个局域耦合等离子体振子组成的一维链模型，引入非对称双向耦合参数 $(\varepsilon_1,\varepsilon_2)$，通过数值计算相图并分析信号传输行为。</p>
+    <h4>主要发现</h4><p>对称耦合抑制信号传播，而耦合非对称性可实现高效非线性传输；当正向耦合强度大于反向耦合强度（$\varepsilon_1 &gt; \varepsilon_2$）时，可实现持续的长程传输；在非对称扩散耦合下，即使链中前几个振子发生振荡死亡，信号传输仍可维持；非线性相互作用内在地产生高次谐波，导致振动共振的显著反转，并促进特定频率成分的选择性放大与稳健传播。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，该研究结果可能适用于具有类似非对称耦合机制的振子网络，但具体适用范围需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.14752v1">
+  <div class="paper-head">
+    <h2>单向耦合等离子体振子网络中的能量传输与谐波传播<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.14752v1" rel="noopener noreferrer">2610.14752v1</a>
+  </div>
+  <p class="original-title">Energy Transmission and Harmonic Propagation in Unidirectionally Coupled Plasma Oscillator Networks</p>
+  <p class="meta"><strong>作者：</strong>K. Abirami、Miguel A. Prado-Reynoso、Miguel A. F. Sanjuán</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了单向耦合等离子体振子网络中的信号传输，其中仅第一个振子受到微弱周期输入驱动。信号在网络中传播时，非线性相互作用产生高阶谐波分量。频谱分析识别出基频与奇次谐波的五种不同传输模式，以及偶次谐波的四种模式，涵盖阻尼传播、无阻尼传输和局域放大。传输特性由耦合强度和系统参数共同决定。此外，本文分析了这些关键参数的变化如何塑造整体信号动力学。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究单向耦合等离子体振子网络中，仅首个振子受微弱周期驱动时，信号如何沿网络传播以及非线性谐波如何生成与传输。</p>
+    <h4>方法</h4><p>对由单向耦合等离子体振子构成的网络进行数值/理论分析，对基频、奇次谐波和偶次谐波进行频谱分析，并考察耦合强度与系统参数对传输特性的影响。</p>
+    <h4>主要发现</h4><p>信号传播过程中非线性相互作用产生高阶谐波；频谱分析识别出基频与奇次谐波的五种传输模式、偶次谐波的四种模式，包括阻尼传播、无阻尼传输和局域放大；传输特性由耦合强度和系统参数共同决定；关键参数变化会改变整体信号动力学。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论具体应用场景或实验验证；后续可合理推断的方向包括进一步解析各传输模式的参数边界与产生机制，以及考察更一般网络拓扑或不同驱动条件下的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.14949v1">
+  <div class="paper-head">
+    <h2>(2+1)维非局部多分量Yajima-Oikawa系统的高阶半有理解<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.14949v1" rel="noopener noreferrer">2610.14949v1</a>
+  </div>
+  <p class="original-title">Higher-order semi-rational solutions of the (2+1)-dimensional nonlocal multi-component Yajima--Oikawa system</p>
+  <p class="meta"><strong>作者：</strong>Wenqiang Lu、Kelei Tian、Ying Xu、Ge Yi、Xiaoming Zhu</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文为(2+1)维非局部多分量Yajima-Oikawa系统构造了高阶半有理解。该系统由其局部的2M分量对应系统经空间反射约化得到。利用Hirota双线性方法与Kadomtsev-Petviashvili方程族约化，导出了一个统一的6×6分块Gram行列式，其元素包含Schur多项式与指数函数。复共轭约化与空间反射约化通过对谱参数和行列式分块的代数约束实现，其中复共轭约化保证分母tau函数取实值。有理块、呼吸子块与暗孤子块被赋予各自独立的谱参数集。所得解描述呼吸子、暗孤子或二者组合背景上的成对lump或线怪波。将相应分块尺寸取为零，可分别得到纯有理、呼吸子与暗孤子解。渐近分析确立了基本呼吸子对与暗孤子对的弹性相互作用，并确定了它们的位置与相位移动。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为(2+1)维非局部多分量Yajima-Oikawa系统构造高阶半有理解，并刻画其解结构与相互作用性质。</p>
+    <h4>方法</h4><p>通过空间反射约化从局部2M分量系统得到非局部系统；采用Hirota双线性方法与Kadomtsev-Petviashvili方程族约化，导出统一的6×6分块Gram行列式；对谱参数与行列式分块施加复共轭与空间反射的代数约束，并为有理、呼吸子与暗孤子分块分配独立谱参数集；通过将分块尺寸取零得到退化解，并借助渐近分析研究相互作用。</p>
+    <h4>主要发现</h4><p>构造出以6×6分块Gram行列式表示的高阶半有理解，其元素含Schur多项式与指数函数；复共轭约化确保分母tau函数为实值；所得解描述呼吸子、暗孤子或二者组合背景上的成对lump或线怪波；纯有理、呼吸子与暗孤子解可由相应分块尺寸取零得到；渐近分析表明基本呼吸子对与暗孤子对发生弹性相互作用，并确定了其位置与相位移动。</p>
+    <h4>局限与展望</h4><p>原文未讨论解的稳定性、长时间渐近的完整分类或与其他非局部可积系统的推广；后续工作或可考察更一般的高阶分块结构、其他约化类型及解的奇异性与物理适用条件，但这些均属推断。</p>
+  </section>
+</article><article class="paper" id="paper-2610.15041v1">
+  <div class="paper-head">
+    <h2>非对称连杆系统中的奇异边缘模式实现极端局域化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.15041v1" rel="noopener noreferrer">2610.15041v1</a>
+  </div>
+  <p class="original-title">Extreme Localization via a Singular Edge Mode in an Asymmetric Linkage System</p>
+  <p class="meta"><strong>作者：</strong>Myeonggyun Joo、Dongwook Kwak、Rajesh Chaunsali、Panayotis G. Kevrekidis、Jinkyu Yang</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">physics.app-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>机械局域模式通常具有指数衰减的尾部，而将振动限制在单个结构单元内，若不借助谐振器、平带晶格或拓扑设计则难以实现。为满足这一需求，本文引入一种非对称连杆系统，其中几何参数可将边界模式从有限局域化调节至其极端极限。每个单元由两根不等长的刚性杆通过扭转弹簧连接构成，并可用一个广义坐标描述。通过线性化与坐标变换，可得到三对角模型以及边缘模式频率与空间衰减比的闭式表达式。分析识别出支持奇异边缘模式的构型，在该构型下衰减比消失，使得在线性范围内仅边界单元保持活跃。数值模拟表明在有限幅值激励下可实现近乎完全的局域化，实验则复现了从体传输到边界局域的构型依赖转变。这些结果建立了一个用于机械局域化的极简且可解析调节的平台。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在不使用谐振器、平带晶格或拓扑设计的情况下，将机械局域模式限制在单个结构单元内，并实现从有限局域化到极端局域化的可调转变。</p>
+    <h4>方法</h4><p>引入由两根不等长刚性杆和扭转弹簧构成的非对称连杆系统，每个单元用一个广义坐标描述；通过线性化和坐标变换得到三对角模型，推导边缘模式频率和空间衰减比的闭式表达式，并进行数值模拟与实验验证。</p>
+    <h4>主要发现</h4><p>分析识别出支持奇异边缘模式的构型，此时空间衰减比为零，线性范围内仅边界单元活跃；数值模拟显示有限幅值激励下可实现近乎完全的局域化；实验复现了从体传输到边界局域的构型依赖转变。</p>
+    <h4>局限与展望</h4><p>该平台为机械局域化提供了一种极简且可解析调节的方案；其线性分析、有限幅值模拟与实验的适用范围及非线性效应等局限在原文中未明确讨论，后续可进一步探究非线性区间的行为及向其他尺度或系统的推广。</p>
+  </section>
+</article><article class="paper" id="paper-2610.15201v1">
+  <div class="paper-head">
+    <h2>边界条件对临界稳定斑图的选择作用<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.15201v1" rel="noopener noreferrer">2610.15201v1</a>
+  </div>
+  <p class="original-title">Selection of Marginally Stable Patterns by Boundary Conditions</p>
+  <p class="meta"><strong>作者：</strong>Jacob Daniels、Simon Eskin、Tel Fahrendholz、Arnd Scheel</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">math.AP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究边界条件对斑图形成系统中波数选择的影响。已有工作表明，对于一大类边界条件，只有位于一个狭窄波数带内的平衡态才与边界相容。本文进一步证明，对于一大类初始条件，解会演化趋向该狭窄平衡态带的一个极端成员。事实上，该极端成员是中性稳定的、非线性不稳定的，其收敛过程通过边界处的一系列“突跳”（snapping）事件实现。作者在 Swift-Hohenberg 方程的数值模拟中观察到这一行为：当通过参数淬火使斑图形成区域被限制在一个大空间区间内时，即出现上述现象。作者在相位扩散近似下，利用比较原理以及精心选取的、模拟突跳行为的子解，证明了该收敛性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>边界条件如何影响斑图形成系统中平衡态波数的选择，以及解最终趋向狭窄相容波数带中的哪一个成员。</p>
+    <h4>方法</h4><p>对 Swift-Hohenberg 方程在参数淬火将斑图形成区域限制于大空间区间的情形进行数值模拟；并在相位扩散近似下，利用比较原理和精心构造的、模拟边界突跳行为的子解进行证明。</p>
+    <h4>主要发现</h4><p>对于一大类初始条件，解会演化趋向狭窄相容平衡态带的一个极端成员；该极端成员是中性稳定的、非线性不稳定的；收敛通过边界处的一系列突跳事件实现；数值模拟中观察到该行为，并在相位扩散近似下证明了收敛性。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论方法的适用范围与局限；可合理推断，所证明的收敛性依赖于相位扩散近似及所选取的子解结构，其向更一般边界条件、更一般斑图形成系统或远离相位扩散 regime 的推广尚待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.15333v1">
+  <div class="paper-head">
+    <h2>分支-合并排他过程中的几何控制初始密度依赖性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.15333v1" rel="noopener noreferrer">2610.15333v1</a>
+  </div>
+  <p class="original-title">Geometry-Controlled Initial-Density Dependence in Branching-Merging Exclusion Processes</p>
+  <p class="meta"><strong>作者：</strong>Hiroki Yamamoto、Daichi Yanagisawa、Katsuhiro Nishinari</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CG
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了具有分支-合并结构的排他过程中由几何结构控制、依赖初始密度的稳态。作者考虑两种将平行分支与粒子库相连的边界几何：\(1\)-\(n\)-\(1\) 模型，即单车道分支为 \(n\) 条平行车道后再合并回单车道；以及 \(0\)-\(n\)-\(0\) 模型，即粒子直接进入和离开 \(n\) 条平行车道。对两种模型，作者推导了区分低密度、激波和高密度区域的临界初始密度，并表明理论预测能够重现模拟中观察到的相图和分支平均密度。在 \(1\)-\(n\)-\(1\) 几何中，临界初始密度同时依赖于分支数目以及上游和下游单车道段的长度；而在 \(0\)-\(n\)-\(0\) 几何中，相应的估计仅依赖于分支数目。这些结果表明，即使合并点处没有显式的摩擦规则，初始条件依赖性也可以源于分支-合并排他过程的整体几何结构。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在具有分支-合并结构的排他过程中，整体几何结构（而非合并点处的显式摩擦规则）是否会导致稳态对初始密度的依赖，以及不同边界几何下临界初始密度如何确定。</p>
+    <h4>方法</h4><p>针对 \(1\)-\(n\)-\(1\) 和 \(0\)-\(n\)-\(0\) 两种边界几何，理论推导区分低密度、激波和高密度区域的临界初始密度，并与模拟得到的相图和分支平均密度进行对比。</p>
+    <h4>主要发现</h4><p>对两种模型均推导出临界初始密度；理论预测重现了模拟中的相图和分支平均密度。在 \(1\)-\(n\)-\(1\) 几何中，临界初始密度依赖于分支数目以及上游和下游单车道段的长度；在 \(0\)-\(n\)-\(0\) 几何中，相应估计仅依赖于分支数目。结果表明，即使合并点处没有显式摩擦规则，初始条件依赖性也可由分支-合并排他过程的整体几何结构产生。</p>
+    <h4>局限与展望</h4><p>原文未讨论其他边界几何、非稳态动力学或更一般网络拓扑下的适用性；这些可作为后续研究方向。上述后续方向为合理推断，原文并未明确给出。</p>
+  </section>
+</article><article class="paper" id="paper-2610.15598v1">
+  <div class="paper-head">
+    <h2>句法动力学中可推断参数与残余参数的相互作用<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.15598v1" rel="noopener noreferrer">2610.15598v1</a>
+  </div>
+  <p class="original-title">Inferred and Residual Parameter Interactions in Syntax Dynamics</p>
+  <p class="meta"><strong>作者：</strong>Hediye Yarahmadi、Alessandro Treves</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>自然语言即便共享大致共同的起源，其句法结构为何仍会多样化？本文对作者此前提出的一个简单模型进行了改进；该模型关注由句法参数之间相互作用网络所诱导的玻璃态动力学。作者区分了两类相互作用权重：一类是对称的、可从众多语言句法观测统计中推断出的权重，另一类是额外随机赋予的非对称权重。结果表明，两类成分都是必要的，且总体强度相近，才能解释合理的长期句法动力学。可推断权重提供玻璃态亚稳性，残余非对称权重诱导混沌式多样化，二者之间近似平衡，可共同产生上述动力学。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>自然语言在共享大致共同起源的情况下，其句法结构为何仍会多样化；具体而言，句法参数相互作用网络中可推断的对称权重与随机非对称权重各自在长期句法动力学中起什么作用。</p>
+    <h4>方法</h4><p>改进作者此前提出的、关注句法参数相互作用网络所诱导玻璃态动力学的简单模型；将相互作用权重区分为可从众多语言句法观测统计中推断的对称权重，以及额外随机赋予的非对称权重，并考察两类成分对长期句法动力学的影响。</p>
+    <h4>主要发现</h4><p>两类权重成分都是必要的，且总体强度相近，才能解释合理的长期句法动力学；可推断权重提供玻璃态亚稳性，残余非对称权重诱导混沌式多样化，二者近似平衡可共同产生上述动力学。</p>
+    <h4>局限与展望</h4><p>摘要未明确说明模型的具体适用范围与局限；可合理推断，后续工作或需进一步检验该近似平衡在其他语言样本或参数设定下的稳健性，并厘清可推断权重与残余权重之间平衡条件的来源。</p>
+  </section>
+</article><article class="paper" id="paper-2610.16495v1">
+  <div class="paper-head">
+    <h2>间歇混沌中潜在动力学的几何转变：基于SVD的有效维度检测与主动控制<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.16495v1" rel="noopener noreferrer">2610.16495v1</a>
+  </div>
+  <p class="original-title">Geometric Transition of Latent Dynamics in Intermittent Chaos: SVD-based Effective Dimension for Detection and Proactive Control</p>
+  <p class="meta"><strong>作者：</strong>Takashi Hikihara、Tetsushi Saburi</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">cs.SY</span> <span class="tag">eess.SY</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了相互耦合的锁相环（PLL）在呈现通断间歇混沌时潜在动力学转变的几何检测问题，其中潜在空间定义为通过延迟嵌入Hankel矩阵重构的有限维状态空间。我们提出一种数据驱动方法，用于识别潜在动力学有效维度的转变，并将其作为物理爆发事件的前兆。通过对高分辨率过采样数据构造的Hankel矩阵应用奇异值分解（SVD），我们提取出有效维度，该维度反映了在实际爆发之前内在变量从同步二维流形向更高维混沌状态的动力学偏移。这一几何指标使得采用Pyragas型延迟反馈控制的主动、事件驱动干预成为可能，该控制仅在检测到的维度超过临界阈值时激活。仿真结果表明，与传统的连续反馈相比，该几何前兆能够有效补偿控制延迟，并显著降低累积控制能量。研究结果为通过利用潜在动力学维度转变中嵌入的早期预警信号来稳定无限维延迟系统建立了一种方法学策略。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何对相互耦合的锁相环中呈现通断间歇混沌的潜在动力学转变进行几何检测，并利用其作为前兆实现主动控制？</p>
+    <h4>方法</h4><p>将潜在空间定义为通过延迟嵌入Hankel矩阵重构的有限维状态空间；对高分辨率过采样数据构造的Hankel矩阵应用奇异值分解（SVD），提取反映内在变量动力学偏移的有效维度；当检测到的维度超过临界阈值时，激活Pyragas型延迟反馈控制进行事件驱动干预。</p>
+    <h4>主要发现</h4><p>有效维度能够反映内在变量从同步二维流形向更高维混沌状态的动力学偏移，且该偏移发生在实际爆发之前；该几何指标可作为物理爆发事件的前兆；仿真结果表明，与传统的连续反馈相比，该几何前兆能有效补偿控制延迟并显著降低累积控制能量。</p>
+    <h4>局限与展望</h4><p>研究结果为利用潜在动力学维度转变中的早期预警信号来稳定无限维延迟系统提供了一种方法学策略；其局限性与适用范围未在摘要中明确说明，后续可合理推断的方向包括将该方法推广至其他延迟系统或验证其在不同参数条件下的鲁棒性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.16564v1">
+  <div class="paper-head">
+    <h2>聚焦耦合Kundu-Eckhaus方程的长时渐近行为<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.16564v1" rel="noopener noreferrer">2610.16564v1</a>
+  </div>
+  <p class="original-title">Long-time asymptotics for the focusing coupled Kundu-Eckhaus equation</p>
+  <p class="meta"><strong>作者：</strong>Tianwei Qiu、Zhen Wang</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span> <span class="tag">math-ph</span> <span class="tag">math.AP</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>聚焦耦合Kundu-Eckhaus（CKE）方程通过在耦合非线性Schrödinger（CNLS）方程中引入五次非线性项与导数非线性项而得到推广。本文研究聚焦CKE方程的Cauchy问题，初始数据取为Schwartz函数，并假定实轴上不存在离散谱与谱奇点。基于聚焦CKE方程与CNLS方程之间的规范等价性，作者利用Deift-Zhou非线性最速下降方法分析相应的$3\times3$矩阵Riemann-Hilbert问题。通过建立CNLS解与规范相位的联合误差估计，得到了CKE方程色散辐射在有限速度锥内的一致长时渐近公式，其余项为$O(t^{-1}\log t)$。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究聚焦耦合Kundu-Eckhaus方程在Schwartz初值、实轴上无离散谱与谱奇点假设下的Cauchy问题的长时渐近行为。</p>
+    <h4>方法</h4><p>利用聚焦CKE方程与CNLS方程之间的规范等价性，将问题转化为相应的$3\times3$矩阵Riemann-Hilbert问题，并采用Deift-Zhou非线性最速下降方法进行分析；同时建立CNLS解与规范相位的联合误差估计。</p>
+    <h4>主要发现</h4><p>在有限速度锥内得到了CKE方程色散辐射的一致长时渐近公式，其余项为$O(t^{-1}\log t)$。</p>
+    <h4>局限与展望</h4><p>结果依赖于无离散谱与无谱奇点的假设以及Schwartz初值；对于存在离散谱、谱奇点或更一般初值的情形，原文未作讨论，是否可推广需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.16608v1">
+  <div class="paper-head">
+    <h2>移动振子如何重塑复杂网络中的动力学鲁棒性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.16608v1" rel="noopener noreferrer">2610.16608v1</a>
+  </div>
+  <p class="original-title">How Mobile Oscillators Reshape Dynamical Robustness in Complex Networks</p>
+  <p class="meta"><strong>作者：</strong>Sayantan Nag Chowdhury、Srilena Kundu</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">math.DS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>静态网络中集体动力学的鲁棒性已得到充分研究，但个体移动性与网络拓扑如何共同塑造动力学鲁棒性仍 largely 未被探索。本文研究在网络上进行随机游走、并在共位时发生扩散耦合的移动 Stuart-Landau 振子的鲁棒性。在快速移动机制下，我们将动力学约化为一个平均场框架，该框架将网络度统计量与有效全局耦合强度联系起来。我们通过解析证明，网络中度异质性的增加会增强有效耦合强度，并严格降低振幅死亡的功能退化临界阈值。数值模拟证实了所预测的依赖于异质性的转变阈值排序，表明无标度网络比随机网络或规则网络更早发生集体崩溃。我们的结果确立了移动性与网络异质性作为移动振子群体鲁棒性的关键决定因素，并对具有韧性的生物与工程集体系统具有启示意义。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在移动振子群体中，个体移动性与网络拓扑如何共同影响集体动力学（特别是振幅死亡）的鲁棒性，其临界阈值如何受网络度异质性调控。</p>
+    <h4>方法</h4><p>研究在网络上执行随机游走、共位时扩散耦合的移动 Stuart-Landau 振子；在快速移动机制下将动力学约化为连接网络度统计量与有效全局耦合强度的平均场框架，并进行解析推导与数值模拟验证。</p>
+    <h4>主要发现</h4><p>解析结果表明，网络度异质性的增加会增强有效耦合强度，并严格降低振幅死亡的功能退化临界阈值；数值模拟证实了依赖于异质性的转变阈值排序，即无标度网络比随机网络或规则网络更早发生集体崩溃。</p>
+    <h4>局限与展望</h4><p>研究限于快速移动机制下的平均场约化，其结论对有限移动速率、其他振子模型或更复杂耦合形式的适用性尚需进一步检验；后续可合理推断的方向包括考察有限移动性下的修正效应以及将框架推广至其他网络统计特征或实际生物与工程集体系统。</p>
+  </section>
+</article><article class="paper" id="paper-2610.17150v1">
+  <div class="paper-head">
+    <h2>时变有向高阶网络中的全局同步<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.17150v1" rel="noopener noreferrer">2610.17150v1</a>
+  </div>
+  <p class="original-title">Global synchronization in time-varying directed higher-order networks</p>
+  <p class="meta"><strong>作者：</strong>Wilfried Segnou、Timoteo Carletti、Dibakar Ghosh</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>全局同步在静态高阶网络中已有较多研究，而针对有向、时变高阶网络的关注仍然有限。本文研究具有有向高阶相互作用的周期快速切换系统中全局同步的出现。基于主稳定性函数框架，我们表明线性化动力学包含两个随时间变化的 Jacobian 矩阵，二者均在同步解的时间尺度上演化，同时包含一个由超图时间演化产生的、在快速切换时间尺度上演化的广义 Laplacian。为处理这种双时间尺度结构，我们针对有向平衡高阶结构建立了一个快速切换稳定性判据。该条件允许将同步流形上的平行扰动与横向扰动解耦。借助动力系统平均理论，我们证明了快速切换高阶网络中全局同步的指数稳定性。随后，我们使用高阶 Stuart--Landau 模型对所提理论进行说明，该模型为理论提供了自然的基准。有向性可将 Laplacian 特征值移出实轴并进入不稳定区域，从而破坏同步；然而我们的结果表明，时间切换能够抵消这种失稳效应，当有向结构切换足够快时，即使瞬时有向高阶结构各自不稳定，仍可恢复全局同步。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究周期快速切换的有向高阶网络中全局同步的出现条件，特别是当瞬时有向高阶结构各自不稳定时，时间切换能否恢复同步。</p>
+    <h4>方法</h4><p>采用主稳定性函数框架分析线性化动力学，识别出两个在同步解时间尺度上演化的时变 Jacobian 矩阵和一个在快速切换时间尺度上演化的广义 Laplacian；针对有向平衡高阶结构建立快速切换稳定性判据以解耦平行与横向扰动；利用动力系统平均理论证明指数稳定性；并以高阶 Stuart--Landau 模型进行说明。</p>
+    <h4>主要发现</h4><p>线性化动力学具有双时间尺度结构；所建立的快速切换稳定性判据可将同步流形上的平行扰动与横向扰动解耦；借助平均理论可证明快速切换高阶网络中全局同步的指数稳定性；有向性可将 Laplacian 特征值移至实轴外的不稳定区域从而破坏同步；时间切换可抵消该失稳效应，当有向结构切换足够快时，即使瞬时有向高阶结构各自不稳定，仍能恢复全局同步。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论理论的局限与适用范围；可合理推断的后续方向包括将分析推广至非周期或非快速切换情形、更一般的有向非平衡高阶结构，以及在其他高阶动力学模型上验证该理论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.17529v1">
+  <div class="paper-head">
+    <h2>信息传递作为接近局部分岔的新指标：鞍结、叉式与Hopf分岔<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.17529v1" rel="noopener noreferrer">2610.17529v1</a>
+  </div>
+  <p class="original-title">Information transfer as a new indicator of approaching local bifurcations: saddle-node, pitchfork and Hopf bifurcations</p>
+  <p class="meta"><strong>作者：</strong>Stéphane Vannitsem、Carlos A. Pires、X. San Liang</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>预警信号是预判复杂系统动力学发生定性变化的关键工具。本文研究一种用于刻画可观测量之间方向性因果依赖的信息论度量能否为接近分岔提供预警。所考虑的度量为信息传递率，该度量已在从经济学到气候科学的广泛领域成功用于刻画方向性依赖。本文考察三类基本局部分岔：鞍结分岔、叉式分岔与Hopf分岔。首先研究理想化的（准）势随机系统，可为其推导信息传递率的解析表达式，并发现三类分岔具有不同的特征：在接近鞍结分岔时，信息传递率显著增大并发散；而在叉式分岔与Hopf分岔附近，则呈现较平滑但系统性的变化。随后，利用呈现相同类型分岔的低阶气候模型对该方法进行检验。结果证实，信息传递率的变化可先于相应的动力学转变出现，表明方向性信息传递为检测非线性随机系统接近临界转变提供了一种有用的补充性预警指标。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否用刻画可观测量之间方向性因果依赖的信息论度量——信息传递率——为非线性随机系统接近鞍结、叉式与Hopf三类局部分岔提供预警。</p>
+    <h4>方法</h4><p>针对理想化（准）势随机系统推导信息传递率的解析表达式，分析三类分岔附近的特征；并使用呈现相同类型分岔的低阶气候模型进行检验。</p>
+    <h4>主要发现</h4><p>三类分岔表现出不同特征：接近鞍结分岔时信息传递率强烈增大并发散；接近叉式分岔与Hopf分岔时则呈现较平滑但系统性的变化。低阶气候模型的结果证实，信息传递率的变化可先于相应的动力学转变出现。</p>
+    <h4>局限与展望</h4><p>信息传递率可作为检测非线性随机系统接近临界转变的补充性预警指标；其适用范围与在其他系统及分岔类型中的推广仍需进一步研究（此点为基于原文结论的合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.18390v1">
+  <div class="paper-head">
+    <h2>超越RMSE与Granger增益：面向非线性预测耦合的多步预测误差熵<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.18390v1" rel="noopener noreferrer">2610.18390v1</a>
+  </div>
+  <p class="original-title">Beyond RMSE and Granger Gain: Multi-Horizon Forecast-Error Entropy for Nonlinear Predictive Coupling</p>
+  <p class="meta"><strong>作者：</strong>Andrei Velichko</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">cs.LG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究辅助时间序列的过去是否包含目标序列自身历史之外的预测信息。我们比较匹配的样本外仅目标预测与目标加源预测，并提出预测误差分布熵（FEDE）预测因果性框架，其中预测因果性按Granger意义理解：当辅助历史能改进对目标自身过去的预测时，即认为其具有信息量。FEDE量化完整的有符号预测误差分布如何随预测步长变化。受控非线性基准将源-目标依赖隐藏在未提供给预测器的非线性变换之后。LightGBM能够恢复这些隐藏通道，而Ridge不能。在四种等功率非线性和四种噪声水平下，FEDE的平均响应敏感性统计量分别为29.00、27.47、23.22和28.67，而平均对数RMSE增益分别为14.09、10.68、12.67和12.71。方向控制与源控制将真实的源到目标通道与反向方向以及独立的周期、准周期、混沌和自回归辅助序列区分开来。按时间顺序的Granger式比较显示出强烈的模型形式依赖性：二次多项式模型对匹配的二次通道异常敏感，但对其他非线性则变弱或方向相反，而基本收敛交叉映射在这种随机、部分不可逆的设定中较弱或方向不一致。在窗口长度、历史长度和最大预测步长的全部108种测试组合中，FEDE均保持正向对齐。这些结果共同表明，当非线性交互形式未知时，FEDE是一种敏感且稳健的、按预测步长解析的工具，能够提取超出传统误差幅度度量的预测信息。代码见Zenodo。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>辅助时间序列的过去是否提供目标序列自身历史之外的预测信息，以及如何超越传统误差幅度度量来刻画这种非线性预测耦合。</p>
+    <h4>方法</h4><p>比较匹配的样本外仅目标预测与目标加源预测，提出预测误差分布熵（FEDE）预测因果性框架，量化完整有符号预测误差分布随预测步长的变化；使用LightGBM与Ridge进行预测，并在受控非线性基准、方向控制、源控制以及按时间顺序的Granger式比较中评估，同时与基本收敛交叉映射对比。</p>
+    <h4>主要发现</h4><p>在四种等功率非线性和四种噪声水平下，FEDE的平均响应敏感性统计量分别为29.00、27.47、23.22和28.67，高于平均对数RMSE增益的14.09、10.68、12.67和12.71；LightGBM能恢复隐藏的非线性通道而Ridge不能；方向与源控制能区分真实源到目标通道与反向方向及独立辅助序列；二次多项式模型对匹配二次通道异常敏感但对其他非线性变弱或方向相反，基本收敛交叉映射在随机、部分不可逆设定中较弱或方向不一致；FEDE在全部108种窗口长度、历史长度和最大预测步长组合中均保持正向对齐。</p>
+    <h4>局限与展望</h4><p>FEDE在非线性交互形式未知时表现出敏感性和稳健性，但其性能可能依赖于预测器类型和具体设定；未来可进一步检验其在更广泛真实数据、不同模型形式及非平稳条件下的适用性，并探索其与现有因果推断方法的理论联系。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.14565v1">
+  <div class="paper-head">
+    <h2>信任-不信任联合结构塑造信念传播与集体动力学<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.14565v1" rel="noopener noreferrer">2610.14565v1</a>
+  </div>
+  <p class="original-title">Joint Trust-Distrust Structure Shapes Belief Propagation and Collective Dynamics</p>
+  <p class="meta"><strong>作者：</strong>Mozhgan Khanjanianpak、Yu-Ru Lin</p>
+  <p class="meta"><strong>主分类：</strong>physics.soc-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.soc-ph</span> <span class="tag">cs.SI</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>社会网络中的信念传播取决于信任与不信任如何共同塑造人际影响。本文构建了一个网络模型，将信任与不信任视为两个不同但统计上耦合的量。二者的联合取值决定每条关系的净信任与不确定性，且仅当两个阈值条件同时满足时，邻居才能影响某个个体。研究表明，信任与不信任之间的相关性通过改变可影响邻居的可得性，重塑了共识与分裂之间的转变；网络连通性也影响该转变，而在平均度相近的网络中，度异质性的影响较为有限。此外，可影响邻居的可得性本身并不决定最终共识：关系属性与网络度之间的相关性会筛选出具有不同度构成的个体，从而改变集体信念的方向与幅度。最后，本文引入一个舒适度指数，用以量化可影响邻居的期望可得性，并将信任-不信任联合结构与集体动力学解析地联系起来。研究结果在关系结构、有效社会影响与涌现的集体信念状态之间建立了机制性联系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>社会网络中信任与不信任如何共同塑造人际影响，进而影响信念传播与共识/分裂的集体动力学？</p>
+    <h4>方法</h4><p>构建网络模型，将信任与不信任视为不同但统计耦合的量，其联合取值决定关系的净信任与不确定性；邻居影响需同时满足两个阈值条件。通过分析信任-不信任相关性、网络连通性、度异质性以及关系属性与网络度的相关性对动力学的影响，并引入舒适度指数量化可影响邻居的期望可得性，建立解析联系。</p>
+    <h4>主要发现</h4><p>信任与不信任之间的相关性通过改变可影响邻居的可得性，重塑共识与分裂之间的转变；网络连通性也影响该转变，而在平均度相近的网络中度异质性影响有限；可影响邻居的可得性本身不决定最终共识，关系属性与网络度的相关性会筛选不同度构成的个体，改变集体信念的方向与幅度；舒适度指数可量化可影响邻居的期望可得性，并解析地联系信任-不信任联合结构与集体动力学。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论模型局限或适用范围；可合理推断的后续方向包括：在更一般的网络结构或动力学规则下检验结论的稳健性，以及将舒适度指数用于实证数据或干预设计。上述推断需进一步研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.14608v1">
+  <div class="paper-head">
+    <h2>切特拉罗讲义：可积系统与曲线模空间<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.14608v1" rel="noopener noreferrer">2610.14608v1</a>
+  </div>
+  <p class="original-title">Cetraro lectures on integrable systems and moduli spaces of curves</p>
+  <p class="meta"><strong>作者：</strong>Alexandr Buryak、Paolo Rossi</p>
+  <p class="meta"><strong>主分类：</strong>math.AG
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.AG</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本讲义综述了稳定曲线模空间拓扑与演化偏微分方程可积系统之间关系的若干构造与结果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>稳定曲线模空间的拓扑与演化偏微分方程可积系统之间存在何种联系。</p>
+    <h4>方法</h4><p>以讲义形式综述相关构造与结果。</p>
+    <h4>主要发现</h4><p>综述了稳定曲线模空间拓扑与演化偏微分方程可积系统之间关系的若干构造与结果。</p>
+    <h4>局限与展望</h4><p>原文仅为综述性讲义，未提出新的具体结论；其适用范围与后续方向需以原文所引文献为准。</p>
+  </section>
+</article><article class="paper" id="paper-2610.15918v1">
+  <div class="paper-head">
+    <h2>动量分馏微态几何上的随机波混沌<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.15918v1" rel="noopener noreferrer">2610.15918v1</a>
+  </div>
+  <p class="original-title">Random wave chaos on momentum-fractionated microstate geometries</p>
+  <p class="meta"><strong>作者：</strong>Vladan Djukić、Mihailo Čubrović</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究动量分馏在D1-D5理论光滑三荷超引力解（特别是动量分馏超弦子）混沌发展中的作用。我们通过零测地线和波的动力学探测混沌。在分馏背景上，测地线和波均表现出均匀强混沌（大的混沌海以及与Berry随机波假设近乎完美的符合）。相比之下，单模（非分馏）超弦子上的测地线和波更接近可分离性（尽管仍具混沌性）。我们讨论了一种可能性，即这种二分法可能与单调BPS态比偶然BPS态更不混沌的预期有关。最后，我们解释了为什么我们的混沌探测对微态几何有意义，尽管它们在黑洞极限下变得平凡。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>动量分馏在D1-D5理论光滑三荷超引力解（动量分馏超弦子）的混沌发展中起什么作用？</p>
+    <h4>方法</h4><p>通过零测地线和波的动力学探测混沌，比较分馏背景与单模（非分馏）超弦子上的混沌特征，并检验与Berry随机波假设的符合程度。</p>
+    <h4>主要发现</h4><p>在分馏背景上，测地线和波均表现出均匀强混沌（大的混沌海以及与Berry随机波假设近乎完美的符合）；单模（非分馏）超弦子上的测地线和波更接近可分离性（尽管仍具混沌性）。</p>
+    <h4>局限与展望</h4><p>作者讨论了一种可能性，即这种二分法可能与单调BPS态比偶然BPS态更不混沌的预期有关；并解释了混沌探测对微态几何有意义的原因，尽管它们在黑洞极限下变得平凡。这些关联和解释属于原文讨论的可能性，并非已证实的结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.15990v1">
+  <div class="paper-head">
+    <h2>对称双呼吸子模式作为微小粒子质量的动力学起源<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.15990v1" rel="noopener noreferrer">2610.15990v1</a>
+  </div>
+  <p class="original-title">Symmetric Dual Breather Modes as a Dynamic Origin of Tiny Particle Masses</p>
+  <p class="meta"><strong>作者：</strong>Yoritaka Iwata、Yasuhiro Takei</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">hep-ph</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>自发对称破缺（SSB）通常被理解为低能近似下的静态真空选择，而连接对称构型与非对称态的非微扰动力学路径仍是一个开放问题。本文提出一个算子理论框架，通过谱分支刻画标量场论中的 $Z_{2}$ 对称破缺。具体而言，我们识别出非线性 Klein-Gordon 方程的一个有效不变流形，称为“对称双呼吸子模式”，并利用 $t$ 依赖的有限维表示追踪其相空间几何。分析表明，静态 SSB 仅对应于小振幅极限（$A \ll \phi_{v1}$）。当振幅增大进入异宿区（$A &gt; \phi_{v1}$）时，场动力学地越过中心势垒，导致时间平均序参量消失（$\langle \phi \rangle = 0$），并驱动几何曲率抵消（$\langle V&#x27;&#x27;(\phi) \rangle_{t} \to 0$）。在普适标度函数 $\mathfrak{F}(y)$ 的控制下，异宿边界附近的对数周期发散自然产生亚 eV 有效质量尺度，而无需对裸参数进行精细调节。此外，这种动力学势垒越迁自然地偏好类 Majorana 自共轭态而非 Dirac 型态。同时，沿异宿通道的非线性相位干涉诱导非对称相空间收缩，使右手模式退耦，并动力学地导出左手 Weyl 方程。这些结果将非微扰波动动力学、拓扑质量压低、手征选择以及活性中微子质量的动力学起源联系起来。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在标量场论中，$Z_{2}$ 对称破缺如何通过非微扰动力学路径从对称构型过渡到非对称态，以及这种动力学机制能否自然解释微小粒子质量（如亚 eV 中微子质量）和手征选择。</p>
+    <h4>方法</h4><p>采用算子理论框架，通过谱分支刻画 $Z_{2}$ 对称破缺；识别非线性 Klein-Gordon 方程的有效不变流形（对称双呼吸子模式），并用 $t$ 依赖的有限维表示追踪其相空间几何；分析振幅从 $A \ll \phi_{v1}$ 到 $A &gt; \phi_{v1}$ 的异宿区行为，引入普适标度函数 $\mathfrak{F}(y)$ 描述周期发散。</p>
+    <h4>主要发现</h4><p>静态 SSB 仅是小振幅极限（$A \ll \phi_{v1}$）；当振幅进入异宿区（$A &gt; \phi_{v1}$）时，场动力学地越过中心势垒，时间平均序参量消失（$\langle \phi \rangle = 0$），几何曲率抵消（$\langle V&#x27;&#x27;(\phi) \rangle_{t} \to 0$）；异宿边界附近的对数周期发散在普适标度函数控制下自然产生亚 eV 有效质量尺度，无需精细调节裸参数；该动力学势垒越迁偏好类 Majorana 自共轭态；沿异宿通道的非线性相位干涉诱导非对称相空间收缩，使右手模式退耦并动力学导出左手 Weyl 方程。</p>
+    <h4>局限与展望</h4><p>论文的局限与适用范围未在摘要中明确说明；其结论基于特定标量场论模型和有效不变流形的近似表示，向完整粒子物理标准模型及中微子质量谱的推广需进一步验证。可合理推断的后续方向包括：将该框架应用于更一般的场论模型、检验其与实验观测（如中微子质量与混合）的兼容性，以及探讨该动力学机制在早期宇宙学中的含义。</p>
+  </section>
+</article><article class="paper" id="paper-2610.16290v1">
+  <div class="paper-head">
+    <h2>负耦合圆映射晶格中的通用布尔计算<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.16290v1" rel="noopener noreferrer">2610.16290v1</a>
+  </div>
+  <p class="original-title">Universal Boolean Computation in Negatively Coupled Circle Map Lattices</p>
+  <p class="meta"><strong>作者：</strong>Priyanka D. Bhoyar、Prashant M. Gade</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.CD</span> <span class="tag">nlin.PS</span> <span class="tag">physics.ins-det</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究一维负耦合圆映射晶格在其行波区域中的计算能力。作者将传播波视为信息载体，并利用波之间的相互作用实现布尔逻辑。逻辑状态由行波的传播方向编码，而在指定输出位置处波的有无则表示逻辑输出。通过受控的波碰撞，作者展示了与非门（NAND）和或非门（NOR）以及其他基本门的实现。由于 NAND 和 NOR 操作在功能上是完备的，这些结果原则上表明负耦合圆映射晶格的行波区域支持通用布尔计算。所展示的逻辑操作在耦合强度 ε 和映射参数 ω 的有限范围内仍然有效，表明该计算方案对参数变化具有鲁棒性。因此，本文结果表明计算功能可以从耦合映射晶格的集体非线性动力学中涌现，从而在行波态的动力学性质与基于碰撞的信息处理之间建立了联系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>一维负耦合圆映射晶格在其行波区域中是否能够支持通用布尔计算，以及如何利用行波碰撞实现逻辑操作。</p>
+    <h4>方法</h4><p>将行波作为信息载体，以传播方向编码逻辑状态，以指定输出位置处波的有无表示逻辑输出；通过受控波碰撞实现 NAND、NOR 及其他基本逻辑门，并考察耦合强度 ε 和映射参数 ω 的有限变化范围。</p>
+    <h4>主要发现</h4><p>实现了 NAND 和 NOR 门以及其他基本门；由于 NAND 和 NOR 功能完备，原则上表明该晶格的行波区域支持通用布尔计算；所展示的逻辑操作在耦合强度 ε 和映射参数 ω 的有限范围内保持有效，表明方案对参数变化具有鲁棒性。</p>
+    <h4>局限与展望</h4><p>原文未讨论具体物理实现、噪声影响、有限尺寸效应或实验验证；可合理推断的后续方向包括进一步考察参数范围之外的行为、探索其他耦合映射晶格或高维系统中的类似计算方案，以及研究该方案在更实际条件下的鲁棒性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.16422v1">
+  <div class="paper-head">
+    <h2>集合预报的多变量相空间解释：物理模型与AI模型的比较<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.16422v1" rel="noopener noreferrer">2610.16422v1</a>
+  </div>
+  <p class="original-title">Multivariate phase-space interpretation of ensemble forecasts: A comparison of physical and AI models</p>
+  <p class="meta"><strong>作者：</strong>Martin Bonte、Stéphane Vannitsem</p>
+  <p class="meta"><strong>主分类：</strong>physics.ao-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ao-ph</span> <span class="tag">nlin.CD</span> <span class="tag">physics.geo-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用多维评估框架，对ECMWF综合预报系统（IFS）与人工智能预报系统（AIFS-ENS）的集合预报进行比较。在该框架中，不确定性被解释为相空间中由集合成员张成的线性子空间，并由此提取多种几何性质。分析表明，误差并非完全位于该子空间内，但在各个方向上均得到了较好的校准。此外，该框架能够量化该子空间对集合成员数量的关键依赖，表明当前设置仅部分表征了不确定性子空间。这种相空间解释还允许通过计算子空间之间的主角，直接比较AIFS-ENS与IFS的误差表征模式：尽管IFS与AIFS的集合子空间在表征误差幅度和结构方面表现出相似能力，但二者在相空间中并不完全重叠。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在一个统一的多维相空间框架下，比较物理集合预报系统（IFS）与AI集合预报系统（AIFS-ENS）对预报不确定性的表征，并揭示二者误差表征模式的异同。</p>
+    <h4>方法</h4><p>将集合预报的不确定性解释为相空间中集合成员张成的线性子空间，提取其几何性质；通过计算子空间之间的主角，直接比较IFS与AIFS-ENS的误差表征模式。</p>
+    <h4>主要发现</h4><p>误差并非完全位于集合成员张成的子空间内，但在所有方向上均得到较好校准；该子空间关键依赖于集合成员数量，表明当前集合设置仅部分表征不确定性子空间；IFS与AIFS-ENS的集合子空间在相空间中并不完全重叠，尽管二者在表征误差幅度和结构方面能力相似。</p>
+    <h4>局限与展望</h4><p>研究结果提示，当前集合成员数量可能限制了对不确定性子空间的完整表征；IFS与AIFS-ENS子空间的不完全重叠意味着两类模型在误差表征上存在差异，其来源与影响有待进一步研究。上述后续方向为基于原文结果的合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2610.16626v1">
+  <div class="paper-head">
+    <h2>玻色量子条件互信息与玻色-爱因斯坦凝聚<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.16626v1" rel="noopener noreferrer">2610.16626v1</a>
+  </div>
+  <p class="original-title">Bosonic Quantum Conditional Mutual Information and Bose-Einstein Condensation</p>
+  <p class="meta"><strong>作者：</strong>Anupam Ghosh</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文旨在引入玻色非对称量子条件互信息（QCMI）$I_{B}(A; B|C)$，作为连续变量（玻色）系统中严格定义的信息论量。在无限维Fock空间上通过量子仪器定义$I_{B}(A; B|C)$后，我们证明玻色-爱因斯坦凝聚（BEC）诱导对数发散$I_{B}(A; B|C) \geq \alpha\log_2 (N_{0}^C+1)$，这进一步确立了$I_{B}(A; B|C)$作为BEC的量子信息序参量，并在临界点附近具有幂律标度。我们提供该结果的完整五步证明，连接测量反作用、非对角长程有序和Jensen不等式。在凝聚相中，有效因果传播速度由长波极限下的Bogoliubov声速$c_s$设定，并在超流-莫特绝缘体转变处连续消失。本文还介绍了对复合玻色子、BEC-BCS交叉以及量子气体显微镜测量协议的应用。最后，我们展示了约化玻色QCMI如何作为类似于Binder累积量的有限尺寸标度探针。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为连续变量（玻色）系统严格定义量子条件互信息，并探究其与玻色-爱因斯坦凝聚（BEC）的关系，特别是能否作为BEC的量子信息序参量。</p>
+    <h4>方法</h4><p>在无限维Fock空间上通过量子仪器定义玻色非对称量子条件互信息$I_{B}(A; B|C)$；通过五步证明（连接测量反作用、非对角长程有序和Jensen不等式）建立其与BEC的对数发散关系；并分析凝聚相中的有效因果传播速度及有限尺寸标度行为。</p>
+    <h4>主要发现</h4><p>证明了BEC诱导对数发散$I_{B}(A; B|C) \geq \alpha\log_2 (N_{0}^C+1)$，从而确立$I_{B}(A; B|C)$为BEC的量子信息序参量，并在临界点附近具有幂律标度；在凝聚相中，有效因果传播速度由长波极限下的Bogoliubov声速$c_s$设定，并在超流-莫特绝缘体转变处连续消失；约化玻色QCMI可作为类似于Binder累积量的有限尺寸标度探针。</p>
+    <h4>局限与展望</h4><p>原文提及了在复合玻色子、BEC-BCS交叉以及量子气体显微镜测量协议中的应用，但未明确讨论局限性或后续方向；可合理推断，该工作为连续变量系统中量子信息与多体物理的交叉提供了新工具，其有限尺寸标度探针的普适性及在更复杂体系中的适用性有待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.16638v1">
+  <div class="paper-head">
+    <h2>逆向量子老化：从量子老化态恢复节律性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.16638v1" rel="noopener noreferrer">2610.16638v1</a>
+  </div>
+  <p class="original-title">Reverse quantum aging: Restoring rhythmicity from quantum aging state</p>
+  <p class="meta"><strong>作者：</strong>Bulti Paul、Biswabibek Bandyopadhyay、Tanmoy Banerjee</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">nlin.AO</span> <span class="tag">nlin.CD</span> <span class="tag">physics.app-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>近期研究报道了量子老化转变：当全局耦合量子自持振荡器网络中非活跃节点的比例超过临界值时，网络的振荡动力学急剧退化。本文探讨其逆向过程，即通过引入受控的非相干单玻色子泵浦通道，使量子振荡器网络从老化态恢复节律动力学。针对全局耦合的活跃—非活跃量子Stuart-Landau振荡器，我们采用Lindblad形式的自洽量子主方程，表明增大泵浦强度会逐步抑制老化转变并最终将其消除，即使所有振荡器均处于非活跃状态也能恢复节律性。值得注意的是，完全补偿耦合引起的耗散损失并非必需；显著更弱的泵浦强度即足以消除老化转变。我们进一步表明，这种恢复由非活跃振荡器的Fock态布居向更高占据态重新分布所主导。我们的结果确立了受控非相干泵浦作为恢复量子振荡器网络动力学鲁棒性的有效机制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在全局耦合的量子自持振荡器网络中，当非活跃节点比例超过临界值而出现量子老化转变后，能否以及如何逆转该过程、恢复网络的节律动力学。</p>
+    <h4>方法</h4><p>针对全局耦合的活跃—非活跃量子Stuart-Landau振荡器，采用Lindblad形式的自洽量子主方程，引入受控的非相干单玻色子泵浦通道，并考察泵浦强度对老化转变的影响。</p>
+    <h4>主要发现</h4><p>增大泵浦强度会逐步抑制并最终消除老化转变，即使所有振荡器均非活跃也能恢复节律性；完全补偿耦合引起的耗散损失并非必需，显著更弱的泵浦强度即足以消除老化转变；恢复过程由非活跃振荡器的Fock态布居向更高占据态重新分布所主导。</p>
+    <h4>局限与展望</h4><p>原文未讨论该机制在更一般网络拓扑、不同量子噪声环境或实验实现条件下的适用性；后续可合理推断的方向包括检验该泵浦方案在其他耦合结构与参数区域中的有效性，以及探索其物理实现途径。</p>
+  </section>
+</article><article class="paper" id="paper-2610.16847v1">
+  <div class="paper-head">
+    <h2>极限环主导时空变化材料中的波能积累<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.16847v1" rel="noopener noreferrer">2610.16847v1</a>
+  </div>
+  <p class="original-title">Limit cycles govern wave energy accumulation in space-time-varying materials</p>
+  <p class="meta"><strong>作者：</strong>Bryn Davies、Erik Orvehed Hiltunen</p>
+  <p class="meta"><strong>主分类：</strong>math.AP
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.AP</span> <span class="tag">nlin.CD</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文通过波方程特征曲线的动力学，研究光滑周期时空介质中波能的放大与集中。在阻抗匹配情形下，我们证明稳定极限环会吸引邻近特征曲线，从而聚焦波能密度；其指数吸引率可由系统的 Lyapunov 指数解析估计。我们进一步表明，特征曲线的吸引与能量积累在一类非周期扰动下仍然保持。最后，我们提出一种 Floquet-Fourier 数值方法，用于计算稳定与不稳定极限环及其吸引率。全文以行波叠加所给出的调制为例说明上述结果，揭示出取决于相对波速的鞍结分岔，极限环可能在此分岔处出现。全波模拟证实，在阻抗匹配情形之外，特征曲线机制仍能描述能量积累。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究光滑周期时空介质中波能的放大与集中机制，特别是特征曲线动力学如何导致波能密度聚焦。</p>
+    <h4>方法</h4><p>利用波方程的特征曲线动力学进行分析；在阻抗匹配设定下证明稳定极限环对邻近特征曲线的吸引，并用系统 Lyapunov 指数解析估计指数吸引率；提出 Floquet-Fourier 数值方法计算稳定与不稳定极限环及其吸引率；以行波叠加调制为例，并结合全波模拟验证。</p>
+    <h4>主要发现</h4><p>在阻抗匹配情形下，稳定极限环吸引邻近特征曲线并聚焦波能密度，其指数吸引率可由 Lyapunov 指数解析估计；特征曲线吸引与能量积累在一类非周期扰动下持续存在；行波叠加调制示例中揭示出取决于相对波速的鞍结分岔，极限环可能在此出现；全波模拟证实特征曲线机制在阻抗匹配情形之外仍能描述能量积累。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论一般非周期介质或强扰动下的适用性；可合理推断，所提 Floquet-Fourier 方法及特征曲线机制或可进一步用于分析更广泛的时空调制与波能集中问题，但需明确验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.17052v1">
+  <div class="paper-head">
+    <h2>参数激励Duffing纳米谐振器中双迟滞与孤立分支的分岔结构<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.17052v1" rel="noopener noreferrer">2610.17052v1</a>
+  </div>
+  <p class="original-title">Bifurcation Structure of Double Hysteresis and Isolated Branches in a Parametric Duffing Nanoresonator</p>
+  <p class="meta"><strong>作者：</strong>Dingda Zhang、Maria Kallergi、Chanyoung So、Eva M. Weig、Ahmed A. Barakat</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.mes-hall
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.mes-hall</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>直接驱动与参数驱动共同作用会产生超越传统Duffing迟滞的非线性响应结构，包括多个切换区域和孤立分支。理解这些结构之间的连接方式，需要识别在参数激励变化时重构响应的分岔。在直接激励与参数激励相位差为45度的条件下，本文通过实验和解析方法确定了稳态响应随参数激励增强的变化规律。单个共振峰首先分裂为两个，同时响应保持单值。随后两个相继的尖点分岔产生两对鞍结，并形成双迟滞响应。在参数不稳定性阈值处，每对鞍结中的一个鞍结向无界振幅和失谐方向移动，阈值以上出现孤立分支结构。稳态的参数表示将振幅极值与真正的鞍结分岔区分开来，并为这些变化提供了解析条件。对介电驱动的预应力SiN纳米弦的测量再现了所预测的响应及相关的切换行为。这些结果确立了该相位配置下连接不同响应结构的分岔路径，为控制参数驱动非线性谐振器中的多稳性和切换提供了系统基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在直接驱动与参数驱动共同作用下，参数Duffing纳米谐振器的稳态响应如何随参数激励变化，以及不同非线性响应结构（多切换区域、孤立分支）之间由哪些分岔连接。</p>
+    <h4>方法</h4><p>在直接激励与参数激励相位差为45度的条件下，结合实验测量与解析分析研究稳态响应；采用稳态的参数表示以区分振幅极值与真正的鞍结分岔，并给出解析条件；在介电驱动的预应力SiN纳米弦上进行测量验证。</p>
+    <h4>主要发现</h4><p>单个共振峰先分裂为两个而响应仍为单值；两个相继的尖点分岔产生两对鞍结并形成双迟滞响应；在参数不稳定性阈值处，每对鞍结中的一个向无界振幅和失谐方向移动，阈值以上出现孤立分支结构；SiN纳米弦的测量再现了预测的响应及切换行为。</p>
+    <h4>局限与展望</h4><p>结果限于相位差为45度的配置；摘要未说明其他相位差或更广泛参数范围下的适用性。可合理推断，所识别的分岔路径可为参数驱动非线性谐振器中多稳性与切换的控制提供系统基础，但具体控制策略与普适性仍需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.17137v1">
+  <div class="paper-head">
+    <h2>Floquet多体量子动力学中的分圆结构与精确回归<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.17137v1" rel="noopener noreferrer">2610.17137v1</a>
+  </div>
+  <p class="original-title">Cyclotomic Structure and Exact Recurrences in Floquet Many-Body Quantum Dynamics</p>
+  <p class="meta"><strong>作者：</strong>Amit Anand、Dinesh Valluri、Shohini Ghose</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">math.NT</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>周期性驱动的量子系统展现出包括混沌在内的丰富复杂动力学行为，但在特定参数取值下，其演化可以精确回归。近期若干量子协议利用Floquet精确回归来展示真正的量子优势。此类回归可通过Floquet幺正算子的算术结构加以研究。本文建立了精确回归的充要算术判据，并在回归存在时确定了最小回归周期。由于回归是幺正算子的全局性质，它对任意初始态均成立。应用该框架仅需知道与哈密顿量参数相关联的数域。我们以受踢Ising链为例演示该方法，在Clifford与非Clifford区域均建立了精确回归。进一步表明，在回归的非Clifford区域，作为量子计算资源的magic在中间时刻产生，并因整个Floquet幺正算子的回归而经历精确的周期性复苏。通过连接数论、量子多体动力学与量子信息，本文表明精确回归可超越Clifford电路，并为magic产生与量子硬件基准测试开辟了新途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>周期性驱动量子系统在何种参数条件下会发生精确的Floquet回归，以及如何确定其最小回归周期；该回归是否可超越Clifford电路并在非Clifford区域产生可观测的量子资源效应。</p>
+    <h4>方法</h4><p>通过Floquet幺正算子的算术结构（分圆结构）建立精确回归的充要算术判据，并确定最小回归周期；应用该框架仅需哈密顿量参数关联的数域信息；以受踢Ising链为具体模型，在Clifford与非Clifford区域进行验证。</p>
+    <h4>主要发现</h4><p>建立了精确回归的充要算术判据，并给出回归存在时的最小回归周期；回归作为幺正算子的全局性质对任意初始态成立；在受踢Ising链的Clifford与非Clifford区域均建立了精确回归；在回归的非Clifford区域，magic在中间时刻产生，并因整个Floquet幺正算子的回归而发生精确周期性复苏。</p>
+    <h4>局限与展望</h4><p>原文指出精确回归可超越Clifford电路，并为magic产生与量子硬件基准测试开辟新途径；该框架的适用范围取决于哈密顿量参数关联的数域信息，其向更一般驱动系统或高维系统的推广有待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.18191v1">
+  <div class="paper-head">
+    <h2>反馈控制下的孤子自捕获<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.18191v1" rel="noopener noreferrer">2610.18191v1</a>
+  </div>
+  <p class="original-title">Feedback-Controlled Self-Trapping of Solitons</p>
+  <p class="meta"><strong>作者：</strong>Raonaqul Islam、Pradyoth Shandilya、Yunxiang Song、Alioune Niang、Gary Carter、Thomas Carruthers、Curtis Menyuk、Ergun Simsek</p>
+  <p class="meta"><strong>主分类：</strong>physics.optics
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.optics</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>芯片级微谐振器频率梳（微梳）是现场可部署计量应用的有前景光源，但微谐振器固有噪声使低噪声微梳的产生面临困难。常用方法是通过对泵浦激光进行相位调制将耗散克尔孤子（DKS）捕获在微谐振器中，然而在完全片上平台中集成低噪声调制参考仍具挑战。本文提出一种光电自捕获方案：通过对驱动激光进行反馈控制的相位调制，抑制微谐振器固有噪声对微梳重复频率抖动的影响，使激光固有噪声成为最终性能极限。该方案无需外部低相位噪声射频源，从而有利于芯片集成。作者建立了该系统的解析与数值模型，并将其性能与常规外部参考的体块实现进行基准比较，结果表明所提方法在保持芯片级兼容性的同时实现了相当的微梳噪声抑制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在无需外部低相位噪声射频参考的条件下，抑制微谐振器固有噪声对微梳重复频率抖动的影响，并实现芯片级集成的孤子自捕获。</p>
+    <h4>方法</h4><p>提出光电自捕获方案，对驱动激光施加反馈控制的相位调制；建立解析模型与数值模型，并与常规外部参考的体块实现进行性能基准比较。</p>
+    <h4>主要发现</h4><p>反馈控制的相位调制可抑制微谐振器固有噪声对微梳重复频率抖动的影响，使激光固有噪声成为最终性能极限；该方案无需外部低相位噪声射频源；与常规外部参考的体块实现相比，可实现相当的微梳噪声抑制，同时保持芯片级兼容性。</p>
+    <h4>局限与展望</h4><p>原文未给出实验验证结果，其结论基于解析与数值模型；该方案的实际芯片集成可行性、反馈环路稳定性及在真实器件噪声条件下的性能仍需进一步研究（此句为基于原文的合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.18480v1">
+  <div class="paper-head">
+    <h2>惰性与可逆元胞自动机何时生成全部元胞自动机？<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.18480v1" rel="noopener noreferrer">2610.18480v1</a>
+  </div>
+  <p class="original-title">When do lazy and invertible cellular automata generate all cellular automata?</p>
+  <p class="meta"><strong>作者：</strong>Edgar Alcalá-Arroyo、Alonso Castillo-Ramirez</p>
+  <p class="meta"><strong>主分类：</strong>math.GR
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.GR</span> <span class="tag">math.DS</span> <span class="tag">nlin.CG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>设 $G$ 为群，$A$ 为至少含两个元素的集合。$A^G$ 上的惰性元胞自动机除在固定模式出现的胞元处将中心符号替换为另一个固定符号外，处处表现为恒等映射。令 $M(G;A)$ 为 $\mathrm{CA}(G;A)$ 中由惰性元胞自动机与可逆元胞自动机生成的子幺半群。本文研究 $M(G;A) = \mathrm{CA}(G;A)$ 成立的条件。由于惰性元胞自动机均非满射，$M(G;A)$ 中每个满射元素必可逆；因此当 $A$ 无限或 $G$ 含无限阶元素时，$M(G;A) \neq \mathrm{CA}(G;A)$。此外，若 $|A| = 2$ 且 $G$ 有同构于 Klein 四元群 $C_2 \times C_2$ 的商群，则 $M(G;A) \neq \mathrm{CA}(G;A)$。对于局部有限群 $G$（特别地，有限群 $G$），上述是仅有的障碍：我们证明 $M(G;A) = \mathrm{CA}(G;A)$ 当且仅当 $3 \leq |A| &lt; \infty$，或 $|A| = 2$ 且 $G$ 没有同构于 $C_2 \times C_2$ 的商群。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>由惰性元胞自动机与可逆元胞自动机生成的子幺半群 $M(G;A)$ 何时等于全体元胞自动机幺半群 $\mathrm{CA}(G;A)$？</p>
+    <h4>方法</h4><p>利用惰性元胞自动机非满射这一性质，分析 $M(G;A)$ 中满射元素的可逆性；对局部有限群（含有限群）刻画其商群结构与字母表基数条件。</p>
+    <h4>主要发现</h4><p>若 $A$ 无限或 $G$ 含无限阶元素，则 $M(G;A) \neq \mathrm{CA}(G;A)$；若 $|A|=2$ 且 $G$ 有同构于 $C_2 \times C_2$ 的商群，则 $M(G;A) \neq \mathrm{CA}(G;A)$。对局部有限群 $G$，$M(G;A) = \mathrm{CA}(G;A)$ 当且仅当 $3 \leq |A| &lt; \infty$，或 $|A|=2$ 且 $G$ 无同构于 $C_2 \times C_2$ 的商群。</p>
+    <h4>局限与展望</h4><p>原文的完整刻画限于局部有限群；对非局部有限群，除已给出的必要障碍外，$M(G;A) = \mathrm{CA}(G;A)$ 的充分条件尚待进一步研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-14 10:38 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
