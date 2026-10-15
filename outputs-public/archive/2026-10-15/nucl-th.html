@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-th 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-th · 核理论</h1>
+    <p class="lede">官方公告日：2026-10-15</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">11</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">7</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（7）</h3><ol class="toc-list"><li><a href="#paper-2610.19392v1">富重子Au+Au碰撞中奇异夸克数依赖的部分子动力学响应</a> <small>2610.19392v1</small></li><li><a href="#paper-2610.19448v1">从梯形 Bethe-Salpeter 方程与 Schrödinger 方程计算 $0^{-+}$ 与 $1^{--}$ 费米子-反费米子通道的结合能</a> <small>2610.19448v1</small></li><li><a href="#paper-2610.19555v1">相对论 Hartree-Bogoliubov 理论中 N=126 以上稀土区 r 过程核：形状共存占主导</a> <small>2610.19555v1</small></li><li><a href="#paper-2610.19632v1">中能弹核碎裂反应中气泡核的集体流特征</a> <small>2610.19632v1</small></li><li><a href="#paper-2610.20072v1">核格点有效场论中三核子力的约束</a> <small>2610.20072v1</small></li><li><a href="#paper-2610.20435v1">共振中子俘获中多重散射的快速蒙特卡罗计算</a> <small>2610.20435v1</small></li><li><a href="#paper-2610.20550v1">利用能量密度泛函模拟奇核与奇奇核的前景</a> <small>2610.20550v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2610.19415v1">基于领头中子电产生数据对π介子部分子分布在小x区域的约束</a> <small>2610.19415v1</small></li><li><a href="#paper-2610.20362v1">变分分析中核子σ项的激发态效应</a> <small>2610.20362v1</small></li><li><a href="#paper-2610.20434v1">稀薄费米超流体中配对能隙的普适增强</a> <small>2610.20434v1</small></li><li><a href="#paper-2610.20448v1">具有非微扰行为的多强子碎裂函数的演化</a> <small>2610.20448v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.19392v1">
+  <div class="paper-head">
+    <h2>富重子Au+Au碰撞中奇异夸克数依赖的部分子动力学响应<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.19392v1" rel="noopener noreferrer">2610.19392v1</a>
+  </div>
+  <p class="original-title">Strange-quark-number-dependent response to partonic dynamics in baryon-rich Au+Au collisions</p>
+  <p class="meta"><strong>作者：</strong>Di Zhao、Xun Zhu、Gao-Chan Yong</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>通过比较PHSD5.2模型与其强子-弦极限（HSD），我们在质心能量 $\sqrt{s_{NN}}=3.0$--$7.2$ GeV 的富重子Au+Au碰撞中识别出对显式部分子动力学响应的奇异夸克数依赖层级结构。仅跨越局部转换阈值并不足以保证出现可见的末态信号：在 3--4.5 GeV 时丰强子流变化很小，而分数产额响应在 6.2--7.2 GeV 时呈现有序排列，在 7.2 GeV 时达到 $S_{|s|=1}\simeq0.2$--$0.3$、$S_{|s|=2}\simeq0.65$ 和 $S_{|s|=3}\simeq0.93$。该层级结构与来自不同前强子源的奇异组分因复合相空间增大而一致，但其本身并不能确立总 $s+\bar{s}$ 丰度的增加或更强的奇异夸克成团。由于 $S_X$ 是模型定义的响应而非直接观测量，匹配的 $\Xi^-/\Lambda$ 与 $\Omega^-/\Lambda$ 激发函数，连同高 $m_T$ 质子椭圆流，为实验上区分所预言的PHSD与HSD动力学提供了可及的判别量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在富重子Au+Au碰撞中，显式部分子动力学对末态奇异强子产额与流的响应如何依赖于奇异夸克数，以及这种响应在何种能量下变得可观测。</p>
+    <h4>方法</h4><p>在 $\sqrt{s_{NN}}=3.0$--$7.2$ GeV 的富重子Au+Au碰撞中，将部分子强子弦动力学模型PHSD5.2与其强子-弦极限HSD进行对比，定义并计算奇异夸克数依赖的分数产额响应 $S_X$ 及丰强子流。</p>
+    <h4>主要发现</h4><p>仅跨越局部转换阈值不足以产生可见的末态信号：3--4.5 GeV 时丰强子流变化很小；6.2--7.2 GeV 时分数产额响应呈现有序层级，7.2 GeV 时 $S_{|s|=1}\simeq0.2$--$0.3$、$S_{|s|=2}\simeq0.65$、$S_{|s|=3}\simeq0.93$。该层级与来自不同前强子源的奇异组分复合相空间增大相符，但不能据此确立总 $s+\bar{s}$ 丰度增加或奇异夸克成团增强。</p>
+    <h4>局限与展望</h4><p>$S_X$ 为模型定义的响应而非直接观测量，因此上述层级结构不能直接作为实验证据；其适用范围限于所比较的PHSD与HSD模型框架及该能量区间。可合理推断，匹配的 $\Xi^-/\Lambda$ 与 $\Omega^-/\Lambda$ 激发函数以及高 $m_T$ 质子椭圆流可作为实验上区分PHSD与HSD动力学的判别量，但需进一步实验检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.19448v1">
+  <div class="paper-head">
+    <h2>从梯形 Bethe-Salpeter 方程与 Schrödinger 方程计算 $0^{-+}$ 与 $1^{--}$ 费米子-反费米子通道的结合能<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.19448v1" rel="noopener noreferrer">2610.19448v1</a>
+  </div>
+  <p class="original-title">Binding energies in the $0^{-+}$ and $1^{--}$ fermion--antifermion channels from the ladder Bethe-Salpeter and Schrödinger equations</p>
+  <p class="meta"><strong>作者：</strong>Wei He、Hai-Qing Zhou</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文从包含标量、赝标量和矢量交换的梯形 Bethe-Salpeter（BS）方程出发，计算了等质量费米子-反费米子系统在 $0^{-+}$ 与 $1^{--}$ 通道中的结合能，并与采用相应领头静态相互作用的 Schrödinger 方程结果进行比较。比较涵盖两种情形：弱耦合下的点状无质量交换，以及较强耦合下带单极形状因子的有限质量交换。BS 计算采用两种独立的数值方法，分别基于动量空间积分方程和坐标空间微分方程；微分方程方法在两种情形下给出的相对结合能误差估计均低于 $10^{-9}$。对于库仑规范下的无质量矢量交换，数值结果与未交叉梯形微扰谱在 $O(m\alpha^5)$ 阶内一致；无质量标量交换和费曼规范下矢量交换的结果与通常的 Wick-Cutkosky 展开在 $m\alpha^3$ 阶内一致。对于有限交换质量，在相同质量、耦合和形状因子下，与领头静态 Schrödinger 谱的差异强烈依赖于交换类型和通道：标量交换给出近乎简并的通道，且结合远弱于 Schrödinger 参考值；仅保留度规项的矢量交换在 $0^{-+}$ 中结合强于 Schrödinger 参考值，而在 $1^{--}$ 中结合更弱；值得注意的是，保留完整 Proca 分子项会显著增强两个通道中的矢量结合。赝标量交换也能支持束缚态并倾向于 $1^{--}$，尽管其领头静态中心相互作用为零。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 $0^{-+}$ 与 $1^{--}$ 通道中，等质量费米子-反费米子系统在标量、赝标量和矢量交换下的结合能如何，以及梯形 Bethe-Salpeter 方程结果与相应领头静态 Schrödinger 方程结果在弱耦合无质量交换和较强耦合有限质量交换两种情形下有何差异。</p>
+    <h4>方法</h4><p>采用包含标量、赝标量和矢量交换的梯形 Bethe-Salpeter 方程，并使用两种独立数值方法（动量空间积分方程和坐标空间微分方程）计算结合能；同时与采用相应领头静态相互作用的 Schrödinger 方程结果进行比较，比较分为点状无质量交换弱耦合和带单极形状因子的有限质量交换较强耦合两种情形。</p>
+    <h4>主要发现</h4><p>微分方程方法在两种情形下估计的相对结合能误差均低于 $10^{-9}$。库仑规范下无质量矢量交换的数值结果与未交叉梯形微扰谱在 $O(m\alpha^5)$ 阶内一致；无质量标量交换和费曼规范下矢量交换的结果与通常的 Wick-Cutkosky 展开在 $m\alpha^3$ 阶内一致。对于有限交换质量，与领头静态 Schrödinger 谱的差异强烈依赖于交换类型和通道：标量交换给出近乎简并的通道且结合远弱于 Schrödinger 参考值；仅保留度规项的矢量交换在 $0^{-+}$ 中结合强于 Schrödinger 参考值，在 $1^{--}$ 中结合更弱；保留完整 Proca 分子项会显著增强两个通道中的矢量结合；赝标量交换也能支持束缚态并倾向于 $1^{--}$，尽管其领头静态中心相互作用为零。</p>
+    <h4>局限与展望</h4><p>本文结果限于梯形近似及所考虑的交换类型、规范与形状因子，未涉及交叉梯形图、更高阶修正或非等质量情形；有限质量交换下与静态 Schrödinger 参考值的显著差异提示，在强耦合区域直接使用领头静态相互作用可能不足，后续可进一步研究完整 BS 动力学、规范依赖性及更一般形状因子对结合能的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2610.19555v1">
+  <div class="paper-head">
+    <h2>相对论 Hartree-Bogoliubov 理论中 N=126 以上稀土区 r 过程核：形状共存占主导<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.19555v1" rel="noopener noreferrer">2610.19555v1</a>
+  </div>
+  <p class="original-title">R-process nuclei in the rare-earth region above N=126 in Relativistic Hartree-Bogoliubov theory: A preponderance of shape-coexistence in nuclei</p>
+  <p class="meta"><strong>作者：</strong>M. M. Sharma</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了与 r 过程核丰度 A~195 第三峰相关的 N=126 以上核的壳结构。在形变空间中的相对论 Hartree-Bogoliubov 理论框架下，采用 NL-SV1、SVI-2 和 NL3 三种模型拉格朗日量对核的响应进行了比较研究。考察了 Z=58-72 同位素链中偶偶核在极端丰中子区的基本性质。结合能与质量公式的比较表明，在 r 过程路径的极端区域，不含 sigma 和 omega 介子非线性项的 RMF 模型 SVI-2 与质量公式 HFB-24 符合得非常好。结果表明，在上述所有拉格朗日量模型中，在壳层 N=126 与 N=184 之间的丰中子区，大量核素在基态表现出良好形变的长椭球与扁椭球形状共存。随着中子数的增加，长椭球基态通过近简并平滑演化为共存的扁椭球基态。由于 N≥130 时形变的出现，接近 r 过程路径的核在许多同位素链（Z&gt;60）中表现出增强的稳定性。这导致预期的中子滴线显著向丰中子区移动，尤其是对较高的 Z 链。本文讨论了增强的稳定性、形状共存以及核中形状简并对 r 过程核合成的影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究 N=126 以上、与 r 过程核丰度 A~195 第三峰相关的核的壳结构，以及不同相对论 Hartree-Bogoliubov 模型拉格朗日量对丰中子稀土区核基态性质的描述。</p>
+    <h4>方法</h4><p>在形变空间中的相对论 Hartree-Bogoliubov 理论框架下，采用 NL-SV1、SVI-2 和 NL3 三种模型拉格朗日量，对 Z=58-72 同位素链中偶偶核的基态性质进行比较研究，并将结合能与质量公式（包括 HFB-24）进行比较。</p>
+    <h4>主要发现</h4><p>在 r 过程路径的极端区域，不含 sigma 和 omega 介子非线性项的 RMF 模型 SVI-2 与质量公式 HFB-24 符合得非常好；在所有上述拉格朗日量模型中，N=126 与 N=184 之间的丰中子区存在大量基态长椭球与扁椭球形状共存的核素；长椭球基态随中子数增加通过近简并平滑演化为共存的扁椭球基态；N≥130 时形变出现，使接近 r 过程路径的核在许多同位素链（Z&gt;60）中稳定性增强，并导致预期中子滴线显著向丰中子区移动，尤其对较高 Z 链。</p>
+    <h4>局限与展望</h4><p>原文讨论了增强稳定性、形状共存与形状简并对 r 过程核合成的影响；其局限在于结论基于特定相对论 Hartree-Bogoliubov 模型与有限拉格朗日量集合，且未直接与实验数据全面比对。后续可合理推断的方向包括：进一步检验不同模型对形状共存与滴线位置预测的稳健性，以及将这些核结构效应更定量地纳入 r 过程核合成计算。</p>
+  </section>
+</article><article class="paper" id="paper-2610.19632v1">
+  <div class="paper-head">
+    <h2>中能弹核碎裂反应中气泡核的集体流特征<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.19632v1" rel="noopener noreferrer">2610.19632v1</a>
+  </div>
+  <p class="original-title">Collective-flow signatures of bubble nuclei in intermediate-energy projectile fragmentation reactions</p>
+  <p class="meta"><strong>作者：</strong>Ge Ren、Chun-Wang Ma、Xi-Guang Cao、Kai-Xuan Cheng、Jie Pu</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>以中心密度耗竭为特征的气泡核是一类重要的奇特核结构。本文采用扩展量子分子动力学（EQMD）模型，引入同位旋标量单极激发强度参数 ε，研究了 140 MeV/u 的 ⁴⁰Ca+⁹Be 弹核碎裂反应中的集体流。弹核 ⁴⁰Ca 被初始化为具有气泡状密度分布的弛豫十 α 团簇构型。结果表明，增大 ε 会改变气泡的密度分布及中心耗竭区尺寸，并在 ε≈0.5 附近引起碎片产额和集体流的显著变化。当 ε 低于该值时，重碎片产生起重要作用，而质子和中子的定向流 v₁ 主要保持为负，表明粒子优先向靶侧发射；当 ε 高于该值时，中心低密度区膨胀增强，抑制重残余并驱动 v₁ 转向正值。相比之下，预形成的 α 团簇表现出不同的响应，反映其来源于初始团簇构型而非仅由次级衰变决定。在低激发下，团簇流呈现明显的碰撞参数依赖性；而更强激发会削弱团簇束缚并抑制方向各向异性，使流趋近于零。流系数的快度斜率也随 ε 系统性变化，反映了膨胀过程中发射各向异性的改变。这些结果超越了传统的静态描述，探测了重离子反应中奇特结构的动力学演化；预形成团簇与单核子所表现出的对比性集体流行为，构成对气泡状结构的灵敏动力学探针。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在中能弹核碎裂反应中，气泡核（以中心密度耗竭为特征）的集体流特征如何，以及预形成 α 团簇与单核子的集体流行为能否作为探测气泡状结构的动力学探针。</p>
+    <h4>方法</h4><p>采用扩展量子分子动力学（EQMD）模型，引入同位旋标量单极激发强度参数 ε，将 ⁴⁰Ca 弹核初始化为弛豫十 α 团簇构型（具有气泡状密度分布），模拟 140 MeV/u 的 ⁴⁰Ca+⁹Be 弹核碎裂反应，分析碎片产额、质子和中子的定向流 v₁、团簇流及其快度斜率随 ε 的变化。</p>
+    <h4>主要发现</h4><p>增大 ε 会改变气泡的密度分布和中心耗竭区尺寸，并在 ε≈0.5 附近引起碎片产额和集体流的显著变化：ε 低于约 0.5 时，重碎片产生起重要作用，质子和中子的定向流 v₁ 主要保持为负，表明优先向靶侧发射；ε 高于约 0.5 时，中心低密度区膨胀增强，抑制重残余并驱动 v₁ 转向正值。预形成 α 团簇表现出不同响应，反映其来源于初始团簇构型而非仅由次级衰变决定。低激发下团簇流呈现明显碰撞参数依赖性，更强激发则削弱团簇束缚、抑制方向各向异性并使流趋近于零。流系数的快度斜率随 ε 系统性变化，反映膨胀过程中发射各向异性的改变。</p>
+    <h4>局限与展望</h4><p>原文指出这些发现超越传统静态描述，探测了重离子反应中奇特结构的动力学演化，并认为预形成团簇与单核子对比性的集体流行为构成对气泡状结构的灵敏动力学探针。原文未明确给出具体后续工作；可合理推断，该框架或可进一步用于检验不同气泡核候选者及不同反应条件下的动力学特征，但此类推断需后续研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.20072v1">
+  <div class="paper-head">
+    <h2>核格点有效场论中三核子力的约束<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.20072v1" rel="noopener noreferrer">2610.20072v1</a>
+  </div>
+  <p class="original-title">Constraining three-nucleon forces in nuclear lattice effective field theory</p>
+  <p class="meta"><strong>作者：</strong>Serdar Elhatisari、Ulf-G. Meißner、Zhengxue Ren、Shuang Zhang</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-lat</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在核格点有效场论（NLEFT）框架下研究短程三核子力（3NFs），其中两核子相互作用采用手征有效场论至 N³LO 阶。领头阶 3NF 的单π交换项（c_D）与接触项（c_E）被分解为局域和非局域涂抹分量，并补充了与第三个核子密度耦合的分波分辨对接触项。我们利用质量数 A=3 至 A=40 的原子核结合能以及中子-α有限体积能量来确定这些系数。该工作给出了可用于 NLEFT 未来精密研究的最小三核子力。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在核格点有效场论中约束短程三核子力，并确定可用于未来精密研究的最小三核子力形式。</p>
+    <h4>方法</h4><p>在 NLEFT 中采用 N³LO 手征两核子相互作用；将领头阶 3NF 的 c_D 和 c_E 项分解为局域与非局域涂抹分量，并加入与第三核子密度耦合的分波分辨对接触项；利用 A=3 至 A=40 原子核结合能和中子-α有限体积能量确定系数。</p>
+    <h4>主要发现</h4><p>通过上述分解与补充项，并基于 A=3 至 A=40 的核结合能及中子-α有限体积能量，确定了 3NF 系数，从而得到了可用于 NLEFT 未来精密研究的最小三核子力。</p>
+    <h4>局限与展望</h4><p>原文指出该最小三核子力可用于 NLEFT 的未来精密研究；其适用范围和具体精度需进一步验证，后续可在此基础上开展更广泛的核物理计算。</p>
+  </section>
+</article><article class="paper" id="paper-2610.20435v1">
+  <div class="paper-head">
+    <h2>共振中子俘获中多重散射的快速蒙特卡罗计算<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.20435v1" rel="noopener noreferrer">2610.20435v1</a>
+  </div>
+  <p class="original-title">Fast Monte Carlo calculation of multiple scattering in resonant neutron capture</p>
+  <p class="meta"><strong>作者：</strong>R. M. Djilkibaev</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">physics.ins-det</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报道了一个用于计算样品中中子多重散射的快速蒙特卡罗程序。针对 $^{197}$Au 在 50--300 eV 能区的中子俘获，该程序与使用 SAMMY 的独立蒙特卡罗计算结果符合良好。对于经历两次或更多次散射后的俘获，直接蒙特卡罗计算与 SAMMY 中的解析近似之间存在差异。该程序的计算速度允许在参数估计过程中每次改变试探共振参数时重新计算散射修正。计算核心采用 C++ 实现，数据准备、计算控制与分析则使用 Python 完成。模型研究考察了蒙特卡罗统计量如何影响中子共振宽度与辐射共振宽度的恢复精度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何快速计算样品中中子多重散射对共振中子俘获的影响，并评估蒙特卡罗统计量对共振参数恢复精度的影响。</p>
+    <h4>方法</h4><p>开发了一个快速蒙特卡罗程序，计算核心用 C++ 实现，数据准备、计算控制和分析用 Python 完成；将 $^{197}$Au 在 50--300 eV 能区的中子俘获结果与使用 SAMMY 的独立蒙特卡罗计算进行对比，并通过模型研究考察蒙特卡罗统计量的影响。</p>
+    <h4>主要发现</h4><p>该程序与使用 SAMMY 的独立蒙特卡罗计算在 $^{197}$Au 的 50--300 eV 能区符合良好；对于经历两次或更多次散射后的俘获，直接蒙特卡罗计算与 SAMMY 中的解析近似存在差异；计算速度足以在参数估计中每次改变试探共振参数时重新计算散射修正；模型研究考察了蒙特卡罗统计量对中子共振宽度和辐射共振宽度恢复精度的影响。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论适用范围或后续方向；可合理推断，该程序适用于需要反复重算散射修正的共振参数估计场景，而多重散射后俘获中直接蒙特卡罗与解析近似的差异以及统计量对宽度恢复精度的影响，可能值得进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.20550v1">
+  <div class="paper-head">
+    <h2>利用能量密度泛函模拟奇核与奇奇核的前景<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.20550v1" rel="noopener noreferrer">2610.20550v1</a>
+  </div>
+  <p class="original-title">Prospects for modelling odd and odd-odd nuclei using energy density functionals</p>
+  <p class="meta"><strong>作者：</strong>A. V. Afanasjev、B. Bally、M. Bender、J. Bonnard、J. Dobaczewski、M. Kortelainen、K. Nomura、S. Péru、N. Pillet、L. M. Robledo、R. Rodríguez-Guzmán、W. Ryssens、W. Younes</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>约一半的粒子束缚核具有奇数个核子，另有约四分之一为奇奇核，即中子数和质子数均为奇数。在此背景下，使用核能量密度泛函（EDF）的理论已聚焦于偶偶核约七十年，如今是时候将关注点转向其余四分之一之外的核素。本白皮书旨在呈现2024年在法国萨克莱举行的ESNT研讨会“奇质量数与奇奇核的微观建模”期间所讨论的核EDF中尚未解决的开放问题与有前景的研究方向。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>核能量密度泛函理论长期主要应用于偶偶核，而约一半的粒子束缚核为奇核、约四分之一为奇奇核；如何用EDF对奇核与奇奇核进行微观建模，以及该领域存在哪些开放问题与研究方向。</p>
+    <h4>方法</h4><p>基于2024年在法国萨克莱举行的ESNT研讨会“奇质量数与奇奇核的微观建模”的讨论，以白皮书形式梳理核EDF中尚未解决的问题与有前景的研究方向。</p>
+    <h4>主要发现</h4><p>约一半的粒子束缚核具有奇数个核子，约四分之一为奇奇核；使用核EDF的理论已聚焦偶偶核约七十年；研讨会讨论了核EDF中关于奇质量数与奇奇核微观建模的开放问题与研究方向。</p>
+    <h4>局限与展望</h4><p>原文指出应将EDF研究的关注点从偶偶核转向奇核与奇奇核；白皮书旨在呈现相关开放问题与有前景的研究方向，但未给出具体技术路线或结论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.19415v1">
+  <div class="paper-head">
+    <h2>基于领头中子电产生数据对π介子部分子分布在小x区域的约束<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.19415v1" rel="noopener noreferrer">2610.19415v1</a>
+  </div>
+  <p class="original-title">Constraints on pion parton distributions at small $x$ from leading-neutron electroproduction data</p>
+  <p class="meta"><strong>作者：</strong>C. Yang、P. C. Barry、W. Melnitchouk、N. Sato</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在π介子-核Drell-Yan与领头中子（LN）电产生数据的全局QCD分析框架下，重新考察了π介子中部分子分布函数（PDFs）的提取。鉴于近期有研究指出π介子PDFs在小部分子动量分数x区域的不确定度被严重低估，我们开展了一系列受控拟合，通过改变LN数据覆盖范围、PDF参数化形式以及正定性约束，同时确定PDFs与π介子-核子劈裂函数。研究发现，使用Fantômas组所采用的受限H1 LN数据样本会增大PDF不确定度，并允许胶子PDF趋于零的解；而我们的全局分析能够良好描述扩展的H1与ZEUS LN数据库，显著降低了参数化依赖性，并强烈排斥零胶子分布。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>π介子部分子分布函数（PDFs）在小部分子动量分数x区域的不确定度是否被严重低估，以及领头中子（LN）电产生数据对π介子PDFs（尤其是胶子分布）的约束能力。</p>
+    <h4>方法</h4><p>在全局QCD分析中联合拟合π介子-核Drell-Yan与领头中子电产生数据，通过受控拟合改变LN数据覆盖范围、PDF参数化形式和正定性约束，同时确定PDFs与π介子-核子劈裂函数。</p>
+    <h4>主要发现</h4><p>使用受限的H1 LN数据样本会增大PDF不确定度，并允许胶子PDF消失的解；而基于扩展的H1与ZEUS LN数据库的全局分析能给出良好描述，显著降低参数化依赖性，并强烈排斥零胶子分布。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，扩展LN数据覆盖有助于约束小x区域胶子分布，但其他数据源或理论修正的影响仍需进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.20362v1">
+  <div class="paper-head">
+    <h2>变分分析中核子σ项的激发态效应<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.20362v1" rel="noopener noreferrer">2610.20362v1</a>
+  </div>
+  <p class="original-title">Excited-State Effects in Nucleon Sigma Terms from a Variational Analysis</p>
+  <p class="meta"><strong>作者：</strong>Constantia Alexandrou、Giannis Koutsou、Yan Li、Srijit Paul、Ferenc Pittler</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在格点QCD框架下，使用扭曲质量(clover改进)费米子系综研究核子σ项中的激发态效应。我们研究了包含核子与多强子核子-σ介子插值算符的关联函数，分析基于三个规范系综，其中一个系综模拟了简并的轻夸克、奇异夸克和粲夸克，其夸克质量调节至近似物理值。通过求解关联函数矩阵产生的广义本征值问题，我们表明：使用插值算符最优线性组合得到的光σ项三点函数，其时间依赖性显著降低，且统计精度没有损失。我们应用拉普拉斯滤波并研究了提取σ_{πN}时残余的激发态贡献。对于奇异σ项，采用与σ_{πN}相同的最优关联函数线性组合，我们同样观察到在扩展的源-汇时间间隔范围内激发态贡献被抑制。对于粲σ项，在较大的统计误差内观察到可忽略的时间依赖性，这些改进没有显著效果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在格点QCD中，核子σ项（包括光、奇异和粲σ项）的提取受到激发态污染的严重影响，本文旨在研究并抑制这些激发态效应。</p>
+    <h4>方法</h4><p>使用扭曲质量(clover改进)费米子系综，构建核子与多强子核子-σ介子插值算符的关联函数；求解关联函数矩阵的广义本征值问题，获得插值算符的最优线性组合；应用拉普拉斯滤波；在三个规范系综上进行分析，其中一个系综具有近似物理质量的轻、奇异和粲夸克。</p>
+    <h4>主要发现</h4><p>对于光σ项，使用最优线性组合的三点函数显著降低了时间依赖性且不损失统计精度；对于奇异σ项，采用相同最优组合后，在扩展的源-汇时间间隔内激发态贡献被抑制；对于粲σ项，在较大统计误差内时间依赖性可忽略，改进效果不显著。</p>
+    <h4>局限与展望</h4><p>该方法在光σ项和奇异σ项中有效抑制激发态效应，但在粲σ项中因统计误差较大而效果不明显；未来可能需要更高统计精度或更大体积的系综来进一步检验粲σ项中的激发态效应。</p>
+  </section>
+</article><article class="paper" id="paper-2610.20434v1">
+  <div class="paper-head">
+    <h2>稀薄费米超流体中配对能隙的普适增强<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.20434v1" rel="noopener noreferrer">2610.20434v1</a>
+  </div>
+  <p class="original-title">Universal enhancement of the pairing gap in a dilute Fermi superfluid</p>
+  <p class="meta"><strong>作者：</strong>Silas R. Beane、Roland C. Farrell、Cameron P. Shotwell</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.quant-gas
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.quant-gas</span> <span class="tag">cond-mat.supr-con</span> <span class="tag">nucl-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在零温下，具有吸引接触相互作用的稀薄费米气体形成超流体，其费米子激发存在能隙。本文表明，弱耦合下的能隙可以组织为关于相互作用强度和渐近的 Gor&#x27;kov-Melik-Barkhudarov 能隙的 trans-series 展开。低能虚准粒子产生的修正与能隙成线性关系，其首项系数比其他已知系数大近 25 倍。这显著增大了中等密度下的能隙，凸显了系统修正对于定量预测的关键性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>稀薄费米超流体在零温弱耦合下的配对能隙如何被系统修正，以及这些修正对能隙定量预测的影响。</p>
+    <h4>方法</h4><p>将弱耦合能隙组织为关于相互作用强度和渐近 Gor&#x27;kov-Melik-Barkhudarov 能隙的 trans-series 展开，并计算低能虚准粒子产生的修正。</p>
+    <h4>主要发现</h4><p>低能虚准粒子产生的修正与能隙成线性关系，其首项系数比其他已知系数大近 25 倍；这显著增大了中等密度下的能隙。</p>
+    <h4>局限与展望</h4><p>原文强调系统修正对定量预测至关重要；摘要未明确讨论具体局限或后续方向，但可合理推断该 trans-series 框架可能适用于更宽参数范围的稀薄费米超流体能隙计算。</p>
+  </section>
+</article><article class="paper" id="paper-2610.20448v1">
+  <div class="paper-head">
+    <h2>具有非微扰行为的多强子碎裂函数的演化<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.20448v1" rel="noopener noreferrer">2610.20448v1</a>
+  </div>
+  <p class="original-title">Evolution of multihadron fragmentation functions with nonperturbative behavior</p>
+  <p class="meta"><strong>作者：</strong>K. Makino、T. C. Rogers</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>使用多强子碎裂函数的 QCD 计算通常同时涉及多个不变质量标度，其中只有一个标度是与整体硬过程相关的硬标度，其余标度则与碎裂部分子和多强子系统内禀的相对内部运动相关。后一类依赖关系中的非微扰贡献因其与内禀部分子结构的关联而受到关注，但需要谨慎地将真正的非微扰效应与微扰行为区分开，并将前者与普适的非微扰矩阵元联系起来。为此，我们展示了如何以同时考虑这些额外标度存在的方式演化共线多强子碎裂函数。一般的多强子碎裂函数与普通单强子碎裂函数以相同方式演化，而对其额外标度的依赖则被分离出来。我们利用这一点统一了多强子系统中微扰效应与非微扰效应的处理方式，从而优化了以部分子结构为中心的解释。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在多强子碎裂函数的演化中同时处理多个不变质量标度，并区分真正的非微扰效应与微扰行为，进而将非微扰效应与普适的非微扰矩阵元联系起来。</p>
+    <h4>方法</h4><p>提出一种共线多强子碎裂函数的演化方案，该方案在演化中同时考虑额外标度的存在，并将对额外标度的依赖从一般多强子碎裂函数的演化中分离出来。</p>
+    <h4>主要发现</h4><p>一般的多强子碎裂函数与普通单强子碎裂函数以相同方式演化，而对额外标度的依赖被分离出来；由此可以统一处理多强子系统中的微扰效应与非微扰效应，并优化以部分子结构为中心的解释。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论该演化方案的具体适用范围或局限性；可合理推断，该框架有助于进一步将非微扰效应与普适非微扰矩阵元关联，并可能应用于以部分子结构为中心的多强子过程分析，但这一推断需后续研究验证。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-15 10:04 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
