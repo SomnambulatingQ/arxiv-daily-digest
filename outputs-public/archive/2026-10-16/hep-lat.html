@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-10-16</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">2</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（3）</h3><ol class="toc-list"><li><a href="#paper-2610.20747v1">面向连续极限的遍历拓扑采样：基于随机归一化流的方法</a> <small>2610.20747v1</small></li><li><a href="#paper-2610.21942v1">Jianmu-Q：以AI智能体连接量子场论与量子硬件</a> <small>2610.21942v1</small></li><li><a href="#paper-2610.22224v1">同位旋对称格点QCD中扭曲质量费米子对缪子反常磁矩的强子真空极化贡献</a> <small>2610.22224v1</small></li></ol><h3>交叉列表（2）</h3><ol class="toc-list"><li><a href="#paper-2610.20982v1">Blume-Capel 模型作为 φ^6 场论：蒙特卡罗与流模型研究</a> <small>2610.20982v1</small></li><li><a href="#paper-2610.22088v1">杂化介子的辐射跃迁</a> <small>2610.22088v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.20747v1">
+  <div class="paper-head">
+    <h2>面向连续极限的遍历拓扑采样：基于随机归一化流的方法<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.20747v1" rel="noopener noreferrer">2610.20747v1</a>
+  </div>
+  <p class="original-title">Ergodic topology sampling toward the continuum with Stochastic Normalizing Flows</p>
+  <p class="meta"><strong>作者：</strong>Claudio Bonanno、Andrea Bulgarelli、Elia Cellini、Alessandro Nada、Dario Panfalone、Davide Vadacchino、Lorenzo Verzichelli</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">cs.LG</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提供了数值证据，表明在格距精细至 0.03 fm 时，基于流的方法可以缓解 SU(3) Yang-Mills 理论中的拓扑冻结问题。我们通过分析一种计算策略的成本标度来得到该结论，该策略结合了开边界条件与随机归一化流。结果表明，在所探索的参数范围内，利用当前可用的计算资源，拓扑荷平方的积分自关联时间以及拓扑磁化率的统计不确定度均保持可控。这标志着朝着在最新格点规范理论计算中使用更高效的基于流的架构进行拓扑遍历采样迈出了重要一步。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 SU(3) Yang-Mills 理论中，当格距精细至 0.03 fm 时，能否缓解拓扑冻结问题，并控制拓扑荷平方的积分自关联时间与拓扑磁化率的统计不确定度。</p>
+    <h4>方法</h4><p>结合开边界条件与随机归一化流（Stochastic Normalizing Flows）的基于流的计算策略，并分析其成本标度。</p>
+    <h4>主要发现</h4><p>在所探索的参数范围内，利用当前可用的计算资源，拓扑荷平方的积分自关联时间和拓扑磁化率的统计不确定度均保持可控；该结果为缓解拓扑冻结提供了数值证据。</p>
+    <h4>局限与展望</h4><p>该工作被视为朝向在最新格点规范理论计算中使用更高效的基于流架构进行拓扑遍历采样的重要一步；其结论限于所探索的参数范围与当前计算资源，更高效架构的实际应用有待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.21942v1">
+  <div class="paper-head">
+    <h2>Jianmu-Q：以AI智能体连接量子场论与量子硬件<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.21942v1" rel="noopener noreferrer">2610.21942v1</a>
+  </div>
+  <p class="original-title">Jianmu-Q: Bridging Quantum Field Theory and Quantum Hardware with AI Agents</p>
+  <p class="meta"><strong>作者：</strong>Xiaolin Wang、Xingyu Guo、Jinyang Li、Tianyin Li、Enke Wang、Lingxiao Wang、Hongxi Xing</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子计算为非微扰量子场论模拟提供了一条有前景的途径，尤其适用于实时动力学以及受符号问题影响的系统。然而，将连续场论转化为量子计算仍是一项具有挑战性的跨学科任务。本文提出 Jianmu-Q，一个多智能体框架，可将量子场论的自然语言描述转化为量子模拟工作流。该框架由专门智能体分别负责理论表述、格点离散化、量子比特映射与线路设计，并在整个工作流中通过物理一致性检验与独立数值计算进行验证。作者在三个复杂度递增的场论上对框架进行了基准测试：(1+1)维 Nambu--Jona-Lasinio 模型与 Schwinger 模型，以及 (2+1)维 Z_2 规范理论。在这些系统中，无噪声量子线路模拟结果收敛于独立的精确对角化与张量网络结果，同时部分线路在 IBM 量子硬件上执行，展示了一种端到端、以验证为导向的场论量子模拟方法。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将连续量子场论的自然语言描述自动转化为可在量子硬件上执行的量子模拟工作流，并保证其物理正确性。</p>
+    <h4>方法</h4><p>提出多智能体框架 Jianmu-Q，由专门智能体分别完成理论表述、格点离散化、量子比特映射与线路设计，并引入物理一致性检验与独立数值计算进行全流程验证；在 (1+1)维 Nambu--Jona-Lasinio 模型、Schwinger 模型和 (2+1)维 Z_2 规范理论上进行基准测试，并与精确对角化、张量网络结果对比，同时在 IBM 量子硬件上执行部分线路。</p>
+    <h4>主要发现</h4><p>在三个测试场论中，无噪声量子线路模拟结果收敛于独立的精确对角化与张量网络结果；部分线路成功在 IBM 量子硬件上执行，表明该框架能够实现端到端、以验证为导向的场论量子模拟。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论框架的局限性、可扩展性边界及含噪声硬件上的误差影响；后续可合理推断的方向包括扩展到更高维度或更复杂规范理论、系统评估硬件噪声下的表现，以及进一步自动化验证流程。</p>
+  </section>
+</article><article class="paper" id="paper-2610.22224v1">
+  <div class="paper-head">
+    <h2>同位旋对称格点QCD中扭曲质量费米子对缪子反常磁矩的强子真空极化贡献<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.22224v1" rel="noopener noreferrer">2610.22224v1</a>
+  </div>
+  <p class="original-title">The hadronic-vacuum-polarization contribution to the muon anomalous magnetic moment in isospin-symmetric lattice QCD with twisted-mass fermions</p>
+  <p class="meta"><strong>作者：</strong>C. Alexandrou、S. Bacchio、A. De Santis、A. Evangelista、J. Finkenrath、R. Frezzotti、G. Gagliardi、M. Garofalo、N. Kalntis、B. Kostrzewa、V. Lubicz、L. Maio、F. Margari、F. Pittler、S. Romiti、F. Sanfilippo、C. Schneider、S. Simula、N. Tantalo、C. Urbach、U. Wenger</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报道了在同位旋对称QCD中对缪子反常磁矩领头阶强子真空极化（HVP）贡献的格点QCD计算。我们使用扩展扭曲质量协作组（ETMC）生成的规范组态，其包含 $N_f = 2 + 1 + 1$ 味 Wilson-clover 扭曲质量夸克，涉及四个格点间距，且夸克质量参数取值与 FLAG 2024 综述及 2025 年版缪子 $g-2$ 理论倡议白皮书（WP25）中给出的同位旋对称QCD定义相匹配。在重新调整模拟参数以精确匹配这两种同位旋对称QCD定义后，基于格点间距 $a \simeq 0.049, 0.057, 0.068$ 和 $0.079$~fm 以及空间格点尺寸最大至 $L \simeq 7.7$~fm 的数据进行连续极限外推，我们得到 $a_\mu^{\rm HVP, FLAG}(\rm{iso}) = (720.0 \pm 6.9) \times 10^{-10}$ 和 $a_\mu^{\rm HVP, WP25}(\rm{iso}) = (714.8 \pm 7.4) \times 10^{-10}$。我们的结果相对不确定度约为 $1\%$，与其他格点组的相应测定结果吻合良好。在将 WP25 中给出的领头同位旋破缺修正，即 $a_\mu^{\rm HVP, WP25}({\rm IB}) = 0.1(3.4)\times 10^{-10}$，加入我们的 $a_\mu^{\rm HVP, WP25}(\rm{iso})$ 测定值后，我们得到完整HVP值为 $a_\mu^{\rm HVP}= (714.9 \pm 8.1)\times 10^{-10}$。该结果转化为标准模型对缪子反常磁矩的预言，与费米实验室缪子 $g-2$ 实验的最新结果完全一致，并加强了格点QCD与数据驱动（pre-CMD3）色散测定之间的张力。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在同位旋对称QCD框架下，利用格点QCD计算缪子反常磁矩的领头阶强子真空极化贡献，并检验其与实验及色散方法结果的一致性。</p>
+    <h4>方法</h4><p>采用ETMC生成的 $N_f = 2 + 1 + 1$ 味 Wilson-clover 扭曲质量夸克规范组态，在四个格点间距（$a \simeq 0.049, 0.057, 0.068, 0.079$~fm）和最大空间尺寸 $L \simeq 7.7$~fm 上进行模拟；将参数重新调整以匹配 FLAG 2024 和 WP25 的同位旋对称QCD定义，并外推至连续极限。</p>
+    <h4>主要发现</h4><p>得到 $a_\mu^{\rm HVP, FLAG}(\rm{iso}) = (720.0 \pm 6.9) \times 10^{-10}$ 和 $a_\mu^{\rm HVP, WP25}(\rm{iso}) = (714.8 \pm 7.4) \times 10^{-10}$，相对不确定度约 $1\%$，与其他格点组结果吻合；加入 WP25 领头同位旋破缺修正 $a_\mu^{\rm HVP, WP25}({\rm IB}) = 0.1(3.4)\times 10^{-10}$ 后，完整HVP值为 $a_\mu^{\rm HVP}= (714.9 \pm 8.1)\times 10^{-10}$，与费米实验室缪子 $g-2$ 实验最新结果完全一致，并加强了格点QCD与数据驱动（pre-CMD3）色散测定之间的张力。</p>
+    <h4>局限与展望</h4><p>当前计算限于同位旋对称QCD，同位旋破缺修正直接采用WP25提供的结果；连续极限外推基于四个格点间距，系统误差已纳入不确定度。后续可独立计算同位旋破缺效应、扩展至更小格点间距或更大体积以进一步检验，并需关注与数据驱动色散测定之间张力的持续研究。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.20982v1">
+  <div class="paper-head">
+    <h2>Blume-Capel 模型作为 φ^6 场论：蒙特卡罗与流模型研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.20982v1" rel="noopener noreferrer">2610.20982v1</a>
+  </div>
+  <p class="original-title">The Blume-Capel Model as a $φ^6$ Field Theory: A Monte Carlo and Flow Model Study</p>
+  <p class="meta"><strong>作者：</strong>Ejaaz Merali、Ryan Larson、Ehsan Khatami、Richard T. Scalettar</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">cs.LG</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报道了对 Blume-Capel 模型的一种连续自旋变体的蒙特卡罗模拟。我们在晶体场-温度平面上计算了相图，并考察了其随自旋软度变化的依赖关系。我们表明，归一化流——一类无需自相关即可直接采样的生成模型——在整个相图范围内都是有效的采样器，包括在一级相变区域以及三临界点附近。对流样本的有限尺寸标度分析能够定位一级和二级相变以及三临界点，其精度与正则系综和扩展系综蒙特卡罗方法相当。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究连续自旋变体的 Blume-Capel 模型的相图随自旋软度的变化，并检验归一化流作为采样器在该模型相变研究中的有效性。</p>
+    <h4>方法</h4><p>采用蒙特卡罗模拟计算晶体场-温度平面上的相图；使用归一化流生成模型进行直接采样，并对流样本进行有限尺寸标度分析，与正则系综和扩展系综蒙特卡罗方法进行比较。</p>
+    <h4>主要发现</h4><p>归一化流在整个相图范围内（包括一级相变区域和三临界点附近）均能有效采样；有限尺寸标度分析可定位一级相变、二级相变及三临界点，精度与正则系综和扩展系综蒙特卡罗方法相当。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，归一化流方法在其他具有一级相变或三临界点的统计物理模型中的适用性值得进一步检验，但其泛化能力尚需专门研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.22088v1">
+  <div class="paper-head">
+    <h2>杂化介子的辐射跃迁<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.22088v1" rel="noopener noreferrer">2610.22088v1</a>
+  </div>
+  <p class="original-title">Radiative transitions of hybrid mesons</p>
+  <p class="meta"><strong>作者：</strong>Shahriyar Jafarzade、Eric S. Swanson</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>杂化介子的辐射跃迁可探测非微扰胶子动力学，特别是夸克自旋与胶子激发之间的相互作用，并且与在杰斐逊实验室寻找奇异强子直接相关。我们在基于库仑规范QCD、并在重夸克展开下构建的组分胶子模型中，计算了最低粲偶素-杂化多重态内的这些跃迁。对于 $Y\to\eta_c\gamma$ 和 $Y\to\chi_{c0}\gamma$，所得结果与淬火格点计算得到的宽度重叠，而 $\eta_{c1}\to J/\psi\gamma$ 则显著低于相应的格点估计。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>杂化介子的辐射跃迁，尤其是最低粲偶素-杂化多重态内的跃迁，如何由非微扰胶子动力学所决定，并与格点计算及实验寻找奇异强子相关。</p>
+    <h4>方法</h4><p>在重夸克展开下，基于库仑规范QCD的组分胶子模型，计算最低粲偶素-杂化多重态内的辐射跃迁。</p>
+    <h4>主要发现</h4><p>对于 $Y\to\eta_c\gamma$ 和 $Y\to\chi_{c0}\gamma$，计算结果与淬火格点计算得到的宽度重叠；而 $\eta_{c1}\to J/\psi\gamma$ 的结果显著低于相应的格点估计。</p>
+    <h4>局限与展望</h4><p>原文未讨论模型局限或后续方向；可合理推断，$\eta_{c1}\to J/\psi\gamma$ 与格点估计的显著差异值得进一步检验，但该推断并非原文明确结论。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-16 09:56 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

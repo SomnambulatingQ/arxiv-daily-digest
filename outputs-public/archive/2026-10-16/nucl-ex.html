@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-10-16</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">1</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2610.21947v1">重离子碰撞中整体极化和自旋排列的实验综述</a> <small>2610.21947v1</small></li><li><a href="#paper-2610.22219v1">镓异常与太阳中微子</a> <small>2610.22219v1</small></li></ol><h3>交叉列表（1）</h3><ol class="toc-list"><li><a href="#paper-2610.20870v1">基于机器学习且受实验测量约束的中微子事件生成</a> <small>2610.20870v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.21947v1">
+  <div class="paper-head">
+    <h2>重离子碰撞中整体极化和自旋排列的实验综述<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.21947v1" rel="noopener noreferrer">2610.21947v1</a>
+  </div>
+  <p class="original-title">Experimental review on global polarization and spin alignment in heavy-ion collisions</p>
+  <p class="meta"><strong>作者：</strong>Takafumi Niida</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>自首次实验观测到整体自旋极化以来，重离子碰撞中的极化现象引起了广泛关注。过去几年中，粒子极化已发展为一个快速成长的领域，新的测量结果激发了大量理论研究，以理解这些令人困惑的实验结果。本文综述了相对论重离子碰撞中关于超子整体极化、沿束流方向的局域极化、矢量介子自旋排列以及新出现的自旋-自旋关联测量的近期实验进展。这些测量为夸克-胶子等离子体的涡旋结构以及系统演化过程中的自旋动力学提供了新的认识。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>重离子碰撞中整体极化、局域极化、矢量介子自旋排列及自旋-自旋关联的实验观测结果及其对夸克-胶子等离子体涡旋结构和自旋动力学的意义。</p>
+    <h4>方法</h4><p>综述近期相对论重离子碰撞中关于超子整体极化、沿束流方向的局域极化、矢量介子自旋排列以及自旋-自旋关联的实验测量进展。</p>
+    <h4>主要发现</h4><p>自首次实验观测到整体自旋极化以来，粒子极化领域快速发展；新的测量结果激发了大量理论研究以理解令人困惑的实验结果；这些测量为夸克-胶子等离子体的涡旋结构及系统演化过程中的自旋动力学提供了新认识。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；基于综述性质可合理推断，未来需进一步实验与理论结合以理解现有极化测量中的困惑结果，并拓展自旋-自旋关联等新观测量的研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.22219v1">
+  <div class="paper-head">
+    <h2>镓异常与太阳中微子<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.22219v1" rel="noopener noreferrer">2610.22219v1</a>
+  </div>
+  <p class="original-title">Gallium Anomaly and Solar Neutrinos</p>
+  <p class="meta"><strong>作者：</strong>Steven R. Elliott、R. G. Hamish Robertson</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>镓异常是指实验测量的中微子在 $^{71}$Ga 上的俘获率与由 $^{71}$Ge 电子俘获衰变理论预期率之间的不一致。此前的实验测量使用强人工源进行。本文考虑将太阳作为中微子源，通过陆基探测器中基本的、标准模型的中微子-电子弹性散射反应进行校准。结果未显示异常：SAGE 与 Gallex/GNO 给出的测量值为 $66.1\pm3.1$ SNU，与太阳源总测量源强度 $67.5^{+1.4}_{-1.1}$ SNU 符合良好。由此可以认为，$^{71}$Ga 的带电流截面以及镓实验的提取与计数效率均不能解释镓异常。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>镓异常是否可由 $^{71}$Ga 带电流截面或镓实验的提取与计数效率解释。</p>
+    <h4>方法</h4><p>将太阳作为中微子源，利用标准模型中微子-电子弹性散射反应在陆基探测器中进行校准，并将 SAGE 与 Gallex/GNO 的测量值与太阳源总测量源强度进行比较。</p>
+    <h4>主要发现</h4><p>结果未显示异常：SAGE 与 Gallex/GNO 的测量值为 $66.1\pm3.1$ SNU，太阳源总测量源强度为 $67.5^{+1.4}_{-1.1}$ SNU，两者符合良好；因此 $^{71}$Ga 带电流截面以及镓实验的提取与计数效率均不能解释镓异常。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；基于其结论可合理推断，镓异常的来源需在 $^{71}$Ga 带电流截面和镓实验提取与计数效率之外寻找，但该推断有待进一步研究验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.20870v1">
+  <div class="paper-head">
+    <h2>基于机器学习且受实验测量约束的中微子事件生成<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.20870v1" rel="noopener noreferrer">2610.20870v1</a>
+  </div>
+  <p class="original-title">Machine-learning-based neutrino-event generation constrained by experimental measurements</p>
+  <p class="meta"><strong>作者：</strong>Jose Luis Bonilla、Krzysztof M. Graczyk、Rwik Dharmapal Banerjee、Beata E. Kowal、Hemant Prasad、Jan T. Sobczyk</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">cs.LG</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种用于带电电流 \(\nu_\mu\)-核散射的生成式代理模型，该模型可在不依赖事件级实验样本的情况下，依据已测量的微分截面进行校准。作者从理论相互作用模型出发，将代理模型微调至 MicroBooNE 的测量结果，并表明这一校准同时改善了对未参与拟合的可观测量的描述。校准后的模型还可应用于来自不同中微子通量的测量而无需重新调参，同时保留对出射缪子运动学的事件级预测。结果表明，实验截面能够直接约束生成式事件模型，并保持其在不同可观测量和束流配置下的适用性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用实验测量的微分截面直接约束生成式中微子事件模型，并使其在不同可观测量和束流配置下仍具适用性。</p>
+    <h4>方法</h4><p>构建带电电流 \(\nu_\mu\)-核散射的生成式代理模型；从理论相互作用模型出发，在不使用事件级实验样本的条件下，将代理模型微调至 MicroBooNE 的微分截面测量。</p>
+    <h4>主要发现</h4><p>微调至 MicroBooNE 测量后，模型对未参与拟合的可观测量的描述也得到改善；校准后的模型无需重新调参即可应用于不同中微子通量的测量，并保留出射缪子运动学的事件级预测。</p>
+    <h4>局限与展望</h4><p>摘要未明确说明该方法的局限与适用范围；可合理推断的后续方向包括在更多实验测量与更广的核靶及能量区间上检验该代理模型的泛化能力，但此类推断需进一步验证。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-16 09:56 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
