@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-10-19</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2610.23460v1">基于CEE快速模拟的质心能量2.1 GeV下^{238}U+^{238}U碰撞中的质子数涨落研究</a> <small>2610.23460v1</small></li><li><a href="#paper-2610.23498v1">CERN SPS能量下核-核碰撞中意外显著的等旋对称性破坏</a> <small>2610.23498v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2610.22477v1">通过软强子能量关联器探索QCD物质</a> <small>2610.22477v1</small></li><li><a href="#paper-2610.22994v1">由标量与轴矢量双夸克关联得到的领头扭度质子部分子分布振幅</a> <small>2610.22994v1</small></li><li><a href="#paper-2610.23211v1">同位旋矢量单极共振</a> <small>2610.23211v1</small></li><li><a href="#paper-2610.23427v1">运动学截断对 $v_0(p_T)$ 的影响</a> <small>2610.23427v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.23460v1">
+  <div class="paper-head">
+    <h2>基于CEE快速模拟的质心能量2.1 GeV下^{238}U+^{238}U碰撞中的质子数涨落研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.23460v1" rel="noopener noreferrer">2610.23460v1</a>
+  </div>
+  <p class="original-title">Proton-Number Fluctuations in $^{238}$U+$^{238}$U Collisions at $\sqrt{s_{\mathrm{NN}}} = 2.1$ GeV with the CEE Fast Simulation</p>
+  <p class="meta"><strong>作者：</strong>Shuaike Lv、Fan Si、Xionghong He、Xu Sun、Yige Huang、Wanbing He、Yifei Zhang、Ming Shao、Ziyang Li</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span> <span class="tag">physics.ins-det</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>兰州重离子加速器装置（HIRFL）上的冷却储存环外靶实验（CEE）为在高重子密度区绘制QCD相图提供了独特机会。逐事件质子数分布的高阶累积矩（C_r）已被提出作为核物质相结构的灵敏探针。本工作利用JAM2模型产生质心能量\sqrt{s_{\mathrm{NN}}} = 2.1 GeV的^{238}U+^{238}U碰撞事件，并经过包含探测器响应的CEE快速模拟处理，同时实现了包括中心度确定和粒子鉴别在内的实验分析流程。计算了直至四阶的质子数累积矩及其比值，并与真实值进行比较。通过在TPC接收度内引入重建效率，检验了逐径迹效率修正方法；并引入额外因子以补偿两个TPC之间方位角间隙造成的接收度损失。在当前数据样本的不确定度范围内，修正后的累积矩及累积矩比值与生成器层面数值一致。进一步研究了累积矩比值不确定度对事件样本的依赖关系，以估计未来测量所需的统计量，结果表明接收度补偿带来显著的统计代价。这些结果为CEE上质子数涨落测量的分析可行性和统计需求提供了基于模拟的评估。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在高重子密度区，CEE实验能否通过逐事件质子数分布的高阶累积矩测量核物质相结构，以及相应的分析流程与统计需求如何。</p>
+    <h4>方法</h4><p>使用JAM2模型产生\sqrt{s_{\mathrm{NN}}} = 2.1 GeV的^{238}U+^{238}U碰撞事件，经包含探测器响应的CEE快速模拟处理，实施中心度确定与粒子鉴别等实验分析流程；计算直至四阶的质子数累积矩及其比值，检验逐径迹效率修正方法，并引入额外因子补偿两个TPC间方位角间隙造成的接收度损失。</p>
+    <h4>主要发现</h4><p>在当前数据样本的不确定度范围内，修正后的累积矩及累积矩比值与生成器层面数值一致；累积矩比值的不确定度依赖于事件样本，接收度补偿带来显著的统计代价。</p>
+    <h4>局限与展望</h4><p>结果基于模拟评估，尚未涉及真实数据；可合理推断，未来实际测量需考虑接收度补偿带来的统计需求，并需在真实探测器条件下进一步验证修正方法的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23498v1">
+  <div class="paper-head">
+    <h2>CERN SPS能量下核-核碰撞中意外显著的等旋对称性破坏<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.23498v1" rel="noopener noreferrer">2610.23498v1</a>
+  </div>
+  <p class="original-title">Unexpectedly large violation of isospin symmetry in nucleus-nucleus collisions at CERN SPS energies</p>
+  <p class="meta"><strong>作者：</strong>Andrzej Rybicki for the NA61/SHINE Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>CERN SPS上的NA61/SHINE实验报告，在质心能量√s_NN=8.8与11.9 GeV的0-10%中心度Ar+Sc碰撞中，带电K介子相对于中性K介子的包容产生出现意外显著的超出。该效应对应于意外显著的等旋对称性破坏，无法用现有理论模型中的已知机制解释。将NA61/SHINE结果与其他实验数据比较，在较大不确定度范围内，于2.6&lt;√s_NN&lt;200 GeV能区呈现出一致的、破坏等旋对称性的带电K介子产生超出。在LHC能量（0.9&lt;√s_NN&lt;13 TeV）下，带电与中性K介子产额比看似与1一致，但不确定度仍然较大。NA61/SHINE在√s_NN=17.3与25.7 GeV的最小偏置π^-+C反应中也观测到类似的带电与中性K介子产额超出，同样与模型预言不符。迄今尚无对这些现象的明确理论解释。意外显著的等旋对称性破坏可能对粒子产生理解带来重要后果，并亟需集中的实验与理论努力。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在CERN SPS能量下的核-核碰撞（以及π^-+C反应）中，带电与中性K介子的产生比是否遵循等旋对称性，现有理论模型能否解释观测结果。</p>
+    <h4>方法</h4><p>NA61/SHINE实验测量0-10%中心度Ar+Sc碰撞在√s_NN=8.8与11.9 GeV下带电与中性K介子的包容产生，并与其它实验数据及理论模型预言进行比较；同时在√s_NN=17.3与25.7 GeV的最小偏置π^-+C反应中进行类似测量。</p>
+    <h4>主要发现</h4><p>在Ar+Sc碰撞中观测到带电K介子相对中性K介子的产生意外显著超出，对应现有理论模型已知机制无法解释的等旋对称性破坏；与其他实验数据比较，在2.6&lt;√s_NN&lt;200 GeV能区于较大不确定度内呈现一致的破坏等旋对称性的带电K介子超出；LHC能量（0.9&lt;√s_NN&lt;13 TeV）下该比值看似与1一致但不确定度较大；π^-+C反应中亦观测到类似超出且与模型预言不符。</p>
+    <h4>局限与展望</h4><p>原文指出迄今尚无明确理论解释，该现象可能对粒子产生理解带来重要后果，并呼吁集中的实验与理论努力；LHC能区的结论受限于较大不确定度，需进一步测量以确认。后续方向属合理推断，尚待验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.22477v1">
+  <div class="paper-head">
+    <h2>通过软强子能量关联器探索QCD物质<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.22477v1" rel="noopener noreferrer">2610.22477v1</a>
+  </div>
+  <p class="original-title">Exploring QCD Matter through Energy Correlators of Soft Hadrons</p>
+  <p class="meta"><strong>作者：</strong>Yiyang Peng、João Barata、Andrey V. Sadofyev、Huichao Song</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出以软强子的能量-能量关联器（EEC）及其方位角谐波作为新的软观测量，用于探测高能核碰撞中产生的大系统和小系统中的集体流以及超出平均流的关联。作者将软EEC分解为由平均能量流决定的非连通贡献和编码超出平均流关联的连通贡献。粘性流体力学模拟表明，流体系统的软EEC由非连通贡献主导，而其椭圆与三角谐波如同传统流谐波一样响应初始几何与剪切粘度。对p+p、O+O和Pb+Pb碰撞比较iEBE-VISHNU与PYTHIA的结果显示，非连通贡献在所有系统的大角度区域均占主导，而超出平均能量流的连通关联则向小角度和小系统增强，其中谐波最为显著。因此，软EEC为跨碰撞系统研究集体流及其之外的关联提供了独特窗口。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用软强子的能量-能量关联器及其方位角谐波，探测高能核碰撞大系统与小系统中的集体流以及超出平均能量流的关联。</p>
+    <h4>方法</h4><p>提出软EEC及其方位角谐波作为软观测量，将软EEC分解为非连通贡献与连通贡献；采用粘性流体力学模拟，并比较iEBE-VISHNU与PYTHIA在p+p、O+O和Pb+Pb碰撞中的结果。</p>
+    <h4>主要发现</h4><p>流体系统的软EEC由非连通贡献主导，其椭圆和三角谐波如同传统流谐波一样响应初始几何与剪切粘度；在p+p、O+O和Pb+Pb碰撞中，非连通贡献在所有系统的大角度区域占主导，而超出平均能量流的连通关联向小角度和小系统增强，谐波中最为显著。</p>
+    <h4>局限与展望</h4><p>原文指出软EEC为跨碰撞系统研究集体流及其之外的关联提供了独特窗口；其局限、适用范围及后续方向需进一步研究，本文未作明确断言。</p>
+  </section>
+</article><article class="paper" id="paper-2610.22994v1">
+  <div class="paper-head">
+    <h2>由标量与轴矢量双夸克关联得到的领头扭度质子部分子分布振幅<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.22994v1" rel="noopener noreferrer">2610.22994v1</a>
+  </div>
+  <p class="original-title">Leading-twist proton parton distribution amplitude from scalar and axial-vector diquark correlations</p>
+  <p class="meta"><strong>作者：</strong>B. Almeida-Zamora、L. Albino、C. Mezrag、J. Segovia</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用受微扰论积分表示启发的核子 Faddeev 波函数代数表示，计算了领头扭度的质子部分子分布振幅（PDA）。该 PDA 由协变夸克—双夸克 Faddeev 振幅的光前投影得到，并按标量双夸克与轴矢量双夸克分量进行分析。我们推导了相应双夸克分布振幅的解析表达式及其对质子 PDA 的贡献。所得分布宽而凹，其最大值位于 $(x_1,x_2,x_3)\approx(0.55,0.20,0.25)$，偏离对称构型 $(1/3,1/3,1/3)$——后者对应微扰 QCD 渐近形式的最大值。标量双夸克关联在纵向动量分布中产生强烈的不对称性，而轴矢量关联则在价夸克之间重新分配动量并显著减小该不对称性。我们计算了低阶 Mellin 矩，并得到强子标度 $\mu_0=0.51\,\mathrm{GeV}$ 下质子 PDA 的紧凑参数化。随后对其归一化形状进行领头阶 QCD 演化至 $\mu=2\,\mathrm{GeV}$，发现演化减小动量不对称性，同时保留非微扰夸克—双夸克关联的清晰印记。结果为理解此类关联在塑造质子光前结构中的作用提供了洞见，并为硬遍举重子过程研究提供了非微扰输入。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从夸克—双夸克 Faddeev 振幅的光前投影出发，计算领头扭度质子部分子分布振幅，并刻画标量与轴矢量双夸克关联对其形状和动量不对称性的影响。</p>
+    <h4>方法</h4><p>采用受微扰论积分表示启发的核子 Faddeev 波函数代数表示，对协变夸克—双夸克 Faddeev 振幅作光前投影；按标量与轴矢量双夸克分量分解，推导相应双夸克分布振幅的解析表达式及其对质子 PDA 的贡献；计算低阶 Mellin 矩并在 $\mu_0=0.51\,\mathrm{GeV}$ 处给出紧凑参数化，随后进行领头阶 QCD 演化至 $\mu=2\,\mathrm{GeV}$。</p>
+    <h4>主要发现</h4><p>所得 PDA 宽而凹，最大值位于 $(x_1,x_2,x_3)\approx(0.55,0.20,0.25)$，偏离微扰 QCD 渐近形式最大值所在的对称构型 $(1/3,1/3,1/3)$；标量双夸克关联产生强烈的纵向动量分布不对称性，轴矢量关联则在价夸克间重新分配动量并显著减小该不对称性；领头阶 QCD 演化至 $\mu=2\,\mathrm{GeV}$ 减小动量不对称性，同时保留非微扰夸克—双夸克关联的清晰印记。</p>
+    <h4>局限与展望</h4><p>本文结果基于特定 Faddeev 波函数代数表示与领头阶演化，其定量结论的模型依赖性及更高阶修正的影响尚需进一步检验；所得非微扰输入可合理推断用于硬遍举重子过程（如重子形状因子与跃迁形状因子）的研究，并可与未来实验及格点 QCD 结果进行对照。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23211v1">
+  <div class="paper-head">
+    <h2>同位旋矢量单极共振<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.23211v1" rel="noopener noreferrer">2610.23211v1</a>
+  </div>
+  <p class="original-title">Isovector Monopole Resonance</p>
+  <p class="meta"><strong>作者：</strong>Xavier Roca Maza、Gianluca Colò</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在自洽的 Skyrme Hartree-Fock 加随机相位近似（RPA）框架下，对同位旋矢量巨单极共振（IVGMR）的三个同位旋通道进行了理论研究。为去除占主导的同位旋相似态贡献、从而分离出真正的径向同位旋矢量响应，作者引入了一种修正的电荷交换单极算符，并推导了相应的非能量权重与能量权重求和规则，建立了电荷交换强度与非电荷交换强度之间的近似关系。三个 IVGMR 质心的相对位置被解释为库仑位移能、中子-质子质量差以及有限核对称势共同作用的结果。对 \(^{48}\)Ca、\(^{90}\)Zr 和 \(^{208}\)Pb 的计算表明，在中重核与重核中，非电荷交换质心可由两个电荷交换质心的平均值准确近似。基于一组广泛的 Skyrme 能量密度泛函，作者发现：对于固定核，三个通道的质心能量对模型依赖较弱；而非电荷交换单极极化率则对对称能的密度依赖性表现出明显敏感。这些结果澄清了 IVGMR 的同位旋结构，并支持将其用作探测同位旋矢量核性质的互补探针。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究同位旋矢量巨单极共振（IVGMR）三个同位旋通道的结构，重点在于如何去除同位旋相似态的主导贡献以分离真正的径向同位旋矢量响应，并考察各通道质心位置及极化率对核模型与对称能密度依赖性的敏感程度。</p>
+    <h4>方法</h4><p>采用自洽的 Skyrme Hartree-Fock 加随机相位近似（RPA）；引入修正的电荷交换单极算符以扣除同位旋相似态贡献；推导非能量权重与能量权重求和规则，建立电荷交换与非电荷交换强度间的近似关系；对 \(^{48}\)Ca、\(^{90}\)Zr、\(^{208}\)Pb 进行计算，并使用一组广泛的 Skyrme 能量密度泛函检验模型依赖性。</p>
+    <h4>主要发现</h4><p>计算表明，在中重核与重核中，非电荷交换质心可由两个电荷交换质心的平均值准确近似；三个通道的质心能量对 Skyrme 泛函的模型依赖较弱；而非电荷交换单极极化率对对称能的密度依赖性表现出明显敏感。三个 IVGMR 质心的相对位置可由库仑位移能、中子-质子质量差和有限核对称势解释。</p>
+    <h4>局限与展望</h4><p>论文结果支持将 IVGMR 用作探测同位旋矢量核性质的互补探针；但所考察的核素限于 \(^{48}\)Ca、\(^{90}\)Zr 和 \(^{208}\)Pb，方法基于 Skyrme Hartree-Fock 加 RPA 框架，其适用范围与更轻核、极端中子过剩核及超出 RPA 的关联效应仍有待进一步检验（此句为基于方法局限的合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23427v1">
+  <div class="paper-head">
+    <h2>运动学截断对 $v_0(p_T)$ 的影响<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.23427v1" rel="noopener noreferrer">2610.23427v1</a>
+  </div>
+  <p class="original-title">Effects of kinematic cuts on $v_0(p_T)$</p>
+  <p class="meta"><strong>作者：</strong>Tribhuban Parida、Rupam Samanta、Jean-Yves Ollitrault</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文表明，当低横动量（低-$p_T$）粒子未被探测时，对 $v_0(p_T)$ 的分析会产生偏差。低-$p_T$ 探测阈值会使 $v_0(p_T)$ 整体平移一个恒定的负值，该平移量依赖于阈值大小。作者利用流体力学模拟对该平移进行了评估。修正这一偏差后，ALICE 与 ATLAS 在 Pb+Pb 碰撞中给出的 $v_0(p_T)$ 结果之间的一致性显著改善。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在低-$p_T$ 粒子未被探测（存在低-$p_T$ 阈值）的情况下，$v_0(p_T)$ 的分析是否会引入偏差，以及该偏差如何影响不同实验（ALICE 与 ATLAS）结果的一致性。</p>
+    <h4>方法</h4><p>通过流体力学模拟评估低-$p_T$ 探测阈值对 $v_0(p_T)$ 造成的平移，并对该偏差进行修正后比较 ALICE 与 ATLAS 在 Pb+Pb 碰撞中的 $v_0(p_T)$ 结果。</p>
+    <h4>主要发现</h4><p>低-$p_T$ 阈值会使 $v_0(p_T)$ 整体平移一个恒定的负值，且该平移量取决于阈值；修正该偏差后，ALICE 与 ATLAS 在 Pb+Pb 碰撞中的 $v_0(p_T)$ 结果一致性显著改善。</p>
+    <h4>局限与展望</h4><p>原文未讨论该修正方法在其他碰撞系统、其他阈值或其他观测量上的适用性；后续可合理推断需进一步检验该偏差修正的适用范围及对阈值设定的依赖性。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-19 10:54 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

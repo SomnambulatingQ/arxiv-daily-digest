@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-th 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-th · 核理论</h1>
+    <p class="lede">官方公告日：2026-10-19</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">11</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">6</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（5）</h3><ol class="toc-list"><li><a href="#paper-2610.22477v1">通过软强子能量关联器探索QCD物质</a> <small>2610.22477v1</small></li><li><a href="#paper-2610.23041v1">基于夸克模型的 NΛ 相互作用：pΛ 飞秒关联与超氚核</a> <small>2610.23041v1</small></li><li><a href="#paper-2610.23211v1">同位旋矢量单极共振</a> <small>2610.23211v1</small></li><li><a href="#paper-2610.23427v1">运动学截断对 $v_0(p_T)$ 的影响</a> <small>2610.23427v1</small></li><li><a href="#paper-2610.23581v1">安德烈夫β转换与超流中子星物质中的体黏滞</a> <small>2610.23581v1</small></li></ol><h3>交叉列表（6）</h3><ol class="toc-list"><li><a href="#paper-2607.04929v2">重新审视磁场与旋转下核物质和夸克物质中的Wess-Zumino-Witten项</a> <small>2607.04929v2</small></li><li><a href="#paper-2610.22994v1">由标量与轴矢量双夸克关联得到的领头扭度质子部分子分布振幅</a> <small>2610.22994v1</small></li><li><a href="#paper-2610.23120v1">外磁场中的各向异性强子物质</a> <small>2610.23120v1</small></li><li><a href="#paper-2610.23332v1">基于格点QCD的轻夸克质量下双核子散射振幅</a> <small>2610.23332v1</small></li><li><a href="#paper-2610.23395v1">中子俘获对r过程的影响：I. 统计模型不确定性的传播</a> <small>2610.23395v1</small></li><li><a href="#paper-2610.23442v1">随机流体力学的正则化与不可压缩流体剪切粘度的非微扰重整化</a> <small>2610.23442v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.22477v1">
+  <div class="paper-head">
+    <h2>通过软强子能量关联器探索QCD物质<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.22477v1" rel="noopener noreferrer">2610.22477v1</a>
+  </div>
+  <p class="original-title">Exploring QCD Matter through Energy Correlators of Soft Hadrons</p>
+  <p class="meta"><strong>作者：</strong>Yiyang Peng、João Barata、Andrey V. Sadofyev、Huichao Song</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出以软强子的能量-能量关联器（EEC）及其方位角谐波作为新的软观测量，用于探测高能核碰撞中产生的大系统和小系统中的集体流以及超出平均流的关联。作者将软EEC分解为由平均能量流决定的非连通贡献和编码超出平均流关联的连通贡献。粘性流体力学模拟表明，流体系统的软EEC由非连通贡献主导，而其椭圆与三角谐波如同传统流谐波一样响应初始几何与剪切粘度。对p+p、O+O和Pb+Pb碰撞比较iEBE-VISHNU与PYTHIA的结果显示，非连通贡献在所有系统的大角度区域均占主导，而超出平均能量流的连通关联则向小角度和小系统增强，其中谐波最为显著。因此，软EEC为跨碰撞系统研究集体流及其之外的关联提供了独特窗口。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用软强子的能量-能量关联器及其方位角谐波，探测高能核碰撞大系统与小系统中的集体流以及超出平均能量流的关联。</p>
+    <h4>方法</h4><p>提出软EEC及其方位角谐波作为软观测量，将软EEC分解为非连通贡献与连通贡献；采用粘性流体力学模拟，并比较iEBE-VISHNU与PYTHIA在p+p、O+O和Pb+Pb碰撞中的结果。</p>
+    <h4>主要发现</h4><p>流体系统的软EEC由非连通贡献主导，其椭圆和三角谐波如同传统流谐波一样响应初始几何与剪切粘度；在p+p、O+O和Pb+Pb碰撞中，非连通贡献在所有系统的大角度区域占主导，而超出平均能量流的连通关联向小角度和小系统增强，谐波中最为显著。</p>
+    <h4>局限与展望</h4><p>原文指出软EEC为跨碰撞系统研究集体流及其之外的关联提供了独特窗口；其局限、适用范围及后续方向需进一步研究，本文未作明确断言。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23041v1">
+  <div class="paper-head">
+    <h2>基于夸克模型的 NΛ 相互作用：pΛ 飞秒关联与超氚核<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.23041v1" rel="noopener noreferrer">2610.23041v1</a>
+  </div>
+  <p class="original-title">$NΛ$ interaction from a quark model: $pΛ$ femtoscopy and the hypertriton</p>
+  <p class="meta"><strong>作者：</strong>Ye Yan、Qian Wu、Qi Huang、Hongxia Huang、Jialun Ping</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>理解低能核子—Λ 相互作用对描述超核结构至关重要，而其自旋依赖性目前仍缺乏充分的实验约束。本文采用夸克离域色屏蔽模型研究 NΛ 相互作用，并探讨其对 pΛ 飞秒关联与超氚核的影响。我们计算了 NΛ 体系的能量与散射相移，发现 J^P=0^+ 与 1^+ 两个通道均表现为弱吸引，但不存在束缚态；相应的散射长度与有效程分别为 J^P=0^+ 的 -2.36 fm 与 1.61 fm，以及 J^P=1^+ 的 -0.95 fm 与 1.46 fm。利用 Gel&#x27;fand–Levitan–Marchenko 逆散射方法，由耦合道散射相移重构出有效 NΛ 势，并用于计算 pΛ 飞秒关联函数。与实验数据的比较表明，当前模型可能低估了自旋三重态的吸引。进一步采用高斯展开法研究 NNΛ 三体系统，得到弱束缚的超氚核，其 Λ 分离能为 1.06–1.16 MeV。这些结果表明，pΛ 飞秒关联与超氚核束缚能为自旋相关的 NΛ 相互作用提供了互补的探针，可为其低能行为提供有价值的约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>低能核子—Λ（NΛ）相互作用及其自旋依赖性尚缺乏充分的实验约束，需要借助夸克层次的模型加以研究，并检验其对 pΛ 飞秒关联与超氚核等可观测量的影响。</p>
+    <h4>方法</h4><p>采用夸克离域色屏蔽模型计算 NΛ 体系的能量与散射相移，提取 J^P=0^+ 与 1^+ 通道的散射长度和有效程；利用 Gel&#x27;fand–Levitan–Marchenko 逆散射方法由耦合道相移重构有效 NΛ 势并计算 pΛ 飞秒关联函数；再以高斯展开法研究 NNΛ 三体系统。</p>
+    <h4>主要发现</h4><p>NΛ 在 J^P=0^+ 与 1^+ 通道均呈弱吸引但无束缚态；散射长度与有效程分别为 0^+ 通道的 -2.36 fm、1.61 fm 和 1^+ 通道的 -0.95 fm、1.46 fm。与实验数据的比较提示当前模型可能低估了自旋三重态吸引。NNΛ 三体计算给出弱束缚超氚核，Λ 分离能为 1.06–1.16 MeV。</p>
+    <h4>局限与展望</h4><p>原文指出 pΛ 飞秒关联与超氚核束缚能可作为自旋相关 NΛ 相互作用的互补探针；模型对自旋三重态吸引的低估提示需进一步改进或检验该相互作用描述，但原文未给出具体的后续研究方案。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23211v1">
+  <div class="paper-head">
+    <h2>同位旋矢量单极共振<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.23211v1" rel="noopener noreferrer">2610.23211v1</a>
+  </div>
+  <p class="original-title">Isovector Monopole Resonance</p>
+  <p class="meta"><strong>作者：</strong>Xavier Roca Maza、Gianluca Colò</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在自洽的 Skyrme Hartree-Fock 加随机相位近似（RPA）框架下，对同位旋矢量巨单极共振（IVGMR）的三个同位旋通道进行了理论研究。为去除占主导的同位旋相似态贡献、从而分离出真正的径向同位旋矢量响应，作者引入了一种修正的电荷交换单极算符，并推导了相应的非能量权重与能量权重求和规则，建立了电荷交换强度与非电荷交换强度之间的近似关系。三个 IVGMR 质心的相对位置被解释为库仑位移能、中子-质子质量差以及有限核对称势共同作用的结果。对 \(^{48}\)Ca、\(^{90}\)Zr 和 \(^{208}\)Pb 的计算表明，在中重核与重核中，非电荷交换质心可由两个电荷交换质心的平均值准确近似。基于一组广泛的 Skyrme 能量密度泛函，作者发现：对于固定核，三个通道的质心能量对模型依赖较弱；而非电荷交换单极极化率则对对称能的密度依赖性表现出明显敏感。这些结果澄清了 IVGMR 的同位旋结构，并支持将其用作探测同位旋矢量核性质的互补探针。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究同位旋矢量巨单极共振（IVGMR）三个同位旋通道的结构，重点在于如何去除同位旋相似态的主导贡献以分离真正的径向同位旋矢量响应，并考察各通道质心位置及极化率对核模型与对称能密度依赖性的敏感程度。</p>
+    <h4>方法</h4><p>采用自洽的 Skyrme Hartree-Fock 加随机相位近似（RPA）；引入修正的电荷交换单极算符以扣除同位旋相似态贡献；推导非能量权重与能量权重求和规则，建立电荷交换与非电荷交换强度间的近似关系；对 \(^{48}\)Ca、\(^{90}\)Zr、\(^{208}\)Pb 进行计算，并使用一组广泛的 Skyrme 能量密度泛函检验模型依赖性。</p>
+    <h4>主要发现</h4><p>计算表明，在中重核与重核中，非电荷交换质心可由两个电荷交换质心的平均值准确近似；三个通道的质心能量对 Skyrme 泛函的模型依赖较弱；而非电荷交换单极极化率对对称能的密度依赖性表现出明显敏感。三个 IVGMR 质心的相对位置可由库仑位移能、中子-质子质量差和有限核对称势解释。</p>
+    <h4>局限与展望</h4><p>论文结果支持将 IVGMR 用作探测同位旋矢量核性质的互补探针；但所考察的核素限于 \(^{48}\)Ca、\(^{90}\)Zr 和 \(^{208}\)Pb，方法基于 Skyrme Hartree-Fock 加 RPA 框架，其适用范围与更轻核、极端中子过剩核及超出 RPA 的关联效应仍有待进一步检验（此句为基于方法局限的合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23427v1">
+  <div class="paper-head">
+    <h2>运动学截断对 $v_0(p_T)$ 的影响<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.23427v1" rel="noopener noreferrer">2610.23427v1</a>
+  </div>
+  <p class="original-title">Effects of kinematic cuts on $v_0(p_T)$</p>
+  <p class="meta"><strong>作者：</strong>Tribhuban Parida、Rupam Samanta、Jean-Yves Ollitrault</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文表明，当低横动量（低-$p_T$）粒子未被探测时，对 $v_0(p_T)$ 的分析会产生偏差。低-$p_T$ 探测阈值会使 $v_0(p_T)$ 整体平移一个恒定的负值，该平移量依赖于阈值大小。作者利用流体力学模拟对该平移进行了评估。修正这一偏差后，ALICE 与 ATLAS 在 Pb+Pb 碰撞中给出的 $v_0(p_T)$ 结果之间的一致性显著改善。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在低-$p_T$ 粒子未被探测（存在低-$p_T$ 阈值）的情况下，$v_0(p_T)$ 的分析是否会引入偏差，以及该偏差如何影响不同实验（ALICE 与 ATLAS）结果的一致性。</p>
+    <h4>方法</h4><p>通过流体力学模拟评估低-$p_T$ 探测阈值对 $v_0(p_T)$ 造成的平移，并对该偏差进行修正后比较 ALICE 与 ATLAS 在 Pb+Pb 碰撞中的 $v_0(p_T)$ 结果。</p>
+    <h4>主要发现</h4><p>低-$p_T$ 阈值会使 $v_0(p_T)$ 整体平移一个恒定的负值，且该平移量取决于阈值；修正该偏差后，ALICE 与 ATLAS 在 Pb+Pb 碰撞中的 $v_0(p_T)$ 结果一致性显著改善。</p>
+    <h4>局限与展望</h4><p>原文未讨论该修正方法在其他碰撞系统、其他阈值或其他观测量上的适用性；后续可合理推断需进一步检验该偏差修正的适用范围及对阈值设定的依赖性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23581v1">
+  <div class="paper-head">
+    <h2>安德烈夫β转换与超流中子星物质中的体黏滞<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.23581v1" rel="noopener noreferrer">2610.23581v1</a>
+  </div>
+  <p class="original-title">Andreev Beta Conversion and Bulk Viscosity in Superfluid Neutron-Star Matter</p>
+  <p class="meta"><strong>作者：</strong>Tingyu Zhang、Honoka Hoshino、Hiroyuki Tajima、Motoi Tachibana、Mariusz Sadzikowski</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">astro-ph.HE</span> <span class="tag">astro-ph.SR</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>中子星物质中的体黏滞源于密度振荡与弱β平衡之间的相位滞后。本文指出，当存储凝聚体的重子组分处于超流态时，存在一种不同的相干通道：中子凝聚体与正常质子之间的有效β转换事件可以以安德烈夫过程进行，即将一个类粒子激发转换为类空穴激发，同时向凝聚体添加或移除一个库珀对。该安德烈夫过程对β平衡的贡献在有效转换顶点上为四阶，并因反常中子格林函数而增强，且不被标准Urca过程所涵盖。我们确定了该通道能够主导中子星振荡与并合黏滞阻尼的密度、温度和振荡频率区间。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究中子星物质中超流重子组分对β平衡与体黏滞的贡献，特别是标准Urca过程未涵盖的相干通道。</p>
+    <h4>方法</h4><p>通过引入安德烈夫过程描述中子凝聚体与正常质子之间的有效β转换，并利用有效转换顶点与反常中子格林函数分析其对β平衡的贡献阶数及增强机制。</p>
+    <h4>主要发现</h4><p>安德烈夫β转换对β平衡的贡献在有效转换顶点上为四阶，因反常中子格林函数而增强，且不被标准Urca过程所涵盖；论文确定了该通道可主导中子星振荡与并合黏滞阻尼的密度、温度和振荡频率区间。</p>
+    <h4>局限与展望</h4><p>该通道的适用性限于所确定的密度、温度和振荡频率区间；其微观计算细节及与其它黏滞机制的定量比较有待进一步研究，后续可合理推断需在更真实的中子星状态方程与并合动力学中检验其影响。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2607.04929v2">
+  <div class="paper-head">
+    <h2>重新审视磁场与旋转下核物质和夸克物质中的Wess-Zumino-Witten项<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2607.04929v2" rel="noopener noreferrer">2607.04929v2</a>
+  </div>
+  <p class="original-title">Revisiting the Wess-Zumino-Witten Term in Nuclear and Quark Matter under Magnetic Fields and Rotation</p>
+  <p class="meta"><strong>作者：</strong>Markus A. G. Amano、Minoru Eto、Muneto Nitta、Shin Sasaki</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究稠密QCD物质在磁场与旋转背景下与手征反常相关的反常Wess-Zumino-Witten项。通过引入电磁场、重子数以及同位旋背景规范场，作者针对N_f=2与N_f=3两种情形写下了中性介子的拓扑耦合项。所得结果包含正比于\vec{B}\cdot\vec{\nabla}\varphi与\vec{\Omega}\cdot\vec{\nabla}\varphi的特征贡献，其中\varphi表示\pi^0、\eta或\eta&#x27;。这些结果与稠密旋转物质中的手征孤子晶格相关。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究稠密QCD物质在磁场与旋转背景下，与手征反常相关的反常Wess-Zumino-Witten项的具体形式及其对中性介子拓扑耦合的影响。</p>
+    <h4>方法</h4><p>引入电磁场、重子数与同位旋背景规范场，分别针对N_f=2和N_f=3情形推导中性介子（\pi^0、\eta、\eta&#x27;）的拓扑耦合项。</p>
+    <h4>主要发现</h4><p>所得Wess-Zumino-Witten项包含正比于\vec{B}\cdot\vec{\nabla}\varphi和\vec{\Omega}\cdot\vec{\nabla}\varphi的特征贡献，其中\varphi为\pi^0、\eta或\eta&#x27;；这些结果与稠密旋转物质中的手征孤子晶格相关。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；可合理推断，这些拓扑耦合项可进一步用于研究稠密旋转物质中手征孤子晶格的具体性质，但该推断尚需专门工作验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.22994v1">
+  <div class="paper-head">
+    <h2>由标量与轴矢量双夸克关联得到的领头扭度质子部分子分布振幅<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.22994v1" rel="noopener noreferrer">2610.22994v1</a>
+  </div>
+  <p class="original-title">Leading-twist proton parton distribution amplitude from scalar and axial-vector diquark correlations</p>
+  <p class="meta"><strong>作者：</strong>B. Almeida-Zamora、L. Albino、C. Mezrag、J. Segovia</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用受微扰论积分表示启发的核子 Faddeev 波函数代数表示，计算了领头扭度的质子部分子分布振幅（PDA）。该 PDA 由协变夸克—双夸克 Faddeev 振幅的光前投影得到，并按标量双夸克与轴矢量双夸克分量进行分析。我们推导了相应双夸克分布振幅的解析表达式及其对质子 PDA 的贡献。所得分布宽而凹，其最大值位于 $(x_1,x_2,x_3)\approx(0.55,0.20,0.25)$，偏离对称构型 $(1/3,1/3,1/3)$——后者对应微扰 QCD 渐近形式的最大值。标量双夸克关联在纵向动量分布中产生强烈的不对称性，而轴矢量关联则在价夸克之间重新分配动量并显著减小该不对称性。我们计算了低阶 Mellin 矩，并得到强子标度 $\mu_0=0.51\,\mathrm{GeV}$ 下质子 PDA 的紧凑参数化。随后对其归一化形状进行领头阶 QCD 演化至 $\mu=2\,\mathrm{GeV}$，发现演化减小动量不对称性，同时保留非微扰夸克—双夸克关联的清晰印记。结果为理解此类关联在塑造质子光前结构中的作用提供了洞见，并为硬遍举重子过程研究提供了非微扰输入。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从夸克—双夸克 Faddeev 振幅的光前投影出发，计算领头扭度质子部分子分布振幅，并刻画标量与轴矢量双夸克关联对其形状和动量不对称性的影响。</p>
+    <h4>方法</h4><p>采用受微扰论积分表示启发的核子 Faddeev 波函数代数表示，对协变夸克—双夸克 Faddeev 振幅作光前投影；按标量与轴矢量双夸克分量分解，推导相应双夸克分布振幅的解析表达式及其对质子 PDA 的贡献；计算低阶 Mellin 矩并在 $\mu_0=0.51\,\mathrm{GeV}$ 处给出紧凑参数化，随后进行领头阶 QCD 演化至 $\mu=2\,\mathrm{GeV}$。</p>
+    <h4>主要发现</h4><p>所得 PDA 宽而凹，最大值位于 $(x_1,x_2,x_3)\approx(0.55,0.20,0.25)$，偏离微扰 QCD 渐近形式最大值所在的对称构型 $(1/3,1/3,1/3)$；标量双夸克关联产生强烈的纵向动量分布不对称性，轴矢量关联则在价夸克间重新分配动量并显著减小该不对称性；领头阶 QCD 演化至 $\mu=2\,\mathrm{GeV}$ 减小动量不对称性，同时保留非微扰夸克—双夸克关联的清晰印记。</p>
+    <h4>局限与展望</h4><p>本文结果基于特定 Faddeev 波函数代数表示与领头阶演化，其定量结论的模型依赖性及更高阶修正的影响尚需进一步检验；所得非微扰输入可合理推断用于硬遍举重子过程（如重子形状因子与跃迁形状因子）的研究，并可与未来实验及格点 QCD 结果进行对照。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23120v1">
+  <div class="paper-head">
+    <h2>外磁场中的各向异性强子物质<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.23120v1" rel="noopener noreferrer">2610.23120v1</a>
+  </div>
+  <p class="original-title">Anisotropic hadronic matter in external magnetic fields</p>
+  <p class="meta"><strong>作者：</strong>Dushmanta Sahu、Jayanta Dey</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>非中心重离子碰撞中产生的强磁场会破坏旋转对称性，并可能使所产生的量子色动力学（QCD）物质带上各向异性。本文在外加磁场存在的情况下，采用强子共振气体框架，研究了状态方程、等温压缩率、声速以及守恒荷涨落中由此产生的各向异性。我们发现，电荷 susceptibilities 之比 $\chi_4^Q/\chi_2^Q$ 呈现出显著的方向依赖性，这主要由带电 π 介子的朗道能级结构驱动。对于物理上相关的磁场强度，该各向异性在 $T\simeq0.16$ GeV 时达到约 $10-15\%$。电荷 susceptibility 之比可表示为 $\chi_4^Q/\chi_2^Q=C_4^Q/C_2^Q=\kappa_Q\sigma_Q^2$，其中 $C_2^Q$ 与 $C_4^Q$ 分别为二阶与四阶累积量，$\kappa_Q$ 与 $\sigma_Q$ 为逐事件净电荷分布的峰度与方差。该比值对反应平面的依赖性为磁场诱导的各向异性提供了一种实验上可及的信号。我们的结果确认，高阶电荷涨落是探测 RHIC 与 LHC 重离子碰撞中所产生物质上强电磁场印记的有前景的探针。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>非中心重离子碰撞产生的强磁场如何使 QCD 物质在状态方程、等温压缩率、声速与守恒荷涨落等热力学量上产生各向异性，以及该各向异性是否可作为实验可及的信号。</p>
+    <h4>方法</h4><p>在存在外加磁场的强子共振气体框架下，计算状态方程、等温压缩率、声速与守恒荷涨落的方向依赖性，并分析电荷 susceptibility 之比 $\chi_4^Q/\chi_2^Q$ 及其与累积量、峰度和方差的关系。</p>
+    <h4>主要发现</h4><p>电荷 susceptibility 之比 $\chi_4^Q/\chi_2^Q$ 呈现显著方向依赖，主要由带电 π 介子的朗道能级结构驱动；在物理相关磁场下，该各向异性在 $T\simeq0.16$ GeV 时约为 $10-15\%$；该比值可写为 $\chi_4^Q/\chi_2^Q=C_4^Q/C_2^Q=\kappa_Q\sigma_Q^2$，其对反应平面的依赖提供了实验可及的磁场诱导各向异性信号。</p>
+    <h4>局限与展望</h4><p>原文指出高阶电荷涨落是探测 RHIC 与 LHC 重离子碰撞中强电磁场印记的有前景探针；该结论基于强子共振气体框架，向 QCD 相变区域及更真实碰撞动力学的推广属于可合理推断的后续方向，尚需进一步研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23332v1">
+  <div class="paper-head">
+    <h2>基于格点QCD的轻夸克质量下双核子散射振幅<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.23332v1" rel="noopener noreferrer">2610.23332v1</a>
+  </div>
+  <p class="original-title">Two-nucleon scattering amplitudes at light quark masses from lattice QCD</p>
+  <p class="meta"><strong>作者：</strong>Jorge Baeza-Ballesteros、André Baião-Raposo、Davide Laudicina、Malcolm Lazarow、Miguel Salg、John Bulava、Jeremy R. Green、Andrew Hanlon、Renwick J. Hudspith、Daniel Mohler、Colin Morningstar、Amy Nicholson、Fernando Romero-López、Thomas R. Richardson、André Walker-Loud、Hartmut Wittig、for the Baryon Scattering、Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报告了在单一体积元间距 a≈0.064 fm 下，利用两个 CLS 组态、在 π 介子质量 M_π≈200 MeV 与 M_π≈280 MeV 处对核子-核子散射振幅的格点 QCD 计算。有限体积能谱由在蒸馏框架内构建的大型厄米关联矩阵提取，所用双核子插值算符基组较为广泛。为将有限体积能谱可靠地联系到无限体积散射振幅，作者采用两种近期发展的形式：平面波量子化条件与相对论左手切割形式，二者均显式处理单π交换产生的长程相互作用。文中讨论了核子-核子散射长度、有效力程、形状参数及极点位置对夸克质量的依赖。在所考虑的所有 π 介子质量下，分析在两个同位旋道中均以超过 1σ 的显著性偏好虚态。结合此前在 M_π≈710 MeV 处的计算结果比较可见，随 π 介子质量变化，逆散射长度与束缚动量单调趋近其物理点的唯象值。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 π 介子质量约为 200 MeV 与 280 MeV 的轻夸克质量区域，核子-核子散射振幅如何由格点 QCD 确定，其散射参数与极点位置如何随夸克质量变化。</p>
+    <h4>方法</h4><p>在 a≈0.064 fm 的两个 CLS 组态上，利用蒸馏框架构建大型厄米关联矩阵以提取有限体积能谱，并采用显式包含单π交换长程相互作用的平面波量子化条件与相对论左手切割形式，将有限体积能谱联系到无限体积散射振幅。</p>
+    <h4>主要发现</h4><p>在所考虑的所有 π 介子质量下，分析在两个同位旋道中均以超过 1σ 的显著性偏好虚态；结合此前 M_π≈710 MeV 的结果，逆散射长度与束缚动量随 π 介子质量变化单调趋近物理点的唯象值。</p>
+    <h4>局限与展望</h4><p>结果基于单一体积元间距与两个 π 介子质量，尚未进行连续极限外推；后续可合理推断需在更多组态、更小体积元间距及更轻 π 介子质量下检验系统误差与手征外推的稳健性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23395v1">
+  <div class="paper-head">
+    <h2>中子俘获对r过程的影响：I. 统计模型不确定性的传播<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.23395v1" rel="noopener noreferrer">2610.23395v1</a>
+  </div>
+  <p class="original-title">Impact of neutron captures on the r-process: I. Propagation of statistical model uncertainties</p>
+  <p class="meta"><strong>作者：</strong>Yu An、Jan Kuske、Almudena Arcones</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>背景：r过程产生了宇宙中约一半比铁重的元素，但其涉及的核物理过程目前仍大多无法通过实验直接研究，而依赖理论计算。目的：我们旨在量化统计模型不确定性对r过程的影响。为此，我们在Hauser-Feshbach框架下，采用变化统计模型参数得到的大量中子俘获率。将中子俘获率传播到不同天体物理场所的r过程计算中，使我们能够将丰度特征与核不确定性联系起来。方法：我们使用不同的核能级密度（NLD）和伽马射线强度函数（GSF）方案计算中子俘获反应率，并研究其对r过程计算的影响，包括单条轨迹、中子星并合的质量积分抛射物，以及电子分数和熵范围广泛的10,000条参数化轨迹。结果：最终丰度对NLD比对GSF更敏感。所选NLD在镧系元素与第三峰之间产生显著的丰度变化。尽管在质量积分总抛射物中变化有所减小，但A=172-178处的子峰以及A=180-194处的系统性丰度变化仍然存在。参数化轨迹表明，NLD敏感性在冷r过程区域更大，此时光致解离已失效而中子俘获仍在继续。在中等电子分数处还发现了NLD敏感性较大的额外条件，此时物质流的小变化可导致最终丰度的显著差异。结论：不同NLD方案之间中子俘获率的系统性差异会影响最终r过程丰度。因此，需要改进这些区域NLD的实验约束和理论描述。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>统计模型不确定性（特别是核能级密度NLD和伽马射线强度函数GSF）对r过程中子俘获率及最终丰度的影响有多大，以及这些不确定性如何传播到不同天体物理场所的r过程计算中。</p>
+    <h4>方法</h4><p>在Hauser-Feshbach框架下，采用不同的NLD和GSF方案计算中子俘获反应率，并将其应用于单条轨迹、中子星并合的质量积分抛射物以及10,000条电子分数和熵范围广泛的参数化轨迹的r过程计算。</p>
+    <h4>主要发现</h4><p>最终丰度对NLD的敏感性高于对GSF的敏感性；所选NLD在镧系元素与第三峰之间产生显著丰度变化；在质量积分总抛射物中变化虽减小，但A=172-178的子峰和A=180-194的系统性丰度变化仍存在；参数化轨迹显示NLD敏感性在冷r过程区域更大，并在中等电子分数处存在NLD敏感性较大的额外条件。</p>
+    <h4>局限与展望</h4><p>原文指出需要改进相关区域NLD的实验约束和理论描述；可合理推断，未来需结合更精确的NLD实验数据与理论模型以降低r过程丰度预测的不确定性，但具体改进路径与定量影响尚需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.23442v1">
+  <div class="paper-head">
+    <h2>随机流体力学的正则化与不可压缩流体剪切粘度的非微扰重整化<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.23442v1" rel="noopener noreferrer">2610.23442v1</a>
+  </div>
+  <p class="original-title">Regularization of stochastic fluid dynamics and non-perturbative renormalization of the shear viscosity of incompressible fluids</p>
+  <p class="meta"><strong>作者：</strong>Mattis Harhoff、Cedric Riedel、Johannes Roth、Sören Schlichting</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">nucl-th</span> <span class="tag">physics.flu-dyn</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种保持所有相关对称性的随机流体力学正则化方案。以不可压缩流体为对象，我们显式证明该正则化理论在紫外有限，因而存在连续极限。值得注意的是，该随机流体力学正则化理论不仅适用于格点离散理论的直接数值模拟，也适用于连续统中的泛函方法。我们利用这一点，在二维和三维空间中对不可压缩流体剪切粘度的重整化进行了重整化群改进的微扰计算，并将结果与格点离散理论的直接数值模拟进行了比较。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构造保持相关对称性且紫外有限的随机流体力学正则化理论，并据此研究不可压缩流体剪切粘度的重整化。</p>
+    <h4>方法</h4><p>提出保持对称性的随机流体力学正则化方案；对不可压缩流体显式论证紫外有限性与连续极限的存在性；结合连续统泛函方法与格点离散理论的直接数值模拟，进行重整化群改进的微扰计算。</p>
+    <h4>主要发现</h4><p>所提出的正则化理论保持所有相关对称性，并在不可压缩流体情形下被显式证明为紫外有限、存在连续极限；该理论既可用于格点离散理论的直接数值模拟，也可用于连续统泛函方法；据此在二维和三维中完成了不可压缩流体剪切粘度重整化的重整化群改进微扰计算，并与格点直接数值模拟结果进行了比较。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；可合理推断，该正则化框架为随机流体力学中连续统泛函方法与格点数值模拟之间的系统比较提供了途径，其向可压缩流体或其他对称性类别的推广有待进一步研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-19 10:54 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
