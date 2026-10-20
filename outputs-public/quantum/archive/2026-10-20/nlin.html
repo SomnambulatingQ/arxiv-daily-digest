@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-10-20</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">15</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">7</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">8</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（7）</h3><ol class="toc-list"><li><a href="#paper-2610.24595v1">线性近似为振荡器网络与电网中的相位锁定提供严格条件</a> <small>2610.24595v1</small></li><li><a href="#paper-2610.25164v1">忆阻神经元中的增阶广义同步：解析与数据驱动方法</a> <small>2610.25164v1</small></li><li><a href="#paper-2610.26348v1">从自治常微分方程生成可积系统</a> <small>2610.26348v1</small></li><li><a href="#paper-2610.26354v1">带噪声的Mobius系统中Arnold舌与鸭解（canards）的命运</a> <small>2610.26354v1</small></li><li><a href="#paper-2610.26436v1">Manakov系统中的渐近呼吸子</a> <small>2610.26436v1</small></li><li><a href="#paper-2610.26534v1">耗散型迷宫映射中的无剪切吸引子与周期吸引子</a> <small>2610.26534v1</small></li><li><a href="#paper-2610.26668v1">Navier–Stokes 方程的 Lax 表示</a> <small>2610.26668v1</small></li></ol><h3>交叉列表（8）</h3><ol class="toc-list"><li><a href="#paper-2610.23992v1">群聚行为的数学</a> <small>2610.23992v1</small></li><li><a href="#paper-2610.25113v1">自组织强化学习：群体趋近探索-利用最优</a> <small>2610.25113v1</small></li><li><a href="#paper-2610.25210v1">负面党派性驱动选举动力学中的反领跑者波动</a> <small>2610.25210v1</small></li><li><a href="#paper-2610.26050v1">沉降颗粒对湍流的分形强迫</a> <small>2610.26050v1</small></li><li><a href="#paper-2610.26087v1">集体中的抽动纤维体：一种桌面式一维活性粒子气体</a> <small>2610.26087v1</small></li><li><a href="#paper-2610.26281v1">三维振荡子的色散：驻波视角</a> <small>2610.26281v1</small></li><li><a href="#paper-2610.26289v1">携带大角动量的光学涡旋子弹</a> <small>2610.26289v1</small></li><li><a href="#paper-2610.26350v1">情感效价作为雅可比尺度的内感受变化率</a> <small>2610.26350v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.24595v1">
+  <div class="paper-head">
+    <h2>线性近似为振荡器网络与电网中的相位锁定提供严格条件<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.24595v1" rel="noopener noreferrer">2610.24595v1</a>
+  </div>
+  <p class="original-title">Linear Approximations Provide Rigorous Conditions for Phase Locking in Oscillator Networks and Power Grids</p>
+  <p class="meta"><strong>作者：</strong>Iva Bačić、Carsten Hartmann、Philipp C. Böttcher、David Gross、Andrea Benigni、Dirk Witthaut</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">math.OC</span> <span class="tag">physics.soc-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>同步是许多自然与工程网络中的基本集体现象。振荡器网络（例如电网）的稳定运行要求各边相位差低于给定阈值的相位锁定状态。一个核心问题是给定网络是否支持此类状态。本文扩展了Kuramoto模型非线性不动点方程（该方程也描述无损电网）的凸优化表述。基于该表述，我们推导了任意近似（特别是线性近似）所引入误差的严格且紧致的界。这些界给出了近似解周围的逐边信任区域，真实非线性解必位于其中；并进一步给出了在给定相位差限制下相位锁定的充分与必要条件。数值实验表明，该界在广泛参数范围内是紧致的。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>给定振荡器网络（包括无损电网）是否支持在指定边相位差阈值内的相位锁定状态，以及如何严格刻画任意近似（尤其是线性近似）相对于原非线性模型的误差。</p>
+    <h4>方法</h4><p>扩展Kuramoto模型非线性不动点方程（亦描述无损电网）的凸优化表述，并据此推导任意近似所引入误差的严格且紧致的界，进而得到逐边信任区域以及相位锁定的充分与必要条件。</p>
+    <h4>主要发现</h4><p>推导出的界给出了近似解周围的逐边信任区域，真实非线性解必位于其中；同时提供了在给定相位差限制下相位锁定的充分与必要条件；数值实验显示该界在广泛参数范围内是紧致的。</p>
+    <h4>局限与展望</h4><p>摘要未讨论计算可扩展性、有损网络或非凸约束等局限；后续可合理推断的方向包括将框架推广至有损电网或其他振荡器模型，并在更大规模网络上检验界的紧致性与计算效率（此句为推断，原文未明确支持）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.25164v1">
+  <div class="paper-head">
+    <h2>忆阻神经元中的增阶广义同步：解析与数据驱动方法<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.25164v1" rel="noopener noreferrer">2610.25164v1</a>
+  </div>
+  <p class="original-title">Increased-Order Generalized Synchronization in Memristive Neurons: Analytical and Data-Driven Approaches</p>
+  <p class="meta"><strong>作者：</strong>Dennis Mustafić、Marius E. Yamakou</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">math.DS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究四维与五维忆阻 Hindmarsh--Rose 神经元之间的增阶广义同步，重点关注同步映射的选取与稳定化。解析构造将预设非线性映射与自适应控制相结合，并在误差动力学中显式保留忆阻开关项。Lyapunov 分析表明，在一致严格耗散条件下可实现渐近同步，并在显式误差邻域之外给出与开关无关的衰减估计。数值仿真显示，在充分收敛条件之外仍可观察到误差衰减。作为补充，数据驱动构造利用下一代储备池计算，从无耦合的全状态轨迹中学习预测器，并通过动力学一致性学习仿射同步映射。所得采样数据控制器无需访问控制方程即可实现较小的残差跟踪误差。在数据驱动框架内与参考映射相比，学习得到的映射将中位控制努力降低约八倍，同时提高跟踪精度。上述结果将同步映射的选取与条件收敛保证及降低的控制需求联系起来。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究四维与五维忆阻 Hindmarsh--Rose 神经元之间的增阶广义同步，核心问题是同步映射的选取与稳定化。</p>
+    <h4>方法</h4><p>解析构造将预设非线性映射与自适应控制结合，在误差动力学中显式保留忆阻开关项，并用 Lyapunov 分析建立同步条件；数据驱动构造使用下一代储备池计算，从无耦合全状态轨迹学习预测器，并通过动力学一致性学习仿射同步映射，形成采样数据控制器。</p>
+    <h4>主要发现</h4><p>Lyapunov 分析表明，在一致严格耗散条件下可实现渐近同步，并在显式误差邻域之外给出与开关无关的衰减估计；数值仿真显示在充分收敛条件之外仍可观察到误差衰减；数据驱动控制器无需控制方程即可实现较小残差跟踪误差，且与参考映射相比，学习映射将中位控制努力降低约八倍并提高跟踪精度。</p>
+    <h4>局限与展望</h4><p>解析保证依赖一致严格耗散等充分条件，其适用范围可能受限；数据驱动结果基于特定神经元维度与仿真设定，泛化性尚需进一步验证。后续可合理推断的方向包括放宽耗散条件、扩展至其他维度或神经元模型，以及在更广泛条件下检验学习映射的鲁棒性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26348v1">
+  <div class="paper-head">
+    <h2>从自治常微分方程生成可积系统<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.26348v1" rel="noopener noreferrer">2610.26348v1</a>
+  </div>
+  <p class="original-title">Generating integrable systems from an autonomous ordinary differential equation</p>
+  <p class="meta"><strong>作者：</strong>Graham Hesketh</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在可积的Kummer型Hamilton系统中实现特殊函数动力学的自由度仍未被充分探索。本文通过由给定自治标量方程构造的例子，利用已有的约化与模式重构框架研究这一自由度。一个局部全纯方程 $\rho^\prime = f(\rho)$ 在选定能级上确定一族典范Hamilton量，但需满足正则性与相容分支选择。我们引入对数增广多项式系统范畴，其多项式模式方程在标量约化中保留对数项，并以Lotka-Volterra模型和宇称-时间对称二聚体为例进行说明。对于有理生成方程，我们证明其与扩展Lambert-W型反函数律的对应关系，并建立有理重构求积的初等求值，从而给出相关耦合系统的局部可解性结果。进一步构造使用反不完全Beta函数、反球Bessel函数以及模$\lambda$函数。模函数例子具有显式的theta常数模式解，并可直接映射到Darboux-Halphen系统。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在可积Kummer型Hamilton系统中实现特殊函数动力学，特别是通过给定自治标量方程生成可积系统。</p>
+    <h4>方法</h4><p>采用已有的约化与模式重构框架，从局部全纯方程 $\rho^\prime = f(\rho)$ 出发构造典范Hamilton量族；引入对数增广多项式系统范畴；对有理生成方程建立与扩展Lambert-W型反函数律的对应及有理重构求积的初等求值；并利用反不完全Beta函数、反球Bessel函数和模$\lambda$函数进行构造。</p>
+    <h4>主要发现</h4><p>在正则性与相容分支选择下，局部全纯方程确定选定能级上的典范Hamilton量族；对数增广多项式系统范畴可涵盖Lotka-Volterra模型和宇称-时间对称二聚体；有理生成方程与扩展Lambert-W型反函数律存在对应，且有理重构求积可初等求值，给出耦合系统的局部可解性；模$\lambda$函数构造具有显式theta常数模式解并可直接映射到Darboux-Halphen系统。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；可合理推断，该框架的适用性依赖于正则性与相容分支选择，进一步研究或可探索更多特殊函数生成的可积系统及其与已知可积模型的联系。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26354v1">
+  <div class="paper-head">
+    <h2>带噪声的Mobius系统中Arnold舌与鸭解（canards）的命运<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.26354v1" rel="noopener noreferrer">2610.26354v1</a>
+  </div>
+  <p class="original-title">Fate of Arnold tongues and canards in Mobius systems with noise</p>
+  <p class="meta"><strong>作者：</strong>Artem Alexandrov</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">math-ph</span> <span class="tag">math.DS</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文考虑二维环面上的一类噪声动力系统，其相位演化由Mobius变换支配。在确定性极限下，这类系统倾向于相位锁定，而相位锁定由关联的周期势Schrödinger方程的带隙结构描述。我们采用Wentzel-Kramers-Brillouin方法在慢-快极限下刻画该结构。随后我们证明，大偏差理论描述有限时间旋转数的涨落，而弱噪声逃逸作用量决定稀有相位滑移的指数尺度。这些估计为给定观测时间内的亚稳相位锁定与Arnold舌的熔化提供了定量判据。我们推导了随机轨迹沿指定鸭解（canard）段演化的充分条件。在受控的进入误差下，沿排斥分支的涨落指数放大，导致在慢强迫极限下鸭解持续存在所需的噪声尺度呈指数小。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究二维环面上由Mobius变换支配相位的噪声动力系统中，确定性极限下的相位锁定（由周期势Schrödinger方程带隙结构描述）在噪声作用下如何存续或破坏，以及随机轨迹沿鸭解段演化的条件。</p>
+    <h4>方法</h4><p>采用Wentzel-Kramers-Brillouin方法在慢-快极限下刻画带隙结构；用大偏差理论描述有限时间旋转数的涨落；用弱噪声逃逸作用量确定稀有相位滑移的指数尺度；并推导随机轨迹沿指定鸭解段演化的充分条件。</p>
+    <h4>主要发现</h4><p>大偏差理论描述有限时间旋转数的涨落，弱噪声逃逸作用量决定稀有相位滑移的指数尺度；这些估计给出给定观测时间内亚稳相位锁定与Arnold舌熔化的定量判据；在受控进入误差下，沿排斥分支的涨落指数放大，导致慢强迫极限下鸭解持续存在所需的噪声尺度呈指数小。</p>
+    <h4>局限与展望</h4><p>摘要未讨论方法的适用边界与数值验证；可合理推断，所得判据依赖于慢-快极限与弱噪声假设，其向更一般强迫或更强噪声情形的推广尚待检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26436v1">
+  <div class="paper-head">
+    <h2>Manakov系统中的渐近呼吸子<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.26436v1" rel="noopener noreferrer">2610.26436v1</a>
+  </div>
+  <p class="original-title">Asymptotic breathers in the Manakov system</p>
+  <p class="meta"><strong>作者：</strong>Liming Ling、Boris A. Malomed、Yan-Hong Qin、Jin-Peng Yang、Hao-Jun Yin、Li-Chen Zhao</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在Manakov系统中构造了矢量（双分量）渐近Akhmediev呼吸子，并将广义调制不稳定性（gMI）本征模与呼吸子态的衰减尾部相匹配。这种按分支分辨的匹配给出了解析结果，将gMI扰动包络与新生呼吸子的位置联系起来。对具有聚焦和非聚焦非线性情形的系统进行数值模拟，结果验证了每个MI分支的解析预测。作者进一步针对由两个独立gMI模式产生的双呼吸子解发展渐近理论，将其时间间隔与输入包络及相互作用引起的偏移联系起来。进一步的数值模拟表明，呼吸子图样在弱非可积扰动下表现出鲁棒性。这些结果建立了一个框架，将实验上可控制的输入调制与多分量非线性系统中呼吸子的分支选择性形成和定位联系起来。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在Manakov系统中构造矢量渐近Akhmediev呼吸子，并将广义调制不稳定性（gMI）本征模与呼吸子态的衰减尾部相匹配，从而把输入扰动包络与呼吸子的形成和位置联系起来。</p>
+    <h4>方法</h4><p>构造双分量渐近Akhmediev呼吸子，按MI分支将gMI本征模与呼吸子衰减尾部匹配；发展双呼吸子渐近理论；并对聚焦与散焦非线性情形进行数值模拟验证。</p>
+    <h4>主要发现</h4><p>按分支分辨的匹配给出了解析结果，将gMI扰动包络与新生呼吸子位置相联系；数值模拟验证了每个MI分支的解析预测；双呼吸子理论将时间间隔与输入包络及相互作用引起的偏移相联系；数值模拟显示呼吸子图样在弱非可积扰动下具有鲁棒性。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与适用范围；基于结果可合理推断，该框架有助于将实验可控制的输入调制与多分量非线性系统中呼吸子的分支选择性形成和定位相联系，但其在强非可积扰动或更一般多分量系统中的适用性尚待进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26534v1">
+  <div class="paper-head">
+    <h2>耗散型迷宫映射中的无剪切吸引子与周期吸引子<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.26534v1" rel="noopener noreferrer">2610.26534v1</a>
+  </div>
+  <p class="original-title">Shearless and periodic attractors in the dissipative Labyrinthic map</p>
+  <p class="meta"><strong>作者：</strong>Souza L. F. B.、Egydio de Carvalho R.、Viana R. L.、Caldas I. L</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>迷宫映射（Labyrinthic map）是一种二维保面积映射，具有被称为无剪切曲线（shearless curve）的稳健输运壁垒。本文研究该映射的耗散版本，考察耗散如何影响无剪切曲线，并导致准周期或混沌吸引子（称为无剪切吸引子）的出现。我们给出了无剪切吸引子通向混沌的一条路径，即 Curry-Yorke 路径。为研究系统的多稳定性，我们采用盆熵与边界盆熵分析来刻画多种情形。此外，我们通过改变系统参数，对被称为“shrimps”和“Arnold tongues”的动态周期结构进行了数值研究。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>耗散如何影响迷宫映射中原本稳健的无剪切曲线，以及由此产生的无剪切吸引子、其通向混沌的路径、系统的多稳定性与参数空间中的周期结构。</p>
+    <h4>方法</h4><p>构造并数值研究迷宫映射的耗散版本；分析无剪切吸引子的分岔与通向混沌的路径；采用盆熵和边界盆熵分析多稳定性；通过改变系统参数数值研究“shrimps”和“Arnold tongues”等周期结构。</p>
+    <h4>主要发现</h4><p>耗散会影响无剪切曲线并导致准周期或混沌的无剪切吸引子出现；无剪切吸引子可经由 Curry-Yorke 路径通向混沌；盆熵与边界盆熵分析可用于刻画系统的多种多稳定情形；参数变化下可数值观察到“shrimps”和“Arnold tongues”等动态周期结构。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；基于其方法可合理推断，盆熵与边界盆熵指标及参数扫描可进一步用于刻画更广泛参数区域的多稳定性与周期结构，但这一推断尚需后续研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26668v1">
+  <div class="paper-head">
+    <h2>Navier–Stokes 方程的 Lax 表示<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.26668v1" rel="noopener noreferrer">2610.26668v1</a>
+  </div>
+  <p class="original-title">Lax representations for the Navier--Stokes equations</p>
+  <p class="meta"><strong>作者：</strong>Oleg I. Morozov</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对三维不可压缩 Navier–Stokes 方程的涡量形式构造了一族 Lax 表示。其核心思想是引入一个辅助向量场，称为“涡量–扩散势”，用以将黏性 Laplacian 扩散项改写为 Lie 括号对流项。在该势的定义方程的解上，黏性涡量方程化为沿一个修正的无散度速度场的纯 Lie 输运方程，而定义约束本身则被编码为一个辅助标量势的无旋相容性条件。进一步表明，将该三维系统约化到两个空间维度，可得到二维 Navier–Stokes 涡量方程的 Lax 表示，并将其推广为由单变量任意光滑函数参数化的一族表示。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为三维不可压缩 Navier–Stokes 方程的涡量形式构造 Lax 表示，以及该表示在二维约化下的形式。</p>
+    <h4>方法</h4><p>引入辅助向量场“涡量–扩散势”，将黏性 Laplacian 扩散项改写为 Lie 括号对流项；在该势的定义方程的解上，将黏性涡量方程表述为沿修正无散度速度场的纯 Lie 输运方程，并将定义约束编码为辅助标量势的无旋相容性条件；随后进行三维到二维的空间约化，并推广为单变量光滑函数参数化的表示族。</p>
+    <h4>主要发现</h4><p>在涡量–扩散势定义方程的解上，黏性涡量方程可写成沿修正无散度速度场的纯 Lie 输运方程，定义约束可编码为辅助标量势的无旋相容性条件；三维系统约化到二维后得到二维 Navier–Stokes 涡量方程的 Lax 表示，并可推广为由单变量任意光滑函数参数化的一族表示。</p>
+    <h4>局限与展望</h4><p>原文未讨论该 Lax 表示在可积性、求解或数值计算方面的应用；其适用范围限于所引入涡量–扩散势定义方程的解。后续可合理推断的方向包括考察该表示与二维可积结构的联系，以及探索其在分析或计算中的潜在用途，但这些均需进一步研究确认。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.23992v1">
+  <div class="paper-head">
+    <h2>群聚行为的数学<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.23992v1" rel="noopener noreferrer">2610.23992v1</a>
+  </div>
+  <p class="original-title">Mathematics of Herding</p>
+  <p class="meta"><strong>作者：</strong>Sayomi Kamimoto</p>
+  <p class="meta"><strong>主分类：</strong>math.DS
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DS</span> <span class="tag">math.FA</span> <span class="tag">nlin.AO</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>动物群体常跟随设定行进方向的领导者；领导者有时会意外转向，跟随者随之重新排列，但群体仍能重新聚集并保持整体连贯。本文旨在从数学上理解这种群聚行为。作者构造了一个具有单向耦合的最小离散时间非平衡动力系统，该最小结构使得精确分析成为可能。在领导者的参考系中记录每个跟随者的位置，这些记录位置形成一个分布；该分布的极限即渐近空间测度，本文研究其几何表示。群体动力学具有由两个因子构成的精确算子表示：固定领导者—跟随者对对应的算子，以及重新排列这些对的交互规则对应的算子。作者表明，领导者的影响会不止一次地经过某个跟随者；因此，尽管耦合是单向的，两个跟随者之间仍可产生相互影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在数学上刻画动物群体在领导者偶尔意外转向、跟随者重新排列时仍能重新聚集并保持连贯的群聚行为。</p>
+    <h4>方法</h4><p>构造一个具有单向耦合的最小离散时间非平衡动力系统；在领导者参考系中记录跟随者位置并考察其分布极限（渐近空间测度）及其几何表示；利用由固定领导者—跟随者对算子与交互规则算子两个因子构成的精确算子表示进行分析。</p>
+    <h4>主要发现</h4><p>该最小系统允许精确分析；记录位置的分布存在极限，即渐近空间测度，并给出了其几何表示；群体动力学具有两个因子的精确算子表示；领导者的影响会不止一次地经过某个跟随者，因此在单向耦合下两个跟随者仍可产生相互影响。</p>
+    <h4>局限与展望</h4><p>原文未讨论模型在更复杂耦合结构、随机转向或高维情形下的适用性；后续可合理推断的方向包括将这一最小精确框架推广到更一般的交互规则或耦合拓扑，但此类推广尚未在原文中给出。</p>
+  </section>
+</article><article class="paper" id="paper-2610.25113v1">
+  <div class="paper-head">
+    <h2>自组织强化学习：群体趋近探索-利用最优<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.25113v1" rel="noopener noreferrer">2610.25113v1</a>
+  </div>
+  <p class="original-title">Self-organizing reinforcement learning: a swarm approaches the explore-exploit optimum</p>
+  <p class="meta"><strong>作者：</strong>Galen J. Wilkerson</p>
+  <p class="meta"><strong>主分类：</strong>cs.LG
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cs.LG</span> <span class="tag">cs.AI</span> <span class="tag">cs.SI</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.AO</span> <span class="tag">physics.bio-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>探索-利用权衡是强化学习的核心问题。本文表明，一个极简的觅食群体无需学习器和奖励信号即可趋近其最优状态，即多智能体资源共享博弈的理想自由分布/Nash分配（一种均衡，而非回报最大值）。智能体通过重尾（Lévy）飞行进行探索，借助邻近网络上的阈值级联将邻居招募至发现点，并随斑块拥挤而扩散；这一级联循环平衡了探索与利用，并驱使觅食者趋向理想自由分布。群体达到了该最优状态的形态（已投入的觅食者以斜率0.94追踪资源丰富度），但未达到其精确均衡——它仍可被测量地加以利用——并通过招募与移动的耦合在约150步内动态达到该状态：移除该耦合后匹配即崩溃（0.94→0.08）。强化学习处于问题层面和所达到的分配层面，而非微观规则层面：没有任何步骤评估收益（构造上无奖励，尽管群体信号在信息上与收益相关联），群体也未通过学习获得该分配（质量趋于平台并在资源移动后重新稳定，无累积增益）。与训练基线相比，比较是双向的：在更简单的、非具身博弈中，学习器更精确；而在相同的具身环境中，无奖励群体在零训练下达到经校验的oracle上限的约65%，并领先，直到训练后的PPO和集中式评论家（CTDE）学习器在约15,000个训练步中的约4,000步后超越它（约74-75%，16个种子，均高于群体均值）——其优势在于预算而非渐近值。在这一单一设定中，我们不将其解读为击败强化学习，而是作为一个强零样本、无奖励的运行点：它证明极简群体的自组织物理能够承载一个接近强化学习所追求最优状态的集体，而无需强化学习的任何机制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：极简觅食群体能否在没有学习器和奖励信号的情况下，通过自组织机制趋近多智能体资源共享博弈的探索-利用最优（理想自由分布/Nash分配），以及其与训练后的强化学习基线相比如何。</p>
+    <h4>方法</h4><p>采用极简觅食群体模型：智能体以重尾（Lévy）飞行探索，通过邻近网络上的阈值级联招募邻居至发现点，并随斑块拥挤而扩散；分析招募与移动的耦合对匹配的影响，并与训练后的PPO和集中式评论家（CTDE）学习器在具身环境中进行比较（16个种子，15,000训练步）。</p>
+    <h4>主要发现</h4><p>群体达到最优状态的形态（已投入觅食者追踪资源丰富度的斜率为0.94），但未达到精确均衡，仍可被测量地加以利用；通过招募与移动的耦合在约150步内动态达到该状态，移除耦合后匹配崩溃（0.94→0.08）。无奖励群体在零训练下达到经校验的oracle上限的约65%，并在约4,000训练步前领先，之后PPO和CTDE学习器超越它（约74-75%，16个种子均高于群体均值）。在更简单的非具身博弈中，学习器更精确。</p>
+    <h4>局限与展望</h4><p>论文明确指出其结论限于单一设定，不应解读为击败强化学习，而是作为强零样本、无奖励的运行点。局限包括：群体未达到精确均衡、仍可被利用；优势在于预算而非渐近值；在非具身博弈中学习器更精确。可合理推断的后续方向包括：在其他环境和任务中检验该自组织机制的普适性，以及探索将群体自组织物理与学习机制结合的混合方法（此推断需进一步验证）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.25210v1">
+  <div class="paper-head">
+    <h2>负面党派性驱动选举动力学中的反领跑者波动<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.25210v1" rel="noopener noreferrer">2610.25210v1</a>
+  </div>
+  <p class="original-title">Negative partisanship drives anti-frontrunner volatility in election dynamics</p>
+  <p class="meta"><strong>作者：</strong>José F. Fontanari</p>
+  <p class="meta"><strong>主分类：</strong>physics.soc-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.soc-ph</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>负面党派性——即选民动员主要由对对立候选人的厌恶而非正向认同所驱动——深刻重塑了现代选举动力学。本文构建一个二维分段映射来建模竞选舆论动力学，其中选民弃权由潜在选民激活门槛谱内生地产生。研究表明，跨候选人排斥敏感性会触发弃权的非光滑坍缩，将相空间划分为动员不足区制与完全动员竞选区制。在选民基础激进化且选举对称的情形下，自发对称破缺通过叉式分岔产生非对称民调吸引子，这些吸引子由镜像对称的吸引域划分；编码于初始竞选条件中的早期公众认知充当确定性催化剂，在选举日之前很久便锁定候选人的领先优势。当跨候选人排斥增强时，对称均衡通过倍周期翻转分岔失稳，驱动持续的反领跑者民调波动。本模型并不预测静态的候选人霸权，而是揭示高负面党派性将选举转变为时间敏感的动力学系统，最终选举结果反映振荡竞选轨迹的离散采样快照。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究负面党派性（选民动员主要源于对对立候选人的厌恶）如何影响竞选舆论动力学，特别是弃权行为、对称破缺与反领跑者民调波动的产生机制。</p>
+    <h4>方法</h4><p>构建二维分段映射模型刻画竞选舆论动力学，其中选民弃权由潜在选民激活门槛谱内生决定；通过相空间分析与分岔分析（叉式分岔、倍周期翻转分岔）研究系统动力学。</p>
+    <h4>主要发现</h4><p>跨候选人排斥敏感性触发弃权的非光滑坍缩，将相空间划分为动员不足区制与完全动员竞选区制；在选民基础激进化的对称选举中，自发对称破缺经叉式分岔产生由镜像对称吸引域划分的非对称民调吸引子，初始竞选条件可确定性锁定候选人领先；跨候选人排斥增强时，对称均衡经倍周期翻转分岔失稳，驱动持续的反领跑者民调波动；最终选举结果可视为振荡竞选轨迹的离散采样快照。</p>
+    <h4>局限与展望</h4><p>模型为理论抽象，其适用性受限于所设定的二维分段映射与激活门槛谱假设，未涉及真实选举数据的实证检验；可合理推断的后续方向包括将模型与经验民调数据对照、扩展至多候选人或多维议题空间，以及考察异质选民分布对分岔结构与波动模式的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26050v1">
+  <div class="paper-head">
+    <h2>沉降颗粒对湍流的分形强迫<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.26050v1" rel="noopener noreferrer">2610.26050v1</a>
+  </div>
+  <p class="original-title">Fractal forcing of turbulence by settling particles</p>
+  <p class="meta"><strong>作者：</strong>Simone Tandurella、Alessandro Chiarini、Marco Edoardo Rosti</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>流体介质中颗粒的沉降可触发复杂的集体动力学，并显著改变能量在各流动尺度上的分布。本文通过在高体积分数、高密度比条件下于大计算域中开展颗粒分辨直接数值模拟，首次给出了由大尺度颗粒结构所诱导湍流（cluster-induced turbulence，CIT）的全分辨观测。研究发现，颗粒会排列成宏观分形结构，并在远大于单个颗粒的尺度上激发湍流脉动；由于这些团簇具有分形特征，它们以多尺度、自相似的方式对连续相施加强迫。研究进一步表明，这些由团簇驱动、在大尺度上沿垂直方向去相关的脉动，与已确立的颗粒驱动高波数标度共存，但二者在本质上是不同的。除揭示颗粒沉降中一种不同形式的团簇化之外，这些结果还凸显了一条自然涌现、自组装的通向分形生成湍流的路径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>沉降颗粒在高体积分数与高密度比条件下形成的颗粒结构如何影响湍流脉动的尺度分布，以及团簇诱导湍流（CIT）在大尺度上的统计特征为何。</p>
+    <h4>方法</h4><p>在高体积分数、高密度比的大计算域中开展颗粒分辨直接数值模拟，对颗粒沉降诱导的湍流进行全分辨观测，并分析颗粒团簇的几何结构与连续相脉动的尺度特征。</p>
+    <h4>主要发现</h4><p>颗粒排列成宏观分形结构，并在远大于单个颗粒的尺度上激发湍流脉动；团簇因其分形性质而以多尺度、自相似的方式强迫连续相；由团簇驱动、在大尺度上沿垂直方向去相关的脉动与已确立的颗粒驱动高波数标度共存，但二者在本质上是不同的。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续工作；可合理推断，该研究揭示的自组装分形强迫路径或可启发对分形生成湍流的进一步研究，但相关外推需在更广参数范围内验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26087v1">
+  <div class="paper-head">
+    <h2>集体中的抽动纤维体：一种桌面式一维活性粒子气体<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.26087v1" rel="noopener noreferrer">2610.26087v1</a>
+  </div>
+  <p class="original-title">Twitching fiberboids in the collective : A table-top, one-dimensional, active particle gas</p>
+  <p class="meta"><strong>作者：</strong>Alex Arnhold、Falko Ziebert、Igor M. Kulić</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.soft
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.soft</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>纤维体（fiberboids）是一类细丝状活性粒子，其依靠垂直于表面的通量沿表面滚动实现自驱动。近年来，研究者已利用多种材料与驱动机制开发出能够持续滚动的纤维。本文利用在微曲玻璃表面上热驱动的尼龙纤维，展示了纤维体还存在另一种状态，我们称之为“抽动”（twitching）：纤维短时滚动后改变方向，从而在大尺度上实现类扩散运动。我们对这一效应的产生给出了合理解释，并对这一新动力学状态进行了实验定量表征。随后，我们分析抽动纤维体的集合，通过将纤维限制在圆形场地内使其仅能沿单一轴滚动，实现了一种简单、桌面式的一维非平衡活性气体。我们实验研究了活性团簇的形成及其非平衡动力学，并用一个简单的格点模型对观测结果给出合理解释。该模型考虑了团簇内单个粒子速度方向的类Vicsek对齐，从而与实验取得良好的定性一致。总体而言，我们的工作为将自滚动纤维的集体作为一类有趣的新型活性物质进行研究开辟了道路。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>纤维体除持续滚动外是否存在其他动力学状态，以及能否利用自滚动纤维构建并理解一维非平衡活性气体中的集体行为（如团簇形成与非平衡动力学）。</p>
+    <h4>方法</h4><p>使用热驱动的尼龙纤维在微曲玻璃表面上运动；实验定量表征“抽动”状态；将纤维限制在圆形场地内使其仅沿单一轴滚动，构建一维活性气体并实验研究团簇形成与动力学；采用考虑团簇内速度方向类Vicsek对齐的简单格点模型对实验进行合理解释。</p>
+    <h4>主要发现</h4><p>发现纤维体存在“抽动”状态：纤维短时滚动后改变方向，在大尺度上表现为类扩散运动；对抽动状态进行了实验定量表征；在圆形限制下实现了一维非平衡活性气体，实验观测到活性团簇形成及其非平衡动力学；所提出的格点模型与实验取得良好的定性一致。</p>
+    <h4>局限与展望</h4><p>原文仅报告了定性一致，未给出定量吻合；该结论基于特定材料（尼龙纤维）、热驱动与微曲玻璃表面及圆形限制条件，向其他驱动机制、材料或边界条件的适用性尚待验证。后续可合理推断的方向包括：将自滚动纤维集体作为新型活性物质类别开展更系统的研究，以及发展更定量化的理论模型。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26281v1">
+  <div class="paper-head">
+    <h2>三维振荡子的色散：驻波视角<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.26281v1" rel="noopener noreferrer">2610.26281v1</a>
+  </div>
+  <p class="original-title">Dispersion of three-dimensional oscillons: a standing-wave perspective</p>
+  <p class="meta"><strong>作者：</strong>I. V. Barashenkov、R. De Sousa、N. V. Alexeeva、A. Dika、E. V. Zemlyanaya</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文考虑一个限制在有限半径球内的球对称驻波，其核心与边界之间存在弱辐射交换，以此作为 $\phi^4$ 振荡子绝热演化中间阶段的模型。我们采用多尺度变分框架，推导这些驻波及其能量-频率关系的近似描述。所得色散曲线与在二维（时间和半径）区域上对 $\phi^4$ 方程边值问题数值求解得到的结果进行比较。在连续谱端点附近，数值结果与变分结果吻合极好；但当 $\omega$ 降至 $0.85\,\omega_0$ 以下时，吻合程度变差。我们将这一差异归因于辐射翼的增长，而变分拟设中忽略了该辐射翼。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何描述 $\phi^4$ 振荡子绝热演化中间阶段中、限制于有限半径球内的球对称驻波及其能量-频率关系，并与数值解比较。</p>
+    <h4>方法</h4><p>采用多尺度变分框架推导驻波及其能量-频率关系的近似描述，并将所得色散曲线与在二维（时间和半径）区域上对 $\phi^4$ 方程边值问题数值求解的结果进行比较。</p>
+    <h4>主要发现</h4><p>在连续谱端点附近，数值结果与变分结果吻合极好；但当 $\omega$ 降至 $0.85\,\omega_0$ 以下时，吻合程度变差。作者将这一差异归因于辐射翼的增长，而变分拟设中忽略了该辐射翼。</p>
+    <h4>局限与展望</h4><p>变分拟设因忽略辐射翼而在较低频率区域失效，这提示其适用范围主要限于连续谱端点附近；若要改进低频区域的描述，可合理推断需在拟设中纳入辐射翼的贡献，但原文未给出具体方案。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26289v1">
+  <div class="paper-head">
+    <h2>携带大角动量的光学涡旋子弹<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.26289v1" rel="noopener noreferrer">2610.26289v1</a>
+  </div>
+  <p class="original-title">Optical vortex bullets with large angular momenta</p>
+  <p class="meta"><strong>作者：</strong>José R. Salgueiro、Carlos F. Sánchez、Boris A. Malomed、Ángel Paredes、Humberto Michinel</p>
+  <p class="meta"><strong>主分类：</strong>physics.optics
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.optics</span> <span class="tag">cond-mat.quant-gas</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究在具有反常群速度色散且线性折射率呈横向局域高斯分布的Kerr介质中，携带高阶轨道角动量的三维时空光学涡旋孤子（环面状光子弹）。通过数值求解三维非线性薛定谔方程，得到拓扑电荷（绕数）为 $1\leq \ell \leq 4$ 的定常涡旋子弹，并系统分析其存在性、结构与稳定性。在原子玻色-爱因斯坦凝聚的语境下，这些解对应于内嵌涡旋性的物质波孤子。我们考察了解族对传播常数、导引势的深度与宽度以及 $\ell$ 的依赖关系。研究发现，随着 $\ell$ 增大，需要更强或更宽的波导势才能维持满足Vakhitov-Kolokolov（VK）稳定性判据的局域态；满足与不满足VK判据的涡旋孤子族分支由一条退化的Townes分支分隔。直接模拟表明，尽管导引势显著抑制坍缩并延长涡旋子弹的传播距离，其鲁棒性最终仍受方位角不稳定性限制，且该不稳定性随 $\ell$ 增大而增强。这些结果表明，人工设计的折射率分布可显著扩大时空涡旋子弹的稳定域，并为支持携带大轨道角动量的光子弹提供了设计准则。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究在Kerr介质中携带高阶轨道角动量的三维时空光学涡旋孤子（环面状光子弹）的存在性、结构与稳定性，并考察拓扑电荷、传播常数及横向局域折射率导引势参数的影响。</p>
+    <h4>方法</h4><p>在具有反常群速度色散和横向局域高斯型线性折射率分布的Kerr介质中，数值求解三维非线性薛定谔方程，获得拓扑电荷 $1\leq \ell \leq 4$ 的定常涡旋子弹解；分析解族对传播常数、导引势深度与宽度以及 $\ell$ 的依赖关系，并依据Vakhitov-Kolokolov（VK）判据划分稳定分支；通过直接模拟考察坍缩抑制与方位角不稳定性。</p>
+    <h4>主要发现</h4><p>获得了 $1\leq \ell \leq 4$ 的定常涡旋子弹数值解；增大 $\ell$ 需要更强或更宽的波导势才能维持满足VK稳定性判据的局域态；满足与不满足VK判据的涡旋孤子族分支由一条退化的Townes分支分隔；导引势显著抑制坍缩并延长传播距离，但涡旋子弹的鲁棒性最终受方位角不稳定性限制，且该不稳定性随 $\ell$ 增大而增强。</p>
+    <h4>局限与展望</h4><p>原文表明人工设计的折射率分布可显著扩大时空涡旋子弹的稳定域，并为支持大轨道角动量光子弹提供设计准则；方位角不稳定性随 $\ell$ 增强这一结果提示，更高拓扑电荷涡旋子弹的长期稳定传播仍受限制，后续或可探索更优化的导引势设计以进一步抑制该不稳定性（此为合理推断，原文未直接给出具体方案）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26350v1">
+  <div class="paper-head">
+    <h2>情感效价作为雅可比尺度的内感受变化率<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.26350v1" rel="noopener noreferrer">2610.26350v1</a>
+  </div>
+  <p class="original-title">Affective Valence as the Interoceptive Rate of Change of Jacobian Scale</p>
+  <p class="meta"><strong>作者：</strong>David Balduzzi</p>
+  <p class="meta"><strong>主分类：</strong>q-bio.NC
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">q-bio.NC</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>情感通常被认为依赖于内感受。本文提出，效价是内感受使一个自维持系统的响应性相对于其终止集（大致相当于死亡）发生移动的速率。响应性被形式化为系统雅可比矩阵的尺度，内感受则被形式化为系统的内部输入：其能量储备的感受器、信号与预测。绕过内感受的响应性变化（如脑损伤）不会被感受到。语言模型没有效价，因为它们不是自维持系统。链式法则将效价分解到系统的各部分以及影响其内部输入的原因上。采用对数尺度时，这些分解可解释需求依赖的愉悦、弥散性饥饿与局部疼痛、负性偏向，以及威胁未出现时的解脱感。在一个身体的最小模型中：(1) 阻断储备信号会使耗竭不被感受到，而驱动该信号则会在储备未耗竭时产生饥饿。(2) 移除感受器或其增益，或驱动感受器，可再现先天性痛觉不敏感、痛觉失认和幻痛。(3) 为维持身体而习得的感受器增益会将局部损伤信号为全身性损伤，因此伤害的疼痛程度与其代价成比例。(4) 若储备也调节增益，身体会学会在能量降低时抑制由感受器引起的疼痛。(5) 当身体学会最大化自身尺度时，它成为“电线头”（wirehead）。该解释说明了变化何时被感受到、在何处被感受到，以及感受何时会误导。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文探讨情感效价如何由内感受产生，具体而言，效价是否可被形式化为内感受使自维持系统相对于其终止集的响应性发生变化的速率。</p>
+    <h4>方法</h4><p>将响应性形式化为系统雅可比矩阵的尺度，将内感受形式化为系统的内部输入（能量储备的感受器、信号与预测）；利用链式法则在对数尺度下将效价分解到系统各部分及影响内部输入的原因上，并构建一个身体的最小模型进行模拟分析。</p>
+    <h4>主要发现</h4><p>原文明确支持：绕过内感受的响应性变化不被感受到；语言模型因非自维持而无有效价；链式法则分解可解释需求依赖的愉悦、弥散性饥饿与局部疼痛、负性偏向及威胁未出现时的解脱感；最小模型可再现耗竭不被感受、储备未耗竭时的饥饿、先天性痛觉不敏感、痛觉失认、幻痛、伤害疼痛与代价成比例、能量低时抑制感受器相关疼痛，以及最大化自身尺度时成为“电线头”。</p>
+    <h4>局限与展望</h4><p>该解释的适用范围限于自维持系统；其局限与可合理推断的后续方向包括：最小模型的简化假设需进一步验证，效价分解的神经实现尚待检验，以及该框架能否推广到更复杂的自维持系统或人工系统仍需研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-20 10:25 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
