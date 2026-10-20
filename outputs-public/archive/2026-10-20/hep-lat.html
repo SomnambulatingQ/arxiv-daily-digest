@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-10-20</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">2</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（4）</h3><ol class="toc-list"><li><a href="#paper-2610.24091v1">基于环-弦-强子表述的(1+1)维SU(2)格点规范理论的囚禁离子量子模拟</a> <small>2610.24091v1</small></li><li><a href="#paper-2610.24632v1">格点上使用stout涂抹链接时N=1超对称杨-米尔斯理论超流算符重整化的一圈混合矩阵</a> <small>2610.24632v1</small></li><li><a href="#paper-2610.24785v1">格点QCD中横动量依赖分布的最新进展</a> <small>2610.24785v1</small></li><li><a href="#paper-2610.25494v1">有限密度QCD状态方程的展开方案：哪一种最优？</a> <small>2610.25494v1</small></li></ol><h3>交叉列表（2）</h3><ol class="toc-list"><li><a href="#paper-2610.24175v1">电场通量作为弦断裂与Schwinger对产生的判据</a> <small>2610.24175v1</small></li><li><a href="#paper-2610.26838v1">场论引导蒙特卡罗方法研究一维长程Ising模型</a> <small>2610.26838v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.24091v1">
+  <div class="paper-head">
+    <h2>基于环-弦-强子表述的(1+1)维SU(2)格点规范理论的囚禁离子量子模拟<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.24091v1" rel="noopener noreferrer">2610.24091v1</a>
+  </div>
+  <p class="original-title">Trapped-ion quantum simulation of (1+1)D SU(2) lattice gauge theory via loop-string-hadron formulation</p>
+  <p class="meta"><strong>作者：</strong>Toshiaki Kaji、Jesse R. Stryker、Yutaro Iiyama、Lento Nagano、Enrico Rinaldi、Christian W. Bauer、Koji Terashi</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">nucl-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报道了在囚禁离子量子计算机 Quantinuum System Model H2 上对(1+1)维、含单味费米子的 SU(2) 格点规范理论进行的量子模拟。该工作基于规范理论的环-弦-强子（loop-string-hadron, LSH）表述，其特点在于同时用量子比特表示玻色型规范自由度与费米型物质自由度。此外，作者超越了 SU(2) 量子模拟中常用的 $j_{\max}=1/2$ 截断，进入了 $j=1$ 的电通量扇区；为此，他们使用多量子比特寄存器对电场自由度进行数字化，以表示相应的玻色量子数。因此，该模拟综合了与更高空间维度量子模拟相关的若干关键要素，特别是以多量子比特玻色寄存器显式表示的局域规范场自由度，同时仅依赖预期随格点规模多项式增长的线路构造优化。该工作表明，现代量子硬件正日益能够承载复杂但物理上重要的格点规范理论的各项特征，并成功复现预期的 Trotter 化动力学。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在现有量子硬件上模拟(1+1)维含单味费米子的 SU(2) 格点规范理论，并在 LSH 表述下同时表示玻色型规范场与费米型物质自由度，且超越常用的 $j_{\max}=1/2$ 截断进入 $j=1$ 电通量扇区。</p>
+    <h4>方法</h4><p>采用环-弦-强子（LSH）表述，将规范场与费米子自由度映射到量子比特；用多量子比特寄存器数字化电场自由度以表示玻色量子数；在囚禁离子量子计算机 Quantinuum System Model H2 上执行线路，并仅使用预期随格点规模多项式增长的线路构造优化。</p>
+    <h4>主要发现</h4><p>原文明确报告：在 Quantinuum System Model H2 上完成了该模型的量子模拟；所用方案同时用量子比特表示玻色型规范与费米型物质自由度；进入了 $j=1$ 电通量扇区而非仅限于 $j_{\max}=1/2$；并成功复现了预期的 Trotter 化动力学。</p>
+    <h4>局限与展望</h4><p>该工作针对的是(1+1)维模型，其结论向更高空间维度的推广尚待验证；文中将多量子比特玻色寄存器等要素视为与更高维模拟相关的关键成分，但并未给出高维结果。可合理推断的后续方向包括：将此类显式局域规范场表示与多项式规模的线路优化扩展到更高维格点，以及在现有硬件上进一步检验更大截断或更大格点下的 Trotter 误差与资源需求（此点为推断，非原文结论）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.24632v1">
+  <div class="paper-head">
+    <h2>格点上使用stout涂抹链接时N=1超对称杨-米尔斯理论超流算符重整化的一圈混合矩阵<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.24632v1" rel="noopener noreferrer">2610.24632v1</a>
+  </div>
+  <p class="original-title">One-loop mixing matrix of the N=1 SYM Supercurrent operator upon renormalization on the Lattice using stout-smeared Links</p>
+  <p class="meta"><strong>作者：</strong>Marios Costa、Elias Antoniou、Constantinos Costa、Salomi Dimou、Haralambos Panagopoulos</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在格点规范理论框架下，将关于N=1超对称杨-米尔斯（SYM）理论中超流算符重整化与混合模式的微扰研究推广至采用stout涂抹规范链接的情形。胶微子采用SLiNC作用量，胶子采用一族Symanzik改进规范作用量。在先前基于clover改进费米子和Wilson规范作用量的研究基础上，我们计算了超流算符在规范不变与规范可变算符之间的一圈混合矩阵，并特别关注stout涂抹参数存在时算符混合的结构。所得结果有助于改进在连续极限下恢复超对称性所需的精细调节策略，并为格点上超对称理论未来的微扰与非微扰研究提供基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在格点N=1超对称杨-米尔斯理论中，采用stout涂抹规范链接、SLiNC胶微子作用量与Symanzik改进胶子作用量时，超流算符在规范不变与规范可变算符之间的一圈混合矩阵及其在stout涂抹参数下的结构如何。</p>
+    <h4>方法</h4><p>格点微扰论计算：采用stout涂抹规范链接、SLiNC胶微子作用量与一族Symanzik改进胶子作用量，在先前clover改进费米子与Wilson规范作用量研究的基础上，计算超流算符的一圈混合矩阵。</p>
+    <h4>主要发现</h4><p>原文明确给出超流算符在规范不变与规范可变算符之间的一圈混合矩阵，并重点讨论了stout涂抹参数存在时算符混合的结构；结果被认为有助于改进连续极限下恢复超对称性所需的精细调节策略。</p>
+    <h4>局限与展望</h4><p>原文指出该工作为格点上超对称理论未来的微扰与非微扰研究提供基础；其局限与适用范围原文未明确展开，后续方向（如非微扰验证或更广泛参数扫描）属可合理推断，需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2610.24785v1">
+  <div class="paper-head">
+    <h2>格点QCD中横动量依赖分布的最新进展<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.24785v1" rel="noopener noreferrer">2610.24785v1</a>
+  </div>
+  <p class="original-title">Recent Advances in Transverse-Momentum--Dependent Distributions in Lattice QCD</p>
+  <p class="meta"><strong>作者：</strong>Huey-Wen Lin、Wei Wang、Yong Zhao</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>揭示强子的三维结构是现代核物理与粒子物理的核心目标之一。横动量依赖部分子分布（TMDs）为理解部分子横动量与自旋之间的相互作用提供了关键信息，对于描述JLab、COMPASS、LHC以及即将建成的电子离子对撞机等设施上的大量高能过程不可或缺。近年来，利用新方法从格点QCD获取TMDs取得了显著进展。基于Mellin矩之比的方法、大动量有效理论（LaMET）以及库仑规范技术，使得对Collins-Soper核、内禀软函数、TMD波函数和TMDPDF的第一性原理研究成为可能。近期针对非极化与自旋相关分布（包括Boer-Mulders函数）的格点结果，证明了直接从QCD提取横动量依赖信息的可行性。本文综述格点QCD研究TMDs的最新进展，概述连续极限与外推至无穷大动量等尚存挑战，并讨论朝向三维强子结构精确测定的未来方向。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从格点QCD第一性原理出发获取强子的横动量依赖部分子分布（TMDs），以及该方向近期取得了哪些进展。</p>
+    <h4>方法</h4><p>综述基于Mellin矩之比的方法、大动量有效理论（LaMET）以及库仑规范技术等格点QCD新方法，用于研究Collins-Soper核、内禀软函数、TMD波函数和TMDPDF。</p>
+    <h4>主要发现</h4><p>基于上述方法已实现对Collins-Soper核、内禀软函数、TMD波函数和TMDPDF的第一性原理研究；针对非极化与自旋相关分布（包括Boer-Mulders函数）的近期格点结果表明，直接从QCD提取横动量依赖信息是可行的。</p>
+    <h4>局限与展望</h4><p>原文明确指出仍存在连续极限与外推至无穷大动量等挑战；朝向三维强子结构精确测定的未来方向属于原文讨论范畴，具体技术路线与时间尺度需以原文后续论述为准。</p>
+  </section>
+</article><article class="paper" id="paper-2610.25494v1">
+  <div class="paper-head">
+    <h2>有限密度QCD状态方程的展开方案：哪一种最优？<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.25494v1" rel="noopener noreferrer">2610.25494v1</a>
+  </div>
+  <p class="original-title">Expansion schemes for finite density QCD equation of state: which one is the best?</p>
+  <p class="meta"><strong>作者：</strong>Szabolcs Borsányi、Zoltán Fodor、Jana N. Guenther、Piyush Kumar、Paolo Parotto、Attila Pásztor、Chik Him Wong</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>有限密度下QCD的状态方程是理解该理论相结构以及在实际模拟中对QCD介质进行建模的基础量。由于在有限密度下直接进行格点模拟极具挑战性，研究者提出了若干展开方案以向QCD相图外推。这些方案均基于守恒荷的磁化率，即压强对化学势的导数。本文旨在确定这些方案中哪一种具有最佳的收敛性质。为此，我们在 $16^3\times8$ 格点上采用极端统计量格点模拟，从而以显著小的误差获得直至八阶的磁化率。我们特别比较了两种方法，分别基于恒定（归一化）重子密度等值线和恒定熵密度等值线。我们发现后者收敛更快，实际上仅需直至四阶的磁化率即可覆盖至少到 $\mu_B \approx 500$ MeV 的化学势范围。我们还将比较扩展到化学势的三维空间，并发现基于熵的方法始终表现出更优的收敛性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在有限密度QCD状态方程的多种基于守恒荷磁化率的展开方案中，哪一种具有最佳的收敛性质。</p>
+    <h4>方法</h4><p>在 $16^3\times8$ 格点上进行极端统计量格点模拟，获得直至八阶、误差显著小的磁化率；比较基于恒定归一化重子密度等值线与基于恒定熵密度等值线的两种展开方法，并将比较扩展至化学势的三维空间。</p>
+    <h4>主要发现</h4><p>基于熵密度等值线的方法收敛更快，实际仅需直至四阶的磁化率即可覆盖至少到 $\mu_B \approx 500$ MeV 的化学势范围；在化学势三维空间中，基于熵的方法始终表现出更优的收敛性。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该结论在更低温度、更大化学势或不同格点参数下的适用性；后续工作可合理推断为在更广参数范围内检验熵基方法的收敛优势，或将其用于构建有限密度QCD状态方程。上述推断仅为可能方向，非原文结论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.24175v1">
+  <div class="paper-head">
+    <h2>电场通量作为弦断裂与Schwinger对产生的判据<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.24175v1" rel="noopener noreferrer">2610.24175v1</a>
+  </div>
+  <p class="original-title">Electric Flux as a Criterion for String Breaking and Schwinger Pair Production</p>
+  <p class="meta"><strong>作者：</strong>Sebastian Grieninger</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文以中点电场降至半个通量单元作为弦断裂的定义。在大质量Schwinger模型中，利用真空可观测量与介子质量作为输入，通过完整弦与屏蔽构型之间的能量平衡可预测该分离点。数值上观察到半通量点对应于两种构型的等权重，从而解释了所观测到的纠缠熵峰值作为二元通量的最大不确定性。同一二元不确定性也解释了真空转变处的纠缠峰。在断裂附近，屏蔽将弦内部与外部之间的部分空间纠缠组织为一个近乎最大纠缠的比特。在所选通量扇区内，这一近似编码的Bell对记录了通量是否被屏蔽，并几乎与其余关联分离。真空转变呈现相同结构。弦与θ真空在其转变点处展现出纠缠容量最小值的匹配结构，从而联系了二者的纠缠谱。纠缠不对称性与不相交子区域的Magic鲁棒性揭示了转变以相干方式重排自由度。最后，我们使用受限玻尔兹曼机拟设以高保真度构造了θ真空与弦波函数。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究如何定义和判定弦断裂与Schwinger对产生，并探讨其与纠缠结构及真空转变的联系。</p>
+    <h4>方法</h4><p>在大质量Schwinger模型中，以中点电场降至半个通量单元定义弦断裂；利用真空可观测量和介子质量进行完整弦与屏蔽构型的能量平衡分析；数值计算纠缠熵、纠缠不对称性、Magic鲁棒性，并使用受限玻尔兹曼机拟设构造θ真空与弦波函数。</p>
+    <h4>主要发现</h4><p>能量平衡预测的半通量点与数值观测到的两种构型等权重一致；该等权重解释了纠缠熵峰值作为二元通量最大不确定性；同一机制解释真空转变处的纠缠峰；断裂附近屏蔽将部分空间纠缠组织为近乎最大纠缠的比特，近似编码通量是否被屏蔽；弦与θ真空在转变点处纠缠容量最小值结构匹配；纠缠不对称性与Magic鲁棒性表明转变以相干方式重排自由度；受限玻尔兹曼机拟设可高保真构造θ真空与弦波函数。</p>
+    <h4>局限与展望</h4><p>论文的结论基于大质量Schwinger模型及所选通量扇区，向更高维规范理论或其他模型的推广有待进一步检验；将半通量判据与纠缠量联系起来的框架是否普遍适用尚需研究；受限玻尔兹曼机拟设的可扩展性与精度在更大系统上的表现可作后续探索。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26838v1">
+  <div class="paper-head">
+    <h2>场论引导蒙特卡罗方法研究一维长程Ising模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.26838v1" rel="noopener noreferrer">2610.26838v1</a>
+  </div>
+  <p class="original-title">Field theory guides Monte Carlo in the one-dimensional long-range Ising model</p>
+  <p class="meta"><strong>作者：</strong>António Antunes、José Matos</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>一维统计长程Ising（LRI）模型提供了一族最简单的不可精确求解的临界点。这些临界点由长程共形场论（CFT）描述，而后者可通过微扰展开及部分精确结果得到较好的解析理解。受此引导，本文重新审视针对相应格点模型的蒙特卡罗（MC）方法；与其他常用MC研究的系统相比，该模型具有诸多有利特性。特别地，以很小的计算代价，我们能够估计主导与次主导算符的标度维数及相应的三点函数，甚至某些四点函数。这些结果有助于凸显一维LRI CFT是更一般地检验强耦合CFT非微扰方法与思想的极佳平台。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用对一维长程Ising模型临界点已有解析理解的长程共形场论，来指导相应格点模型的蒙特卡罗研究，并检验强耦合CFT的非微扰方法。</p>
+    <h4>方法</h4><p>以长程CFT的微扰展开和部分精确结果为引导，对一维长程Ising格点模型重新开展蒙特卡罗模拟，并从中提取算符标度维数与关联函数。</p>
+    <h4>主要发现</h4><p>以很小的计算代价，能够估计主导与次主导算符的标度维数及相应的三点函数，甚至某些四点函数；一维LRI CFT可作为检验强耦合CFT非微扰方法与思想的平台。</p>
+    <h4>局限与展望</h4><p>原文未系统讨论该方法的局限与适用范围；可合理推断，该框架有望推广至其他长程临界系统或用于检验更多非微扰CFT方法，但此点需进一步研究确认。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-20 10:11 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

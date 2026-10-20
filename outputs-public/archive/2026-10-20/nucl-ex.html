@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-10-20</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2610.25915v1">对¹⁹⁷Au亚稳态核衰变中形状与自旋阻碍的独特观测</a> <small>2610.25915v1</small></li><li><a href="#paper-2610.25989v1">RHIC-STAR 实验中利用事件形状工程测量 Au+Au 碰撞中 Λ 超子的局域极化</a> <small>2610.25989v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2610.24095v1">BeAGLE++：面向EIC电子-核物理的现代模块化框架</a> <small>2610.24095v1</small></li><li><a href="#paper-2610.24444v1">ECC3：超重核合成中蒸发余核截面的一种全局模型</a> <small>2610.24444v1</small></li><li><a href="#paper-2610.24600v1">通过飞秒关联提取全部分波相互作用参数：中心力情形</a> <small>2610.24600v1</small></li><li><a href="#paper-2610.26792v1">中子衰变中弱磁性的首次观测</a> <small>2610.26792v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.25915v1">
+  <div class="paper-head">
+    <h2>对¹⁹⁷Au亚稳态核衰变中形状与自旋阻碍的独特观测<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.25915v1" rel="noopener noreferrer">2610.25915v1</a>
+  </div>
+  <p class="original-title">Singular observation of shape and spin hindrance in metastable nuclear decay of $^{197}$Au</p>
+  <p class="meta"><strong>作者：</strong>S. K. Tandel、D. Rathore、M. Hemalatha、Subhrajit Sahoo、P. C. Srivastava、P. Chowdhury、R. V. F. Janssens、F. G. Kondev、M. P. Carpenter、T. Lauritsen、D. Seweryniak</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在稳定核¹⁹⁷Au中，于激发能E_x = 2102 keV处识别出一个I^π = (29/2⁺)的亚稳态，其半衰期T_{1/2} &gt; 10 s。该态的衰变表现出强阻碍E2跃迁与强度相当的竞争性E4分支的异常共存，表明形状相关与自旋相关的阻碍机制同时存在。此类衰变模式此前未在长寿命核态中被识别，可作为探测壳结构、组态混合与集体自由度之间相互作用的灵敏探针。该结果为现代核结构模型提供了重要基准，而对这些模型而言，对所有可观测量给出统一描述仍具挑战性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究稳定核¹⁹⁷Au中一个长寿命亚稳态的衰变特性，特别是其E2与E4跃迁分支所反映的阻碍机制及其对核结构模型的检验意义。</p>
+    <h4>方法</h4><p>通过实验识别激发能E_x = 2102 keV、I^π = (29/2⁺)、半衰期T_{1/2} &gt; 10 s的亚稳态，并分析其衰变中E2与E4跃迁分支的强度关系。</p>
+    <h4>主要发现</h4><p>在该亚稳态衰变中观测到强阻碍E2跃迁与强度相当的竞争性E4分支异常共存，指示形状相关与自旋相关阻碍机制同时存在；此类衰变模式此前未在长寿命核态中被识别。</p>
+    <h4>局限与展望</h4><p>该衰变模式可作为探测壳结构、组态混合与集体自由度相互作用的灵敏探针，并为现代核结构模型提供基准；原文指出对这些模型而言统一描述所有可观测量仍具挑战性，后续方向应聚焦于模型对这些观测量的统一描述能力。</p>
+  </section>
+</article><article class="paper" id="paper-2610.25989v1">
+  <div class="paper-head">
+    <h2>RHIC-STAR 实验中利用事件形状工程测量 Au+Au 碰撞中 Λ 超子的局域极化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.25989v1" rel="noopener noreferrer">2610.25989v1</a>
+  </div>
+  <p class="original-title">Measurements of local polarization of $Λ$ hyperons with event shape engineering in Au+Au collisions at RHIC-STAR</p>
+  <p class="meta"><strong>作者：</strong>Taiki Kondo</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>各向异性流预期会沿束流方向产生局域涡度，进而导致所产生粒子的局域极化。尽管 RHIC 和 LHC 已观测到超子的局域极化，但其机制尚未被理解：模型计算表明，剪切诱导贡献与涡度诱导贡献可能符号相反并可能大幅相互抵消，因此最终极化对理论实现方式高度敏感。由于二者均由各向异性流驱动，我们采用事件形状工程（ESE）方法，在较窄的中心度范围内选取具有不同流强度的事件，以在固定多重数下测量局域极化随椭圆流的变化。我们报告了 STAR 实验在 √s_NN = 19.6 GeV 的 Au+Au 碰撞中，Λ 与 arΛ 的椭圆流（v_2）及局域极化（P_{z,2}）随用于 ESE 事件选择的约化流矢量模 q_2 变化的测量结果。v_2 对 q_2 呈现明显的正依赖，而 P_{z,2} 对 q_2 和 v_2 呈现较弱的正依赖。这是首次直接研究各向异性流与局域极化之间关系的测量，为理解局域极化的起源提供了新线索。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 RHIC 能区 Au+Au 碰撞中，各向异性流与 Λ/\barΛ 超子局域极化之间存在何种关系，从而为理解局域极化的起源（剪切诱导与涡度诱导贡献的竞争）提供实验约束。</p>
+    <h4>方法</h4><p>采用事件形状工程（ESE）方法，在较窄的中心度范围内按约化流矢量模 q_2 选择具有不同流强度的事件，在固定多重数下测量 √s_NN = 19.6 GeV Au+Au 碰撞中 Λ 与 \barΛ 的椭圆流 v_2 和局域极化 P_{z,2} 随 q_2 的变化。</p>
+    <h4>主要发现</h4><p>v_2 对 q_2 呈现明显的正依赖；P_{z,2} 对 q_2 和 v_2 呈现较弱的正依赖。该测量首次直接研究各向异性流与局域极化之间的关系。</p>
+    <h4>局限与展望</h4><p>原文未给出对剪切诱导与涡度诱导贡献相互抵消机制的具体定量结论；该结果对理解局域极化起源提供新线索。后续可在其他碰撞能量、中心度或系统尺寸下检验该关系的普适性，并结合模型计算进一步区分不同物理贡献（此为合理推断）。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.24095v1">
+  <div class="paper-head">
+    <h2>BeAGLE++：面向EIC电子-核物理的现代模块化框架<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.24095v1" rel="noopener noreferrer">2610.24095v1</a>
+  </div>
+  <p class="original-title">BeAGLE++: A modern modular framework for eA physics at the EIC</p>
+  <p class="meta"><strong>作者：</strong>Arjun Kumar、Abhay Deshpande、Zhoudunming Tu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文介绍BeAGLE++（Benchmark eA Generator for LEptoproduction），这是用于高能轻子-核碰撞的下一代通用蒙特卡罗事件产生器，也是BeAGLE的后继版本。该框架包含形成区核内级联，用于描述强子末态相互作用（FSIs），随后对剩余核进行统计退激。与旧版实现相比，BeAGLE++级联在核内输运过程中引入了强子相互作用的离散时间有序处理以及轻核团簇产生。与E665测量及旧版BeAGLE计算的比较显示，在所选观测量上总体一致，但在对FSIs敏感的末态上存在差异。这些差异为评估核碎裂预言的模型依赖性以及约束底层级联动力学提供了机会。凭借模块化架构，BeAGLE++为电子-离子对撞机（EIC）提供了灵活的模拟框架，并为基于现有数据和未来EIC测量开发与检验新物理模型提供了平台。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为高能轻子-核碰撞（特别是EIC相关物理）构建一个可描述强子末态相互作用与核碎裂的通用蒙特卡罗事件产生器，并评估其与既有数据和旧版实现的异同。</p>
+    <h4>方法</h4><p>开发BeAGLE++蒙特卡罗事件产生器，采用形成区核内级联描述强子末态相互作用，随后对剩余核进行统计退激；相较旧版引入强子相互作用的离散时间有序处理和轻核团簇产生；并与E665测量及旧版BeAGLE计算结果进行比较。</p>
+    <h4>主要发现</h4><p>与E665测量和旧版BeAGLE计算的比较在所选观测量上总体一致，但在对FSIs敏感的末态上存在差异；这些差异可用于评估核碎裂预言的模型依赖性并约束底层级联动力学。</p>
+    <h4>局限与展望</h4><p>原文指出BeAGLE++的模块化架构可为EIC提供灵活的模拟框架，并作为基于现有数据和未来EIC测量开发与检验新物理模型的平台；其局限与适用范围原文未明确展开，需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.24444v1">
+  <div class="paper-head">
+    <h2>ECC3：超重核合成中蒸发余核截面的一种全局模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.24444v1" rel="noopener noreferrer">2610.24444v1</a>
+  </div>
+  <p class="original-title">ECC3: a global model for evaporation residue cross sections in the synthesis of superheavy nuclei</p>
+  <p class="meta"><strong>作者：</strong>N. Wang、Y. J. Duan、H. Yao</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出 ECC3，一种用于从轻系统到超重元素合成的重离子熔合反应中蒸发余核（ER）截面的高效模型。该模型将 ER 截面分解为三部分：俘获截面，由通用经验耦合道（ECC2）模型描述；复合核形成概率，由 Zagrebaev-Greiner 关于电荷乘积的经验 Fermi 函数给出；以及抗裂变存活概率，由简化的 HIVAP 型统计衰变级联得到。俘获部分原样继承自 ECC2，可重现 348 条实测俘获激发函数，对数 RMSD 为 0.29。复合核形成与存活采用单一组模型参数，对 60 条实测 ER 激发函数拟合，相应 RMSD 为 0.27。俘获系统和 ER 系统中均有约 95% 在四倍以内被重现。由于拟合参数由轻、中质量和超重系统共同约束，而非锚定于实测超重区域，向未测反应的外推具有较好的可控性。该模型还能分辨各个 xn 道，可重现 19F+188Os 的实测 3n–5n 激发函数，以及 48Ca、50Ti 和 54Cr 诱导反应中最大道截面的系统性电荷依赖关系。对于三个 119 号元素反应 50Ti+249Bk、54Cr+243Am 和 51V+248Cm，模型预测 4n 道占主导，最大截面分别为 13.2 fb、2.64 fb 和 1.56 fb。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构建一个统一、高效且外推可控的模型，以描述从轻系统到超重核合成的重离子熔合反应中的蒸发余核截面，并分辨各个 xn 道？</p>
+    <h4>方法</h4><p>将 ER 截面因子化为俘获、复合核形成与抗裂变存活三部分：俘获采用继承自 ECC2 的通用经验耦合道模型；复合核形成采用 Zagrebaev-Greiner 关于电荷乘积的经验 Fermi 函数；存活采用简化的 HIVAP 型统计衰变级联。形成与存活部分采用单一组参数，对 60 条实测 ER 激发函数拟合。</p>
+    <h4>主要发现</h4><p>俘获部分重现 348 条实测俘获激发函数，对数 RMSD 为 0.29；ER 部分拟合的 RMSD 为 0.27；俘获与 ER 系统中均约 95% 在四倍以内被重现。模型可分辨各个 xn 道，重现 19F+188Os 的 3n–5n 激发函数以及 48Ca、50Ti、54Cr 诱导反应中最大道截面的系统性电荷依赖。对 50Ti+249Bk、54Cr+243Am 和 51V+248Cm 预测 4n 道主导，最大截面分别为 13.2 fb、2.64 fb 和 1.56 fb。</p>
+    <h4>局限与展望</h4><p>原文指出，由于拟合参数由轻、中质量和超重系统共同约束，而非锚定于实测超重区域，向未测反应的外推具有较好的可控性；但模型对极低截面反应的预测精度、参数不确定性及系统误差尚未在原文中量化，需进一步检验。119 号元素反应的预测结果有待实验验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.24600v1">
+  <div class="paper-head">
+    <h2>通过飞秒关联提取全部分波相互作用参数：中心力情形<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.24600v1" rel="noopener noreferrer">2610.24600v1</a>
+  </div>
+  <p class="original-title">Extraction of All Partial-Wave Interaction Parameters via Femtoscopy: The Central-Force Case</p>
+  <p class="meta"><strong>作者：</strong>Renjie Zou、Sheng Xiao、Zhigang Xiao</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种通用的飞秒关联方法，可从实验数据中提取源尺寸以及任意分波的中心力相互作用参数，其中相互作用参数以有效程展开定义。该方法基于Wronskian行列式，适用于库仑与非库仑两种情形。作者利用由Reid势产生的模拟中子-中子与质子-质子关联数据对该方法进行了数值验证。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从飞秒关联实验数据中同时提取源尺寸与任意分波的中心力相互作用参数。</p>
+    <h4>方法</h4><p>基于Wronskian行列式的通用飞秒关联方法，相互作用参数采用有效程展开定义，并分别处理库仑与非库仑情形；以Reid势生成的模拟中子-中子与质子-质子关联数据进行数值验证。</p>
+    <h4>主要发现</h4><p>该方法在由Reid势模拟的中子-中子与质子-质子关联数据上通过了数值验证，表明其可提取源尺寸及任意分波的中心力相互作用参数。</p>
+    <h4>局限与展望</h4><p>原文仅报告了基于模拟数据的数值验证，尚未给出真实实验数据的应用结果；方法目前限定于中心力情形，对非中心力相互作用的推广有待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.26792v1">
+  <div class="paper-head">
+    <h2>中子衰变中弱磁性的首次观测<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.26792v1" rel="noopener noreferrer">2610.26792v1</a>
+  </div>
+  <p class="original-title">First observation of weak magnetism in neutron decay</p>
+  <p class="meta"><strong>作者：</strong>Miriam Camarasa-Domene、Martín González-Alonso、Martín Novoa-Brunet</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>弱磁性由Gell-Mann提出，是守恒矢量流（CVC）假设的标志性推论，但在最简单的β衰变系统——自由中子衰变中一直未被观测到。原因在于相关可观测量β不对称性无法将弱磁性形状因子g_M与轴矢-矢量比λ分离。本文表明，将β不对称性测量与中子寿命以及超允许0^+→0^+衰变的ℱt值相结合，可以消除这一简并。利用当前数据得到g_M = 4.47(87)，与CVC预言的4.71一致，并在5.1σ水平上排除了弱磁性不存在的情形。重要的是，尽管中子数据集存在已知的内部张力，对于所有考虑的数据集变体，显著性仍保持在5.0σ至6.1σ之间。本文进一步表明，在当前实验条件下，对不对称性能量依赖性的完整分析仅能使g_M的提取改善几个百分点。这些结果构成了Gell-Mann预言近七十年后自由中子衰变中弱磁性的首次观测。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>自由中子衰变中由CVC假设预言的弱磁性是否能够被观测到；核心困难在于β不对称性无法将弱磁性形状因子g_M与轴矢-矢量比λ分离。</p>
+    <h4>方法</h4><p>将β不对称性测量与中子寿命以及超允许0^+→0^+衰变的ℱt值相结合，以消除g_M与λ之间的简并，从而提取g_M；并考察中子数据集不同变体下结果的稳健性，以及不对称性能量依赖性完整分析对g_M提取精度的影响。</p>
+    <h4>主要发现</h4><p>当前数据给出g_M = 4.47(87)，与CVC预言值4.71一致，并在5.1σ水平上排除弱磁性不存在；对所有考虑的中子数据集变体，显著性保持在5.0σ至6.1σ之间；在当前实验条件下，不对称性能量依赖性的完整分析仅能使g_M提取改善几个百分点。</p>
+    <h4>局限与展望</h4><p>论文指出中子数据集存在已知的内部张力，但结果在不同变体下仍保持显著；在当前实验条件下，能量依赖性完整分析带来的改善有限，因此可合理推断，进一步提升g_M提取精度可能需要改进实验条件或输入量精度（此为推断）。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-20 10:11 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
