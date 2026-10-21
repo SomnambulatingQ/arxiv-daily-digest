@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-ex · 高能实验</h1>
+    <p class="lede">官方公告日：2026-10-21</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">21</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">16</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（5）</h3><ol class="toc-list"><li><a href="#paper-2610.12208v1">联合大气中微子实验对中微子正常质量排序的证据</a> <small>2610.12208v1</small></li><li><a href="#paper-2610.27105v1">电子反冲响应尾部与 LZ 高能事件本底</a> <small>2610.27105v1</small></li><li><a href="#paper-2610.27346v1">基于增强玻色子衰变预训练的强子W玻色子极化标记</a> <small>2610.27346v1</small></li><li><a href="#paper-2610.27760v1">BESIII 上的粲重子衰变</a> <small>2610.27760v1</small></li><li><a href="#paper-2610.28296v1">LHCb Ntupling 服务与开放科学</a> <small>2610.28296v1</small></li></ol><h3>交叉列表（16）</h3><ol class="toc-list"><li><a href="#paper-2610.26892v1">相干光的最小长度运动学与双色真空计时方案</a> <small>2610.26892v1</small></li><li><a href="#paper-2610.27057v1">在FCC-ee上探测轻子味破坏</a> <small>2610.27057v1</small></li><li><a href="#paper-2610.27078v1">LEAF：面向FPGA的查找表感知高效注意力机制</a> <small>2610.27078v1</small></li><li><a href="#paper-2610.27092v1">利用高能与前向展开计算 gg→W⁺W⁻ 的两圈螺旋度振幅</a> <small>2610.27092v1</small></li><li><a href="#paper-2610.27106v1">SParTA：一种用于喷注标记的模块化、高效且可扩展的Transformer架构</a> <small>2610.27106v1</small></li><li><a href="#paper-2610.27131v1">利用固定靶实验揭示轻暗物质</a> <small>2610.27131v1</small></li><li><a href="#paper-2610.27182v1">喷注作为热QCD物质微分探针的研究</a> <small>2610.27182v1</small></li><li><a href="#paper-2610.27396v1">LHC与FCC上全重味$b\bar{b}c\bar{c}$四夸克态：多机制碎裂与可观测性</a> <small>2610.27396v1</small></li><li><a href="#paper-2610.27621v1">一种抗辐射、故障感知且可自愈的量化神经网络</a> <small>2610.27621v1</small></li><li><a href="#paper-2610.27843v1">$[q_1q_2][\bar q_3 \bar c]$ 四夸克态中电磁多极矩的味分解：$J^P = 1^+$ 的 $T_{cs1}(2900)^0$ 轻夸克类似态</a> <small>2610.27843v1</small></li><li><a href="#paper-2610.27955v1">从谐振子到粒子产生过程中的多重数分布</a> <small>2610.27955v1</small></li><li><a href="#paper-2610.27996v1">B_s^0→φ(K^+K^-)η&#x27;(π^+π^-η)衰变的部分重建</a> <small>2610.27996v1</small></li><li><a href="#paper-2610.28147v1">在FCC-hh光子诱导的γγ→τ⁺τ⁻产生中探测τ轻子反常磁偶极矩与电偶极矩</a> <small>2610.28147v1</small></li><li><a href="#paper-2610.28161v1">光增强声子探测器的脉冲形状模型</a> <small>2610.28161v1</small></li><li><a href="#paper-2610.28235v1">有界参数的基于似然的置信曲线</a> <small>2610.28235v1</small></li><li><a href="#paper-2610.28283v1">ACRAIC：振幅层面 QED 重求和的自动化</a> <small>2610.28283v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.12208v1">
+  <div class="paper-head">
+    <h2>联合大气中微子实验对中微子正常质量排序的证据<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.12208v1" rel="noopener noreferrer">2610.12208v1</a>
+  </div>
+  <p class="original-title">Evidence for Normal Neutrino Ordering with Combined Atmospheric Neutrino Experiments</p>
+  <p class="meta"><strong>作者：</strong>Miaochen Jin、Carlos A. Argüelles、Pablo Fernández-Menéndez、Iván Martínez-Soler</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对最新公开的大气中微子数据进行了联合分析，包括Super-Kamiokande在钆阶段之前所有取数阶段的数据、IceCube-DeepCore以及六探测单元配置的KM3NeT/ORCA。拟合同时使用所有事件样本，并将实验间共享的系统不确定度视为完全相关，而各实验的探测器响应不确定度则独立建模。联合数据将大气振荡参数限制为Δm²₃₁ = 2.44⁺⁰·⁰⁶₋₀.₀₄ × 10⁻³ eV²和sin²θ₂₃ = 0.52⁺⁰·⁰³₋₀.₀₄，精度分别为2.2%和6.1%，与当前基于加速器的测量具有竞争力，并独立地将CP破坏相位限制为δ_CP = 1.30⁺⁰·²⁴₋₀.₂₈ π。最后，比较中微子质量谱的排序，发现对正常排序的偏好为Δχ² = 11.0；经赝实验进一步校准后，以99.95%置信水平（3.3σ）排除倒置排序。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>利用最新公开的大气中微子数据联合限制大气振荡参数、CP破坏相位，并检验中微子质量排序。</p>
+    <h4>方法</h4><p>联合分析Super-Kamiokande（钆阶段之前所有取数阶段）、IceCube-DeepCore和六探测单元配置的KM3NeT/ORCA的公开大气中微子数据；同时拟合所有事件样本，实验间共享系统不确定度按完全相关处理，各实验探测器响应不确定度独立建模；通过比较质量排序的Δχ²并利用赝实验进行校准。</p>
+    <h4>主要发现</h4><p>联合数据给出Δm²₃₁ = 2.44⁺⁰·⁰⁶₋₀.₀₄ × 10⁻³ eV²和sin²θ₂₃ = 0.52⁺⁰·⁰³₋₀.₀₄，精度分别为2.2%和6.1%；独立限制δ_CP = 1.30⁺⁰·²⁴₋₀.₂₈ π；质量排序比较偏好正常排序，Δχ² = 11.0，经赝实验校准后以99.95%置信水平（3.3σ）排除倒置排序。</p>
+    <h4>局限与展望</h4><p>该结果基于特定实验数据集与统计处理方法，其显著性可能随未来数据、探测器配置及系统不确定度处理方式而变化；后续可纳入更多大气中微子数据及改进的探测器响应模型以进一步检验质量排序。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27105v1">
+  <div class="paper-head">
+    <h2>电子反冲响应尾部与 LZ 高能事件本底<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.27105v1" rel="noopener noreferrer">2610.27105v1</a>
+  </div>
+  <p class="original-title">The Electron-Recoil Response Tail and the LZ High-Energy Event Background</p>
+  <p class="meta"><strong>作者：</strong>Triparno Bandyopadhyay、Rajarajeswari Ramasamy、Nishitha TP</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文依据合作组公开的模拟配置，重建了 LZ 实验本底预期中连续电子反冲的贡献。公开模型给出了确定的响应尾部，但已发表的刻度信息并未限制物理尾部在预期所依赖的概率上可以偏离该模型多远。那些精确复现可执行模型均值、方差与标准化偏度、并以约 1% 精度复现其事件条件 10%、50% 与 90% N_e 分位数的分布，在相关尾部概率上可相差超过五个数量级。这一差异链条很短：若某尾部在分位数上与上述中心刻画相符至 0.14%，即可将电子反冲贡献提升出可忽略范围；若相符至 0.47%，则使其与比较区域所引用的全部本底相当。本文进一步指出了可用于判定该问题的测量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 LZ 实验高能事件本底预期中，连续电子反冲贡献的响应尾部存在多大不确定性，以及该不确定性对本底估计的影响。</p>
+    <h4>方法</h4><p>依据合作组公开的模拟配置重建电子反冲连续谱贡献；构造精确复现可执行模型均值、方差、标准化偏度以及事件条件 10%、50%、90% N_e 分位数（约 1% 精度）的分布，并比较其在相关尾部概率上的差异。</p>
+    <h4>主要发现</h4><p>公开模型规定了确定的响应尾部，但已发表刻度信息未对物理尾部在相关概率上的偏离给出约束；复现中心矩与分位数的分布之间，相关尾部概率可相差超过五个数量级；与中心刻画在分位数上相符至 0.14% 的尾部即可使电子反冲贡献脱离可忽略范围，相符至 0.47% 则使其与比较区域引用的全部本底相当。</p>
+    <h4>局限与展望</h4><p>论文指出需要特定测量来判定该尾部问题，但未给出具体测量方案或结论；在获得此类测量之前，电子反冲本底贡献的尾部不确定性仍无法由现有刻度信息约束，相关本底估计的适用范围受此限制。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27346v1">
+  <div class="paper-head">
+    <h2>基于增强玻色子衰变预训练的强子W玻色子极化标记<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.27346v1" rel="noopener noreferrer">2610.27346v1</a>
+  </div>
+  <p class="original-title">Pretraining on boosted boson decays for polarization tagging of hadronic $W$ bosons</p>
+  <p class="meta"><strong>作者：</strong>Saptaparna Bhattacharya</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>纵向极化的弱玻色子可用于检验矢量玻色子散射的幺正性。在高增强下，纵向与横向W玻色子产生的喷注具有相同的质量和双叉结构，仅能通过衰变角区分。纵向玻色子稀少：在此类高增强的W+喷注事件中仅占0.3%。本文研究增强W玻色子的极化信息位于何处，以及标记器能恢复多少。要求两个衰变夸克均位于喷注内，会将衰变角分布截断于由m/(p_T R)设定的边界，我们证明该边界限制了任何强子极化标记器的能力。在此接受度内，衰变角在W+喷注事件中携带了喷注几乎全部的极化信息。由于矢量玻色子散射的极化样本模拟代价高昂，我们在10^7个未极化的增强玻色子、顶夸克和QCD喷注上预训练一个point-edge transformer，并检验其从少量标签中能恢复多少信息。在每类783个带标签喷注上微调且保持transformer块固定时，预训练用于分类这些喷注的网络优于从头训练，但在广泛混合喷注上的通用预训练以及基于子结构可观测量的提升决策树也能达到同样效果。最佳标记器恢复了衰变角所允许的大部分但非全部分离能力，而通过知识蒸馏训练的、参数量少数百倍的学生网络可匹敌其教师网络。更多信息位于喷注之外。利用反冲喷注重建的产生角可改善每个标记器。在矩阵元层面的双玻色子产生和矢量玻色子散射中，产生运动学携带的信息多于两个玻色子的衰变角。以牺牲喷注标记器的通用性换取针对该过程训练的事件级标记器可带来显著增益，纵向矢量玻色子散射的测量或可利用这一点。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>增强W玻色子的极化信息在喷注中位于何处，强子极化标记器能恢复多少该信息，以及预训练能否在少量标签下有效学习极化标记。</p>
+    <h4>方法</h4><p>解析衰变角分布受m/(p_T R)截断的边界；在10^7个未极化增强玻色子、顶夸克和QCD喷注上预训练point-edge transformer，并在每类783个带标签喷注上微调（保持transformer块固定）；与从头训练、通用预训练、基于子结构可观测量的提升决策树比较；采用知识蒸馏训练小参数量学生网络；利用反冲喷注重建产生角；在矩阵元层面分析双玻色子产生和矢量玻色子散射。</p>
+    <h4>主要发现</h4><p>要求两个衰变夸克位于喷注内会将衰变角分布截断于由m/(p_T R)设定的边界，该边界限制任何强子极化标记器；在此接受度内衰变角携带W+喷注事件中喷注几乎全部极化信息；针对这些喷注预训练的网络在少标签微调下优于从头训练，但通用预训练和提升决策树也能达到同等效果；最佳标记器恢复衰变角所允许的大部分但非全部分离能力；知识蒸馏得到的小参数量学生网络可匹敌教师网络；产生角信息位于喷注之外，利用反冲喷注重建后可改善每个标记器；在矩阵元层面，双玻色子产生和矢量玻色子散射的产生运动学携带比两个玻色子衰变角更多的信息。</p>
+    <h4>局限与展望</h4><p>论文表明喷注标记器受衰变角接受度边界限制，且喷注外信息（产生角、事件级运动学）具有额外价值；因此，针对特定过程训练的事件级标记器可能优于通用喷注标记器，但这一推断基于矩阵元层面的模拟，尚未涉及探测器效应或实际数据；纵向矢量玻色子散射的测量或可受益于事件级标记策略。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27760v1">
+  <div class="paper-head">
+    <h2>BESIII 上的粲重子衰变<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.27760v1" rel="noopener noreferrer">2610.27760v1</a>
+  </div>
+  <p class="original-title">Charmed baryon decays at BESIII</p>
+  <p class="meta"><strong>作者：</strong>Chengzhi He</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>BESIII 在质心系能量 4.60 至 4.95 GeV 区间积累了 6.4 fb$^{-1}$ 的 $e^+e^-$ 对撞数据，对应世界上最大的 $\Lambda_c^+\bar\Lambda_c^-$ 对样本。本会议报告总结了 BESIII 近期在粲重子衰变方面的结果，包括：首次观测到 $e^+e^-\to\Lambda_c^+\bar\Lambda_c^-$ 中 $\Lambda_c^+$ 的横向极化；对遍举衰变 $\Lambda_c^+\to\Lambda X$ 的精确测量；利用深度学习技术首次观测到 $\Lambda_c^+\to ne^+\nu_e$ 与 $\Lambda_c^+\to n\pi^+\eta$；首次观测到 $\Lambda_c^+\to pK^-e^+\nu_e$，并给出 $\Lambda_c^+\to\Sigma^\pm\pi^\mp e^+\nu_e$ 的证据；以及对 $\Lambda_c^+\to\Lambda\pi^+\eta$ 的分波分析。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>利用 BESIII 在 4.60–4.95 GeV 采集的大统计 $e^+e^-$ 对撞数据，研究 $\Lambda_c^+$ 等粲重子的产生极化与多种衰变模式。</p>
+    <h4>方法</h4><p>基于 6.4 fb$^{-1}$ 的 $e^+e^-$ 对撞数据，采用包括深度学习技术在内的分析方法，开展极化观测、遍举与半轻衰变测量以及分波分析。</p>
+    <h4>主要发现</h4><p>首次观测到 $e^+e^-\to\Lambda_c^+\bar\Lambda_c^-$ 中 $\Lambda_c^+$ 的横向极化；完成 $\Lambda_c^+\to\Lambda X$ 的精确测量；首次观测到 $\Lambda_c^+\to ne^+\nu_e$ 和 $\Lambda_c^+\to n\pi^+\eta$；首次观测到 $\Lambda_c^+\to pK^-e^+\nu_e$ 并给出 $\Lambda_c^+\to\Sigma^\pm\pi^\mp e^+\nu_e$ 的证据；完成 $\Lambda_c^+\to\Lambda\pi^+\eta$ 的分波分析。</p>
+    <h4>局限与展望</h4><p>原文为会议报告，未明确讨论局限与后续计划；基于所涉衰变模式与统计量，可合理推断更大数据量将有助于提升半轻衰变证据的显著性并深化分波分析，但这属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28296v1">
+  <div class="paper-head">
+    <h2>LHCb Ntupling 服务与开放科学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.28296v1" rel="noopener noreferrer">2610.28296v1</a>
+  </div>
+  <p class="original-title">Open Science with the LHCb Ntupling Service</p>
+  <p class="meta"><strong>作者：</strong>Christine A. Aidala、Michael Buchar、Chris Burr、Dillon S. Fitzgerald、Cameron Duncan McClymont、Adam Morris、Sebastian Neubert、Piet Nogga、Ryunosuke O&#x27;Neil、Eduardo Rodrigues、Daan Eduard Rosendal、Tibor Šimko</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>大型强子对撞机（LHC）采集的数据样本具有很高价值，对这些数据的分析已带来大量发现，并促成了 2025 年基础物理学突破奖。为未来分析者保存这些数据并提供开放获取，对于最大化所采集数据的科学产出至关重要。LHCb 合作组为此发展了一种新方法——LHCb Ntupling 服务：一个按需生成并发布定制 LHCb 开放数据的网络服务，提供对 LHCb 实验采集的 Run 1 以及首次包括的 Run 2 质子-质子对撞数据的开放获取，可探索的数据量超过 4 PB。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何保存 LHCb 实验采集的数据并向未来分析者提供开放获取，以最大化数据的科学产出。</p>
+    <h4>方法</h4><p>LHCb 合作组开发了 LHCb Ntupling 服务，这是一个按需生成并发布定制 LHCb 开放数据的网络服务。</p>
+    <h4>主要发现</h4><p>该服务提供对 LHCb Run 1 以及首次包括的 Run 2 质子-质子对撞数据的开放获取，可探索的数据量超过 4 PB。</p>
+    <h4>局限与展望</h4><p>原文未讨论该服务的局限或后续计划；可合理推断，其适用范围限于 LHCb 实验数据，后续可能扩展至更多数据周期或分析场景，但这属于推断而非原文结论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.26892v1">
+  <div class="paper-head">
+    <h2>相干光的最小长度运动学与双色真空计时方案<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.26892v1" rel="noopener noreferrer">2610.26892v1</a>
+  </div>
+  <p class="original-title">Minimal-length kinematics of coherent light and a proposed two-color vacuum chronoscopy</p>
+  <p class="meta"><strong>作者：</strong>Zhi-Wei Wang、Saurya Das、Samuel L. Braunstein</p>
+  <p class="meta"><strong>主分类：</strong>gr-qc
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子理论与广义相对论的统一暗示存在最小可测长度，由此导致广义不确定性原理（GUP）以及依赖能量的真空群速度。用宏观物体检验这类效应通常会遇到“足球问题”：若将普朗克尺度的形变施加于总动量，则会预言已被观测排除的速度偏差。我们采用量子场论自然的方案，即GUP修改单模对易子，并通过显式计算验证：多模相干脉冲的宏观群速度约化为在中心波长处求值的单光子GUP速度乘以经典高斯光束因子，且不依赖于脉冲总能量。能量—动量关系 $E=pc$ 本身未被修改；形变通过速度—动量关系进入，并等价于波矢中的修改色散关系，其二次项系数取决于使用两个变量中的哪一个。因此，“足球问题”——仅在将GUP施加于复合系统的质心动量时才出现——对相干光并不存在，宏观拍瓦脉冲与单个高能光子探测相同的参数空间。在此框架基础上，我们提出一种双色真空计时实验，使用短脉冲拍瓦激光及其高次谐波产生。通过系统改变宏观光束束腰，该方案将普朗克尺度的运动学移动与经典衍射延迟分离，建立一种受控的、与源无关的地面方法；我们针对当前天体物理界限以及限制该方法的主要与束腰无关的系统误差（残余气体色散与谐波诞生时间偏移）评估其灵敏度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究最小可测长度/GUP所导致的依赖能量的真空群速度能否在宏观相干光脉冲中被检验，以及如何避免“足球问题”并设计可行的地面实验方案。</p>
+    <h4>方法</h4><p>采用QFT自然的GUP方案修改单模对易子，通过显式计算多模相干脉冲的宏观群速度；分析能量—动量关系与速度—动量关系中的形变；并提出基于短脉冲拍瓦激光及其高次谐波产生的双色真空计时实验，通过改变光束束腰分离普朗克尺度运动学移动与经典衍射延迟。</p>
+    <h4>主要发现</h4><p>多模相干脉冲的宏观群速度约化为中心波长处的单光子GUP速度乘以经典高斯光束因子，且不依赖脉冲总能量；$E=pc$ 本身未被修改，形变通过速度—动量关系进入并等价于波矢中的修改色散关系，其二次项系数取决于所用变量；“足球问题”仅当GUP施加于复合系统质心动量时出现，对相干光不存在；宏观拍瓦脉冲与单个高能光子探测相同参数空间。</p>
+    <h4>局限与展望</h4><p>该方案为地面、与源无关的检验方法，其灵敏度受残余气体色散与谐波诞生时间偏移等与束腰无关的系统误差限制；论文仅评估了这些系统误差与当前天体物理界限，尚未给出实验实施或探测结论，后续需实验验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27057v1">
+  <div class="paper-head">
+    <h2>在FCC-ee上探测轻子味破坏<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27057v1" rel="noopener noreferrer">2610.27057v1</a>
+  </div>
+  <p class="original-title">Probing Lepton Flavor Violation at FCC-ee</p>
+  <p class="meta"><strong>作者：</strong>L. Allwicher、R. Bartocci、M. Cepeda、C. Cornella、L. P. S. Leal、A. Lusiani、C. Martin Perez、P. Paradisi、E. Scantamburlo、O. Sumensari</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在标准模型有效场论（SMEFT）框架下研究FCC-ee探测轻子味破坏（LFV）的前景。FCC-ee在Z极点运行预期产生约2×10^11对τ轻子，可将τ→3ℓ与τ→ℓγ（ℓ=e,μ）分支比现有上限改善30至800倍，具体倍数取决于通道。作者将由此获得的新物理灵敏度与Z→τℓ和h→τℓ搜寻所得灵敏度进行比较，后两者在未来e+e−对撞机LFV研究中此前受到更多关注。结果表明，对同一组LFV相互作用，τ衰变可超越Z→τℓ搜寻的当前及预期灵敏度，并能探测更广泛的SMEFT算符范围。作者进一步指出，对于LFV类汤川相互作用，h→τℓ的直接搜寻给出最强灵敏度；而对于通过辐射诱导LFV希格斯衰变的半轻子算符，这一层级关系可能反转，此时τ衰变成为主导探针。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在FCC-ee的Z极点运行条件下，τ衰变（τ→3ℓ、τ→ℓγ）相对于Z→τℓ与h→τℓ搜寻，对轻子味破坏相互作用及SMEFT算符具有怎样的探测潜力与相对灵敏度？</p>
+    <h4>方法</h4><p>在标准模型有效场论框架下，利用FCC-ee Z极点运行预期约2×10^11对τ轻子，估算τ→3ℓ与τ→ℓγ分支比的预期灵敏度，并与Z→τℓ、h→τℓ搜寻的当前及预期灵敏度进行对比，按相互作用类型（LFV类汤川与半轻子算符）分析主导探针。</p>
+    <h4>主要发现</h4><p>τ衰变可将τ→3ℓ与τ→ℓγ分支比的现有上限改善30至800倍（依通道而定）；对同一组LFV相互作用，τ衰变可超越Z→τℓ搜寻的当前与预期灵敏度，并探测更广泛的SMEFT算符；对LFV类汤川相互作用，h→τℓ直接搜寻灵敏度最强；对辐射诱导LFV希格斯衰变的半轻子算符，该层级关系可能反转，τ衰变成为主导探针。</p>
+    <h4>局限与展望</h4><p>摘要未讨论系统误差、探测器性能或背景不确定性等局限；结论基于SMEFT框架与预期统计量，适用范围限于所考察的τ衰变、Z→τℓ与h→τℓ通道。后续可合理推断的方向包括：结合FCC-ee其他运行能量与通道开展全局SMEFT拟合，以及针对半轻子算符反转情形进行更细致的实验可行性研究（此句为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27078v1">
+  <div class="paper-head">
+    <h2>LEAF：面向FPGA的查找表感知高效注意力机制<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27078v1" rel="noopener noreferrer">2610.27078v1</a>
+  </div>
+  <p class="original-title">LEAF: LUT-aware Efficient Attention on FPGAs</p>
+  <p class="meta"><strong>作者：</strong>Arianna Cox、Chang Sun、Lauri Laatu、Benedikt Maier、Aadeesh Sharma、Leo Rozanov、Wayne Luk、Maria Spiropulu、Alexander Tapper、Zhiqiang Que</p>
+  <p class="meta"><strong>主分类：</strong>cs.LG
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cs.LG</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出LEAF（Lookup-table-aware Efficient Attention on FPGAs），这是首个面向FPGA的纳秒级查找表（LUT）感知Transformer。在FPGA上部署既足够大以具备良好性能、又足够小以适配硬件资源、同时足够快以满足CERN等实时系统亚微秒时间尺度要求的Transformer仍然困难，原因在于赋予模型高表达能力的注意力机制本身在硬件实现上代价高昂。LEAF通过LUT感知训练将query、key、value投影以及最终输出前馈层转换为FPGA原生层，构建了首个面向超低延迟推理的LUT感知Transformer层与linformer层。注意力机制难以直接进行LUT感知训练，因为其需要将两个激活值相乘，而该方法需要常数权重才能制表；LEAF仅对注意力块中的常数矩阵-向量乘法进行制表，其余部分保留算术形式。在标准jet tagging基准上，相同输入规模下，该方法相比此前最先进的亚微秒Transformer将准确率提升1.8个百分点，同时使用的LUT数量减少2.9倍。最高效的基于LEAF的linformer在64个输入粒子时以28k LUT和35ns达到80.4%的分类准确率。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在FPGA上实现既具备足够模型容量、又满足亚微秒乃至纳秒级实时推理延迟要求的Transformer，尤其是解决注意力机制因需将两个激活值相乘而难以直接应用LUT感知训练的问题。</p>
+    <h4>方法</h4><p>提出LEAF，通过LUT感知训练将query、key、value投影和最终输出前馈层转换为FPGA原生层；对注意力块中的常数矩阵-向量乘法进行制表，其余部分保留算术形式；构建LUT感知的Transformer层与linformer层。</p>
+    <h4>主要发现</h4><p>在标准jet tagging基准上，相同输入规模下，LEAF相比此前最先进的亚微秒Transformer准确率提升1.8个百分点，LUT使用量减少2.9倍；最高效的基于LEAF的linformer在64个输入粒子时以28k LUT和35ns达到80.4%分类准确率。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性；从方法描述可推断，LEAF的制表策略依赖于注意力块中的常数矩阵-向量乘法，其适用范围可能受模型结构与权重常数化程度的约束，后续可探索更广泛的注意力变体与硬件平台的适配。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27092v1">
+  <div class="paper-head">
+    <h2>利用高能与前向展开计算 gg→W⁺W⁻ 的两圈螺旋度振幅<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27092v1" rel="noopener noreferrer">2610.27092v1</a>
+  </div>
+  <p class="original-title">Two-loop helicity amplitudes for $gg\to W^+W^-$ using high-energy and forward expansions</p>
+  <p class="meta"><strong>作者：</strong>Mateusz Czaja、Ben Rott、Matthias Steinhauser、Daniel Stremmer</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文计算了过程 gg → W⁺W⁻ 在次领头阶 QCD 修正下的螺旋度振幅，其中两个 W 玻色子均处于离壳状态，并计入圈图中的虚顶夸克贡献。所采用的方法是将适用于相空间不同区域的展开式相结合：其一为高能展开，即 Mandelstam 变量远大于顶夸克质量；其二为围绕前向散射极限（Mandelstam 变量 t 较小）的展开。文中还给出了大顶夸克质量展开，作为重要的交叉检验。作者详细讨论了各展开的技术细节，并表明在整个相空间内对所有螺旋度振幅均可获得精确结果。结果显式依赖于全部输入参数。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何精确计算包含离壳 W 玻色子与虚顶夸克圈图的 gg → W⁺W⁻ 过程在次领头阶 QCD 下的螺旋度振幅，并覆盖整个相空间。</p>
+    <h4>方法</h4><p>将高能展开（Mandelstam 变量远大于顶夸克质量）、前向散射极限展开（t 较小）以及大顶夸克质量展开相结合；其中大顶夸克质量展开用作交叉检验。</p>
+    <h4>主要发现</h4><p>原文表明，通过组合不同相空间区域的展开，可在整个相空间内对所有螺旋度振幅获得精确结果，且结果显式依赖于全部输入参数。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论方法的局限或后续方向；可合理推断，该展开组合策略的适用范围依赖于各展开所覆盖的相空间区域及其收敛性，其向其他类似过程或更高阶计算的推广有待进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27106v1">
+  <div class="paper-head">
+    <h2>SParTA：一种用于喷注标记的模块化、高效且可扩展的Transformer架构<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27106v1" rel="noopener noreferrer">2610.27106v1</a>
+  </div>
+  <p class="original-title">This is SParTA: A modular, efficient and scalable transformer architecture for jet-tagging</p>
+  <p class="meta"><strong>作者：</strong>Rajneil Baruah、Subhadeep Mondal、Sunando Kumar Patra、Satyajit Roy</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">cs.LG</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出稀疏粒子相互作用Transformer架构（SParTA），一种面向高能对撞机喷注标记的模块化、可扩展且高效的Transformer。利用喷注组分横动量（$p_T$）谱急剧下降的特性，SParTA将组分处理分解为两个拓扑区域：按$p_T$降序排列，仅最硬的$N$个组分（硬核）参与由成对物理特征与学习到的关系特征驱动的$O(N^2)$差分相互作用注意力；其余软组分则通过线性$O(lN)$交叉注意力与硬核整合，在保留软辐射与色流信息的同时，避免了对全部$l$个组分做完全自注意力所带来的$O(l^2)$内存瓶颈。成对相互作用特征在网络内由组分四动量动态计算，并以喷注级子结构观测量为条件。在夸克-胶子标记基准上，参数量为300K的SParTA模型取得92.02%的AUC与85.06%的准确率，以约七分之一的参数量达到2.14M参数Particle Transformer（ParT）的水平，并在30%信号效率下将背景拒绝率较IAFormer提升21%。在 boosted top 标记基准上，511K参数的SParTA优于ParT与ParticleNet；文中亦分析了其相对于全稠密多层相互作用网络的架构权衡。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在高能对撞机喷注标记中构建一种模块化、可扩展且高效的Transformer架构，在降低计算与内存开销的同时保持标记性能。</p>
+    <h4>方法</h4><p>提出SParTA：按$p_T$降序将喷注组分划分为硬核与软组分两个拓扑区域；硬核内使用由成对物理特征与学习到的关系特征驱动的$O(N^2)$差分相互作用注意力，软组分通过$O(lN)$线性交叉注意力与硬核整合；成对相互作用特征在网络内由组分四动量动态计算，并以喷注级子结构观测量为条件。</p>
+    <h4>主要发现</h4><p>在夸克-胶子标记基准上，300K参数的SParTA取得AUC 92.02%、准确率85.06%，以约七分之一参数量匹配2.14M参数的ParT，并在30%信号效率下背景拒绝率较IAFormer提升21%；在boosted top标记基准上，511K参数的SParTA优于ParT与ParticleNet。</p>
+    <h4>局限与展望</h4><p>原文分析了SParTA相对于全稠密多层相互作用网络的架构权衡；其局限与适用范围未在摘要中明确给出，后续方向可合理推断为在不同喷注标记任务与更广泛$p_T$区间上进一步验证该稀疏分解策略的普适性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27131v1">
+  <div class="paper-head">
+    <h2>利用固定靶实验揭示轻暗物质<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27131v1" rel="noopener noreferrer">2610.27131v1</a>
+  </div>
+  <p class="original-title">Illuminating Light Dark Matter with Fixed-Target Experiments</p>
+  <p class="meta"><strong>作者：</strong>Taylor R. Gray</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span> <span class="tag">hep-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>天文与宇宙学观测提供了非发光物质组分（暗物质）的压倒性证据，但其粒子本质仍未知。针对暗物质非引力相互作用的实验搜寻主要面向GeV–TeV质量区间、通过核反冲进行探测，迄今未获发现。MeV–GeV质量区间的暗物质具有理论动机，可再现观测到的遗迹丰度，同时对核反冲搜寻不可见；此类轻暗物质更适合通过电子反冲或固定靶实验探测。本论文发展了固定靶实验中轻暗物质搜寻的理论与统计工具，涵盖模型构建、统计推断、全局拟合与信号模拟。我们综述了轻暗物质固定靶搜寻的整体图景，重点讨论轻暗物质实验（LDMX），并模拟了下一代实验SHiP中的暗物质信号以评估其灵敏度。在最小暗物质模型框架内，我们为LDMX提出了基于似然的统计框架，利用完整的二维反冲电子分布，在频率学派与贝叶斯表述下涵盖排除、发现、参数估计与模型比较，从而确立LDMX的发现潜力，并量化独立确认潜在信号所需的直接探测曝光量。在此范式之外，我们对标量和费米子轻暗物质进行全局拟合，综合宇宙学、天体物理与实验室约束；进而将固定靶搜寻扩展至自旋-1暗物质及具有更高电磁矩的暗光子，给出与其他探针强互补的丰富信号。最后，我们超越暗光子产生的标准核建模，引入弹性核形状因子与多体从头算方法给出的谱函数，替代解析处理。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>轻暗物质（MeV–GeV质量区间）的粒子本质及其非引力相互作用，以及固定靶实验（特别是LDMX与SHiP）对该质量区间暗物质的探测潜力与统计推断方法。</p>
+    <h4>方法</h4><p>综述固定靶轻暗物质搜寻图景；模拟SHiP中的暗物质信号以评估灵敏度；为LDMX构建基于似然的统计框架，利用完整二维反冲电子分布，在频率学派与贝叶斯表述下处理排除、发现、参数估计与模型比较；对标量与费米子轻暗物质进行综合宇宙学、天体物理与实验室约束的全局拟合；将固定靶搜寻扩展至自旋-1暗物质与更高电磁矩暗光子；在暗光子产生中引入弹性核形状因子与多体从头算谱函数替代解析处理。</p>
+    <h4>主要发现</h4><p>论文确立了LDMX的发现潜力，并量化了独立确认潜在信号所需的直接探测曝光量；对标量与费米子轻暗物质的全局拟合综合了多类约束；自旋-1暗物质与更高电磁矩暗光子给出与其他探针强互补的丰富信号；引入弹性核形状因子与从头算谱函数改进了暗光子产生的核建模。</p>
+    <h4>局限与展望</h4><p>论文未明确给出局限性或后续方向的结论；其统计框架与信号模拟的适用范围限于所考虑的固定靶实验与最小暗物质模型及扩展模型，引入核形状因子与从头算谱函数的影响需进一步定量评估（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27182v1">
+  <div class="paper-head">
+    <h2>喷注作为热QCD物质微分探针的研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27182v1" rel="noopener noreferrer">2610.27182v1</a>
+  </div>
+  <p class="original-title">Jets as differential probes of hot QCD matter</p>
+  <p class="meta"><strong>作者：</strong>João M. Silva</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>超相对论重离子碰撞产生短寿命的退禁闭热QCD物质液滴，其演化将远离平衡的早期动力学与流体力学夸克-胶子等离子体联系起来。高能喷注产生于早期硬散射，并受到这一演化介质的修正，从而为探测介质的微观性质提供多尺度探针。本论文发展微扰QCD工具，从微分喷注子结构观测量所携带的介质印记中提取热QCD物质的信息。所采用的框架是描述高能部分子穿越随机色场传播的BDMPS-Z理论。论文首先研究各向异性QCD物质，将通常的标量展宽参数替换为依赖方向的横向动量展宽，从而把介质诱导分裂的各向异性修正与自旋信息及末态能量流的方位角模式联系起来。随后将能量关联函数用作对这些效应敏感的观测量，包括重味EEC、方位角微分EEC以及旨在分离主导各向异性诱导谐波的clover投影。论文还考察能量损失如何影响对喷注子结构修正的解读：分位数匹配将重建的能量损失定义为真空与介质修正喷注谱之间的群体层面移动；进一步发展能量损失函数，用以编码喷注起源强子所保留能量的分布，并展示其矩如何进入多点投影能量关联函数。最后，论文超越单个1→2介质诱导分裂，研究连续发射之间由自旋诱导的关联，以及包含介质响应贡献的更高点能量关联函数。结果表明，微分喷注子结构能够探测QCD物质的方向性性质以及喷注在其中传播的多点动力学。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用微扰QCD工具，从微分喷注子结构观测量的介质印记中提取热QCD物质的微观性质，特别是其方向性性质与喷注传播的多点动力学。</p>
+    <h4>方法</h4><p>以BDMPS-Z框架描述高能部分子在随机色场中的传播；将标量横向动量展宽推广为方向依赖的展宽以处理各向异性介质；采用能量关联函数（含重味EEC、方位角微分EEC与clover投影）作为观测量；用分位数匹配定义重建能量损失并发展能量损失函数；进一步研究连续发射间的自旋诱导关联及含介质响应的更高点能量关联函数。</p>
+    <h4>主要发现</h4><p>各向异性修正可与自旋信息及末态能量流方位角模式相联系；能量关联函数（包括重味EEC、方位角微分EEC和clover投影）对这些效应敏感；分位数匹配可将重建能量损失定义为真空与介质修正喷注谱之间的群体层面移动；能量损失函数的矩进入多点投影能量关联函数；超越单个1→2分裂后，连续发射间的自旋诱导关联及含介质响应的更高点关联函数可被纳入描述；微分喷注子结构能够探测QCD物质的方向性性质与喷注传播的多点动力学。</p>
+    <h4>局限与展望</h4><p>论文基于BDMPS-Z随机色场框架，其适用性受该近似及微扰QCD描述范围的限制；各向异性展宽与能量损失函数的唯象应用尚需与实验数据进一步对照；后续可合理推断的方向包括将多点关联与介质响应的描述推广到更真实的介质演化背景，并系统检验各观测量对介质参数与自旋效应的区分能力。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27396v1">
+  <div class="paper-head">
+    <h2>LHC与FCC上全重味$b\bar{b}c\bar{c}$四夸克态：多机制碎裂与可观测性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27396v1" rel="noopener noreferrer">2610.27396v1</a>
+  </div>
+  <p class="original-title">The $b\bar{b}c\bar{c}$ Fully Heavy Tetraquark at the LHC and the FCC: Multimodal Fragmentation and Observability</p>
+  <p class="meta"><strong>作者：</strong>João V. Bulhões、Francesco G. Celiberto、Victor P. Gonçalves</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-th</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用结合直接多夸克机制与标量双夸克机制的多机制碎裂框架，研究全重味混合味$b\bar{b}c\bar{c}$四夸克态的产生。在保持阈值一致性的前提下，通过重味非相对论演化（HF-NRevo）方案实施标准的Dokshitzer-Gribov-Lipatov-Altarelli-Parisi（DGLAP）演化。所得碎裂函数（FFs）随后被嵌入次领头阶的混合高能与共线因子化框架，用于半单举四夸克态加喷注的产生计算。我们在14 TeV高亮度大型强子对撞机（HL-LHC）与100 TeV未来环形对撞机（FCC）上通过快度间隔分布比较两种机制，发现唯象上明显偏好直接多夸克通道而非标量双夸克模式。积分截面与预期事例数表明，HL-LHC上的未来搜寻在产生层面具有有利前景，而FCC能量下统计量将显著增强。这些结果在微观形成机制与$b\bar{b}c\bar{c}$四夸克态在当前及未来强子对撞机上的可观测前景之间建立了定量联系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>全重味混合味$b\bar{b}c\bar{c}$四夸克态通过何种微观形成机制产生，以及其在HL-LHC与FCC上的可观测前景如何。</p>
+    <h4>方法</h4><p>构建结合直接多夸克与标量双夸克机制的多机制碎裂框架，采用HF-NRevo方案保持阈值一致性并实施DGLAP演化，将碎裂函数嵌入次领头阶混合高能与共线因子化，计算半单举四夸克态加喷注产生，并在14 TeV HL-LHC与100 TeV FCC上比较快度间隔分布。</p>
+    <h4>主要发现</h4><p>快度间隔分布的唯象比较显示，直接多夸克通道相对标量双夸克模式具有明显偏好；积分截面与预期事例数表明HL-LHC上的未来搜寻在产生层面具有有利前景，FCC能量下统计量显著增强。</p>
+    <h4>局限与展望</h4><p>摘要未讨论理论不确定度与背景压低等限制；其适用范围限于所采用的碎裂与因子化框架及上述对撞机能量。后续可合理推断的方向包括更精细的机制甄别与实验搜寻策略研究，但需明确这属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27621v1">
+  <div class="paper-head">
+    <h2>一种抗辐射、故障感知且可自愈的量化神经网络<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27621v1" rel="noopener noreferrer">2610.27621v1</a>
+  </div>
+  <p class="original-title">A Radiation-Hardened, Fault-Aware Quantized Neural Network That Self-Heals</p>
+  <p class="meta"><strong>作者：</strong>Peter Xiangyuan Ma、Joshua S. Bloom</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.IM
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.IM</span> <span class="tag">cs.LG</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">physics.ins-det</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>深度学习（DL）模型正日益部署于航天器、粒子加速器以及即将出现的天基数据中心等辐射严苛环境。模型本质上是由持久存储器中数值构成的学习型编排，高能粒子对数据的破坏会使其持续退化。在推理阶段，新数据通过网络会从根本上打破训练阶段确定的静态模型的离线假设与保证。为保持模型的质量与效能，针对比特翻转的容错是明确目标。本文提出一种在商用现货（COTS）硬件上、无需存储额外副本即可在比特翻转后修复神经网络量化权重的运行时方法。该方法扩展了成熟的故障感知训练（FAT）范式，通过加入对齐惩罚使未受损的激活与权重集中于低秩子空间，再由未受损的幸存坐标重建被标记的受损坐标。我们将该方法称为 Projection Healing，并将其应用于量化神经网络上的六个回归基准。在固定 FAT 检查点、仅切换运行时修复的条件下，原生单位超额积分进一步降低约 23%。在这些数据集上，该方法在 RMSE 退化 +5% 时将运行擦洗间隔中位数延长 2.04 倍，在 +50% 时延长 1.96 倍；相比之下，经典的单错纠错、双错检测（SECDED）分别为 1.62 倍和 1.07 倍。这为设计具有韧性的数据驱动模型开辟了新路径，可与已有的硬件冗余、ECC 及基于 FAT 的技术互补。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在商用现货硬件上、不存储额外副本的情况下，修复因高能粒子比特翻转而受损的量化神经网络权重，以维持推理质量并延长运行擦洗间隔。</p>
+    <h4>方法</h4><p>扩展故障感知训练（FAT）范式，加入对齐惩罚使未受损激活与权重集中于低秩子空间，并在运行时由未受损幸存坐标重建被标记的受损坐标，称为 Projection Healing；在六个回归基准的量化神经网络上评估，并与 SECDED 对比。</p>
+    <h4>主要发现</h4><p>固定 FAT 检查点、仅切换运行时修复可使原生单位超额积分进一步降低约 23%；在六个数据集上，RMSE 退化 +5% 时运行擦洗间隔中位数延长 2.04 倍，+50% 时延长 1.96 倍；SECDED 对应为 1.62 倍和 1.07 倍。</p>
+    <h4>局限与展望</h4><p>该方法面向量化神经网络与回归基准，在商用现货硬件上验证；其在不同网络结构、任务类型及真实辐射环境下的适用性尚需进一步检验。可合理推断，后续工作可将该方法与硬件冗余、ECC 及 FAT 类技术结合，并扩展到更广泛的模型与部署场景。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27843v1">
+  <div class="paper-head">
+    <h2>$[q_1q_2][\bar q_3 \bar c]$ 四夸克态中电磁多极矩的味分解：$J^P = 1^+$ 的 $T_{cs1}(2900)^0$ 轻夸克类似态<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27843v1" rel="noopener noreferrer">2610.27843v1</a>
+  </div>
+  <p class="original-title">Flavor decomposition of electromagnetic multipole moments in $[q_1q_2][\bar q_3 \bar c]$ tetraquarks: Light-quark analogs of $T_{cs1}(2900)^0$ with $J^P = 1^+$</p>
+  <p class="meta"><strong>作者：</strong>Ulaş Özdem</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在双夸克—反双夸克图像下，基于光锥 QCD 求和规则框架，系统研究了量子数 $J^P = 1^+$ 的紧致 $[q_1 q_2][\bar q_3 \bar c]$ 四夸克态的磁偶极矩与电四极矩。通过对所有允许的 $u/d$ 味组态进行味分解，作者表明：在算符层面，粲夸克对电磁矩的贡献代数地消失。这是本文所采用特定自旋组织方式的结构性特征，其中重反夸克处于赝标量反双夸克中；该特征不同于其他紧致构造及强子分子态中起作用的动力学 $1/m_c$ 压低。磁矩呈现一致的轻味模式：$uu$ 型为正，$dd$ 型为负，混合味双夸克则受到压低；四极矩在整个范围内均非零，按通常的几何解释对应于内禀变形的电荷分布。作者进一步将无量纲多极比 $\mathcal{D}/\mu$ 确定为一种结构可观测量，它不依赖于插值流的归一化，可探测自旋流分布与电荷分布的相对几何，与绝对多极矩形成互补。综合来看，粲夸克贡献的代数解耦及其在算符层面所隐含的不同单重四夸克架构之间的区分，构成方法学上的标志，可用于判别相应的内部组织方式；并且，在物理候选态主要由其中一种组织方式主导的前提下，也可用于判别紧致解释与分子解释。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在双夸克—反双夸克图像与光锥 QCD 求和规则框架下，$J^P = 1^+$ 的紧致 $[q_1 q_2][\bar q_3 \bar c]$ 四夸克态的磁偶极矩与电四极矩具有怎样的味依赖结构，尤其是粲夸克贡献的性质，以及这些结构能否用于区分不同的四夸克内部组织方式？</p>
+    <h4>方法</h4><p>采用双夸克—反双夸克图像，在光锥 QCD 求和规则框架内计算 $J^P = 1^+$ 的 $[q_1 q_2][\bar q_3 \bar c]$ 四夸克态的磁偶极矩与电四极矩；对所有允许的 $u/d$ 味组态进行味分解，并引入不依赖插值流归一化的无量纲多极比 $\mathcal{D}/\mu$ 作为结构可观测量。</p>
+    <h4>主要发现</h4><p>在所采用的自旋组织方式（重反夸克位于赝标量反双夸克中）下，粲夸克对电磁矩的贡献在算符层面代数地消失；磁矩呈现一致的轻味模式，即 $uu$ 型为正、$dd$ 型为负、混合味双夸克受到压低；四极矩在整个范围内均非零，按通常几何解释对应于内禀变形的电荷分布；无量纲多极比 $\mathcal{D}/\mu$ 不依赖于插值流的归一化，可探测自旋流分布与电荷分布的相对几何。</p>
+    <h4>局限与展望</h4><p>粲夸克贡献的代数解耦是本文特定自旋组织方式的结构性特征，不同于其他紧致构造与强子分子态中起作用的动力学 $1/m_c$ 压低；因此，该特征作为方法学标志，可用于判别不同的单重四夸克内部组织方式，并在物理候选态主要由其中一种组织方式主导的前提下，用于判别紧致解释与分子解释。上述判别力的实际适用性取决于具体物理态的内部组织是否确由单一机制主导，这一点在原文中属于条件性表述，尚需进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27955v1">
+  <div class="paper-head">
+    <h2>从谐振子到粒子产生过程中的多重数分布<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27955v1" rel="noopener noreferrer">2610.27955v1</a>
+  </div>
+  <p class="original-title">From Harmonic Oscillators to Multiplicity Distributions in Particle Production Processes</p>
+  <p class="meta"><strong>作者：</strong>Trambak Bhattacharyya、Maciej Rybczyński、Zbigniew Włodarczyk</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种基于信息论方法的谐振子框架，用于研究多粒子产生过程。针对简并谐振子系统，我们推导出负二项分布（NBD）及其非可加推广形式 gNBD。我们观察到，由非可加统计导出的 gNBD 能够描述更高多重数区域的数据，从而为唯象研究中使用的多组分分布提供了一种替代方案。我们还将该框架推广至非简并谐振子情形，并遇到 Barnes zeta 函数的一种 Lerch 型推广；据我们所知，该推广此前尚未在非可加统计与多重数研究的语境中被研究过。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用基于信息论的谐振子框架描述多粒子产生过程中的多重数分布，并给出负二项分布及其非可加推广。</p>
+    <h4>方法</h4><p>构建简并谐振子系统的信息论框架，推导负二项分布（NBD）及其非可加推广 gNBD；并将框架推广至非简并谐振子情形。</p>
+    <h4>主要发现</h4><p>由非可加统计导出的 gNBD 能够描述更高多重数区域的数据，可作为唯象研究中多组分分布的替代方案；在非简并谐振子推广中出现了 Barnes zeta 函数的一种 Lerch 型推广，据作者所知此前未在非可加统计与多重数研究语境中被研究过。</p>
+    <h4>局限与展望</h4><p>原文未给出定量拟合比较或适用范围的系统检验；gNBD 作为多组分分布替代方案的普适性与参数解释有待进一步验证。非简并情形下出现的 Lerch 型 Barnes zeta 函数推广，其数学性质及在多重数研究中的物理含义可作后续探讨（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27996v1">
+  <div class="paper-head">
+    <h2>B_s^0→φ(K^+K^-)η&#x27;(π^+π^-η)衰变的部分重建<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27996v1" rel="noopener noreferrer">2610.27996v1</a>
+  </div>
+  <p class="original-title">Partial reconstruction of the decay $B_{s}^{0}\rightarrow φ(K^{+}K^{-})η&#x27; (π^{+}π^{-}η)$</p>
+  <p class="meta"><strong>作者：</strong>Jeremiah D. Juevesano、Marlon P. Brade、Dennis C. Arogancia、Jan Mickelle V. Maratas</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>衰变 B_s^0→φ(K^+K^-)η&#x27;(π^+π^-η) 在味物理中具有特殊意义，因为标准模型下它主要通过夸克跃迁 b̄→s̄ss̄ 进行。然而，由于中性 η 粒子的存在会显著降低整体重建效率，该衰变的实验重建颇具挑战。本研究考察了在不显式探测 η 粒子的情况下，利用部分重建技术重建 B_s^0 介子不变质量的可行性。研究采用对应于 FCC-ee 环境的蒙特卡罗模拟事例，并考察了探测器动量分辨率与顶点分辨率对重建性能的影响。结果表明，顶点分辨率的改善会显著提升整体重建质量响应与部分重建效率，而动量分辨率的改善则主要体现在拟合的中心 DCB 成分变窄。这些发现提示，FCC-ee 等未来高亮度 e^+e^- 对撞机或可有效利用部分重建技术研究包含未被探测中性粒子的稀有衰变模式。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在含中性 η 粒子、整体重建效率受限的条件下，能否利用部分重建技术在不显式探测 η 粒子的情况下重建 B_s^0→φ(K^+K^-)η&#x27;(π^+π^-η) 衰变中 B_s^0 介子的不变质量，并评估探测器分辨率的影响。</p>
+    <h4>方法</h4><p>基于对应于 FCC-ee 环境的蒙特卡罗模拟事例，研究部分重建技术，并考察探测器动量分辨率与顶点分辨率对重建性能（整体重建质量响应、部分重建效率及拟合的中心 DCB 成分）的影响。</p>
+    <h4>主要发现</h4><p>顶点分辨率的改善显著提升整体重建质量响应与部分重建效率；动量分辨率的改善主要体现在拟合的中心 DCB 成分变窄。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果提示 FCC-ee 等未来高亮度 e^+e^- 对撞机或可有效利用部分重建技术研究包含未被探测中性粒子的稀有衰变模式；该结论基于蒙特卡罗模拟，尚需真实探测器条件与实验数据进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28147v1">
+  <div class="paper-head">
+    <h2>在FCC-hh光子诱导的γγ→τ⁺τ⁻产生中探测τ轻子反常磁偶极矩与电偶极矩<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28147v1" rel="noopener noreferrer">2610.28147v1</a>
+  </div>
+  <p class="original-title">Probing the $τ$ anomalous magnetic and electric dipole moments in photon-induced $γγ\toτ^+τ^-$ production at the FCC-hh</p>
+  <p class="meta"><strong>作者：</strong>A. Senol、H. Denizli、M. Köksal</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了未来环形对撞机FCC-hh在光子诱导的γγ→τ⁺τ⁻产生过程中对τ轻子反常磁矩a_τ与电偶极矩d_τ的灵敏度，其中两个τ轻子均作强子衰变。利用FeynRules构建的反常γττ顶点UFO模型并与TauDecay模型合并，通过MadGraph5_aMC@NLO产生两个质子均保持完整的中心排他（弹性）信号事例，使τ衰变及其自旋关联被纳入矩阵元计算。单衍射与双衍射产生由SuperChic估计，并按其自身的耦合依赖关系加入弹性信号，同时赋予25%的归一化与形状不确定度。Pythia 8用于衰变信号中不稳定强子、衰变τ轻子、模拟背景的部分子簇射与强子化，并对解离质子进行强子化。信号与背景均通过FCC-hh探测器的Delphes模拟。强子τ衰变基于hadrons-plus-strips方法，由粒子流径迹与光子重建，在接受度内效率为73.4%。要求τ顶点无额外径迹可保留部分衍射贡献，并将Drell-Yan与γγ→WW背景压低至标准模型产额的0.9%。耦合由总横质量分布的形状加以约束。在质心能量84 TeV、积分亮度30 ab⁻¹下，预期95%置信水平上限为−3.38×10⁻⁴ &lt; a_τ &lt; 3.36×10⁻⁴以及|d_τ| &lt; 1.88×10⁻¹⁸ e cm，约比当前上限改善一个数量级。文中还给出了质心能量72至120 TeV的FCC-hh情景以及乐观探测器参数化下的结果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>FCC-hh在光子诱导的γγ→τ⁺τ⁻产生（双τ强子衰变）中对τ轻子反常磁矩a_τ与电偶极矩d_τ的探测灵敏度。</p>
+    <h4>方法</h4><p>用MadGraph5_aMC@NLO结合FeynRules反常γττ顶点UFO模型与TauDecay模型产生中心排他信号；SuperChic估计单、双衍射贡献并以25%归一化与形状不确定度加入；Pythia 8处理衰变、簇射与强子化；Delphes模拟FCC-hh探测器；基于hadrons-plus-strips方法重建强子τ衰变；由总横质量分布形状约束耦合。</p>
+    <h4>主要发现</h4><p>在接受度内强子τ衰变重建效率为73.4%；要求τ顶点无额外径迹可将Drell-Yan与γγ→WW背景压低至标准模型产额的0.9%；在84 TeV、30 ab⁻¹下预期95% CL上限为−3.38×10⁻⁴ &lt; a_τ &lt; 3.36×10⁻⁴与|d_τ| &lt; 1.88×10⁻¹⁸ e cm，约比当前上限改善一个数量级；并给出72–120 TeV情景及乐观探测器参数化下的结果。</p>
+    <h4>局限与展望</h4><p>结果依赖于对衍射贡献的估计及其25%归一化与形状不确定度、探测器参数化以及统计与系统误差处理；文中给出的72–120 TeV与乐观探测器参数化结果提示灵敏度随能量与探测器性能变化。后续可合理推断的方向包括更精确的衍射建模与探测器效应研究，但原文未作此类明确结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28161v1">
+  <div class="paper-head">
+    <h2>光增强声子探测器的脉冲形状模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28161v1" rel="noopener noreferrer">2610.28161v1</a>
+  </div>
+  <p class="original-title">Pulse Shape Model for a Light Enhanced Phonon Detector</p>
+  <p class="meta"><strong>作者：</strong>G. Angloher、M. R. Bharadwaj、A. Böhmer、S. Braun、M. R. Cababie、I. Colantoni、I. Dafinei、N. Di Marco、C. Dittmar、F. Ferella、F. Ferroni、S. Fichtinger、A. Filipponi、M. Friedl、D. Fuchs、L. Gai、M. Gapp、M. Heikinheimo、K. Heim、M. N. Hughes、K. Huitu、M. Kellermann、A. Mancuso、L. Pagnanini、F. Petricca、C. Petrucci、S. Pirro、F. Pröbst、G. Profeta、A. Puiu、F. Reindl、K. Schäffner、J. Schieck、P. Schreiner、C. Schwertner、P. Settembri、K. Shera、M. Stahlberg、A. Stendahl、M. Stukel、C. Tresca、S. Yue、V. Zema、Y. Zhu、L. Ziegele、N. Zimmermann、O. Schulz</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>COSINUS 测试了采用复合设计的 NaI 基低温闪烁量热计原型，其中过渡边缘传感器（TES）制备在与 NaI 靶晶体耦合的独立载片上。复合探测器的测量结果显示，其脉冲形状偏离已知的低温量热计脉冲形状描述，并且在中子刻度期间未发现可识别的核反冲事件群。本文提出一种新的脉冲形状模型，为上述观测提供解释，并为最终 COSINUS 声子探测器设计——远程 TES（remoTES）——的研制奠定基础。我们证明，首批 COSINUS 探测器原型具有通过载片中的光吸收实现信号增强的声子通道，即光增强声子探测器。该设计首次提供了利用单通道声子探测器进行粒子鉴别的可能。我们给出基于贝叶斯推断软件包 BAT.jl 的新型脉冲形状拟合方法的最新结果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>复合设计的 NaI 基低温闪烁量热计原型中，脉冲形状偏离已知低温量热计描述，且中子刻度下未出现可识别的核反冲事件群，需要解释这些观测。</p>
+    <h4>方法</h4><p>提出新的脉冲形状模型；使用基于贝叶斯推断软件包 BAT.jl 的新型脉冲形状拟合方法分析复合探测器数据。</p>
+    <h4>主要发现</h4><p>新脉冲形状模型能够解释所观测到的脉冲形状偏离及中子刻度中未识别出核反冲事件群的现象；首批 COSINUS 原型具有通过载片光吸收实现信号增强的声子通道，即光增强声子探测器；该设计首次提供利用单通道声子探测器进行粒子鉴别的可能；相关工作为 remoTES 最终设计奠定基础。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与适用范围；基于其表述可合理推断，该模型与单通道粒子鉴别方案仍需在最终 remoTES 设计中进一步验证，其适用性可能受复合探测器结构及光吸收增强机制约束。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28235v1">
+  <div class="paper-head">
+    <h2>有界参数的基于似然的置信曲线<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28235v1" rel="noopener noreferrer">2610.28235v1</a>
+  </div>
+  <p class="original-title">Likelihood-Based Confidence Curves for Bounded Parameters</p>
+  <p class="meta"><strong>作者：</strong>Hedvig Borgen Reiersrud、Clara Bertinelli Salucci、Riccardo De Bin、Alessandra Rosalba Brazzale</p>
+  <p class="meta"><strong>主分类：</strong>stat.ME
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">stat.ME</span> <span class="tag">hep-ex</span> <span class="tag">math.ST</span> <span class="tag">stat.TH</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>当参数存在边界约束时，似然比统计量通常不服从Wilks定理所给出的卡方极限分布。事实上，其渐近零分布依赖于零值到边界的距离，并在边界处的chi-bar-square律与参数空间深内部的卡方律之间插值。本文推导了该分布，并据此为有界参数构造置信曲线，即由双侧置信区间或置信域构成的嵌套集合。我们将已有的标量参数结果推广到一维或两维分量有界的二维参数情形。由于二维分布是正态分布的积分，且无法化为标准统计函数，本文还通过矩匹配给出了一个更简单的近似分布。最后，我们以高能物理中的典型分析——泊松信号加本底实验——为例说明了这些方法。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>当参数受边界约束时，似然比统计量的渐近零分布如何刻画，以及如何据此为有界参数构造置信曲线；并将标量参数的结果推广到一维或两维分量有界的二维参数。</p>
+    <h4>方法</h4><p>推导似然比统计量在参数有界情形下的渐近零分布，该分布随零值到边界的距离在chi-bar-square律与卡方律之间插值；对二维情形给出基于正态分布积分的分布，并通过矩匹配给出更简单的近似分布；以泊松信号加本底实验进行说明。</p>
+    <h4>主要发现</h4><p>似然比统计量的渐近零分布依赖于零值到边界的距离，并在边界处的chi-bar-square律与参数空间深内部的卡方律之间插值；据此可构造有界参数的嵌套双侧置信曲线；标量参数结果被推广到一维或两维分量有界的二维参数；二维分布为不可化为标准统计函数的正态分布积分，矩匹配可给出更简单的近似分布。</p>
+    <h4>局限与展望</h4><p>二维分布无法化为标准统计函数，因而需借助矩匹配近似；原文以泊松信号加本底实验为例说明方法，其近似精度与更广泛模型下的适用性尚待进一步考察（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28283v1">
+  <div class="paper-head">
+    <h2>ACRAIC：振幅层面 QED 重求和的自动化<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28283v1" rel="noopener noreferrer">2610.28283v1</a>
+  </div>
+  <p class="original-title">Automation of amplitude-level QED resummation with ACRAIC</p>
+  <p class="meta"><strong>作者：</strong>Alan Price</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>面向未来 e^+e^- 对撞机的精确电弱预言需要达到对撞机物理中前所未有的精度，其中多光子发射的建模以及相关对数的指数化必须审慎处理。Yennie-Frautschi-Suura 定理在所有阶上减除红外奇异性并将其指数化，留下可按阶计算的红外有限余项。相干指数化在振幅层面完成这一减除，从而保留各发射之间的干涉，但此前仅适用于费米子对产生过程，且振幅为手工编码。我们提出 ACRAIC，这是在 Sherpa 中对一般散射过程实现该减除的自动化、振幅层面方案。该方法使我们能够构造 O(α) 与 O(α^2) 的振幅层面减除方案：其中红外有限余项为树级螺旋度振幅，带有依赖于划分的传播子移位，由 Berends--Giele 递推计算；单圈电弱虚修正则通过圈图提供者给出的逐螺旋度因子进入。在 O(α^2) 下，两种独立的匹配在约 10^{-3} 的水平上对缺失高阶项的大小给出了一致结果，且相对于 O(α)，估计的微扰不确定度缩小了约一个数量级。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>未来 e^+e^- 对撞机的精确电弱预言需要多光子发射与相关对数指数化的高精度建模；已有的振幅层面相干指数化（在保留发射间干涉的前提下减除红外奇异性）此前仅适用于费米子对产生，且依赖手工编码振幅，缺乏对一般散射过程的自动化实现。</p>
+    <h4>方法</h4><p>在 Sherpa 中实现 ACRAIC，将振幅层面的红外减除自动化推广到一般散射过程；构造 O(α) 与 O(α^2) 的振幅层面减除方案，其中红外有限余项为带划分依赖传播子移位的树级螺旋度振幅，由 Berends--Giele 递推计算，单圈电弱虚修正通过圈图提供者的逐螺旋度因子引入。</p>
+    <h4>主要发现</h4><p>在 O(α^2) 下，两种独立匹配对缺失高阶项大小的估计在约 10^{-3} 水平上一致；相对于 O(α)，估计的微扰不确定度缩小约一个数量级。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与适用范围；可合理推断，该方法目前给出的不确定度估计基于两种匹配的一致性，其在高阶与更复杂过程上的表现尚待进一步检验，向未来 e^+e^- 对撞机所需精度的推广亦需后续研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-21 10:18 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

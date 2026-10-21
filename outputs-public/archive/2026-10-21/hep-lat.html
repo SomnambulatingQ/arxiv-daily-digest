@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-10-21</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">0</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">2</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>交叉列表（2）</h3><ol class="toc-list"><li><a href="#paper-2610.27070v1">非阿贝尔规范理论的腔模型</a> <small>2610.27070v1</small></li><li><a href="#paper-2610.27843v1">$[q_1q_2][\bar q_3 \bar c]$ 四夸克态中电磁多极矩的味分解：$J^P = 1^+$ 的 $T_{cs1}(2900)^0$ 轻夸克类似态</a> <small>2610.27843v1</small></li></ol></section>
+    <h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.27070v1">
+  <div class="paper-head">
+    <h2>非阿贝尔规范理论的腔模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27070v1" rel="noopener noreferrer">2610.27070v1</a>
+  </div>
+  <p class="original-title">Cavity models of non-Abelian gauge theories</p>
+  <p class="meta"><strong>作者：</strong>Lucia Valor、Jacquelin Luneau、Klaus Liegener、Stefan Filipp、Peter Rabl</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在量子光学及相关领域中，腔量子电动力学提供了一个强有力的框架，用最少的原子能级和孤立的光子模式来建模束缚电荷与电磁场的低能性质。本文为非阿贝尔规范理论发展了一个类似的框架，聚焦于SU(2)场的纯规范动力学，将其作为概念上最简单的例子。从相应的Yang-Mills拉格朗日量出发，我们在库仑规范下推导出一个SU(2)腔哈密顿量，它仅用三个局域玻色模式表示。与无相互作用的电磁对应物不同，该模型展现出非平凡的激发谱，其最低能构型为束缚的复合规范粒子（“胶子球”）。我们将该框架推广到一维耦合SU(2)腔阵列，并讨论了胶子球凝聚的驱动激发以及多胶子球态的聚集，作为这些模型中两个基本的相互作用诱导过程。这些例子初步展示了腔SU(2)框架内出现的众多新颖多体现象，并表明这一处于粒子物理与量子光学交界处的物理如何能用最先进的超导量子电路进行实验探索。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为纯SU(2)非阿贝尔规范理论构建类似腔QED的低能有效框架，并用少量局域玻色模式描述其纯规范动力学与激发谱。</p>
+    <h4>方法</h4><p>从Yang-Mills拉格朗日量出发，在库仑规范下推导仅含三个局域玻色模式的SU(2)腔哈密顿量；并将其推广到一维耦合SU(2)腔阵列，讨论驱动激发与多胶子球聚集过程，提出用超导量子电路进行实验探索。</p>
+    <h4>主要发现</h4><p>所导出的SU(2)腔模型具有非平凡激发谱，最低能构型为束缚的复合规范粒子（胶子球）；在一维耦合腔阵列中，胶子球凝聚的驱动激发与多胶子球态的聚集是两个基本的相互作用诱导过程。</p>
+    <h4>局限与展望</h4><p>原文指出这些例子仅初步展示了该框架内可能出现的多体现象，并建议用最先进的超导量子电路进行实验探索；关于具体实验实现条件、有限温度或截断误差等局限，原文未明确讨论，需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27843v1">
+  <div class="paper-head">
+    <h2>$[q_1q_2][\bar q_3 \bar c]$ 四夸克态中电磁多极矩的味分解：$J^P = 1^+$ 的 $T_{cs1}(2900)^0$ 轻夸克类似态<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27843v1" rel="noopener noreferrer">2610.27843v1</a>
+  </div>
+  <p class="original-title">Flavor decomposition of electromagnetic multipole moments in $[q_1q_2][\bar q_3 \bar c]$ tetraquarks: Light-quark analogs of $T_{cs1}(2900)^0$ with $J^P = 1^+$</p>
+  <p class="meta"><strong>作者：</strong>Ulaş Özdem</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在双夸克—反双夸克图像下，基于光锥 QCD 求和规则框架，系统研究了量子数 $J^P = 1^+$ 的紧致 $[q_1 q_2][\bar q_3 \bar c]$ 四夸克态的磁偶极矩与电四极矩。通过对所有允许的 $u/d$ 味组态进行味分解，作者表明：在算符层面，粲夸克对电磁矩的贡献代数地消失。这是本文所采用特定自旋组织方式的结构性特征，其中重反夸克处于赝标量反双夸克中；该特征不同于其他紧致构造及强子分子态中起作用的动力学 $1/m_c$ 压低。磁矩呈现一致的轻味模式：$uu$ 型为正，$dd$ 型为负，混合味双夸克则受到压低；四极矩在整个范围内均非零，按通常的几何解释对应于内禀变形的电荷分布。作者进一步将无量纲多极比 $\mathcal{D}/\mu$ 确定为一种结构可观测量，它不依赖于插值流的归一化，可探测自旋流分布与电荷分布的相对几何，与绝对多极矩形成互补。综合来看，粲夸克贡献的代数解耦及其在算符层面所隐含的不同单重四夸克架构之间的区分，构成方法学上的标志，可用于判别相应的内部组织方式；并且，在物理候选态主要由其中一种组织方式主导的前提下，也可用于判别紧致解释与分子解释。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在双夸克—反双夸克图像与光锥 QCD 求和规则框架下，$J^P = 1^+$ 的紧致 $[q_1 q_2][\bar q_3 \bar c]$ 四夸克态的磁偶极矩与电四极矩具有怎样的味依赖结构，尤其是粲夸克贡献的性质，以及这些结构能否用于区分不同的四夸克内部组织方式？</p>
+    <h4>方法</h4><p>采用双夸克—反双夸克图像，在光锥 QCD 求和规则框架内计算 $J^P = 1^+$ 的 $[q_1 q_2][\bar q_3 \bar c]$ 四夸克态的磁偶极矩与电四极矩；对所有允许的 $u/d$ 味组态进行味分解，并引入不依赖插值流归一化的无量纲多极比 $\mathcal{D}/\mu$ 作为结构可观测量。</p>
+    <h4>主要发现</h4><p>在所采用的自旋组织方式（重反夸克位于赝标量反双夸克中）下，粲夸克对电磁矩的贡献在算符层面代数地消失；磁矩呈现一致的轻味模式，即 $uu$ 型为正、$dd$ 型为负、混合味双夸克受到压低；四极矩在整个范围内均非零，按通常几何解释对应于内禀变形的电荷分布；无量纲多极比 $\mathcal{D}/\mu$ 不依赖于插值流的归一化，可探测自旋流分布与电荷分布的相对几何。</p>
+    <h4>局限与展望</h4><p>粲夸克贡献的代数解耦是本文特定自旋组织方式的结构性特征，不同于其他紧致构造与强子分子态中起作用的动力学 $1/m_c$ 压低；因此，该特征作为方法学标志，可用于判别不同的单重四夸克内部组织方式，并在物理候选态主要由其中一种组织方式主导的前提下，用于判别紧致解释与分子解释。上述判别力的实际适用性取决于具体物理态的内部组织是否确由单一机制主导，这一点在原文中属于条件性表述，尚需进一步检验。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-21 10:18 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

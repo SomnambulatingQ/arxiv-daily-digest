@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-10-21</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2610.28202v1">用库仑激发协调$^{200,202}$Hg中反常的四极形变</a> <small>2610.28202v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2610.27396v1">LHC与FCC上全重味$b\bar{b}c\bar{c}$四夸克态：多机制碎裂与可观测性</a> <small>2610.27396v1</small></li><li><a href="#paper-2610.27621v1">一种抗辐射、故障感知且可自愈的量化神经网络</a> <small>2610.27621v1</small></li><li><a href="#paper-2610.27955v1">从谐振子到粒子产生过程中的多重数分布</a> <small>2610.27955v1</small></li><li><a href="#paper-2610.28509v1">164-188Hf 核中集体形变变量 β 和 γ 的壳模型描述</a> <small>2610.28509v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.28202v1">
+  <div class="paper-head">
+    <h2>用库仑激发协调$^{200,202}$Hg中反常的四极形变<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.28202v1" rel="noopener noreferrer">2610.28202v1</a>
+  </div>
+  <p class="original-title">Reconciling anomalous quadrupole deformation in $^{200,202}$Hg with Coulomb excitation</p>
+  <p class="meta"><strong>作者：</strong>G. Willmott、J. Heery、J. Henderson、P. Stevenson、C. Cousins、D. T. Doherty、A. Ertoprak、B. P. Kay、L. Morrison、C. Mueller-Gatermann、C. O&#x27;Shea、P. H. Regan、W. Reviol、D. M. Rhodes、R. Russell、N. Sensharma、D. Seweryniak、M. Siciliano、R. S. Sidhu、I. A. Tolstukhin、C. Y. Wu</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>汞的稳定同位素比幻数铅少两个质子，实验上被发现具有扁椭球形变，与邻近的铂同位素相似。这些同位素因$^{199}$Hg被用作电偶极矩（EDM）实验研究平台而备受关注；EDM是检验电荷-宇称（$CP$）破坏的有力手段，而其解释关键依赖于底层原子核的四极与八极形状。实验观测到，四极矩与电四极跃迁强度之比超出物理极限，使该底层形状存在不确定性。为厘清这一问题，本工作利用$^{48}$Ti和$^{120}$Sn靶进行了库仑激发实验，重新测量了$^{200}$Hg和$^{202}$Hg的谱学四极矩$Q_s(2^+_1)$。所得值为$Q_s(2^+_1)$($^{200,202}$Hg) = $0.52(14)$、$0.63(10)$ eb，处于由$B(E2)$值定义的物理极限之内，但仍与近轴对称扁椭球形变一致。对原子核的系统性研究表明，与邻近的Pt同位素类似，$^{200,202}$Hg具有强扁椭球形变，但尚未完全发展为轴对称转子。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>$^{200,202}$Hg的实验四极矩与电四极跃迁强度之比超出物理极限，导致其四极形变（扁椭球形状）的确定存在不确定性；该形状对以$^{199}$Hg为平台的EDM实验解释至关重要。</p>
+    <h4>方法</h4><p>利用$^{48}$Ti和$^{120}$Sn靶开展库仑激发实验，重新测量$^{200}$Hg和$^{202}$Hg的谱学四极矩$Q_s(2^+_1)$，并结合$B(E2)$值检验物理极限，同时对相关原子核进行系统性比较。</p>
+    <h4>主要发现</h4><p>测得$Q_s(2^+_1)$($^{200,202}$Hg) = $0.52(14)$、$0.63(10)$ eb，处于由$B(E2)$值定义的物理极限之内，且仍与近轴对称扁椭球形变一致；系统性研究表明$^{200,202}$Hg具有强扁椭球形变，但尚未完全发展为轴对称转子。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，新测得的$Q_s(2^+_1)$值有助于约束$^{199}$Hg EDM实验解释中所依赖的四极形状，但八极形状及更广的同位素链仍需进一步研究。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.27396v1">
+  <div class="paper-head">
+    <h2>LHC与FCC上全重味$b\bar{b}c\bar{c}$四夸克态：多机制碎裂与可观测性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27396v1" rel="noopener noreferrer">2610.27396v1</a>
+  </div>
+  <p class="original-title">The $b\bar{b}c\bar{c}$ Fully Heavy Tetraquark at the LHC and the FCC: Multimodal Fragmentation and Observability</p>
+  <p class="meta"><strong>作者：</strong>João V. Bulhões、Francesco G. Celiberto、Victor P. Gonçalves</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-th</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用结合直接多夸克机制与标量双夸克机制的多机制碎裂框架，研究全重味混合味$b\bar{b}c\bar{c}$四夸克态的产生。在保持阈值一致性的前提下，通过重味非相对论演化（HF-NRevo）方案实施标准的Dokshitzer-Gribov-Lipatov-Altarelli-Parisi（DGLAP）演化。所得碎裂函数（FFs）随后被嵌入次领头阶的混合高能与共线因子化框架，用于半单举四夸克态加喷注的产生计算。我们在14 TeV高亮度大型强子对撞机（HL-LHC）与100 TeV未来环形对撞机（FCC）上通过快度间隔分布比较两种机制，发现唯象上明显偏好直接多夸克通道而非标量双夸克模式。积分截面与预期事例数表明，HL-LHC上的未来搜寻在产生层面具有有利前景，而FCC能量下统计量将显著增强。这些结果在微观形成机制与$b\bar{b}c\bar{c}$四夸克态在当前及未来强子对撞机上的可观测前景之间建立了定量联系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>全重味混合味$b\bar{b}c\bar{c}$四夸克态通过何种微观形成机制产生，以及其在HL-LHC与FCC上的可观测前景如何。</p>
+    <h4>方法</h4><p>构建结合直接多夸克与标量双夸克机制的多机制碎裂框架，采用HF-NRevo方案保持阈值一致性并实施DGLAP演化，将碎裂函数嵌入次领头阶混合高能与共线因子化，计算半单举四夸克态加喷注产生，并在14 TeV HL-LHC与100 TeV FCC上比较快度间隔分布。</p>
+    <h4>主要发现</h4><p>快度间隔分布的唯象比较显示，直接多夸克通道相对标量双夸克模式具有明显偏好；积分截面与预期事例数表明HL-LHC上的未来搜寻在产生层面具有有利前景，FCC能量下统计量显著增强。</p>
+    <h4>局限与展望</h4><p>摘要未讨论理论不确定度与背景压低等限制；其适用范围限于所采用的碎裂与因子化框架及上述对撞机能量。后续可合理推断的方向包括更精细的机制甄别与实验搜寻策略研究，但需明确这属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27621v1">
+  <div class="paper-head">
+    <h2>一种抗辐射、故障感知且可自愈的量化神经网络<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27621v1" rel="noopener noreferrer">2610.27621v1</a>
+  </div>
+  <p class="original-title">A Radiation-Hardened, Fault-Aware Quantized Neural Network That Self-Heals</p>
+  <p class="meta"><strong>作者：</strong>Peter Xiangyuan Ma、Joshua S. Bloom</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.IM
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.IM</span> <span class="tag">cs.LG</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">physics.ins-det</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>深度学习（DL）模型正日益部署于航天器、粒子加速器以及即将出现的天基数据中心等辐射严苛环境。模型本质上是由持久存储器中数值构成的学习型编排，高能粒子对数据的破坏会使其持续退化。在推理阶段，新数据通过网络会从根本上打破训练阶段确定的静态模型的离线假设与保证。为保持模型的质量与效能，针对比特翻转的容错是明确目标。本文提出一种在商用现货（COTS）硬件上、无需存储额外副本即可在比特翻转后修复神经网络量化权重的运行时方法。该方法扩展了成熟的故障感知训练（FAT）范式，通过加入对齐惩罚使未受损的激活与权重集中于低秩子空间，再由未受损的幸存坐标重建被标记的受损坐标。我们将该方法称为 Projection Healing，并将其应用于量化神经网络上的六个回归基准。在固定 FAT 检查点、仅切换运行时修复的条件下，原生单位超额积分进一步降低约 23%。在这些数据集上，该方法在 RMSE 退化 +5% 时将运行擦洗间隔中位数延长 2.04 倍，在 +50% 时延长 1.96 倍；相比之下，经典的单错纠错、双错检测（SECDED）分别为 1.62 倍和 1.07 倍。这为设计具有韧性的数据驱动模型开辟了新路径，可与已有的硬件冗余、ECC 及基于 FAT 的技术互补。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在商用现货硬件上、不存储额外副本的情况下，修复因高能粒子比特翻转而受损的量化神经网络权重，以维持推理质量并延长运行擦洗间隔。</p>
+    <h4>方法</h4><p>扩展故障感知训练（FAT）范式，加入对齐惩罚使未受损激活与权重集中于低秩子空间，并在运行时由未受损幸存坐标重建被标记的受损坐标，称为 Projection Healing；在六个回归基准的量化神经网络上评估，并与 SECDED 对比。</p>
+    <h4>主要发现</h4><p>固定 FAT 检查点、仅切换运行时修复可使原生单位超额积分进一步降低约 23%；在六个数据集上，RMSE 退化 +5% 时运行擦洗间隔中位数延长 2.04 倍，+50% 时延长 1.96 倍；SECDED 对应为 1.62 倍和 1.07 倍。</p>
+    <h4>局限与展望</h4><p>该方法面向量化神经网络与回归基准，在商用现货硬件上验证；其在不同网络结构、任务类型及真实辐射环境下的适用性尚需进一步检验。可合理推断，后续工作可将该方法与硬件冗余、ECC 及 FAT 类技术结合，并扩展到更广泛的模型与部署场景。</p>
+  </section>
+</article><article class="paper" id="paper-2610.27955v1">
+  <div class="paper-head">
+    <h2>从谐振子到粒子产生过程中的多重数分布<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27955v1" rel="noopener noreferrer">2610.27955v1</a>
+  </div>
+  <p class="original-title">From Harmonic Oscillators to Multiplicity Distributions in Particle Production Processes</p>
+  <p class="meta"><strong>作者：</strong>Trambak Bhattacharyya、Maciej Rybczyński、Zbigniew Włodarczyk</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种基于信息论方法的谐振子框架，用于研究多粒子产生过程。针对简并谐振子系统，我们推导出负二项分布（NBD）及其非可加推广形式 gNBD。我们观察到，由非可加统计导出的 gNBD 能够描述更高多重数区域的数据，从而为唯象研究中使用的多组分分布提供了一种替代方案。我们还将该框架推广至非简并谐振子情形，并遇到 Barnes zeta 函数的一种 Lerch 型推广；据我们所知，该推广此前尚未在非可加统计与多重数研究的语境中被研究过。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用基于信息论的谐振子框架描述多粒子产生过程中的多重数分布，并给出负二项分布及其非可加推广。</p>
+    <h4>方法</h4><p>构建简并谐振子系统的信息论框架，推导负二项分布（NBD）及其非可加推广 gNBD；并将框架推广至非简并谐振子情形。</p>
+    <h4>主要发现</h4><p>由非可加统计导出的 gNBD 能够描述更高多重数区域的数据，可作为唯象研究中多组分分布的替代方案；在非简并谐振子推广中出现了 Barnes zeta 函数的一种 Lerch 型推广，据作者所知此前未在非可加统计与多重数研究语境中被研究过。</p>
+    <h4>局限与展望</h4><p>原文未给出定量拟合比较或适用范围的系统检验；gNBD 作为多组分分布替代方案的普适性与参数解释有待进一步验证。非简并情形下出现的 Lerch 型 Barnes zeta 函数推广，其数学性质及在多重数研究中的物理含义可作后续探讨（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28509v1">
+  <div class="paper-head">
+    <h2>164-188Hf 核中集体形变变量 β 和 γ 的壳模型描述<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28509v1" rel="noopener noreferrer">2610.28509v1</a>
+  </div>
+  <p class="original-title">Shell-model description of collective deformation variables $β$ and $γ$ in $^{164-188}$Hf nuclei</p>
+  <p class="meta"><strong>作者：</strong>Carlos E. Vargas</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>基于对称性的模型（如赝 SU(3) 方案）已被证明是描述稀土区核低能结构的有效工具。本文采用该模型研究 164-188Hf 同位素链基态（0+）中集体形变变量 β 和 γ 的演化。截断通过选取具有高空间对称性以及赝自旋 0 和 1 的不可约表示来实现，从而同时纳入对称性最高与较低的相关不可约表示，后者对低能性质尤其是形状相变的描述尤为重要。哈密顿量包含球形 Nilsson 单粒子能量、四极-四极相互作用和配对关联，并以系统化方式参数化，从而在无自由参数的情况下给出描述。与实验数据一致，最大形变 β 出现在 N = 100 处，尽管模型预言的数值约小 20%。与其他理论研究类似，模型对该壳层内几乎所有核预言长椭球形变（γ = 8°），并在 N &gt; 110 时明显向三轴形状过渡。对配对项和 Nilsson 项对 β 与 γ 取值影响的分析表明，决定长椭球-扁椭球相变的是后者，配对项仅起边缘作用。侵入态中缺乏核子是该模型最主要的局限。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在赝 SU(3) 对称性框架下，描述 164-188Hf 同位素链基态集体形变变量 β 和 γ 的演化，并考察配对项与 Nilsson 项对形变及形状相变的作用。</p>
+    <h4>方法</h4><p>采用赝 SU(3) 壳模型，通过选取高空间对称性及赝自旋 0 和 1 的不可约表示进行截断；哈密顿量包含球形 Nilsson 单粒子能量、四极-四极相互作用与配对关联，并以系统化方式参数化，无自由参数。</p>
+    <h4>主要发现</h4><p>模型预言最大形变 β 出现在 N = 100，与实验数据一致，但数值约小 20%；该壳层内几乎所有核呈长椭球形变（γ = 8°），并在 N &gt; 110 时明显向三轴形状过渡；分析表明 Nilsson 项决定长椭球-扁椭球相变，配对项仅起边缘作用。</p>
+    <h4>局限与展望</h4><p>模型的主要局限在于侵入态中缺乏核子；原文未给出后续研究方向，可合理推断改进需纳入侵入态轨道，且 β 系统性偏小约 20% 的偏差有待进一步检验。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-21 10:18 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
