@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-10-22</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">14</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">8</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2610.29128v1">眼形台球两个奇异极限附近的几何诱导混沌与标度</a> <small>2610.29128v1</small></li><li><a href="#paper-2610.29269v1">非局域振子环中噪声驱动的奇美拉态消失与分岔</a> <small>2610.29269v1</small></li><li><a href="#paper-2610.29301v1">拓扑泵浦孤子的碰撞动力学</a> <small>2610.29301v1</small></li><li><a href="#paper-2610.29597v1">Jacobi最后乘子与Liénard微分方程的可度量化</a> <small>2610.29597v1</small></li><li><a href="#paper-2610.29770v1">从无穷对称性到多孤子流形：KP与mKP方程的色散驱动约化</a> <small>2610.29770v1</small></li><li><a href="#paper-2610.29884v1">表型结构非局部聚集模型 I：信号产生与响应</a> <small>2610.29884v1</small></li></ol><h3>交叉列表（8）</h3><ol class="toc-list"><li><a href="#paper-2610.27154v1">有限通道随机 Schrödinger 算符的精确谱可积性：从 Dyson–Riccati 气体的费米子化到 Kontsevich 积分</a> <small>2610.27154v1</small></li><li><a href="#paper-2610.28669v1">地月空间导航中的食事件观测量</a> <small>2610.28669v1</small></li><li><a href="#paper-2610.28715v1">由两个实变量描述单元的均值场耦合动力系统的低维约化：分类与应用</a> <small>2610.28715v1</small></li><li><a href="#paper-2610.28832v1">1+1 维 $\mathcal{N}{=}2$ Wess--Zumino 模型</a> <small>2610.28832v1</small></li><li><a href="#paper-2610.29601v1">时间延迟双稳活性粒子中的随机共振</a> <small>2610.29601v1</small></li><li><a href="#paper-2610.29670v1">能量喂养的承诺：随机选择后强化的最小模型</a> <small>2610.29670v1</small></li><li><a href="#paper-2610.29714v1">异质网络中重复强迫的凝聚与最优靶向</a> <small>2610.29714v1</small></li><li><a href="#paper-2610.29947v1">正交与酉辛群特征多项式联合矩的 Painlevé 表示</a> <small>2610.29947v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.29128v1">
+  <div class="paper-head">
+    <h2>眼形台球两个奇异极限附近的几何诱导混沌与标度<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29128v1" rel="noopener noreferrer">2610.29128v1</a>
+  </div>
+  <p class="original-title">Geometry-induced chaos and scaling near two singular limits of an eye-shaped billiard</p>
+  <p class="meta"><strong>作者：</strong>Anne Kétri P. da Fonseca、Edson D. Leonel、Diego F. M. Oliveira</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究静态眼形台球中边界几何如何控制规则运动与混沌运动的共存。单一控制参数使光滑且严格凸的边界在两个奇异几何极限之间连续变形。在所采样的参数范围内，混沌层与规则岛及限制相空间输运的不变曲线共存。我们推导了对角周期二轨道存在的解析条件，并确定了轴向周期二轨道的稳定性转变。我们还证明了对于控制参数的每个有限正值，边界附近均存在不变焦散。数值模拟表明，平均最大Lyapunov指数对控制参数呈非单调依赖，所采样的最强不稳定性出现在中间几何处。与所采样混沌分量相关的均方角包络宽度向两个奇异极限均减小，遵循幂律，拟合指数符号相反且量级接近三分之二。我们进一步刻画了一个几何响应函数，并讨论了由此产生的与连续临界行为的类比。我们的发现表明几何变形如何支配保守台球动力学中的轨道稳定性、混沌输运壁垒及标度性质。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究静态眼形台球中，边界几何如何通过单一控制参数在两个奇异几何极限之间的连续变形，控制规则运动与混沌运动的共存、轨道稳定性、混沌输运壁垒及标度性质。</p>
+    <h4>方法</h4><p>采用解析推导与数值模拟相结合的方法：推导对角周期二轨道存在的解析条件，确定轴向周期二轨道的稳定性转变，证明边界附近不变焦散的存在性；数值计算平均最大Lyapunov指数、均方角包络宽度随控制参数的变化，并进行幂律拟合，同时刻画几何响应函数。</p>
+    <h4>主要发现</h4><p>在所采样的参数范围内，混沌层与规则岛及限制相空间输运的不变曲线共存；推导出对角周期二轨道存在的解析条件并确定轴向周期二轨道的稳定性转变；证明对于控制参数的每个有限正值，边界附近均存在不变焦散；平均最大Lyapunov指数对控制参数呈非单调依赖，所采样的最强不稳定性出现在中间几何处；均方角包络宽度向两个奇异极限均减小，遵循幂律，拟合指数符号相反且量级接近三分之二。</p>
+    <h4>局限与展望</h4><p>本文结果基于所采样的参数范围与数值模拟，幂律指数为拟合值，其普适性尚需进一步验证；几何响应函数与连续临界行为的类比为讨论性结论。后续可合理推断的方向包括：解析确定幂律指数的来源、考察未采样参数区域及其他眼形边界族中上述标度行为是否成立。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29269v1">
+  <div class="paper-head">
+    <h2>非局域振子环中噪声驱动的奇美拉态消失与分岔<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29269v1" rel="noopener noreferrer">2610.29269v1</a>
+  </div>
+  <p class="original-title">Noise-driven loss of chimera states and bifurcations in a nonlocal oscillator ring</p>
+  <p class="meta"><strong>作者：</strong>Lintao Liu、Nariya Uchida</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>独立相位噪声可消除奇美拉态的空间对比度，同时保留显著的集体相干性。本文采用非线性 Fokker–Planck 方程研究具有余弦核的非局域耦合 Kuramoto–Sakaguchi 环中的这一转变。稳态自洽条件与空间谱在参考相位滞后下识别出均匀有序态的两个分岔。一种保持对称性的振幅约化方法区分了亚临界下端点 $D_l$ 与超临界上端点 $D_u$，并表明集体旋转频率的重构对于获得三次项系数是必要的。上端点允许对连续空间平移对称性恢复作非平衡 Landau 型描述。直接积分证实了在上阈值以下存在稳态调制、在临界点处呈代数弛豫、在上阈值以上向均匀部分同步呈指数衰减。以噪声强度和相位滞后为参数的延拓分析分辨出有限振幅鞍结、一个狭窄尖点以及一个具有正五次项系数的独特三次零点。这些结果将含噪奇美拉分支的分岔结构与空间对称性恢复及临界弛豫联系起来。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>独立相位噪声如何消除非局域耦合 Kuramoto–Sakaguchi 振子环中奇美拉态的空间对比度，同时保留集体相干性；该转变对应的分岔结构是什么。</p>
+    <h4>方法</h4><p>针对具有余弦核的非局域耦合 Kuramoto–Sakaguchi 环，使用非线性 Fokker–Planck 方程；通过稳态自洽条件与空间谱识别均匀有序态的分岔；采用保持对称性的振幅约化区分亚临界与超临界端点，并重构集体旋转频率以求得三次项系数；结合直接数值积分与以噪声强度和相位滞后为参数的延拓分析。</p>
+    <h4>主要发现</h4><p>在参考相位滞后下识别出均匀有序态的两个分岔；对称性感知的振幅约化区分出亚临界下端点 $D_l$ 与超临界上端点 $D_u$，并表明集体旋转频率的重构对获得三次项系数是必要的；上端点可作连续空间平移对称性恢复的非平衡 Landau 型描述；直接积分证实上阈值以下存在稳态调制、临界点处呈代数弛豫、上阈值以上向均匀部分同步呈指数衰减；延拓分析分辨出有限振幅鞍结、狭窄尖点以及具有正五次项系数的独特三次零点。</p>
+    <h4>局限与展望</h4><p>原文结果限于具有余弦核的非局域耦合 Kuramoto–Sakaguchi 环及所考察的参考相位滞后与参数范围；向其他耦合核、相位滞后或振子模型的推广需进一步验证。基于已有分岔与对称性恢复结果，可合理推断后续可考察临界弛豫的普适性及三次零点附近的高阶非线性效应，但这些方向尚未在原文中展开。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29301v1">
+  <div class="paper-head">
+    <h2>拓扑泵浦孤子的碰撞动力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29301v1" rel="noopener noreferrer">2610.29301v1</a>
+  </div>
+  <p class="original-title">Collision Dynamics of Topologically Pumped Solitons</p>
+  <p class="meta"><strong>作者：</strong>Ning Mao、Guang-Can Guo、Xi-Wang Luo</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>孤子泵浦通过非线性与能带拓扑之间的相互作用，实现对局域波包的可控输运。此类波包之间的相互作用为调控其局域化及后续运动提供了额外手段。本文研究驱动双色晶格中孤子的碰撞，其中与相反陈数能带相关联的孤子被泵浦至彼此相向运动。对于同分量碰撞，在碰撞中占主导的孤子以局域出射波包的形式存活，而较弱者可能失去其独立的局域身份。对于分量间碰撞，吸引相互作用导致空间锁定，而排斥相互作用则引起向最低能带的重分布，并反转最初激发能带波包的运动方向。值得注意的是，对于初始强度相当的矢量孤子之间的碰撞，其内部相对相位之差控制碰撞结果：同相制备倾向于俘获，反相制备倾向于重新分离。这些结果将非线性散射与后续拓扑泵浦联系起来，并确定了初始强度、分量间相互作用和相对相位作为在同一泵浦协议内操控局域输运的控制参数。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究驱动双色晶格中与相反陈数能带相关联的孤子在相互泵浦过程中的碰撞动力学，以及初始强度、分量间相互作用和相对相位如何影响碰撞结果与后续拓扑泵浦。</p>
+    <h4>方法</h4><p>在驱动双色晶格中考察孤子碰撞：使与相反陈数能带相关的孤子相向泵浦，分别分析同分量碰撞与分量间碰撞，并考察矢量孤子在不同内部相对相位下的碰撞结果。</p>
+    <h4>主要发现</h4><p>同分量碰撞中，占主导的孤子以局域出射波包存活，较弱者可能失去独立的局域身份；分量间碰撞中，吸引相互作用导致空间锁定，排斥相互作用引起向最低能带的重分布并反转最初激发能带波包的运动；对于初始强度相当的矢量孤子碰撞，内部相对相位差控制结果，同相制备倾向于俘获，反相制备倾向于重新分离。</p>
+    <h4>局限与展望</h4><p>原文表明初始强度、分量间相互作用和相对相位可作为同一泵浦协议内操控局域输运的控制参数；这些结论的适用范围限于所研究的驱动双色晶格与相应碰撞条件，向其他晶格构型或参数区域的推广有待进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29597v1">
+  <div class="paper-head">
+    <h2>Jacobi最后乘子与Liénard微分方程的可度量化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29597v1" rel="noopener noreferrer">2610.29597v1</a>
+  </div>
+  <p class="original-title">Jacobi last multipliers and metrisability of Liénard differential equations</p>
+  <p class="meta"><strong>作者：</strong>Maria V. Demina、Varvara G. Nechitailo</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对具有关于一阶导数二次的不变量、且其余因子取特殊形式的非自治Liénard微分方程进行分类。这些不变量给出相关方程的Jacobi最后乘子。我们找到若干族Liénard微分方程，其首次积分关于一阶导数为分式二次型。该方法可用于求解Liénard微分方程的可度量化问题。若一个二阶常微分方程的积分曲线是二维曲面上某个度量的Levi-Civita联络的无参数测地线，则称该方程是可度量化的。我们给出若干显式例子。我们找到满足Chiellini可积条件的可度量化自治Liénard微分方程；该结果给出首次积分在动量上为有理或超越的度量。我们导出一个正定度量，其测地流具有一个在动量比上非Liouvillian的首次积分。我们证明Ermakov-Pinney方程是可度量化的。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究非自治Liénard微分方程在具有关于一阶导数二次的不变量（其余因子取特殊形式）时的分类，以及Liénard微分方程的可度量化问题。</p>
+    <h4>方法</h4><p>利用关于一阶导数二次的不变量构造Jacobi最后乘子，对相关Liénard方程进行分类；并将该方法用于判定Liénard方程的可度量化性，结合Chiellini可积条件与显式构造度量。</p>
+    <h4>主要发现</h4><p>论文给出了具有关于一阶导数二次不变量（其余因子取特殊形式）的非自治Liénard方程的分类；找到首次积分关于一阶导数为分式二次型的若干Liénard方程族；给出可度量化问题的显式例子；找到满足Chiellini可积条件的可度量化自治Liénard方程，并由此得到首次积分在动量上为有理或超越的度量；导出一个正定度量，其测地流具有在动量比上非Liouvillian的首次积分；证明Ermakov-Pinney方程是可度量化的。</p>
+    <h4>局限与展望</h4><p>摘要未讨论所得分类的完备性范围、度量构造的一般性条件及高维推广；后续可考虑将Jacobi最后乘子方法推广至更一般的余因子形式或其他类型方程，但此类推断需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29770v1">
+  <div class="paper-head">
+    <h2>从无穷对称性到多孤子流形：KP与mKP方程的色散驱动约化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29770v1" rel="noopener noreferrer">2610.29770v1</a>
+  </div>
+  <p class="original-title">From infinite symmetries to multi-soliton manifolds: dispersion-driven reduction for the KP and mKP equations</p>
+  <p class="meta"><strong>作者：</strong>Xiazhi Hao、Mingxia Ji、Senyue Lou</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>可积系统在(2+1)维中的无穷维对称代数在限制到有限维多孤子流形时表现出显著的约化性质。本文针对Kadomtsev-Petviashvili（KP）方程与修正Kadomtsev-Petviashvili（mKP）方程系统研究这一现象。对于KP方程，分析了K-对称性与τ-对称性两个层级。结果表明，对任意n-孤子解，每个高阶K-对称生成元约化为与各孤子相移相关的n个独立平移对称σ_{ξ_{m0}}的线性组合，其系数恰为在孤子参数处取值的色散关系。文中导出了奇数阶与偶数阶K-对称性的闭式表达式，并给出行列式表示以系统刻画该约化。对于τ-对称性，每个τ_n成为三个基本孤子对称σ_{k_m}、σ_{l_m}与σ_{ξ_{m0}}的线性组合，其系数为孤子参数k_m与l_m的有理函数。上述结果进一步推广至mKP方程，建立了类似的约化模式。本工作揭示了无穷对称性的代数结构与孤子解的谱性质之间的直接内在联系，并给出统一的物理解释：无穷高阶对称性生成基本孤子平移的线性叠加，其权重由波数与色散系数的幂次决定。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究(2+1)维可积系统（KP与mKP方程）的无穷维对称代数在限制到有限维多孤子流形时的约化性质，即高阶K-对称性与τ-对称性如何作用于n-孤子解。</p>
+    <h4>方法</h4><p>对KP方程分别分析K-对称性层级与τ-对称性层级，推导奇数阶与偶数阶K-对称性的闭式表达式并给出行列式表示；将τ_n表示为基本孤子对称的线性组合；并将相应约化模式推广至mKP方程。</p>
+    <h4>主要发现</h4><p>对任意n-孤子解，每个高阶K-对称生成元约化为n个独立平移对称σ_{ξ_{m0}}的线性组合，系数为在孤子参数处取值的色散关系；每个τ_n为σ_{k_m}、σ_{l_m}与σ_{ξ_{m0}}的线性组合，系数为k_m与l_m的有理函数；mKP方程呈现类似的约化模式。</p>
+    <h4>局限与展望</h4><p>论文建立了无穷对称性代数结构与孤子谱性质之间的联系，并给出高阶对称性生成基本孤子平移线性叠加的解释；其局限与适用范围（如对其他可积方程或更一般解的推广）原文未明确讨论，相关后续方向需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29884v1">
+  <div class="paper-head">
+    <h2>表型结构非局部聚集模型 I：信号产生与响应<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29884v1" rel="noopener noreferrer">2610.29884v1</a>
+  </div>
+  <p class="original-title">Phenotype-structured nonlocal aggregation models I: signal production and response</p>
+  <p class="meta"><strong>作者：</strong>Thomas Jun Jewell、Andrew L. Krause、Philip K. Maini、Eamonn A. Gaffney</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">q-bio.CB</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>细胞或生态种群中的个体在性状或表型上可能表现出显著差异。这种异质性能够从根本上改变种群层面的行为，包括聚集和形成空间模式的能力。本文通过将广泛用于建模细胞—细胞黏附与动物集体运动的非局部聚集模型扩展至包含表型结构，研究这些效应。我们刻画了异质性以及表型间切换如何影响模式是否形成、表型在模式中的分布方式，以及模式是平稳的还是表现出时空振荡。结果表明，当产生较强相互作用信号的表型也对其响应更强时，模式形成受到促进；而向信号产生或响应任一方面的特化则会抑制模式形成。提高表型间切换速率会削弱这些效应。异质性还可以使相互作用较弱、甚至具有排斥性的个体作为集体的一部分形成模式。此外，表型空间与物理空间中的运动可以相互作用，从而重构模式并产生时空振荡。本研究的另一个关键信息是同时考虑离散 $N$-表型与连续表型表述的价值。我们并行发展这两种框架，展示其形式对应关系，同时也说明各自在数学分析与可解释性方面的优势。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>表型异质性及表型间切换如何影响非局部聚集模型中的模式形成、表型在模式中的分布以及模式的平稳性或时空振荡行为。</p>
+    <h4>方法</h4><p>将非局部聚集模型扩展为包含表型结构，并并行构建离散 $N$-表型与连续表型两种表述，分析其形式对应关系及各自在数学分析与可解释性方面的优势。</p>
+    <h4>主要发现</h4><p>当产生较强相互作用信号的表型也对其响应更强时，模式形成受到促进；向信号产生或响应任一方面的特化会抑制模式形成；提高表型间切换速率会削弱这些效应；异质性可使相互作用较弱甚至具有排斥性的个体作为集体的一部分形成模式；表型空间与物理空间中的运动可相互作用，重构模式并产生时空振荡。</p>
+    <h4>局限与展望</h4><p>原文未明确给出局限性与后续方向；可合理推断，离散与连续表型框架的对应关系及各自优势提示后续可结合具体生物或生态系统进一步比较两类表述的适用性，但此点属于推断而非原文结论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.27154v1">
+  <div class="paper-head">
+    <h2>有限通道随机 Schrödinger 算符的精确谱可积性：从 Dyson–Riccati 气体的费米子化到 Kontsevich 积分<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.27154v1" rel="noopener noreferrer">2610.27154v1</a>
+  </div>
+  <p class="original-title">Exact spectral integrability of a finite-channel random Schrödinger operator: from fermionization of the Dyson--Riccati gas to Kontsevich integral</p>
+  <p class="meta"><strong>作者：</strong>Yan V. Fyodorov、Pierre Le Doussal</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.dis-nn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.dis-nn</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对 β=2 酉对称类中具有 Hermitian 白噪声势的准一维随机矩阵 Schrödinger 算符，对任意有限通道数 N 精确求解其 Riccati 动力学。相应的 Dyson–Riccati 本征值气体在任意样本长度 L 下具有精确的自由费米子表示；在 L→∞ 极限下，态密度与总 Lyapunov 增长率可由单个 Airy Hankel τ-函数精确表达，从而给出 N=1 时 Halperin–Thouless 公式的多通道推广。该 τ-函数进一步具有出射围道上的 Kontsevich 矩阵 Airy 积分表示。对其作鞍点分析与双标度分析，可统一得到有限通道下的密度 Lifshitz 尾以及大 N 谱边缘。特别地，当 N≫1 时，尖锐的 N=∞ 边缘在 N^{-4/5} 的谱窗口内被软化，其剖面由 Painlevé I 的 tritronquée 解支配。作者猜测该准一维标度边缘剖面对一大类 β=2 随机带矩阵具有普适性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究准一维、有限通道数 N、β=2 酉对称类、Hermitian 白噪声势的随机矩阵 Schrödinger 算符的谱统计与 Lyapunov 增长，重点在于精确求解其 Riccati 动力学并刻画态密度、Lifshitz 尾与大 N 谱边缘。</p>
+    <h4>方法</h4><p>将 Dyson–Riccati 本征值气体映射为自由费米子表示；在 L→∞ 极限下用单个 Airy Hankel τ-函数表达态密度与总 Lyapunov 增长率；给出 τ-函数的出射围道 Kontsevich 矩阵 Airy 积分表示；并借助鞍点分析与双标度分析导出有限通道 Lifshitz 尾和大 N 谱边缘行为。</p>
+    <h4>主要发现</h4><p>对任意有限 N 精确求解了 Riccati 动力学；Dyson–Riccati 气体在任意 L 下具有精确自由费米子表示；L→∞ 时态密度与总 Lyapunov 增长率由单个 Airy Hankel τ-函数精确给出，构成 N=1 Halperin–Thouless 公式的多通道推广；τ-函数具有出射围道 Kontsevich 矩阵 Airy 积分表示；鞍点与双标度分析统一给出有限通道密度 Lifshitz 尾和大 N 谱边缘；N≫1 时 N=∞ 的尖锐边缘在 N^{-4/5} 谱窗口内软化，剖面由 Painlevé I 的 tritronquée 解支配。</p>
+    <h4>局限与展望</h4><p>作者猜测该准一维标度边缘剖面对一大类 β=2 随机带矩阵具有普适性，但该普适性在原文中仅为猜想而非已证结论；其适用范围与证明有待后续工作检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28669v1">
+  <div class="paper-head">
+    <h2>地月空间导航中的食事件观测量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28669v1" rel="noopener noreferrer">2610.28669v1</a>
+  </div>
+  <p class="original-title">Eclipse Observables for Navigation in Cislunar Space</p>
+  <p class="meta"><strong>作者：</strong>Ian M. Down、James McElreath、Manoranjan Majji</p>
+  <p class="meta"><strong>主分类：</strong>physics.space-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.space-ph</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>不依赖地基跟踪的自主导航仍是地月空间航天器面临的挑战。本文提出将星上食检测作为一种机会性测量集，用于补充地月轨迹的状态估计。由标准功率遥测检测到的半影与全影进出时刻，被表述为基于行星历表计算的二阶阴影锥边界上的隐式零测量，并在无迹卡尔曼滤波中处理。用于对每个测量加权的食事件时刻不确定度，由球体模型所排除的物理来源导出，包括遥测采样、地球大气以及掩食天体的地形/扁率。该方法在L1晕轨道仿真以及CAPSTONE航天器2026年1月月食期间的飞行遥测与定轨产品中均得到演示；其中直接由功率遥测计时的全影接触与几何接触在一个采样间隔内一致。两种情形均表明，无需额外硬件的食事件计时在降低不确定度方面具有效用，尤其在初始解质量下降时更为明显。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用星上可观测的食事件为地月空间航天器提供不依赖地基跟踪的自主导航测量，以补充状态估计并降低不确定度。</p>
+    <h4>方法</h4><p>将半影和全影进出时刻表述为基于行星历表计算的二阶阴影锥边界上的隐式零测量，由标准功率遥测检测事件时刻，并在无迹卡尔曼滤波中处理；测量权重由遥测采样、地球大气及掩食天体地形/扁率等物理来源导出的时刻不确定度确定。</p>
+    <h4>主要发现</h4><p>在L1晕轨道仿真和CAPSTONE航天器2026年1月月食期间的飞行遥测与定轨产品中进行了演示；直接由功率遥测计时的全影接触与几何接触在一个采样间隔内一致；两种情形均显示无需额外硬件的食事件计时有助于降低不确定度，尤其在初始解质量下降时。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；可合理推断，该方法适用于能获得功率遥测且经历食事件的地月轨迹，其性能可能受遥测采样率与阴影模型精度影响，后续可进一步评估更多轨道与食事件条件下的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28715v1">
+  <div class="paper-head">
+    <h2>由两个实变量描述单元的均值场耦合动力系统的低维约化：分类与应用<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28715v1" rel="noopener noreferrer">2610.28715v1</a>
+  </div>
+  <p class="original-title">Low-Dimensional Reduction of Mean-Field Coupled Dynamical Systems with Units Described by Two Real Variables: Classification and Applications</p>
+  <p class="meta"><strong>作者：</strong>Kai Tokunaga</p>
+  <p class="meta"><strong>主分类：</strong>math.DS
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DS</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>低维约化对于理解包含大量单元的网络系统至关重要。近期，Martens 与 Dharmavaram 针对一类具有均值场 Lie-Scheffers 结构的一般均值场耦合动力系统，建立了精确低维约化理论。本文对每个单元由两个实变量描述、且具有均值场 Lie-Scheffers 结构的均值场耦合动力系统进行分类。该分类基于 González-López、Kamran 与 Olver 关于平面 Lie 系统在一般点附近的局部分类，得到 28 类均值场耦合动力系统。针对单元由两个实变量描述的均值场耦合系统，本文首先给出基于均值场 Lie-Scheffers 结构的分类与低维约化的一般理论，随后讨论其在耦合振子种群中的应用。结果表明，一大类极限环振子种群可实现低维约化，从而将此前已知可约化的 Stuart-Landau 振子种群类别推广至众多新模型。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何对每个单元由两个实变量描述、具有均值场 Lie-Scheffers 结构的均值场耦合动力系统进行分类，并实现精确低维约化？</p>
+    <h4>方法</h4><p>基于 González-López、Kamran 与 Olver 关于平面 Lie 系统在一般点附近的局部分类，对具有均值场 Lie-Scheffers 结构的均值场耦合系统进行分类，并建立相应的一般分类与低维约化理论，进而应用于耦合振子种群。</p>
+    <h4>主要发现</h4><p>分类得到 28 类均值场耦合动力系统；对单元由两个实变量描述的均值场耦合系统给出了基于均值场 Lie-Scheffers 结构的分类与低维约化的一般理论；证明一大类极限环振子种群可实现低维约化，将此前可约化的 Stuart-Landau 振子种群类别推广至许多新模型。</p>
+    <h4>局限与展望</h4><p>分类基于平面 Lie 系统在一般点附近的局部分类，其适用范围可能受一般点假设限制；后续可合理推断的方向包括将分类与约化理论推广至单元由更多变量描述的系统，或进一步考察所得约化模型在具体振子种群中的应用。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28832v1">
+  <div class="paper-head">
+    <h2>1+1 维 $\mathcal{N}{=}2$ Wess--Zumino 模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28832v1" rel="noopener noreferrer">2610.28832v1</a>
+  </div>
+  <p class="original-title">The 1+1D $\mathcal{N}{=}2$ Wess--Zumino model</p>
+  <p class="meta"><strong>作者：</strong>John F. Dawson</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文从 Wigner 定理与超平移群出发，构建了带中心扩张的 1+1 维 $\mathcal{N}{=}2$ Wess--Zumino 模型。该群的幺正表示给出各生成元的 SUSY 代数，并将群扩张为包含中心荷 $Z$ 的形式。在此基础上，作者推导了一般的玻色子/费米子质量简并定理，并构造了协变导数以及一个可实现该代数的候选作用量：先处理真空（$Z=0$）部分，再处理 $Z\neq0$ 的情形，其中中心扩张自身的坐标 $\xi$ 被显式处理。将 $\xi$ 紧致化后，得到具有量子化中心荷的大质量多重态的 Kaluza--Klein 塔；而 kink 作为该塔的零模完整保留，并饱和了文中导出的一般 BPS 界 $M\geq|Z|$。作者明确说明，本文是教学性的重新推导，面向初次接触这些概念的读者，并非新结果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从 Wigner 定理和超平移群的幺正表示出发，系统构建带中心扩张的 1+1 维 $\mathcal{N}{=}2$ Wess--Zumino 模型，并阐明中心荷、质量简并、BPS 界与 Kaluza--Klein 塔之间的关系。</p>
+    <h4>方法</h4><p>以 Wigner 定理和超平移群为起点，利用群的幺正表示导出 SUSY 代数并引入中心荷 $Z$；推导玻色子/费米子质量简并定理；构造协变导数和候选作用量，分别处理 $Z=0$ 与 $Z\neq0$ 的情形，并在后者中显式处理中心扩张坐标 $\xi$；通过紧致化 $\xi$ 得到 Kaluza--Klein 塔。</p>
+    <h4>主要发现</h4><p>群的幺正表示给出含中心荷 $Z$ 的 SUSY 代数；得到一般的玻色子/费米子质量简并定理；构造出可实现该代数的协变导数与候选作用量；紧致化 $\xi$ 后出现具有量子化中心荷的大质量多重态 Kaluza--Klein 塔，kink 作为零模保留并饱和一般 BPS 界 $M\geq|Z|$。</p>
+    <h4>局限与展望</h4><p>作者明确说明本文是教学性重新推导而非新结果，因此其价值主要在于为初次接触该主题的读者提供自洽的入门路径；原文未给出新的物理预言或推广，后续方向需在原文之外另行论证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29601v1">
+  <div class="paper-head">
+    <h2>时间延迟双稳活性粒子中的随机共振<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.29601v1" rel="noopener noreferrer">2610.29601v1</a>
+  </div>
+  <p class="original-title">Stochastic resonance in time-delayed bistable active particles</p>
+  <p class="meta"><strong>作者：</strong>Antonio A. Valido、Mattia Coccolo、Miguel A. F. Sanjuán</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文通过解析与数值方法研究了欠阻尼活性（Ornstein–Uhlenbeck）粒子在时间延迟反馈双稳势中、并受额外（非热）白噪声源作用下的随机共振。分析限于活性噪声主导的双稳区域，并假定延迟时间与活性噪声关联时间足够短，在此条件下建立微扰理论，在不依赖细致平衡的线性响应理论框架内给出逃逸率与谱功率放大的解析表达式。解析预测在整个微扰区域内与直接数值模拟定性一致。结果表明，适度增大活性噪声关联时间可增强随机共振响应，这与先前关于有色噪声驱动的过阻尼被动系统的结果形成鲜明对比；相反，加入白噪声会削弱共振响应，并使其最优值向更低的活性噪声强度移动。时间延迟反馈进一步改变逃逸率与驱动频率之间的匹配条件，但保留共振机制。在微扰区域之外，有限记忆效应使共振曲线逐渐展宽并显著降低其幅度。总体而言，这些结果为非平衡系统中惯性、活性、环境涨落与时间延迟反馈在随机共振中的联合作用提供了新的认识。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究欠阻尼活性粒子在时间延迟反馈双稳势中、受额外非热白噪声作用时的随机共振行为，特别是活性噪声关联时间、白噪声强度与时间延迟反馈如何影响共振响应。</p>
+    <h4>方法</h4><p>在活性噪声主导的双稳区域、短延迟与短活性噪声关联时间条件下建立微扰理论，基于不依赖细致平衡的线性响应理论推导逃逸率与谱功率放大的解析表达式，并与直接数值模拟进行对比。</p>
+    <h4>主要发现</h4><p>解析预测在微扰区域内与数值模拟定性一致；适度增大活性噪声关联时间可增强随机共振响应，与过阻尼被动系统中有色噪声的结果相反；加入白噪声削弱共振响应并使其最优向更低活性噪声强度移动；时间延迟反馈改变逃逸率与驱动频率的匹配条件但保留共振机制；在微扰区域之外，有限记忆效应使共振曲线展宽并显著降低幅度。</p>
+    <h4>局限与展望</h4><p>本文结论主要适用于活性噪声主导、延迟与关联时间足够短的微扰区域；超出该区域时解析理论不再适用，有限记忆效应的影响仅由数值结果给出。后续可合理推断的方向包括将理论推广至更长延迟或更强记忆的情形，但原文未作此明确断言。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29670v1">
+  <div class="paper-head">
+    <h2>能量喂养的承诺：随机选择后强化的最小模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.29670v1" rel="noopener noreferrer">2610.29670v1</a>
+  </div>
+  <p class="original-title">Energy-fed commitment: a minimal model of random selection followed by reinforcement</p>
+  <p class="meta"><strong>作者：</strong>Haidar Issa Abbas</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>当系统跨越对称失稳时，涨落会在若干等价分支中选择其一。本文研究一个最小随机模型，用以刻画何种机制会使该选择逐渐难以逆转。选择发生后，被选状态的刚度按结构每次从扰动中恢复时所释放的能量成比例增长；在这一保守模型中，该能量在小幅且可显式计算项的意义上等于从扰动主体吸收的功。该模型是一个含单一耦合常数的唯象闭合。能量强化的是已被选择的分支而非执行选择，这是模型的一项假设，本文明确陈述而不加推导。其推论具有定量性质：承诺的增长依赖于结构的驱动方式——位移控制下呈几何增长，能量控制下呈线性增长，力控制下呈亚线性增长，因此承诺态在位移控制下每周期吸收更多功，在力控制下吸收更少功。强化以指数方式抑制逆转；超过有限承诺后，替代极小值消失，逆转变为对不可逆阈值的稀有穿越。在所述条件下，无界强化使选择以正概率永久保留；饱和强化下保留时间有限，其寿命随饱和水平指数增长。精确首达时间计算与随机模拟一致；这些结果验证了闭合及其分析，但无法检验物理假设。本文指出可检验该假设的实验：将吸收能量与扰动次数分离的协议，以及具有非零维持热、其中热与吸收功不同的驱动稳态。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在对称失稳后，涨落选定某一分支，何种机制使该选择逐渐难以逆转。</p>
+    <h4>方法</h4><p>构建含单一耦合常数的唯象随机模型：选择后刚度按结构从扰动恢复时释放的能量成比例增长；结合精确首达时间计算与随机模拟。</p>
+    <h4>主要发现</h4><p>承诺增长依赖驱动方式：位移控制下几何增长、能量控制下线性增长、力控制下亚线性增长；承诺态在位移控制下每周期吸收更多功、力控制下更少。强化指数抑制逆转；超过有限承诺后替代极小值消失，逆转成为对不可逆阈值的稀有穿越。无界强化下选择以正概率永久保留；饱和强化下保留时间有限且寿命随饱和水平指数增长。首达时间计算与模拟一致。</p>
+    <h4>局限与展望</h4><p>模型为唯象闭合，能量强化已选分支而非执行选择是未推导的假设；首达计算与模拟仅验证闭合及分析，不能检验该物理假设。可检验的实验包括将吸收能量与扰动次数分离的协议，以及具有非零维持热、热与吸收功不同的驱动稳态。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29714v1">
+  <div class="paper-head">
+    <h2>异质网络中重复强迫的凝聚与最优靶向<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.29714v1" rel="noopener noreferrer">2610.29714v1</a>
+  </div>
+  <p class="original-title">Condensation and optimal targeting of repeated forcing in heterogeneous networks</p>
+  <p class="meta"><strong>作者：</strong>Jose Herrera-Diestra</p>
+  <p class="meta"><strong>主分类：</strong>physics.soc-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.soc-ph</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>许多网络通过一部分入口节点接受重复的外部强迫，例如来自其他人群的感染输入、由宣传活动播撒的信息，或经由港口传入的入侵物种。本文研究在二部网络上的随机 SIR 模型中，将此类强迫集中于重要入口节点（播种概率 $\pi_i\propto w_i^\gamma$）如何改变由此产生的级联规模。单次播种事件的响应与所播种节点的度呈线性关系，因此靶向带来的相对增益不依赖于传播率。靶向分布是一个 Gibbs 测度。对于重要性尾分布 $p(w)\sim w^{-a}$ 以及按 $w^\eta$ 增长的响应，靶向响应在 $\gamma_1=a-1-\eta$ 处发散，而强迫在 $\gamma_2=a-1$ 处凝聚到少数节点上。在重复强迫下，使负担最大化的指数 $\gamma^*$ 严格为正；在大型人群中，已被到达节点的耗竭将其上界限制在凝聚点，即 $\gamma^*\le\gamma_2$。在强烈强迫下，最优值按 $\gamma^*\simeq K/x$ 衰减，其中 $x$ 是每个入口节点的期望播种事件数；在稀疏强迫下，它以 $\gamma_2-\gamma^*\simeq(a-1)/\ln(1/x)$ 趋近凝聚点。重要性分布的截断会在小于交叉规模 $n_c$ 的人群中使转变变得平滑，并在更大的人群中消除这些转变。依据性伴侣调查数据校准的网络具有介于 $0.08\,n_c$ 与 $0.8\,n_c$ 之间的入口节点数，这使它们处于有限尺寸区域，其中渐近结果仅在定性意义上成立。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在异质二部网络上，将重复外部强迫集中靶向到重要入口节点会如何改变随机 SIR 模型中级联的规模，以及最优靶向强度如何随强迫强度与人口规模变化。</p>
+    <h4>方法</h4><p>在二部网络上建立随机 SIR 模型，采用按节点重要性 $w_i$ 的幂律加权的播种概率 $\pi_i\propto w_i^\gamma$；通过解析推导分析靶向响应的发散点、凝聚点以及重复强迫下使负担最大化的指数 $\gamma^*$，并讨论重要性分布截断带来的有限尺寸效应。</p>
+    <h4>主要发现</h4><p>单次播种事件的响应与播种节点的度呈线性关系，故靶向的相对增益与传播率无关；靶向分布为 Gibbs 测度；对重要性尾分布 $p(w)\sim w^{-a}$ 与响应 $w^\eta$，靶向响应在 $\gamma_1=a-1-\eta$ 处发散，强迫在 $\gamma_2=a-1$ 处凝聚；重复强迫下负担最大化指数 $\gamma^*$ 严格为正，且在大种群中满足 $\gamma^*\le\gamma_2$；强烈强迫下 $\gamma^*\simeq K/x$，稀疏强迫下 $\gamma_2-\gamma^*\simeq(a-1)/\ln(1/x)$；重要性分布的截断在小于交叉规模 $n_c$ 时使转变平滑、在更大时消除转变；依据性伴侣调查数据校准的网络入口节点数在 $0.08\,n_c$ 至 $0.8\,n_c$ 之间，处于有限尺寸区域。</p>
+    <h4>局限与展望</h4><p>原文指出，对于入口节点数低于交叉规模 $n_c$ 的网络，渐近结果仅在定性意义上成立；因此，将这些结论外推到有限规模的真实网络时需谨慎。可合理推断，后续工作或需针对有限尺寸区域发展修正理论，或检验其他重要性分布与网络结构下凝聚与最优靶向结论的稳健性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29947v1">
+  <div class="paper-head">
+    <h2>正交与酉辛群特征多项式联合矩的 Painlevé 表示<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.29947v1" rel="noopener noreferrer">2610.29947v1</a>
+  </div>
+  <p class="original-title">Painlevé representations for joint moments of characteristic polynomials from the orthogonal and unitary symplectic groups</p>
+  <p class="meta"><strong>作者：</strong>Theodoros Assiotis、Thomas Bothner、Jonathan P. Keating、Nicholas Simm、Fei Wei</p>
+  <p class="meta"><strong>主分类：</strong>math.PR
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.PR</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">math.NT</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究 Haar 分布下酉辛群与正交群矩阵的特征多项式及其二阶导数的联合矩。我们在矩参数的全部容许范围内建立其大 N 渐近，并以 Bessel 点过程的首个逆幂和概率地刻画极限系数。这将 Assiotis、Gunes、Keating 与 Wei（Proc. Lond. Math. Soc., 132 (2026), e70136）的相应结果推广至全部容许参数范围。在该全范围内，我们还将这些极限表示为 σ-Painlevé III&#x27; 方程的一个特定解。我们的方法将问题归结为 Jacobi 酉系的奇异逆幂统计量，并结合其有限 N 的 σ-Painlevé V 表示与精细的 Riemann-Hilbert 分析，从而给出精确的小 x 渐近以及有限 N 修正项的一致导数估计。概率刻画的一个关键要素是基于核的证明：Jacobi 系经重标度的首个逆幂和依分布收敛于其 Bessel 点过程对应量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究 Haar 分布的酉辛群与正交群矩阵的特征多项式及其二阶导数的联合矩在大 N 下的渐近行为，并在全部容许矩参数范围内确定极限系数。</p>
+    <h4>方法</h4><p>将问题约化为 Jacobi 酉系的奇异逆幂统计量；结合有限 N 的 σ-Painlevé V 表示与精细 Riemann-Hilbert 分析，获得小 x 渐近与有限 N 修正项的一致导数估计；并通过基于核的证明建立 Jacobi 系重标度首个逆幂和到 Bessel 点过程对应量的分布收敛。</p>
+    <h4>主要发现</h4><p>在矩参数的全部容许范围内建立了联合矩的大 N 渐近；以 Bessel 点过程的首个逆幂和概率地刻画极限系数；将相应结果从 Assiotis、Gunes、Keating 与 Wei 的已有范围推广至全部容许参数范围；并在该全范围内将极限表示为 σ-Painlevé III&#x27; 方程的一个特定解。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，所建立的 Painlevé 表示与逆幂统计量收敛方法或可适用于其他经典群或相关点过程的联合矩渐近分析，但此仅为推断。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-22 10:35 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
