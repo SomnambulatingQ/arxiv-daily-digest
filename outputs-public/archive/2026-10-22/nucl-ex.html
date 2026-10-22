@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-10-22</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">10</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">8</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2610.29715v1">利用微热量计实验测定⁵⁵Fe电子俘获衰变中双K壳层空位产生概率</a> <small>2610.29715v1</small></li><li><a href="#paper-2610.30085v1">由D^0介子各向异性响应标度破坏研究重夸克动力学</a> <small>2610.30085v1</small></li></ol><h3>交叉列表（8）</h3><ol class="toc-list"><li><a href="#paper-2308.01434v3">新型轻核裂变聚变能源循环的前景</a> <small>2308.01434v3</small></li><li><a href="#paper-2405.02307v1">技术材料中的氦检测</a> <small>2405.02307v1</small></li><li><a href="#paper-2610.28645v1">低能氘-氘反应中弱内对产生跃迁的本底受限硅望远镜方法学</a> <small>2610.28645v1</small></li><li><a href="#paper-2610.28742v1">双β衰变的辐射修正及其对实验分析的影响</a> <small>2610.28742v1</small></li><li><a href="#paper-2610.29627v1">CRIS衰变谱学站的最新升级：实现纯同质异能束的β与γ射线谱学测量</a> <small>2610.29627v1</small></li><li><a href="#paper-2610.29655v1">remage：面向低本底实验的基于Geant4的模拟框架</a> <small>2610.29655v1</small></li><li><a href="#paper-2610.29711v1">A=3镜像核电偶极极化率与光吸收截面的从头算无核壳模型计算</a> <small>2610.29711v1</small></li><li><a href="#paper-2610.29973v1">基于南达科他大学生长锗晶体制备的SuperCDMS型探测器中的NTL放大</a> <small>2610.29973v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.29715v1">
+  <div class="paper-head">
+    <h2>利用微热量计实验测定⁵⁵Fe电子俘获衰变中双K壳层空位产生概率<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29715v1" rel="noopener noreferrer">2610.29715v1</a>
+  </div>
+  <p class="original-title">Experimental determination of the double $K$-shell vacancy creation probability in the electron-capture decay of $^{55}$Fe with a microcalorimeter</p>
+  <p class="meta"><strong>作者：</strong>Shuo Zhang、Karol Kozioł、Caojie Shao、Ruitian Zhang、Cheng Qian、Kebao Shu、JingKai Xia、Guocheng Wei、Yingli Xue、Huan Jia、Neng Pu、Hanjie Cai、Deyang Yu、Hongqiang Zhang、Liangting Sun、Yuan He、Reinhold Schuch、Xinwen Ma</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用高分辨率微热量计测定了⁵⁵Fe电子俘获衰变后产生双K壳层空位的概率。在由Mn K-X射线图线主导的X射线发射谱中，直接分辨出了源于双K壳层空位填充的K-hypersatellite谱线。测得Mn K-hypersatellite谱线Kα₂^h、Kα₁^h和Kβ₁,₃^h的能量分别为(6143.5±0.5) eV、(6162.1±1.5) eV和(6811.9±2.6) eV。K-hypersatellite谱线与图线X射线的相对强度测得为(1.30±0.07)×10⁻⁴。结合该相对强度与已有的荧光产额值，确定每次K壳层俘获产生双空位的概率P_KK为(1.22±0.09)×10⁻⁴。文中还讨论了与以往实验结果及理论计算的比较。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究⁵⁵Fe电子俘获衰变中双K壳层空位产生概率P_KK的实验测定问题。</p>
+    <h4>方法</h4><p>采用高分辨率微热量计测量⁵⁵Fe衰变的X射线发射谱，直接分辨K-hypersatellite谱线并测定其能量及相对于图线X射线的强度，再结合已有荧光产额值导出P_KK。</p>
+    <h4>主要发现</h4><p>测得Mn Kα₂^h、Kα₁^h和Kβ₁,₃^h谱线能量分别为(6143.5±0.5) eV、(6162.1±1.5) eV和(6811.9±2.6) eV；K-hypersatellite与图线X射线的相对强度为(1.30±0.07)×10⁻⁴；每次K壳层俘获的双空位产生概率P_KK为(1.22±0.09)×10⁻⁴。</p>
+    <h4>局限与展望</h4><p>原文仅讨论了与以往实验结果和理论计算的比较，未明确给出局限或后续方向；该方法的适用范围及对其他核素的推广属于可合理推断的后续方向，尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.30085v1">
+  <div class="paper-head">
+    <h2>由D^0介子各向异性响应标度破坏研究重夸克动力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.30085v1" rel="noopener noreferrer">2610.30085v1</a>
+  </div>
+  <p class="original-title">Heavy-Quark Dynamics from $D^{0}$-Meson Anisotropy-Response Scaling Violations</p>
+  <p class="meta"><strong>作者：</strong>Roy A. Lacey</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用按粒子种类区分的各向异性响应标度框架，通过D^0介子的椭圆流（v_2）与三角流（v_3）方位角各向异性研究重夸克动力学。独立约束的轻味响应提供了一个直接的零假设检验：变换后的D^0各谐波表现出近似的谐波间闭合，但仍系统性地偏离以K介子为锚点的标度函数，揭示出粲夸克标度破坏。通过引入粲夸克特定的衰减重标度因子k_c以及一个小的低p_T强子散射修正ζ_hs≈0.06，并保留既有的轻味方案，可以恢复共同的响应。在√s_NN=5.02 TeV的Pb+Pb碰撞中，k_c从中心及半中心碰撞的约2.0下降至30–50%区间的1.27。对于D^0的v_2，√s_NN=8.16 TeV的超中心p+Pb碰撞要求k_c≈1.5，而√s_NN=200 GeV的Au+Au碰撞与k_c≈1一致。转变动量表现出明显的系统依赖性：在Pb+Pb中D^0与轻介子显示出相近的p_T,tr≈4.5–5.0 GeV/c，与同样用于Au+Au的共同大系统方案一致；而p+Pb的D^0测量则与约1.6 GeV/c的较低轻介子标度一致。这些对衰减强度与转变动量的互补约束为重夸克输运与介质演化提供了微分基准。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何通过D^0介子的椭圆流与三角流各向异性，检验重夸克是否遵循与轻味粒子相同的各向异性响应标度，并约束重夸克在介质中的衰减强度与转变动量。</p>
+    <h4>方法</h4><p>采用按粒子种类区分的各向异性响应标度框架，以独立约束的轻味响应（以K介子为锚点）作为零假设检验；引入粲夸克特定的衰减重标度因子k_c与低p_T强子散射修正ζ_hs，对Pb+Pb（√s_NN=5.02 TeV）、p+Pb（√s_NN=8.16 TeV）和Au+Au（√s_NN=200 GeV）碰撞中的D^0 v_2与v_3数据进行描述。</p>
+    <h4>主要发现</h4><p>变换后的D^0各谐波表现出近似的谐波间闭合，但系统性地偏离以K介子为锚点的标度函数，表明存在粲夸克标度破坏；引入k_c与ζ_hs≈0.06后可恢复共同响应。Pb+Pb中k_c从中心及半中心碰撞的约2.0降至30–50%区间的1.27；p+Pb超中心碰撞的D^0 v_2要求k_c≈1.5，Au+Au则与k_c≈1一致。Pb+Pb中D^0与轻介子的转变动量相近（p_T,tr≈4.5–5.0 GeV/c），而p+Pb的D^0测量与约1.6 GeV/c的较低轻介子标度一致。</p>
+    <h4>局限与展望</h4><p>该框架为区分重夸克输运模型与介质演化方案提供了微分基准；其适用范围受限于所采用的轻味响应方案与参数化形式，k_c与ζ_hs的物理起源及系统依赖性仍需由更基本的输运计算检验，上述后续方向属于合理推断而非原文结论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2308.01434v3">
+  <div class="paper-head">
+    <h2>新型轻核裂变聚变能源循环的前景<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2308.01434v3" rel="noopener noreferrer">2308.01434v3</a>
+  </div>
+  <p class="original-title">Prospects For A New Light Nuclei, Fission Fusion Energy Cycle</p>
+  <p class="meta"><strong>作者：</strong>R. V. Duncan、Cuikun Lin、Andrew K. Gillespie、John Gahl</p>
+  <p class="meta"><strong>主分类：</strong>physics.soc-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.soc-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>未来先进的核火箭推进以及新型核能循环设计的可用性，将极大受益于当前对替代核能的大规模投资。我们提出一种新的核循环，包括锂-6的初级裂变，随后是氘和氚的次级聚变，以及氚对锂-7的次级裂变。该循环的核燃料不产生核废料，因为只要初级反应中产生的氚在次级反应中被完全消耗，这些级联反应的所有副产物都是稳定的。然而，该循环可能通过其中子通量活化周围的技术材料。这种轻元素核燃料可通过正在扩张的锂开采行业和电动汽车（EV）电池回收行业 readily 获得。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：能否设计一种不产生核废料的轻核裂变聚变能源循环，并评估其可行性和应用前景。</p>
+    <h4>方法</h4><p>采用的方法：提出一种新的核循环，包括锂-6的初级裂变、氘氚次级聚变以及氚对锂-7的次级裂变，并分析其反应产物和材料活化效应。</p>
+    <h4>主要发现</h4><p>原文明确支持的主要结果：该循环的核燃料不产生核废料，因为所有级联反应的副产物都是稳定的，前提是初级反应中产生的氚在次级反应中被完全消耗；但该循环可能通过中子通量活化周围的技术材料；轻元素核燃料可通过锂开采和电动汽车电池回收行业获得。</p>
+    <h4>局限与展望</h4><p>局限、适用范围或可合理推断的后续方向：该循环可能活化周围技术材料，需要进一步评估材料兼容性；其应用前景依赖于锂开采和电池回收行业的扩张；未来先进核火箭推进和新型核能循环设计可能受益于该研究。</p>
+  </section>
+</article><article class="paper" id="paper-2405.02307v1">
+  <div class="paper-head">
+    <h2>技术材料中的氦检测<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2405.02307v1" rel="noopener noreferrer">2405.02307v1</a>
+  </div>
+  <p class="original-title">Helium Detection in Technical Materials</p>
+  <p class="meta"><strong>作者：</strong>Andrew K. Gillespie、Cuikun Lin、Django Jones、R. V. Duncan</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>用于核聚变研究的材料在实验前若未经预处理，可能保留大气中的氦。理解氦的释气行为对于核聚变相关实验中的准确诊断至关重要。氦的存在常被视为发生核反应的主要证据，因此在进行新型核实验之前，必须抑制已知的氦来源。此外，在将实验中的气体分样转移至质谱仪时，还需确保系统的气密性。本文介绍了在新型核实验所用系统中检测氦泄漏率的研究，并报告了材料在不同加热曲线和大气浓度条件下氦保留情况的研究。未经预处理时，316不锈钢可保留15–240 pmol的$^{4}$He，面释气量为0.07–1.20 pmol/$cm^{2}$；它也可能随时间从大气中重新吸收$^{4}$He。这些研究还表明，在以$^{4}$He的存在作为新型核反应指示的实验之前，有必要对大多数材料进行预处理。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究核聚变相关实验中技术材料对大气氦的保留与释气行为，以及气体转移系统的氦泄漏率，以评估氦作为核反应证据时的背景干扰。</p>
+    <h4>方法</h4><p>检测新型核实验所用系统的氦泄漏率；研究材料在不同加热曲线和大气浓度条件下的氦保留情况，并对316不锈钢的$^{4}$He保留量与面释气量进行定量。</p>
+    <h4>主要发现</h4><p>未经预处理时，316不锈钢保留15–240 pmol的$^{4}$He，面释气量为0.07–1.20 pmol/$cm^{2}$；该材料也可能随时间从大气中重新吸收$^{4}$He；在以$^{4}$He作为新型核反应指示的实验前，有必要对大多数材料进行预处理。</p>
+    <h4>局限与展望</h4><p>原文指出预处理对抑制氦背景的必要性；其局限在于研究主要针对特定材料与实验系统，结论向其他材料或实验条件的推广需进一步验证。后续可合理推断的方向包括系统评估不同预处理工艺对氦保留的抑制效果，以及改进气体转移过程的气密性控制。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28645v1">
+  <div class="paper-head">
+    <h2>低能氘-氘反应中弱内对产生跃迁的本底受限硅望远镜方法学<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28645v1" rel="noopener noreferrer">2610.28645v1</a>
+  </div>
+  <p class="original-title">Background-Limited Silicon Telescope Methodology for Weak Internal Pair Creation Transition in Low-Energy Deuteron-Deuteron Reactions</p>
+  <p class="meta"><strong>作者：</strong>Gokul Das Haridas、K. Czerski、S. Thulichery、R. Dubey、M. Valat、N. Targosz-Ślęczka、A. Kowalska</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>针对近期在低能氘-氘（DD）聚变中观测到的内电子-正电子对产生现象，本文发展了一套受本底约束的硅望远镜方法学。DD聚变产生的⁴He近阈0⁺共振衰变会生成总能量为22.84 MeV的e⁻e⁺对；这些高能轻子在薄硅探测器中仅沉积部分动能，所形成的部分吸收峰结构与宇宙射线次级粒子及陆地伽马射线构成的天然辐射本底相重叠。本文通过逐组件模型对实验所用硅探测器望远镜相对于该本底进行表征，该模型结合了GEANT4宇宙射线模拟、大体积NaI(Tl)约束的陆地伽马传播以及束流相关中子响应。利用多取向、多屏蔽配置下的长时测量，量化了本底的运行间变异性，并将其转化为对所提取信号的显式系统包络。随后将该框架应用于束流开启时的单举谱与二维符合响应，在受本底限制的条件下给出了定量的分支比测量。该方法可直接迁移至地面实验室中其他连续谱型信号与天然辐射本底重叠的弱通道搜寻。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在天然辐射本底（宇宙射线次级粒子与陆地伽马射线）与部分吸收峰结构重叠的条件下，可靠地测量低能氘-氘聚变中⁴He近阈0⁺共振衰变所产生内电子-正电子对（总能量22.84 MeV）的弱信号。</p>
+    <h4>方法</h4><p>建立逐组件本底模型：结合GEANT4宇宙射线模拟、大体积NaI(Tl)约束的陆地伽马传播模型以及束流相关中子响应；通过多取向、多屏蔽配置的长时测量量化本底运行间变异性，并转化为对提取信号的系统包络；将该框架应用于束流开启单举谱与二维符合响应。</p>
+    <h4>主要发现</h4><p>该框架在受本底限制条件下给出了定量的分支比测量；逐组件模型与多配置长时测量可量化本底变异性并形成显式系统包络。</p>
+    <h4>局限与展望</h4><p>该方法可直接迁移至地面实验室中其他连续谱型信号与天然辐射本底重叠的弱通道搜寻；其适用性受本底模型精度与系统包络假设的限制，后续可合理推断需在其他弱通道中进一步验证其可迁移性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28742v1">
+  <div class="paper-head">
+    <h2>双β衰变的辐射修正及其对实验分析的影响<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28742v1" rel="noopener noreferrer">2610.28742v1</a>
+  </div>
+  <p class="original-title">Radiative corrections to double-$β$ decay and their impact on experimental analyses</p>
+  <p class="meta"><strong>作者：</strong>Jordy de Vries、Emanuele Mereghetti、Saad el Morabit、Stefan Sandner</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在重核有效场论框架下，对双中微子和无中微子双β衰变的 O(α) 辐射修正进行了系统研究。我们计算了任意激发能中间核态的全部虚修正与实发射修正，并给出了含重核传播子的一圈积分的新闭式表达式。当激发能远大于轻子能量时，修正因子化为树级衰变率与一个普适的双弱 Sirlin 函数之积；该函数与文献中迄今使用的两个单β Sirlin 函数之和存在显著差异。我们以核矩阵元之比 ξ_{31} 为参数，讨论了辐射修正对已测能谱分析的影响，表明忽略辐射修正可能使提取结果产生显著偏差。此前分析未考虑的实光子发射起核心作用，且辐射修正的影响强烈依赖于探测器设置。我们给出了对光子能量和方向完全微分的 photon spectrum，并建议实验显式模拟光子。对于 0νββ 衰变，辐射修正使包容性衰变率增加约 5%，且该结果与核矩阵元或中微子 Majorana 质量无关。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在重核有效场论框架下，双β衰变（包括双中微子和无中微子模式）的 O(α) 辐射修正如何计算，以及这些修正对实验能谱分析和核矩阵元比 ξ_{31} 的提取有何影响。</p>
+    <h4>方法</h4><p>采用重核有效场论，计算任意激发能中间核态的虚修正与实发射修正，推导含重核传播子的一圈积分闭式表达式；在激发能远大于轻子能量时进行因子化处理，得到普适的双弱 Sirlin 函数；并给出对光子能量和方向完全微分的 photon spectrum。</p>
+    <h4>主要发现</h4><p>当激发能远大于轻子能量时，辐射修正因子化为树级衰变率乘以一个普适双弱 Sirlin 函数，该函数与两个单β Sirlin 函数之和显著不同；忽略辐射修正可能使基于能谱比值 ξ_{31} 的核矩阵元提取产生显著偏差；实光子发射起核心作用，且辐射修正影响强烈依赖探测器设置；对 0νββ 衰变，辐射修正使包容性衰变率增加约 5%，且与核矩阵元或中微子 Majorana 质量无关。</p>
+    <h4>局限与展望</h4><p>原文建议实验显式模拟光子，并指出辐射修正的影响依赖探测器设置；对于 0νββ 衰变约 5% 的包容性衰变率增加是否适用于所有实验配置，需结合具体探测器响应进一步评估（此为合理推断，原文未逐一验证）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29627v1">
+  <div class="paper-head">
+    <h2>CRIS衰变谱学站的最新升级：实现纯同质异能束的β与γ射线谱学测量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.29627v1" rel="noopener noreferrer">2610.29627v1</a>
+  </div>
+  <p class="original-title">Recent upgrades to the CRIS Decay Spectroscopy Station: Accessing $β$- and $γ$-ray spectroscopy on pure isomeric beams</p>
+  <p class="meta"><strong>作者：</strong>Simone Casci、Bram van den Borne、Osama Ahmad、Anjali Ajayakumar、Michail Athanasakis-Kaklamanakis、Mia Au、Justus Berbalk、Yazeed Balasmeh、Thomas Elias Cocolios、Saikumar Chinthakayala、Christian Costache、Ruben Pieter de Groote、Carlos Mario Fajardo-Zambrano、Kieran Thomas Flanagan、Ronald Fernando Garcia Ruiz、Reinhard Heinke、Andres Illana、Zakariya Johri、Angelos Karadimas、Anders Kastberg、Ágota Koszorús、Louis Lalanne、Pierre Lassègues、Razvan Lică、Yongchao Liu、Kara Marie Lynch、Abigail McGlone、David Thomas McElroy、Philippe Mispelter、Gerda Neyens、Cătălin Neacşu、Lukas Nies、Andrea Raggio、Jordan Ray Reilly、Jack Shaw、Marek Stryjczyk、Andrei Turturica、Victoria Vedia、Jessica Warbinek、Hilde De Witte、Xiaofei Yang</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>位于CERN-ISOLDE的共线共振电离谱学（CRIS）实验装置中的衰变谱学站（DSS）已完成升级，可开展同质异能素选择性的β与γ射线谱学测量，并新增磁带系统以在无残余放射性干扰的条件下进行谱学测量。探测腔底板经重新设计，集成了磁带、用于束流诊断的MicroTOF探测器以及定制的高真空兼容塑料闪烁体。探测腔真空运行达到10^-7 mbar的稳定压强，克服了原设计中的真空问题。探测腔周围最多可安装三台高纯锗（HPGe）探测器和四台LaBr探测器，HPGe探测器在200 keV处的总光峰效率为7%。新实现的24通道数字DAQ系统将探测阵列与CRIS装置结合，用于激光辅助的β与γ射线谱学测量。利用窄带激光共振电离纯化的^106g,106mIn同质异能束进行的调试实验表明，β探测器中的放射性本底被完全去除，^106In的基态与同质异能态得到完全分离；实验确定的平均β探测效率为19(2)%。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在CRIS装置上对经激光共振电离纯化的同质异能束开展无残余放射性干扰的同质异能素选择性β与γ射线谱学测量，并解决原探测腔设计的真空问题。</p>
+    <h4>方法</h4><p>重新设计探测腔底板，集成磁带系统、MicroTOF束流诊断探测器和高真空兼容塑料闪烁体；在探测腔周围配置最多三台HPGe探测器和四台LaBr探测器；采用24通道数字DAQ系统将探测阵列与CRIS装置联用；并以窄带激光共振电离纯化的^106g,106mIn同质异能束进行调试实验。</p>
+    <h4>主要发现</h4><p>探测腔真空达到10^-7 mbar的稳定压强；HPGe探测器在200 keV处的总光峰效率为7%；调试实验中β探测器的放射性本底被完全去除，^106In基态与同质异能态实现完全分离；平均β探测效率为19(2)%。</p>
+    <h4>局限与展望</h4><p>原文未讨论该升级在更低产额或更短寿命同质异能素上的适用性，也未给出除^106In以外核素的测量结果；后续可合理推断的方向包括将该装置用于其他经CRIS纯化的同质异能束的衰变谱学测量，但需进一步实验验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29655v1">
+  <div class="paper-head">
+    <h2>remage：面向低本底实验的基于Geant4的模拟框架<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.29655v1" rel="noopener noreferrer">2610.29655v1</a>
+  </div>
+  <p class="original-title">remage: a Geant4-based simulation framework for low-background experiments</p>
+  <p class="meta"><strong>作者：</strong>Toby Dixon、Eric Esch、Reyco Henning、Manuel Huber、Moritz Neuberger、Luigi Pertoldi、Zichen Wang</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>蒙特卡罗模拟是低本底物理中数据建模与实验设计的关键工具。此类模拟通常需要大量投入，各合作组往往各自开发并维护复杂的Geant4应用。本文介绍remage的设计与验证。remage是一个开源框架，旨在标准化此类模拟并显著减少相关投入。其设计将几何结构（由专用Python工具构建）与编译后的应用程序分离，提供针对放射性成因和宇宙成因本底调校的物理列表与事件发生器、面向最常见探测器类型的输出，以及由现代软件开发实践支持的稳健验证。该软件以即用形式发布，并能随高要求模拟所需的计算资源高效扩展。remage主要面向LEGEND实验开发，但适用于多种实验。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>低本底物理中的蒙特卡罗模拟通常需要各合作组自行开发并维护复杂的Geant4应用，投入大且缺乏标准化；论文旨在提出一个可标准化此类模拟并显著降低投入的框架。</p>
+    <h4>方法</h4><p>设计并验证开源框架remage：将几何结构（由专用Python工具构建）与编译后的应用程序分离；提供针对放射性成因和宇宙成因本底调校的物理列表与事件发生器；提供面向最常见探测器类型的输出；采用现代软件开发实践进行稳健验证；软件以即用形式发布并支持计算资源扩展。</p>
+    <h4>主要发现</h4><p>论文给出了remage的设计与验证；该框架为开源，分离几何与编译应用，提供调校的物理列表与事件发生器、面向常见探测器类型的输出，并具备由现代软件开发实践支持的验证；软件即用发布且能随计算资源高效扩展；主要面向LEGEND实验开发，但适用于多种实验。</p>
+    <h4>局限与展望</h4><p>原文未给出具体性能指标或与其他框架的定量比较；其局限与适用范围在摘要中未明确展开。可合理推断，后续方向包括在LEGEND之外更多实验中的实际应用与验证，以及框架的持续维护与扩展；这些均为推断，需原文进一步支持。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29711v1">
+  <div class="paper-head">
+    <h2>A=3镜像核电偶极极化率与光吸收截面的从头算无核壳模型计算<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.29711v1" rel="noopener noreferrer">2610.29711v1</a>
+  </div>
+  <p class="original-title">\textit{Ab initio} no-core shell model calculations of the electric dipole polarizabilities and photoabsorption cross sections of the $A=3$ mirror nuclei</p>
+  <p class="meta"><strong>作者：</strong>H. T. Zhao、C. Y. Zhai、J. P. Vary、H. Li、J. M. Dong、H. J. Ong、X. Zhao、P. J. Fasano、A. M. Shirokov、J. Chen、D. Y. Tao、B. Zhou、C. Ji、P. Yin</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用Daejeon16核子-核子相互作用，对A=3镜像核$^3$H与$^3$He的电偶极（$E1$）极化率及光吸收截面进行了从头算无核壳模型计算。极化率通过在谐振子基中对离散化连续态直接求和获得，并利用同一谱信息重构截面。本工作将该方法从自旋为零的$^4$He首次推广至非零自旋核：分别计算$1/2^-$与$3/2^-$末态贡献，并证明其模型空间收敛性。在两个核中，$3/2^-$贡献约为$1/2^-$贡献的两倍。在量化有限基与激发能截断的不确定度后，我们识别出镜像核极化率之间的明显差异；由于Daejeon16相互作用是同位旋对称的，该差异完全由库仑相互作用引起。重构截面在Lorentz积分变换反演参数变化下保持稳定，并呈现相同的角动量层级。这些结果将离散化连续态方法推广至具有多个末态角动量的非零自旋核中的积分与能量分辨$E1$可观测量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究A=3镜像核$^3$H与$^3$He的电偶极极化率和光吸收截面，并检验将离散化连续态方法从自旋为零的$^4$He推广到非零自旋核的可行性。</p>
+    <h4>方法</h4><p>采用Daejeon16核子-核子相互作用的从头算无核壳模型；在谐振子基中对离散化连续态直接求和得到极化率，并用同一谱信息重构光吸收截面；分别计算$1/2^-$和$3/2^-$末态贡献，量化有限基与激发能截断不确定度，并检验Lorentz积分变换反演参数的稳定性。</p>
+    <h4>主要发现</h4><p>两个核中$3/2^-$末态贡献约为$1/2^-$贡献的两倍；$1/2^-$与$3/2^-$贡献均展示模型空间收敛性；在量化有限基和激发能截断不确定度后，发现镜像核极化率之间存在明显差异，且由于Daejeon16相互作用同位旋对称，该差异完全由库仑相互作用引起；重构截面在Lorentz积分变换反演参数变化下保持稳定，并呈现相同的角动量层级。</p>
+    <h4>局限与展望</h4><p>该方法已成功推广至具有多个末态角动量的非零自旋核，可合理推断其适用于其他轻核的积分与能量分辨$E1$可观测量；当前结果基于单一相互作用Daejeon16和有限模型空间，有限基与激发能截断不确定度已被量化，但其他相互作用或更大模型空间的影响尚需进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29973v1">
+  <div class="paper-head">
+    <h2>基于南达科他大学生长锗晶体制备的SuperCDMS型探测器中的NTL放大<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.29973v1" rel="noopener noreferrer">2610.29973v1</a>
+  </div>
+  <p class="original-title">NTL amplification in a SuperCDMS-style detector fabricated from a University of South Dakota-grown germanium crystal</p>
+  <p class="meta"><strong>作者：</strong>Dongming Mei、Gerardo Gonzalez、William Baker、Mark Platt、Nader Mirabolfathi</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">cond-mat.supr-con</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Neganov-Trofimov-Luke（NTL）放大可使低质量暗物质与相干弹性中微子-原子核散射实验达到eV至亚keV量级的探测阈值。本研究评估了两块由南达科他大学（USD）生长、并制备为SuperCDMS型四通道非热声子探测器、在约10 mK下运行的锗晶体。晶体的电活性杂质浓度约为$10^{10}~\mathrm{cm}^{-3}$，蚀坑密度为$300$–$7000~\mathrm{cm}^{-2}$。无接触偏压未产生可分辨的放大。然而，在沉积600 nm铝偏压接触后，Detector~2表现出明显的电压依赖NTL增益：重建的B通道能量从0 V时的约3.9 keV增至40 V时的34.9 keV，对应8.9倍增强。统计质心不确定度低于0.3%，低偏压拟合给出的有效瞬发声子与NTL声子响应系数分别为$(6.77\pm0.82)\%$和$(4.77\pm0.20)\%$（不含系统不确定度）。这些结果证明了USD生长锗用于SuperCDMS型高压声子探测器的可行性，并凸显了晶体质量与接触制备对实现NTL放大的重要性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>USD生长的锗晶体能否用于制备SuperCDMS型高压声子探测器并实现NTL放大，以及晶体质量与接触制备对NTL放大的影响。</p>
+    <h4>方法</h4><p>将两块USD生长的锗晶体制备为SuperCDMS型四通道非热声子探测器，在约10 mK下运行；先采用无接触偏压，随后沉积600 nm铝偏压接触，测量电压依赖的NTL增益并拟合有效瞬发声子与NTL声子响应系数。</p>
+    <h4>主要发现</h4><p>无接触偏压未产生可分辨的放大；沉积600 nm铝偏压接触后，Detector~2表现出明显的电压依赖NTL增益，B通道重建能量从0 V时约3.9 keV增至40 V时34.9 keV，对应8.9倍增强；统计质心不确定度低于0.3%；低偏压拟合得到有效瞬发声子与NTL声子响应系数分别为$(6.77\pm0.82)\%$和$(4.77\pm0.20)\%$（不含系统不确定度）。</p>
+    <h4>局限与展望</h4><p>原文指出结果证明了USD生长锗用于SuperCDMS型高压声子探测器的可行性，并强调晶体质量与接触制备对实现NTL放大的重要性；本文未进一步给出系统不确定度、长期稳定性或更大规模探测器的结论，相关方面需后续研究验证。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-22 10:19 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

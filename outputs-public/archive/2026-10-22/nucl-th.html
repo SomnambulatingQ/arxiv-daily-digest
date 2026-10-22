@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-th 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-th · 核理论</h1>
+    <p class="lede">官方公告日：2026-10-22</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">14</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">8</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">6</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（8）</h3><ol class="toc-list"><li><a href="#paper-2610.28926v1">j=9/2壳中四粒子特殊性质的起源</a> <small>2610.28926v1</small></li><li><a href="#paper-2610.29077v1">面向实际少体与多体应用的无π有效场论重构</a> <small>2610.29077v1</small></li><li><a href="#paper-2610.29154v1">中子对关联的空间不对称性：对$^{46}\mathrm{Ti}$的距离分辨研究</a> <small>2610.29154v1</small></li><li><a href="#paper-2610.29243v1">具有交叉方程态的混合星</a> <small>2610.29243v1</small></li><li><a href="#paper-2610.29711v1">A=3镜像核电偶极极化率与光吸收截面的从头算无核壳模型计算</a> <small>2610.29711v1</small></li><li><a href="#paper-2610.29760v1">轻离子碰撞中由核几何驱动的飞秒关联</a> <small>2610.29760v1</small></li><li><a href="#paper-2610.29799v1">与⁹⁴Zr形状共存相关的B₄/₂异常</a> <small>2610.29799v1</small></li><li><a href="#paper-2610.30046v1">核平均场相对几何的微分形式刻画</a> <small>2610.30046v1</small></li></ol><h3>交叉列表（6）</h3><ol class="toc-list"><li><a href="#paper-2606.00649v3">相对论性二阶磁流体力学的线性因果性与稳定性约束</a> <small>2606.00649v3</small></li><li><a href="#paper-2610.28742v1">双β衰变的辐射修正及其对实验分析的影响</a> <small>2610.28742v1</small></li><li><a href="#paper-2610.28778v1">从大 x 到小 x 的夸克 TMDPDF：CSS、DGLAP 与小 x 双对数的统一描述</a> <small>2610.28778v1</small></li><li><a href="#paper-2610.28984v1">BDNK 流体力学中稳定且因果的参考系</a> <small>2610.28984v1</small></li><li><a href="#paper-2610.28993v1">相互作用场动力学的数字量子模拟</a> <small>2610.28993v1</small></li><li><a href="#paper-2610.30085v1">由D^0介子各向异性响应标度破坏研究重夸克动力学</a> <small>2610.30085v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.28926v1">
+  <div class="paper-head">
+    <h2>j=9/2壳中四粒子特殊性质的起源<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.28926v1" rel="noopener noreferrer">2610.28926v1</a>
+  </div>
+  <p class="original-title">Origin of a peculiar property of four particles in a $j=9/2$ shell</p>
+  <p class="meta"><strong>作者：</strong>K. Neergård</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>此前研究发现，在角动量 j=9/2 壳层中，四个同类粒子的系统中，角动量为 I = 4、6、10、12 的四个特定能级的能量 E_I 满足关系 E_I = a + b I(I+1)，其中 a 和 b 仅依赖于两体相互作用。本文讨论该规律性的可观测含义，并详细分析其起源。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究 j=9/2 壳层中四个同类粒子系统的四个特定能级（I = 4、6、10、12）满足 E_I = a + b I(I+1) 这一规律性的可观测含义及其起源。</p>
+    <h4>方法</h4><p>基于此前发现的能量规律性，讨论其可观测含义，并对该规律性的起源进行详细分析；摘要未说明具体计算或分析技术。</p>
+    <h4>主要发现</h4><p>原文明确指出，角动量为 I = 4、6、10、12 的四个能级能量满足 E_I = a + b I(I+1)，且 a 和 b 仅依赖于两体相互作用；本文进一步讨论该规律性的可观测含义并分析其起源。</p>
+    <h4>局限与展望</h4><p>摘要未给出具体局限或后续方向；可合理推断，该规律性的适用范围可能限于 j=9/2 壳层中四个同类粒子的特定能级，其向其他壳层、粒子数或角动量的推广需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29077v1">
+  <div class="paper-head">
+    <h2>面向实际少体与多体应用的无π有效场论重构<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29077v1" rel="noopener noreferrer">2610.29077v1</a>
+  </div>
+  <p class="original-title">Reformulation of the pionless effective field theory for practical few- and many-body applications</p>
+  <p class="meta"><strong>作者：</strong>Silas R. Beane、Roland C. Farrell、Cameron P. Shotwell、Ubirajara van Kolck</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>描述距离尺度大于π介子康普顿波长的少核子系统的接触力有效场论 EFT(π̸) 可以用含固定数目简单极点的动量相关势来定义，这些势在给定固定阶数上生成有效程展开。此类势为标准 EFT(π̸) 幂次计数方案提供了一种实用的推广，例如能够自然地计入 s 波道中的大有效程。本文将在此 EFT(π̸) 表述下计算的核子-核子相移与现代相移分析进行比较，并列表给出有效程参数。这些 EFT(π̸) 势给出 S-矩阵的有理近似，通过引入额外的 S-矩阵极点和零点可容易地推广到π介子物理区域，并对直至π介子产生阈值的数据给出准确描述。该方案中的势在所有相关距离尺度上在重要意义上都是弱的，因而可用于多核子可观测量的系统计算。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何重构无π有效场论 EFT(π̸)，使其势在少体与多体计算中实用，并能自然处理 s 波大有效程、可推广至π介子物理区域。</p>
+    <h4>方法</h4><p>以含固定数目简单极点的动量相关势定义 EFT(π̸)，使其生成给定固定阶数的有效程展开；计算核子-核子相移并与现代相移分析比较，列表给出有效程参数；通过引入额外 S-矩阵极点和零点将势推广至π介子物理区域。</p>
+    <h4>主要发现</h4><p>该表述可视为标准 EFT(π̸) 幂次计数方案的实用推广，能自然计入 s 波道的大有效程；所计算相移与现代相移分析进行了比较并给出有效程参数表；这些势给出 S-矩阵的有理近似，经引入额外极点和零点后可准确描述直至π介子产生阈值的数据；势在所有相关距离尺度上在重要意义上都是弱的。</p>
+    <h4>局限与展望</h4><p>原文明确指出该势因在相关尺度上较弱而可用于多核子可观测量的系统计算；其局限与具体适用范围（如多体计算的精度、截断阶数误差）原文未展开，需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29154v1">
+  <div class="paper-head">
+    <h2>中子对关联的空间不对称性：对$^{46}\mathrm{Ti}$的距离分辨研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29154v1" rel="noopener noreferrer">2610.29154v1</a>
+  </div>
+  <p class="original-title">Spatial asymmetry of neutron pairing:A distance-resolved study of $^{46}\mathrm{Ti}$</p>
+  <p class="meta"><strong>作者：</strong>Huai-Tong Xue、Hua-Ming Dai、Wan Chang、Zi-Le Zhang、Shuai-Wei Wang</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>距离积分可能掩盖反射不对称内禀组态中中子对关联的空间组织。本文采用密度约束的Skyrme Hartree--Fock加Bardeen--Cooper--Schrieffer计算，沿$^{46}\mathrm{Ti}$中预设的类$\alpha$+$^{42}$Ca路径，按相对距离和带符号的对中心位置分辨自旋单态对张量。紧致分量与扩展分量相对于在相同距离区间条件下取值的正常密度乘积具有相反符号的偏移。在参考中心间距为6 fm时，距离积分差为0.010，而紧致—扩展对比度为0.439。对于基线表面配对方案，该对比度在参考中心间距6至7 fm之间增大，同时扩展反常权重减小、平均中子能隙增大。端点划分显示，扩展中子权重存在过剩，且两个核子均位于核心一侧。在存储的规范表示中进行的保留干涉分析将反常重分布与$f_{7/2}$加权分支联系起来，这些分支获得核心一侧支持并具有不同的振幅响应。正常密度参考的变化对对比度的增长有单独贡献。条件中子图样在测试的泛函与配对变分下持续存在。因此，距离条件分布揭示了被标量度量和距离积分所隐藏的内禀对关联结构。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>距离积分是否会掩盖反射不对称内禀组态中中子对关联的空间组织，以及$^{46}\mathrm{Ti}$中中子对关联如何随相对距离和对中心位置分布。</p>
+    <h4>方法</h4><p>采用密度约束的Skyrme Hartree--Fock加Bardeen--Cooper--Schrieffer计算，沿预设的类$\alpha$+$^{42}$Ca路径，按相对距离和带符号的对中心位置分辨自旋单态对张量，并进行端点划分与保留干涉的规范表示分析。</p>
+    <h4>主要发现</h4><p>紧致与扩展分量相对于相同距离区间条件下的正常密度乘积具有相反符号的偏移；参考中心间距6 fm时距离积分差为0.010，紧致—扩展对比度为0.439；基线表面配对方案下该对比度在6至7 fm间增大，同时扩展反常权重减小、平均中子能隙增大；端点划分显示扩展中子权重过剩且两核子均在核心一侧；保留干涉分析将反常重分布与$f_{7/2}$加权分支获得核心一侧支持及不同振幅响应相联系；正常密度参考变化对对比度增长有单独贡献；条件中子图样在测试的泛函与配对变分下持续存在。</p>
+    <h4>局限与展望</h4><p>结果基于特定泛函与配对方案及预设路径，适用范围受此限制；距离条件分布可推广用于揭示被标量度量和距离积分隐藏的内禀对关联结构，但需进一步检验其他核区与组态。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29243v1">
+  <div class="paper-head">
+    <h2>具有交叉方程态的混合星<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29243v1" rel="noopener noreferrer">2610.29243v1</a>
+  </div>
+  <p class="original-title">Hybrid Stars with a Crossover Equation of State</p>
+  <p class="meta"><strong>作者：</strong>G. A. Tsalis、Ch. C. Moustakidis</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">astro-ph.SR</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>超密核物质中相变是否可能发生仍是核物理中的未决问题，尤其是从纯强子物质向假定的解禁闭夸克物质的转变备受关注。该转变除基础意义外，对致密天体（包括中子星、夸克星和混合星）物理也有重要影响。传统方法采用 Maxwell 与 Gibbs 构造，二者均已被广泛研究和应用。本文关注第三种替代途径，即借助所谓切换函数（switching function）实现从强子物质到夸克物质的平滑过渡。本工作有两个主要目标：其一，系统考察对称能对与向夸克物质转变相关的转变密度和化学势的影响；其二，尝试对刻画切换函数的两个参数进行物理约束与参数化，以确保强子到夸克物质的转变不仅是连续的，而且符合相关物理要求。主要结论是：在适当选取上述参数的情况下，该唯象模型更具物理动机，可作为研究混合致密天体结构与性质的有用工具；此外，该方法能够灵活预测超出标准中子星理论范围的致密天体性质，例如近期观测研究颇受关注的相对低质量、小半径天体。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>超密核物质中从强子物质到解禁闭夸克物质的相变是否可能发生，以及如何用不同于 Maxwell 和 Gibbs 构造的平滑过渡方法描述该转变并约束其参数。</p>
+    <h4>方法</h4><p>采用基于切换函数的平滑过渡方法描述强子到夸克物质的转变；系统考察对称能对转变密度和化学势的影响；对切换函数的两个参数进行物理约束与参数化。</p>
+    <h4>主要发现</h4><p>对称能会影响与向夸克物质转变相关的转变密度和化学势；在适当选取切换函数参数时，该唯象模型更具物理动机，可作为研究混合致密天体结构与性质的工具，并能预测相对低质量、小半径等超出标准中子星理论范围的致密天体性质。</p>
+    <h4>局限与展望</h4><p>原文未给出定量适用范围或观测检验结果；该方法的可靠性依赖于切换函数参数的物理约束，其在天体观测中的可检验性有待进一步研究（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29711v1">
+  <div class="paper-head">
+    <h2>A=3镜像核电偶极极化率与光吸收截面的从头算无核壳模型计算<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29711v1" rel="noopener noreferrer">2610.29711v1</a>
+  </div>
+  <p class="original-title">\textit{Ab initio} no-core shell model calculations of the electric dipole polarizabilities and photoabsorption cross sections of the $A=3$ mirror nuclei</p>
+  <p class="meta"><strong>作者：</strong>H. T. Zhao、C. Y. Zhai、J. P. Vary、H. Li、J. M. Dong、H. J. Ong、X. Zhao、P. J. Fasano、A. M. Shirokov、J. Chen、D. Y. Tao、B. Zhou、C. Ji、P. Yin</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用Daejeon16核子-核子相互作用，对A=3镜像核$^3$H与$^3$He的电偶极（$E1$）极化率及光吸收截面进行了从头算无核壳模型计算。极化率通过在谐振子基中对离散化连续态直接求和获得，并利用同一谱信息重构截面。本工作将该方法从自旋为零的$^4$He首次推广至非零自旋核：分别计算$1/2^-$与$3/2^-$末态贡献，并证明其模型空间收敛性。在两个核中，$3/2^-$贡献约为$1/2^-$贡献的两倍。在量化有限基与激发能截断的不确定度后，我们识别出镜像核极化率之间的明显差异；由于Daejeon16相互作用是同位旋对称的，该差异完全由库仑相互作用引起。重构截面在Lorentz积分变换反演参数变化下保持稳定，并呈现相同的角动量层级。这些结果将离散化连续态方法推广至具有多个末态角动量的非零自旋核中的积分与能量分辨$E1$可观测量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究A=3镜像核$^3$H与$^3$He的电偶极极化率和光吸收截面，并检验将离散化连续态方法从自旋为零的$^4$He推广到非零自旋核的可行性。</p>
+    <h4>方法</h4><p>采用Daejeon16核子-核子相互作用的从头算无核壳模型；在谐振子基中对离散化连续态直接求和得到极化率，并用同一谱信息重构光吸收截面；分别计算$1/2^-$和$3/2^-$末态贡献，量化有限基与激发能截断不确定度，并检验Lorentz积分变换反演参数的稳定性。</p>
+    <h4>主要发现</h4><p>两个核中$3/2^-$末态贡献约为$1/2^-$贡献的两倍；$1/2^-$与$3/2^-$贡献均展示模型空间收敛性；在量化有限基和激发能截断不确定度后，发现镜像核极化率之间存在明显差异，且由于Daejeon16相互作用同位旋对称，该差异完全由库仑相互作用引起；重构截面在Lorentz积分变换反演参数变化下保持稳定，并呈现相同的角动量层级。</p>
+    <h4>局限与展望</h4><p>该方法已成功推广至具有多个末态角动量的非零自旋核，可合理推断其适用于其他轻核的积分与能量分辨$E1$可观测量；当前结果基于单一相互作用Daejeon16和有限模型空间，有限基与激发能截断不确定度已被量化，但其他相互作用或更大模型空间的影响尚需进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29760v1">
+  <div class="paper-head">
+    <h2>轻离子碰撞中由核几何驱动的飞秒关联<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29760v1" rel="noopener noreferrer">2610.29760v1</a>
+  </div>
+  <p class="original-title">Nuclear Geometry-Driven Femtoscopic Correlations in Light-Ion Collisions</p>
+  <p class="meta"><strong>作者：</strong>Dániel Kincses、Bithika Karmakar、Iurii Karpenko、Boris Tomášik</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>近期在每核子对质心能量 5.36 TeV 下对 $^{16}\rm O{+}^{16}\rm O$ 与 $^{20}\rm Ne{+}^{20}\rm Ne$ 碰撞的各向异性流测量，为核几何驱动的集体性提供了证据。本文研究这些轻离子碰撞系统中核几何的飞秒关联特征，采用将 \textit{ab initio} 核构型与粘性流体力学及强子输运相耦合的混合模拟框架。结果表明：对于形变核构型，由方位敏感飞秒关联提取的冻结偏心率的 $\rm Ne{+}Ne/O{+}O$ 比值在中心碰撞中达到 1.5–1.8，而球形基线情形下该比值约为 1。该增强显著大于同一模拟中椭圆流的相应增强，并且在省略预平衡自由流后仍保持稳定，尽管源的绝对半径发生明显变化。将这些预言与未来数据相比较，将为核结构与初始条件建模提供新的、互补的约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>轻离子碰撞（$^{16}\rm O{+}^{16}\rm O$ 与 $^{20}\rm Ne{+}^{20}\rm Ne$）中，核几何（尤其是形变）是否会在方位敏感飞秒关联中留下可观测特征，并与椭圆流信号相比如何。</p>
+    <h4>方法</h4><p>采用将 \textit{ab initio} 核构型与粘性流体力学及强子输运相耦合的混合模拟框架，从方位敏感飞秒关联中提取冻结偏心率，并比较 $\rm Ne{+}Ne$ 与 $O{+}O$ 的比值；同时检验省略预平衡自由流后的稳健性。</p>
+    <h4>主要发现</h4><p>对于形变核构型，中心碰撞中冻结偏心率的 $\rm Ne{+}Ne/O{+}O$ 比值达到 1.5–1.8，而球形基线约为 1；该增强显著大于同一模拟中椭圆流的增强；省略预平衡自由流后该比值仍保持稳定，尽管源的绝对半径明显变化。</p>
+    <h4>局限与展望</h4><p>原文指出需将这些预言与未来数据对照，以对核结构与初始条件建模给出新的互补约束；本文未给出实验验证，相关检验尚待未来数据。形变效应在其他轻离子系统或不同中心度下的适用性，以及预平衡阶段细节对绝对半径的影响，属于可合理推断的后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2610.29799v1">
+  <div class="paper-head">
+    <h2>与⁹⁴Zr形状共存相关的B₄/₂异常<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.29799v1" rel="noopener noreferrer">2610.29799v1</a>
+  </div>
+  <p class="original-title">B$_{4/2}$ anomaly related to the shape coexistence in $^{94}$Zr</p>
+  <p class="meta"><strong>作者：</strong>P. Buganu、R. Benjedi</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用带六阶非谐振荡势的Bohr-Mottelson哈密顿量解，分别针对轴对称形变与γ不稳定形变两种情形，研究⁹⁴Zr核的低激发态。在该方法框架内，实验观测到的B₄/₂异常可由近似球形（2₁⁺）与轴对称形变（4₁⁺）两种形状的共存加以解释；另一方面，0₂⁺与2₂⁺态的能量及其相关电磁跃迁则更符合动力学三轴形变（γ不稳定）组态。⁹⁴Zr低激发态的这一整体图像对应于三重形状共存情形。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究⁹⁴Zr核低激发态中实验观测到的B₄/₂异常，并探讨其与形状共存的关系。</p>
+    <h4>方法</h4><p>求解带六阶非谐振荡势的Bohr-Mottelson哈密顿量，分别考虑轴对称形变与γ不稳定（动力学三轴）形变两种情形，并将计算结果与⁹⁴Zr低激发态的能量及电磁跃迁实验数据进行比较。</p>
+    <h4>主要发现</h4><p>B₄/₂异常可由近似球形（2₁⁺）与轴对称形变（4₁⁺）形状的共存解释；0₂⁺和2₂⁺态的能量及其相关电磁跃迁更符合γ不稳定的动力学三轴形变组态；上述结果整体上对应于三重形状共存图像。</p>
+    <h4>局限与展望</h4><p>论文基于特定势形式与形变假设对低激发态进行描述，其适用范围限于所考察的能级与跃迁；三重形状共存图像及六阶非谐势参数的可迁移性有待更多核素与更高激发态数据的检验，后续可结合更完整的实验谱学信息进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.30046v1">
+  <div class="paper-head">
+    <h2>核平均场相对几何的微分形式刻画<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.30046v1" rel="noopener noreferrer">2610.30046v1</a>
+  </div>
+  <p class="original-title">Relative geometry of nuclear mean fields through differential forms</p>
+  <p class="meta"><strong>作者：</strong>Rafael C. R. de Lima</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>质子与中子密度可以具有相近的多极矩而在局部存在差异。本文采用微分形式度量并定位核平均场之间的此类差异。成对不变量以密度梯度模长加权，度量两个密度梯度之间的夹角，并利用余面积公式将其贡献分解到等值面上。三重不变量可精确分解为一个加权成对项与一个方向项，后者度量第三个场沿等值面交线的变化。我们在98个磁化Wigner-Seitz解、5个静态Hartree-Fock构型、一个示意性的$^{16}$O + $^{34}$Mg碰撞以及周期性核意面（一个平板与一个连通网络）中检验了这些量。成对不变量能够区分质子四极矩相近的元胞解，并且在$^{34}$Mg中比在$^{24}$Mg中大253倍；在重新计算的四个构型中，将网格细化至0.6 fm使其变化至多1.3%。方向因子可将所采样的三轴构型与长椭构型区分开。在碰撞中，方向因子解释了首次记录到低密度连接之前三重不变量7.3倍的上升，而加权成对项的变化至多3%。在核意面中，平板与网络构型具有相近的积分质子-中子失配，但在密度层级上的分布不同；在更细网格上，它们的三重不变量相差约370倍，主要源于库仑势沿联合密度层级的变化。这些比较不需要优先原点或轴。一个已分辨的非零三重不变量排除共同对称轴，但零值不能确立共同对称轴。核意面结果尚需进一步的收敛性研究。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何度量并定位质子与中子密度在局部上的差异，即使二者具有相近的多极矩；以及如何用不依赖坐标原点或轴的几何量刻画核平均场之间的相对差异。</p>
+    <h4>方法</h4><p>引入基于微分形式的成对不变量（以梯度模长加权度量两个密度梯度的夹角）与三重不变量（精确分解为加权成对项和方向项，方向项度量第三个场沿等值面交线的变化），并用余面积公式将成对不变量分解到等值面上；在98个磁化Wigner-Seitz解、5个静态Hartree-Fock构型、一个$^{16}$O + $^{34}$Mg碰撞示例以及周期性核意面（平板与连通网络）中进行检验。</p>
+    <h4>主要发现</h4><p>成对不变量可区分质子四极矩相近的元胞解，在$^{34}$Mg中比在$^{24}$Mg中大253倍；网格细化至0.6 fm时四个重算构型中该量变化至多1.3%。方向因子可区分所采样的三轴构型与长椭构型。在碰撞中，方向因子解释了首次记录到低密度连接前三重不变量7.3倍的上升，而加权成对项变化至多3%。在核意面中，平板与网络构型的积分质子-中子失配相近但密度层级分布不同，更细网格上三重不变量相差约370倍，主要源于库仑势沿联合密度层级的变化。这些比较不需要优先原点或轴；已分辨的非零三重不变量排除共同对称轴，但零值不能确立共同对称轴。</p>
+    <h4>局限与展望</h4><p>核意面相关结果尚需进一步的收敛性研究；三重不变量为零不能确立共同对称轴，这一判据的适用范围有限。基于原文可合理推断，后续工作可围绕网格收敛性、更多核构型与碰撞事件的检验，以及将微分形式不变量推广至其他场量或更一般的核平均场比较中展开。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2606.00649v3">
+  <div class="paper-head">
+    <h2>相对论性二阶磁流体力学的线性因果性与稳定性约束<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2606.00649v3" rel="noopener noreferrer">2606.00649v3</a>
+  </div>
+  <p class="original-title">Linear causality and stability constraints on relativistic second-order magnetohydrodynamics</p>
+  <p class="meta"><strong>作者：</strong>Yiwei Qiu、Duan She、Defu Hou</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文基于熵流分析构建了相对论性二阶磁流体力学的理论框架。该形式体系一致地纳入耗散流的有限弛豫动力学，为分析线性稳定性与短波长因果性提供了瞬态框架。利用线性模式分析，我们研究了因果性与稳定性对该各向异性系统施加的约束。通过在均匀平衡态附近对理论进行线性化，我们识别出磁声、Alfvén 与电荷扩散扇区及其耦合项。对每个扇区，我们推导了长波长（小 $k$）与短波长（大 $k$）极限下的渐近色散关系，并用精确数值根加以验证。数值分析证实了这些渐近解的准确性，并揭示出非平凡的角依赖关系，尤其是在普通动量展开可靠性下降的特殊传播方向附近。通过评估传播支的大 $k$ 行为以及非流体力学模式的阻尼性质，我们刻画了相应的因果性约束。我们发现，可容许的线性因果域由传播方向、各向异性输运系数与弛豫时间之间的相互作用决定，所得界限本质上是模式依赖的。这些结果为研究超越一阶近似的相对论磁流体力学中的线性稳定性与短波长因果性提供了系统的理论基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在相对论性二阶磁流体力学框架中，纳入耗散流的有限弛豫动力学，并确定因果性与线性稳定性对该各向异性系统施加的约束。</p>
+    <h4>方法</h4><p>基于熵流分析构建二阶磁流体力学框架；在均匀平衡态附近线性化，进行线性模式分析，识别磁声、Alfvén 与电荷扩散扇区及其耦合项；推导长波长（小 $k$）与短波长（大 $k$）极限下的渐近色散关系，并与精确数值根对比验证；通过传播支的大 $k$ 行为与非流体力学模式的阻尼性质刻画因果性约束。</p>
+    <h4>主要发现</h4><p>数值分析证实了渐近色散关系的准确性，并揭示出非平凡的角依赖关系，尤其在普通动量展开可靠性下降的特殊传播方向附近；可容许的线性因果域由传播方向、各向异性输运系数与弛豫时间之间的相互作用决定，所得界限本质上是模式依赖的。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，该框架为超越一阶近似的相对论磁流体力学中线性稳定性与短波长因果性研究提供了系统理论基础，其模式依赖的因果性界限可能需在非线性或强各向异性情形下进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28742v1">
+  <div class="paper-head">
+    <h2>双β衰变的辐射修正及其对实验分析的影响<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28742v1" rel="noopener noreferrer">2610.28742v1</a>
+  </div>
+  <p class="original-title">Radiative corrections to double-$β$ decay and their impact on experimental analyses</p>
+  <p class="meta"><strong>作者：</strong>Jordy de Vries、Emanuele Mereghetti、Saad el Morabit、Stefan Sandner</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在重核有效场论框架下，对双中微子和无中微子双β衰变的 O(α) 辐射修正进行了系统研究。我们计算了任意激发能中间核态的全部虚修正与实发射修正，并给出了含重核传播子的一圈积分的新闭式表达式。当激发能远大于轻子能量时，修正因子化为树级衰变率与一个普适的双弱 Sirlin 函数之积；该函数与文献中迄今使用的两个单β Sirlin 函数之和存在显著差异。我们以核矩阵元之比 ξ_{31} 为参数，讨论了辐射修正对已测能谱分析的影响，表明忽略辐射修正可能使提取结果产生显著偏差。此前分析未考虑的实光子发射起核心作用，且辐射修正的影响强烈依赖于探测器设置。我们给出了对光子能量和方向完全微分的 photon spectrum，并建议实验显式模拟光子。对于 0νββ 衰变，辐射修正使包容性衰变率增加约 5%，且该结果与核矩阵元或中微子 Majorana 质量无关。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在重核有效场论框架下，双β衰变（包括双中微子和无中微子模式）的 O(α) 辐射修正如何计算，以及这些修正对实验能谱分析和核矩阵元比 ξ_{31} 的提取有何影响。</p>
+    <h4>方法</h4><p>采用重核有效场论，计算任意激发能中间核态的虚修正与实发射修正，推导含重核传播子的一圈积分闭式表达式；在激发能远大于轻子能量时进行因子化处理，得到普适的双弱 Sirlin 函数；并给出对光子能量和方向完全微分的 photon spectrum。</p>
+    <h4>主要发现</h4><p>当激发能远大于轻子能量时，辐射修正因子化为树级衰变率乘以一个普适双弱 Sirlin 函数，该函数与两个单β Sirlin 函数之和显著不同；忽略辐射修正可能使基于能谱比值 ξ_{31} 的核矩阵元提取产生显著偏差；实光子发射起核心作用，且辐射修正影响强烈依赖探测器设置；对 0νββ 衰变，辐射修正使包容性衰变率增加约 5%，且与核矩阵元或中微子 Majorana 质量无关。</p>
+    <h4>局限与展望</h4><p>原文建议实验显式模拟光子，并指出辐射修正的影响依赖探测器设置；对于 0νββ 衰变约 5% 的包容性衰变率增加是否适用于所有实验配置，需结合具体探测器响应进一步评估（此为合理推断，原文未逐一验证）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28778v1">
+  <div class="paper-head">
+    <h2>从大 x 到小 x 的夸克 TMDPDF：CSS、DGLAP 与小 x 双对数的统一描述<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28778v1" rel="noopener noreferrer">2610.28778v1</a>
+  </div>
+  <p class="original-title">Quark TMDPDFs from Large to Small $x$: A Unified Description of CSS, DGLAP, and Small-$x$ Double Logarithms</p>
+  <p class="meta"><strong>作者：</strong>Swagato Mukherjee、Vladimir V. Skokov、Andrey Tarasov、Shaswat Tiwari</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文将 Mukherjee 等人 [Phys. Rev. D 109, 034035 (2024)] 针对胶子横向动量依赖部分子分布函数（TMDPDF）建立的全运动学背景场构造推广至夸克 TMDPDF，从而为其大 x 与小 x 动力学提供统一框架。作者采用背景场方法计算了次领头阶的领头幂次夸克 TMD beam 函数。背景场同时保留纵向与横向动量，不施加共线或 eikonal 排序。文中区分了定义 TMD 算符的重整化标度与分离其微扰模式和非微扰模式的因子化标度。在标准 TMD 重整化下，夸克 TMDPDF 服从 Collins-Soper-Sterman（CSS）演化，而较低标度的分离则直接以背景场 TMD 算符组织；这一全运动学构造被称为 MSTT 方案。在 MSTT 方案中，所得算符展开的领头项在相应极限下同时重现 Dokshitzer-Gribov-Lipatov-Altarelli-Parisi（DGLAP）对数与小 x 双对数，并保留部分高扭度与次 eikonal 修正。作者还针对夸克 TMDPDF 构建了具有不同重整化截断与因子化截断的仅快度方案，推导了其演化方程；该方程在共线极限下退化为 DGLAP 演化，在小 x 下退化为双对数夸克演化，并建立了其与 MSTT 方案及标准 TMD 方案的匹配。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在一个统一框架中同时描述夸克 TMDPDF 的大 x 动力学（CSS 演化、DGLAP 对数）与小 x 动力学（双对数），并厘清 TMD 算符重整化标度与因子化标度分离之间的关系。</p>
+    <h4>方法</h4><p>将胶子 TMDPDF 的全运动学背景场构造推广到夸克情形；用背景场方法计算次领头阶领头幂次夸克 TMD beam 函数，背景场保留纵向与横向动量且不施加共线或 eikonal 排序；区分重整化标度与因子化标度，以背景场 TMD 算符组织低标度分离（MSTT 方案）；并构造具有不同重整化与因子化截断的仅快度方案，推导其演化方程及与 MSTT、标准 TMD 方案的匹配。</p>
+    <h4>主要发现</h4><p>在标准 TMD 重整化下夸克 TMDPDF 服从 CSS 演化；MSTT 方案中算符展开的领头项在适当极限下同时重现 DGLAP 对数和小 x 双对数，并保留部分高扭度与次 eikonal 修正；仅快度方案的演化方程在共线极限下退化为 DGLAP 演化、在小 x 下退化为双对数夸克演化，并已建立其与 MSTT 方案和标准 TMD 方案的匹配。</p>
+    <h4>局限与展望</h4><p>原文未给出数值检验或非微扰输入下的现象学比较；MSTT 方案与仅快度方案在实际过程中的适用精度、截断依赖以及高扭度与次 eikonal 修正的定量影响尚待进一步研究。可合理推断，后续工作可将该统一框架推广至其他部分子或过程，并检验其与标准 TMD 方案在数值上的匹配与差异。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28984v1">
+  <div class="paper-head">
+    <h2>BDNK 流体力学中稳定且因果的参考系<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28984v1" rel="noopener noreferrer">2610.28984v1</a>
+  </div>
+  <p class="original-title">Stable and causal frames for BDNK hydrodynamics</p>
+  <p class="meta"><strong>作者：</strong>Jay Armas</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文证明：对任意状态方程与任意一组物理输运系数，均存在线性稳定且因果的 Bemfica-Disconzi-Noronha-Kovtun（BDNK）参考系族。作者发展了一种基于 Routh-Hurwitz 判据化简与多项式电报方程（telegrapher）分解的方法，并针对中性流体与带电流体分别给出六个此类参考系族的具体例子，其中三个具有共形极限。这些参考系具有可调的特征速度，可作为多种情形下相对论流体力学数值实现的出发点。在此过程中，作者发现了中性流体中稳定且因果的参考系与带电流体中稳定且因果的参考系之间的一个映射。作者还提出了一套 AI 研究协议，可用于在任意流体力学理论中搜索此类参考系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>对任意状态方程和任意物理输运系数，是否存在线性稳定且因果的 BDNK 流体力学参考系，以及如何构造这些参考系。</p>
+    <h4>方法</h4><p>发展基于 Routh-Hurwitz 判据化简与多项式电报方程分解的方法，用于构造并验证线性稳定且因果的 BDNK 参考系族；对中性流体与带电流体分别给出具体例子，并建立两类流体参考系之间的映射；同时提出一套用于搜索此类参考系的 AI 研究协议。</p>
+    <h4>主要发现</h4><p>证明了对任意状态方程与任意一组物理输运系数均存在线性稳定且因果的 BDNK 参考系族；给出了六个具体参考系族例子（中性流体与带电流体），其中三个具有共形极限；这些参考系具有可调的特征速度；发现了中性流体与带电流体中稳定且因果参考系之间的一个映射。</p>
+    <h4>局限与展望</h4><p>这些参考系可作为相对论流体力学数值实现的起点；所提出的 AI 研究协议据称可用于在任意流体力学理论中搜索此类参考系。原文未讨论数值实现的具体表现、非线性稳定性或强场下的适用性，相关方面需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.28993v1">
+  <div class="paper-head">
+    <h2>相互作用场动力学的数字量子模拟<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.28993v1" rel="noopener noreferrer">2610.28993v1</a>
+  </div>
+  <p class="original-title">Digital Quantum Simulation of Dynamics in Interacting Fields</p>
+  <p class="meta"><strong>作者：</strong>Zhiyao Li</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>极端条件下的物质表现为非平衡的强相互作用量子系统，处于量子色动力学（QCD）的非微扰区域，其时间演化在经典计算上难以处理。量子计算提供了有前景的替代方案，但当前设备在量子比特数和电路深度上受限，因此高效的表述与算法是迈向实验相关QCD模拟规模化的关键。本文建立了一个可扩展框架，用于模拟1+1维SU(2)格点规范理论中的能量损失与强子化过程，其中重夸克穿过由轻夸克构成的格点。研究将经典格点QCD方法转化为物理启发的电路，以制备相互作用基态；演化在IBM量子处理器ibm_pittsburgh上运行，并测量电荷分布与能量损失。进一步研究在混合基下发展完全规范固定的SU(2)哈密顿量的量子模拟，该表述预期在所有规范耦合下保持高效。以每个元格（plaquette）仅三个量子比特对连续规范场进行数字化，即可在$10^{-3}$精度内重现低能可观测量。扩展到更大系统受资源开销限制，这促使采用保持相关可观测量的截断方法。序列层级截断（SeqHT）利用基算符贡献的层级结构；在ibm_sherbrooke上对$\lambda\phi^4$基态的绝热制备进行演示时，SeqHT将电路深度降低约30%，从而抑制了提取可观测量中的硬件噪声。本文所有模拟均在量子硬件上与经典基准进行验证。这些研究推进了实时QCD动力学的量子模拟。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在当前量子硬件受限的条件下，高效且可扩展地模拟1+1维SU(2)格点规范理论中重夸克穿过轻夸克格点时的实时动力学（包括能量损失与强子化），并控制资源开销与硬件噪声。</p>
+    <h4>方法</h4><p>将经典格点QCD方法转化为物理启发的量子电路以制备相互作用基态；在IBM量子处理器ibm_pittsburgh上运行演化并测量电荷分布与能量损失；发展混合基下完全规范固定的SU(2)哈密顿量表述；以每个元格三个量子比特数字化连续规范场；提出序列层级截断（SeqHT）以降低电路深度，并在ibm_sherbrooke上通过$\lambda\phi^4$基态的绝热制备进行演示；所有模拟均与经典基准对比验证。</p>
+    <h4>主要发现</h4><p>在ibm_pittsburgh上实现了1+1维SU(2)格点规范理论中重夸克穿越轻夸克格点的演化，并测量了电荷分布与能量损失；混合基下完全规范固定的SU(2)哈密顿量表述预期在所有规范耦合下保持高效；每个元格仅用三个量子比特即可在$10^{-3}$精度内重现低能可观测量；SeqHT在$\lambda\phi^4$基态绝热制备中将电路深度降低约30%，并抑制了提取可观测量中的硬件噪声；所有模拟均在量子硬件上与经典基准进行了验证。</p>
+    <h4>局限与展望</h4><p>扩展到更大系统受资源开销限制，因此需要采用保持相关可观测量的截断方法；SeqHT即为此类截断的一种实现。混合基表述在所有规范耦合下保持高效仅为原文的预期，尚需进一步验证。后续方向可合理推断为：发展更高效的截断与电路编译方案，并在更大规模或更高维规范理论中检验所提框架的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.30085v1">
+  <div class="paper-head">
+    <h2>由D^0介子各向异性响应标度破坏研究重夸克动力学<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.30085v1" rel="noopener noreferrer">2610.30085v1</a>
+  </div>
+  <p class="original-title">Heavy-Quark Dynamics from $D^{0}$-Meson Anisotropy-Response Scaling Violations</p>
+  <p class="meta"><strong>作者：</strong>Roy A. Lacey</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用按粒子种类区分的各向异性响应标度框架，通过D^0介子的椭圆流（v_2）与三角流（v_3）方位角各向异性研究重夸克动力学。独立约束的轻味响应提供了一个直接的零假设检验：变换后的D^0各谐波表现出近似的谐波间闭合，但仍系统性地偏离以K介子为锚点的标度函数，揭示出粲夸克标度破坏。通过引入粲夸克特定的衰减重标度因子k_c以及一个小的低p_T强子散射修正ζ_hs≈0.06，并保留既有的轻味方案，可以恢复共同的响应。在√s_NN=5.02 TeV的Pb+Pb碰撞中，k_c从中心及半中心碰撞的约2.0下降至30–50%区间的1.27。对于D^0的v_2，√s_NN=8.16 TeV的超中心p+Pb碰撞要求k_c≈1.5，而√s_NN=200 GeV的Au+Au碰撞与k_c≈1一致。转变动量表现出明显的系统依赖性：在Pb+Pb中D^0与轻介子显示出相近的p_T,tr≈4.5–5.0 GeV/c，与同样用于Au+Au的共同大系统方案一致；而p+Pb的D^0测量则与约1.6 GeV/c的较低轻介子标度一致。这些对衰减强度与转变动量的互补约束为重夸克输运与介质演化提供了微分基准。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何通过D^0介子的椭圆流与三角流各向异性，检验重夸克是否遵循与轻味粒子相同的各向异性响应标度，并约束重夸克在介质中的衰减强度与转变动量。</p>
+    <h4>方法</h4><p>采用按粒子种类区分的各向异性响应标度框架，以独立约束的轻味响应（以K介子为锚点）作为零假设检验；引入粲夸克特定的衰减重标度因子k_c与低p_T强子散射修正ζ_hs，对Pb+Pb（√s_NN=5.02 TeV）、p+Pb（√s_NN=8.16 TeV）和Au+Au（√s_NN=200 GeV）碰撞中的D^0 v_2与v_3数据进行描述。</p>
+    <h4>主要发现</h4><p>变换后的D^0各谐波表现出近似的谐波间闭合，但系统性地偏离以K介子为锚点的标度函数，表明存在粲夸克标度破坏；引入k_c与ζ_hs≈0.06后可恢复共同响应。Pb+Pb中k_c从中心及半中心碰撞的约2.0降至30–50%区间的1.27；p+Pb超中心碰撞的D^0 v_2要求k_c≈1.5，Au+Au则与k_c≈1一致。Pb+Pb中D^0与轻介子的转变动量相近（p_T,tr≈4.5–5.0 GeV/c），而p+Pb的D^0测量与约1.6 GeV/c的较低轻介子标度一致。</p>
+    <h4>局限与展望</h4><p>该框架为区分重夸克输运模型与介质演化方案提供了微分基准；其适用范围受限于所采用的轻味响应方案与参数化形式，k_c与ζ_hs的物理起源及系统依赖性仍需由更基本的输运计算检验，上述后续方向属于合理推断而非原文结论。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-22 10:19 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
