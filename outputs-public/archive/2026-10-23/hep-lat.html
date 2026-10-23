@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-10-23</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">8</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">3</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（5）</h3><ol class="toc-list"><li><a href="#paper-2610.30341v1">四维希格斯涨落求解器：第一部分——无矩阵全局标量反弹与行列式重整化审计</a> <small>2610.30341v1</small></li><li><a href="#paper-2610.30850v1">在降维规范中采用 $A_x=A_y=0$ 投影的四维 QCD 中手征对称性的自发破缺</a> <small>2610.30850v1</small></li><li><a href="#paper-2610.30982v1">用规范等变网络学习 Wilson Dirac 算子的低模</a> <small>2610.30982v1</small></li><li><a href="#paper-2610.31281v1">Yang-Mills理论中由Wilson-&#x27;t Hooft圈得到的θ=2π处的双荷子凝聚</a> <small>2610.31281v1</small></li><li><a href="#paper-2610.31597v1">面向核子胶子PDF系统性控制的赝PDF方法研究</a> <small>2610.31597v1</small></li></ol><h3>交叉列表（3）</h3><ol class="toc-list"><li><a href="#paper-2610.30393v1">格点约束的 PNJL 模型中守恒荷关联的热磁增强</a> <small>2610.30393v1</small></li><li><a href="#paper-2610.31395v1">带修正传播子的热 AdS/QCD 软壁模型中 $N \to \Delta$ 跃迁形状因子</a> <small>2610.31395v1</small></li><li><a href="#paper-2610.31653v1">Onsager 代数与格点费米子</a> <small>2610.31653v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.30341v1">
+  <div class="paper-head">
+    <h2>四维希格斯涨落求解器：第一部分——无矩阵全局标量反弹与行列式重整化审计<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.30341v1" rel="noopener noreferrer">2610.30341v1</a>
+  </div>
+  <p class="original-title">Higgs Fluctuation Solver in Four Dimensions: Part I-A Matrix-Free Global-Scalar Bounce and Determinant-Renormalization Audit</p>
+  <p class="meta"><strong>作者：</strong>Merritt s. Cook</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报道了一套用于四维欧几里得空间中四分量全局 O(4) 标量理论半经典假真空衰变的无矩阵数值流程。该计算结合了连续统反弹打靶、作用量弛豫、通道分辨的涨落谱、紧缩随机 Lanczos 求积（SLQ），以及采用 Gel&#x27;fand-Yaglom 径向比和大角动量减除的连续统分波行列式。对于基准势，反弹作用量为 B = 145.203947，尾部残差为 0.281955%。在 L = 26、h = 0.8 的格点上，弛豫场的运动方程均方根残差达到 4.43 x 10^-12；其低谱包含一个负的径向模、四个格点平移模和三个近零内部模。16 探针的裸 SLQ 迹对数（trace-log）为 -2079.9042 +/- 6.4504。在减除方案下，标量分波计算在 mu = mF = sqrt(0.4) 处给出带撇迹对数 40.9324，对应行列式因子 1.2931 x 10^-9。我们表明，领头 rho^8 势在其标量单圈发散下不封闭：需要局域 rho^10 和 rho^12 抵消项，且有限系数未能匹配；因此这是方案层面的结果，而非完整的有效场论预言。平移归一化的标量表达式为 5.9974 x 10^-70（以格点能量单位的四次方计），其中略去了内部取向的雅可比因子。我们总结了已测试的 SU(2) 算符与极点代数基础设施，并将有限全规范匹配与受控极限确定为待解决的开放工作。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在四维欧几里得空间中，对四分量全局 O(4) 标量理论的半经典假真空衰变进行无矩阵数值计算，并审计其涨落行列式与重整化减除方案的一致性。</p>
+    <h4>方法</h4><p>结合连续统反弹打靶、作用量弛豫、通道分辨涨落谱、紧缩随机 Lanczos 求积（SLQ），以及采用 Gel&#x27;fand-Yaglom 径向比与大角动量减除的连续统分波行列式计算；并在格点上检验弛豫场的运动方程残差与低谱结构。</p>
+    <h4>主要发现</h4><p>基准势下反弹作用量 B = 145.203947，尾部残差 0.281955%；L = 26、h = 0.8 格点上弛豫场 RMS 运动方程残差为 4.43 x 10^-12，低谱含一个负径向模、四个格点平移模与三个近零内部模；16 探针裸 SLQ 迹对数为 -2079.9042 +/- 6.4504；减除方案下 mu = mF = sqrt(0.4) 处带撇迹对数为 40.9324，行列式因子为 1.2931 x 10^-9；领头 rho^8 势在标量单圈发散下不封闭，需 rho^10 与 rho^12 局域抵消项且有限系数未匹配，故结果为方案层面而非完整 EFT 预言；平移归一化标量表达式为 5.9974 x 10^-70（格点能量单位四次方），略去内部取向雅可比因子。</p>
+    <h4>局限与展望</h4><p>原文明确指出该结果依赖减除方案、并非完整有效场论预言，且平移归一化表达式略去了内部取向雅可比因子；有限全规范匹配与受控极限被列为开放工作。据此可合理推断，后续需补全高阶抵消项匹配、纳入内部取向雅可比因子，并完成 SU(2) 全规范匹配与受控极限检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.30850v1">
+  <div class="paper-head">
+    <h2>在降维规范中采用 $A_x=A_y=0$ 投影的四维 QCD 中手征对称性的自发破缺<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.30850v1" rel="noopener noreferrer">2610.30850v1</a>
+  </div>
+  <p class="original-title">Spontaneous chiral-symmetry breaking in four-dimensional QCD with $A_x=A_y=0$ projection in dimensional reduction gauge</p>
+  <p class="meta"><strong>作者：</strong>Kei Tohme、Hideo Suganuma</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究四维 QCD 在降维（DR）规范下手征对称性的自发破缺。该规范定义为使 $R_{\mathrm{DR}}\equiv\int d^{4}s\,\mathrm{Tr}[A_{x}^{2}(s)+A_{y}^{2}(s)]$ 最小化。作者对 DR 规范下生成的规范组态分别考虑“$tz$ 投影”（$A_{x,y}(s)\to 0$）与“$xy$ 投影”（$A_{t,z}(s)\to 0$），其思路类似于最大阿贝尔规范下的阿贝尔投影、单极投影和光子投影。手征凝聚由低能狄拉克本征值密度 $\rho(\lambda)$ 借助 Banks-Casher 关系估计。结果表明：在 DR 规范下作 $tz$ 投影后，手征凝聚基本得以保留；相反，作 $xy$ 投影后手征凝聚变为零。这表明在 DR 规范下的手征对称性自发破缺中，$A_{t}(s)$ 与 $A_{z}(s)$ 起主导作用，而 $A_{x}(s)$ 与 $A_{y}(s)$ 不起作用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>四维 QCD 在降维规范下，手征对称性自发破缺主要由哪些规范场分量承担，即 $A_{t,z}$ 与 $A_{x,y}$ 各自的作用如何。</p>
+    <h4>方法</h4><p>在使 $R_{\mathrm{DR}}=\int d^{4}s\,\mathrm{Tr}[A_{x}^{2}+A_{y}^{2}]$ 最小化的 DR 规范下生成规范组态，并分别实施 $tz$ 投影（$A_{x,y}\to 0$）与 $xy$ 投影（$A_{t,z}\to 0$）；利用低能狄拉克本征值密度 $\rho(\lambda)$ 并通过 Banks-Casher 关系估计手征凝聚。</p>
+    <h4>主要发现</h4><p>在 DR 规范下作 $tz$ 投影后手征凝聚基本保留；作 $xy$ 投影后手征凝聚变为零。这表明 $A_{t}(s)$ 与 $A_{z}(s)$ 在手征对称性自发破缺中起主导作用，而 $A_{x}(s)$ 与 $A_{y}(s)$ 不起作用。</p>
+    <h4>局限与展望</h4><p>上述结论基于 DR 规范下的特定投影方式与由 $\rho(\lambda)$ 经 Banks-Casher 关系估计的手征凝聚，其适用范围限于所研究的规范与投影设定；向其他规范、投影定义或更系统的有限体积与连续极限检验的推广属于可合理推断的后续方向，原文未作此陈述。</p>
+  </section>
+</article><article class="paper" id="paper-2610.30982v1">
+  <div class="paper-head">
+    <h2>用规范等变网络学习 Wilson Dirac 算子的低模<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.30982v1" rel="noopener noreferrer">2610.30982v1</a>
+  </div>
+  <p class="original-title">Learning Low Modes of the Wilson Dirac Operator with Gauge-Equivariant Networks</p>
+  <p class="meta"><strong>作者：</strong>Minjae Choi、Hiroshi Ohno</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在自适应多重网格方法中，能更好地逼近 Wilson Dirac 算子 $D$ 低模子空间的测试向量可以缩短求解时间，但构造这些测试向量可能代价高昂；在某些情况下，设置阶段所需时间甚至超过单次求解。为降低生成测试向量的成本，本文在淬火系综（quenched ensemble）上一次性训练由规范等变平行输运层构成的网络，并针对 $D^\dagger D$ 采用 Rayleigh-Ritz 损失。随后检验训练所得网络在其他 hopping 参数下以及未参与训练的构型上是否保持性能。在这些检验中，网络输出被用作测试向量，同时省略自适应设置中代价高昂的 $V$-cycle 精化以缩短设置时间。结果表明，这在大多数情况下显著缩短了设置时间，而求解时间基本不变；在临界 hopping 参数 $\kappa_c$ 附近，部分情况下求解时间也有所缩短。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何降低自适应多重网格中构造逼近 Wilson Dirac 算子 $D$ 低模子空间的测试向量的成本，并检验所学网络在不同 hopping 参数和未见构型上的可迁移性。</p>
+    <h4>方法</h4><p>在淬火系综上一次性训练由规范等变平行输运层构成的网络，使用针对 $D^\dagger D$ 的 Rayleigh-Ritz 损失；将网络输出作为测试向量，并在自适应设置中省略 $V$-cycle 精化，以评估设置时间与求解时间的变化。</p>
+    <h4>主要发现</h4><p>在大多数测试情形下，设置时间显著缩短而求解时间基本不变；在临界 hopping 参数 $\kappa_c$ 附近，部分情况下求解时间也有所缩短。</p>
+    <h4>局限与展望</h4><p>摘要仅报告了淬火系综上一次训练后在若干 hopping 参数与未见构型上的测试结果，未给出网络在更广参数范围、不同系综或含动力学夸克情形下的表现；这些方面以及省略 $V$-cycle 精化对求解质量的系统性影响，可作为后续验证方向（属推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31281v1">
+  <div class="paper-head">
+    <h2>Yang-Mills理论中由Wilson-&#x27;t Hooft圈得到的θ=2π处的双荷子凝聚<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.31281v1" rel="noopener noreferrer">2610.31281v1</a>
+  </div>
+  <p class="original-title">Dyon Condensation at $θ=2π$ from Wilson-&#x27;t Hooft Loops in Yang-Mills Theory</p>
+  <p class="meta"><strong>作者：</strong>Hiromasa Watanabe、Issaku Kanamori、Okuto Morikawa、Yuki Nagai、Yuya Tanizaki、Akio Tomiya</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Yang-Mills理论在θ与θ+2π处物理等价，但在1-形式中心对称的背景场存在时，其周期性以非平凡方式实现。因此，θ=0与2π处的禁闭真空预期具有不同的对称保护拓扑标签。我们在SU(2)格点Yang-Mills理论中通过测量θ=2π处的&#x27;t Hooft圈与双荷子Wilson-&#x27;t Hooft圈检验这一预期。一种1-形式协变的DBW2流使全局重加权因子在数值上保持良性，同时在缺陷系综中保留物理的非整数拓扑荷。双荷子圈在两个格点体积上呈现出清晰的周长律平台。直接的&#x27;t Hooft圈信号受噪声限制，但其量级与距离依赖符合面积律的预期。结合Wilson-&#x27;t Hooft分类，这些结果为θ=2π处的双荷子斜禁闭模式提供了数值证据。本报告基于我们近期的论文（arXiv:2606.13428）。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>检验θ=0与θ=2π处禁闭真空是否因1-形式中心对称背景场而具有不同的对称保护拓扑标签，并在SU(2)格点Yang-Mills理论中考察θ=2π处的双荷子斜禁闭模式。</p>
+    <h4>方法</h4><p>在SU(2)格点Yang-Mills理论中于θ=2π处测量&#x27;t Hooft圈与双荷子Wilson-&#x27;t Hooft圈；采用1-形式协变的DBW2流使全局重加权因子数值良性，并在缺陷系综中保留物理的非整数拓扑荷；在两个格点体积上分析圈的长程行为。</p>
+    <h4>主要发现</h4><p>双荷子圈在两个格点体积上呈现清晰的周长律平台；直接&#x27;t Hooft圈信号受噪声限制，但其量级与距离依赖符合面积律预期；结合Wilson-&#x27;t Hooft分类，结果为θ=2π处的双荷子斜禁闭模式提供了数值证据。</p>
+    <h4>局限与展望</h4><p>直接&#x27;t Hooft圈测量目前受噪声限制，需改进统计或噪声控制以更明确地确认面积律；结论基于SU(2)格点理论及所采用流与缺陷系综方案，向其他规范群或更细格点的推广有待进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31597v1">
+  <div class="paper-head">
+    <h2>面向核子胶子PDF系统性控制的赝PDF方法研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.31597v1" rel="noopener noreferrer">2610.31597v1</a>
+  </div>
+  <p class="original-title">Towards Systematic Control of the Nucleon Gluon PDF with the Pseudo-PDF Method</p>
+  <p class="meta"><strong>作者：</strong>Alex NieMiera、Kai Ebira、William Good、Huey-Wen Lin</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用赝PDF（pseudo-PDF）方法给出了非极化核子胶子部分子分布函数（PDF）的更新格点量子色动力学（QCD）结果。计算在 MILC 合作组生成的 2+1+1 味高度改进交错夸克（HISQ）组态上进行，格距 a≈0.06 fm，价π介子质量取 M_π≈310 与 690 MeV。该格距细于此前胶子赝PDF研究，因而可获得多个短距离分离，并采用高达 4.4 GeV 的核子助推动量。为控制激发态污染并降低模型依赖，我们采用近期发展的 Lanczos 方法，其结果与先前双态拟合方法符合良好。通过对重整化短距离矩阵元进行显式参数化拟合，计入高扭度贡献与离散化效应。上述进展是迈向系统性控制、高精度提取胶子PDF的重要步骤。所得 PDF 未表现出对价π介子质量的统计显著依赖，并表明大 x 区域胶子分布受到强烈压低，与部分唯象 PDF 提取结果一致。这些结果展示了为未来全局 PDF 分析提供系统性受控的格点QCD约束方面的进展。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用赝PDF方法在格点QCD中系统性地控制并高精度提取非极化核子胶子PDF，同时处理激发态污染、高扭度贡献与离散化效应。</p>
+    <h4>方法</h4><p>在 MILC 合作组 2+1+1 味 HISQ 组态（a≈0.06 fm）上，于价π介子质量 M_π≈310 与 690 MeV 下计算非极化核子胶子赝PDF；采用高达 4.4 GeV 的核子助推动量与多个短距离分离；使用 Lanczos 方法控制激发态污染，并与双态拟合方法比较；通过对重整化短距离矩阵元的显式参数化拟合计入高扭度贡献和离散化效应。</p>
+    <h4>主要发现</h4><p>Lanczos 方法与先前双态拟合方法符合良好；所得 PDF 未表现出对价π介子质量的统计显著依赖；大 x 区域胶子分布受到强烈压低，与部分唯象 PDF 提取结果一致。</p>
+    <h4>局限与展望</h4><p>原文指出这些进展是迈向系统性控制、高精度提取胶子PDF的重要步骤，并可为未来全局 PDF 分析提供格点QCD约束；但未给出具体后续计划。当前结果基于单一格距与两个价π介子质量，其适用范围与系统误差仍需进一步评估。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.30393v1">
+  <div class="paper-head">
+    <h2>格点约束的 PNJL 模型中守恒荷关联的热磁增强<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.30393v1" rel="noopener noreferrer">2610.30393v1</a>
+  </div>
+  <p class="original-title">Thermomagnetic enhancement of conserved-charge correlations in a lattice-constrained PNJL model</p>
+  <p class="meta"><strong>作者：</strong>Bruno S. Lopes、Arthur E. B. Pasqualotto、Jandir J. Buttenbender Filho、Dyana C. Duarte、Ricardo L. S. Farias</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>守恒荷关联是探测强相互作用物质中磁场的潜在探针。本文在格点约束的三味 Polyakov–Nambu–Jona-Lasinio 模型中研究守恒荷关联的磁响应以及有限密度状态方程。通过高斯过程回归，从格点 QCD 给出的平均轻夸克凝聚结果推断出热磁标量耦合，并将逆磁催化引入有效相互作用。在未对守恒荷可观测量进行拟合的情况下，所得框架相较固定耦合模型显著改善了这些可观测量的磁场依赖性与交叉行为，特别是再现了重子–电荷关联及相关磁化率比值的显著磁增强，支持其作为 QCD 磁强计使用。比较表明，有效相互作用的介质依赖对于在该模型内描述这一响应至关重要。我们进一步计算至六阶的压力泰勒系数，并重构非零重子化学势下的压力与重子数密度。结果表明，来自单一手征可观测量的格点信息约束了广泛的热力学响应，将逆磁催化、守恒荷关联与状态方程联系在同一框架中，为研究 QCD 物质中的磁场特征与有限密度热力学提供了格点约束的基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在格点约束的三味 PNJL 模型中，守恒荷关联如何响应磁场，以及有效相互作用的介质依赖是否对描述该响应和有限密度状态方程必不可少。</p>
+    <h4>方法</h4><p>采用格点约束的三味 Polyakov–Nambu–Jona-Lasinio 模型；通过高斯过程回归从格点 QCD 的平均轻夸克凝聚结果推断热磁标量耦合，将逆磁催化纳入有效相互作用；计算守恒荷关联及其磁化率比值，并计算至六阶的压力泰勒系数以重构非零重子化学势下的压力和重子数密度。</p>
+    <h4>主要发现</h4><p>在未拟合守恒荷可观测量的情况下，引入热磁标量耦合的框架相较固定耦合模型显著改善了守恒荷关联的磁场依赖性与交叉行为，并再现了重子–电荷关联及相关磁化率比值的显著磁增强；比较表明有效相互作用的介质依赖对描述该响应至关重要；来自单一手征可观测量的格点信息约束了广泛的热力学响应，将逆磁催化、守恒荷关联与状态方程联系在同一框架中。</p>
+    <h4>局限与展望</h4><p>原文指出该工作为研究 QCD 物质中的磁场特征与有限密度热力学提供了格点约束的基础；其局限与适用范围未在摘要中明确讨论，后续方向可合理推断为在更广参数或密度区域检验该框架，但需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31395v1">
+  <div class="paper-head">
+    <h2>带修正传播子的热 AdS/QCD 软壁模型中 $N \to \Delta$ 跃迁形状因子<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.31395v1" rel="noopener noreferrer">2610.31395v1</a>
+  </div>
+  <p class="original-title">$N \to Δ$ Transition Form Factors in the Thermal AdS/QCD Soft-Wall Model with Modified Propagators</p>
+  <p class="meta"><strong>作者：</strong>Narmin Nasibova、Xerxes D. Arsiwalla、Shakir Nagiyev</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在热 AdS/QCD 软壁模型框架下研究核子—Delta 重子跃迁的电磁（EM）形状因子与轴矢（AV）形状因子。矢量体—边界传播子存在性质良好的解析解，而横向轴矢运动方程涉及双基本标量的真空期望值（该期望值产生手征对称性破缺），因此轴矢传播子在渐近区域发散，无法直接用于计算软壁模型中的可观测量。为解决该问题，作者对轴矢传播子引入依赖于动量的截断作为正则化，以确定其正确的物理适用区域；该截断点通过边值问题的内部约束方法确定，并在紫外极限附近验证了该程序的自洽性。作为概念验证，作者用这一修正传播子（以及其参数形变版本）估算 $N \to \Delta$ 跃迁的轴矢形状因子，所得结果与实验观测、格点 QCD 及其他理论模型给出的形状因子轮廓具有中等程度可比性。借助该正则化，热软壁模型成为探测 QCD 形状因子热学性质的有用工具；作者在 $N \to \Delta$ 跃迁的电磁与轴矢两个部分均展示了这一点。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在热 AdS/QCD 软壁模型中处理因双基本标量真空期望值导致渐近发散的轴矢传播子，并据此计算核子—Delta 重子跃迁的电磁与轴矢形状因子。</p>
+    <h4>方法</h4><p>在热 AdS/QCD 软壁模型中，对横向轴矢传播子引入动量依赖截断进行正则化，通过边值问题的内部约束方法确定截断点，并在紫外极限附近检验自洽性；随后用修正传播子及其参数形变版本估算 $N \to \Delta$ 跃迁的轴矢形状因子，并与实验、格点 QCD 及其他理论模型比较。</p>
+    <h4>主要发现</h4><p>矢量传播子具有性质良好的解析解；轴矢传播子因涉及双基本标量真空期望值而在渐近区域发散，需正则化后才能用于计算可观测量；所提出的截断正则化在紫外极限附近自洽；用修正传播子及其参数形变版本得到的 $N \to \Delta$ 轴矢形状因子与实验观测、格点 QCD 及其他理论模型的结果具有中等程度可比性；该正则化使热软壁模型可用于探测 $N \to \Delta$ 跃迁电磁与轴矢形状因子的热学性质。</p>
+    <h4>局限与展望</h4><p>原文将修正传播子的应用定位为概念验证，比较结果为中等程度可比，尚未给出精确的定量符合；截断点的选取依赖内部约束方法，其普适性与系统误差在原文中未充分展开。后续可合理推断的方向包括：将该正则化推广到其他跃迁与更多热力学条件下的形状因子计算，并进一步检验截断方案对可观测量预言的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31653v1">
+  <div class="paper-head">
+    <h2>Onsager 代数与格点费米子<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.31653v1" rel="noopener noreferrer">2610.31653v1</a>
+  </div>
+  <p class="original-title">Onsager Algebras and Lattice Fermions</p>
+  <p class="meta"><strong>作者：</strong>Ioanna Kourkoulou、David Tong</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究自由格点费米子在交错（staggered）、Wilson 与 overlap 三种实现下的精确 Onsager 代数，并在四维时空中同时采用哈密顿形式与欧几里得形式进行分析。作者在每种情形下表明，精确的格点代数在低能极限下生成完整的手征对称性：若连续极限中存在 $N$ 个无质量 Dirac 费米子，则 Onsager 代数约化为 $U(2N)$ 手征对称性。不同实现之间，哪些生成元被量子化或具有超局域性存在差异；此外，生成元的局域性与 Onsager 代数的最大紧子群之间存在权衡关系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>自由格点费米子（交错、Wilson、overlap 三种实现）在四维哈密顿与欧几里得形式下，其精确 Onsager 代数如何与连续极限的低能手征对称性相联系。</p>
+    <h4>方法</h4><p>在四维时空中分别针对 staggered、Wilson 与 overlap 费米子，于哈密顿形式和欧几里得形式下构造并分析精确的格点 Onsager 代数，考察生成元的量子化性质、局域性及其与连续手征对称性的对应。</p>
+    <h4>主要发现</h4><p>在每种实现下，精确格点 Onsager 代数均生成低能理论的完整手征对称性；当连续极限含 $N$ 个无质量 Dirac 费米子时，Onsager 代数约化为 $U(2N)$ 手征对称性。不同实现间，哪些生成元被量子化或具有超局域性有所不同，且生成元局域性与 Onsager 代数最大紧子群之间存在权衡。</p>
+    <h4>局限与展望</h4><p>原文未讨论相互作用、有限格距修正或数值实现等情形，其结论限于自由格点费米子；关于局域性与最大紧子群之间权衡的进一步含义及对其他费米子实现的可推广性，原文未作明确断言，需后续研究检验。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-23 10:14 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

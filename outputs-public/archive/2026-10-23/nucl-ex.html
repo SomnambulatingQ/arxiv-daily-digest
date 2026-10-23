@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-10-23</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">3</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（3）</h3><ol class="toc-list"><li><a href="#paper-2610.30522v1">CREMA：面向奇异分子与原子的共线共振装置</a> <small>2610.30522v1</small></li><li><a href="#paper-2610.31009v1">单电荷态^{229}Th核同质异能素的寿命</a> <small>2610.31009v1</small></li><li><a href="#paper-2610.31507v1">相干磁振子介导的宏观核共振能量转移</a> <small>2610.31507v1</small></li></ol><h3>交叉列表（3）</h3><ol class="toc-list"><li><a href="#paper-2608.16107v2">利用有限狄拉克和从CEνNS数据中展开低能反应堆中微子通量</a> <small>2608.16107v2</small></li><li><a href="#paper-2610.30238v1">利用核钟探测非理想轴子</a> <small>2610.30238v1</small></li><li><a href="#paper-2610.31180v1">粒子物理基础模型在径迹寻找与粒子鉴别中的性能</a> <small>2610.31180v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.30522v1">
+  <div class="paper-head">
+    <h2>CREMA：面向奇异分子与原子的共线共振装置<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.30522v1" rel="noopener noreferrer">2610.30522v1</a>
+  </div>
+  <p class="original-title">CREMA: Collinear Resonance for Exotic Molecules and Atoms</p>
+  <p class="meta"><strong>作者：</strong>Fabian C. Pastrana Cruz、Shane G. Wilkins、Alex J. Brinson、Paul Fischer、Mathieu Flayol、Derick Gonzalez-Acevedo、Jackson Hacias、Jason Huskey、Haruka Kakioka、Carina Kanitz、Jonas Karthein、Simon Lechner、Stephan Malbrunot-Ettenauer、Scott Moroch、Jose M. Munoz、Moritz P. Reiter、Mikael Reponen、Lutz Schweikhard、Silviu M. Udrescu、Adam R. Vernon、Markus Vilen、Ronald F. Garcia Ruiz</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>共线共振奇异分子与原子（CREMA）装置已在麻省理工学院核科学实验室研制完成并投入调试运行。该装置将共线快束几何构型带来的多普勒展宽抑制分辨率与共振电离的选择性相结合，用于原子和分子中超精细结构与同位素位移的精密测量。本文介绍了该装置的构成，包括离子光学模拟——其中采用多目标进化算法为束流传输提供初始设置——并报告了对 133Cs 超精细结构的调试测量结果。所提取的超精细常数与文献值在一个标准差内一致，表明该装置已具备运行能力。CREMA 与稀有同位素束流装置上的共振电离谱学实验（RISE）相对应，作为其离线配套平台，用于发展激光电离方案与技术，以服务于未来奇异原子与分子的研究。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构建一套兼具高分辨率与高选择性的装置，用于原子和分子超精细结构与同位素位移的精密测量，并为未来奇异原子与分子研究提供离线平台。</p>
+    <h4>方法</h4><p>在麻省理工学院核科学实验室研制并调试 CREMA 装置，将共线快束几何构型的多普勒展宽抑制与共振电离的选择性相结合；利用多目标进化算法进行离子光学模拟，为束流传输提供初始设置；并以 133Cs 的超精细结构测量作为调试验证。</p>
+    <h4>主要发现</h4><p>调试测量提取的 133Cs 超精细常数与文献值在一个标准差内一致，表明装置已具备运行能力；CREMA 与稀有同位素束流装置上的共振电离谱学实验（RISE）相对应，可作为其离线配套平台。</p>
+    <h4>局限与展望</h4><p>原文未报告除 133Cs 调试测量之外的物理结果；该装置作为 RISE 的离线对应平台，其用途在于发展激光电离方案与技术，以支持未来奇异原子与分子的研究（此为由原文表述可合理推断的方向）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31009v1">
+  <div class="paper-head">
+    <h2>单电荷态^{229}Th核同质异能素的寿命<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.31009v1" rel="noopener noreferrer">2610.31009v1</a>
+  </div>
+  <p class="original-title">Lifetime of the singly charged $^{229}$Th nuclear isomer</p>
+  <p class="meta"><strong>作者：</strong>Y. Shigekawa、A. Yamaguchi、K. Tokoi、N. Sato、H. Kikunaga、K. Shirasaki、Y. Kasamatsu、M. Wada、H. Haba</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">physics.atom-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>钍-229（^{229}Th）原子核具有能量异常低的同质异能态（^{229m}Th）。由于其激发能接近价电子的能级，^{229m}Th的寿命会随其电子态的不同而显著变化。尽管内转换与辐射衰变近期已被观测到，但^{229m}Th的电子桥衰变——一种通过电子跃迁实现的高阶衰变过程——尚未得到确认。寻找该衰变通道的一个有前景的候选对象是处于电子基态的单电荷态^{229m}Th^{+}。本文通过离子阱中的电荷交换反应产生^{229m}Th^{+}，并通过测量内转换过程发射的电子来探测该同质异能素。我们确定^{229m}Th^{+}的半衰期为0.46(8) s。该结果与内转换和辐射衰变的半衰期相差数个数量级，间接暗示^{229m}Th电子桥衰变的存在。这将使电子桥过程的直接观测与进一步研究成为可能，有助于理解核-电子相互作用，并在钍基核钟的运行中加速核去激发。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>单电荷态^{229m}Th^{+}的寿命是多少，以及其衰变行为是否暗示存在尚未确认的电子桥衰变通道。</p>
+    <h4>方法</h4><p>在离子阱中通过电荷交换反应产生^{229m}Th^{+}，并测量内转换过程发射的电子以探测同质异能素，从而确定其半衰期。</p>
+    <h4>主要发现</h4><p>测得^{229m}Th^{+}的半衰期为0.46(8) s；该值与内转换和辐射衰变的半衰期相差数个数量级，原文据此间接暗示^{229m}Th电子桥衰变的存在。</p>
+    <h4>局限与展望</h4><p>原文指出该结果将使电子桥过程的直接观测与进一步研究成为可能，并有助于理解核-电子相互作用及钍基核钟运行中的核去激发；电子桥衰变的存在目前仍为间接推断，尚待直接观测证实。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31507v1">
+  <div class="paper-head">
+    <h2>相干磁振子介导的宏观核共振能量转移<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.31507v1" rel="noopener noreferrer">2610.31507v1</a>
+  </div>
+  <p class="original-title">Macroscopic Nuclear Resonance Energy Transfer Mediated by Coherent Magnons</p>
+  <p class="meta"><strong>作者：</strong>Ryan Weed</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">cond-mat.mes-hall</span> <span class="tag">nucl-th</span> <span class="tag">physics.atom-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>金属氘化物中由声子介导的核共振能量转移（RET）受到惯性静止质量稀释、晶格断裂极限以及热核自旋抵消的严重限制。本文将广义核Dicke模型推广至铁磁共振（FMR）磁振子，通过超精细增强的M1耦合消除质量稀释，并借助Overhauser自旋极化开启相对论性Dirac M2耦合。我们推导出一个Suhl钳制FMR标度律，预测出14.2 MeV（Pd-106）与11.4 MeV（Ni-58）的破裂中子、19.9 MeV的α粒子，并调和了亚keV聚变异常。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>金属氘化物中声子介导的核共振能量转移受惯性静止质量稀释、晶格断裂极限和热核自旋抵消限制的问题，以及能否通过FMR磁振子实现宏观核共振能量转移。</p>
+    <h4>方法</h4><p>将广义核Dicke模型推广到铁磁共振（FMR）磁振子，利用超精细增强的M1耦合与Overhauser自旋极化下的相对论性Dirac M2耦合，并推导Suhl钳制FMR标度律。</p>
+    <h4>主要发现</h4><p>推导出的Suhl钳制FMR标度律预测14.2 MeV（Pd-106）和11.4 MeV（Ni-58）破裂中子、19.9 MeV α粒子，并调和了亚keV聚变异常。</p>
+    <h4>局限与展望</h4><p>摘要未给出实验验证细节与适用参数范围；所述预测与异常调和均为理论推导结果，其可复现性与在具体材料体系中的适用性尚待独立检验，后续方向可合理推断为实验验证该标度律及评估M2耦合机制的贡献。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2608.16107v2">
+  <div class="paper-head">
+    <h2>利用有限狄拉克和从CEνNS数据中展开低能反应堆中微子通量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2608.16107v2" rel="noopener noreferrer">2608.16107v2</a>
+  </div>
+  <p class="original-title">Unfolding the low-energy reactor neutrino flux from CE$ν$NS data with a finite Dirac sum</p>
+  <p class="meta"><strong>作者：</strong>Muping Chen、Graciela Gelmini、Danny Marfatia、Koichiro Yasuda</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种分析相干弹性中微子—原子核散射（CEνNS）数据的新方法，用于提取低于逆β衰变阈值1.8 MeV、目前尚未被测量的反应堆反中微子能谱。该方法借鉴了直接暗物质探测中发展的晕无关分析技术，能够在不假设能谱参数化形式或平滑先验的条件下，给出积分中微子通量的最佳拟合值及逐点置信带。基于凸几何论证，该方法将微分中微子率写成狄拉克δ函数的线性组合，即有限狄拉克和（FDS），其最大项数由数据点数目决定。作者将这一“FDS方法”应用于低阈值Ge探测器的模拟CEνNS数据，并与Tikhonov正则化展开方法进行了比较。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在低于逆β衰变阈值1.8 MeV、尚无直接测量的能区，从CEνNS数据中提取反应堆反中微子能谱，并在不引入参数化形式或平滑先验的情况下给出通量估计及其不确定性。</p>
+    <h4>方法</h4><p>借鉴直接暗物质探测中的晕无关分析技术，基于凸几何论证，将微分中微子率表示为有限项狄拉克δ函数的线性组合（FDS方法），项数上限由数据点数目决定；对低阈值Ge探测器的模拟CEνNS数据应用该方法，并与Tikhonov正则化展开进行比较。</p>
+    <h4>主要发现</h4><p>原文表明该方法可在不假设能谱参数化形式或平滑先验的前提下，获得积分中微子通量的最佳拟合值及逐点置信带；并在模拟CEνNS数据上完成了与Tikhonov正则化展开的对比分析。</p>
+    <h4>局限与展望</h4><p>原文仅报告了基于模拟CEνNS数据的应用与对比，方法在真实实验数据上的表现、对探测器阈值与背景系统误差的稳健性尚待进一步检验；后续可合理推断的方向包括将该方法推广至其他探测器或结合真实数据开展分析，但这些均属推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.30238v1">
+  <div class="paper-head">
+    <h2>利用核钟探测非理想轴子<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.30238v1" rel="noopener noreferrer">2610.30238v1</a>
+  </div>
+  <p class="original-title">Probing imperfect axions with nuclear clocks</p>
+  <p class="meta"><strong>作者：</strong>Salvatore Bottaro、Andrea Caputo、Gilad Perez、Yotam Soreq、Alfredo Stanzione</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文表明，$^{229}$Th 核钟可用于探测对强 CP 问题的 Peccei-Quinn（PQ）解决方案的偏离。显式的 PQ 破缺或额外的 CP 破坏相互作用会移动轴子势的极小值，并产生与物质之间的 CP 破坏耦合，从而诱导出对轴子场线性的时钟响应。我们研究了显式 PQ 破缺和夸克色电偶极算符，作为此类“非理想轴子”情形的代表性实现，并与电偶极矩约束保持一致。对于轴子暗物质，该线性信号以康普顿频率振荡，且可能主导二次响应。即使不存在轴子暗物质，地球也可作为静态轴子场的源，从而使核钟能够用于第五力搜寻。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：$^{229}$Th 核钟能否探测对强 CP 问题的 Peccei-Quinn 解决方案的偏离，即“非理想轴子”情形。</p>
+    <h4>方法</h4><p>作者分析了显式 PQ 破缺与额外 CP 破坏相互作用如何移动轴子势极小值并产生 CP 破坏的物质耦合，进而给出对轴子场线性的时钟响应；并以显式 PQ 破缺和夸克色电偶极算符作为代表性实现，在满足电偶极矩约束的前提下讨论轴子暗物质情形与地球作为静态轴子场源的情形。</p>
+    <h4>主要发现</h4><p>原文明确支持：非理想轴子情形可诱导核钟对轴子场的线性响应；对于轴子暗物质，该线性信号以康普顿频率振荡，并可能主导二次响应；即使没有轴子暗物质，地球也可作为静态轴子场的源，使核钟可用于第五力搜寻。</p>
+    <h4>局限与展望</h4><p>原文的适用范围限于所考察的显式 PQ 破缺与夸克色电偶极算符等代表性实现，并需与电偶极矩约束保持一致；关于核钟实验灵敏度能否实际覆盖相关参数空间，原文未作定量结论，需进一步研究。可合理推断，后续方向包括更系统的非理想轴子模型分类以及核钟第五力搜寻的实验可行性评估。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31180v1">
+  <div class="paper-head">
+    <h2>粒子物理基础模型在径迹寻找与粒子鉴别中的性能<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.31180v1" rel="noopener noreferrer">2610.31180v1</a>
+  </div>
+  <p class="original-title">Track finding and particle identification performance with particle physics foundation models</p>
+  <p class="meta"><strong>作者：</strong>Shuhang Li、Haiwang Yu、Gabor Galgoczi、Yeonju Go、Yi Huang、David Park、Michael Peters、Christof Roland、Jin Huang、Yihui Ren、Joseph D. Osborn</p>
+  <p class="meta"><strong>主分类：</strong>physics.data-an
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.data-an</span> <span class="tag">cs.LG</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>现代高能核物理与粒子物理实验产生大量稀疏数据，在开展物理分析前必须对其进行显著的数据量压缩。近期已有工作尝试评估基础模型作为数据分析工具的潜力；这类模型已被证明能够基于其训练所用的多模态数据学习高维数据集中的特征。为展示其在复杂模式识别任务（例如在磁场中重建带电粒子）上的有效性，我们基于由时间投影室中的空间点组成的数据集，评估了基于基础模型的重建方法在若干下游任务上的性能。结果表明，基于基础模型的数据分析性能显著优于传统方法，并且能够通过适配学习与初始训练目标未必相关的额外任务。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究基础模型能否有效用于高能核物理与粒子物理实验中的复杂模式识别任务，具体为时间投影室中带电粒子的径迹寻找与粒子鉴别等下游任务。</p>
+    <h4>方法</h4><p>构建由时间投影室空间点组成的数据集，评估基于基础模型的重建方法在若干下游任务上的性能，并与传统方法进行比较；同时考察模型通过适配学习与初始训练目标无关的额外任务的能力。</p>
+    <h4>主要发现</h4><p>基于基础模型的数据分析性能显著优于传统方法；该模型可被适配以学习与初始训练目标未必相关的额外任务。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与适用范围；可合理推断，该结论主要基于时间投影室空间点数据集，向其他探测器或实验条件的泛化能力尚待验证，后续可进一步评估模型在不同下游任务与数据分布上的适应性。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-23 10:14 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
