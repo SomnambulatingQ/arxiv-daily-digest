@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-10-26</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">12</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">8</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（8）</h3><ol class="toc-list"><li><a href="#paper-2610.31692v1">连续语言模型反馈中的混沌与分岔</a> <small>2610.31692v1</small></li><li><a href="#paper-2610.31708v1">康威生命游戏在熵—复杂度平面中的时空动力学</a> <small>2610.31708v1</small></li><li><a href="#paper-2610.31997v1">高阶相互作用在塑造嵌合态中的局限</a> <small>2610.31997v1</small></li><li><a href="#paper-2610.32124v1">降阶非线性力学模型的相位敏感验证与动态读出</a> <small>2610.32124v1</small></li><li><a href="#paper-2610.32397v1">复修正Korteweg-de Vries方程中的可积湍流与混沌波场的统计性质</a> <small>2610.32397v1</small></li><li><a href="#paper-2610.32421v1">储备池作为动力系统：教程综述</a> <small>2610.32421v1</small></li><li><a href="#paper-2610.32521v1">A型反射方程代数中旗拟行列式的交换族</a> <small>2610.32521v1</small></li><li><a href="#paper-2610.32640v1">混沌可见：活性粒子在物理空间中描绘类洛伦兹吸引子</a> <small>2610.32640v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2610.31764v1">随机元胞自动机与de Bruijn图</a> <small>2610.31764v1</small></li><li><a href="#paper-2610.32149v1">自旋Toda系统与N点球型Whittaker函数</a> <small>2610.32149v1</small></li><li><a href="#paper-2610.32249v1">球形壳层中的玻色-爱因斯坦凝聚：非线性模式与对称性破缺</a> <small>2610.32249v1</small></li><li><a href="#paper-2610.32328v1">从异质性到功能：层级脑网络中模块化动态范围的增强</a> <small>2610.32328v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.31692v1">
+  <div class="paper-head">
+    <h2>连续语言模型反馈中的混沌与分岔<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.31692v1" rel="noopener noreferrer">2610.31692v1</a>
+  </div>
+  <p class="original-title">Chaos and bifurcations in continuous language-model feedback</p>
+  <p class="meta"><strong>作者：</strong>Timothy D. Jones</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>将预训练语言模型自身下一词分布的期望嵌入作为输入反馈给模型，可使其成为一个状态连续的离散时间动力系统。在参数规模从 0.5B 到 72B 的 Qwen2.5、OLMo-2 与 Llama-3 模型上，温度和激活引导（activation steering）可使该反馈回路在重复文本与混沌之间转换，并伴随正的有限时间 Lyapunov 指数。该回路的导数可分解为逆温度、下一词分布下 token 嵌入的协方差（当嵌入不共享时为交叉协方差）以及网络 Jacobian 的乘积。在对其中一个模型的详细研究中，沿记录轨道，引导所增加的增长率主要来自读出层，即下一词在此处竞争。周期窗口呈现出低维映射的定量特征，包括鞍结标度、Feigenbaum 常数以及虾形区域；在两个前瞻阶段（24 例与 18 例，共 48 例）中，由模型导数预先预测的通过时间有 42 例与实测通过时间相差不超过一个回归映射迭代（两阶段分别为 24/24 与 18/24），并用区间算术证明了完整 transformer 映射的吸引周期轨道。数值可复现性依赖于动力学区域：仅改变批次布局，最小模型中 192 个混沌 float64 回路里有 173 个的文本发生变化，而 192 个周期回路中仅 7 个发生变化。这些结果表明，分岔理论能够对连续语言模型反馈做出定量预测，并对完整 transformer 的特定周期轨道给出严格保证。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>预训练语言模型在将自身下一词分布的期望嵌入反馈为输入时形成的连续状态离散时间动力系统，其动力学行为（周期、混沌、分岔）如何刻画，能否用分岔理论进行定量预测并给出严格保证。</p>
+    <h4>方法</h4><p>在 Qwen2.5、OLMo-2 和 Llama-3（0.5B 至 72B）模型上构建连续状态反馈回路，利用温度与激活引导调节动力学；将回路导数分解为逆温度、token 嵌入协方差（或交叉协方差）与网络 Jacobian 的乘积；沿记录轨道分析增长率来源；用低维映射的标度律与常数识别周期窗口；基于模型导数前瞻预测通过时间；用区间算术证明完整 transformer 映射的吸引周期轨道；并考察批次布局变化对数值可复现性的影响。</p>
+    <h4>主要发现</h4><p>温度和激活引导可使反馈回路在重复文本与混沌之间转换，并出现正的有限时间 Lyapunov 指数；导数可分解为逆温度、token 嵌入协方差（不共享嵌入时为交叉协方差）与网络 Jacobian 的乘积；在详细研究的模型中，引导带来的增长率主要来自读出层；周期窗口呈现鞍结标度、Feigenbaum 常数和虾形区域等低维映射的定量特征；两个前瞻阶段共 48 例中 42 例的预测通过时间与实测值相差不超过一个回归映射迭代（分别为 24/24 与 18/24）；区间算术证明了完整 transformer 映射的吸引周期轨道；数值可复现性依赖动力学区域，最小模型中仅改变批次布局即导致 192 个混沌 float64 回路中 173 个文本改变，而周期回路仅 7/192 改变。</p>
+    <h4>局限与展望</h4><p>原文表明分岔理论可对连续语言模型反馈做出定量预测，并对选定周期轨道给出严格保证；其局限与适用范围包括：详细导数分析与区间算术证明主要针对个别模型或选定周期轨道，结论向其他架构与规模的推广需进一步验证；混沌区域的数值结果对批次布局等实现细节敏感，可能影响可复现性。可合理推断的后续方向是：将分岔分析与严格证明扩展到更多模型和轨道，并研究数值实现细节对混沌动力学可复现性的影响（此句为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31708v1">
+  <div class="paper-head">
+    <h2>康威生命游戏在熵—复杂度平面中的时空动力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.31708v1" rel="noopener noreferrer">2610.31708v1</a>
+  </div>
+  <p class="original-title">Spatiotemporal Dynamics of Conway&#x27;s Game of Life in the Entropy--Complexity Plane</p>
+  <p class="meta"><strong>作者：</strong>Lucas Malacarne Astore、Alejandro C. Frery、Petrônio Cândido de Lima e Silva、Frederico Gadelha Guimarães</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">cs.IT</span> <span class="tag">math.IT</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用序数模式分析研究康威生命游戏（GoL）的动力学。将每一代 GoL 状态转换为一维时间序列，并从中提取序数模式以刻画其潜在动力学；随后将所得的序数分布表示在熵—统计复杂度（H×C）平面中，从而对系统演化进行定量分析。文中评估了不同的编码策略，包括分块尺寸与线性化方法，并考察它们对所得 H×C 轨迹的影响。最后，从收敛行为、轨迹模式与统计复杂度等方面刻画涌现动力学，表明所提出的熵—复杂度框架可为元胞自动机的动力学提供新的认识。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用序数模式分析与熵—统计复杂度平面定量刻画康威生命游戏的时空演化动力学，以及不同编码策略对结果的影响。</p>
+    <h4>方法</h4><p>将每一代 GoL 状态转换为一维时间序列，提取序数模式得到序数分布，并映射到熵—统计复杂度（H×C）平面；同时比较不同分块尺寸与线性化方法等编码策略对 H×C 轨迹的影响。</p>
+    <h4>主要发现</h4><p>原文表明，序数分布可在 H×C 平面中表示，并用于对系统演化进行定量分析；不同编码策略（分块尺寸与线性化方法）会影响所得的 H×C 轨迹；并从收敛行为、轨迹模式与统计复杂度方面刻画了涌现动力学。</p>
+    <h4>局限与展望</h4><p>原文未给出具体数值结论或适用范围边界；其局限与后续方向需进一步验证，例如编码策略选择对结论稳健性的影响、向其他元胞自动机规则的推广等，均属可合理推断的后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31997v1">
+  <div class="paper-head">
+    <h2>高阶相互作用在塑造嵌合态中的局限<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.31997v1" rel="noopener noreferrer">2610.31997v1</a>
+  </div>
+  <p class="original-title">The limits of higher-order interactions in shaping chimera states</p>
+  <p class="meta"><strong>作者：</strong>Ediline L. F. Nguessap、Thierry Njougouo、Fernando Fagundes Ferreira</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">physics.bio-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在神经元网络中，嵌合态（chimera states）表现为相干群体与非相干群体共存，因其对癫痫等神经系统疾病的潜在意义而在集体脑动力学研究中受到广泛关注。已有研究大量探讨了嵌合态的产生机制，尤其关注网络拓扑的作用，包括传统成对相互作用以及近年来的高阶相互作用网络。本文提出一个神经元超图的广义框架，通过吸引性化学耦合与排斥性电耦合引入高阶相互作用。我们采用FitzHugh--Nagumo神经元网络，取相互作用阶数 d=2,3,4，对应框架内的 (d+1) 体相互作用（该框架可推广至更高阶 d），数值研究吸引与排斥耦合共同作用下嵌合态的产生，并将所得动力学与相应的团投影（clique-projected）网络进行比较。结果表明，超图上的真实高阶相互作用与其成对表示之间既存在动力学相似性，也存在定性差异。高阶相互作用往往支持更宽的嵌合区域，但我们进一步表明，团投影同样可以保持甚至促进嵌合态，即使在相应超图表现为完全非相干动力学的参数区间内也是如此。因此，这些发现提示嵌合态的形成不仅受拓扑或相互作用阶数影响，还受耦合函数形式以及吸引与排斥相互作用之间平衡的影响，为神经元网络中的集体动力学提供了进一步认识。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在含吸引性化学耦合与排斥性电耦合的神经元超图中，高阶相互作用（相互作用阶数 d=2,3,4）如何影响嵌合态的产生，以及真实高阶相互作用与其团投影成对网络在嵌合态动力学上有何异同。</p>
+    <h4>方法</h4><p>构建可推广至更高阶 d 的神经元超图广义框架，采用 FitzHugh--Nagumo 神经元网络，取 d=2,3,4 对应 (d+1) 体相互作用，数值研究吸引与排斥耦合共同作用下嵌合态的产生，并与相应团投影网络的动力学进行比较。</p>
+    <h4>主要发现</h4><p>超图上的真实高阶相互作用与其成对表示之间既存在动力学相似性，也存在定性差异；高阶相互作用往往支持更宽的嵌合区域；团投影同样可以保持甚至促进嵌合态，即使在相应超图表现为完全非相干动力学的参数区间内也是如此。</p>
+    <h4>局限与展望</h4><p>结果表明嵌合态的形成不仅受拓扑或相互作用阶数影响，还受耦合函数形式以及吸引与排斥相互作用之间平衡的影响；本文框架可推广至更高阶 d，但更高阶及更广参数范围下的行为尚待进一步研究（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32124v1">
+  <div class="paper-head">
+    <h2>降阶非线性力学模型的相位敏感验证与动态读出<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.32124v1" rel="noopener noreferrer">2610.32124v1</a>
+  </div>
+  <p class="original-title">Phase-Sensitive Validation of Reduced-Order Nonlinear Mechanical Models with Dynamic Readout</p>
+  <p class="meta"><strong>作者：</strong>Kazi T. Mahmood、M. Arif Hasan</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>非线性结构的降阶模型通常以力学响应误差来评价，而关注的信号还可能经过会改变其幅值和相位的动态读出通道。本文提出一个离线验证框架，用于区分力学源误差、读出模型预测误差以及归一化二分量模态状态的物理畸变。我们将 Galerkin 降阶源与两个经标定的谐振通道耦合，并使用一致的复系数评估模态幅值、相对相位和状态保真度。对于线性读出模型，精确的输出误差分解可区分源建模贡献与界面建模贡献，而一个双通道恒等式将差分通道传递与归一化状态畸变联系起来。对于十质量非线性晶格，在两共振界面频带上的双模态源误差与耦合输出误差分别为 $3.069 \times 10^{-2}$ 和 $2.448 \times 10^{-2}$。在 $F_0=0.04$ 时，相对相位平均绝对误差从线性界面的 $9.82 \times 10^{-3}$ rad 增至非线性界面的 $1.74 \times 10^{-2}$ rad。在最强激励下，四坐标本征正交分解模型的源误差为 $2.05 \times 10^{-2}$，而同一留出测试集上四个线性模态的源误差为 $8.03 \times 10^{-2}$。噪声分析表明，准确的带内输出预测可与显著的参数误差共存，而对非线性读出数据进行受约束线性近似会产生显著残差。我们据此评估降阶模型在指定输出、激励水平和验证频率下的充分性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何区分非线性结构降阶模型的力学源误差、动态读出通道的预测误差以及归一化二分量模态状态的物理畸变，并在相位敏感意义下评价降阶模型的充分性。</p>
+    <h4>方法</h4><p>构建离线验证框架：将 Galerkin 降阶源与两个经标定的谐振读出通道耦合，以一致的复系数评估模态幅值、相对相位与状态保真度；对线性读出模型给出精确的输出误差分解，并利用双通道恒等式关联差分通道传递与归一化状态畸变；在十质量非线性晶格上比较双模态源、四坐标 POD 模型与四线性模态模型，并进行噪声与受约束线性近似分析。</p>
+    <h4>主要发现</h4><p>在两共振界面频带上，双模态源误差与耦合输出误差分别为 $3.069 \times 10^{-2}$ 和 $2.448 \times 10^{-2}$；$F_0=0.04$ 时相对相位平均绝对误差由线性界面的 $9.82 \times 10^{-3}$ rad 增至非线性界面的 $1.74 \times 10^{-2}$ rad；最强激励下四坐标 POD 模型源误差为 $2.05 \times 10^{-2}$，同一留出测试集上四线性模态为 $8.03 \times 10^{-2}$；噪声分析显示准确带内输出预测可与显著参数误差共存，受约束线性近似非线性读出数据产生显著残差。</p>
+    <h4>局限与展望</h4><p>结论仅适用于文中指定的输出、激励水平与验证频率，向其他结构、频带或读出配置的外推需另行验证；基于噪声分析可合理推断，仅以输出预测精度评价模型可能掩盖参数误差，后续可考虑在验证中同时报告参数与相位敏感指标。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32397v1">
+  <div class="paper-head">
+    <h2>复修正Korteweg-de Vries方程中的可积湍流与混沌波场的统计性质<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.32397v1" rel="noopener noreferrer">2610.32397v1</a>
+  </div>
+  <p class="original-title">Integrable turbulence and statistical properties of chaotic wave fields in the complex modified Korteweg-de Vries equation</p>
+  <p class="meta"><strong>作者：</strong>Ya-Xin Luo、Xiao-Wang Lan、Wei-Qi Peng</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文通过数值模拟与统计分析研究复修正Korteweg-de Vries（mKdV）方程中的可积湍流及畸形波生成机制。采用Fourier配点法求解Lax对特征值问题，在谱平面上建立孤子、呼吸子与畸形波之间的对应关系；以叠加随机噪声的平面波为初值，利用分步Fourier方法数值模拟复mKdV方程以生成混沌波场，并分析标准差μ与相关长度L_c的影响。结果表明：增大μ会驱动体系由呼吸子湍流向孤子湍流转变，并提高畸形波生成概率；L_c主要影响结构的空间尺度。由于复mKdV方程的常数背景是调制稳定的，其可积湍流不依赖于调制不稳定性。与相同初始条件下的非线性Schrödinger（NLS）方程相比，复mKdV方程在强扰动下可达到相近的振幅，但具有更高的空间梯度，这提示三阶色散与导数非线性改变了激发机制并使波形变陡。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>复mKdV方程中可积湍流的统计性质、畸形波的生成机制，以及随机扰动参数（标准差μ与相关长度L_c）对湍流类型和畸形波概率的影响。</p>
+    <h4>方法</h4><p>采用Fourier配点法求解Lax对特征值问题，在谱平面上建立孤子、呼吸子与畸形波的对应；以叠加随机噪声的平面波为初值，用分步Fourier方法数值模拟复mKdV方程生成混沌波场，并进行统计分析；与相同初始条件下的NLS方程作对比。</p>
+    <h4>主要发现</h4><p>增大μ驱动呼吸子湍流向孤子湍流转变并提高畸形波生成概率；L_c主要影响结构的空间尺度；复mKdV方程的常数背景调制稳定，其可积湍流不依赖调制不稳定性；与NLS方程相比，强扰动下振幅相近但空间梯度更高，提示三阶色散与导数非线性改变激发机制并使波形变陡。</p>
+    <h4>局限与展望</h4><p>原文未讨论数值分辨率、统计样本量及参数扫描范围等局限；其结论基于特定初值（平面波叠加随机噪声）与数值格式，向其他初值或参数区域的适用性尚待检验。后续可合理推断的方向包括：系统比较不同谱方法或数值格式对统计量的影响，以及进一步解析刻画三阶色散与导数非线性在畸形波激发与波形陡化中的作用。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32421v1">
+  <div class="paper-head">
+    <h2>储备池作为动力系统：教程综述<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.32421v1" rel="noopener noreferrer">2610.32421v1</a>
+  </div>
+  <p class="original-title">Reservoir as a Dynamical System: A Tutorial Review</p>
+  <p class="meta"><strong>作者：</strong>Sarika Jalan、Ling Feng、Dishant Sisodia、Kohei Nakajima</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本简明教程综述从非线性动力学的视角考察储备池计算（reservoir computing）的运行机制，并对该领域的近期进展作简要概述。文章首先界定储备池系统的预测能力，随后对本文通篇用于阐释储备池运行的非线性动力系统技术作简洁而充分的介绍。在此基础上，作者结合成功预测的情形，运用这些技术描述储备池的运行过程，并给出全部必要的实现代码。本文的目标是提供一份储备池计算实现的实用指南，同时从非线性动力学角度解释储备池实现准确预测的机制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从非线性动力学角度理解储备池计算的工作机制，并为其实施提供实用指导。</p>
+    <h4>方法</h4><p>以教程综述形式，先界定储备池系统的预测能力，再介绍贯穿全文的非线性动力系统分析技术，并用这些技术在成功预测情境下描述储备池运行，附以必要的实现代码。</p>
+    <h4>主要发现</h4><p>原文明确以非线性动力学技术阐释储备池实现准确预测的机制，并给出配套实现代码；摘要未报告具体定量结果或性能指标。</p>
+    <h4>局限与展望</h4><p>作为教程综述，其适用范围限于所介绍的非线性动力学分析框架与实现示例；后续可合理推断的方向包括将该框架推广至更多储备池变体或任务，但原文未作此明确论述。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32521v1">
+  <div class="paper-head">
+    <h2>A型反射方程代数中旗拟行列式的交换族<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.32521v1" rel="noopener noreferrer">2610.32521v1</a>
+  </div>
+  <p class="original-title">Commuting Families of Flag Quasideterminants in Reflection Equation Algebras of Type A</p>
+  <p class="meta"><strong>作者：</strong>Dmitry V. Talalaev</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究A_{n-1}型反射方程（RE）代数生成矩阵的相继分块所对应的一族东北向反对角拟行列式。主要结果证明了此前提出的关于这些拟行列式两两交换的猜想。证明利用了RE代数在量子包络代数中的三角实现以及拟行列式的旗性质。文中还讨论了这些元素在量子簇坐标意义下的解释，以及它们与广义Toda系统可能的联系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究A_{n-1}型反射方程代数生成矩阵相继分块所对应的东北向反对角拟行列式族是否两两交换，即证明此前提出的相关猜想。</p>
+    <h4>方法</h4><p>利用反射方程代数在量子包络代数中的三角实现，并结合拟行列式的旗性质进行证明；同时讨论这些元素在量子簇坐标下的解释及其与广义Toda系统的可能联系。</p>
+    <h4>主要发现</h4><p>原文明确证明：该族东北向反对角拟行列式两两交换，从而证实了此前提出的猜想。</p>
+    <h4>局限与展望</h4><p>原文仅以讨论方式提及这些元素在量子簇坐标中的解释及与广义Toda系统的可能联系，未给出相应定理；这些方向是否成立及适用范围尚待进一步研究，属于可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32640v1">
+  <div class="paper-head">
+    <h2>混沌可见：活性粒子在物理空间中描绘类洛伦兹吸引子<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.32640v1" rel="noopener noreferrer">2610.32640v1</a>
+  </div>
+  <p class="original-title">Chaos Made Visible: Active particles trace Lorenz-like attractors in physical space</p>
+  <p class="meta"><strong>作者：</strong>Rahil N. Valani、Ekashman Tiwari、Aritra Roy</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">physics.flu-dyn</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>混沌吸引子通常在抽象的相空间中被可视化。本文表明，一个可取向的活性粒子在稳定的二维多涡流场中运动时，能够在其真实空间轨迹中描绘出类洛伦兹混沌吸引子。尽管流场严格定常，粒子位置与取向之间的耦合仍构成一个三维非线性动力系统。对于合适的粒子形状与游动速度，轨迹会组织成引人注目的双叶几何结构，令人联想到经典洛伦兹吸引子。结构化的首次回归映射、正的最大李雅普诺夫指数以及宽带功率谱共同表明其底层运动是混沌的。改变游动速度可揭示一系列丰富的动力学区域，自推进破坏了流线约束并重组了粒子运动。本文结果表明，内部取向自由度如何使混沌动力学在物理空间中直接可见，从而使单个活性粒子在穿过原本定常的流场时描绘出混沌吸引子。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否让单个可取向活性粒子在定常二维多涡流场的真实空间轨迹中直接呈现类洛伦兹混沌吸引子，并刻画其混沌性质及随游动速度变化的动力学行为。</p>
+    <h4>方法</h4><p>构建粒子位置与取向耦合的三维非线性动力系统，在定常二维多涡流场中模拟可取向活性粒子的运动；通过轨迹几何、首次回归映射、最大李雅普诺夫指数和功率谱判定混沌，并改变游动速度考察动力学区域的变化。</p>
+    <h4>主要发现</h4><p>对于合适的粒子形状与游动速度，粒子真实空间轨迹组织成类似经典洛伦兹吸引子的双叶几何结构；结构化的首次回归映射、正的最大李雅普诺夫指数和宽带功率谱表明底层运动是混沌的；改变游动速度会因自推进破坏流线约束并重组粒子运动而出现一系列丰富的动力学区域。</p>
+    <h4>局限与展望</h4><p>原文未讨论实验实现、三维流场或粒子间相互作用等情形；可合理推断，该机制为在物理空间中直接可视化混沌提供了一种途径，并可能启发利用活性粒子作为混沌动力学的示踪或展示平台，但相关推广仍需进一步验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.31764v1">
+  <div class="paper-head">
+    <h2>随机元胞自动机与de Bruijn图<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.31764v1" rel="noopener noreferrer">2610.31764v1</a>
+  </div>
+  <p class="original-title">Random Cellular Automata and deBruijn Graphs</p>
+  <p class="meta"><strong>作者：</strong>Janko Gravner、Travis Kulhanek</p>
+  <p class="meta"><strong>主分类：</strong>math.PR
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.PR</span> <span class="tag">nlin.CG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>一维元胞自动机的更新规则可用带边标记的de Bruijn图表示。本文通过考察随机de Bruijn图，探讨由随机选取的更新规则所确定的元胞自动机像的各种问题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究由随机选取的更新规则所确定的一维元胞自动机的像的相关问题。</p>
+    <h4>方法</h4><p>将一维元胞自动机的更新规则表示为带边标记的de Bruijn图，并借助随机de Bruijn图进行分析。</p>
+    <h4>主要发现</h4><p>原文摘要仅说明通过随机de Bruijn图探讨了随机更新规则下元胞自动机像的若干问题，未给出具体结论。</p>
+    <h4>局限与展望</h4><p>摘要未说明具体结果与适用范围；后续可合理推断的方向包括刻画随机更新规则下像的结构性质，但该推断需以原文后续内容为准。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32149v1">
+  <div class="paper-head">
+    <h2>自旋Toda系统与N点球型Whittaker函数<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.32149v1" rel="noopener noreferrer">2610.32149v1</a>
+  </div>
+  <p class="original-title">Spin Toda systems and N-point spherical Whittaker functions</p>
+  <p class="meta"><strong>作者：</strong>Haoyi Li</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">math.RT</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用连通分裂实李群的Iwasawa分解，定义并研究开Toda可积系统的一个自旋版本。作者将球型Whittaker函数作为该自旋Toda系统的解加以研究，并构造其N点版本，同时给出相应的Casimir元素分解，由此得到渐近边界KZB型方程。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何定义并研究开Toda可积系统的自旋版本，以及球型Whittaker函数在该系统中的角色及其N点推广。</p>
+    <h4>方法</h4><p>基于连通分裂实李群的Iwasawa分解定义自旋Toda系统；将球型Whittaker函数作为该系统的解进行研究；构造其N点版本，并推导Casimir元素的相应分解以得到渐近边界KZB型方程。</p>
+    <h4>主要发现</h4><p>原文明确给出了自旋Toda系统的定义，指出球型Whittaker函数可作为该系统的解，构造了其N点版本，并得到了Casimir元素的相应分解，由此产生渐近边界KZB型方程。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该自旋Toda系统的适用范围、可积性细节或具体应用；后续可合理推断的方向包括进一步分析所得渐近边界KZB型方程的性质，以及在更一般的李群或表示论框架下考察该构造，但这些均需原文之外的论证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32249v1">
+  <div class="paper-head">
+    <h2>球形壳层中的玻色-爱因斯坦凝聚：非线性模式与对称性破缺<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.32249v1" rel="noopener noreferrer">2610.32249v1</a>
+  </div>
+  <p class="original-title">Bose-Einstein condensate in a shell: nonlinear modes and symmetry breaking</p>
+  <p class="meta"><strong>作者：</strong>Alexander Wolf、Vladimir V. Konotop、Maxim A. Efremov</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.quant-gas
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.quant-gas</span> <span class="tag">nlin.PS</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>约束在球面上的量子粒子态通常用球谐函数描述，球谐函数在求解许多具有球对称性的科学问题中起关键作用。对约束于球壳中的多体相互作用量子系统作平均场描述，会自然导致球谐函数的非线性推广。本研究分析壳形玻色-爱因斯坦凝聚中此类非线性模式的出现，同时考虑排斥与吸引的两体相互作用。我们找到若干类非线性模式。第一类是非零原子-原子相互作用下单个球谐函数或其叠加态的解析延拓；其中部分解具有平面情形下的对应形式，即 Townes 孤子和 Townes 涡旋，这些解即使在吸引相互作用下也表现为稳定，或可通过三体相互作用实现稳定。第二类源于排斥相互作用情形下的对称性破缺分岔，因而没有线性对应物。此外，我们证明存在一种呼吸动力学，其主要在一个不稳定孤子与一个稳定涡旋项链态之间振荡。研究结果表明，弯曲几何上的非线性物质波物理与平面系统存在显著差异，并提示这些非常规波形在实验上具有可观测性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究约束在球形壳层中的玻色-爱因斯坦凝聚在排斥与吸引两体相互作用下会出现哪些非线性模式，以及这些模式与平面系统中的对应物有何差异。</p>
+    <h4>方法</h4><p>采用平均场描述，将球谐函数推广到非线性情形，分析壳形凝聚中的非线性模式；对部分解给出解析延拓，并讨论其稳定性及三体相互作用的影响。</p>
+    <h4>主要发现</h4><p>找到若干类非线性模式：第一类为单个球谐函数或其叠加态在非零相互作用下的解析延拓，部分解对应平面 Townes 孤子和 Townes 涡旋，在吸引相互作用下可稳定或经三体相互作用稳定；第二类源于排斥相互作用下的对称性破缺分岔，没有线性对应物；此外证明存在主要在不稳定孤子与稳定涡旋项链态之间振荡的呼吸动力学。</p>
+    <h4>局限与展望</h4><p>原文指出弯曲几何上的非线性物质波物理与平面系统显著不同，并认为这些非常规波形具有实验可观测性；摘要未明确讨论具体局限或后续研究方向，相关推断需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32328v1">
+  <div class="paper-head">
+    <h2>从异质性到功能：层级脑网络中模块化动态范围的增强<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.32328v1" rel="noopener noreferrer">2610.32328v1</a>
+  </div>
+  <p class="original-title">From Heterogeneity to Function: Enhanced Modular Dynamic Range in Hierarchical Brain Networks</p>
+  <p class="meta"><strong>作者：</strong>Filipe V. Torres、Mauro Copelli、Leonardo L. Gollo</p>
+  <p class="meta"><strong>主分类：</strong>q-bio.NC
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">q-bio.NC</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>层级化与模块化组织是脑架构的基本特征，但其如何支持灵活计算与功能特化仍不清楚。动态范围是高效信息处理的重要标志，然而其在不同模块与层级间的分布尚缺乏研究。本文表明，层级模块网络可自然产生异质的模块动力学与放电率，在无需在临界点附近精细调参的情况下扩展类临界动力学区间，并伴随反映临界慢化的增强内在时间尺度及多样的标度指数。内在时间尺度随层级升高而增大，而层级内时间尺度的离散性仅在连接剖面与放电率异质时出现。作者提出模块化动态范围以量化各模块对外部输入的响应，并表明异质性同时增强全局与模块特异的敏感性，且模块内在时间尺度随动态范围增大。相对于全局刺激，局部刺激在均质网络中降低动态范围，而在异质网络中则增强动态范围。此外，选择性刺激中间层级可最大化全局与模块化动态范围，揭示了一种功能特化原理。在异质网络中，模块化动态范围变异更大，且即使在未受刺激模块中也会增大，表明存在超出直接受刺激区域的分布式计算收益。综上，这些发现确立异质性作为一种机制，使层级模块网络得以维持类临界动力学、产生层级时间尺度并分布计算敏感性，从而为无需精细调参至临界即可实现功能特化提供了基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>层级模块化脑网络如何支持灵活计算与功能特化，特别是动态范围在模块与层级间的分布及其与异质性、临界动力学的关系。</p>
+    <h4>方法</h4><p>构建层级模块网络模型，考察异质连接剖面与放电率对模块动力学的影响；引入模块化动态范围指标量化各模块对外部输入的响应，并比较全局刺激、局部刺激及选择性刺激不同层级的效果。</p>
+    <h4>主要发现</h4><p>层级模块网络自然产生异质的模块动力学与放电率，扩展类临界动力学区间并伴随临界慢化与多样标度指数，无需在临界附近精细调参；内在时间尺度随层级升高而增大，层级内离散性依赖异质性；异质性增强全局与模块特异敏感性，模块内在时间尺度随动态范围增大；局部刺激在均质网络中降低动态范围，在异质网络中相对全局刺激则增强动态范围；选择性刺激中间层级最大化全局与模块化动态范围；异质网络中模块化动态范围变异更大，且未受刺激模块中亦增大。</p>
+    <h4>局限与展望</h4><p>研究基于模型网络，其结论向真实脑网络的推广需进一步验证；异质性作为无需精细调参即可维持类临界动力学并分布计算敏感性的机制，或可启发后续关于功能特化与刺激策略的实验与理论研究，但具体因果机制尚待检验。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-26 11:31 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
