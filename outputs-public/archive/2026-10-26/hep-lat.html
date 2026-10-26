@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-10-26</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2610.32385v1">利用复朗之万方程研究高温高密QCD的状态方程</a> <small>2610.32385v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2610.31748v1">广义Schwinger模型中的多临界性</a> <small>2610.31748v1</small></li><li><a href="#paper-2610.31756v1">软标量场对拓扑磁化率的修正</a> <small>2610.31756v1</small></li><li><a href="#paper-2610.32378v1">苝与碗烯的低温柔性蒙特卡罗：稳定行列式与作用力</a> <small>2610.32378v1</small></li><li><a href="#paper-2610.32458v1">扩展Kane-Mele-Hubbard模型的混合蒙特卡洛方法</a> <small>2610.32458v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.32385v1">
+  <div class="paper-head">
+    <h2>利用复朗之万方程研究高温高密QCD的状态方程<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.32385v1" rel="noopener noreferrer">2610.32385v1</a>
+  </div>
+  <p class="original-title">Equation of state of hot and dense QCD using the complex Langevin equation</p>
+  <p class="meta"><strong>作者：</strong>Michael Mandl、Dénes Sexty、Daniel Unterhuber</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文给出高温及迄今最大重子化学势条件下QCD状态方程的连续极限外推格点结果。这些结果来自首次在物理π介子质量取值下进行的复朗之万模拟。计算采用奇异数中性、粲数中性和同位旋对称的设定，并分别给出重子数密度、压强和迹反常随重子化学势与温度变化的結果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究高温、大重子化学势条件下QCD的状态方程，重点是在物理π介子质量下处理有限密度格点计算中的符号问题。</p>
+    <h4>方法</h4><p>采用复朗之万方程进行格点模拟，并在物理π介子质量取值下首次开展此类计算；设定为奇异数中性、粲数中性和同位旋对称，并对结果做连续极限外推。</p>
+    <h4>主要发现</h4><p>原文明确报告了连续外推后的格点结果，包括重子数密度、压强和迹反常分别随重子化学势与温度的变化；这些结果覆盖高温和迄今最大的重子化学势范围。</p>
+    <h4>局限与展望</h4><p>摘要未讨论系统误差、统计精度或与其他方法的定量比较；复朗之万方法在物理π介子质量和大化学势下的适用性边界仍需进一步检验。后续工作可合理推断为扩展至更宽的温度与化学势范围、评估连续外推与体积效应，或与其他有限密度方法交叉验证，但这些均属推断而非原文结论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.31748v1">
+  <div class="paper-head">
+    <h2>广义Schwinger模型中的多临界性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.31748v1" rel="noopener noreferrer">2610.31748v1</a>
+  </div>
+  <p class="original-title">Multicriticality in the Generalized Schwinger Model</p>
+  <p class="meta"><strong>作者：</strong>Federico Ambrosino、Bernardo Zan</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究广义Schwinger模型：该理论通过将场强与辅助标量场 $B$ 耦合，并允许一般形式的势 $V(B)$ 而得到。作者考察该模型的性质与相结构，重点讨论势为四次型的情形。结合半经典方法与数值方法，作者在耦合参数空间中得到丰富的相图：电荷共轭对称未破缺的区域与对称性自发破缺的区域由一阶和二阶相变线分隔；在这两条相变线的交汇点处，作者发现一个属于三临界Ising普适类的不动点。此外，作者还观察到无穷多条一阶相变线，其端点属于Ising普适类。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究广义Schwinger模型（场强与辅助标量场 $B$ 耦合、势 $V(B)$ 取一般形式，重点为四次势）的性质与相结构。</p>
+    <h4>方法</h4><p>采用半经典方法与数值方法研究该模型在耦合参数空间中的相图。</p>
+    <h4>主要发现</h4><p>在四次势情形下得到丰富的相图：电荷共轭对称未破缺区域与自发破缺区域由一阶和二阶相变线分隔；两条相变线交汇处存在属于三临界Ising普适类的不动点；并观察到无穷多条一阶相变线终止于Ising普适类的点。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；可合理推断，将分析推广至非四次的一般势 $V(B)$、以及进一步用数值方法确定相变线及临界点的普适类，是自然的后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31756v1">
+  <div class="paper-head">
+    <h2>软标量场对拓扑磁化率的修正<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.31756v1" rel="noopener noreferrer">2610.31756v1</a>
+  </div>
+  <p class="original-title">Soft scalar-field corrections to the topological susceptibility</p>
+  <p class="meta"><strong>作者：</strong>Dietrich Bodeker、Rasmus S. K. Nielsen</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文计算了高温 SU(2) 规范理论中标量场软涨落对拓扑磁化率的贡献。我们构造了一个考虑瞬子存在的标量场三维有效理论。在标量自耦合 λ 远大于规范耦合平方 g^2 的极限下，相对于拓扑磁化率的单圈结果，我们得到量级为 √λ 的修正。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>高温 SU(2) 规范理论中，标量场软涨落对拓扑磁化率的贡献为何。</p>
+    <h4>方法</h4><p>构造计入瞬子存在的标量场三维有效理论，并在 λ ≫ g^2 的极限下计算修正。</p>
+    <h4>主要发现</h4><p>在 λ 远大于 g^2 的极限下，相对于拓扑磁化率的单圈结果，标量场软涨落给出量级为 √λ 的修正。</p>
+    <h4>局限与展望</h4><p>原文仅给出 λ ≫ g^2 极限下的结果；该结果对其他耦合区域的适用性尚不明确，可合理推断后续工作或需考察更一般的 λ 与 g^2 关系下的修正。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32378v1">
+  <div class="paper-head">
+    <h2>苝与碗烯的低温柔性蒙特卡罗：稳定行列式与作用力<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.32378v1" rel="noopener noreferrer">2610.32378v1</a>
+  </div>
+  <p class="original-title">Low-Temperature Hybrid Monte Carlo for Perylene and Corannulene: Stabilizing Determinant and Force</p>
+  <p class="meta"><strong>作者：</strong>Petar Sinilkov、Thomas Luu、Johann Ostmeyer、Finn L. Temmen、Marcel Rodekamp</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文展示了一项针对不同掺杂水平下苝（perylene）与碗烯（corannulene）分子的实际物理研究，并计算了选定的一体、二体（激子）及三体（trion）关联函数。该工作通过在室温附近执行 Hubbard 模型模拟完成。研究发现，在苝的电荷中性平台与双电荷平台之间，存在一个由相互作用诱导的 ΔQ = 1 平台；该平台的宽度随相互作用强度增大，且其基态为自旋双重态而非单重态。使该研究得以实现的算法进展，在室温下将行列式与作用力的计算同时稳定至机器精度，其计算复杂度与这些体系的标准行列式量子蒙特卡罗模拟相当。此外，该形式体系保留了完整的时间位移（两点）格林函数，从而允许构造任意 n 体关联函数，包括含非连通图的关联函数。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究不同掺杂水平下苝与碗烯分子的 Hubbard 模型行为，并计算一体、二体（激子）与三体（trion）关联函数；同时关注如何在室温附近稳定行列式与作用力的计算。</p>
+    <h4>方法</h4><p>在室温附近对苝与碗烯进行 Hubbard 模型模拟，采用一种改进的混合蒙特卡罗（Hybrid Monte Carlo）算法，该算法同时稳定行列式与作用力计算至机器精度，并保留完整的时间位移两点格林函数以构造任意 n 体关联函数。</p>
+    <h4>主要发现</h4><p>在苝的电荷中性平台与双电荷平台之间发现一个相互作用诱导的 ΔQ = 1 平台，其宽度随相互作用强度增大，且该平台的基态为自旋双重态而非单重态；所提出的算法在室温下将行列式与作用力计算稳定至机器精度，计算复杂度与标准行列式量子蒙特卡罗模拟相当；形式体系保留完整时间位移格林函数，可构造包括非连通图在内的任意 n 体关联函数。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；可合理推断，该算法框架或可推广至其他分子体系的有限温度 Hubbard 模拟，而 ΔQ = 1 平台的自旋双重态基态性质有待进一步实验或理论验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32458v1">
+  <div class="paper-head">
+    <h2>扩展Kane-Mele-Hubbard模型的混合蒙特卡洛方法<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.32458v1" rel="noopener noreferrer">2610.32458v1</a>
+  </div>
+  <p class="original-title">Hybrid Monte Carlo for the extended Kane-Mele-Hubbard model</p>
+  <p class="meta"><strong>作者：</strong>Finn L. Temmen、Thomas Luu、Johann Ostmeyer、Lin Wang</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Hubbard模型为分子和材料中的强关联电子提供了有力的最小描述，但忽略了自然界中导致更丰富物理现象的效应。例如，引入非局域相互作用会引发强关联相之间的竞争，而引入自旋轨道耦合（SOC）则可能导致奇异拓扑相的出现。为寻求更真实地模拟石墨烯及潜在相关材料（如过渡金属二硫化物，TMDs）的平台，我们考虑扩展Kane-Mele-Hubbard模型，该模型包含Kane-Mele自旋轨道耦合项和最近邻相互作用。当非局域相互作用主导在位Hubbard相互作用时，该模型的模拟尤为困难，因为在半填充时已出现严重的符号问题，使得这一区域在很大程度上尚未被探索。在本工作中，我们发展了适用于混合蒙特卡洛（HMC）算法处理的连续辅助场表述。利用这些表述，我们刻画了模型参数空间中的符号问题，并确定了模拟可行的区域，作为迈向完整相图的第一步。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>扩展Kane-Mele-Hubbard模型在非局域相互作用主导时，由于半填充下严重的符号问题，该区域难以模拟且尚未被充分探索；如何发展适用于混合蒙特卡洛算法的连续辅助场表述，并刻画符号问题以确定可行模拟区域。</p>
+    <h4>方法</h4><p>发展连续辅助场表述，使其适用于混合蒙特卡洛（HMC）算法；利用这些表述在模型参数空间中刻画符号问题。</p>
+    <h4>主要发现</h4><p>建立了适用于HMC的连续辅助场表述；刻画了模型参数空间中的符号问题，并确定了模拟可行的区域。</p>
+    <h4>局限与展望</h4><p>作为迈向完整相图的第一步，后续可基于所确定的可行区域进一步探索相图；原文未明确讨论局限性与适用范围，相关推断需谨慎。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-26 11:15 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

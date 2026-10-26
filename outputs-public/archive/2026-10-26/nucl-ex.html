@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-10-26</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">8</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">7</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2610.32667v1">ALICE 在 OO 和 Ne-Ne 碰撞中的各向异性流测量</a> <small>2610.32667v1</small></li></ol><h3>交叉列表（7）</h3><ol class="toc-list"><li><a href="#paper-2608.16107v2">利用有限狄拉克和从CEνNS数据中展开低能反应堆中微子通量</a> <small>2608.16107v2</small></li><li><a href="#paper-2610.31856v1">科罗拉多地下研究所（CURIE）中子本底的测量</a> <small>2610.31856v1</small></li><li><a href="#paper-2610.32386v1">核形状成像中的取向平均：Ne-20 的密度、关联与偏心度</a> <small>2610.32386v1</small></li><li><a href="#paper-2610.32621v1">用于在束γ射线谱学的大体积GAGG(Ce)探测器模块</a> <small>2610.32621v1</small></li><li><a href="#paper-2610.32715v1">碎裂能量关联器：QCD自旋物理的普适探针</a> <small>2610.32715v1</small></li><li><a href="#paper-2610.32741v1">氘核靶上的类时康普顿散射</a> <small>2610.32741v1</small></li><li><a href="#paper-2610.32947v1">从次次领头阶有效场论出发的壳模型无中微子双贝塔衰变算符的重整化</a> <small>2610.32947v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.32667v1">
+  <div class="paper-head">
+    <h2>ALICE 在 OO 和 Ne-Ne 碰撞中的各向异性流测量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.32667v1" rel="noopener noreferrer">2610.32667v1</a>
+  </div>
+  <p class="original-title">Anisotropic flow measurements in OO and Ne-Ne collisions with ALICE</p>
+  <p class="meta"><strong>作者：</strong>Vojtěch Macháček、for the ALICE Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>大型强子对撞机（LHC）的结果表明，小碰撞系统可以表现出类似重离子碰撞中观测到的集体行为，这为在超高能条件下探索核结构与集体动力学之间的联系开辟了新的前沿。然而，小碰撞系统中集体性的解释受限于对质子亚核结构的理解。LHC 提供的 ${}^{16}$O 和 ${}^{20}$Ne 碰撞为研究核几何对各向异性流的影响提供了机会，因为这些系统的核结构约束较好。本会议报告利用多粒子累积量方法，给出了 OO 和 Ne-Ne 碰撞中带电粒子各向异性流 $v_n$ 的测量结果，其中包含最高至八粒子关联的测量。此外，还报告了椭圆流概率分布函数 $P(v_2)$ 的首次重建，以及轻离子碰撞系统中比值 $v_3\{4\}/v_3\{2\}$ 的首次测量。这些测量为理解轻离子碰撞中核几何驱动的流的作用提供了更深入的认识。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>小碰撞系统中的集体行为解释受限于质子亚核结构理解；论文旨在利用核结构约束较好的 ${}^{16}$O 和 ${}^{20}$Ne 碰撞，研究核几何对各向异性流的影响。</p>
+    <h4>方法</h4><p>采用多粒子累积量方法，测量 OO 和 Ne-Ne 碰撞中带电粒子的各向异性流 $v_n$，包含最高至八粒子关联；并重建椭圆流概率分布函数 $P(v_2)$，测量比值 $v_3\{4\}/v_3\{2\}$。</p>
+    <h4>主要发现</h4><p>给出了 OO 和 Ne-Ne 碰撞中带电粒子 $v_n$ 的测量结果（含最高至八粒子关联）；首次重建了椭圆流概率分布函数 $P(v_2)$；首次在轻离子碰撞系统中测量了比值 $v_3\{4\}/v_3\{2\}$。这些测量为理解轻离子碰撞中核几何驱动的流的作用提供了更深入的认识。</p>
+    <h4>局限与展望</h4><p>原文指出小碰撞系统中集体性的解释仍受限于质子亚核结构的理解；该工作提供的测量有助于进一步研究核几何驱动的流，但摘要未明确给出后续研究方向或定量局限，相关推断需谨慎。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2608.16107v2">
+  <div class="paper-head">
+    <h2>利用有限狄拉克和从CEνNS数据中展开低能反应堆中微子通量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2608.16107v2" rel="noopener noreferrer">2608.16107v2</a>
+  </div>
+  <p class="original-title">Unfolding the low-energy reactor neutrino flux from CE$ν$NS data with a finite Dirac sum</p>
+  <p class="meta"><strong>作者：</strong>Muping Chen、Graciela Gelmini、Danny Marfatia、Koichiro Yasuda</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种分析相干弹性中微子—原子核散射（CEνNS）数据的新方法，用于提取低于逆β衰变阈值1.8 MeV、目前尚未被测量的反应堆反中微子能谱。该方法借鉴了直接暗物质探测中发展的晕无关分析技术，能够在不假设能谱参数化形式或平滑先验的条件下，给出积分中微子通量的最佳拟合值及逐点置信带。基于凸几何论证，该方法将微分中微子率写成狄拉克δ函数的线性组合，即有限狄拉克和（FDS），其最大项数由数据点数目决定。作者将这一“FDS方法”应用于低阈值Ge探测器的模拟CEνNS数据，并与Tikhonov正则化展开方法进行了比较。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在低于逆β衰变阈值1.8 MeV、尚无直接测量的能区，从CEνNS数据中提取反应堆反中微子能谱，并在不引入参数化形式或平滑先验的情况下给出通量估计及其不确定性。</p>
+    <h4>方法</h4><p>借鉴直接暗物质探测中的晕无关分析技术，基于凸几何论证，将微分中微子率表示为有限项狄拉克δ函数的线性组合（FDS方法），项数上限由数据点数目决定；对低阈值Ge探测器的模拟CEνNS数据应用该方法，并与Tikhonov正则化展开进行比较。</p>
+    <h4>主要发现</h4><p>原文表明该方法可在不假设能谱参数化形式或平滑先验的前提下，获得积分中微子通量的最佳拟合值及逐点置信带；并在模拟CEνNS数据上完成了与Tikhonov正则化展开的对比分析。</p>
+    <h4>局限与展望</h4><p>原文仅报告了基于模拟CEνNS数据的应用与对比，方法在真实实验数据上的表现、对探测器阈值与背景系统误差的稳健性尚待进一步检验；后续可合理推断的方向包括将该方法推广至其他探测器或结合真实数据开展分析，但这些均属推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.31856v1">
+  <div class="paper-head">
+    <h2>科罗拉多地下研究所（CURIE）中子本底的测量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.31856v1" rel="noopener noreferrer">2610.31856v1</a>
+  </div>
+  <p class="original-title">Measurements of the neutron background for the Colorado Underground Research Institute (CURIE)</p>
+  <p class="meta"><strong>作者：</strong>Dakota K. Keblbeck、Uwe Greife、Eric Mayotte、Wouter Van De Pontseele、Kyle G. Leach</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次直接测量了科罗拉多地下研究所（CURIE）的中子本底。CURIE 是位于科罗拉多州爱达荷斯普林斯 Edgar 实验矿内的一处浅层地下设施，有效覆盖层厚度约为 400 m.w.e.。研究在 Subatomic Particle Hideout 中对辐射成因组分和缪子诱发组分进行了表征。辐射成因组分使用定制的 Bonner 圆柱谱仪测量，该谱仪由一支 $^{3}$He 正比计数器和六个圆柱形高密度聚乙烯慢化体组成；其响应函数在 \textsc{geant4} 中模拟，利用 $^{239}$Pu-$^{9}$Be 源和阴影锥方法进行经验刻度，并针对近似各向同性的地下场进行了修正。对测得的计数率进行解谱，得到 $E_n\lesssim\SI{10}{\MeV}$ 范围内以辐射成因为主的局部标量中子通量，为 $(2.51\pm0.58_{\rm stat}\pm0.39_{\rm sys})\times10^{-5}$~\si{\per\square\centi\meter\per\second}。缪子诱发组分使用 BC-501A 有机液体闪烁体测量，运行时间为 \SI{1431}{\hour}；脉冲形状甄别识别出 55~$\pm$~7 个中子候选事例。利用模拟的探测器响应，这些计数给出岩石—洞室边界处能量高于 \SI{10.5}{\MeV} 的积分缪子诱发中子通量为 $(2.09\pm0.29_{\rm stat}\,{}^{+0.79}_{-0.53}{}_{\rm sys})\times10^{-7}$~\si{\per\square\centi\meter\per\second}。该通量采用先前 CURIE 模拟研究中首次进入、边界面积的归一化方式；其中央值比针对该场址的预测高约 \SI{12}{\percent}，但在所报告的不确定度范围内一致。上述测量共同表征了 CURIE 的辐射成因与高能宇宙成因中子环境，并为该设施未来低本底实验的规划提供了定量输入。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在有效覆盖层约为 400 m.w.e. 的浅层地下设施 CURIE 中，直接测量并表征辐射成因与缪子诱发的中子本底。</p>
+    <h4>方法</h4><p>采用定制的 Bonner 圆柱谱仪（$^{3}$He 正比计数器加六个圆柱形高密度聚乙烯慢化体）测量辐射成因组分，响应函数用 \textsc{geant4} 模拟、以 $^{239}$Pu-$^{9}$Be 源和阴影锥方法刻度并作各向同性场修正，再通过解谱得到中子通量；采用 BC-501A 有机液体闪烁体运行 \SI{1431}{\hour}，以脉冲形状甄别识别中子候选事例，并结合模拟探测器响应得到缪子诱发中子通量。</p>
+    <h4>主要发现</h4><p>原文明确支持的主要结果为：$E_n\lesssim\SI{10}{\MeV}$ 范围内以辐射成因为主的局部标量中子通量为 $(2.51\pm0.58_{\rm stat}\pm0.39_{\rm sys})\times10^{-5}$~\si{\per\square\centi\meter\per\second}；脉冲形状甄别识别出 55~$\pm$~7 个中子候选事例；岩石—洞室边界处能量高于 \SI{10.5}{\MeV} 的积分缪子诱发中子通量为 $(2.09\pm0.29_{\rm stat}\,{}^{+0.79}_{-0.53}{}_{\rm sys})\times10^{-7}$~\si{\per\square\centi\meter\per\second}，其中央值比场址特定预测高约 \SI{12}{\percent}，但在所报告的不确定度范围内一致。</p>
+    <h4>局限与展望</h4><p>原文指出这些测量为 CURIE 未来低本底实验的规划提供了定量输入。局限性方面：缪子诱发通量采用先前模拟研究的首次进入、边界面积归一化方式，其与预测的差异在不确定度内一致；辐射成因测量限于 $E_n\lesssim\SI{10}{\MeV}$ 且依赖解谱与各向同性场修正。可合理推断，后续工作可进一步降低系统不确定度并扩展能区或开展更多独立测量，但原文未明确给出具体后续计划。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32386v1">
+  <div class="paper-head">
+    <h2>核形状成像中的取向平均：Ne-20 的密度、关联与偏心度<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.32386v1" rel="noopener noreferrer">2610.32386v1</a>
+  </div>
+  <p class="original-title">Orientational average in nuclear shape imaging: densities, correlations, and eccentricity in Ne-20</p>
+  <p class="meta"><strong>作者：</strong>Jian Deng、Hao-jie Xu、Qun Wang</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在高能核碰撞中，对形变原子核的取向处理存在刚性转子与波函数转子两种方式，二者在实验室系中构造核密度的方式不同。本文在形变谐振子模型下，针对 Ne-20，分别在刚性转子与波函数转子框架中计算了单体与两体密度（包含 Pauli 阻塞效应）、体轴轮廓多极矩以及几何偏心度方差，并采用领头阶超中心映射。结果表明：在模型形变参数 $\kappa$ 固定时，两种构造可给出不同的实验室系径向矩与对关联；波函数转子中的体轴跃迁核轮廓沿对称轴通常更为紧凑，且在较宽的 $\kappa$ 范围内，$\beta_{20}$、$\beta_{40}$、$\langle\varepsilon_2^2\rangle$ 与 $\langle\varepsilon_4^2\rangle$ 均低于刚性转子结果。然而，在大部分扫描参数空间中，各转子内部这些量之间的关系仍相似：$\beta_{40}$ 与 $\langle\varepsilon_2^2\rangle$ 随 $\beta_{20}^{2}$ 线性变化，而十六极基线扣除后的方差随四极对应量呈近似二次趋势。该方法可进一步用于寻找对波函数转子中转动效应更敏感的物理量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在高能核碰撞的取向平均处理中，刚性转子与波函数转子两种构造对形变核（以 Ne-20 为例）的实验室系密度、关联与几何偏心度有何差异，以及各量之间的关系如何。</p>
+    <h4>方法</h4><p>在形变谐振子模型下，分别采用刚性转子与波函数转子构造实验室系核密度，在领头阶超中心映射下计算单体与两体密度（含 Pauli 阻塞效应）、体轴轮廓多极矩及几何偏心度方差，并扫描形变参数 $\kappa$。</p>
+    <h4>主要发现</h4><p>在固定 $\kappa$ 时，两种构造给出不同的实验室系径向矩与对关联；波函数转子的体轴跃迁核轮廓沿对称轴通常更紧凑，且 $\beta_{20}$、$\beta_{40}$、$\langle\varepsilon_2^2\rangle$、$\langle\varepsilon_4^2\rangle$ 在较宽 $\kappa$ 范围内低于刚性转子结果；各转子内部，$\beta_{40}$ 与 $\langle\varepsilon_2^2\rangle$ 随 $\beta_{20}^{2}$ 线性变化，十六极基线扣除方差随四极对应量近似呈二次趋势。</p>
+    <h4>局限与展望</h4><p>本文结果基于形变谐振子模型与领头阶超中心映射，适用范围受模型与近似阶数限制；作者指出该方法可扩展用于寻找对波函数转子中转动效应更敏感的物理量，这一方向属于原文明确提出的后续工作。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32621v1">
+  <div class="paper-head">
+    <h2>用于在束γ射线谱学的大体积GAGG(Ce)探测器模块<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.32621v1" rel="noopener noreferrer">2610.32621v1</a>
+  </div>
+  <p class="original-title">A Large-Volume GAGG(Ce) Detector Module for In-Beam $γ$-Ray Spectroscopy</p>
+  <p class="meta"><strong>作者：</strong>Jun-Qi Li、Ye-Lei Sun、Ming-Yuan Sun、Dan-Yang Li、Hao Wu、Bao-Hua Sun、Hong-Na Liu、Jun Su、Xin Chen、Xin-Zhi Jiang、Yi-Tong Huang、Yong-Liang Jiang、Tuo-Qi Liu、Yun-Long Lu、Lin Wang、Yu-Yang Yu</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报道了配备硅光电倍增器（SiPM）读出的大体积GAGG(Ce)闪烁探测器模块的研制与表征。每个模块在紧凑的薄碳纤维外壳内集成四块大体积GAGG(Ce)晶体，以尽量减小无源材料量，从而可构建用于在束γ射线谱学的高效率、大立体角探测器阵列。利用标准γ射线源和^{14}N(p,γ)^{15}O反应，对10个GAGG模块（共40个探测器）的性能进行了评估，包括能量线性、能量分辨率、时间分辨率和本征全能峰效率，覆盖约0.3 MeV至8 MeV的γ射线能量范围。由于SiPM的非线性响应，在测量能量范围内观察到非线性的能量响应。探测器模块表现出良好的能量分辨率（1.33 MeV处FWHM低于5%）、良好的时间分辨率（约1 MeV处FWHM约500 ps），本征全能峰效率与Geant4模拟结果吻合良好，使该探测器模块成为放射性离子束装置下一代高效率在束γ射线实验的有前景方案。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为大立体角、高效率的在束γ射线谱学实验研制低无源材料、大体积的闪烁探测器模块，并表征其能量、时间与效率性能。</p>
+    <h4>方法</h4><p>构建集成四块大体积GAGG(Ce)晶体与SiPM读出、置于薄碳纤维外壳内的探测器模块；使用标准γ射线源和^{14}N(p,γ)^{15}O反应，在约0.3 MeV至8 MeV范围内测量10个模块（40个探测器）的能量线性、能量分辨率、时间分辨率和本征全能峰效率，并与Geant4模拟比较。</p>
+    <h4>主要发现</h4><p>观察到由于SiPM非线性响应导致的非线性能量响应；1.33 MeV处能量分辨率FWHM低于5%；约1 MeV处时间分辨率FWHM约500 ps；本征全能峰效率与Geant4模拟吻合良好。</p>
+    <h4>局限与展望</h4><p>原文指出该模块是放射性离子束装置下一代高效率在束γ射线实验的有前景方案；其非线性能量响应需在后续应用中加以考虑或校正，这一推断基于原文观察到的SiPM非线性响应。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32715v1">
+  <div class="paper-head">
+    <h2>碎裂能量关联器：QCD自旋物理的普适探针<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.32715v1" rel="noopener noreferrer">2610.32715v1</a>
+  </div>
+  <p class="original-title">A universal probe of QCD spin physics from fragmentation energy correlator</p>
+  <p class="meta"><strong>作者：</strong>Qing-Hong Cao、Xiaohui Liu、Zhite Yu、C. -P. Yuan、Feng Yuan、Shu-Tao Zhang、Hua Xing Zhu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究碎裂能量关联器（fragmentation energy correlator, FEC），它将非微扰碎裂函数与红外安全的能量关联器相结合，作为探测QCD强子化三维动力学的新探针。作者从理论和数值两方面证明，FEC普适地适用于轻子-轻子、轻子-强子和强子-强子碰撞中的单举强子产生，无需喷注算法，也无需同时测量其他重对象。通过其非平凡的横自旋依赖性，FEC随能量关联器标度的变化为QCD中手征对称性破缺标度提供了灵敏的探针。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构建一种不依赖喷注算法、可普适用于多种碰撞过程的探针，以研究QCD强子化的三维动力学及手征对称性破缺标度。</p>
+    <h4>方法</h4><p>将非微扰碎裂函数与红外安全的能量关联器结合为碎裂能量关联器（FEC），并从理论和数值两方面分析其在轻子-轻子、轻子-强子和强子-强子碰撞单举强子产生中的适用性及其横自旋依赖性。</p>
+    <h4>主要发现</h4><p>FEC在轻子-轻子、轻子-强子和强子-强子碰撞的单举强子产生中具有普适适用性，且不需要喷注算法或同时测量其他重对象；FEC具有非平凡的横自旋依赖性，其随能量关联器标度的变化可灵敏探测QCD中的手征对称性破缺标度。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；可合理推断，FEC的实用性与统计精度、非微扰输入的不确定性以及实验上对横自旋的测量能力有关，这些方面有待进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32741v1">
+  <div class="paper-head">
+    <h2>氘核靶上的类时康普顿散射<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.32741v1" rel="noopener noreferrer">2610.32741v1</a>
+  </div>
+  <p class="original-title">Timelike Compton scattering on a deuteron target</p>
+  <p class="meta"><strong>作者：</strong>Jing Han、Bo-Qiang Ma、Bernard Pire、Qin-Tao Song</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究氘核靶上的类时康普顿散射（TCS），将其作为探测由广义部分子分布（GPDs）所描述的氘核三维部分子结构的探针。此类测量或可为理解氘核内部结构提供新视角，并有助于澄清尚未解决的张量极化疑难。我们给出了在杰斐逊实验室未来测量相关运动学区域内，领头阶（强耦合 $\alpha_s$ 阶）TCS 截面的数值估计。氘核 GPDs 在卷积模型中计算，而 Bethe-Heitler 贡献则采用氘核电磁形状因子的唯象参数化方法计算。此外，我们推导了氘核 TCS 次领头阶修正的理论表达式，并特别关注胶子横向极化 GPDs 的贡献。我们表明，这些贡献可通过其在产生轻子对质心系中特征性的角依赖关系加以分离。结果表明，氘核 TCS 有望成为在杰斐逊实验室互补探测氘核夸克与胶子结构的探针。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用氘核靶上的类时康普顿散射探测氘核由广义部分子分布描述的三维部分子结构，并澄清张量极化疑难。</p>
+    <h4>方法</h4><p>在领头阶 $\alpha_s$ 下对杰斐逊实验室未来测量相关运动学区域内的 TCS 截面进行数值估计；氘核 GPDs 采用卷积模型计算，Bethe-Heitler 贡献采用氘核电磁形状因子的唯象参数化；同时推导次领头阶修正的理论表达式，重点分析胶子横向极化 GPDs 的贡献。</p>
+    <h4>主要发现</h4><p>给出了领头阶 TCS 截面的数值估计；推导出次领头阶修正的理论表达式；表明胶子横向极化 GPDs 的贡献可通过产生轻子对质心系中特征性的角依赖关系加以分离；结果表明氘核 TCS 有潜力作为互补探针，用于研究杰斐逊实验室中氘核的夸克与胶子结构。</p>
+    <h4>局限与展望</h4><p>原文的数值估计限于领头阶及杰斐逊实验室相关运动学区域，次领头阶部分以理论表达式推导为主；氘核 GPDs 依赖卷积模型，Bethe-Heitler 贡献依赖形状因子的唯象参数化，这些模型与参数化带来的不确定性在原文中未作定量讨论。后续可合理推断的方向包括：将次领头阶表达式用于数值研究、检验胶子横向极化贡献的可分离性，以及结合未来实验数据约束氘核 GPDs 并探讨张量极化疑难。</p>
+  </section>
+</article><article class="paper" id="paper-2610.32947v1">
+  <div class="paper-head">
+    <h2>从次次领头阶有效场论出发的壳模型无中微子双贝塔衰变算符的重整化<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.32947v1" rel="noopener noreferrer">2610.32947v1</a>
+  </div>
+  <p class="original-title">The renormalization of the shell-model neutrinoless double-beta decay operator starting from effective field theory at next-to-next-to-leading order</p>
+  <p class="meta"><strong>作者：</strong>S. L. Lyu、U. Carusone、G. De Gregorio、N. Itaco、L. Coraggio</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文是前期研究的延续。前期工作在完全自洽的框架内，从手征微扰论导出的核哈密顿量与衰变算符表达式出发，对无中微子双贝塔衰变矩阵元进行了壳模型计算，所研究的衰变涉及48Ca、76Ge和82Se，与作者此前基于有效场论哈密顿量和算符的电弱核衰变分析一致。本文聚焦衰变算符手征展开的微扰性质，即评估领头阶之后各项对中等质量候选核核矩阵元的贡献权重。为此，作者从直至次次领头阶的两体流出发构造了有效壳模型衰变算符，并首次对实验感兴趣的核引入三体流算符的贡献，这些算符出现在手征微扰论的次次次领头阶。本研究旨在通过结合核模型自由度有限性所导致的不精确性估计与衰变算符手征展开截断的估计，评估影响所计算的无中微子双贝塔衰变核矩阵元的理论不确定度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>评估手征展开中领头阶之后（直至次次领头阶的两体流及次次次领头阶的三体流）的衰变算符项对48Ca、76Ge和82Se无中微子双贝塔衰变核矩阵元的贡献权重，并估计相关理论不确定度。</p>
+    <h4>方法</h4><p>在完全自洽的壳模型框架内，从手征有效场论导出的核哈密顿量与衰变算符出发，构造直至次次领头阶两体流的有效壳模型衰变算符，并首次引入次次次领头阶三体流算符的贡献；结合核模型自由度有限性与手征展开截断两方面的误差估计来评估理论不确定度。</p>
+    <h4>主要发现</h4><p>原文摘要未给出具体数值结果；明确说明的工作是构造了直至次次领头阶两体流的有效壳模型衰变算符，并首次对实验感兴趣的核引入次次次领头阶三体流算符的贡献，以评估手征展开高阶项对核矩阵元的权重及理论不确定度。</p>
+    <h4>局限与展望</h4><p>原文未明确陈述局限或后续方向；可合理推断，所建立的不确定度评估框架可推广至其他候选核或与其他核结构方法交叉检验，但这一推断需后续工作验证。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-26 11:15 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
