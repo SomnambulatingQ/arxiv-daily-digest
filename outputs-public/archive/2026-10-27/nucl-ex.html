@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-10-27</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">12</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">8</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（4）</h3><ol class="toc-list"><li><a href="#paper-2610.33365v1">利用STAR事件平面探测器测量Au+Au碰撞中的赝快度分布</a> <small>2610.33365v1</small></li><li><a href="#paper-2610.35331v1">在 ALICE 中于 √s_NN = 5.36 TeV 的 OO 与 Ne–Ne 碰撞中测量类喷注双强子关联</a> <small>2610.35331v1</small></li><li><a href="#paper-2610.35399v1">DAΦNE加速器上SIDDHARTA-2实验的kaonic原子测量</a> <small>2610.35399v1</small></li><li><a href="#paper-2610.35860v1">利用DRAGON反冲分离器与混合γ射线探测器阵列直接测量${}^{23}\mathrm{Mg}(p, γ){}^{24}\mathrm{Al}$反应</a> <small>2610.35860v1</small></li></ol><h3>交叉列表（8）</h3><ol class="toc-list"><li><a href="#paper-2610.33153v1">FASER与NA64μ实验中的μ子三叉过程：研究动机、理论预言与精密测量前景</a> <small>2610.33153v1</small></li><li><a href="#paper-2610.33255v1">纵向极化电子-质子散射中弹性矢量介子产生对轨道角动量分布的探测</a> <small>2610.33255v1</small></li><li><a href="#paper-2610.33622v1">μ^-子与原子核散射中的阈下共振</a> <small>2610.33622v1</small></li><li><a href="#paper-2610.34061v1">追忆Brown-Rho标度</a> <small>2610.34061v1</small></li><li><a href="#paper-2610.34276v1">重新审视核子极化率：来自Bernabéu-Ericson-Ferro Fontan-Tarrach求和规则的洞见</a> <small>2610.34276v1</small></li><li><a href="#paper-2610.34423v1">从有限核约束核物质：从头计算视角</a> <small>2610.34423v1</small></li><li><a href="#paper-2610.34798v1">高 x 区域π介子部分子分布之谜</a> <small>2610.34798v1</small></li><li><a href="#paper-2610.35424v1">核裂变：从基础到前沿</a> <small>2610.35424v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.33365v1">
+  <div class="paper-head">
+    <h2>利用STAR事件平面探测器测量Au+Au碰撞中的赝快度分布<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.33365v1" rel="noopener noreferrer">2610.33365v1</a>
+  </div>
+  <p class="original-title">Measurement of pseudorapidity distributions from Au+Au collisions with the STAR Event Plane Detector</p>
+  <p class="meta"><strong>作者：</strong>The STAR Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文给出了利用STAR事件平面探测器（EPD）在质心系每核子对能量 $\sqrt{s_{\mathrm{NN}}} =$ 200、54.4、27、19.6、14.6、11.5、9.2 和 7.7 GeV 的金-金碰撞中测量带电粒子赝快度分布的结果。带电粒子由EPD在 $2.14 &lt; |\eta| &lt; 5.09$ 的赝快度区间内探测。通过用卷积朗道函数拟合沉积能量谱，提取穿过每个EPD环的带电粒子数。为修正探测器对原初粒子的响应，利用蒙特卡罗模拟确定的响应矩阵对测得的EPD击中数进行展开；响应矩阵按每个能量和中心度类别分别计算，采用嵌入STAR探测器GEANT3模拟的UrQMD事件产生器。新的STAR测量结果在19.6和200 GeV下与先前PHOBOS在相应快度区间的结果一致，同时精度有所提高。此外，新数据将能量覆盖范围扩展到7.7--200 GeV，并涵盖多个中心度类别。这一扩展的数据集使得能够从中心到边缘碰撞对极限碎裂假说进行更全面的检验。测量结果还与包括UrQMD、HIJING和AMPT在内的理论模型计算进行了比较，以研究其潜在的物理含义。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文测量金-金碰撞中带电粒子的赝快度分布，覆盖 $\sqrt{s_{\mathrm{NN}}} =$ 7.7--200 GeV 的多个能量点和多个中心度类别，并检验极限碎裂假说及与理论模型的符合程度。</p>
+    <h4>方法</h4><p>使用STAR事件平面探测器（EPD）在 $2.14 &lt; |\eta| &lt; 5.09$ 区间探测带电粒子；用卷积朗道函数拟合沉积能量谱提取每个EPD环的击中数；利用基于GEANT3模拟中嵌入UrQMD事件产生器、按能量和中心度分别计算的响应矩阵对击中数进行展开；将结果与PHOBOS数据及UrQMD、HIJING、AMPT模型比较。</p>
+    <h4>主要发现</h4><p>在19.6和200 GeV下，新测量与PHOBOS在相应快度区间的结果一致且精度更高；数据将能量覆盖扩展到7.7--200 GeV并涵盖多个中心度类别，从而可对极限碎裂假说从中心到边缘碰撞进行更全面的检验；结果还与UrQMD、HIJING和AMPT模型计算进行了比较。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限或后续方向；可合理推断，基于该扩展数据集对极限碎裂假说的检验及与模型的比较，可能为理解不同能量和中心度下粒子产生机制提供进一步约束，但具体结论需依据原文后续分析。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35331v1">
+  <div class="paper-head">
+    <h2>在 ALICE 中于 √s_NN = 5.36 TeV 的 OO 与 Ne–Ne 碰撞中测量类喷注双强子关联<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.35331v1" rel="noopener noreferrer">2610.35331v1</a>
+  </div>
+  <p class="original-title">Jet-like dihadron correlations in OO and Ne--Ne collisions at $\sqrt{s_{\rm NN}} = 5.36$ TeV with ALICE</p>
+  <p class="meta"><strong>作者：</strong>Neelkamal Mallick、Joonsuk Bae</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>重离子碰撞研究的主要目标是探究被称为夸克–胶子等离子体（QGP）的高温高密原初核物质性质。然而，LHC 上 pp 与 p–Pb 碰撞中近期观测到的类流体力学流行为提示，即使在最小的碰撞系统中也可能形成 QGP 液滴。为弥合小系统与大系统之间的多重数间隙并检验流体力学描述的适用性，LHC 首次开展了轻离子碰撞研究。本贡献报告了 ALICE 在 √s_NN = 5.36 TeV 下采集的 OO 与 Ne–Ne 碰撞中的双强子关联测量，以探索可能的介质效应。我们研究了近侧关联峰宽度随中快度带电粒子多重数的变化，结果显示在 OO 与 Ne–Ne 碰撞中，相对于 pp 与 pO 碰撞，不同横动量（p_T）区间内的峰宽度均呈现随多重数变化的修饰。此外，我们首次在 OO 碰撞中测量了近侧与远侧关联的每触发归一化相对产额 I_AA，而在 Ne–Ne 碰撞中仅对近侧进行了测量。OO 碰撞中远侧关联产额相对于 pp 碰撞的压低在定性上与喷注–介质相互作用一致，但其幅度弱于中心 Pb–Pb 碰撞。然而，在当前运动学区间内，事件选择偏倚与冷核物质效应等其他因素对观测到的压低贡献程度仍是一个开放问题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 LHC 首次开展的轻离子碰撞中，OO 与 Ne–Ne 碰撞于 √s_NN = 5.36 TeV 下是否表现出可能的介质效应，以及双强子关联是否随带电粒子多重数发生修饰。</p>
+    <h4>方法</h4><p>利用 ALICE 探测器采集的 OO 与 Ne–Ne 碰撞数据，测量双强子关联；将近侧关联峰宽度作为中快度带电粒子多重数的函数，在多个横动量（p_T）区间内相对于 pp 与 pO 碰撞进行比较；并在 OO 碰撞中首次测量近侧与远侧的每触发归一化相对产额 I_AA，在 Ne–Ne 碰撞中仅测量近侧。</p>
+    <h4>主要发现</h4><p>近侧关联峰宽度在 OO 与 Ne–Ne 碰撞中相对于 pp 与 pO 碰撞呈现随多重数变化的修饰，且该修饰出现在所研究的多个 p_T 区间内；OO 碰撞中远侧关联产额相对于 pp 碰撞被压低，该压低在定性上与喷注–介质相互作用一致，但幅度弱于中心 Pb–Pb 碰撞。</p>
+    <h4>局限与展望</h4><p>原文指出，事件选择偏倚与冷核物质效应等其他因素对当前运动学区间内观测到的远侧产额压低的贡献程度仍属开放问题；因此，所观测压低能否完全归因于喷注–介质相互作用尚不能确定，需进一步研究加以区分。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35399v1">
+  <div class="paper-head">
+    <h2>DAΦNE加速器上SIDDHARTA-2实验的kaonic原子测量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.35399v1" rel="noopener noreferrer">2610.35399v1</a>
+  </div>
+  <p class="original-title">Kaonic Atom Measurements with the SIDDHARTA-2 Experiment at the DA$Φ$NE accelerator</p>
+  <p class="meta"><strong>作者：</strong>D Sirghi、L Abbene、F Artibani、M Bazzi、G Borghi、D Bosnar、M Bragadireanu、A Buttacavoli、M Carminati、A Clozza、F Clozza、L De Paolis、R Del Grande、K Dulski、C Fiorini、I Friščić、C Guaraldo、M Iliescu、M Iwasaki、A Khreptak、S Manti、J Marton、P Moskal、H Ohnishi、K Piscicchia、F Principato、A Scordo、F Sgaramella、M Silarski、F Sirghi、M Skurzok、A Spallone、K Toho、J Zmeskal、C Curceanu</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">physics.atom-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>kaonic原子为研究含奇异数的低能强相互作用提供了独特的实验手段，并可通过高激发态跃迁检验束缚态量子电动力学。位于DAΦNE正负电子对撞机上的SIDDHARTA-2实验利用φ介子衰变产生的低动量带电kaon，对kaonic原子开展高精度X射线谱学测量。其主要目标是通过测量至基态的X射线跃迁来研究kaonic氘，从而直接获取低能K^-d相互作用信息。与此同时，SIDDHARTA-2还利用气体靶开展了广泛的实验计划，包括kaonic氦-4与kaonic氖，以及实验装置材料中形成的中等质量kaonic原子的高n跃迁测量。本文综述SIDDHARTA-2的主要测量及其物理动机，并介绍为kaonic氘研究所发展的实验策略以及合作组在EXKALIBUR计划下的未来展望。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用kaonic原子的X射线谱学高精度研究含奇异数系统中的低能强相互作用（特别是低能K^-d相互作用），并检验束缚态量子电动力学。</p>
+    <h4>方法</h4><p>在DAΦNE正负电子对撞机上，利用φ介子衰变产生的低动量带电kaon形成kaonic原子，采用高精度X射线谱学测量其跃迁；除主要针对kaonic氘至基态跃迁的测量策略外，还使用气体靶测量kaonic氦-4、kaonic氖，以及实验装置材料中形成的中等质量kaonic原子的高n跃迁。</p>
+    <h4>主要发现</h4><p>原文为综述性文章，明确说明SIDDHARTA-2的主要目标是测量kaonic氘至基态的X射线跃迁以直接获取低能K^-d相互作用，并已开展包括kaonic氦-4、kaonic氖及中等质量kaonic原子高n跃迁在内的气体靶实验计划；原文摘要未给出具体数值结果。</p>
+    <h4>局限与展望</h4><p>原文提及合作组在EXKALIBUR计划下的未来展望，但摘要未展开具体内容；可合理推断后续工作将继续围绕kaonic氘测量及扩展的kaonic原子谱学计划展开，具体方向需以原文正文为准。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35860v1">
+  <div class="paper-head">
+    <h2>利用DRAGON反冲分离器与混合γ射线探测器阵列直接测量${}^{23}\mathrm{Mg}(p, γ){}^{24}\mathrm{Al}$反应<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.35860v1" rel="noopener noreferrer">2610.35860v1</a>
+  </div>
+  <p class="original-title">Direct measurement of the ${}^{23}\mathrm{Mg}(p, γ){}^{24}\mathrm{Al}$ reaction using the DRAGON recoil separator and a hybrid array of $γ$-ray detectors</p>
+  <p class="meta"><strong>作者：</strong>A. C. Edwin、G. Christian、A. Lennarz、I. Casandjian、S. M. Collins、E. Desmarais、U. Greife、D. A. Hutcheon、A. Katrusiak、M. Loria、S. Moll{ó}、J. O&#x27;Connell、S. Pascu、L. Pedro-Botet、Zs. Podoly{á}k、B. J. Reed、P. H. Regan、C. Ruiz、R. Shearman、S. Upadhyayula、L. Wagner、M. Williams</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">astro-ph.SR</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>背景：${}^{23}\mathrm{Mg}(p,γ){}^{24}\mathrm{Al}$反应在新星核合成中起关键作用，是连接Ne-Na循环与Mg-Al循环的桥梁，并影响多种核素的合成；该反应率需要由实验数据加以良好约束，尤其是主导新星温度下反应率、位于$E_{\mathrm{cm}}\approx480$ keV的关键共振的性质。目的：本研究旨在通过对该关键共振强度与能量的新的直接测量，改进对$E_{\mathrm{cm}}\approx480$ keV ${}^{23}\mathrm{Mg}(p,γ){}^{24}\mathrm{Al}$共振能量与强度的实验约束。方法：利用${}^{23}\mathrm{Mg}$放射性束流，在逆运动学条件下直接观测向$E_{\mathrm{cm}}\approx480$ keV共振的俘获；${}^{24}\mathrm{Al}$反冲核由DRAGON反冲分离器选择，符合γ射线由$\mathrm{LaBr}_3/\mathrm{CeBr}_3/\mathrm{BGO}$混合闪烁体阵列测量；由${}^{24}\mathrm{Al}$单举产额确定共振强度，由符合γ射线与入射束流之间的时间差确定共振能量。结果：得到该关键天体物理${}^{23}\mathrm{Mg}(p,γ){}^{24}\mathrm{Al}$共振的强度为$ωγ=38(7)$ meV，能量为$E_{\mathrm{cm}}=478.8(26)$ keV。结论：所报道的强度与先前报道的直接测量以及壳模型计算高度一致；能量与早期间接测量符合良好。纳入本文结果的反应率计算表明，在0.2--0.4 GK的新星温度范围内，${}^{23}\mathrm{Mg}(p,γ){}^{24}\mathrm{Al}$反应率被约束在$1σ$上下因子1.5或更小。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何通过新的直接测量改进对主导新星温度下反应率的$E_{\mathrm{cm}}\approx480$ keV ${}^{23}\mathrm{Mg}(p,γ){}^{24}\mathrm{Al}$关键共振之能量与强度的实验约束。</p>
+    <h4>方法</h4><p>采用${}^{23}\mathrm{Mg}$放射性束流在逆运动学下直接观测俘获；用DRAGON反冲分离器选择${}^{24}\mathrm{Al}$反冲核，用$\mathrm{LaBr}_3/\mathrm{CeBr}_3/\mathrm{BGO}$混合闪烁体阵列测量符合γ射线；由${}^{24}\mathrm{Al}$单举产额确定共振强度，由符合γ射线与入射束流的时间差确定共振能量。</p>
+    <h4>主要发现</h4><p>测得该关键共振强度$ωγ=38(7)$ meV、能量$E_{\mathrm{cm}}=478.8(26)$ keV；强度与先前直接测量及壳模型计算高度一致，能量与早期间接测量符合良好；纳入该结果的反应率计算表明，在0.2--0.4 GK新星温度范围内反应率被约束在$1σ$上下因子1.5或更小。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性；其约束范围限于所研究的$E_{\mathrm{cm}}\approx480$ keV共振及0.2--0.4 GK新星温度区间。可合理推断，后续工作或可进一步降低该共振强度与能量的不确定度，并检验该反应率约束在新星模型计算中的影响。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.33153v1">
+  <div class="paper-head">
+    <h2>FASER与NA64μ实验中的μ子三叉过程：研究动机、理论预言与精密测量前景<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.33153v1" rel="noopener noreferrer">2610.33153v1</a>
+  </div>
+  <p class="original-title">Muon Tridents at FASER and NA64$μ$: Motivation, Predictions, and Prospects for Precision Measurements</p>
+  <p class="meta"><strong>作者：</strong>Reinaldo Francener、Victor P. Goncalves、Felix Kling、Gabriel Rabelo-Soares</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>LHC质子-质子碰撞远前向区域产生的高能μ子通量极为强盛，为在TeV能标研究稀有电磁相互作用提供了独特机会。本文研究FASER实验中μ子与原子核相互作用中的μ子三叉散射过程，预计该实验已记录超过10^5个此类事例。文章回顾并改进了该过程的理论描述，在考虑实际探测器接受度与主要本底贡献的基础上，给出了LHC Run 3期间总事例率与微分分布的预言，并考察了预言对核形状因子处理方式的依赖以及库仑修正等高阶QED效应的影响。结果表明，利用FASER的谱仪可首次在TeV能标测量μ子三叉过程，截面测量精度预计可达百分量级。作者还将分析推广至NA64μ实验，表明该实验与FASER相结合，可在广阔的未探索能区检验μ子三叉截面的能量依赖关系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在TeV能标首次测量μ子三叉散射过程，并检验其截面随能量的变化。</p>
+    <h4>方法</h4><p>回顾并改进μ子三叉过程的理论描述，结合FASER探测器的实际接受度与主要本底，计算LHC Run 3期间的总事例率与微分分布；考察核形状因子处理方式及库仑修正等高阶QED效应的影响；并将分析推广至NA64μ实验。</p>
+    <h4>主要发现</h4><p>FASER预计已记录超过10^5个μ子三叉事例；考虑探测器接受度与本底后可给出Run 3的事例率与微分分布预言；FASER谱仪有望首次在TeV能标测量该过程，截面精度预计达百分量级；FASER与NA64μ结合可在广阔未探索能区检验截面的能量依赖。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限性；可合理推断，预言的可靠性依赖于核形状因子与高阶QED修正的处理，实际测量精度可能受本底系统误差与探测器系统误差制约，后续需实验数据检验理论修正。</p>
+  </section>
+</article><article class="paper" id="paper-2610.33255v1">
+  <div class="paper-head">
+    <h2>纵向极化电子-质子散射中弹性矢量介子产生对轨道角动量分布的探测<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.33255v1" rel="noopener noreferrer">2610.33255v1</a>
+  </div>
+  <p class="original-title">Probing Orbital Angular Momentum Distributions in Elastic Vector Meson Production in Longitudinally Polarized Electron--Proton Scattering</p>
+  <p class="meta"><strong>作者：</strong>Yuri V. Kovchegov、Brandon Manley</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文考虑在小 $x$ 区域纵向极化电子-质子碰撞中的弹性矢量介子产生。受文献中已有开创性提议的启发，我们在极化小 $x$ 形式框架内，分别针对横向极化和纵向极化的矢量介子，计算了纵向双自旋不对称性（DSA）的分子。计算表明，在小横向动量转移下，弹性矢量介子产生 DSA 的 $\cos\varphi_{k\Delta}$ 方位角谐波（其中 $\varphi_{k\Delta}$ 为偶极/Trento 参考系中出射电子与介子横向动量之间的方位角）为探测小 $x$ 区域的轨道角动量（OAM）分布提供了有前景的途径。所得结果可适用于多种不同的矢量介子种类，从而开辟了一类新的可观测量，可用于从实验数据中提取 OAM 分布。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在小 $x$ 区域通过纵向极化电子-质子散射中的弹性矢量介子产生，探测轨道角动量（OAM）分布。</p>
+    <h4>方法</h4><p>在极化小 $x$ 形式框架内，分别对横向极化和纵向极化矢量介子计算纵向双自旋不对称性（DSA）的分子，并分析其方位角谐波，特别是小横向动量转移下 DSA 的 $\cos\varphi_{k\Delta}$ 谐波。</p>
+    <h4>主要发现</h4><p>计算表明，小横向动量转移下弹性矢量介子产生 DSA 的 $\cos\varphi_{k\Delta}$ 方位角谐波可作为探测小 $x$ 区域 OAM 分布的有前景的观测量；结果可适用于多种矢量介子种类，从而提供一类可从实验数据中提取 OAM 分布的新观测量。</p>
+    <h4>局限与展望</h4><p>原文未给出数值估计或实验可行性分析；该观测量在实际数据中的可提取性、不同矢量介子种类下的适用性以及理论近似（极化小 $x$ 形式、小横向动量转移）的适用范围仍需进一步检验，这些属于可合理推断的后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2610.33622v1">
+  <div class="paper-head">
+    <h2>μ^-子与原子核散射中的阈下共振<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.33622v1" rel="noopener noreferrer">2610.33622v1</a>
+  </div>
+  <p class="original-title">Subthreshold Resonances in the Scattering of μ^-Mesons by Atomic Nuclei</p>
+  <p class="meta"><strong>作者：</strong>F. M. Penkov、A. Mukhametkaliuly</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对原子核的阈前共振激发进行了理论研究，提出了在Feshbach-Baz阈前共振能区利用轻子探针的形式体系。研究表明，共振位置与宽度同核结构参数存在内在关联；文中论证了重核巨偶极共振（GDR）能区对应低探针能量，且该共振具有较大宽度。基于该框架，在不受强背景干扰的条件下，可预测GDR激发与退激通道（包括核裂变）的可观测特征。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用轻子探针研究原子核在Feshbach-Baz阈前共振能区的共振激发，并刻画其共振位置、宽度与核结构参数的关系。</p>
+    <h4>方法</h4><p>提出一套在阈前共振能区使用轻子探针的理论形式体系，并据此分析共振位置与宽度同核结构参数的关联，以及重核GDR能区与探针能量的对应关系。</p>
+    <h4>主要发现</h4><p>共振位置和宽度与核结构参数存在内在联系；重核GDR能区对应较低的探针能量，且该共振宽度较大；在该框架下可预测GDR激发与退激通道（包括核裂变）的可观测特征，且不受强背景干扰。</p>
+    <h4>局限与展望</h4><p>原文未给出定量验证或实验对比，该形式体系的适用范围与精度尚待检验；后续可合理推断需结合具体核结构与实验条件开展定量计算与验证，但此仅为推断。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34061v1">
+  <div class="paper-head">
+    <h2>追忆Brown-Rho标度<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.34061v1" rel="noopener noreferrer">2610.34061v1</a>
+  </div>
+  <p class="original-title">Remembering Brown-Rho scaling</p>
+  <p class="meta"><strong>作者：</strong>Su Houng lee</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>致Mannque Rho的回忆性文章。作者回顾了自1984年进入石溪研究生院以来对致密物质中强子性质的兴趣形成过程，介绍了Mannque Rho的部分工作如何激发其对该课题的兴趣，并阐述其对Mannque Rho与Gerry Brown所强调、但常被误解的Brown-Rho标度的当前看法。结合近期进展，文章还讨论了Brown-Rho标度在介子和重子情形下与自发手征对称性破缺及$U_A(1)$破缺效应相关的修正。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>致密物质中强子性质的研究，以及Brown-Rho标度的含义、常见误解及其与自发手征对称性破缺和$U_A(1)$破缺效应相关的修正。</p>
+    <h4>方法</h4><p>以回忆性综述的方式，选取并评述Mannque Rho的相关工作，结合作者个人研究经历与近期进展进行讨论。</p>
+    <h4>主要发现</h4><p>作者指出Brown-Rho标度常被误解，并讨论了近期进展下介子和重子情形中与自发手征对称性破缺及$U_A(1)$破缺效应相关的Brown-Rho标度修正。</p>
+    <h4>局限与展望</h4><p>原文为回忆性文章，未给出系统性定量结论；其讨论的标度修正的适用范围与可检验性有待进一步研究，此点属合理推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34276v1">
+  <div class="paper-head">
+    <h2>重新审视核子极化率：来自Bernabéu-Ericson-Ferro Fontan-Tarrach求和规则的洞见<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.34276v1" rel="noopener noreferrer">2610.34276v1</a>
+  </div>
+  <p class="original-title">Nucleon polarizabilities revisited: insights from the Bernabéu-Ericson-Ferro Fontan-Tarrach sum rule</p>
+  <p class="meta"><strong>作者：</strong>Xiong-Hui Cao、Ling-Yun Dai、Feng-Kun Guo</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对核子偶极极化率差 $\alpha_{E1}-\beta_{M1}$ 的 Bernabéu-Ericson-Ferro Fontan-Tarrach（BEFT）求和规则进行了完整的色散评估。分析基于双曲色散关系，该关系可将 $s$ 道与 $t$ 道贡献分离而不产生重复计数，尤其适用于背向实康普顿散射。该框架使得能够从独立的色散输入而非对低能康普顿散射数据的拟合来精确确定极化率差。$s$ 道部分采用现代单π光生多重极以及非 $\pi N$ 非弹性道的模型估计进行更新。对于 $t$ 道，我们使用 $\gamma\gamma\to\pi\pi/K\bar K_{I_t=0}$ 的当代色散输入，结合 $\pi\pi/K\bar K_{I_t=0}\to N\bar N$ 的 Roy-Steiner 方程解，并将计算扩展至与 $a_0(980)$ 相关的同位旋矢量 $\pi\eta/K\bar K_{I_t=1}$ 道。所得处理解决了早期 BEFT 评估中由标量-同位旋标量双π道驱动的长期疑难，并给出了对次领头同位旋矢量贡献的可控估计。将所得 BEFT 值与 Baldin 求和规则结合，以 $10^{-4}\,\mathrm{fm}^3$ 为单位得到 \[ \alpha_{E1}^p=11.17(52),\quad \beta_{M1}^p=2.84(52),\quad \alpha_{E1}^n=12.18(59),\quad \beta_{M1}^n=3.03(59). \] 对于质子，这些数值提供了精度可与最先进的色散及手征有效场论提取相比拟的基准。对于极化率实验约束远不直接的中子，该结果为独立色散基准，其不确定度与质子相当。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用 BEFT 求和规则，从独立的色散输入而非低能康普顿散射数据拟合，完整且精确地确定核子偶极极化率差 $\alpha_{E1}-\beta_{M1}$，并解决早期 BEFT 评估中的疑难。</p>
+    <h4>方法</h4><p>基于双曲色散关系分离 $s$ 道与 $t$ 道贡献；$s$ 道采用现代单π光生多重极和非 $\pi N$ 非弹性道模型估计；$t$ 道采用 $\gamma\gamma\to\pi\pi/K\bar K_{I_t=0}$ 的当代色散输入与 $\pi\pi/K\bar K_{I_t=0}\to N\bar N$ 的 Roy-Steiner 方程解，并扩展至与 $a_0(980)$ 相关的同位旋矢量 $\pi\eta/K\bar K_{I_t=1}$ 道；最后将 BEFT 值与 Baldin 求和规则结合得到质子和中子的 $\alpha_{E1}$、$\beta_{M1}$。</p>
+    <h4>主要发现</h4><p>该处理解决了早期 BEFT 评估中由标量-同位旋标量双π道驱动的长期疑难，并给出对次领头同位旋矢量贡献的可控估计。结合 Baldin 求和规则后得到（单位 $10^{-4}\,\mathrm{fm}^3$）：$\alpha_{E1}^p=11.17(52)$、$\beta_{M1}^p=2.84(52)$、$\alpha_{E1}^n=12.18(59)$、$\beta_{M1}^n=3.03(59)$。质子结果提供了精度可与最先进色散及手征有效场论提取相比拟的基准；中子结果提供了独立色散基准，其不确定度与质子相当。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向。可合理推断：结果的精度受限于 $s$ 道非 $\pi N$ 非弹性道的模型估计以及 $t$ 道色散输入和 Roy-Steiner 解的不确定度；该框架可随这些输入更新而改进，并可为实验约束较少的中子极化率提供独立参照。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34423v1">
+  <div class="paper-head">
+    <h2>从有限核约束核物质：从头计算视角<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.34423v1" rel="noopener noreferrer">2610.34423v1</a>
+  </div>
+  <p class="original-title">Constraining Nuclear Matter from Finite Nuclei: the Ab Initio Perspective</p>
+  <p class="meta"><strong>作者：</strong>Francesca Bonaiti、Sonia Bacca、Ingo Tews</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">astro-ph.HE</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文综述了旨在约束核物质状态方程的有限核从头计算（ab initio calculations）的最新进展。重点讨论了将有限核结构与核物质整体性质相联系的观测量，包括中子皮厚度、电偶极极化率以及单极求和规则。文中论述了中子皮与电偶极极化率如何提供关于对称能密度依赖性的信息，而单极观测量则约束核物质的不可压缩性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用有限核的从头计算来约束核物质状态方程，特别是对称能的密度依赖性与核物质的不可压缩性。</p>
+    <h4>方法</h4><p>综述性研究，梳理有限核从头计算方法及相关观测量（中子皮厚度、电偶极极化率、单极求和规则）与核物质整体性质之间的联系。</p>
+    <h4>主要发现</h4><p>中子皮厚度和电偶极极化率可提供对称能密度依赖性的信息；单极观测量可约束核物质的不可压缩性。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限性与后续方向；可合理推断，进一步降低从头计算误差并将有限核观测量更精确地映射到核物质性质，是该方向值得关注的问题（此推断基于综述主题，原文未直接陈述）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34798v1">
+  <div class="paper-head">
+    <h2>高 x 区域π介子部分子分布之谜<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.34798v1" rel="noopener noreferrer">2610.34798v1</a>
+  </div>
+  <p class="original-title">The Pion Parton Distribution Puzzle in the High x Region</p>
+  <p class="meta"><strong>作者：</strong>Misak Sargsian</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种基于价夸克谱函数表示的新理论方法，用于描述强子的部分子结构。该方法将无质量价夸克置于剩余强子的平均场中，此前已用于计算核子部分子分布函数（PDF），并由此观察到核子的π介子云结构。本报告在同一框架下计算价夸克区域的π介子 PDF：通过嵌入π介子剩余场中的价 q\bar q 集团来描述π介子的软部分子结构，并利用 q\bar q 集团与剩余场的唯象光前波函数计算π介子 PDF。结果表明，x 加权的价 PDF（xPDF）的峰位依赖于表征 q\bar q 集团虚度与剩余系统质量的参数；这些参数通过将计算所得 PDF 拟合到起始标度 Q_0 下经验π介子 xPDF 的高度与峰位来确定。拟合表明，与核子情形不同，π介子中仅需很小的剩余质量即可描述价夸克区域的现有π介子 PDF；同时要求 q\bar q 集团具有高虚度，且相互作用夸克携带该集团几乎全部动量。这一图像与 Feynman 机制的主导地位一致，使 PDF 中硬成分的空间很小。该计算实际描述了近期在 x→1 极限观测到的约 (1-x) 行为。一个非平凡的观察是，xPDF 的高度与峰位决定了价 PDF 在 x→1 极限下的解析行为。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在价夸克区域描述π介子的部分子分布函数，并解释其高 x 区域（尤其 x→1 极限）的行为？</p>
+    <h4>方法</h4><p>采用基于价夸克谱函数表示的理论方法，将无质量价夸克置于剩余强子平均场中；以嵌入π介子剩余场的价 q\bar q 集团描述软部分子结构，并使用唯象光前波函数计算π介子 PDF；通过拟合经验π介子 xPDF 在起始标度 Q_0 下的高度与峰位确定 q\bar q 集团虚度及剩余系统质量等参数。</p>
+    <h4>主要发现</h4><p>x 加权价 PDF 的峰位依赖于 q\bar q 集团虚度与剩余系统质量参数；拟合表明π介子中仅需很小的剩余质量即可描述价夸克区域的现有π介子 PDF，且要求 q\bar q 集团高度虚化、相互作用夸克携带该集团几乎全部动量；该图像与 Feynman 机制主导一致，硬成分空间很小；计算实际描述了近期在 x→1 极限观测到的约 (1-x) 行为；xPDF 的高度与峰位决定了价 PDF 在 x→1 极限下的解析行为。</p>
+    <h4>局限与展望</h4><p>原文指出该图像使 PDF 中硬成分的空间很小，但未给出定量上限；所提“高度与峰位决定 x→1 解析行为”的观察基于当前拟合参数与唯象光前波函数，其普适性及对更高 Q^2 演化、其他强子或更精确高 x 数据的适用性尚待检验（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35424v1">
+  <div class="paper-head">
+    <h2>核裂变：从基础到前沿<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.35424v1" rel="noopener noreferrer">2610.35424v1</a>
+  </div>
+  <p class="original-title">Nuclear fission: from fundamentals to frontiers</p>
+  <p class="meta"><strong>作者：</strong>M. R. Mumpower</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">astro-ph.SR</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>核裂变是指重原子核分裂为较轻碎片的过程，对核物理、能源生产以及元素起源具有根本性意义。本章作为《核物理百科全书》的一部分，对裂变物理的广泛主题作了教学性介绍：从宏观液滴模型与微观壳修正出发，依次讨论裂变动力学、可观测量、现代理论框架，以及从传统双能量方法到放射性离子束装置中逆运动学方法的实验技术。文中还讨论了裂变在天体物理核合成、核能、医用同位素生产与国家安全中的作用，并强调了若干开放问题，包括微观理论的预测能力，以及与重元素核合成相关的中子丰核裂变性质。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文旨在对核裂变物理的基础与前沿主题作教学性综述，涵盖从宏观与微观理论描述、裂变动力学与可观测量，到实验技术及其在核合成、核能、医用同位素和国家安全中的应用，并指出该领域的开放问题。</p>
+    <h4>方法</h4><p>采用综述与教学性介绍的方式，梳理液滴模型与壳修正等理论框架、裂变动力学与可观测量的描述，以及从传统双能量测量到放射性离子束逆运动学在内的实验技术，并讨论裂变在多个应用领域中的作用。</p>
+    <h4>主要发现</h4><p>原文明确指出，本章系统介绍了裂变物理的广泛主题，涵盖宏观液滴模型、微观壳修正、裂变动力学、可观测量、现代理论框架与实验技术；并讨论了裂变在天体物理核合成、核能、医用同位素生产与国家安全中的作用；同时将微观理论的预测能力以及中子丰核的裂变性质列为开放问题。</p>
+    <h4>局限与展望</h4><p>原文将微观理论的预测能力和与重元素核合成相关的中子丰核裂变性质列为开放问题；据此可合理推断，提升微观理论的可预测性并获取中子丰核的裂变数据是后续值得关注的方向，但原文未给出具体的研究路线或结论。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-27 10:42 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

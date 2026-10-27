@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-ex · 高能实验</h1>
+    <p class="lede">官方公告日：2026-10-27</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">22</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">16</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2610.33140v1">在质心能量13 TeV质子-质子碰撞中寻找强耦合暗物质的非共振产生</a> <small>2610.33140v1</small></li><li><a href="#paper-2610.34311v1">稀有衰变 $\eta^{\prime}\to 3\gamma$ 的搜寻</a> <small>2610.34311v1</small></li><li><a href="#paper-2610.34442v1">MATHUSLA：面向高亮度LHC的提议长寿命粒子探测器</a> <small>2610.34442v1</small></li><li><a href="#paper-2610.34706v1">首次测量 ψ(3686)→p̄K⁺Σ*(1385)⁰ + c.c. 与 ψ(3686)→p̄K*(892)⁰Σ⁺ + c.c.</a> <small>2610.34706v1</small></li><li><a href="#paper-2610.35154v1">LHμC：欧洲核子研究中心的高能高亮度μ子-强子对撞机</a> <small>2610.35154v1</small></li><li><a href="#paper-2610.35239v1">在B^0→D^{*-}D^0K^+衰变中观测到T_{c\bar{c}1}(4430)^-态</a> <small>2610.35239v1</small></li></ol><h3>交叉列表（16）</h3><ol class="toc-list"><li><a href="#paper-2610.25423v1">暗希格斯放热暗物质：LZ 248 keV事件与银河系中心过量</a> <small>2610.25423v1</small></li><li><a href="#paper-2610.33096v1">惯性约束聚变中激光脉冲波形设计的逆向建模</a> <small>2610.33096v1</small></li><li><a href="#paper-2610.33152v1">夸克-轻子统一的低能标</a> <small>2610.33152v1</small></li><li><a href="#paper-2610.33153v1">FASER与NA64μ实验中的μ子三叉过程：研究动机、理论预言与精密测量前景</a> <small>2610.33153v1</small></li><li><a href="#paper-2610.33255v1">纵向极化电子-质子散射中弹性矢量介子产生对轨道角动量分布的探测</a> <small>2610.33255v1</small></li><li><a href="#paper-2610.33757v1">用图神经网络剖析味标记</a> <small>2610.33757v1</small></li><li><a href="#paper-2610.34117v1">辐射性希格斯衰变到ψ(4230)</a> <small>2610.34117v1</small></li><li><a href="#paper-2610.34216v1">异常软光子：简要综述</a> <small>2610.34216v1</small></li><li><a href="#paper-2610.34325v1">轴子晕探测器近乎精确的上置信限</a> <small>2610.34325v1</small></li><li><a href="#paper-2610.34741v1">“必然”非奇异四夸克态与ρρ相互作用</a> <small>2610.34741v1</small></li><li><a href="#paper-2610.34798v1">高 x 区域π介子部分子分布之谜</a> <small>2610.34798v1</small></li><li><a href="#paper-2610.35285v1">在光子-光子对撞机上探测柯林斯效应</a> <small>2610.35285v1</small></li><li><a href="#paper-2610.35331v1">在 ALICE 中于 √s_NN = 5.36 TeV 的 OO 与 Ne–Ne 碰撞中测量类喷注双强子关联</a> <small>2610.35331v1</small></li><li><a href="#paper-2610.35619v1">弥散超新星中微子背景中电子反中微子信号的迹象</a> <small>2610.35619v1</small></li><li><a href="#paper-2610.35675v1">超高能观测载荷（PUEO）的设计与飞行</a> <small>2610.35675v1</small></li><li><a href="#paper-2610.35789v1">非弹性暗物质的中微子雾</a> <small>2610.35789v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.33140v1">
+  <div class="paper-head">
+    <h2>在质心能量13 TeV质子-质子碰撞中寻找强耦合暗物质的非共振产生<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.33140v1" rel="noopener noreferrer">2610.33140v1</a>
+  </div>
+  <p class="original-title">Search for nonresonant production of strongly coupled dark matter in proton-proton collisions at $\sqrt{s}$ = 13 TeV</p>
+  <p class="meta"><strong>作者：</strong>CMS Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报告了一项针对非共振过程产生的半可见喷流的搜寻，使用欧洲核子研究中心大型强子对撞机上CMS探测器采集的质心能量 $\sqrt{s}=13$ TeV 质子-质子碰撞数据，对应积分亮度为 138 fb$^{-1}$。此类喷流同时包含可见与不可见粒子，若被观测到，将指示源自强耦合隐藏扇区的暗物质的存在。信号模型包含一个双基标量，它同时与标准模型夸克和暗扇区夸克耦合，后者形成半可见喷流。因此，末态包含与喷流方向一致的缺失横向动量，而非如传统对撞机暗物质搜寻通常要求的那样与标准模型粒子反冲。研究采用两种独立的机器学习策略来识别半可见喷流：监督式图神经网络与无监督式自编码器。未观测到与暗扇区信号假设相对应的显著超出。针对每种策略，给出了信号产生截面在 95% 置信水平下的上限，并将其解释为对信号模型参数空间的排除。监督式搜寻排除了介于 0.5 至 2.4 TeV 之间的媒介子质量，具体范围取决于其他信号模型参数。对于半可见喷流中包含更高比例稳定暗物质粒子的信号模型，无监督式搜寻表现出更高的灵敏度，其预期（观测）媒介子质量排除范围比监督式搜寻分别高 5%（11%）。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在 $\sqrt{s}=13$ TeV 质子-质子碰撞中，是否存在由强耦合隐藏扇区暗物质产生的非共振半可见喷流信号。</p>
+    <h4>方法</h4><p>采用CMS探测器采集的 138 fb$^{-1}$ 数据，基于包含双基标量的信号模型，使用两种机器学习策略识别半可见喷流：监督式图神经网络和无监督式自编码器，并针对每种策略给出信号产生截面的 95% 置信水平上限及参数空间排除。</p>
+    <h4>主要发现</h4><p>未观测到与暗扇区信号假设相对应的显著超出。监督式搜寻排除了媒介子质量在 0.5 至 2.4 TeV 之间的参数区间（取决于其他信号模型参数）；对于半可见喷流中稳定暗物质粒子比例更高的信号模型，无监督式搜寻的预期（观测）媒介子质量排除范围比监督式搜寻分别高 5%（11%）。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；可合理推断，该结果依赖于所采用的特定信号模型与两种机器学习策略，其适用范围限于所考察的参数空间，后续可通过更多数据或扩展信号模型进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34311v1">
+  <div class="paper-head">
+    <h2>稀有衰变 $\eta^{\prime}\to 3\gamma$ 的搜寻<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.34311v1" rel="noopener noreferrer">2610.34311v1</a>
+  </div>
+  <p class="original-title">Search for the rare decay $η^{\prime}\to 3γ$</p>
+  <p class="meta"><strong>作者：</strong>M. Ablikim、M. N. Achasov、P. Adlarson、X. C. Ai、C. S. Akondi、R. Aliberti、A. Amoroso、L. P. An、Q. An、M. S. Anderson、Y. Bai、O. Bakina、H. R. Bao、X. L. Bao、M. Barbagiovanni、V. Batozskaya、K. Begzsuren、N. Berger、M. Berlowski、M. B. Bertani、D. Bettoni、F. Bianchi、E. Bianco、A. Bortone、I. Boyko、R. A. Briere、A. Brueggemann、D. Cabiati、H. Cai、M. H. Cai、X. Cai、X. K. Cai、G. F. Cao、N. Cao、X. Cao、S. A. Cetin、X. Y. Chai、J. F. Chang、T. T. Chang、G. R. Che、Y. Z. Che、C. H. Chen、Chao Chen、E. N. Chen、G. Chen、H. S. Chen、H. Y. Chen、J. Chen、J. D. Chen、M. L. Chen、S. J. Chen、S. M. Chen、T. Chen、W. Chen、X. R. Chen、X. T. Chen、X. Y. Chen、Y. B. Chen、Y. Q. Chen、Z. K. Chen、J. Cheng、L. N. Cheng、S. K. Choi、X. Chu、G. Cibinetto、F. Cossio、J. Cottee-Meldrum、H. L. Dai、J. P. Dai、X. C. Dai、A. Dbeyssi、R. E. de Boer、D. Dedovich、Z. Y. Deng、A. Denig、I. Denisenko、M. Destefanis、F. De Mori、E. Di Fiore、X. X. Ding、Y. Ding、Y. Q. Ding、J. Dong、L. Y. Dong、M. Y. Dong、Z. J. Dong、K. B. Du、M. C. Du、S. X. Du、Shaoxu Du、X. L. Du、Y. Q. Du、C. D. Duan、Z. H. Duan、P. Egorov、G. F. Fan、K. X. Fan、Y. H. Fan、Y. L. Fan、Z. F. Fan、J. Fang、Jin Fang、S. S. Fang、W. X. Fang、L. Fava、F. Feldbauer、C. Q. Feng、J. H. Feng、Q. X. Feng、Y. T. Feng、M. Fritsch、C. D. Fu、J. L. Fu、Y. W. Fu、Xu Gao、Y. Gao、Y. N. Gao、Yunong Gao、Z. Gao、S. Garbolino、I. Garzia、L. Ge、L. Q. Ge、P. T. Ge、C. Geng、A. Gilman、K. Goetzen、J. Gollub、J. B. Gong、J. D. Gong、L. Gong、W. X. Gong、B. Gou、W. Gradl、M. Greco、M. D. Gu、M. H. Gu、C. Y. Guan、S. Y. Guan、A. Q. Guo、H. Guo、J. N. Guo、L. B. Guo、M. J. Guo、R. P. Guo、X. Guo、Y. P. Guo、Z. Guo、A. Guskov、J. Gutierrez、J. Y. Han、T. T. Han、X. Han、F. Hanisch、J. Y. Hao、K. D. Hao、X. Q. Hao、F. A. Harris、C. Z. He、K. K. He、K. L. He、F. H. Heinsius、C. H. Heinz、Y. K. Heng、C. Herold、N. D. Hoffman、G. Y. Hou、X. T. Hou、Z. L. Hou、H. M. Hu、J. F. Hu、Q. P. Hu、S. L. Hu、T. Hu、Y. Hu、Y. X. Hu、Z. M. Hu、G. S. Huang、L. Q. Huang、P. Huang、X. T. Huang、Y. P. Huang、Y. S. Huang、T. Hussain、N. Hüsken、N. in der Wiesche、Q. Ji、Q. P. Ji、W. Ji、X. B. Ji、X. L. Ji、Y. Y. Ji、L. K. Jia、S. Jia、X. Q. Jia、D. Jiang、H. B. Jiang、S. J. Jiang、X. S. Jiang、Y. Jiang、Y. T. Jiang、J. B. Jiao、Z. Jiao、B. W. Jin、L. C. L. Jin、S. Jin、Y. Jin、M. Q. Jing、X. M. Jing、T. Johansson、S. Kabana、X. L. Kang、X. S. Kang、B. C. Ke、A. Khoukaz、O. B. Kolcu、S. H. Kong、B. Kopf、L. Kröger、L. Krümmel、Y. Y. Kuang、M. Kuessner、X. Kui、N. Kumar、A. Kupsc、W. Kühn、L. Y. Lan、Q. Lan、J. Y. Lee、T. T. Lei、M. Lellmann、T. Lenz、C. Li、C. H. Li、C. J. Li、C. K. Li、C. L. Li、D. M. Li、F. Li、G. Li、H. B. Li、H. J. Li、H. N. Li、H. P. Li、Hui Li、J. N. Li、J. W. Li、K. Li、K. L. Li、L. J. Li、L. K. Li、Lei Li、M. H. Li、M. R. Li、M. T. Li、P. L. Li、P. R. Li、Q. M. Li、R. Li、S. X. Li、Shanshan Li、T. Li、T. Y. Li、W. D. Li、W. G. Li、X. Li、X. H. Li、X. K. Li、X. L. Li、X. Y. Li、X. Z. Li、Y. H. Li、Y. B. Li、Y. C. Li、Y. G. Li、Y. L. Li、Y. P. Li、Y. X. Li、Yi Li、Z. H. Li、Z. J. Li、Z. X. Li、Z. Y. Li、Zaiyi Li、C. Liang、H. Liang、Y. F. Liang、Y. T. Liang、Z. Z. Liang、G. R. Liao、L. B. Liao、M. H. Liao、Y. P. Liao、J. Libby、A. Limphirat、C. X. Lin、D. X. Lin、T. Lin、B. J. Liu、C. Liu、C. X. Liu、F. Liu、F. H. Liu、Feng Liu、G. M. Liu、H. Liu、H. B. Liu、H. M. Liu、Huihui Liu、J. B. Liu、K. Liu、K. Y. Liu、Ke Liu、Kun Liu、L. Liu、L. C. Liu、Lu Liu、M. H. Liu、P. L. Liu、Q. Liu、S. B. Liu、T. Liu、W. T. Liu、X. Liu、X. K. Liu、X. L. Liu、X. P. Liu、X. T. Liu、X. Y. Liu、Y. Liu、Y. B. Liu、Yi Liu、Z. A. Liu、Z. D. Liu、Z. Q. Liu、Z. X. Liu、Z. Y. Liu、X. C. Lou、H. J. Lu、J. G. Lu、X. L. Lu、Y. Lu、Y. H. Lu、Y. P. Lu、C. L. Luo、J. Q. Luo、J. R. Luo、J. S. Luo、M. X. Luo、Q. Q. Luo、T. Luo、X. L. Luo、XiaoRong Lv、Z. Y. Lv、X. R. Lyu、Y. F. Lyu、Y. H. Lyu、C. L. Ma、F. C. Ma、H. L. Ma、Heng Ma、J. L. Ma、L. L. Ma、Q. M. Ma、R. Q. Ma、T. Ma、X. T. Ma、X. Y. Ma、F. E. Maas、M. Maggiora、S. Maity、S. Malde、L. M. Mansur、Y. J. Mao、Z. P. Mao、S. Marcello、A. Marshall、F. M. Melendi、Z. X. Meng、G. Mezzadri、H. Miao、T. J. Min、T. Mineeva、S. W. Ming、R. E. Mitchell、X. H. Mo、A. F. Mohammed、B. Moses、N. Yu. Muchnoi、J. Muskalla、Y. Nefedov、F. Nerling、H. Neuwirth、Z. Ning、S. Nisar、Q. L. Niu、W. D. Niu、Y. Niu、S. L. Olsen、Q. Ouyang、I. V. Ovtin、S. Pacetti、X. Pan、Y. Pan、C. Y. Pang、A. Pathak、Y. P. Pei、Y. Y. Pei、M. Pelizaeus、G. L. Peng、H. P. Peng、X. J. Peng、Y. Y. Peng、Z. Q. Peng、K. Peters、K. Petridis、J. L. Ping、R. G. Ping、S. Plura、S. Polikarpov、V. Prasad、L. Pöpping、F. Z. Qi、H. R. Qi、L. Y. Qian、S. Qian、W. B. Qian、C. F. Qiao、J. H. Qiao、J. J. Qin、J. L. Qin、L. Q. Qin、L. Y. Qin、P. B. Qin、X. P. Qin、X. S. Qin、Z. H. Qin、J. F. Qiu、J. Rademacker、K. Ravindran、C. F. Redmer、Y. Ren、A. Rivetti、M. Rolo、G. Rong、S. S. Rong、F. Rosini、Ch. Rosner、M. Q. Ruan、W. R. Ruangyoo、N. Salone、A. Sarantsev、Y. Schelhaas、M. Schernau、K. Schoenning、M. Scodeggio、Jian Shan、W. Shan、X. Y. Shan、Z. J. Shang、J. F. Shangguan、L. G. Shao、M. Shao、C. P. Shen、H. F. Shen、W. H. Shen、X. Y. Shen、B. A. Shi、Ch. Y. Shi、H. Shi、J. L. Shi、J. Y. Shi、S. Shi、X. Shi、X. D. Shi、H. L. Song、J. J. Song、M. H. Song、T. Z. Song、W. M. Song、Y. Song、Y. X. Song、Zirong Song、S. Sosio、S. Spataro、S. Stansilaus、F. Stieler、M. Stolte、J. L. Su、S. S Su、G. B. Sun、G. X. Sun、H. Sun、H. K. Sun、J. F. Sun、K. Sun、L. Sun、R. Sun、S. S. Sun、W. Y. Sun、Y. C. Sun、Y. J. Sun、Y. S. Sun、Y. Z. Sun、Z. Q. Sun、Z. T. Sun、H. Tabaharizato、N. T. Tagsinsit、C. J. Tang、G. Y. Tang、H. Y. Tang、J. Tang、J. J. Tang、L. F. Tang、Y. A. Tang、Z. H. Tang、L. Y. Tao、M. Tat、J. X. Teng、J. Y. Tian、W. H. Tian、Y. Tian、K. Yu. Todyshev、I. Uman、E. van der Smagt、S. W. Wan、X. Wan、B. Wang、B. Q. Wang、Bin Wang、Bo Wang、C. Wang、C. L. Wang、Cong Wang、D. Y. Wang、F. K. Wang、H. J. Wang、H. R. Wang、J. Wang、J. Wang、J. H. Wang、J. J. Wang、J. P. Wang、K. Wang、L. L. Wang、M. Wang、Mi Wang、N. Y. Wang、S. Wang、Shun Wang、W. Wang、W. P. Wang、X. F. Wang、X. L. Wang、X. N. Wang、Xin Wang、Y. Wang、Y. -K. Wang、Y. D. Wang、Y. F. Wang、Y. H. Wang、Y. J. Wang、Y. L. Wang、Yanning Wang、Yaqian Wang、Yi Wang、Yuan Wang、Z. Wang、Z. L. Wang、Z. Q. Wang、Z. Y. Wang、Zhi Wang、D. Wei、D. H. Wei、D. J. Wei、H. R. Wei、F. Weidner、H. R. Wen、S. P. Wen、U. Wiedner、G. Wilkinson、J. F. Wu、L. H. Wu、L. J. Wu、S. G. Wu、S. M. Wu、X. W. Wu、Y. C. Wu、Z. Wu、H. L. Xia、L. Xia、T. J. Xia、B. H. Xiang、D. Xiao、G. Y. Xiao、H. Xiao、Y. L. Xiao、Z. J. Xiao、C. Xie、K. J. Xie、Y. Xie、Y. Xie、Y. G. Xie、Y. H. Xie、Z. P. Xie、T. Y. Xing、G. F. Xu、H. Y. Xu、Q. J. Xu、Q. N. Xu、X. P. Xu、Y. Xu、Y. C. Xu、Z. S. Xu、F. Yan、J. Z. Yan、L. Yan、W. B. Yan、W. C. Yan、W. H. Yan、X. Q. Yan、Y. Y. Yan、H. J. Yang、H. L. Yang、H. X. Yang、J. H. Yang、L. Y. Yang、N. Yang、R. J. Yang、X. Y. Yang、Y. Yang、Y. G. Yang、Y. H. Yang、Y. Q. Yang、Y. Z. Yang、Z. B. Yang、Z. W. Yang、W. J. Yao、M. Ye、M. H. Ye、M. Y. Ye、Z. J. Ye、H. L. Yi、K. Yi、Junhao Yin、Qiqin Yin、X. Y. Yin、Z. Y. You、B. X. Yu、C. X. Yu、G. Yu、J. S. Yu、L. W. Yu、P. X. Yu、T. Yu、X. D. Yu、Yongchao Yu、C. Z. Yuan、H. Yuan、J. Yuan、J. X. Yuan、Jie Yuan、L. Yuan、M. K. Yuan、S. H. Yuan、Y. Yuan、Z. Y. Yuan、C. X. Yue、Ying Yue、A. A. Zafar、F. R. Zeng、S. H. Zeng、Xin Zeng、Y. J. Zeng、Yujie Zeng、M. Z. Zhai、Y. H. Zhan、B. L. Zhang、B. R. Zhang、D. H. Zhang、G. Y. Zhang、Gengyuan Zhang、H. C. Zhang、H. H. Zhang、H. L. Zhang、H. Q. Zhang、H. R. Zhang、H. Y. Zhang、H. Z. Zhang、Han Zhang、J. Zhang、J. J. Zhang、J. L. Zhang、J. Q. Zhang、J. W. Zhang、J. Y. Zhang、J. Z. Zhang、Jianyu Zhang、Jiawen Zhang、Jin Zhang、Jiyuan Zhang、L. M. Zhang、Lei Zhang、N. Zhang、P. Zhang、Q. Y. Zhang、Q. Z. Zhang、R. Y. Zhang、Rui Zhang、S. H. Zhang、S. N. Zhang、Shulei Zhang、W. -C. Zhang、X. M. Zhang、X. Y. Zhang、Y. T. Zhang、Y. H. Zhang、Y. P. Zhang、Y. P. Zhang、Y. X. Zhang、Yao Zhang、Yu Zhang、Yu Zhang、Yu Zhang、Z. Zhang、Z. D. Zhang、Z. H. Zhang、Z. R. Zhang、Z. Y. Zhang、Zh. Zh. Zhang、Zhaoke Zhang、Zhilong Zhang、Ziyang Zhang、Ziyu Zhang、P. Zhang、G. Zhao、J. -P. Zhao、J. Y. Zhao、J. Z. Zhao、L. Zhao、Lei Zhao、M. G. Zhao、R. P. Zhao、X. H. Zhao、Y. B. Zhao、Y. L. Zhao、Y. P. Zhao、Y. X. Zhao、Z. G. Zhao、A. Zhemchugov、B. Zheng、B. M. Zheng、J. P. Zheng、W. J. Zheng、W. Q. Zheng、X. R. Zheng、Y. H. Zheng、B. Zhong、C. Zhong、X. Zhong、H. Zhou、J. Q. Zhou、S. Zhou、X. Zhou、X. K. Zhou、X. R. Zhou、X. X. Zhou、X. Y. Zhou、Y. X. Zhou、Y. Z. Zhou、A. N. Zhu、J. Zhu、J. J. Zhu、K. Zhu、K. J. Zhu、K. S. Zhu、Lin Zhu、S. H. Zhu、T. J. Zhu、W. D. Zhu、W. J. Zhu、W. Z. Zhu、Y. C. Zhu、Z. A. Zhu、X. Y. Zhuang、M. Zhuge、J. H. Zou、J. Zu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>利用 BESIII 探测器收集的 $(10087 \pm 44) \times 10^{6}$ 个 $J/\psi$ 事例数据样本，通过 $J/\psi\to\gamma\eta^{\prime}$ 过程搜寻稀有衰变 $\eta^{\prime}\to 3\gamma$。未观测到显著信号，在 90% 置信水平下给出 $\eta^{\prime}\to 3\gamma$ 分支比的上限 $\mathcal{B}(\eta^{\prime}\to 3\gamma) &lt; 2.25\times 10^{-5}$。该结果将此前上限改善了四倍以上。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>检验稀有衰变 $\eta^{\prime}\to 3\gamma$ 是否存在，并给出其分支比上限。</p>
+    <h4>方法</h4><p>基于 BESIII 探测器收集的 $(10087 \pm 44) \times 10^{6}$ 个 $J/\psi$ 事例，通过 $J/\psi\to\gamma\eta^{\prime}$ 过程进行搜寻，在未观测到显著信号的条件下于 90% 置信水平设置分支比上限。</p>
+    <h4>主要发现</h4><p>未观测到 $\eta^{\prime}\to 3\gamma$ 的显著信号；在 90% 置信水平下得到 $\mathcal{B}(\eta^{\prime}\to 3\gamma) &lt; 2.25\times 10^{-5}$，较此前上限改善四倍以上。</p>
+    <h4>局限与展望</h4><p>该上限仍受当前数据样本量限制；可合理推断，未来更大统计量的 $J/\psi$ 数据或改进的分析方法有望进一步提高灵敏度，但原文未对此作出结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34442v1">
+  <div class="paper-head">
+    <h2>MATHUSLA：面向高亮度LHC的提议长寿命粒子探测器<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.34442v1" rel="noopener noreferrer">2610.34442v1</a>
+  </div>
+  <p class="original-title">MATHUSLA: A Proposed Long-Lived Particle Detector for High-Luminosity LHC</p>
+  <p class="meta"><strong>作者：</strong>Miriam Diamond、David Richard Curtin、Erez Etzion、Caleb Miller、Runze Ren、Steven Robertson、Heather Russell</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>超出标准模型的长寿命粒子（LLP）出现在许多旨在解决等级问题、暗物质本质等基础开放问题的理论中。大型强子对撞机（LHC）可能正在大量产生质量高于GeV的中性LLP，而这些难以探测的粒子会逃逸主探测器而未被发现。为填补这一空白，我们提出了MATHUSLA（MAssive Timing Hodoscope for Ultra-Stable neutraL pArticles），它将被建造在CMS上方的地表，并在高亮度LHC运行期间采集数据。该探测器由多层固体塑料闪烁体构成，闪烁体中穿有波长移位光纤并连接至硅光电倍增管（SiPM），同时监测一个空的、充气的衰变体积。2025年发布的概念设计报告（CDR）给出了40m×40m×16m的基准几何结构，以及模块化探测器建造方案，使得首个模块安装后即可开始数据采集。本会议报告记录了自CDR以来针对探测器潜在选址、模块机械工程、数据采集系统、宇宙线本底、事例选择标准和触发算法所开展的更详细研究的结果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何探测LHC可能产生但会逃逸主探测器的质量高于GeV的中性长寿命粒子（LLP），以弥补现有主探测器在LLP探测上的空白。</p>
+    <h4>方法</h4><p>提出在CMS上方地表建造MATHUSLA探测器，采用多层固体塑料闪烁体加波长移位光纤和SiPM，监测空的充气衰变体积；基于2025年CDR的40m×40m×16m基准几何与模块化建造方案，并开展选址、模块机械工程、数据采集系统、宇宙线本底、事例选择标准和触发算法等详细研究。</p>
+    <h4>主要发现</h4><p>论文提出MATHUSLA可在高亮度LHC运行期间于CMS上方地表采集数据；CDR给出40m×40m×16m基准几何和模块化建造方案，使首个模块安装后即可开始数据采集；本报告记录了自CDR以来在上述多个方面更详细研究的结果。</p>
+    <h4>局限与展望</h4><p>原文未给出探测器实际灵敏度或物理reach的定量结论；其适用范围取决于高亮度LHC运行及模块化建造进度。后续可合理推断的方向包括：基于本报告的本底与触发研究进一步优化事例选择与触发算法，并推进选址与模块工程的落地实施。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34706v1">
+  <div class="paper-head">
+    <h2>首次测量 ψ(3686)→p̄K⁺Σ*(1385)⁰ + c.c. 与 ψ(3686)→p̄K*(892)⁰Σ⁺ + c.c.<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.34706v1" rel="noopener noreferrer">2610.34706v1</a>
+  </div>
+  <p class="original-title">First measurement of $ψ(3686)\to\bar{p} K^{+} Σ^{*}(1385)^{0} + c.c.$ and $ψ(3686)\to\bar{p} K^{*}(892)^{0} Σ^{+} + c.c.$</p>
+  <p class="meta"><strong>作者：</strong>BESIII Collaboration、M. Ablikim、M. N. Achasov、P. Adlarson、X. C. Ai、C. S. Akondi、R. Aliberti、A. Amoroso、Q. An、Y. H. An、M. S. Anderson、Y. Bai、O. Bakina、H. R. Bao、X. L. Bao、M. Barbagiovanni、V. Batozskaya、K. Begzsuren、N. Berger、M. Berlowski、M. B. Bertani、D. Bettoni、F. Bianchi、E. Bianco、A. Bortone、I. Boyko、R. A. Briere、A. Brueggemann、D. Cabiati、H. Cai、M. H. Cai、X. Cai、A. Calcaterra、G. F. Cao、N. Cao、S. A. Cetin、X. Y. Chai、J. F. Chang、T. T. Chang、G. R. Che、Y. Z. Che、C. H. Chen、Chao Chen、G. Chen、H. S. Chen、H. Y. Chen、M. L. Chen、S. J. Chen、S. M. Chen、T. Chen、W. Chen、X. R. Chen、X. T. Chen、X. Y. Chen、Y. B. Chen、Y. Q. Chen、Z. K. Chen、J. Cheng、L. N. Cheng、S. K. Choi、X. Chu、G. Cibinetto、F. Cossio、J. Cottee-Meldrum、H. L. Dai、J. P. Dai、X. C. Dai、A. Dbeyssi、R. E. de Boer、D. Dedovich、Z. Y. Deng、A. Denig、I. Denisenko、M. Destefanis、F. De Mori、E. Di Fiore、X. X. Ding、Y. Ding、Y. X. Ding、J. Dong、L. Y. Dong、M. Y. Dong、X. Dong、Z. J. Dong、M. C. Du、S. X. Du、Shaoxu Du、X. L. Du、Y. Q. Du、Y. Y. Duan、Z. H. Duan、P. Egorov、G. F. Fan、J. J. Fan、K. X. Fan、Y. H. Fan、J. Fang、Jin Fang、S. S. Fang、W. X. Fang、Y. Q. Fang、L. Fava、F. Feldbauer、G. Felici、C. Q. Feng、J. H. Feng、Q. X. Feng、Y. T. Feng、M. Fritsch、C. D. Fu、J. L. Fu、Y. W. Fu、H. Gao、Xu Gao、Y. Gao、Y. N. Gao、Y. Y. Gao、Yunong Gao、Z. Gao、S. Garbolino、I. Garzia、L. Ge、P. T. Ge、Z. W. Ge、C. Geng、A. Gilman、K. Goetzen、J. Gollub、J. B. Gong、J. D. Gong、L. Gong、W. X. Gong、W. Gradl、M. Greco、M. D. Gu、M. H. Gu、C. Y. Guan、A. Q. Guo、H. Guo、J. N. Guo、L. B. Guo、M. J. Guo、R. P. Guo、X. Guo、Y. P. Guo、Z. Guo、A. Guskov、J. Gutierrez、J. Y. Han、T. T. Han、X. Han、F. Hanisch、K. D. Hao、X. Q. Hao、F. A. Harris、C. Z. He、K. K. He、K. L. He、F. H. Heinsius、C. H. Heinz、Y. K. Heng、C. Herold、P. C. Hong、G. Y. Hou、X. T. Hou、Y. R. Hou、Z. L. Hou、H. M. Hu、J. F. Hu、Q. P. Hu、S. L. Hu、T. Hu、Y. Hu、Y. X. Hu、Z. M. Hu、G. S. Huang、K. X. Huang、L. Q. Huang、P. Huang、X. T. Huang、Y. P. Huang、Y. S. Huang、T. Hussain、N. Hüsken、N. in der Wiesche、J. Jackson、Q. Ji、Q. P. Ji、W. Ji、X. B. Ji、X. L. Ji、Y. Y. Ji、L. K. Jia、X. Q. Jia、D. Jiang、S. J. Jiang、X. S. Jiang、Y. Jiang、J. B. Jiao、J. K. Jiao、Z. Jiao、L. C. L. Jin、S. Jin、Y. Jin、M. Q. Jing、X. M. Jing、T. Johansson、S. Kabana、X. L. Kang、X. S. Kang、B. C. Ke、V. Khachatryan、A. Khoukaz、O. B. Kolcu、B. Kopf、L. Kröger、L. Krümmel、Y. Y. Kuang、M. Kuessner、X. Kui、N. Kumar、A. Kupsc、W. Kühn、Q. Lan、W. N. Lan、T. T. Lei、M. Lellmann、T. Lenz、C. Li、C. H. Li、C. K. Li、Chunkai Li、Cong Li、D. M. Li、F. Li、G. Li、H. B. Li、H. J. Li、H. L. Li、H. N. Li、H. P. Li、Hui Li、J. N. Li、J. S. Li、J. W. Li、K. Li、K. L. Li、L. J. Li、L. K. Li、Lei Li、M. H. Li、M. R. Li、M. T. Li、P. L. Li、P. R. Li、Q. M. Li、Q. X. Li、R. Li、S. Li、S. X. Li、S. Y. Li、Shanshan Li、T. Li、T. Y. Li、W. D. Li、W. G. Li、X. Li、X. H. Li、X. K. Li、X. L. Li、X. Y. Li、X. Z. Li、Y. Li、Y. H. Li、Y. B. Li、Y. C. Li、Y. G. Li、Y. P. Li、Z. H. Li、Z. J. Li、Z. L. Li、Z. X. Li、Z. Y. Li、Zaiyi Li、C. Liang、H. Liang、Y. F. Liang、Y. T. Liang、Z. Z. Liang、G. R. Liao、L. B. Liao、M. H. Liao、Y. P. Liao、J. Libby、A. Limphirat、C. C. Lin、C. X. Lin、D. X. Lin、T. Lin、B. J. Liu、B. X. Liu、C. Liu、C. X. Liu、F. Liu、F. H. Liu、Feng Liu、G. M. Liu、H. Liu、H. B. Liu、H. M. Liu、Huihui Liu、J. B. Liu、J. J. Liu、K. Liu、K. Y. Liu、Ke Liu、Kun Liu、L. Liu、L. C. Liu、Lu Liu、M. H. Liu、P. L. Liu、Q. Liu、S. B. Liu、T. Liu、W. T. Liu、X. Liu、X. K. Liu、X. L. Liu、X. P. Liu、X. T. Liu、X. Y. Liu、Y. Liu、Y. B. Liu、Yi Liu、Z. A. Liu、Z. D. Liu、Z. Q. Liu、Z. X. Liu、Z. Y. Liu、X. C. Lou、H. J. Lu、J. G. Lu、X. L. Lu、Y. Lu、Y. H. Lu、Y. P. Lu、Z. H. Lu、C. L. Luo、J. R. Luo、J. S. Luo、M. X. Luo、T. Luo、X. L. Luo、Z. Y. Lv、X. R. Lyu、Y. F. Lyu、Y. H. Lyu、C. L. Ma、F. C. Ma、H. L. Ma、Heng Ma、J. L. Ma、L. L. Ma、L. R. Ma、Q. M. Ma、R. Q. Ma、R. Y. Ma、T. Ma、X. T. Ma、X. Y. Ma、F. E. Maas、I. MacKay、M. Maggiora、S. Maity、S. Malde、Q. A. Malik、L. M. Mansur、Y. J. Mao、Z. P. Mao、S. Marcello、A. Marshall、F. M. Melendi、Y. H. Meng、Z. X. Meng、G. Mezzadri、H. Miao、T. J. Min、R. E. Mitchell、X. H. Mo、A. F. Mohammad、B. Moses、N. Yu. Muchnoi、J. Muskalla、Y. Nefedov、F. Nerling、H. Neuwirth、Z. Ning、S. Nisar、Q. L. Niu、W. D. Niu、Y. Niu、C. Normand、S. L. Olsen、Q. Ouyang、I. V. Ovtin、S. Pacetti、Y. Pan、C. Y. Pang、A. Pathak、Y. P. Pei、M. Pelizaeus、G. L. Peng、H. P. Peng、X. J. Peng、Y. Y. Peng、K. Peters、K. Petridis、J. L. Ping、R. G. Ping、S. Plura、V. Prasad、L. Pöpping、F. Z. Qi、H. R. Qi、L. Y. Qian、S. Qian、W. B. Qian、C. F. Qiao、J. H. Qiao、J. J. Qin、J. L. Qin、L. Q. Qin、L. Y. Qin、P. B. Qin、X. P. Qin、X. S. Qin、Z. H. Qin、J. F. Qiu、Z. H. Qu、J. Rademacker、K. Ravindran、C. F. Redmer、A. Rivetti、M. Rolo、G. Rong、S. S. Rong、F. Rosini、Ch. Rosner、M. Q. Ruan、W. R. Ruangyoo、N. Salone、A. Sarantsev、Y. Schelhaas、M. Schernau、K. Schoenning、M. Scodeggio、W. Shan、X. Y. Shan、Z. J. Shang、J. F. Shangguan、L. G. Shao、M. Shao、C. P. Shen、H. F. Shen、W. H. Shen、X. Y. Shen、B. A. Shi、Ch. Y. Shi、H. Shi、J. L. Shi、J. Y. Shi、M. H. Shi、S. Shi、S. Y. Shi、X. Shi、X. D. Shi、H. L. Song、J. J. Song、M. H. Song、T. Z. Song、W. M. Song、Y. X. Song、Zirong Song、S. Sosio、S. Spataro、S. Stansilaus、F. Stieler、M. Stolte、S. S Su、G. B. Sun、G. X. Sun、H. Sun、H. K. Sun、J. F. Sun、K. Sun、L. Sun、R. Sun、S. S. Sun、T. Sun、W. Y. Sun、Y. C. Sun、Y. H. Sun、Y. J. Sun、Y. Z. Sun、Z. Q. Sun、Z. T. Sun、H. Tabaharizato、N. T. Tagsinsit、C. J. Tang、G. Y. Tang、J. Tang、J. J. Tang、L. F. Tang、Y. A. Tang、Z. H. Tang、L. Y. Tao、M. Tat、J. X. Teng、J. Y. Tian、W. H. Tian、Y. Tian、Z. F. Tian、K. Yu. Todyshev、I. Uman、E. van der Smagt、S. R. Wan、B. Wang、Bin Wang、Bo Wang、C. Wang、Chao Wang、Cong Wang、D. Y. Wang、F. K. Wang、H. J. Wang、H. R. Wang、J. Wang、J. H. Wang、J. J. Wang、J. P. Wang、K. Wang、L. L. Wang、L. W. Wang、M. Wang、Mi Wang、N. Y. Wang、P. Wang、S. Wang、Shun Wang、T. Wang、W. Wang、W. P. Wang、X. F. Wang、X. L. Wang、X. N. Wang、Xin Wang、Y. Wang、Y. D. Wang、Y. F. Wang、Y. H. Wang、Y. J. Wang、Y. L. Wang、Y. N. Wang、Yanning Wang、Yaqian Wang、Yi Wang、Yuan Wang、Z. Wang、Z. L. Wang、Z. Q. Wang、Z. Y. Wang、Zhi Wang、Ziyi Wang、D. Wei、D. H. Wei、D. J. Wei、H. R. Wei、F. Weidner、H. R. Wen、S. P. Wen、U. Wiedner、G. Wilkinson、J. F. Wu、L. H. Wu、L. J. Wu、Lianjie Wu、S. G. Wu、S. M. Wu、X. W. Wu、Z. Wu、H. L. Xia、L. Xia、B. H. Xiang、D. Xiao、G. Y. Xiao、H. Xiao、Y. L. Xiao、Z. J. Xiao、C. Xie、K. J. Xie、Y. Xie、Y. G. Xie、Y. H. Xie、Z. P. Xie、T. Y. Xing、D. B. Xiong、G. F. Xu、H. Y. Xu、Q. J. Xu、Q. N. Xu、T. D. Xu、X. P. Xu、Y. Xu、Y. C. Xu、Z. S. Xu、F. Yan、L. Yan、W. B. Yan、W. C. Yan、W. H. Yan、W. P. Yan、X. Q. Yan、Y. Y. Yan、H. J. Yang、H. L. Yang、H. X. Yang、J. H. Yang、L. Y. Yang、R. J. Yang、X. Y. Yang、Y. Yang、Y. G. Yang、Y. H. Yang、Y. M. Yang、Y. Q. Yang、Y. Z. Yang、Youhua Yang、Z. Y. Yang、W. J. Yao、Z. P. Yao、M. Ye、M. H. Ye、Z. J. Ye、K. Yi、Junhao Yin、Qiqin Yin、Z. Y. You、B. X. Yu、C. X. Yu、G. Yu、J. S. Yu、L. W. Yu、T. Yu、X. D. Yu、Y. C. Yu、Yongchao Yu、C. Z. Yuan、H. Yuan、J. Yuan、Jie Yuan、L. Yuan、M. K. Yuan、S. H. Yuan、Y. Yuan、Z. Y. Yuan、C. X. Yue、Ying Yue、A. A. Zafar、F. R. Zeng、S. H. Zeng、X. Zeng、Y. J. Zeng、Yujie Zeng、Y. C. Zhai、Y. H. Zhan、B. L. Zhang、B. X. Zhang、D. H. Zhang、G. Y. Zhang、Gengyuan Zhang、H. Zhang、H. C. Zhang、H. H. Zhang、H. L. Zhang、H. Q. Zhang、H. R. Zhang、H. Y. Zhang、Han Zhang、J. Zhang、J. J. Zhang、J. L. Zhang、J. Q. Zhang、J. S. Zhang、J. W. Zhang、J. X. Zhang、J. Y. Zhang、J. Z. Zhang、Jianyu Zhang、Jin Zhang、Jiyuan Zhang、L. M. Zhang、Lei Zhang、N. Zhang、P. Zhang、Q. Zhang、Q. Y. Zhang、Q. Z. Zhang、R. Y. Zhang、S. H. Zhang、S. N. Zhang、Shulei Zhang、X. M. Zhang、X. Y. Zhang、Y. T. Zhang、Y. H. Zhang、Y. P. Zhang、Yao Zhang、Yu Zhang、Yu Zhang、Z. Zhang、Z. D. Zhang、Z. H. Zhang、Z. L. Zhang、Z. R. Zhang、Z. X. Zhang、Z. Y. Zhang、Zh. Zh. Zhang、Zhaoke Zhang、Zhilong Zhang、Ziyang Zhang、Ziyu Zhang、G. Zhao、J. -P. Zhao、J. Y. Zhao、J. Z. Zhao、L. Zhao、Lei Zhao、M. G. Zhao、R. P. Zhao、S. J. Zhao、Y. B. Zhao、Y. L. Zhao、Y. P. Zhao、Y. X. Zhao、Z. G. Zhao、A. Zhemchugov、B. Zheng、B. M. Zheng、J. P. Zheng、W. J. Zheng、W. Q. Zheng、X. R. Zheng、Y. H. Zheng、B. Zhong、C. Zhong、X. Zhong、H. Zhou、J. Q. Zhou、S. Zhou、X. Zhou、X. K. Zhou、X. R. Zhou、X. Y. Zhou、Y. X. Zhou、Y. Z. Zhou、A. N. Zhu、J. Zhu、K. Zhu、K. J. Zhu、K. S. Zhu、L. X. Zhu、Lin Zhu、S. H. Zhu、T. J. Zhu、W. D. Zhu、W. J. Zhu、W. Z. Zhu、Y. C. Zhu、Z. A. Zhu、X. Y. Zhuang、M. Zhuge、J. H. Zou、J. Zu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>基于 BEPCII 对撞机上 BESIII 探测器采集的 (2712.4 ± 14.3) × 10⁶ 个 ψ(3686) 事例样本，首次观测到衰变 ψ(3686)→p̄K⁺Σ*(1385)⁰ + c.c. 与 ψ(3686)→p̄K*(892)⁰Σ⁺ + c.c.，并测定其分支比分别为 B(ψ(3686)→p̄K⁺Σ*(1385)⁰ + c.c.) = (3.94 ± 0.15_stat. ± 0.24_syst.) × 10⁻⁵ 和 B(ψ(3686)→p̄K*(892)⁰Σ⁺ + c.c.) = (4.93 ± 0.14_stat. ± 0.30_syst.) × 10⁻⁵。此外，分别在 K⁺Σ*(1385)⁰ 与 K*(892)⁰Σ⁺ 的不变质量谱中搜寻隐奇异五夸克候选态 N_x(1875) 与 N_x(2100)，未观测到显著信号，在 90% 置信水平下分支比上限为 B(ψ(3686)→p̄N_x(1875)→p̄K⁺Σ*(1385)⁰) &lt; 1.58 × 10⁻⁶ 和 B(ψ(3686)→p̄N_x(2100)→p̄K*(892)⁰Σ⁺) &lt; 3.09 × 10⁻⁷。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 ψ(3686) 衰变中寻找并首次测量 ψ(3686)→p̄K⁺Σ*(1385)⁰ + c.c. 与 ψ(3686)→p̄K*(892)⁰Σ⁺ + c.c. 两个衰变道，并在相应不变质量谱中搜寻隐奇异五夸克候选态 N_x(1875) 与 N_x(2100)。</p>
+    <h4>方法</h4><p>利用 BESIII 探测器在 BEPCII 上采集的 (2712.4 ± 14.3) × 10⁶ 个 ψ(3686) 事例，重建上述两个衰变道并测定分支比；在 K⁺Σ*(1385)⁰ 和 K*(892)⁰Σ⁺ 不变质量谱中搜寻 N_x(1875) 与 N_x(2100)，未观测到显著信号时给出 90% 置信水平的分支比上限。</p>
+    <h4>主要发现</h4><p>首次观测到 ψ(3686)→p̄K⁺Σ*(1385)⁰ + c.c. 与 ψ(3686)→p̄K*(892)⁰Σ⁺ + c.c.，分支比分别为 (3.94 ± 0.15_stat. ± 0.24_syst.) × 10⁻⁵ 和 (4.93 ± 0.14_stat. ± 0.30_syst.) × 10⁻⁵；在 K⁺Σ*(1385)⁰ 与 K*(892)⁰Σ⁺ 不变质量谱中未观测到 N_x(1875) 与 N_x(2100) 的显著信号，90% 置信水平上限分别为 B(ψ(3686)→p̄N_x(1875)→p̄K⁺Σ*(1385)⁰) &lt; 1.58 × 10⁻⁶ 与 B(ψ(3686)→p̄N_x(2100)→p̄K*(892)⁰Σ⁺) &lt; 3.09 × 10⁻⁷。</p>
+    <h4>局限与展望</h4><p>本文结果受限于单一 ψ(3686) 数据集统计量和本分析所采用的重建与选择条件；对 N_x(1875) 与 N_x(2100) 仅给出 90% 置信水平上限，尚不能确认或排除其存在。后续可合理推断的方向包括：利用更大统计量的 ψ(3686) 数据或结合其他产生过程提高灵敏度，并对相关不变质量谱做更细致的振幅分析，以检验隐奇异五夸克态假设。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35154v1">
+  <div class="paper-head">
+    <h2>LHμC：欧洲核子研究中心的高能高亮度μ子-强子对撞机<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.35154v1" rel="noopener noreferrer">2610.35154v1</a>
+  </div>
+  <p class="original-title">LH$μ$C: A high energy, high luminosity muon-hadron collider at CERN</p>
+  <p class="meta"><strong>作者：</strong>Krzysztof Piotrzkowski</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">physics.acc-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文介绍了利用LHeC基础设施实现μ子-强子对撞可行性的最新进展。在LHμC方案中，1 TeV或2 TeV的μ⁺束流与7 TeV质子束流对撞，对应的μ⁺p质心系能量分别为5.3 TeV和7.5 TeV，平均亮度接近10³⁴ cm⁻²s⁻¹。文章首先给出简要的科学动机，包括中微子科学方面的突出前景；随后概述LHμC的整体构想，涵盖从超冷反μ子源、μ子增强器到主μ子环的各环节；并讨论机器-探测器接口与通用探测器的基本考虑。文章最后展望了LHμC、LHeC、FCC与Muon Collider项目之间独特而强大的协同效应。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否通过大幅复用LHeC基础设施，实现高能、高亮度的μ子-强子对撞，并给出其概念设计与科学动机。</p>
+    <h4>方法</h4><p>提出LHμC概念方案：以1或2 TeV的μ⁺束流与7 TeV质子束流对撞，并概述从超冷反μ子源、μ子增强器到主μ子环的装置链条，同时讨论机器-探测器接口与通用探测器。</p>
+    <h4>主要发现</h4><p>在1 TeV和2 TeV μ⁺束流下，μ⁺p质心系能量分别为5.3 TeV和7.5 TeV，平均亮度接近10³⁴ cm⁻²s⁻¹；文章还指出该方案在中微子科学方面具有突出前景，并强调LHμC、LHeC、FCC与Muon Collider项目之间存在独特而强大的协同效应。</p>
+    <h4>局限与展望</h4><p>原文以展望形式提出上述项目间的协同效应；关于可行性、成本、时间表及具体探测器性能等，原文未给出结论，需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35239v1">
+  <div class="paper-head">
+    <h2>在B^0→D^{*-}D^0K^+衰变中观测到T_{c\bar{c}1}(4430)^-态<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.35239v1" rel="noopener noreferrer">2610.35239v1</a>
+  </div>
+  <p class="original-title">Observation of the $T_{c\bar{c}1}(4430)^-$ state in $B^0\to D^{*-}D^0K^+$ decays</p>
+  <p class="meta"><strong>作者：</strong>LHCb collaboration、R. Aaij、M. Abdelfatah、A. S. W. Abdelmotteleb、C. Abellan Beteta、F. Abudinén、T. Ackernley、A. A. Adefisoye、B. Adeva、M. Adinolfi、P. Adlarson、C. Agapopoulou、C. A. Aidala、S. Akar、K. Akiba、H. Al Saleh、P. Albicocco、J. Albrecht、R. Aleksiejunas、F. Alessio、P. Alvarez Cartelle、A. A. Alves、S. Amato、J. L. Amey、Y. Amhis、Z. Amos、L. An、L. Anderlini、P. Andreola、M. Andreotti、S. Andres Estrada、A. Anelli、D. Ao、C. Arata、F. Archilli、Z. Areg、M. Argenton、S. Arguedas Cuendis、L. Arnone、M. Artuso、E. Aslanides、R. Ataíde Da Silva、M. Atzeni、B. Audurier、J. A. Authier、D. Bacher、I. Bachiller Perea、S. Bachmann、M. Bachmayer、J. J. Back、M. Bai、Z. B. Bai、V. Balagura、A. Balboni、W. Baldini、Z. Baldwin、L. Balzani、H. Bao、J. Baptista de Souza Leite、C. Barbero Pretel、M. Barbetti、I. R. Barbosa、W. Barker、R. J. Barlow、M. Barnyakov、S. Baron、S. Barsuk、W. Barter、J. Bartz、S. Bashir、B. Batsukh、P. B. Battista、A. Bavarchee、A. Bay、A. Beck、M. Becker、F. Bedeschi、I. B. Bediaga、N. A. Behling、S. Belin、A. Bellavista、I. Belyaev、G. Bencivenni、E. Ben-Haim、J. L. M. Berkey、R. Bernet、A. Bertolin、L. Bertsch、F. Betti、J. Bex、O. Bezshyyko、S. Bhattacharya、M. S. Bieker、N. V. Biesuz、A. Biolchini、M. Birch、F. C. R. Bishop、A. Bitadze、A. Bizzeti、T. Blake、F. Blanc、J. E. Blank、S. Blusk、J. A. Boelhauve、O. Boente Garcia、T. Boettcher、A. Bohare、C. Bolognani、R. B. Bonacci、A. Bordelius、F. Borgato、S. Borghi、M. Borsato、J. T. Borsuk、E. Bottalico、S. A. Bouchiba、M. Bovill、T. J. V. Bowcock、A. Boyer、C. Bozzi、J. D. Brandenburg、A. Brea Rodriguez、N. Breer、C. Breitfeld、J. Brodzicka、J. Brown、E. Buchanan、M. Burgos Marcos、C. Burr、E. Butera、C. Buti、J. S. Butter、W. Byczynski、S. Cadeddu、H. Cai、Y. Cai、Y. Cai、A. Caillet、R. Calabrese、L. Calefice、M. Calvi、M. Calvo Gomez、P. Camargo Magalhaes、J. I. Cambon Bouzas、P. Campana、A. Campomagnani、A. C. Campos、A. F. Campoverde Quezada、Y. Cao、S. Capelli、M. Caporale、L. Capriotti、R. Caravaca-Mora、A. Carbone、L. Carcedo Salgado、R. Cardinale、A. Cardini、P. Carniti、L. Carus、R. Caspary、G. Casse、M. Cattaneo、G. Cavallero、V. Cavallini、S. Celani、I. Celestino、S. Cesare、A. J. Chadwick、M. Charles、Ph. Charpentier、E. Chatzianagnostou、R. Cheaib、M. Chefdeville、C. Chen、J. Chen、S. Chen、Z. Chen、A. Chen Hu、M. Cherif、S. Chernyshenko、X. Chiotopoulos、G. Chizhik、V. Chobanova、A. Christakakis、M. Chrzaszcz、Y. Chu、V. Chulikov、P. Ciambrone、X. Cid Vidal、P. Cifra、P. E. L. Clarke、M. Clemencic、H. V. Cliff、J. Closier、C. Cocha Toapaxi、V. Coco、A. Codovini、C. S. Codovini、J. Cogan、E. Cogneras、L. Cojocariu、S. Collaviti、P. Collins、T. Colombo、M. Colonna、A. Comerma-Montells、L. Congedo、J. Connaughton、A. Contu、N. Cooke、A. Corallo、G. Cordova、C. Coronel、I. Corredoira、A. Correia、G. Corti、G. C. Costantino、C. Cotirlan、J. Cottee Meldrum、B. Couturier、D. C. Craik、N. Crepet、M. Cruz Torres、M. Cubero Campos、E. Curras Rivera、R. Currie、C. L. Da Silva、X. Dai、J. Dalseno、C. D&#x27;Ambrosio、G. Darze、A. Davidson、O. De Aguiar Francisco、C. De Angelis、F. De Benedetti、J. de Boer、K. De Bruyn、S. De Capua、M. De Cian、U. De Freitas Carneiro Da Graca、F. De Gregorio、E. De Lucia、J. M. De Miranda、L. De Paula、A. De Robertis、E. De Santis、M. De Serio、P. De Simone、F. De Vellis、J. A. de Vries、F. Debernardis、D. Decamp、S. Dekkers、L. Del Buono、B. Demaire-Lepape、J. Deng、O. Deschamps、F. Dettori、B. Dey、P. Di Nezza、S. Ding、Y. Ding、L. Dittmann、J. F. Diverchy、A. D. Docheva、A. Doheny、C. Dong、F. Dordei、J. Dorta Moreno、A. C. dos Reis、J. Dos Santos Oliveira、A. D. Dowling、L. Dreyfus、W. Duan、P. Duda、L. Dufour、V. Duk、P. Durante、M. M. Duras、J. M. Durham、K. Duwe、A. Dziurda、S. Easo、E. Eckstein、U. Egede、S. Eisenhardt、E. Ejopu、L. Eklund、M. Elashri、D. Elizondo Blanco、J. Ellbracht、S. Ely、A. Ene、T. Evans、F. Fabiano、S. Faghih、L. N. Falcao、B. Fang、R. Fantechi、L. Fantini、M. Faria、K. Farmer、F. Fassin、D. Fazzini、L. Felkowski、C. Feng、M. Feng、A. Fernandez Casani、M. Fernandez Gomez、B. Fernandez Rodino、J. Fernandez-John、A. D. Fernez、F. Ferrari、F. Ferreira Rodrigues、R. A. Fini、R. Fiorenza、M. Fiorini、M. Firlej、D. S. Fitzgerald、C. Fitzpatrick、T. Fiutowski、F. Fleuret、A. Fomin、M. Fontana、M. Fontes Vaz、L. A. Foreman、R. Forty、D. Foulds-Holt、V. Franco Lima、M. Franco Sevilla、M. Frank、E. Franzoso、G. Frau、C. Frei、D. A. Friday、J. Fu、Y. Fu、Q. Führing、T. Fulghesu、M. Fulghieri、G. Galati、M. D. Galati、A. Gallas Torreira、D. Galli、S. Gambetta、M. Gandelman、P. Gandini、B. Ganie、H. Gao、R. Gao、T. Q. Gao、Y. Gao、Y. Gao、Y. Gao、L. M. Garcia Martin、P. Garcia Moreno、J. García Pardiñas、P. Gardner、L. Garrido、C. Gaspar、A. Gavrikov、J. George、E. Gersabeck、M. Gersabeck、T. Gershon、S. Ghizzo、Z. Ghorbanimoghaddam、F. I. Giasemis、V. Gibson、H. K. Giemza、A. L. Gilman、M. Giovannetti、A. Gioventù、L. Girardey、M. A. Giza、F. C. Glaser、V. V. Gligorov、C. Göbel、L. Golinka-Bezshyyko、E. Golobardes、A. Golutvin、S. Gomez Fernandez、A. G. Gomez Mongui、W. Gomulka、F. Goncalves Abrantes、I. Gonçales Vaz、M. Goncerz、G. Gong、S. Gong、J. A. Gooding、C. Gotti、E. Govorkova、J. P. Grabowski、L. A. Granado Cardoso、R. Grande Quartieri、E. Graugés、E. Graverini、L. Grazette、G. Graziani、A. T. Grecu、N. A. Grieser、L. Grillo、C. Gu、M. Guarise、L. Guerry、M. Guittiere、A. -K. Guseinov、Y. Guz、T. Gys、K. Habermann、T. Hadavizadeh、C. Hadjivasiliou、G. Haefeli、C. Haen、S. Haken、G. Hallett、P. M. Hamilton、Q. Han、S. Han、X. Han、S. Hansmann-Menzemer、N. Harnew、T. J. Harris、L. Hartman、M. Hartmann、S. Hashmi、J. He、N. Heatley、A. Hedes、F. Hemmer、C. Henderson、R. Henderson、R. D. L. Henderson、A. M. Hennequin、K. Hennessy、A. Henrot、J. Herd、P. Herrero Gascon、J. Heuel、A. Heyn、A. Hicheur、G. Hijano Mendizabal、J. Horswill、R. Hou、Y. Hou、D. C. Houston、N. Howarth、W. Hu、X. Hu、W. Hulsbergen、R. J. Hunter、D. Hutchcroft、M. Idzik、P. Ilten、A. Iohner、S. Jacevicius、H. Jage、S. J. Jaimes Elles、S. Jakobsen、T. Jakoubek、E. Jans、A. Jawahery、C. Jayaweera、A. Jelavic、V. Jevtic、Z. Jia、E. Jiang、X. Jiang、Y. Jiang、Y. J. Jiang、E. Jimenez Moya、N. Jindal、M. John、A. John Rubesh Rajan、D. Johnson、C. R. Jones、S. Joshi、B. Jost、J. Juan Castella、N. Jurik、I. Juszczak、K. Kalecinska、D. Kaminaris、S. Kandybei、M. Kane、Y. Kang、C. Kar、A. Kauniskangas、J. W. Kautz、M. K. Kazanecki、F. Keizer、M. Kenzie、T. Ketel、B. Khanji、S. Kholodenko、V. Kholoimov、G. Khreich、F. Kiraz、T. Kirn、V. S. Kirsebom、N. Kleijne、A. Kleimenova、D. Klekots、K. Klimaszewski、M. R. Kmiec、T. Knospe、R. Kolb、S. Koliiev、L. Kolk、A. Konoplyannikov、P. Kooij、P. Kopciewicz、P. Koppenburg、A. Korchin、I. Kostiuk、O. Kot、S. Kotriakhova、E. Kowalczyk、O. Kravcov、M. Kreps、W. Krupa、W. Krzemien、O. Kshyvanskyi、S. Kubis、M. Kucharczyk、A. Kupsc、A. Kurzina、V. Kushnir、B. Kutsenko、J. Kvapil、I. Kyryllin、D. Lacarrere、P. Laguarta Gonzalez、A. Lai、A. Lampis、D. Lancierini、C. Landesa Gomez、G. Lanfranchi、C. Langenbruch、T. Latham、F. Lazzari、C. Lazzeroni、R. Le Gac、H. Lee、R. Lefèvre、M. Lehuraux、C. Lemettais、E. Lemos Cid、O. Leroy、T. Lesiak、E. D. Lesser、B. Leverington、A. Li、C. Li、C. Li、H. Li、J. Li、K. Li、L. Li、L. Li、P. Li、P. -R. Li、Q. Li、T. Li、T. Li、W. Li、Y. Li、Y. Li、Y. Li、Z. Li、Z. Lian、Q. Liang、X. Liang、Z. Liang、S. Libralon、A. Lightbody、J. Lin、S. Lin、T. Lin、R. Lindner、H. Linton、R. Litvinov、D. Liu、F. L. Liu、G. Liu、K. Liu、S. Liu、W. Liu、X. Liu、Y. Liu、Y. Liu、Y. Liu、Y. L. Liu、G. Loachamin Ordonez、I. Lobo、A. Lobo Salvia、A. Loi、T. Long、F. C. L. Lopes、J. H. Lopes、A. Lopez Huertas、C. Lopez Iribarnegaray、Q. Lu、C. Lucarelli、D. Lucchesi、M. Lucio Martinez、Y. Luo、A. Lupato、M. Lupberger、E. Luppi、K. Lynch、J. Lyu、S. Lyu、X. -R. Lyu、H. Ma、S. Maccolini、F. Machefert、F. Maciuc、B. Mack、I. Mackay、L. M. Mackey、L. R. Madhan Mohan、M. J. Madurai、D. Magdalinski、J. J. Malczewski、S. Malde、L. Malentacca、G. Manca、C. Mancuso、R. Manera Escalero、A. Mangalasseri、F. Manganella、R. Mangrulkar、D. Manuzzi、S. Mao、D. Marangotto、J. F. Marchand、R. Marchevski、U. Marconi、L. Mareso、E. Mariani、S. Mariani、C. Marin Benito、J. Marks、A. M. Marshall、L. Martel、G. Martelli、G. Martellotti、L. Martinazzoli、M. Martinelli、C. Martinez、A. Martinez Armas、D. Martinez Gomez、D. Martinez Santos、F. Martinez Vidal、A. Martorell i Granollers、A. Massafferri、R. Matev、A. Mathad、C. Matteuzzi、K. R. Mattioli、L. Matzner、A. Mauri、E. Maurice、J. Mauricio、P. Mayencourt、J. Mazorra de Cos、M. Mazurek、D. Mazzanti Tarancon、M. McCann、N. T. McHugh、A. McNab、R. McNulty、B. Meadows、S. E. R. Medaer、D. Melnychuk、D. Mendoza Granada、P. Menendez Valdes Perez、F. M. Meng、M. Merk、A. Merli、L. Meyer Garcia、D. Miao、H. Miao、S. Mico、M. Mikhasenko、D. A. Milanes、A. Minotti、E. Minucci、B. Mitreska、D. S. Mitzel、R. Mocanu、A. Modak、L. Moeser、R. D. Moise、E. F. Molina Cardenas、T. Mombächer、M. Monk、T. Monnard、S. Monteil、A. Morcillo Gomez、G. Morello、M. J. Morello、M. P. Morgenthaler、A. Moro、J. Moron、W. Morren、A. B. Morris、A. G. Morris、R. Mountain、Z. Mu、N. Muangkod、E. Muhammad、F. Muheim、M. Mulder、K. Müller、V. Mytrochenko、P. Naik、T. Nakada、R. Nandakumar、G. Napoletano、I. Nasteva、M. Needham、N. Neri、S. Neubert、N. Neufeld、J. Nicolini、D. Nicotra、E. M. Niel、L. Nisi、Q. Niu、B. K. Njoki、P. Nogarolli、P. Nogga、J. Nombela Royo、C. Normand、A. Novo Cal、J. Novoa Fernandez、G. Nowak、H. N. Nur、A. Oblakowska-Mucha、T. Oeser、O. Okhrimenko、R. Oldeman、N. Oldman、F. Oliva、E. Olivart Pino、M. Olocco、R. H. O&#x27;Neil、J. S. Ordonez Soto、D. Osthues、J. M. Otalora Goicochea、A. Oyanguren、O. Ozcelik、F. Paciolla、A. Padee、K. O. Padeken、B. Pagare、T. Pajero、A. Palano、L. Palini、L. Palombini、M. Palutan、C. Pan、X. Pan、S. Panebianco、S. Paniskaki、L. Paolucci、A. Papanestis、M. Pappagallo、L. L. Pappalardo、C. Pappenheimer、C. Parkes、D. Parmar、G. Passaleva、D. Passaro、A. Pastore、M. Patel、J. Patoc、C. Patrignani、A. Paul、C. J. Pawley、A. Pellegrino、J. Peng、X. Peng、M. Pepe Altarelli、S. Perazzini、H. Pereira Da Costa、M. Pereira Martinez、A. Pereiro Castro、C. Perez、A. Perez Casas、P. Perret、A. Perrevoort、A. Perro、M. J. Peters、A. Petkovic、K. Petridis、A. Petrolini、S. Pezzulo、J. P. Pfaller、H. Pham、L. Pica、E. Picatoste Olloqui、M. Piccini、L. Piccolo、F. Piernas Diaz、B. Pietrzyk、R. N. Pilato、D. Pinci、F. Pisani、M. Pizzichemi、V. M. Placinta、M. Plo Casasus、T. Poeschl、F. Polci、M. Poli Lener、A. Poluektov、I. Polyakov、E. Polycarpo、S. Ponce、D. Popov、K. Popp、K. Prasanth、C. Prouve、D. Provenzano、V. Pugatch、A. Puicercus Gomez、G. Punzi、J. R. Pybus、Q. Qian、W. Qian、N. Qin、R. Quagliani、R. I. Rabadan Trejo、B. Rachwal、R. Racz、J. H. Rademacker、M. Rama、M. Ramírez García、V. Ramos De Oliveira、M. Ramos Pernas、G. Ramsey、M. S. Rangel、G. Raven、M. Rebollo De Miguel、F. Redi、J. Reich、F. Reiss、Z. Ren、P. K. Resmi、M. Ribalda Galvez、R. Ribatti、G. Ricart、D. Riccardi、S. Ricciardi、K. Richardson、M. Richardson-Slipper、F. Riehn、K. Rinnert、P. Robbe、G. Robertson、E. Rodrigues、A. Rodriguez Alvarez、E. Rodriguez Fernandez、J. A. Rodriguez Lopez、E. Rodriguez Rodriguez、J. Roensch、A. Rogovskiy、D. L. Rolf、P. Roloff、A. Romano、V. Romanovskiy、A. Romero Vidal、G. Romolini、F. Ronchetti、T. Rong、W. Rose、M. Rotondo、M. S. Rudolph、G. Ruggiero、M. Ruiz Diaz、J. Ruiz Vidal、J. Ruz Armendariz、J. J. Saavedra-Arias、J. J. Saborido Silva、D. Sahoo、N. Sahoo、B. Saitta、M. Salomoni、I. Sanderswood、R. Santacesaria、C. Santamarina Rios、M. Santimaria、L. Santoro、E. Santovetti、A. Saputi、A. Sarnatskiy、G. Sarpis、M. Sarpis、C. Satriano、A. Satta、M. Saur、H. Sazak、F. Sborzacchi、A. Scarabotto、S. Schael、S. Scherl、M. Schiller、H. Schindler、M. Schmelling、B. Schmidt、N. Schmidt、S. Schmitt、H. Schmitz、O. Schneider、A. Schopper、N. Schulte、H. Schumacher、M. H. Schune、G. Schwering、B. Sciascia、A. Sciuccati、G. Scriven、I. Segal、S. Sellam、M. Senghi Soares、A. Sergi、N. Serra、L. Sestini、B. Sevilla Sanjuan、Y. Shang、D. M. Shangase、R. S. Sharma、L. Shchutska、T. Shears、S. Shelton、J. Shen、Z. Shen、S. Sheng、B. Shi、J. Shi、Q. Shi、W. S. Shi、E. Shmanin、R. Silva Coutinho、G. Simi、S. Simone、M. Singha、I. Siral、N. Skidmore、T. Skwarnicki、M. W. Slater、E. Smith、M. Smith、M. Smith、L. Soares Lavra、M. D. Sokoloff、F. J. P. Soler、A. Solomin、K. Solovieva、N. S. Sommerfeld、R. Song、Y. Song、Y. Song、Y. S. Song、F. L. Souza De Almeida、G. Souza De Castro、B. Souza De Paula、K. M. Sowa、E. Spadaro Norella、E. Spedicato、J. G. Speer、P. Spradlin、F. Stagni、M. Stahl、S. Stahl、S. Stanislaus、M. Stefaniak、O. Steinkamp、F. Suljik、J. Sun、L. Sun、M. Sun、D. Sundfeld、P. Svihra、V. Svintozelskyi、J. Swallow、K. Swientek、F. Swystun、A. Szabelski、T. Szumlak、Y. Tan、Y. Tang、Y. T. Tang、M. D. Tat、J. A. Teijeiro Jimenez、F. Terzuoli、F. Teubert、E. Thomas、D. J. D. Thompson、A. R. Thomson-Strong、R. Thornton、H. Tilquin、V. Tisserand、S. T&#x27;Jampens、M. Tobin、T. T. Todorov、L. Tomassetti、G. Tonani、X. Tong、T. Tork、L. Torlai、L. Toscano、D. Y. Tou、G. Tuci、N. Tuning、L. H. Uecker、A. Ukleja、A. Upadhyay、B. Urbach、A. Usachov、U. Uwer、V. Vagnoni、A. Vaitkevicius、A. Valassi、V. Valcarce Cadenas、G. Valenti、N. Valls Canudas、J. van Eldik、H. Van Hecke、E. van Herwijnen、C. B. Van Hulse、R. Van Laak、M. van Veghel、P. Varrella、R. Vazquez Gomez、P. Vazquez Regueiro、C. Vázquez Sierra、S. Vecchi、J. Velilla Serna、J. J. Velthuis、M. Veltri、A. Venkateswaran、M. Verdoglia、M. Vesterinen、W. Vetens、D. Vico Benet、P. Vidrier Villalba、M. Vieites Diaz、X. Vilasis-Cardona、E. Vilella Figueras、A. Villa、P. Vincent、B. Vivacqua、F. C. Volle、D. vom Bruch、K. Vos、C. Vrahas、J. Wagner、J. Walsh、N. Walter、E. J. Walton、G. Wan、A. Wang、B. Wang、C. Wang、C. Wang、C. Wang、G. Wang、H. Wang、J. Wang、J. Wang、J. Wang、J. Wang、M. Wang、N. W. Wang、X. Wang、X. Wang、X. Wang、X. W. Wang、Y. Wang、Y. Wang、Y. Wang、Y. H. Wang、Z. Wang、Z. Wang、J. A. Ward、M. Waterlaat、N. K. Watson、D. Websdale、Y. Wei、Z. Weida、J. Wendel、B. D. C. Westhenry、A. S. White、C. White、M. Whitehead、E. Whiter、A. R. Wiederhold、D. Wiedner、M. A. Wiegertjes、C. Wild、G. Wilkinson、M. K. Wilkinson、M. Williams、M. J. Williams、M. R. J. Williams、R. Williams、S. Williams、Z. Williams、F. F. Wilson、M. Winn、W. Wislicki、M. Witek、L. Witola、T. Wolf、E. Wood、G. Wormser、S. A. Wotton、H. Wu、J. Wu、T. Wu、X. Wu、Y. Wu、Z. Wu、K. Wyllie、S. Xian、Z. Xiang、Y. Xie、T. X. Xing、A. Xu、L. Xu、M. Xu、R. Xu、Z. Xu、Z. Xu、Z. Xu、Z. Xu、S. Yadav、K. Yang、X. Yang、Y. Yang、Y. Yang、Z. Yang、Z. Yang、H. Yeung、H. Yin、X. Yin、C. Y. Yu、J. Yu、K. Yu、X. Yuan、Y Yuan、S. Zalambani、J. A. Zamora Saa、F. Zangari、M. Zavertyaev、M. Zdybal、F. Zenesini、C. Zeng、M. Zeng、S. H Zeng、C. Zhang、C. Zhang、D. Zhang、J. Zhang、L. Zhang、Q. Z. Zhang、R. Zhang、S. Zhang、S. L. Zhang、Y. Zhang、Z. Zhang、J. Zhao、M. Zhao、Y. Zhao、A. Zhelezov、S. Z. Zheng、X. Z. Zheng、Y. Zheng、T. Zhou、X. Zhou、V. Zhovkovska、L. Z. Zhu、X. Zhu、X. Zhu、Y. Zhu、V. Zhukov、J. Zhuo Gao、T. Zies、D. Zuliani、X. Zuo</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了B^0→D^{*-}D^0K^+衰变中的共振结构。分析使用LHCb实验在质心能量√s=7、8和13 TeV下收集的质子-质子对撞数据，对应积分亮度为9 fb^{-1}。分析表明，D^0K^+谱中已知的激发态D_s^+共振不足以描述数据。引入四夸克态T_{c\bar{c}1}(4430)^-后，对数据的描述得到改善，统计显著性超过5σ。这对应于首次观测到T_{c\bar{c}1}(4430)^-→D^{*-}D^0衰变。测得的T_{c\bar{c}1}(4430)^-态性质与其此前在ψ(2S)π^-末态衰变中测得的性质一致。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>B^0→D^{*-}D^0K^+衰变中D^0K^+谱的共振结构能否仅由已知的激发态D_s^+共振描述，还是需要引入四夸克态T_{c\bar{c}1}(4430)^-。</p>
+    <h4>方法</h4><p>利用LHCb实验在√s=7、8和13 TeV下收集的、积分亮度为9 fb^{-1}的质子-质子对撞数据，对B^0→D^{*-}D^0K^+衰变中的共振结构进行分析，比较仅包含已知激发态D_s^+共振的模型与额外引入T_{c\bar{c}1}(4430)^-态的模型对数据的描述。</p>
+    <h4>主要发现</h4><p>已知的激发态D_s^+共振不足以描述D^0K^+谱；引入T_{c\bar{c}1}(4430)^-态后数据描述得到改善，统计显著性超过5σ，对应首次观测到T_{c\bar{c}1}(4430)^-→D^{*-}D^0衰变；测得的该态性质与其此前在ψ(2S)π^-末态中测得的性质一致。</p>
+    <h4>局限与展望</h4><p>摘要未讨论系统误差、模型依赖性及适用范围；后续可合理推断的方向包括对该态性质进行更精确的测量，以及在更多衰变道中检验其一致性，但这些均属推断而非原文结论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.25423v1">
+  <div class="paper-head">
+    <h2>暗希格斯放热暗物质：LZ 248 keV事件与银河系中心过量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.25423v1" rel="noopener noreferrer">2610.25423v1</a>
+  </div>
+  <p class="original-title">Exothermic Dark Matter with a Dark Higgs: The LZ 248 keV Event and the Galactic Center Excess</p>
+  <p class="meta"><strong>作者：</strong>Jinheung Kim、Jongkuk Kim、Pyungwon Ko</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>LUX-ZEPLIN（LZ）实验报告了一个248 keV的核反冲事件。放热暗物质可在暗U(1)模型中解释该事件，其中暗希格斯场产生暗光子质量与质量劈裂。在动能混合参数ε=10^{-4}下，计算得到的激发态份额给出暗光子质量分别接近1 GeV与26 GeV的两个分支。INTEGRAL/SPI对激发态衰变的限制约束了LZ事件率，而宇宙微波背景限制在其似然最小值处排除了较轻分支。当暗希格斯玻色子质量接近暗光子质量时，较重分支与南天区银河系中心γ射线过量相符。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否用暗U(1)模型中的放热暗物质解释LZ报告的248 keV核反冲事件，并同时与INTEGRAL/SPI、宇宙微波背景及银河系中心γ射线过量的观测限制相容。</p>
+    <h4>方法</h4><p>在暗希格斯产生暗光子质量与质量劈裂的暗U(1)模型中，计算激发态份额，针对动能混合ε=10^{-4}得到暗光子质量接近1 GeV和26 GeV的两个分支，并利用INTEGRAL/SPI对激发态衰变的限制、宇宙微波背景限制以及银河系中心γ射线过量进行检验。</p>
+    <h4>主要发现</h4><p>计算得到的激发态份额给出暗光子质量接近1 GeV和26 GeV的两个分支；INTEGRAL/SPI对激发态衰变的限制约束了LZ事件率；宇宙微波背景限制在其似然最小值处排除了较轻分支；当暗希格斯玻色子质量接近暗光子质量时，较重分支与南天区银河系中心γ射线过量相符。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论模型更广泛的适用范围与系统不确定性；较轻分支已被宇宙微波背景限制排除，较重分支仅在暗希格斯质量接近暗光子质量时与银河系中心γ射线过量相符，这一参数区域及该解释与其他观测的相容性有待进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.33096v1">
+  <div class="paper-head">
+    <h2>惯性约束聚变中激光脉冲波形设计的逆向建模<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.33096v1" rel="noopener noreferrer">2610.33096v1</a>
+  </div>
+  <p class="original-title">Inverse Modeling for Laser Pulse Shape Design in Inertial Confinement Fusion</p>
+  <p class="meta"><strong>作者：</strong>Ricardo Luna Gutierrez、Vineet Gundecha、Rahman Ejaz、Varchas Gopalaswamy、Riccardo Betti、Sahand Ghorbanpour、Aarne Lees、Soumyendu Sarkar</p>
+  <p class="meta"><strong>主分类：</strong>cs.AI
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cs.AI</span> <span class="tag">cs.LG</span> <span class="tag">cs.SY</span> <span class="tag">eess.SY</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>实现实用化聚变能仍是尚未解决且极为紧迫的科学挑战之一，对无碳电力具有重大意义。在惯性约束聚变（ICF）中，能否设计出在严格物理约束下最优驱动内爆的激光脉冲波形（LP）是成功的关键因素之一。传统 LP 设计依赖计算代价高昂的模拟与人工迭代优化。本文提出 ICF 激光脉冲波形设计系统（LPDS），一种生成式逆向建模框架，可将期望结果与靶丸配置直接映射为优化后的 LP。关键的是，我们设计了多目标损失函数，以确保生成的 LP 满足基本物理约束与实验要求。此外，我们提出约束条件化、inpainting 以及基于梯度的 LP 编辑机制，用于在生成过程中对特定脉冲特征进行细粒度控制。我们还研究了将该框架迁移至有限数量的真实实验打靶数据。本方法为 ICF 中的 LP 设计建立了一个数据驱动的逆向设计框架，有助于推动实用且可持续的聚变能发展。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在严格物理约束与实验要求下，以较低计算成本设计惯性约束聚变中可最优驱动内爆的激光脉冲波形，并实现对特定脉冲特征的细粒度控制。</p>
+    <h4>方法</h4><p>提出 ICF 激光脉冲波形设计系统（LPDS），一种生成式逆向建模框架，将期望结果与靶丸配置直接映射为优化后的 LP；设计多目标损失函数以约束物理与实验要求；引入约束条件化、inpainting 和基于梯度的 LP 编辑机制；并研究框架向有限真实实验打靶数据的迁移。</p>
+    <h4>主要发现</h4><p>原文明确报告：LPDS 可直接由期望结果与靶丸配置生成优化 LP；所设计的多目标损失函数用于使生成 LP 满足基本物理约束与实验要求；约束条件化、inpainting 与基于梯度的编辑机制可对特定脉冲特征提供细粒度控制；并开展了向有限真实实验打靶数据的迁移研究。原文摘要未给出定量性能指标。</p>
+    <h4>局限与展望</h4><p>原文未明确列出局限性；可合理推断：方法依赖可用仿真或实验数据，向真实实验的迁移仅在有限打靶数据上研究，其在更广泛靶型与实验条件下的泛化性尚待验证。后续方向可包括扩展真实实验数据规模、进一步评估生成 LP 在物理仿真与实验中的表现，以及完善多目标约束的覆盖范围。</p>
+  </section>
+</article><article class="paper" id="paper-2610.33152v1">
+  <div class="paper-head">
+    <h2>夸克-轻子统一的低能标<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.33152v1" rel="noopener noreferrer">2610.33152v1</a>
+  </div>
+  <p class="original-title">A Low Scale for Quark-Lepton Unification</p>
+  <p class="meta"><strong>作者：</strong>Lawrence J. Hall、Claudio Andrea Manzari、Clara Murgui</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>测量得到的费米子质量可能指向夸克-轻子统一的能标。通过研究标准模型汤川耦合的重整化群演化，我们发现 $y_\tau=y_b$ 与 $y_\mu=3y_s$ 在几乎相同的能标处出现，约为 $10^6$ GeV；而第一代在 $10^8$ GeV 量级达到 Georgi-Jarlskog 关系 $y_e\simeq y_d/3$，并可通过简单的等级味结构由同一 Clebsch 结构产生。该模式自然暗示低能标的 Pati-Salam 对称性。我们表明味混合与有限阈值修正会保持这一图像。若电子质量具有独立起源，则两个较重代的关系可在统一能标低至 $(5$-$7)\times10^5$ GeV 的理论中实现。我们指出两个可容纳全部三个关系、且由测量质量固定味结构的简单理论：第一个在 $4.6^{+1.2}_{-0.9}\times10^6$ GeV 处统一全部三代；第二个具有对称汤川矩阵，统一能标为 $1.5^{+0.7}_{-0.5}\times10^7$ GeV，并预言 $|V_{cb}|=0.042\pm0.002$。二者共有的轻代味结构固定了相关的矢量轻夸克耦合，使核内 $\mu\to e$ 转换成为统一的直接检验：即将开展的搜寻将探测这两个理论所选区域的一部分，而拟议设施可完全覆盖该区域。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>测量得到的费米子质量是否指向夸克-轻子统一能标，以及能否在低能标（远低于传统大统一能标）实现夸克-轻子统一并给出可检验预言。</p>
+    <h4>方法</h4><p>研究标准模型汤川耦合的重整化群演化，考察 $y_\tau=y_b$、$y_\mu=3y_s$ 与 $y_e\simeq y_d/3$ 等关系出现的能标；分析味混合与有限阈值修正的影响；构造两个可容纳全部三个关系并由测量质量固定味结构的简单理论，并计算其统一能标、$|V_{cb}|$ 预言及相关的矢量轻夸克耦合。</p>
+    <h4>主要发现</h4><p>$y_\tau=y_b$ 与 $y_\mu=3y_s$ 在约 $10^6$ GeV 处几乎同时出现，第一代在 $10^8$ GeV 量级达到 $y_e\simeq y_d/3$；味混合与有限阈值修正保持该图像；若电子质量有独立起源，两个较重代的关系可在统一能标低至 $(5$-$7)\times10^5$ GeV 的理论中实现；所构造的第一个理论在 $4.6^{+1.2}_{-0.9}\times10^6$ GeV 统一三代，第二个（对称汤川矩阵）在 $1.5^{+0.7}_{-0.5}\times10^7$ GeV 统一并预言 $|V_{cb}|=0.042\pm0.002$；二者共有的轻代味结构固定相关矢量轻夸克耦合，使核内 $\mu\to e$ 转换成为直接检验，即将开展的搜寻可探测所选区域的一部分，拟议设施可完全覆盖。</p>
+    <h4>局限与展望</h4><p>上述结论依赖于重整化群演化所得能标关系及所构造的两个具体理论框架；若电子质量确有独立起源，则仅两个较重代关系可在更低能标实现。核内 $\mu\to e$ 转换实验是区分与检验这些理论的关键途径，其覆盖范围取决于未来实验灵敏度；其他味物理或轻夸克相关观测量是否提供补充检验，原文未作明确论断。</p>
+  </section>
+</article><article class="paper" id="paper-2610.33153v1">
+  <div class="paper-head">
+    <h2>FASER与NA64μ实验中的μ子三叉过程：研究动机、理论预言与精密测量前景<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.33153v1" rel="noopener noreferrer">2610.33153v1</a>
+  </div>
+  <p class="original-title">Muon Tridents at FASER and NA64$μ$: Motivation, Predictions, and Prospects for Precision Measurements</p>
+  <p class="meta"><strong>作者：</strong>Reinaldo Francener、Victor P. Goncalves、Felix Kling、Gabriel Rabelo-Soares</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>LHC质子-质子碰撞远前向区域产生的高能μ子通量极为强盛，为在TeV能标研究稀有电磁相互作用提供了独特机会。本文研究FASER实验中μ子与原子核相互作用中的μ子三叉散射过程，预计该实验已记录超过10^5个此类事例。文章回顾并改进了该过程的理论描述，在考虑实际探测器接受度与主要本底贡献的基础上，给出了LHC Run 3期间总事例率与微分分布的预言，并考察了预言对核形状因子处理方式的依赖以及库仑修正等高阶QED效应的影响。结果表明，利用FASER的谱仪可首次在TeV能标测量μ子三叉过程，截面测量精度预计可达百分量级。作者还将分析推广至NA64μ实验，表明该实验与FASER相结合，可在广阔的未探索能区检验μ子三叉截面的能量依赖关系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在TeV能标首次测量μ子三叉散射过程，并检验其截面随能量的变化。</p>
+    <h4>方法</h4><p>回顾并改进μ子三叉过程的理论描述，结合FASER探测器的实际接受度与主要本底，计算LHC Run 3期间的总事例率与微分分布；考察核形状因子处理方式及库仑修正等高阶QED效应的影响；并将分析推广至NA64μ实验。</p>
+    <h4>主要发现</h4><p>FASER预计已记录超过10^5个μ子三叉事例；考虑探测器接受度与本底后可给出Run 3的事例率与微分分布预言；FASER谱仪有望首次在TeV能标测量该过程，截面精度预计达百分量级；FASER与NA64μ结合可在广阔未探索能区检验截面的能量依赖。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限性；可合理推断，预言的可靠性依赖于核形状因子与高阶QED修正的处理，实际测量精度可能受本底系统误差与探测器系统误差制约，后续需实验数据检验理论修正。</p>
+  </section>
+</article><article class="paper" id="paper-2610.33255v1">
+  <div class="paper-head">
+    <h2>纵向极化电子-质子散射中弹性矢量介子产生对轨道角动量分布的探测<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.33255v1" rel="noopener noreferrer">2610.33255v1</a>
+  </div>
+  <p class="original-title">Probing Orbital Angular Momentum Distributions in Elastic Vector Meson Production in Longitudinally Polarized Electron--Proton Scattering</p>
+  <p class="meta"><strong>作者：</strong>Yuri V. Kovchegov、Brandon Manley</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文考虑在小 $x$ 区域纵向极化电子-质子碰撞中的弹性矢量介子产生。受文献中已有开创性提议的启发，我们在极化小 $x$ 形式框架内，分别针对横向极化和纵向极化的矢量介子，计算了纵向双自旋不对称性（DSA）的分子。计算表明，在小横向动量转移下，弹性矢量介子产生 DSA 的 $\cos\varphi_{k\Delta}$ 方位角谐波（其中 $\varphi_{k\Delta}$ 为偶极/Trento 参考系中出射电子与介子横向动量之间的方位角）为探测小 $x$ 区域的轨道角动量（OAM）分布提供了有前景的途径。所得结果可适用于多种不同的矢量介子种类，从而开辟了一类新的可观测量，可用于从实验数据中提取 OAM 分布。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在小 $x$ 区域通过纵向极化电子-质子散射中的弹性矢量介子产生，探测轨道角动量（OAM）分布。</p>
+    <h4>方法</h4><p>在极化小 $x$ 形式框架内，分别对横向极化和纵向极化矢量介子计算纵向双自旋不对称性（DSA）的分子，并分析其方位角谐波，特别是小横向动量转移下 DSA 的 $\cos\varphi_{k\Delta}$ 谐波。</p>
+    <h4>主要发现</h4><p>计算表明，小横向动量转移下弹性矢量介子产生 DSA 的 $\cos\varphi_{k\Delta}$ 方位角谐波可作为探测小 $x$ 区域 OAM 分布的有前景的观测量；结果可适用于多种矢量介子种类，从而提供一类可从实验数据中提取 OAM 分布的新观测量。</p>
+    <h4>局限与展望</h4><p>原文未给出数值估计或实验可行性分析；该观测量在实际数据中的可提取性、不同矢量介子种类下的适用性以及理论近似（极化小 $x$ 形式、小横向动量转移）的适用范围仍需进一步检验，这些属于可合理推断的后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2610.33757v1">
+  <div class="paper-head">
+    <h2>用图神经网络剖析味标记<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.33757v1" rel="noopener noreferrer">2610.33757v1</a>
+  </div>
+  <p class="original-title">Dissecting flavor tagging with graph neural networks</p>
+  <p class="meta"><strong>作者：</strong>Ankita Budhraja、Sunny Kumar Singh、Balbeer Singh</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>ParticleNet 等图神经网络被广泛用于夸克/胶子喷注的标记。本文研究此类网络的判别能力如何在组分多重数与喷注其余结构之间分配，并按喷注横动量与多重数分别考察。为此，我们在 Pythia 产生的 Z+jet 事例中，用横动量和快度在 80≤p_T^jet≤400 GeV 的宽范围内匹配的夸克喷注与胶子喷注训练 ParticleNet。我们发现，网络在每个 p_T^jet 区间内都学到了胶子喷注比例随多重数的变化，包括夸克喷注与胶子喷注等概率所对应的多重数偏移，这表明它联合利用了（由组分重建的）喷注能标与其子结构。在固定多重数下，网络给出的胶子概率平均值与观测到的胶子比例一致，但围绕均值分布很宽。这使我们能将其输出解释为多重数对数似然比与固定多重数下残余对数似然比之和，从而使网络能够正确识别 20–34% 的多重数偏向相反类别的喷注。通过在固定多重数下重新标度组分的径向展宽，我们发现网络将更宽的喷注视为更像胶子，且这种响应在低与中等多重数处最大，此时仅凭多重数无法决定喷注类别。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>图神经网络（如 ParticleNet）用于夸克/胶子喷注标记时，其判别能力如何在组分多重数与喷注其余结构之间分配，并如何随喷注横动量和多重数变化。</p>
+    <h4>方法</h4><p>在 Pythia 产生的 Z+jet 事例中，选取横动量和快度匹配、80≤p_T^jet≤400 GeV 的夸克与胶子喷注训练 ParticleNet；按 p_T^jet 与多重数分区间分析网络输出，并将输出分解为多重数对数似然比与固定多重数下的残余对数似然比；另通过在固定多重数下重新标度组分径向展宽来考察网络对喷注宽度的响应。</p>
+    <h4>主要发现</h4><p>网络在每个 p_T^jet 区间内学到了胶子喷注比例随多重数的变化，包括两类喷注等概率所对应的多重数偏移，表明其联合利用喷注能标与子结构；固定多重数下网络给出的胶子概率平均值与观测胶子比例一致但分布很宽；将输出解释为多重数对数似然比与残余对数似然比之和后，网络能正确识别 20–34% 的多重数偏向相反类别的喷注；固定多重数下加宽组分径向展宽会使网络更倾向于判为胶子，且该响应在低与中等多重数处最大。</p>
+    <h4>局限与展望</h4><p>本文结果基于 Pythia 模拟的 Z+jet 事例及特定网络与匹配条件，向其他产生过程、探测器效应或实验数据的适用性尚需验证；多重数对数似然比与残余对数似然比的分解可为理解与改进味标记网络提供可检验的分析框架，但这一方向属于合理推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34117v1">
+  <div class="paper-head">
+    <h2>辐射性希格斯衰变到ψ(4230)<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.34117v1" rel="noopener noreferrer">2610.34117v1</a>
+  </div>
+  <p class="original-title">Radiative Higgs decay to $ψ\left(4230\right)$</p>
+  <p class="meta"><strong>作者：</strong>Ahmed Ali、Muhammad Jamil Aslam</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在标准模型内及超出标准模型的框架下计算了辐射性希格斯衰变 H → ψ(4230) + γ 的衰变率。矢量态 ψ(4230) 是候选的奇异四夸克态，其量子数为 I^G(J^{PC})=0^-(1^{--})，质量为 m_{ψ(4230)}=4221.7 ± 2.5 MeV，衰变宽度为 Γ_{ψ(4230)}=51 ± 7 MeV。作者提出一种实用的参数化方案来描述所谓的直接振幅，利用 ψ(4230) 的轻子耦合来估计与希格斯衰变振幅相关的短距离重叠。结果得到标准模型分支比 B_SM(H → ψ(4230)γ)=4.88^{+4.71}_{-4.52}×10^{-7}，其不确定度主要来自 ψ(4230) 轻子衰变宽度的实验误差。当 y_c=-3 时（y_c 为粲夸克的希格斯-汤川耦合），该分支比增至约 10^{-6}。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究辐射性希格斯衰变 H → ψ(4230) + γ 在标准模型内及超出标准模型情形下的衰变率与分支比。</p>
+    <h4>方法</h4><p>在标准模型及超出标准模型框架下计算衰变率；将 ψ(4230) 视为量子数为 I^G(J^{PC})=0^-(1^{--}) 的候选奇异四夸克态，采用其轻子耦合对直接振幅进行实用参数化，以估计与希格斯衰变振幅相关的短距离重叠。</p>
+    <h4>主要发现</h4><p>得到标准模型分支比 B_SM(H → ψ(4230)γ)=4.88^{+4.71}_{-4.52}×10^{-7}，不确定度主要来自 ψ(4230) 轻子衰变宽度的实验误差；当粲夸克希格斯-汤川耦合 y_c=-3 时，分支比增至约 10^{-6}。</p>
+    <h4>局限与展望</h4><p>结果的不确定度主要受 ψ(4230) 轻子衰变宽度实验精度的限制，因此该衰变道对希格斯-粲夸克耦合的约束能力有赖于相关实验参数的改进；论文未明确讨论其他局限或后续方向，超出原文的推断需谨慎对待。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34216v1">
+  <div class="paper-head">
+    <h2>异常软光子：简要综述<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.34216v1" rel="noopener noreferrer">2610.34216v1</a>
+  </div>
+  <p class="original-title">Anomalous Soft Photons: A Brief Overview</p>
+  <p class="meta"><strong>作者：</strong>Klaus Reygers</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文为会议论文集，从实验角度对软光子疑难作了简明梳理。该疑难指强子反应中的软光子数据与基于 Low 软光子定理的理论预言之间长期存在的偏差。文中概述了理论基准、代表性测量以及主要实验挑战；关于实验历史与理论的详细讨论，作者指向近期综述 Phys. Rept., 1097:1, 2024。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>强子反应中的软光子数据与基于 Low 软光子定理的理论预言之间长期存在的偏差（软光子疑难）。</p>
+    <h4>方法</h4><p>会议论文集形式的简要综述，从实验视角总结理论基准、代表性测量与主要实验挑战，并引用综述文献 Phys. Rept., 1097:1, 2024 以提供细节。</p>
+    <h4>主要发现</h4><p>原文明确指出软光子数据与 Low 软光子定理预言之间存在长期偏差，并归纳了理论基准、代表性测量及主要实验挑战；未给出新的定量结果。</p>
+    <h4>局限与展望</h4><p>原文未展开具体局限或后续方向；可合理推断，解决该疑难需进一步厘清实验系统误差与理论修正，具体路径需参考所引综述。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34325v1">
+  <div class="paper-head">
+    <h2>轴子晕探测器近乎精确的上置信限<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.34325v1" rel="noopener noreferrer">2610.34325v1</a>
+  </div>
+  <p class="original-title">Near-exact Upper Confidence Limits for Axion Haloscopes</p>
+  <p class="meta"><strong>作者：</strong>Andrea Gallo Rosso、Jan Conrad</p>
+  <p class="meta"><strong>主分类：</strong>physics.data-an
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.data-an</span> <span class="tag">astro-ph.IM</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>轴子晕探测器的数据采集通常采用序贯自适应频率扫描。本文提出一种在该情形下计算轴子-光子耦合的基于似然的上置信限的方法。我们将该基于似然的方法与专门设计的方法进行概念和定量比较，即 Brubaker 等人提出的方法（Geometric）及其由 Palken 等人提出的升级版本——贝叶斯功率测量（BPM）框架。我们发现，基于似然的方法给出的平均上置信限显著强于这些方法所得到的限制。例如，当应用于 ALPHA Plasma-haloscope 的预期结果时，与当前最先进水平相比，预期约束改善约 1.4 倍。我们进一步阐明了 Geometric 和 BPM 方法的统计基础，特别指出 BPM 与 e-values 的对应关系，后者在统计学中被提出作为传统 p-values 的替代方案。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在轴子晕探测器采用序贯自适应频率扫描的数据采集条件下，如何计算轴子-光子耦合的基于似然的上置信限，并与现有的 Geometric 和 BPM 方法进行比较。</p>
+    <h4>方法</h4><p>提出基于似然的上置信限计算方法；将该方法与 Brubaker 等人的 Geometric 方法及 Palken 等人的贝叶斯功率测量（BPM）框架进行概念和定量比较；并分析 Geometric 与 BPM 方法的统计基础。</p>
+    <h4>主要发现</h4><p>基于似然的方法给出的平均上置信限显著强于 Geometric 和 BPM 方法；应用于 ALPHA Plasma-haloscope 的预期结果时，与当前最先进水平相比预期约束改善约 1.4 倍；BPM 与统计学中的 e-values 存在对应关系。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论该方法的局限或适用范围；其统计基础与 e-values 的对应关系提示可进一步从 e-values 理论角度审视 BPM 框架，但此为基于原文的合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34741v1">
+  <div class="paper-head">
+    <h2>“必然”非奇异四夸克态与ρρ相互作用<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.34741v1" rel="noopener noreferrer">2610.34741v1</a>
+  </div>
+  <p class="original-title">&quot;Inevitable&#x27;&#x27; nonstrange tetraquark states and $ρρ$ interaction</p>
+  <p class="meta"><strong>作者：</strong>Yanyue Pan、Yuying Hao、Shirui Zhao、Hongxia Huang、Jialun Ping</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在夸克离域色屏蔽模型框架下，系统研究了两个ρ介子在IJ=00、02、11、20和22各道中的相互作用。结果表明，两个ρ介子之间存在强吸引势，使二者较易形成束缚态。束缚能最大的是IJ=02和IJ=00，数值超过一百MeV；IJ=20态束缚最弱，束缚能仅为几MeV。此外，集团间距离的结果支持对这些态的分子态解释。相互作用分析显示，ρρ与ΔΔ相互作用具有一定相似性。受d*双重子预言及衰变性质分析的启发，我们提出IJ=02的ρρ态可能是“必然”非奇异四夸克态最有希望的候选者，值得实验搜寻。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>两个ρ介子在IJ=00、02、11、20和22各道中能否形成束缚态，以及其中是否存在可作为“必然”非奇异四夸克态候选者的态。</p>
+    <h4>方法</h4><p>在夸克离域色屏蔽模型框架下，系统计算两个ρ介子在IJ=00、02、11、20和22各道中的相互作用，并分析束缚能、集团间距离及与ΔΔ相互作用的相似性；同时结合d*双重子预言和衰变性质分析进行讨论。</p>
+    <h4>主要发现</h4><p>两个ρ介子之间存在强吸引势，有利于形成束缚态；束缚能最大的是IJ=02和IJ=00，均超过一百MeV，IJ=20束缚最弱，仅几MeV；集团间距离结果支持分子态解释；ρρ与ΔΔ相互作用具有一定相似性；IJ=02的ρρ态被认为是“必然”非奇异四夸克态最有希望的候选者。</p>
+    <h4>局限与展望</h4><p>原文仅建议IJ=02的ρρ态值得实验搜寻，未给出具体实验方案或进一步理论计算；其分子态解释及“必然”候选者地位基于模型计算与衰变性质分析，适用范围受所用模型限制，后续需实验检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.34798v1">
+  <div class="paper-head">
+    <h2>高 x 区域π介子部分子分布之谜<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.34798v1" rel="noopener noreferrer">2610.34798v1</a>
+  </div>
+  <p class="original-title">The Pion Parton Distribution Puzzle in the High x Region</p>
+  <p class="meta"><strong>作者：</strong>Misak Sargsian</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种基于价夸克谱函数表示的新理论方法，用于描述强子的部分子结构。该方法将无质量价夸克置于剩余强子的平均场中，此前已用于计算核子部分子分布函数（PDF），并由此观察到核子的π介子云结构。本报告在同一框架下计算价夸克区域的π介子 PDF：通过嵌入π介子剩余场中的价 q\bar q 集团来描述π介子的软部分子结构，并利用 q\bar q 集团与剩余场的唯象光前波函数计算π介子 PDF。结果表明，x 加权的价 PDF（xPDF）的峰位依赖于表征 q\bar q 集团虚度与剩余系统质量的参数；这些参数通过将计算所得 PDF 拟合到起始标度 Q_0 下经验π介子 xPDF 的高度与峰位来确定。拟合表明，与核子情形不同，π介子中仅需很小的剩余质量即可描述价夸克区域的现有π介子 PDF；同时要求 q\bar q 集团具有高虚度，且相互作用夸克携带该集团几乎全部动量。这一图像与 Feynman 机制的主导地位一致，使 PDF 中硬成分的空间很小。该计算实际描述了近期在 x→1 极限观测到的约 (1-x) 行为。一个非平凡的观察是，xPDF 的高度与峰位决定了价 PDF 在 x→1 极限下的解析行为。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在价夸克区域描述π介子的部分子分布函数，并解释其高 x 区域（尤其 x→1 极限）的行为？</p>
+    <h4>方法</h4><p>采用基于价夸克谱函数表示的理论方法，将无质量价夸克置于剩余强子平均场中；以嵌入π介子剩余场的价 q\bar q 集团描述软部分子结构，并使用唯象光前波函数计算π介子 PDF；通过拟合经验π介子 xPDF 在起始标度 Q_0 下的高度与峰位确定 q\bar q 集团虚度及剩余系统质量等参数。</p>
+    <h4>主要发现</h4><p>x 加权价 PDF 的峰位依赖于 q\bar q 集团虚度与剩余系统质量参数；拟合表明π介子中仅需很小的剩余质量即可描述价夸克区域的现有π介子 PDF，且要求 q\bar q 集团高度虚化、相互作用夸克携带该集团几乎全部动量；该图像与 Feynman 机制主导一致，硬成分空间很小；计算实际描述了近期在 x→1 极限观测到的约 (1-x) 行为；xPDF 的高度与峰位决定了价 PDF 在 x→1 极限下的解析行为。</p>
+    <h4>局限与展望</h4><p>原文指出该图像使 PDF 中硬成分的空间很小，但未给出定量上限；所提“高度与峰位决定 x→1 解析行为”的观察基于当前拟合参数与唯象光前波函数，其普适性及对更高 Q^2 演化、其他强子或更精确高 x 数据的适用性尚待检验（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35285v1">
+  <div class="paper-head">
+    <h2>在光子-光子对撞机上探测柯林斯效应<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.35285v1" rel="noopener noreferrer">2610.35285v1</a>
+  </div>
+  <p class="original-title">Probing the Collins effect at photon-photon colliders</p>
+  <p class="meta"><strong>作者：</strong>Simone Anedda、Carlo Flore、Francesco Murgia、Cristian Pisano</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出通过研究过程 $\gamma\gamma\to h_1h_2X$ 中近乎背对背产生的非极化强子（主要为带电π介子）围绕喷注推力轴的方位角分布，来探测柯林斯效应。初态准实光子可由两个散射轻子或超周边碰撞中的两个带电重核发射。文中给出了未来环形对撞机（FCC）以及 LHC 上计划中的超周边碰撞实验在原则上可及的若干运动学构型的数值估计。结果显示，相应的不对称度可以相当可观，甚至可达约 10–15%。因此，所提议的测量将有助于揭示夸克强子化机制，并且在原则上能够区分现有的不同柯林斯函数模型。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在光子-光子对撞中探测柯林斯效应，并利用近乎背对背产生的非极化强子的方位角分布研究夸克强子化机制。</p>
+    <h4>方法</h4><p>提出在 $\gamma\gamma\to h_1h_2X$ 过程中测量强子围绕喷注推力轴的方位角分布；初态准实光子来自两个散射轻子或超周边碰撞中的两个带电重核；针对 FCC 及 LHC 超周边碰撞实验可及的运动学构型进行数值估计。</p>
+    <h4>主要发现</h4><p>数值估计表明相应的不对称度可以相当可观，甚至可达约 10–15%；该测量在原则上可区分现有的不同柯林斯函数模型。</p>
+    <h4>局限与展望</h4><p>原文的数值估计针对特定运动学构型，实际可观测性取决于未来 FCC 与 LHC 超周边碰撞实验的条件；所提议的测量有望加深对夸克强子化机制的理解，并区分不同柯林斯函数模型，但这一前景属于原文的预期而非已证实的结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35331v1">
+  <div class="paper-head">
+    <h2>在 ALICE 中于 √s_NN = 5.36 TeV 的 OO 与 Ne–Ne 碰撞中测量类喷注双强子关联<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.35331v1" rel="noopener noreferrer">2610.35331v1</a>
+  </div>
+  <p class="original-title">Jet-like dihadron correlations in OO and Ne--Ne collisions at $\sqrt{s_{\rm NN}} = 5.36$ TeV with ALICE</p>
+  <p class="meta"><strong>作者：</strong>Neelkamal Mallick、Joonsuk Bae</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>重离子碰撞研究的主要目标是探究被称为夸克–胶子等离子体（QGP）的高温高密原初核物质性质。然而，LHC 上 pp 与 p–Pb 碰撞中近期观测到的类流体力学流行为提示，即使在最小的碰撞系统中也可能形成 QGP 液滴。为弥合小系统与大系统之间的多重数间隙并检验流体力学描述的适用性，LHC 首次开展了轻离子碰撞研究。本贡献报告了 ALICE 在 √s_NN = 5.36 TeV 下采集的 OO 与 Ne–Ne 碰撞中的双强子关联测量，以探索可能的介质效应。我们研究了近侧关联峰宽度随中快度带电粒子多重数的变化，结果显示在 OO 与 Ne–Ne 碰撞中，相对于 pp 与 pO 碰撞，不同横动量（p_T）区间内的峰宽度均呈现随多重数变化的修饰。此外，我们首次在 OO 碰撞中测量了近侧与远侧关联的每触发归一化相对产额 I_AA，而在 Ne–Ne 碰撞中仅对近侧进行了测量。OO 碰撞中远侧关联产额相对于 pp 碰撞的压低在定性上与喷注–介质相互作用一致，但其幅度弱于中心 Pb–Pb 碰撞。然而，在当前运动学区间内，事件选择偏倚与冷核物质效应等其他因素对观测到的压低贡献程度仍是一个开放问题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 LHC 首次开展的轻离子碰撞中，OO 与 Ne–Ne 碰撞于 √s_NN = 5.36 TeV 下是否表现出可能的介质效应，以及双强子关联是否随带电粒子多重数发生修饰。</p>
+    <h4>方法</h4><p>利用 ALICE 探测器采集的 OO 与 Ne–Ne 碰撞数据，测量双强子关联；将近侧关联峰宽度作为中快度带电粒子多重数的函数，在多个横动量（p_T）区间内相对于 pp 与 pO 碰撞进行比较；并在 OO 碰撞中首次测量近侧与远侧的每触发归一化相对产额 I_AA，在 Ne–Ne 碰撞中仅测量近侧。</p>
+    <h4>主要发现</h4><p>近侧关联峰宽度在 OO 与 Ne–Ne 碰撞中相对于 pp 与 pO 碰撞呈现随多重数变化的修饰，且该修饰出现在所研究的多个 p_T 区间内；OO 碰撞中远侧关联产额相对于 pp 碰撞被压低，该压低在定性上与喷注–介质相互作用一致，但幅度弱于中心 Pb–Pb 碰撞。</p>
+    <h4>局限与展望</h4><p>原文指出，事件选择偏倚与冷核物质效应等其他因素对当前运动学区间内观测到的远侧产额压低的贡献程度仍属开放问题；因此，所观测压低能否完全归因于喷注–介质相互作用尚不能确定，需进一步研究加以区分。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35619v1">
+  <div class="paper-head">
+    <h2>弥散超新星中微子背景中电子反中微子信号的迹象<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.35619v1" rel="noopener noreferrer">2610.35619v1</a>
+  </div>
+  <p class="original-title">Indication of Electron Antineutrinos from the Diffuse Supernova Neutrino Background</p>
+  <p class="meta"><strong>作者：</strong>The Super-Kamiokande Collaboration、:、K. Abe、Y. Asaoka、M. Harada、Y. Hayato、K. Hiraide、T. H. Hung、K. Ieki、M. Ikeda、J. Kameda、Y. Kataoka、S. Mine、M. Miura、S. Moriyama、K. Nakagiri、M. Nakahata、S. Nakayama、Y. Noguchi、G. Pronost、K. Sato、H. Sekiya、R. Shinoda、M. Shiozawa、Y. Suzuki、A. Takeda、Y. Takemoto、H. Tanaka、S. Chen、Y. Itow、T. Kajita、R. Nishijima、K. Okumura、T. Tashiro、T. Tomiya、X. Wang、F. J. de Garay Arcones、P. Fernandez、L. Labarga、D. Samudio、C. Yanagisawa、B. Jargowsky、E. Kearns、J. Mirabito、L. Wan、T. Wester、B. W. Pointon、J. Bian、B. Cortez、N. J. Griskevich、Y. Jiang、M. B. Smy、H. W. Sobel、V. Takhistov、J. Hill、B. D. Xu、D. Jung、D. H. Moon、R. G. Park、B. S. Yang、K. Scholberg、C. W. Walter、A. Chahlaoui、O. Drapier、A. Ershova、M. Ferey、Z. Hu、E. Le Blévec、T. Leplumey、Th. A. Mueller、P. Paganini、C. Quach、R. Rogly、T. Nakamura、J. S. Jang、R. P. Litchfield、L. N. Machado、F. J. P. Soler、J. G. Learned、K. Choi、S. Cao、T. V. Ngoc、L. H. V. Anthony、N. W. Prouse、M. Scott、Y. Uchida、V. Berardi、N. F. Calabria、M. G. Catanesi、N. Ospina、E. Radicioni、A. Langella、G. De Rosa、G. T. Burton、G. Collazuol、M. Feltre、M. Mattiazzi、L. Ludovici、M. Gonin、L. Périssé、B. Quilain、M. Fukazawa、S. Horiuchi、A. Kawabata、Y. M. Liu、Y. Maekawa、Y. Nishimura、A. Oka、Z. Utagawa、R. Akutsu、M. Friend、T. Hasegawa、Y. Hino、T. Ishida、T. Kobayashi、T. Matsubara、T. Nakadaira、Y. Oyama、A. Portocarrero Yrey、K. Sakashita、T. Sekiguchi、H. Tanigawa、N. Bhuiyan、F. Di Lodovico、T. Katori、R. Kralik、N. Latham、R. M. Ramsden、V. Siccardi、S. Aoyama、H. Bambara、Y. Inaba、H. Ito、M. Nishigami、T. Sone、A. T. Suzuki、Y. Takeuchi、S. Wada、H. Zhong、J. Feng、L. Feng、N. Fujimoto、S. Han、J. Hikida、M. Kawaue、T. Kikawa、F. Nakanishi、T. Nakaya、R. A. Wendell、S. J. Jenkins、U. Limbu、N. McCauley、M. Fanì、M. J. Wilking、Z. Xie、Y. Fukuda、H. Menjo、Y. Yoshioka、J. Lagoda、J. Zalipska、T. Yano、M. Mori、J. Jiang、Y. Asano、K. Hamaguchi、H. Ishino、Y. Koshio、S. Ohshita、T. Tada、T. Ishizuka、G. Barr、D. Barrow、D. Wark、A. Holin、F. Nova、M. Jo、S. Jung、J. Yoo、L. Kneale、T. Peacock、P. Stowell、H. Okazawa、S. M. Lakshmi、S. Hong、E. Kwon、M. W. Lee、J. W. Seo、I. Yu、Y. Ashida、A. K. Ichikawa、S. Kobayashi、K. D. Nakamura、S. Abe、W. Cai、Y. Endo、S. Goto、H. Hayasaki、S. Kodama、Y. Kong、K. Li、Y. Masaki、Y. Mizuno、T. Muro、Y. Nakajima、M. Sekiyama、N. Taniuchi、T. Yamazumi、M. Yokoyama、P. de Perio、S. Fujita、C. Jesús-Valls、K. Martens、Ll. Marti、A. D. Santos、K. M. Tsui、M. R. Vagins、S. Izumiyama、M. Kuze、R. Matsumoto、C. Ise、M. Ishitsuka、M. Sugo、M. Wako、K. Yamauchi、Y. Nakano、A. Yankelevich、F. Cormier、R. Gaur、M. Hartz、A. Konaka、X. Li、B. R. Smithers、S. Chen、Y. Wu、A. Q. Zhang、B. Zhang、H. Adhikary、M. Girgus、P. Govindaraj、M. Posiadala-Zezula、Y. S. Prabhu、S. B. Boyd、R. Edwards、D. Hadley、M. O&#x27;Flaherty、B. Richards、A. Ali、B. Jamieson、C. Bronner、D. Horiguchi、A. Minamino、Y. Sasaki</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报告了基于Super-Kamiokande 5003.0天数据集的能谱拟合分析，在弥散超新星中微子背景（DSNB）中发现的电子反中微子（$\bar{\nu}_e$）迹象。相较于以往搜寻，本工作的关键改进包括：增强对大气中微子本底的排除、更新系统不确定度的评估，以及改进的能谱拟合方法。采用一个代表性的DSNB模型，在$E_\nu&gt;13.3$~MeV条件下得到最佳拟合通量为$3.6^{+1.6}_{-1.5}~\mathrm{cm^{-2}\,s^{-1}}$，相对于零假设对应$2.6\sigma$的偏离（99.5%置信水平，单侧）。采用不同能谱形状的信号模型亦得到相近的显著度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在Super-Kamiokande数据中是否存在弥散超新星中微子背景（DSNB）的电子反中微子（$\bar{\nu}_e$）信号。</p>
+    <h4>方法</h4><p>对Super-Kamiokande 5003.0天数据集进行能谱拟合分析，改进大气中微子本底排除、更新系统不确定度评估并采用改进的能谱拟合方法；使用代表性DSNB模型及不同能谱形状的信号模型进行拟合。</p>
+    <h4>主要发现</h4><p>在代表性DSNB模型下，$E_\nu&gt;13.3$~MeV的最佳拟合通量为$3.6^{+1.6}_{-1.5}~\mathrm{cm^{-2}\,s^{-1}}$，相对于零假设为$2.6\sigma$的偏离（99.5%置信水平，单侧）；不同能谱形状的信号模型给出相近显著度。</p>
+    <h4>局限与展望</h4><p>原文将结果表述为“迹象”（indication）而非发现，显著度约为$2.6\sigma$，尚不足以宣称确定性探测；其适用范围限于所采用的DSNB模型与能谱形状假设。后续可通过更长曝光、进一步压低本底与系统不确定度，或结合其他实验数据来检验该迹象（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35675v1">
+  <div class="paper-head">
+    <h2>超高能观测载荷（PUEO）的设计与飞行<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.35675v1" rel="noopener noreferrer">2610.35675v1</a>
+  </div>
+  <p class="original-title">The design and flight of the Payload for Ultrahigh Energy Observations (PUEO)</p>
+  <p class="meta"><strong>作者：</strong>PUEO Collaboration、Q. Abarr、S. Agarwal、J. Alfaro、S. Ali、P. Allison、J. Alvarez-Muñiz、T. Anderson、H. Barnett、A. Basharina-Freshville、J. J. Beatty、L. Beaufore、D. Z. Besson、M. Betts、R. Bose、D. Braun、B. Chamanbahar、P. Chen、Y. Chen、J. M. Clem、T. Coakley、A. Connolly、K. Couberly、L. Cremonesi、A. Cummings、P. Dasgupta、C. Deaconu、J. Flaherty、C. Godden、P. W. Gorham、C. Hornhuber、J. Hoffman、K. Hughes、A. Hynous、A. Jung、A. M. Kofman、Y. Ku、D. Kullgren、C. -Y. Kuo、P. Linton、L. Lisalda、T. C. Liu、W. Luszczak、S. C. Mackey、Z. Martin、K. McBride、C. Miki、J. Nam、D. A. Newmark、R. J. Nichol、A. Novikov、A. Nozdrina、E. Oberla、H. Pumphrey、D. Radomski、B. F. Rauch、R. Scrandis、D. Seckel、M. F. H. Seikh、J. Shiao、G. Simburger、J. Tutt、A. G. Vieregg、S. -H. Wang、D. Washington、C. Welling、P. Windischhofer、S. A. Wissel、C. Xie、J. Yao、R. Young、E. Zas、A. Zeolla</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">astro-ph.IM</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>超高能宇宙线（UHE，≳1 EeV）源预期会通过源区内或宇宙学尺度上的传播相互作用产生相近能量的中微子。对中微子通量、味和能量的测量可为理解支配超高能宇宙线加速与传播的底层过程提供重要线索。由于预测通量很低，探测此类能量的中微子需要巨大的探测器体积。本文介绍气球搭载任务 PUEO（Payload for Ultrahigh Energy Observations），这是一个天线阵列，旨在探测南极冰层中超高能中微子相互作用产生的 Askaryan 辐射。本文报告了构建 PUEO 的设计考量与实现，涵盖从设计参数到建成后验证的内容。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何设计并实现一个气球搭载的天线阵列，以探测南极冰层中超高能中微子相互作用产生的 Askaryan 辐射。</p>
+    <h4>方法</h4><p>采用气球搭载的天线阵列方案构建 PUEO 载荷，并围绕设计参数与建成后验证开展设计考量与实现工作。</p>
+    <h4>主要发现</h4><p>论文报告了 PUEO 的设计考量与实现，涵盖从设计参数到建成后验证的内容；摘要未给出具体的探测灵敏度或观测结果。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限或后续方向；基于其气球搭载与南极冰层探测的定位，可合理推断后续工作可能涉及飞行性能评估与探测能力的进一步验证，但这属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35789v1">
+  <div class="paper-head">
+    <h2>非弹性暗物质的中微子雾<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.35789v1" rel="noopener noreferrer">2610.35789v1</a>
+  </div>
+  <p class="original-title">The neutrino fog for inelastic dark matter</p>
+  <p class="meta"><strong>作者：</strong>C. S. Amarasinghe</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文刻画了非弹性暗物质在氙核上散射时中微子雾的行为。非弹性散射的运动学改变了信号的反冲谱，并产生性质不同的中微子雾图景。在非弹性参数空间的部分区域，对未来任意规模的氙实验而言中微子雾完全不存在；而在其他区域，中微子雾仅被消除，并会在更大曝光下重新出现。我们发现，多个归一化不确定的背景源可使中微子雾的起始点随暗物质质量和质量劈裂发生不连续跳变，而发现极限则平滑变化。我们还描述了一种机制：中微子速率不确定度的降低可能产生反直觉效果，即抬高由中微子雾不透明度导出的中微子本底下限。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究非弹性暗物质与氙核散射情形下中微子雾的特征，以及背景不确定度和中微子速率不确定度对中微子雾起始与发现极限的影响。</p>
+    <h4>方法</h4><p>基于非弹性散射运动学分析信号反冲谱的变化，刻画非弹性参数空间中的中微子雾图景；并考察多个归一化不确定的背景源以及中微子速率不确定度对中微子雾起始和发现极限的作用。</p>
+    <h4>主要发现</h4><p>非弹性散射运动学重塑信号反冲谱并产生定性不同的中微子雾图景；在非弹性参数空间部分区域，对未来任意规模的氙实验中微子雾完全不存在，而在其他区域中微子雾仅被消除并会在更大曝光下重新出现；多个归一化不确定的背景源可使中微子雾起始点随暗物质质量和质量劈裂不连续跳变，而发现极限平滑变化；存在一种机制使中微子速率不确定度的降低可能反直觉地抬高由中微子雾不透明度导出的中微子本底下限。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；可合理推断，该分析针对氙靶与非弹性暗物质散射，向其他靶核或散射类型的推广尚待检验，背景归一化与中微子速率不确定度的处理对中微子雾判定的影响值得进一步系统研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-27 10:42 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
