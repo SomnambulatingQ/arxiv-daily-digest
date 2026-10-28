@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-10-28</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">14</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">8</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2610.36504v1">运动腔内相位势中耗散孤子的光谱振荡与时间蜿蜒</a> <small>2610.36504v1</small></li><li><a href="#paper-2610.36706v1">非厄米系统中的亮孤子：探究PT对称性与Wadati结构的相互作用</a> <small>2610.36706v1</small></li><li><a href="#paper-2610.36891v1">具有非平凡时间依赖的正弦-戈尔登方程的大量双曲解与周期解</a> <small>2610.36891v1</small></li><li><a href="#paper-2610.37165v1">经典椭圆 Calogero–Inozemtsev 模型的 spin 推广及与 BC_n 根系相关的相互作用陀螺可积模型</a> <small>2610.37165v1</small></li><li><a href="#paper-2610.37183v1">具有平行非零边界条件的聚焦耦合非线性薛定谔方程：长时间渐近分析</a> <small>2610.37183v1</small></li><li><a href="#paper-2610.37436v1">非线性复杂网络的平坦性控制</a> <small>2610.37436v1</small></li></ol><h3>交叉列表（8）</h3><ol class="toc-list"><li><a href="#paper-2610.34815v1">具有非对称耦合的波系统中的物理伴随学习</a> <small>2610.34815v1</small></li><li><a href="#paper-2610.35979v1">切割、洗牌与扩散作为粗化过程</a> <small>2610.35979v1</small></li><li><a href="#paper-2610.36463v1">神经元生长的平稳作用量原理</a> <small>2610.36463v1</small></li><li><a href="#paper-2610.36920v1">含时滞的神经动力学探索：数值与分支分析方法</a> <small>2610.36920v1</small></li><li><a href="#paper-2610.37038v1">无地平线几何中简正模的谱形状因子：又一块砖</a> <small>2610.37038v1</small></li><li><a href="#paper-2610.37090v1">串联非对称耦合混沌量子点中的输运统计：布朗运动模型</a> <small>2610.37090v1</small></li><li><a href="#paper-2610.37285v1">MPS重叠函数与Sklyanin行列式</a> <small>2610.37285v1</small></li><li><a href="#paper-2610.37460v1">正交辛类型中的秩约化</a> <small>2610.37460v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.36504v1">
+  <div class="paper-head">
+    <h2>运动腔内相位势中耗散孤子的光谱振荡与时间蜿蜒<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.36504v1" rel="noopener noreferrer">2610.36504v1</a>
+  </div>
+  <p class="original-title">Spectral Oscillations and Temporal Meandering of Dissipative Solitons in a Moving Intracavity Phase Potential</p>
+  <p class="meta"><strong>作者：</strong>Heng Dong、Xiankun Yao、Wen-Li Yang</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>耗散孤子（DS）为研究由非线性、耗散与外驱动相互作用所支配的非平衡动力学提供了典型平台；在外势作用下，DS 可表现出丰富的非线性动力学行为。本文研究由相位调制产生的运动腔内势中的 DS 动力学，其中调制频率偏离腔重复频率的整数倍。调制失谐在 DS 与运动势之间引入时间尺度失配，导致两种不同的动力学区域：在较大失谐下，DS 无法持续跟踪运动势，表现出持续的光谱振荡与时间蜿蜒；而在失谐足够小时，DS 进入同步锁定状态。此外，振荡周期与振幅均可通过调制失谐和调制深度进行调节。这些结果揭示了异步驱动如何重塑 DS 动力学，并为在非线性光学腔中控制其动力学响应提供了一条途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究在由相位调制产生、频率偏离腔重复频率整数倍的运动腔内势中，耗散孤子（DS）的动力学行为及其受调制失谐与调制深度的影响。</p>
+    <h4>方法</h4><p>通过相位调制生成运动腔内势，使调制频率偏离腔重复频率的整数倍，从而在 DS 与运动势之间引入时间尺度失配；分析不同失谐条件下 DS 的动力学区域，并考察振荡周期与振幅对调制失谐和调制深度的依赖。</p>
+    <h4>主要发现</h4><p>调制失谐导致两种不同动力学区域：较大失谐下 DS 无法持续跟踪运动势，出现持续的光谱振荡与时间蜿蜒；失谐足够小时 DS 进入同步锁定状态。振荡周期与振幅均可通过调制失谐和调制深度调节。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，该机制或可为非线性光学腔中 DS 动力学响应的控制提供途径，但具体适用范围与实验可行性尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36706v1">
+  <div class="paper-head">
+    <h2>非厄米系统中的亮孤子：探究PT对称性与Wadati结构的相互作用<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.36706v1" rel="noopener noreferrer">2610.36706v1</a>
+  </div>
+  <p class="original-title">Bright Solitons in Non-Hermitian systems: Exploring the interplay of $\mathcal{PT}$ Symmetry and Wadati Structure</p>
+  <p class="meta"><strong>作者：</strong>Sathyanarayanan Chandramouli、Ricardo Carretero-González、Dimitrios J. Frantzeskakis、Panayotis G. Kevrekidis</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文重新审视非厄米势中的光孤子问题。针对含复局域势的聚焦非线性薛定谔方程这一基础模型，我们将此类模型划分为四种典型情形：(a) PT对称的Wadati势；(b) PT对称的非Wadati势；(c) 非PT对称但具有Wadati结构的势；(d) 既无PT对称性也无Wadati对称性的复势。我们在覆盖上述四个相关象限的代表性模型变体中研究光孤子的存在性与稳定性，并辅以基于非保守变分近似方法的低维有效描述。我们评估该变分框架在刻画解的结构性质与分岔方面的能力。结果表明，连续族亮孤子在(a)—(c)情形中持续存在。对于非PT对称势，偏离Wadati极限的小扰动（对应情形(d)）提示连续族亮孤子可能消失，更具体地说，可能出现单峰局域态的一般性缺失。相应的变分分析与上述观察大体一致。我们还强调了此类变分方法在描述非厄米势中亮孤子时的有用性与局限性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在含复局域势的聚焦非线性薛定谔方程模型中，PT对称性与Wadati结构的不同组合如何影响光孤子的存在性与稳定性，以及非保守变分近似能否有效描述这些解的结构与分岔。</p>
+    <h4>方法</h4><p>将模型按PT对称性与Wadati结构划分为四种典型情形，在覆盖四个象限的代表性模型变体中研究亮孤子的存在性与稳定性，并采用基于非保守变分近似方法的低维有效描述，评估其刻画解的结构性质与分岔的能力。</p>
+    <h4>主要发现</h4><p>连续族亮孤子在(a) PT对称Wadati势、(b) PT对称非Wadati势和(c) 非PT对称但Wadati势情形中持续存在；对于非PT对称势，偏离Wadati极限的小扰动（情形(d)）提示连续族亮孤子可能消失，并可能出现单峰局域态的一般性缺失；变分分析与这些观察大体一致。</p>
+    <h4>局限与展望</h4><p>原文指出了此类变分方法在非厄米势中描述亮孤子时的局限性；关于情形(d)中连续族消失及单峰局域态缺失的结论属于原文措辞为“suggest”的提示性结果，尚需进一步验证；后续可合理推断的方向包括更系统地检验偏离Wadati极限时的孤子行为及改进变分描述，但这些均为推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36891v1">
+  <div class="paper-head">
+    <h2>具有非平凡时间依赖的正弦-戈尔登方程的大量双曲解与周期解<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.36891v1" rel="noopener noreferrer">2610.36891v1</a>
+  </div>
+  <p class="original-title">Large number of hyperbolic and periodic solutions of sine-Gordon equation with nontrivial time dependence</p>
+  <p class="meta"><strong>作者：</strong>Thokala Soloman Raju、T. Shreecharan、Avinash Khare、Avadh Saxena</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文通过引入适当的拟设，将具有非平凡时间依赖的正弦-戈尔登（sine-Gordon）方程的精确解求解问题，约化为求解关于 x 与 t 的两个一阶对称 φ^4 型耦合方程的精确解，从而获得正弦-戈尔登方程的大量双曲解与周期解。具体而言，作者不仅得到了熟知的双孤子解、孤子-反孤子解和呼吸子解，还得到了周期双孤子解、周期孤子-反孤子解以及周期呼吸子解。此外，作者还得到了与正弦-戈尔登方程的双孤子解、孤子-反孤子解和呼吸子解相关的叠加实解与复（宇称-时间反演，即  mathcal{PT}）不变解。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在正弦-戈尔登方程具有非平凡时间依赖的情形下，系统构造其精确解，包括双曲型解与周期型解，以及相关的叠加解与  mathcal{PT} 不变解。</p>
+    <h4>方法</h4><p>采用适当的拟设，将原方程的精确解求解问题约化为关于 x 和 t 的两个一阶对称 φ^4 型耦合方程的精确解求解问题，并据此构造解族。</p>
+    <h4>主要发现</h4><p>原文明确报告获得了大量双曲解与周期解，其中包括熟知的双孤子解、孤子-反孤子解和呼吸子解，以及周期双孤子解、周期孤子-反孤子解和周期呼吸子解；此外还获得了与上述三类解相关的叠加实解和复  mathcal{PT} 不变解。</p>
+    <h4>局限与展望</h4><p>原文未讨论所得解族的完备性、稳定性或物理适用条件；所采用的拟设方法对其他非平凡时间依赖的可积或近可积系统的推广效果尚待进一步研究，上述方向属于可合理推断的后续工作。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37165v1">
+  <div class="paper-head">
+    <h2>经典椭圆 Calogero–Inozemtsev 模型的 spin 推广及与 BC_n 根系相关的相互作用陀螺可积模型<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.37165v1" rel="noopener noreferrer">2610.37165v1</a>
+  </div>
+  <p class="original-title">Spin generalizations of the classical elliptic Calogero--Inozemtsev model and integrable models of interacting tops associated with the $\rm{BC}_n$ root system</p>
+  <p class="meta"><strong>作者：</strong>D. Domanevsky、A. Zotov</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span> <span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究与 \(\mathrm{BC}_n\) 根系相关的相互作用陀螺模型族，并为其构造带谱参数的 Lax 对。构造基于含参数的 \(\mathrm{BC}_n\) 结合 Yang–Baxter 方程，其中同时涉及量子 \(R\)-矩阵与满足反射方程的边界 \(K\)-矩阵。作为特例，该框架给出椭圆 Calogero–Inozemtsev 模型的 spin 推广。文中进一步表明，将相互作用陀螺的量子哈密顿量与 Polychronakos 冻结方案相结合，可重现近期引入的 Haldane–Shastry–Inozemtsev 型各向异性量子长程 spin 链。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为与 \(\mathrm{BC}_n\) 根系相关的相互作用陀螺模型族构造带谱参数的 Lax 对，并说明其与椭圆 Calogero–Inozemtsev 模型 spin 推广及 Haldane–Shastry–Inozemtsev 型量子长程 spin 链之间的联系。</p>
+    <h4>方法</h4><p>利用含参数的 \(\mathrm{BC}_n\) 结合 Yang–Baxter 方程进行构造，该方程同时涉及量子 \(R\)-矩阵和满足反射方程的边界 \(K\)-矩阵；并结合 Polychronakos 冻结方案处理量子哈密顿量。</p>
+    <h4>主要发现</h4><p>构造出与 \(\mathrm{BC}_n\) 根系相关的相互作用陀螺模型族的带谱参数 Lax 对；其特例给出椭圆 Calogero–Inozemtsev 模型的 spin 推广；相互作用陀螺的量子哈密顿量结合 Polychronakos 冻结方案可重现近期引入的 Haldane–Shastry–Inozemtsev 型各向异性量子长程 spin 链。</p>
+    <h4>局限与展望</h4><p>原文未讨论可积性证明的细节、谱性质或具体物理应用；后续可合理推断的方向包括考察该 Lax 对框架的其他特例与推广，以及进一步分析所得模型与长程 spin 链的谱和热力学性质，但这些均需另行验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37183v1">
+  <div class="paper-head">
+    <h2>具有平行非零边界条件的聚焦耦合非线性薛定谔方程：长时间渐近分析<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.37183v1" rel="noopener noreferrer">2610.37183v1</a>
+  </div>
+  <p class="original-title">The focusing coupled nonlinear Schrödinger equation with parallel nonzero boundary conditions: long--time asmptotics</p>
+  <p class="meta"><strong>作者：</strong>Haibing Zhang、Xianguo Geng、Bo Xue、Minxin Jia</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究在无孤子情形下，具有平行常数非零边界条件的聚焦耦合非线性薛定谔方程解的长时间行为。我们将渐近区域划分为三类：平面波区域、调制椭圆波区域以及 Painlevé-II 过渡区域。在每一区域中，我们给出首阶渐近项与一阶修正，并给出显式误差界。结果表明，尽管局部扰动可能同时含有平行于背景与正交于背景的分量，首阶渐近项始终平行于背景向量。特别地，在椭圆波区域，首阶项由一个标量调制椭圆波乘以背景向量给出，而解的正交于背景的分量仅为 \(O(t^{-1/2})\)。这与线性稳定性分析一致：背景对平行扰动是调制不稳定的，而对正交扰动是稳定的。证明基于将 Deift--Zhou 非线性最速下降方法连同 \(G\)-函数机制应用于相应的 \(3\times3\) Riemann--Hilbert 问题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究具有平行常数非零边界条件的聚焦耦合非线性薛定谔方程在无孤子情形下解的长时间渐近行为，包括不同渐近区域中首阶项与一阶修正的形式及误差界。</p>
+    <h4>方法</h4><p>将 Deift--Zhou 非线性最速下降方法与 \(G\)-函数机制应用于相应的 \(3\times3\) Riemann--Hilbert 问题，并划分平面波区域、调制椭圆波区域和 Painlevé-II 过渡区域分别进行渐近分析。</p>
+    <h4>主要发现</h4><p>解的长时间行为可划分为平面波区域、调制椭圆波区域和 Painlevé-II 过渡区域；在每个区域均得到首阶渐近项、一阶修正及显式误差界；尽管局部扰动可含平行与正交于背景的分量，首阶渐近项始终平行于背景向量；在椭圆波区域，首阶项为标量调制椭圆波乘以背景向量，正交分量仅为 \(O(t^{-1/2})\)，与线性稳定性分析中背景对平行扰动调制不稳定、对正交扰动稳定的结论一致。</p>
+    <h4>局限与展望</h4><p>原文结果限于无孤子情形与平行常数非零边界条件；含孤子情形、非平行边界条件或其他耦合非线性薛定谔系统是否具有类似的首阶平行性及正交分量衰减速率，尚需进一步研究（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37436v1">
+  <div class="paper-head">
+    <h2>非线性复杂网络的平坦性控制<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.37436v1" rel="noopener noreferrer">2610.37436v1</a>
+  </div>
+  <p class="original-title">Flatness-based control of nonlinear complex networks</p>
+  <p class="meta"><strong>作者：</strong>I. Sendiña-Nadal、I. Leyva、J. P. Barbot、C. Letellier</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>非线性复杂网络的有效控制不仅需要确定干预节点，还需要确定应监测的状态变量以及控制输入的施加位置。本文提出一种可观测性引导的平坦性控制框架在网络尺度上的推广。所得控制律通过滑模控制实现，并在由混沌振子构成的异质网络中评估，这些振子被驱动至预设的周期状态。我们比较了两种控制架构：在逐节点方法中，各振子被独立感知与驱动；在成对方法中，利用每个节点对中单个节点所获取的测量来合成同时施加于两个节点的控制输入。在所考察的参数范围内，逐节点控制通常能在更宽的工作区域内实现精确控制，而成对控制在较受限的区域内仍然有效，且在给定驱动节点数下仅需一半的测量位置。此外，网络相互作用可通过将控制影响传播至未驱动节点来增强控制效果，在集体动力学与控制作用之间形成协同效应。总体而言，这些结果量化了非线性复杂网络中测量位置需求、控制性能与控制代价之间的权衡。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在非线性复杂网络中同时确定干预节点、需监测的状态变量以及控制输入的施加位置，并比较不同控制架构在测量位置需求、控制性能与控制代价之间的权衡。</p>
+    <h4>方法</h4><p>提出可观测性引导的平坦性控制框架的网络尺度推广，采用滑模控制实现控制律，并在由混沌振子构成的异质网络中驱动至预设周期状态；比较逐节点控制（各振子独立感知与驱动）与成对控制（每个节点对中仅测量一个节点，控制输入施加于两个节点）两种架构。</p>
+    <h4>主要发现</h4><p>在所考察的参数范围内，逐节点控制通常能在更宽的工作区域内实现精确控制；成对控制在较受限区域内仍有效，且在给定驱动节点数下仅需一半的测量位置；网络相互作用可将控制影响传播至未驱动节点，形成集体动力学与控制作用之间的协同效应。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；可合理推断，成对控制的有效区域受限，其适用性可能依赖于网络拓扑与耦合强度等参数，后续可进一步研究不同网络结构与参数条件下两种架构的权衡关系。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.34815v1">
+  <div class="paper-head">
+    <h2>具有非对称耦合的波系统中的物理伴随学习<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.34815v1" rel="noopener noreferrer">2610.34815v1</a>
+  </div>
+  <p class="original-title">Physical Adjoint Learning in Wave Systems with Asymmetric Couplings</p>
+  <p class="meta"><strong>作者：</strong>Lucas J. Fernández-Alcázar、John Guillamon、Krishna Joshi、Tsampikos Kottos</p>
+  <p class="meta"><strong>主分类：</strong>physics.optics
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.optics</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">cs.SY</span> <span class="tag">eess.SP</span> <span class="tag">eess.SY</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>开发能够直接从对外部激励的响应中学习的自优化物理系统，为实现自适应与智能机器提供了一条有前景的途径。其关键要素是能够在物理硬件内部评估优化梯度，从而无需精确的数值模型。在波系统中，原位伴随方法利用互易性在物理上实现伴随动力学，从而提供这一能力。然而，该方法在非互易系统中通常失效，因为伴随场无法通过原始器件直接获取。本文提出一种原位伴随优化框架，通过前向算子与转置算子之间计算成本低廉的相似变换，将物理梯度计算推广到具有非对称耦合的波系统。我们利用定制注入激励、定向测量和可调参数等可用自由度，在同一物理平台上通过前向实验实现伴随场重构。我们通过宽带透射与隔离、相干完美吸收、可编程波前整形以及空间选择性传感展示了该协议的多功能性。我们的结果为通过高效的物理梯度学习在复杂非互易波系统中实现自优化提供了一条途径。该协议所需的实验次数不随优化参数数量的增加而增加，并且即使系统的部分区域完全不可访问，该方法仍然适用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在具有非对称耦合（非互易）的波系统中，不依赖精确数值模型，在物理硬件内部原位计算优化梯度，从而支持基于梯度的自优化学习。</p>
+    <h4>方法</h4><p>提出原位伴随优化框架：利用前向算子与转置算子之间计算成本低廉的相似变换，并结合定制注入激励、定向测量和可调参数等自由度，在同一物理平台上通过前向实验重构伴随场，从而在非互易系统中实现物理梯度计算。</p>
+    <h4>主要发现</h4><p>原文明确报告：该协议在宽带透射与隔离、相干完美吸收、可编程波前整形以及空间选择性传感等任务中得到演示；协议所需实验次数不随优化参数数量增加；即使系统部分区域完全不可访问，方法仍然适用。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向。可合理推断：该框架依赖前向与转置算子之间存在可低成本实现的相似变换，其适用性可能受系统结构与可调自由度的限制；后续或可探索将该协议推广至更一般的非互易波系统及实际硬件实现，但此点仅为推断。</p>
+  </section>
+</article><article class="paper" id="paper-2610.35979v1">
+  <div class="paper-head">
+    <h2>切割、洗牌与扩散作为粗化过程<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.35979v1" rel="noopener noreferrer">2610.35979v1</a>
+  </div>
+  <p class="original-title">Cutting, Shuffling and Diffusion as a Coarsening Process</p>
+  <p class="meta"><strong>作者：</strong>Daniel Lester、Tanguy LeBorgne、Joris Heyman</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.CD</span> <span class="tag">physics.flu-dyn</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>切割与洗牌（CS）可在不拉伸流体的情况下重排流体，但均匀化仍需扩散（D）；二者相互作用尚不清楚。本文表明CSD是一种粗化过程，其特征尺度为 $\bar\ell=L(n_c\mathrm{Pe}/2)^{-1/3}$，而非Batchelor尺度；切割在波数空间中相当于分数阶Laplacian，由此给出精确混合速率 $\gamma=2^{1/3}|a_1&#x27;|n_c^{2/3}\lambda\mathrm{Pe}^{-1/3}$，其中每次事件有 $n_c$ 次切割、事件速率为 $\lambda$，$a_1&#x27;=-1.0188\dots$ 为 $\mathrm{Ai}&#x27;$ 的第一个零点。该结果对随机与确定性协议在任意维度均成立，可推广至有限时间混合，并将CSD归入已知的非平衡普适类。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>切割与洗牌（CS）在不拉伸流体的条件下重排流体，而均匀化依赖扩散（D）；论文研究CS与扩散耦合（CSD）的混合尺度与混合速率如何确定，以及该过程属于何种普适类。</p>
+    <h4>方法</h4><p>将CSD刻画为粗化过程，推导特征尺度 $\bar\ell=L(n_c\mathrm{Pe}/2)^{-1/3}$；指出切割在波数空间对应分数阶Laplacian，并据此解析导出混合速率 $\gamma=2^{1/3}|a_1&#x27;|n_c^{2/3}\lambda\mathrm{Pe}^{-1/3}$，其中 $a_1&#x27;$ 为 $\mathrm{Ai}&#x27;$ 的首个零点；对随机与确定性协议、任意维度及有限时间混合进行论证。</p>
+    <h4>主要发现</h4><p>CSD的特征尺度为 $\bar\ell=L(n_c\mathrm{Pe}/2)^{-1/3}$，而非Batchelor尺度；切割在波数空间表现为分数阶Laplacian；混合速率精确为 $\gamma=2^{1/3}|a_1&#x27;|n_c^{2/3}\lambda\mathrm{Pe}^{-1/3}$，$a_1&#x27;=-1.0188\dots$；该结果在任意维度对随机与确定性协议均成立，可推广至有限时间混合，并将CSD归入已知的非平衡普适类。</p>
+    <h4>局限与展望</h4><p>原文未讨论实验验证、边界条件或非均匀切割协议等具体限制；其结论的适用范围以文中设定的CSD模型为前提。可合理推断，后续工作或可检验该普适类归属在更复杂流场与有限Pe条件下的稳健性，但此仅为推断，原文未作此陈述。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36463v1">
+  <div class="paper-head">
+    <h2>神经元生长的平稳作用量原理<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.36463v1" rel="noopener noreferrer">2610.36463v1</a>
+  </div>
+  <p class="original-title">Stationary Action Principles for Neuronal Growth</p>
+  <p class="meta"><strong>作者：</strong>Nathan Brodeur、Cristian Staii</p>
+  <p class="meta"><strong>主分类：</strong>q-bio.CB
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">q-bio.CB</span> <span class="tag">nlin.AO</span> <span class="tag">q-bio.NC</span> <span class="tag">q-bio.QM</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>神经元生长受生化、力学与几何线索引导，同时受到细胞骨架动力学、黏附及生长锥感知中随机涨落的影响。本文针对力学引导的轴突生长建立两种互补的变分描述。首先，对于在周期性平行微图案上生长的神经元，采用 Langevin 与 Fokker–Planck 模型推导随机路径作用量，其中同时包含确定性基底引导与随机涨落；生长轨迹的概率随该作用量指数衰减，在固定边界条件下最概然轨迹对应于最小作用量路径。其次，对于在刚度空间变化的基底上生长的轴突，研究表明依赖于刚度的牵引力产生力学引导，并在刚度界面处引起轴突转向；在准静态极限下，该响应导致类 Fermat 的空间作用量，其有效轴突折射率由牵引力与基底刚度的关系决定。该框架预测轴突跨越刚度边界时的折射行为，包括近似的类 Snell 关系与临界角条件。尽管随机作用量与类 Fermat 作用量具有不同的物理含义与适用范围，二者均描述了基底力学如何约束轴突轨迹。上述结果将漂移、扩散、刚度、牵引力与生长方向等可测量量同轴突路径的全局性质联系起来，并为设计用于受控神经元生长与再生的仿生基底提供了框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究力学引导的轴突生长如何由基底力学线索与随机涨落共同约束，并寻求对轴突轨迹的变分/作用量描述。</p>
+    <h4>方法</h4><p>对周期性平行微图案上的生长采用 Langevin 与 Fokker–Planck 模型推导随机路径作用量；对刚度空间变化的基底分析刚度依赖牵引力产生的力学引导，并在准静态极限下导出类 Fermat 空间作用量与有效轴突折射率。</p>
+    <h4>主要发现</h4><p>生长轨迹概率随随机作用量指数衰减，固定边界条件下最概然轨迹对应最小作用量路径；刚度依赖牵引力在刚度界面处引起轴突转向，准静态极限下得到类 Fermat 作用量及由牵引力—刚度关系决定的有效折射率，并预测近似类 Snell 关系与临界角条件；两种作用量物理含义与适用范围不同，但均描述基底力学对轴突轨迹的约束。</p>
+    <h4>局限与展望</h4><p>论文指出两种作用量具有不同的物理含义与适用范围；其框架将可测量量与轴突路径全局性质联系，并可合理推断用于仿生基底设计以调控神经元生长与再生。具体实验验证与更广泛几何/力学条件下的适用性尚需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36920v1">
+  <div class="paper-head">
+    <h2>含时滞的神经动力学探索：数值与分支分析方法<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.36920v1" rel="noopener noreferrer">2610.36920v1</a>
+  </div>
+  <p class="original-title">Exploring Neural Dynamics with Time Delays: A Numerical and Bifurcation Analysis Approach</p>
+  <p class="meta"><strong>作者：</strong>Martin R Nelson、Jonathan J Crofts</p>
+  <p class="meta"><strong>主分类：</strong>q-bio.NC
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">q-bio.NC</span> <span class="tag">math.DS</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Wilson-Cowan 模型是“神经质量模型”的经典范例，它以简化而有效的方式描述大规模神经元网络的活动。该模型即使在相对简单的形式下也能产生从稳定节律到复杂振荡的多种行为，因而备受关注。影响这些动力学的一个关键因素是时滞，它反映信号在神经元之间传播所需的时间。本文对 Wilson-Cowan 模型作入门性介绍，重点讨论时滞如何影响其行为。我们阐述模型背后的核心概念，综述现有文献，并介绍一些专门用于分析此类时滞微分方程的数值技术。文中还提供关于使用 DDE-BIFTOOL 软件包的实用教程，演示其在该模型上的应用。可下载的代码使读者能够复现本文结果并进一步探索模型动力学，包括所有计算的 MATLAB 代码（使用 DDE-BIFTOOL 进行延拓）以及仿真代码的 Python 版本。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>时滞如何影响 Wilson-Cowan 神经质量模型的动力学行为，以及如何用数值与分支分析方法研究这类时滞微分方程。</p>
+    <h4>方法</h4><p>对 Wilson-Cowan 模型进行入门性综述与概念阐述；介绍面向时滞微分方程的数值技术；以 DDE-BIFTOOL 软件包进行延拓分析并提供可复现的 MATLAB 与 Python 代码教程。</p>
+    <h4>主要发现</h4><p>原文指出 Wilson-Cowan 模型即使在简单形式下也能产生从稳定节律到复杂振荡的多种行为，时滞是影响这些动力学的关键因素；文章提供了模型核心概念、文献综述、数值技术介绍以及 DDE-BIFTOOL 应用于该模型的实践教程，并附可复现代码。</p>
+    <h4>局限与展望</h4><p>本文定位为入门性介绍与教程，其结论受所采用的 Wilson-Cowan 模型形式与数值延拓方法的适用范围限制；后续可基于所提供代码进一步探索该模型在更广泛参数与时滞条件下的动力学，此点属于可合理推断的方向。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37038v1">
+  <div class="paper-head">
+    <h2>无地平线几何中简正模的谱形状因子：又一块砖<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.37038v1" rel="noopener noreferrer">2610.37038v1</a>
+  </div>
+  <p class="original-title">Another Brick in the Wall: Spectral Form Factor of Normal Modes in Horizonless Geometries</p>
+  <p class="meta"><strong>作者：</strong>A. I. Belokon、M. Čubrović、V. Đukić、V. V. Pushkarev、L. Umrikhin</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文计算了光滑无地平线背景中探针标量波的简正模谱及其谱形状因子。首先考虑带 brickwall 的 BTZ 黑洞，该 brickwall 遮蔽了近地平线区域；这一构造近来被提出作为有限温度半经典黑洞微观态的玩具模型。在此设置下，谱形状因子是否具有线性斜坡取决于 brickwall 构造的细节。然而我们论证，即使在线性斜坡确实出现的情形中，该斜坡也并非源于与量子混沌相关的能级关联。随后我们计算了一个真正的微观态几何（superstratum）的简正模谱，并发现了混沌的证据，既表现为线性斜坡，也表现为能级排斥。我们由此得出结论：简正模的本征值谱确实可以作为研究 fuzzball 量子动力学的工具；但 brickwall 模型无法捕捉这一现象。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>光滑无地平线几何中简正模谱及其谱形状因子能否反映量子混沌，以及带 brickwall 的 BTZ 黑洞与真实微观态几何（superstratum）在这一诊断上的差异。</p>
+    <h4>方法</h4><p>对探针标量波分别计算带 brickwall 的 BTZ 黑洞与 superstratum 微观态几何的简正模谱，并分析其谱形状因子（是否出现线性斜坡）以及能级排斥等能级关联特征。</p>
+    <h4>主要发现</h4><p>带 brickwall 的 BTZ 黑洞的谱形状因子是否具有线性斜坡取决于 brickwall 构造细节；即使出现斜坡，该斜坡也不源于与量子混沌相关的能级关联。superstratum 微观态几何的简正模谱则显示出混沌证据，同时具有线性斜坡与能级排斥。</p>
+    <h4>局限与展望</h4><p>原文明确指出 brickwall 模型无法捕捉 superstratum 中出现的混沌现象，因此该玩具模型在刻画 fuzzball 量子动力学方面适用范围有限；简正模本征值谱可作为研究 fuzzball 量子动力学的工具，但这一结论主要基于所考察的特定背景与探针标量波，向更一般几何或相互作用场的推广有待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37090v1">
+  <div class="paper-head">
+    <h2>串联非对称耦合混沌量子点中的输运统计：布朗运动模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.37090v1" rel="noopener noreferrer">2610.37090v1</a>
+  </div>
+  <p class="original-title">Transport statistics in asymmetric coupled chaotic dots in series: Brownian motion model</p>
+  <p class="meta"><strong>作者：</strong>Ashutosh Dheer、Santosh Kumar、Jayendra N. Bandyopadhyay</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.mes-hall
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.mes-hall</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究由可调结串联耦合的两个量子混沌腔、并连接非对称引线储层系统的输运性质统计。在随机矩阵理论框架下且无时间反演对称性时，随着腔间耦合增强，散射矩阵 S 从两个独立的圆酉系综（CUE）过渡到单一 CUE。我们采用 Dyson 布朗运动方法建模该过渡，将结宽作为类时间参数，推导了任意引线非对称度下电导与散粒噪声功率的时间依赖平均值和方差的闭式表达式；这些解析结果在对称极限与完全耦合极限下退化为已知表达式。研究发现，布朗时间参数与物理结宽之间的映射依赖于所观测的物理量，这反映了电导与散粒噪声功率所探测的本征函数关联不同；我们对该依赖关系进行了考察，并针对每个观测量分别进行标定。通过与随机矩阵模拟以及基于 Kwant 的紧束缚输运计算对比验证，我们发现系综平均观测量在整个过渡区间内定量吻合，而方差由于对微观涨落更敏感，与布朗运动预测存在偏差。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究串联耦合的两个量子混沌腔在非对称引线条件下，跨腔耦合引起的散射矩阵系综过渡过程中，电导与散粒噪声功率的统计性质（平均值与方差）。</p>
+    <h4>方法</h4><p>在无时间反演对称性的随机矩阵理论框架下，将散射矩阵从两个独立 CUE 到单一 CUE 的过渡用 Dyson 布朗运动方法建模，以结宽作为类时间参数，推导电导和散粒噪声功率的闭式平均值与方差表达式；并与随机矩阵模拟及基于 Kwant 的紧束缚输运计算进行对比验证。</p>
+    <h4>主要发现</h4><p>得到了任意引线非对称度下电导与散粒噪声功率的时间依赖平均值和方差的闭式表达式，且在对称极限与完全耦合极限下退化为已知结果；布朗时间参数与物理结宽的映射依赖于观测量，需对每个观测量分别标定；系综平均观测量在整个过渡区间与数值模拟定量吻合，而方差因对微观涨落更敏感而偏离布朗运动预测。</p>
+    <h4>局限与展望</h4><p>方差与布朗运动预测的偏差表明，该模型对涨落敏感的二阶统计量适用性有限；后续可合理推断需引入更精细的微观涨落描述或修正布朗运动近似，以改进方差的定量预测，但原文未给出具体方案。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37285v1">
+  <div class="paper-head">
+    <h2>MPS重叠函数与Sklyanin行列式<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.37285v1" rel="noopener noreferrer">2610.37285v1</a>
+  </div>
+  <p class="original-title">MPS overlaps and Sklyanin determinants</p>
+  <p class="meta"><strong>作者：</strong>Tamas Gombor</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对正交与辛扭曲Yangian的任意有限维不可约求值表示，推导了可积矩阵乘积态（MPS）的显式重叠函数。核心步骤是将进入通用重叠公式的对易准行列式与嵌套子代数的Sklyanin行列式联系起来。对于正交求值表示，该关系可直接在Gelfand–Tsetlin基下确定其谱；在辛情形下，作者结合Sklyanin行列式与子式，并利用嵌套秩二边界矩阵的分解来获得相应谱。所得重叠函数是由Gelfand–Tsetlin图案参数化的显式乘积，且仅需底层正交或辛表示的最高权数据。结合Gaudin行列式的通用比值以及依赖于模型的赝真空重叠系数，这些结果确定了归一化的MPS重叠函数。此外，作者还将正交情形下的重叠函数推广到求值表示之外，用沿嵌套扭曲Yangian子代数出现的高权来表示。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为与正交和辛扭曲Yangian的有限维不可约求值表示相关的可积矩阵乘积态推导显式重叠函数，并将通用重叠公式中的准行列式与Sklyanin行列式联系起来。</p>
+    <h4>方法</h4><p>将通用重叠公式中的对易准行列式与嵌套子代数的Sklyanin行列式相联系；对正交求值表示直接在Gelfand–Tsetlin基下确定谱；对辛情形结合Sklyanin行列式、子式以及嵌套秩二边界矩阵的分解；最终用Gelfand–Tsetlin图案和最高权数据给出显式乘积，并结合Gaudin行列式比值与赝真空重叠系数得到归一化重叠。</p>
+    <h4>主要发现</h4><p>对正交与辛扭曲Yangian的任意有限维不可约求值表示，得到了由Gelfand–Tsetlin图案参数化、仅依赖最高权数据的显式MPS重叠函数；正交情形下可在Gelfand–Tsetlin基下直接确定谱；辛情形下通过Sklyanin行列式与子式及秩二边界矩阵分解获得相应谱；结合Gaudin行列式通用比值和模型相关赝真空重叠系数可确定归一化MPS重叠；正交情形下还将重叠函数表为沿嵌套扭曲Yangian子代数出现的高权。</p>
+    <h4>局限与展望</h4><p>原文未讨论计算复杂度、数值稳定性或具体物理模型中的应用；正交情形下求值表示之外的结果以沿嵌套子代数的高权表示，其显式可计算性未在摘要中说明。后续可合理推断的方向包括：将方法推广至其他扭曲Yangian或更一般的表示，以及考察所得重叠函数在具体可积模型关联函数中的应用，但这些均需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37460v1">
+  <div class="paper-head">
+    <h2>正交辛类型中的秩约化<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.37460v1" rel="noopener noreferrer">2610.37460v1</a>
+  </div>
+  <p class="original-title">Rank reduction in orthosymplectic types</p>
+  <p class="meta"><strong>作者：</strong>Kyungtak Hong、Alexander Tsymbaliuk</p>
+  <p class="meta"><strong>主分类：</strong>math.RT
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.RT</span> <span class="tag">hep-th</span> <span class="tag">math.QA</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对正交辛类型的量子仿射超群的 RLL 实现，建立了一种秩约化。在有理极限下，该结果为正交辛超 Yangian 的相应结论（arXiv:2311.18818）提供了一个更具概念性的证明。此外，本文确定了在通用 R-矩阵求值中出现的精确标量前因子，从而改进了 arXiv:2408.16720 的主要结果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在正交辛类型的量子仿射超群的 RLL 实现中实现秩约化，并厘清通用 R-矩阵求值中的标量前因子。</p>
+    <h4>方法</h4><p>在 RLL 实现的框架下建立正交辛类型的秩约化；通过取有理极限与超 Yangian 的已有结果相联系，并计算通用 R-矩阵求值中的标量前因子。</p>
+    <h4>主要发现</h4><p>建立了正交辛类型量子仿射超群 RLL 实现的秩约化；在有理极限下给出了正交辛超 Yangian 相应结果的一个更具概念性的证明；确定了通用 R-矩阵求值中出现的精确标量前因子，改进了 arXiv:2408.16720 的主要结果。</p>
+    <h4>局限与展望</h4><p>原文未讨论该秩约化的适用范围与局限；可合理推断，该框架或可推广至其他类型的量子仿射超群，但此点尚需进一步验证。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-28 11:36 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
