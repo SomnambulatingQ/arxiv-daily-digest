@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-10-28</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2610.36608v1">用于最小截断3+1维SU(2)格点规范理论量子模拟的自旋哈密顿量及本征态热化检验</a> <small>2610.36608v1</small></li><li><a href="#paper-2610.37120v1">使用 hmcdj 简化参数扫描</a> <small>2610.37120v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2610.36031v1">圆周上量子力学的解析自举解</a> <small>2610.36031v1</small></li><li><a href="#paper-2610.36054v1">介子、禁闭与复杂性：长程 Ising 链的 Krylov 空间视角</a> <small>2610.36054v1</small></li><li><a href="#paper-2610.36316v1">磁化纯中子物质中的夸克饱和</a> <small>2610.36316v1</small></li><li><a href="#paper-2610.36528v1">双曲规范-希格斯模型中的测量诱导纠缠相</a> <small>2610.36528v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.36608v1">
+  <div class="paper-head">
+    <h2>用于最小截断3+1维SU(2)格点规范理论量子模拟的自旋哈密顿量及本征态热化检验<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.36608v1" rel="noopener noreferrer">2610.36608v1</a>
+  </div>
+  <p class="original-title">Spin Hamiltonian for Quantum Simulation of Minimally Truncated $3+1$D SU(2) Lattice Gauge Theory and Testing Eigenstate Thermalization</p>
+  <p class="meta"><strong>作者：</strong>Ziyuan Li、Xiaojun Yao</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在最小截断 j_max=1/2 下，基于此前关于超蜂窝晶格的工作，构造了3+1维纯SU(2)格点规范理论在量子比特上的空间规范单态哈密顿量，并检验本征态热化假说（ETH）。通过施加高斯定律并利用规范不变圈算符之间的冗余性，我们找出了可双射映射到量子比特的最小独立圈变量集合，并将哈密顿量写成泡利串之和。具有固定边界条件的 n×n×n 格点需要 2(n-1)^3+3(n-1)^2 个量子比特。我们在 2×3×3 格点上对哈密顿量进行精确对角化，并从能级统计中确定了量子遍历性的耦合范围。在遍历耦合 g=0.3 处，我们计算了局域能量密度算符的矩阵元以及所有本征态的纠缠熵，发现它们与 ETH 一致。这些结果表明，3+1维截断SU(2)格点规范理论按照 ETH 发生热化，并为未来非平衡动力学的实时量子模拟提供了基准。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在量子比特上以最小截断 j_max=1/2 构造3+1维纯SU(2)格点规范理论的空间规范单态哈密顿量，并检验其是否满足本征态热化假说（ETH）。</p>
+    <h4>方法</h4><p>施加高斯定律并利用规范不变圈算符的冗余性，确定可双射映射到量子比特的最小独立圈变量集合，将哈密顿量表示为泡利串之和；在 2×3×3 格点上精确对角化，由能级统计确定量子遍历性的耦合范围，并在遍历耦合 g=0.3 处计算局域能量密度算符矩阵元与所有本征态的纠缠熵。</p>
+    <h4>主要发现</h4><p>具有固定边界条件的 n×n×n 格点需要 2(n-1)^3+3(n-1)^2 个量子比特；在 2×3×3 格点上从能级统计确定了量子遍历性的耦合范围；在 g=0.3 处局域能量密度算符矩阵元与本征态纠缠熵均与 ETH 一致，表明该截断理论按 ETH 热化。</p>
+    <h4>局限与展望</h4><p>原文结果基于最小截断 j_max=1/2 与 2×3×3 小格点的精确对角化，其适用范围受截断与小尺度限制；作者指出这些结果为未来非平衡动力学的实时量子模拟提供基准，可合理推断后续工作将扩展至更大格点或更高截断以检验结论的稳健性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37120v1">
+  <div class="paper-head">
+    <h2>使用 hmcdj 简化参数扫描<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.37120v1" rel="noopener noreferrer">2610.37120v1</a>
+  </div>
+  <p class="original-title">Easier parameter scans with hmcdj</p>
+  <p class="meta"><strong>作者：</strong>Alexis Verney-Provatas、Ed Bennett、Gaurav Ray</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文介绍了一种新工具 hmcdj，旨在简化针对给定理论生成大量规范系综的过程。hmcdj 构建于 Grid 库之上，允许以最少的样板代码在 C++ 中快速指定格点规范理论，并可通过 YAML 输入文件在运行时精确指定每个系综需要控制的参数。此外，该工具还提供多项便于管理大量运行作业的实用功能，包括自动调节分子动力学步长以控制 Metropolis 接受率、输出符合 ILDG 规范的数据，以及与 HPC 调度器集成，从而根据作业时间限制动态调整目标轨迹数。hmcdj 以 GPLv2 许可证开放获取，并欢迎新的贡献。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何简化针对给定理论生成大量规范系综（参数扫描）的过程，并便于管理大量运行作业。</p>
+    <h4>方法</h4><p>开发基于 Grid 库的工具 hmcdj：以最少的样板代码在 C++ 中快速指定格点规范理论，通过 YAML 输入文件在运行时精确指定每个系综的参数；并集成自动调节分子动力学步长、输出 ILDG 规范数据以及与 HPC 调度器联动等功能。</p>
+    <h4>主要发现</h4><p>hmcdj 支持快速指定格点规范理论、按系综在运行时控制参数、自动调节分子动力学步长以控制 Metropolis 接受率、输出符合 ILDG 规范的数据，以及根据作业时间限制动态调整目标轨迹数；该工具以 GPLv2 许可证开放获取并欢迎贡献。</p>
+    <h4>局限与展望</h4><p>原文未报告定量性能评估或与其他工具的对比；其适用范围与局限有待进一步验证。可合理推断，后续工作可能围绕扩展功能、优化大规模作业管理及社区贡献展开。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.36031v1">
+  <div class="paper-head">
+    <h2>圆周上量子力学的解析自举解<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.36031v1" rel="noopener noreferrer">2610.36031v1</a>
+  </div>
+  <p class="original-title">Analytic Bootstrap Solution for Quantum Mechanics on a Circle</p>
+  <p class="meta"><strong>作者：</strong>David Berenstein、Upamanyu Moitra</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">hep-lat</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用量子力学自举方法求解圆周上粒子的薛定谔方程。核心思想是：在物理情形下，测度傅里叶系数所满足的递推关系需要选取呈指数衰减的解。作者表明，这一要求导致解的（广义）连分数表示，且该解是耦合常数与能量的解析函数。文中进一步说明，该方法可直接计算态密度，而检验结果是否物理可归结为检验单变量不等式；同时展示了如何重构波函数，以及如何将粒子的准动量提取为能量的函数。作者以 Mathieu 方程这一最简单情形为例说明该解，并表明该方法能够容易地分辨能带谱中指数小的能带。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用自举方法求解圆周上粒子的薛定谔方程，并由此获得态密度、波函数与准动量等物理量。</p>
+    <h4>方法</h4><p>量子力学自举方法：要求测度傅里叶系数的递推关系存在指数衰减解，从而得到（广义）连分数表示；物理性检验化为单变量不等式；并以 Mathieu 方程为例进行说明。</p>
+    <h4>主要发现</h4><p>解是耦合常数与能量的解析函数；方法可直接计算态密度；物理性检验归结为单变量不等式；可重构波函数并将准动量表示为能量的函数；在 Mathieu 方程情形下能容易地分辨能带谱中指数小的能带。</p>
+    <h4>局限与展望</h4><p>原文以 Mathieu 方程作为最简单示例进行说明；该方法对其他周期势或更一般情形的适用性、以及连分数表示的收敛性与数值实现细节，原文未作充分展开，需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36054v1">
+  <div class="paper-head">
+    <h2>介子、禁闭与复杂性：长程 Ising 链的 Krylov 空间视角<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.36054v1" rel="noopener noreferrer">2610.36054v1</a>
+  </div>
+  <p class="original-title">Mesons, Confinement, and Complexity: A Krylov Space Perspective on the Long-Range Ising Chain</p>
+  <p class="meta"><strong>作者：</strong>Xuhao Jiang、Jad C. Halimeh、N. S. Srivatsa</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究长程横场 Ising 链中禁闭与 Krylov 复杂性之间的相互作用。该模型中，幂律相互作用 ∼1/r^α 在无显式对称破缺场的情况下于畴壁之间产生有效禁闭势。以淬火后时间平均的 Krylov 态复杂性作为诊断量，我们发现：在小 α 与小横场 h_x（即禁闭最强）时，复杂性受到强烈抑制且仅微弱依赖系统尺寸；而在较大 α 时，复杂性转变为快速增长并随系统尺寸增大。在禁闭区域内，复杂性的振荡频率与有效双扭结模型的介子质量一致，主导频率随最轻介子质量线性增长，时间平均复杂性约按其平方反比减小。我们进一步利用 Wightman 内积研究有限温度下的算符 Krylov 复杂性。低温下它表现出有界振荡，直接编码介子谱；随温度升高，该结构逐渐被抹平。这些结果将 Krylov 复杂性确立为相互作用诱导禁闭的光谱探针，并在微观格点模型中重现了禁闭场论中已识别的 Krylov 复杂性特征。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>长程横场 Ising 链中，由幂律相互作用诱导的畴壁禁闭与 Krylov 复杂性之间存在怎样的联系，Krylov 复杂性能否作为禁闭与介子谱的诊断量。</p>
+    <h4>方法</h4><p>以淬火后时间平均的 Krylov 态复杂性为诊断量，研究长程横场 Ising 链；在禁闭区域内与有效双扭结模型的介子质量比较；并利用 Wightman 内积计算有限温度下的算符 Krylov 复杂性。</p>
+    <h4>主要发现</h4><p>小 α 与小横场 h_x（禁闭最强）时复杂性强烈抑制且仅微弱依赖系统尺寸，较大 α 时转为快速增长并随系统尺寸增大；禁闭区域内复杂性振荡频率与有效双扭结模型介子质量一致，主导频率随最轻介子质量线性增长，时间平均复杂性约按最轻介子质量的平方反比减小；低温下算符 Krylov 复杂性呈有界振荡并直接编码介子谱，随温度升高该结构逐渐被抹平。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；可合理推断，该诊断框架或可推广至其他具有相互作用诱导禁闭的格点模型与场论，但其适用性需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36316v1">
+  <div class="paper-head">
+    <h2>磁化纯中子物质中的夸克饱和<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.36316v1" rel="noopener noreferrer">2610.36316v1</a>
+  </div>
+  <p class="original-title">Quark Saturation in Magnetized Pure Neutron Matter</p>
+  <p class="meta"><strong>作者：</strong>Toru Kojo</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.HE</span> <span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究磁场如何影响夸克饱和的起始点，该起始点限制了纯重子描述的适用范围。研究对象为由电中性 $ddu$ 重子组成、包含类中子和类 $\Delta^0$ 态的物质。采用简单的组分夸克模型，计算磁场中的重子波函数与谱。磁场使自旋-味结构极化，在横向压缩内部波函数，并强烈压低横向动能。由重子波函数构造单体约化密度矩阵，并导出相应的单夸克在纵向动量与朗道能级空间中的分布。随后利用这些分布在理想重子气体中评估夸克占据概率，并确定夸克饱和的起始点。在沿 $+z$ 方向的有限磁场下，最低朗道能级中的 $d_\downarrow$ 夸克最先达到饱和。所得饱和密度对磁场强度呈非单调依赖：弱场下降低，较强场下升高。该行为反映了自旋-味极化（促进饱和）与横向空间挤压（通过展宽夸克横向动量分布而延迟饱和）之间的竞争。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>磁场如何影响由电中性 $ddu$ 重子（含类中子与类 $\Delta^0$ 态）组成的纯中子物质中夸克饱和的起始点，从而界定纯重子描述的适用边界。</p>
+    <h4>方法</h4><p>采用简单组分夸克模型计算磁场中的重子波函数与谱；由波函数构造单体约化密度矩阵，导出单夸克在纵向动量与朗道能级空间的分布；再在理想重子气体中评估夸克占据概率以确定饱和起始点。</p>
+    <h4>主要发现</h4><p>磁场使自旋-味结构极化、横向压缩内部波函数并强烈压低横向动能；沿 $+z$ 方向有限磁场下，最低朗道能级中的 $d_\downarrow$ 夸克最先达到饱和；饱和密度随磁场强度非单调变化，弱场下降低、较强场下升高，源于自旋-味极化与横向空间挤压的竞争。</p>
+    <h4>局限与展望</h4><p>原文基于简单组分夸克模型与理想重子气体近似，其定量结论的适用范围受这些简化限制；后续可合理推断需引入重子间相互作用与非理想气体效应以检验饱和密度非单调行为的稳健性，但原文未作此讨论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36528v1">
+  <div class="paper-head">
+    <h2>双曲规范-希格斯模型中的测量诱导纠缠相<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.36528v1" rel="noopener noreferrer">2610.36528v1</a>
+  </div>
+  <p class="original-title">Measurement-induced entanglement phases in hyperbolic gauge-Higgs models</p>
+  <p class="meta"><strong>作者：</strong>Cole Kelson-Packer、Hiroki Sukeno、Akimasa Miyake</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">hep-lat</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>平坦时空中的规范-希格斯理论是研究具有不同纠缠结构的多相物质的重要理论模型。近年来，双曲空间及其广延边界对这些结构的影响引起了关注。非平衡相（如拓扑相）之间的纠缠转变可由非对易测量的竞争实现。本文研究由仅测量动力学描述的双曲格点上规范-希格斯模型的纠缠相。我们利用拓扑纠缠熵并引入一种为双曲希格斯相定制的广义测量诱导纠缠，绘制二维相图。借助对偶性，我们发现一种在欧几里得空间中不存在的相，其中体格点承载分离的对称保护拓扑序团簇。该“群岛”相与相邻拓扑相和平凡相之间的转变具有属于平均场普适类的临界指数 $\delta$。我们的核心工具是受基于测量的量子计算启发的三维资源态，它以第三个纠缠方向模拟二维量子态的时空演化。这使我们能够分析纠缠的时空“海绵”，其映射到经典渗流理论，并允许我们推断相图边界上的临界点数值。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>双曲格点上规范-希格斯模型在仅测量动力学下存在哪些纠缠相，以及这些相之间的转变性质如何？</p>
+    <h4>方法</h4><p>采用仅测量动力学；利用拓扑纠缠熵和针对双曲希格斯相引入的广义测量诱导纠缠绘制二维相图；借助对偶性分析相结构；构建受基于测量的量子计算启发的三维资源态以模拟二维量子态的时空演化，并将纠缠时空“海绵”映射到经典渗流理论以推断相图边界上的临界点。</p>
+    <h4>主要发现</h4><p>绘制了二维相图；发现一种欧几里得空间中不存在的“群岛”相，其体格点承载分离的对称保护拓扑序团簇；该相与相邻拓扑相和平凡相之间的转变具有属于平均场普适类的临界指数 $\delta$；三维资源态方法可将纠缠时空结构映射到经典渗流理论并用于推断相图边界上的临界点。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性；所研究的模型限于双曲格点上的仅测量动力学，临界指数 $\delta$ 的普适类结论基于平均场描述。后续可合理推断的方向包括：将三维资源态与渗流映射推广至其他格点或测量协议，以及进一步检验“群岛”相在有限尺寸或不同边界条件下的稳定性（此为推断，非原文结论）。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-28 11:27 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-10-28</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">11</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">7</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（7）</h3><ol class="toc-list"><li><a href="#paper-2610.36218v1">钾-54的β衰变揭示两体流在富中子核中的作用</a> <small>2610.36218v1</small></li><li><a href="#paper-2610.36237v1">通过测量φ、K⁰_S和Λ椭圆流发现OO碰撞中部分子集体性的证据</a> <small>2610.36237v1</small></li><li><a href="#paper-2610.36307v1">大型强子对撞机上反氘核与净Λ数涨落的测量</a> <small>2610.36307v1</small></li><li><a href="#paper-2610.36338v1">基于贝叶斯蒙特卡洛方法的核数据评价</a> <small>2610.36338v1</small></li><li><a href="#paper-2610.36922v1">多粒子关联子的改进非流控制及LHC上从OO到Pb--Pb碰撞的系统尺寸依赖演化</a> <small>2610.36922v1</small></li><li><a href="#paper-2610.36949v1">通过钼靶中锝放射性同位素截面测量优化质子诱导的99mTc生产</a> <small>2610.36949v1</small></li><li><a href="#paper-2610.37447v1">利用STAR事件平面探测器测量旁观者碎片赝快度分布</a> <small>2610.37447v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2610.36714v1">Eu掺杂CaF$_2$中与能量损耗密度相关的粒子依赖辐射发光颜色响应</a> <small>2610.36714v1</small></li><li><a href="#paper-2610.36846v1">在量子涨落存在下提取QCD声速</a> <small>2610.36846v1</small></li><li><a href="#paper-2610.37088v1">基于微观框架的β延迟裂变概率系统计算</a> <small>2610.37088v1</small></li><li><a href="#paper-2610.37394v1">利用有限核电偶极激发探测旋转中子星内盘边缘</a> <small>2610.37394v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.36218v1">
+  <div class="paper-head">
+    <h2>钾-54的β衰变揭示两体流在富中子核中的作用<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.36218v1" rel="noopener noreferrer">2610.36218v1</a>
+  </div>
+  <p class="original-title">Beta decay of potassium-54 reveals the role of two-body currents in neutron-rich nuclei</p>
+  <p class="meta"><strong>作者：</strong>Zhengyu Xu、Robert Grzywacz、Matthias Heinz、Thomas Papenbrock、Weijia Ong、James Allmond、Bertis Rasco、Krzysztof Rykaczewski、Hendrik Schatz、Bradley Sherrill、Oleg Tarasov、Peter Gysbers、Gaute Hagen、Petr Navratil、Samuel Ajayi、Honey Arora、Akaa Daniel Ayangeakaa、Hannah Berg、Jessica Berkman、Darren Bleuel、Konstantinos Bosmpotinis、Nico Braukman、Michael Carpenter、Giordano Cerizza、Aaron Chester、James Christie、Ian Cox、Heather L. Crawford、Benjamin Crider、Jacob Davis、Amelia Doetsch、Jeremias Garcia-Duarte、Alfredo Estrade、Aleksandra Fijalkowska、Christoforos Frantzis、Kei Fukushima、Tawfik Gaballah、Tim Gray、Erin Good、Kenny Haak、Shutaro Hanai、Jason Harke、Caley Harris、Adam Hartley、Marc Hausmann、Kirby Hermansen、Daniel Hoff、Donnie Hoskins、James Huffman、Rahul Jain、Marek Karny、Thomas King、Noritaka Kitamura、Kay Kolos、Elaine Kwan、Sean Liddick、Brenden Longfellow、Rebeka Lubna、Stephanie Lyons、Miguel Madurga、Mejdi Mogannam、Shree Neupane、Timilehin Ogunbeku、Gerard Owens-Fryar、Jayden Palomino、Mauricio Portillo、Mustafa Rajabali、Andrea Richard、Isaiah Richardson、Eleanor Ronning、Gregory Rose、Thomas Ruland、Nicholas Scielzo、Dustin Scriven、Darek Seweryniak、Kevin Siegl、Mallory Smith、Artemis Spyrou、Michał Stepaniuk、Adriana Sweet、Vandana Tripathi、Artemis Tsantiri、Sivahami Uthayakumaar、William Walters、Shane Watters、Marzena Wolinska-Cichocka、Rin Yokoyama</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>富中子核的β衰变可在极端条件下探测核介质中弱相互作用的微观本质。此类弱衰变驱动天体环境中的重元素合成，但目前对其理解仍不充分。远离稳定线区域实验数据稀缺，这对从头算核理论提出了很高要求。两体弱流被认为是导致理论预言的Gamow-Teller衰变强度普遍淬灭的主要机制，但此前一直缺乏在富中子核中的直接实验验证。本文测量了处于放射性离子束装置实验前沿的核素54K的β衰变。工作中，子核54Ca的双幻性质使衰变模式异常简单，衰变主要被一个到6.2 MeV中子非束缚态的单一跃迁主导，其比较部分半衰期为logft=4.4(1)，Gamow-Teller衰变强度为B(GT)=0.26(+0.08)(-0.04)。新的先进衰变计算再现了该测量结果，为两体流在具有显著中子过剩的体系中于核β衰变中发挥关键作用提供了直接证据。本研究为奇异核中弱过程的理论预言建立了关键基准。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究富中子核β衰变中两体弱流的作用，具体检验两体流是否是理论预言的Gamow-Teller衰变强度普遍淬灭的主要机制，并针对此前缺乏富中子核直接实验验证的问题开展测量。</p>
+    <h4>方法</h4><p>测量实验前沿核素54K的β衰变；利用子核54Ca的双幻性质获得以单一跃迁为主的简单衰变模式，提取比较部分半衰期logft与Gamow-Teller衰变强度B(GT)，并与新的先进衰变计算进行比较。</p>
+    <h4>主要发现</h4><p>54K的β衰变主要被一个到6.2 MeV中子非束缚态的单一跃迁主导，logft=4.4(1)，B(GT)=0.26(+0.08)(-0.04)；新的先进计算再现了该测量结果，为两体流在具有显著中子过剩的体系中于核β衰变中发挥关键作用提供了直接证据，并为奇异核弱过程的理论预言建立了关键基准。</p>
+    <h4>局限与展望</h4><p>原文指出此前富中子核中缺乏直接实验验证，本研究提供了直接证据并建立基准；其局限与适用范围未在摘要中明确说明。可合理推断，后续方向包括在更多富中子核中检验两体流效应并改进相关理论计算，但该推断需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36237v1">
+  <div class="paper-head">
+    <h2>通过测量φ、K⁰_S和Λ椭圆流发现OO碰撞中部分子集体性的证据<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.36237v1" rel="noopener noreferrer">2610.36237v1</a>
+  </div>
+  <p class="original-title">Evidence of partonic collectivity in OO collisions through the measurement of $φ$, K$^0_{\rm S}$, and $Λ$ elliptic flow</p>
+  <p class="meta"><strong>作者：</strong>ALICE Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报道了ALICE探测器在质心能量√s_NN=5.36 TeV的OO碰撞中首次测量φ、K⁰_S和Λ(Λ̄)强子的椭圆流系数v₂，并在中心及半中心碰撞中给出其随横动量p_T的变化。其中，φ介子的椭圆流测量是小碰撞系统中的首次测量。在低p_T区域，观察到v₂呈现特征性的质量排序，这与系统的集体膨胀一致：在共同的速度场作用下，较重的强子被推移至更高的p_T。在中等p_T区域（高于3 GeV/c），出现显著性为10σ的重子—介子分裂，Λ(Λ̄)重子的v₂值大于介子；而φ介子尽管质量接近Λ，其v₂行为却与K⁰_S一致。φ介子的行为不利于对所观测模式作纯质量驱动的解释，而支持由集体流动的部分子介质经夸克重组实现强子化的作用。这些结果为“在Pb—Pb碰撞中观测到的部分子集体性关键特征在轻核—核系统中依然存在”提供了补充证据。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在小型碰撞系统（OO碰撞）中，是否也存在部分子集体性？具体而言，φ、K⁰_S和Λ(Λ̄)强子的椭圆流v₂随p_T呈现何种模式，尤其是φ介子的行为能否用质量排序解释？</p>
+    <h4>方法</h4><p>利用ALICE探测器在√s_NN=5.36 TeV的OO碰撞中，于中心及半中心碰撞条件下首次测量φ、K⁰_S和Λ(Λ̄)强子的椭圆流系数v₂随横动量p_T的变化；其中φ介子的椭圆流为小碰撞系统中的首次测量。</p>
+    <h4>主要发现</h4><p>低p_T处观察到v₂的质量排序，与系统集体膨胀一致；在p_T&gt;3 GeV/c的中等p_T区域，出现显著性为10σ的重子—介子分裂，Λ(Λ̄)的v₂大于介子；φ介子质量接近Λ，但其v₂行为却跟随K⁰_S，不利于纯质量驱动的解释，支持由集体流动的部分子介质经夸克重组实现强子化。结果提供了补充证据，表明Pb—Pb碰撞中部分子集体性的关键特征在轻核—核系统中依然存在。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向。可合理推断：需在更多小系统与不同能量下检验该重子—介子分裂及φ介子跟随介子行为的普适性，并结合理论模型进一步区分夸克重组与其他机制；上述推断尚待后续研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36307v1">
+  <div class="paper-head">
+    <h2>大型强子对撞机上反氘核与净Λ数涨落的测量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.36307v1" rel="noopener noreferrer">2610.36307v1</a>
+  </div>
+  <p class="original-title">Measurement of antideuteron and net-$Λ$ number fluctuations at the Large Hadron Collider</p>
+  <p class="meta"><strong>作者：</strong>ALICE Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>大型强子对撞机（LHC）上Pb-Pb碰撞中反氘核与反质子数之间逐事件关联的近期测量结果，偏离了能够描述轻味强子产额与涨落的统计强子化模型参数化。这一差异可能源于反氘核等复合态形成过程中涉及的核合成过程。本文报道了利用ALICE探测器在Pb-Pb碰撞中首次测得的反氘核与净Λ数关联。由于Λ超子并非反氘核的组成成分，该观测量主要对强子化过程引起的量子数关联敏感。反氘核与净Λ数关联以及净Λ数的归一化二阶累积量，均能被Thermal-FIST中实现的统计强子化模型很好地描述。这为以下结论提供了有力证据：反氘核与反质子关联由核合成过程驱动，而反氘核与非核子强子之间的关联主要对强子化机制敏感。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究LHC的Pb-Pb碰撞中反氘核与净Λ数的逐事件关联及净Λ数涨落，以检验反氘核-反质子关联偏离统计强子化模型参数化的来源。</p>
+    <h4>方法</h4><p>利用ALICE探测器在Pb-Pb碰撞中进行首次反氘核-净Λ数关联测量，并将该关联与净Λ数的归一化二阶累积量与Thermal-FIST中实现的统计强子化模型进行比较。</p>
+    <h4>主要发现</h4><p>反氘核-净Λ数关联和净Λ数归一化二阶累积量均能被Thermal-FIST的统计强子化模型很好地描述；结合反氘核-反质子关联的偏离，表明反氘核-反质子关联由核合成过程驱动，而反氘核与非核子强子的关联主要对强子化机制敏感。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，需在更多碰撞能量、系统尺寸及不同复合核态上检验该图像，并进一步约束核合成过程与强子化机制的理论描述。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36338v1">
+  <div class="paper-head">
+    <h2>基于贝叶斯蒙特卡洛方法的核数据评价<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.36338v1" rel="noopener noreferrer">2610.36338v1</a>
+  </div>
+  <p class="original-title">Nuclear Data Evaluation Utilizing Bayesian Monte Carlo Methods</p>
+  <p class="meta"><strong>作者：</strong>Catherine E. Apgar、Lee A. Bernstein、Yun-Hsuan Lee、Wilson Lin、Alan B. McIntosh、Dmitri G. Medvedev、Jonathan T. Morrell、Ellen M. O&#x27;Brien、C. Etienne Vermeulen、Andrew S. Voyles</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>实验核数据持续快速增长，但仍存在显著空白，带电粒子反应领域尤为突出，而该领域对医用、工业及国家安全相关的同位素生产至关重要。在缺乏实验与评价数据时，同位素生产依赖理论模型，可能导致产额偏低与同位素杂质。本文研究 TALYS 2.0 中的模型与参数调整，以建立质子诱发截面不确定度带、识别计算中的关键影响参数，并将参数调整约束在物理上可辩护的范围内。研究采用天然铜质子诱发反应的 EXFOR 数据集（含 24 个独立截面）进行迭代贝叶斯模型更新。收敛后，将参数及其不确定度与 EXFOR 中 23 个累积截面比较，揭示了泛化能力的局限。研究还采用多种机器学习模型预测 TALYS 表现，其中小型神经网络在多个世代上展现出有用的排序能力，提示可将代理方法用于未来评价的筛选。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在带电粒子反应实验与评价数据不足的背景下，如何为 TALYS 2.0 质子诱发截面计算建立不确定度带、识别关键参数并在物理可辩护范围内约束参数调整，同时评估参数更新的泛化能力。</p>
+    <h4>方法</h4><p>使用天然铜质子诱发反应的 EXFOR 数据集（24 个独立截面）对 TALYS 2.0 进行迭代贝叶斯模型更新；收敛后将参数及不确定度与 EXFOR 的 23 个累积截面比较；并采用多种机器学习模型预测 TALYS 表现，其中小型神经网络用于排序。</p>
+    <h4>主要发现</h4><p>研究建立了质子诱发截面的不确定度带，识别了计算中的关键影响参数，并将参数调整约束在物理可辩护范围内；与 23 个累积截面的比较揭示了参数更新泛化能力的局限；小型神经网络在多个世代上表现出有用的排序能力。</p>
+    <h4>局限与展望</h4><p>原文指出小型神经网络的排序能力提示可将代理方法用于未来评价的筛选；参数更新在独立累积截面上的泛化局限表明其适用范围可能受数据集与反应类型限制，后续可合理推断需在更多核素与反应道上验证并扩展代理筛选策略。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36922v1">
+  <div class="paper-head">
+    <h2>多粒子关联子的改进非流控制及LHC上从OO到Pb--Pb碰撞的系统尺寸依赖演化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.36922v1" rel="noopener noreferrer">2610.36922v1</a>
+  </div>
+  <p class="original-title">Improved nonflow control for multiparticle correlators and system-size-dependent evolution from OO to Pb--Pb collisions at the LHC</p>
+  <p class="meta"><strong>作者：</strong>Neelkamal Mallick、Suraj Prasad</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>事件平面角的多粒子关联（对称平面关联子，SPCs）以及不同谐波各向异性流振幅的关联（对称累积量，SCs）有助于约束重离子碰撞中所形成系统的初始条件和输运性质。此类多粒子关联在重离子碰撞中对非流偏差具有稳健性；然而在小系统中非流贡献显著，可在低多重数下扭曲SPCs和SCs，模拟出类流信号。LHC已确认轻离子碰撞（如OO和Ne--Ne）中存在核几何诱导的集体性证据。因此，测量这些系统中的SPCs和SCs并与重离子碰撞比较，可阐明这些关联的系统尺寸依赖性及非线性模式耦合强度。本工作基于多重数重加权（$\czero$）和基于$v_1$估计量的（$\cone$）标度，提出改进的非流扣除框架，并在受控玩具模型和\textsc{Pythia~8~Angantyr}模型（其中集体流按构造不存在）中对选定的SPCs和SCs进行验证。我们发现$\cone$提供更可靠的非流控制，并将其应用于\textsc{ampt}弦熔化模型预测$\sqrt{s_{\rm NN}}=5.36$~TeV OO碰撞中的SPCs和归一化SCs。结果与ALICE及\textsc{ampt}已发表的Pb--Pb测量作为中快度带电粒子多重数$\langle N_{\rm ch}\rangle(|η|&lt;0.5)$的函数进行比较，将轻离子和重离子系统置于共同的系统尺寸轴上。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在轻离子小系统中有效控制非流贡献，从而可靠测量对称平面关联子（SPCs）和对称累积量（SCs），并比较OO与Pb--Pb碰撞中这些多粒子关联的系统尺寸依赖性。</p>
+    <h4>方法</h4><p>提出基于多重数重加权（$\czero$）和基于$v_1$估计量标度（$\cone$）的改进非流扣除框架；在受控玩具模型和\textsc{Pythia~8~Angantyr}模型（无集体流）中验证选定SPCs和SCs；将$\cone$应用于\textsc{ampt}弦熔化模型预测$\sqrt{s_{\rm NN}}=5.36$~TeV OO碰撞的SPCs和归一化SCs，并与ALICE及\textsc{ampt}的Pb--Pb测量按$\langle N_{\rm ch}\rangle(|η|&lt;0.5)$比较。</p>
+    <h4>主要发现</h4><p>在无集体流的受控玩具模型和\textsc{Pythia~8~Angantyr}模型中，$\cone$相比$\czero$提供更可靠的非流控制；基于$\cone$的框架被用于给出\textsc{ampt}模型下OO碰撞SPCs和归一化SCs的预测，并与已发表的Pb--Pb测量置于共同的多重数轴上进行比较。</p>
+    <h4>局限与展望</h4><p>该框架的验证依赖于玩具模型和\textsc{Pythia~8~Angantyr}中集体流按构造缺失的假设，其在真实小系统中的非流扣除效果仍需实验数据检验；OO预测基于\textsc{ampt}弦熔化模型，模型依赖性尚待评估。后续可合理推断的方向包括：将改进的非流控制应用于其他轻离子系统及更多关联观测量，并结合实验测量进一步约束小系统中的非线性模式耦合。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36949v1">
+  <div class="paper-head">
+    <h2>通过钼靶中锝放射性同位素截面测量优化质子诱导的99mTc生产<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.36949v1" rel="noopener noreferrer">2610.36949v1</a>
+  </div>
+  <p class="original-title">Optimization of 99mTc proton-induced production by means of cross-section measurements of technetium radioisotopes from molybdenum targets</p>
+  <p class="meta"><strong>作者：</strong>Dellepiane Gaia、D&#x27;Uva Sofia、Eggimann Lars、Gottstein Alexander、Juillerat Samuel、Kasanda Eva、Mateu Isidre、Scampoli Paola、Kadenko Ihor、Braccini Saverio</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">physics.med-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>$^{99m}$Tc（t$_{1/2}$=6.0072 h，IT：99.9963%，E$_\gamma$=140.51 keV（89%））是SPECT成像中使用最广泛的放射性核素，目前主要来自$^{99}$Mo/$^{99m}$Tc发生器，而$^{99}$Mo（t$_{1/2}$=65.924 h，$\beta^{-}$：100%）由核反应堆中$^{235}$U裂变产生。专用$^{99}$Mo生产反应堆的老化及日益频繁的维护停堆，凸显了替代生产路线的必要性。在基于加速器的方法中，利用低能质子束从富集$^{100}$Mo靶直接生产$^{99m}$Tc尤其具有前景。伯尔尼大学高能物理实验室（LHEP）与塔拉斯·舍甫琴科国立大学核与高能物理系合作，研究了医用回旋加速器生产$^{99m}$Tc的可行性：测量了固体钼靶上质子诱导反应的截面，以表征辐照过程中产生的锝放射性核素并优化生产条件。基于这些数据，确定约16 MeV的质子能量和约0.5 mm厚的高富集$^{100}$Mo靶为适宜条件；对于10 h辐照，这些参数给出的$^{99m}$Tc计算产额约为1.7 GBq/$\mu$A，同时放射性核素纯度保持在欧洲药典限值之内。随后开展的生产测试验证了上述测量结果，并证明了该生产路线的可行性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在$^{99}$Mo生产反应堆老化与停堆频繁的背景下，能否利用医用回旋加速器的低能质子束，从富集$^{100}$Mo固体靶直接生产满足药典纯度要求的$^{99m}$Tc，并确定其优化生产条件。</p>
+    <h4>方法</h4><p>测量固体钼靶上质子诱导反应的截面，以表征辐照产生的锝放射性核素；据此确定质子能量与$^{100}$Mo靶厚度等生产参数，估算产额与放射性核素纯度，并开展生产测试以验证测量结果和路线可行性。</p>
+    <h4>主要发现</h4><p>基于截面数据确定约16 MeV质子能量与约0.5 mm厚高富集$^{100}$Mo靶为适宜条件；10 h辐照下$^{99m}$Tc计算产额约为1.7 GBq/$\mu$A，放射性核素纯度处于欧洲药典限值之内；生产测试验证了测量结果并证明了该生产路线的可行性。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；可合理推断，产额与纯度结论基于计算及初步生产测试，其向常规临床供应的推广仍需进一步验证，且适用范围限于低能质子束与富集$^{100}$Mo靶这一路线。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37447v1">
+  <div class="paper-head">
+    <h2>利用STAR事件平面探测器测量旁观者碎片赝快度分布<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.37447v1" rel="noopener noreferrer">2610.37447v1</a>
+  </div>
+  <p class="original-title">Measurement of spectator fragment pseudorapidity distributions with the STAR Event Plane Detector</p>
+  <p class="meta"><strong>作者：</strong>Balazs Korodi for the STAR Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在足够低的质心能量下，来自旁观者区域的带电粒子落入STAR事件平面探测器（EPD）的赝快度接受范围（2.14&lt;|η|&lt;5.09）。本文给出了在每核子对质心能量√s_NN = 19.6、14.6、11.5、9.2和7.7 GeV的Au+Au碰撞中，氦旁观者碎片赝快度分布的测量结果。每个EPD环中的氦碎片产额通过使用卷积朗道分布拟合沉积能量谱提取，同时考虑单电荷粒子的贡献。EPD探测效率以及碎片与STAR束流管的相互作用效应通过Geant4蒙特卡罗模拟评估。所得赝快度分布以碰撞能量和碰撞中心度的函数形式给出。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在低质心能量Au+Au碰撞中，旁观者区域的氦碎片是否落入STAR事件平面探测器（EPD）的赝快度接受范围，以及其赝快度分布如何随碰撞能量和中心度变化。</p>
+    <h4>方法</h4><p>利用STAR EPD测量√s_NN = 19.6、14.6、11.5、9.2和7.7 GeV的Au+Au碰撞；对每个EPD环的沉积能量谱采用卷积朗道分布拟合提取氦碎片产额，并计入单电荷粒子贡献；使用Geant4蒙特卡罗模拟评估EPD探测效率及碎片与STAR束流管的相互作用。</p>
+    <h4>主要发现</h4><p>在2.14&lt;|η|&lt;5.09的EPD接受范围内获得了上述五个碰撞能量下氦旁观者碎片的赝快度分布，并给出了其随碰撞能量和碰撞中心度的变化。</p>
+    <h4>局限与展望</h4><p>摘要未讨论测量误差的主要来源、模型依赖性或与其他实验/模型的比较；后续可合理推断的方向包括将所测分布用于检验旁观者碎片产生模型及与不同碰撞能量下其他测量进行对比，但这些均需原文进一步支持。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.36714v1">
+  <div class="paper-head">
+    <h2>Eu掺杂CaF$_2$中与能量损耗密度相关的粒子依赖辐射发光颜色响应<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.36714v1" rel="noopener noreferrer">2610.36714v1</a>
+  </div>
+  <p class="original-title">Particle-dependent radioluminescence color response of Eu-doped CaF$_2$ associated with energy-loss density</p>
+  <p class="meta"><strong>作者：</strong>T. Iida、M. Yoshino、T. Moriguchi、A. Ozawa、S. Sugi、M. Mikawa、M. Mitsui、H. Kobayashi、Y. Saito、R. Iwamoto、K. J. Kim、K. Kamada</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>掺铕氟化钙（Eu:CaF$_2$）具有Eu$^{2+}$的蓝色特征发射与Eu$^{3+}$的红色特征发射。作者此前的研究表明，在$\alpha$粒子辐照下Eu$^{3+}$/Eu$^{2+}$辐射发光强度比约为X射线辐照下的两倍。本文利用串列加速器产生的H、Li、C和Ni离子束，研究该发射比与能量损耗密度之间的关系。对每种离子测量了辐射发光光谱，并用SRIM模拟评估有效射程平均能量损耗密度，其范围约为18至5900~keV/$\mu$m。Eu$^{3+}$/Eu$^{2+}$发射强度比从H离子到C离子系统性增大约两倍，而在能量损耗密度显著更高的Ni离子上未观察到进一步的系统性增大。由于能量损耗密度主要通过改变离子种类来调节，其效应无法与离子特异性径迹结构的效应完全分离。作为定性比较而纳入的X射线结果显示出低于离子束测量的发射比，尽管其有效能量损耗密度仅为近似估计。这些结果证明了Eu:CaF$_2$在不同离子束辐照条件下的发射颜色存在系统性变化，并为未来波长分辨的粒子鉴别研究提供了基线数据。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>Eu:CaF$_2$中Eu$^{3+}$/Eu$^{2+}$辐射发光强度比是否以及如何随能量损耗密度变化，从而解释此前观察到的$\alpha$粒子与X射线辐照下发射比差异。</p>
+    <h4>方法</h4><p>使用串列加速器产生H、Li、C、Ni离子束辐照Eu:CaF$_2$，测量各离子种类的辐射发光光谱；用SRIM模拟评估有效射程平均能量损耗密度（约18–5900~keV/$\mu$m）；并纳入X射线结果作定性比较。</p>
+    <h4>主要发现</h4><p>Eu$^{3+}$/Eu$^{2+}$发射强度比从H离子到C离子系统性增大约两倍；在能量损耗密度显著更高的Ni离子上未观察到进一步的系统性增大；X射线结果的发射比低于离子束测量，但其有效能量损耗密度仅为近似估计。</p>
+    <h4>局限与展望</h4><p>由于能量损耗密度主要通过改变离子种类来调节，其效应无法与离子特异性径迹结构效应完全分离，因此所观察到的变化不能单独归因于能量损耗密度；X射线对应的有效能量损耗密度仅为近似估计。后续研究可设计能独立改变能量损耗密度与径迹结构的实验以分离二者影响，并可基于本文基线数据开展波长分辨的粒子鉴别研究（后一方向为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.36846v1">
+  <div class="paper-head">
+    <h2>在量子涨落存在下提取QCD声速<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.36846v1" rel="noopener noreferrer">2610.36846v1</a>
+  </div>
+  <p class="original-title">Extracting the QCD speed of sound in the presence of quantum fluctuations</p>
+  <p class="meta"><strong>作者：</strong>Yu-Shan Mu、Li Yan、Xu-Guang Huang</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>强相互作用物质的物态方程是刻画相对论重离子碰撞中产生的夸克—胶子等离子体的核心量之一。近期研究认识到，QCD声速是超中心碰撞中平均横动量与带电粒子多重数之间线性关联的来源。然而在实际碰撞中，这种热力学关联不可避免地受到量子起源的逐事件涨落的偏置。本文提出一种新的统计框架，利用量子涨落的高斯性条件来修正这一偏置。进一步表明，该方法也可用作热化探针。经逐事件流体力学模拟验证，本框架提取的声速在大碰撞系统到小碰撞系统中均与格点QCD的预言一致。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在相对论重离子碰撞中，量子起源的逐事件涨落会偏置由平均横动量与带电粒子多重数线性关联所反映的QCD声速信号，如何修正该偏置并可靠提取声速。</p>
+    <h4>方法</h4><p>提出一种统计框架，利用量子涨落的高斯性条件修正逐事件涨落带来的偏置，并用逐事件流体力学模拟进行验证。</p>
+    <h4>主要发现</h4><p>该框架提取的声速在大碰撞系统到小碰撞系统中均与格点QCD的预言一致；该方法还可作为热化的探针。</p>
+    <h4>局限与展望</h4><p>摘要仅报告了经逐事件流体力学模拟验证的结果，其在真实实验数据中的适用性与系统误差尚未在原文中讨论；后续可合理推断的方向包括将该框架应用于实验测量并检验其热化探针能力，但这属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37088v1">
+  <div class="paper-head">
+    <h2>基于微观框架的β延迟裂变概率系统计算<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.37088v1" rel="noopener noreferrer">2610.37088v1</a>
+  </div>
+  <p class="original-title">Systematic calculations of β-delayed fission probabilities using a microscopic framework</p>
+  <p class="meta"><strong>作者：</strong>S. Bara、T. E. Cocolios、S. Goriely、W. Ryssens、A. Sánchez-Fernández、P. Van Duppen</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>β延迟裂变（βDF）过程指母核β衰变至子核的不同态，随后子核以一定概率发生裂变，该概率强烈依赖于β衰变所布居态的能量。由于βDF概率通常很小，实验研究颇具挑战。本文提出的理论框架旨在全局刻画βDF概率。该方法采用基于能量密度泛函的模型获取最终概率所需的输入量，最终概率通过核反应程序TALYS获得。计算覆盖了所有具有实验测量βDF概率值的同位素。在对理论框架进行优化以更好地重现已知数据后，实现了约两个数量级的全局均方根偏差；该精度可用于识别未来实验βDF研究中值得关注的候选核素。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在一个微观框架下对β延迟裂变（βDF）概率进行全局、系统的理论刻画，并检验其与已有实验数据的一致性。</p>
+    <h4>方法</h4><p>采用基于能量密度泛函的模型计算βDF概率所需的输入量，并通过核反应程序TALYS获得最终概率；对全部具有实验测量βDF概率值的同位素进行计算，并对理论框架进行优化以更好地重现已知数据。</p>
+    <h4>主要发现</h4><p>在优化理论框架后，对具有实验测量βDF概率值的同位素实现了约两个数量级的全局均方根偏差；该精度可用于识别未来实验βDF研究中值得关注的候选核素。</p>
+    <h4>局限与展望</h4><p>原文指出βDF概率通常很小、实验研究具有挑战性，且所达到的精度约为两个数量级，因此该框架的适用范围与预测能力受此精度限制；可合理推断，该框架可作为筛选未来实验候选核素的工具，但其定量预测仍需实验检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37394v1">
+  <div class="paper-head">
+    <h2>利用有限核电偶极激发探测旋转中子星内盘边缘<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.37394v1" rel="noopener noreferrer">2610.37394v1</a>
+  </div>
+  <p class="original-title">Probing the inner disk edge of rotating neutron stars with dipole excitations in finite nuclei</p>
+  <p class="meta"><strong>作者：</strong>P. S. Koliogiannis、N. Paar</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">gr-qc</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>核物质状态方程同时决定快速旋转中子星的结构及其周围时空中的轨道运动。状态方程的不确定性会影响最内稳定圆轨道（ISCO）到达星体表面时所对应的质量与半径，而这一条件界定了内边缘由星体表面决定与由轨道不稳定性截断的两类吸积盘之间的转变。本文量化了富中子核电偶极极化率测量如何减小该转变及盘内边缘轨道性质的不确定性。我们针对一族系统改变对称能的物态方程，在广义相对论框架下计算均匀旋转中子星；该族物态方程由采用密度依赖点耦合相互作用的相对论能量密度泛函导出。我们将全族结果与符合有限核电偶极极化率测量值的子集结果进行比较。在所考虑的旋转频率范围内，偶极极化率约束将转变质量与赤道半径的散布分别缩小约七至十倍；沿该转变，它还将每个自旋下盘内边缘的轨道频率限制在窄于 20 Hz 的带内。结合已测得的中子星自旋，若将千赫兹准周期振荡解释为盘内轨道运动，则可进一步限制质量—半径区域，从而以独立的质量估计检验对称能约束。因此，有限核的偶极响应可为旋转中子星结构及其内吸积盘的轨道性质提供信息。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>核物质状态方程的不确定性如何影响旋转中子星内盘边缘由星体表面决定与由ISCO轨道不稳定性截断之间的转变，以及有限核电偶极极化率测量能在多大程度上减小该转变及盘内边缘轨道性质的不确定性。</p>
+    <h4>方法</h4><p>采用密度依赖点耦合相互作用的相对论能量密度泛函，构建系统改变对称能的物态方程族；在广义相对论下计算均匀旋转中子星；将全族结果与符合有限核电偶极极化率测量值的子集进行比较，并考察结合自旋与千赫兹准周期振荡解释时的质量—半径限制。</p>
+    <h4>主要发现</h4><p>偶极极化率约束使转变质量与赤道半径的散布在所考虑自旋频率范围内缩小约七至十倍；沿该转变，每个自旋下盘内边缘轨道频率被限制在窄于20 Hz的带内；结合测得自旋并将千赫兹准周期振荡解释为盘内轨道运动，可进一步限制质量—半径区域，并给出独立质量估计以检验对称能约束。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性；可合理推断，结论依赖于所选取的物态方程族与密度依赖点耦合泛函形式，以及将千赫兹准周期振荡解释为盘内轨道运动这一假设。后续可结合更精确的偶极极化率测量与观测自旋/准周期振荡数据，进一步检验对称能约束并缩小质量—半径不确定性。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-28 11:27 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
