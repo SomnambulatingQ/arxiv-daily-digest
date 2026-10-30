@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-10-30</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">15</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">9</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2610.38116v1">从线性到非线性安德森无序：电学晶格中离散呼吸子的产生</a> <small>2610.38116v1</small></li><li><a href="#paper-2610.38461v1">DNLS方程离散孤子解的级数近似</a> <small>2610.38461v1</small></li><li><a href="#paper-2610.38792v1">三波受迫 Hasegawa--Wakatani 模型：利用带状流降低混沌</a> <small>2610.38792v1</small></li><li><a href="#paper-2610.39938v1">具有阶梯型边界条件的两分量修正Camassa-Holm系统的Riemann-Hilbert方法</a> <small>2610.39938v1</small></li><li><a href="#paper-2610.40103v1">二维复金兹堡-朗道方程中由边界不连续激发的拓扑缺陷列</a> <small>2610.40103v1</small></li><li><a href="#paper-2610.40221v1">当混沌遇上热力学：从费米加速到热化</a> <small>2610.40221v1</small></li></ol><h3>交叉列表（9）</h3><ol class="toc-list"><li><a href="#paper-2610.37990v1">循环优势元胞自动机中对称性分辨的周期：区分内禀周期性与晶格诱导的周期性</a> <small>2610.37990v1</small></li><li><a href="#paper-2610.38866v1">临界转变的早期预警：从含噪观测中区分超临界与亚临界分岔</a> <small>2610.38866v1</small></li><li><a href="#paper-2610.39611v1">Nikolaevskiy 方程中稳态滚波的存在性与谱不稳定性：一项计算机辅助研究</a> <small>2610.39611v1</small></li><li><a href="#paper-2610.39703v1">耦合振子网络计算：优化、记忆与现代人工智能基本算子</a> <small>2610.39703v1</small></li><li><a href="#paper-2610.39809v1">临界层波吸收控制波-平均流系统中的混沌</a> <small>2610.39809v1</small></li><li><a href="#paper-2610.40033v1">任意阶的S-函数：对称性的超平面与可实现性条件</a> <small>2610.40033v1</small></li><li><a href="#paper-2610.40217v1">有限系统中毛细波的波湍流</a> <small>2610.40217v1</small></li><li><a href="#paper-2610.40426v1">非定常扑翼的气动外形优化</a> <small>2610.40426v1</small></li><li><a href="#paper-2610.40597v1">受迫Aliev-Panfilov可兴奋振荡器的模拟实现与测量</a> <small>2610.40597v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.38116v1">
+  <div class="paper-head">
+    <h2>从线性到非线性安德森无序：电学晶格中离散呼吸子的产生<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.38116v1" rel="noopener noreferrer">2610.38116v1</a>
+  </div>
+  <p class="original-title">Generation of discrete breathers from linear to nonlinear Anderson disorder in electrical lattices</p>
+  <p class="meta"><strong>作者：</strong>Xuan-Lin Chen、F. Palmero</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了由耦合LC谐振器构成的无序电学晶格中的线性与非线性局域化现象。在线性区域，我们从理论和实验两方面表征了简正模谱与空间电压分布，发现电容无序会诱导出强局域的安德森模式；在共振频率、空间分布、逆参与率和局域长度方面，数值预测与实验测量吻合良好。我们通过变容二极管引入非线性，并利用数值延拓将选定的安德森局域模式延拓为离散呼吸子族。Floquet分析表明，这些非线性局域解在所研究的频率范围内保持谱稳定，其空间局域性随振幅增大而演化。实验测量揭示了非线性共振弯曲、频移与迟滞现象，与预测的非线性行为定性一致。上述结果为从安德森局域模式产生稳定的、被无序钉扎的离散呼吸子提供了数值证据，并得到相关非线性共振响应的实验观测支持，同时凸显了无序与非线性在电学晶格中的相互作用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究耦合LC谐振器构成的 disordered 电学晶格中，线性安德森局域模式如何经非线性延拓形成离散呼吸子，以及无序与非线性如何共同影响局域化与稳定性。</p>
+    <h4>方法</h4><p>理论表征线性简正模谱与空间电压分布；实验测量共振频率、空间分布、逆参与率和局域长度；通过变容二极管引入非线性，对选定安德森局域模式进行数值延拓得到离散呼吸子族；用Floquet分析检验谱稳定性；实验观测非线性共振响应。</p>
+    <h4>主要发现</h4><p>线性区域中电容无序诱导强局域安德森模式，数值预测与实验在共振频率、空间分布、逆参与率和局域长度上吻合良好；选定的安德森局域模式可延拓为离散呼吸子族，Floquet分析表明这些解在所研究频率范围内谱稳定，空间局域性随振幅增大而演化；实验观测到非线性共振弯曲、频移与迟滞，与预测定性一致。</p>
+    <h4>局限与展望</h4><p>原文的稳定性结论限于所研究的频率范围，实验对非线性行为的验证为定性一致；后续可合理推断的方向包括扩展频率与参数范围、定量比较实验与数值的非线性响应，以及进一步考察无序与非线性相互作用对局域化演化的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2610.38461v1">
+  <div class="paper-head">
+    <h2>DNLS方程离散孤子解的级数近似<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.38461v1" rel="noopener noreferrer">2610.38461v1</a>
+  </div>
+  <p class="original-title">Series approximation of discrete-soliton solutions of the DNLS equation</p>
+  <p class="meta"><strong>作者：</strong>V. Tsiantou、V. Koukouloyannis、K. D. Housiadas、P. G. Kevrekidis</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用格点间耦合参数 $\varepsilon$ 的微扰级数展开研究离散非线性薛定谔（DNLS）方程的驻波解。针对三种代表性构型——单格点孤子以及两种双格点构型（同相与反相）——导出了幂级数近似。尽管高阶截断在 $\varepsilon$ 较小时精度逐步提高，但这些展开式的收敛半径较小，在远未达到 $\varepsilon={\cal O}(1)$ 时便已失效。为扩展其有效范围，本文采用 Euler 收敛加速方法，对每个格点分别构造最优变换级数。结果表明，变换后的解具有显著更大的收敛半径，并且比原始级数解更好地保持了解的局域性。随后将级数剖面代入 DNLS 方程的线性化矩阵，以获得稳定性本征值的改进近似，并特别关注同相构型的不稳定实本征值。对相应展开式作最优截断可得到闭式的 ${\cal O}(\varepsilon^{5/2})$ 估计，将已知的 ${\cal O}(\varepsilon^{1/2})$ 首阶结果显著推广至更大的耦合范围；而加速剖面的半数值使用可将数值计算的本征值复现至 $\varepsilon={\cal O}(1)$ 的量级。全文的解剖面及其稳定性本征值均以从反连续极限出发通过延拓过程获得的数值解为基准进行校验。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用耦合参数 $\varepsilon$ 的微扰级数近似 DNLS 方程的离散孤子驻波解（单格点、同相双格点、反相双格点），并改进其收敛范围与稳定性本征值估计。</p>
+    <h4>方法</h4><p>以 $\varepsilon$ 为小参数作幂级数展开；对每个格点分别应用 Euler 收敛加速构造最优变换级数；将级数剖面代入线性化矩阵以近似稳定性本征值，并对展开式作最优截断得到闭式估计；以反连续极限延拓得到的数值解为基准进行校验。</p>
+    <h4>主要发现</h4><p>原始幂级数展开收敛半径小，在 $\varepsilon={\cal O}(1)$ 之前即失效；Euler 加速后的变换级数收敛半径显著增大，并更好地保持解的局域性；对同相构型不稳定实本征值的展开作最优截断得到闭式 ${\cal O}(\varepsilon^{5/2})$ 估计，显著扩展了已知 ${\cal O}(\varepsilon^{1/2})$ 首阶结果的适用范围；加速剖面的半数值使用可将本征值复现至 $\varepsilon={\cal O}(1)$ 量级。</p>
+    <h4>局限与展望</h4><p>方法的有效性在文中针对三种代表性构型及同相构型的不稳定实本征值进行了验证；对其他构型、其他本征值或更复杂晶格的可推广性尚需进一步检验（此为推断）。Euler 加速剖面的半数值使用依赖数值输入，其纯解析化程度与误差控制范围有待进一步研究（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.38792v1">
+  <div class="paper-head">
+    <h2>三波受迫 Hasegawa--Wakatani 模型：利用带状流降低混沌<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.38792v1" rel="noopener noreferrer">2610.38792v1</a>
+  </div>
+  <p class="original-title">Three-Wave Forced Hasegawa--Wakatani Model: Reducing Chaos with Zonal Flows</p>
+  <p class="meta"><strong>作者：</strong>P. Haerter、R. L. Viana、I. L. Caldas</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">physics.plasm-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究电阻漂移波湍流的非线性动力学，采用 Hasegawa--Wakatani 方程的三波截断模型；其中背景密度梯度或保持固定，或由外部粒子源 P（如中性束注入）供给、并被湍流粒子通量侵蚀而自洽演化。我们比较了两个三波组，它们仅因长波长模式的小幅倾斜而不同：在一个三波组中该模式为带状流，不能被梯度驱动；在另一个三波组中该模式为弱驱动的漂移波。在绝热性参数 C 与驱动构成的平面上的周期图表明，带状三波组几乎总是规则的，而非带状三波组则变为混沌。通量对梯度的反馈放大了这一对比：非带状三波组中非周期态的比例显著增加，而带状三波组中该比例仍可忽略。在低绝热性下沿一条恒定 C 的直线，固定梯度的非带状三波组通过带间歇性的环面破裂进入混沌，并通过内部危机和倍周期级联离开混沌。在自洽梯度情形下，Neimark--Sacker 分岔导致一个锁相环面，该环面突然破裂并伴随滞后，随后混沌持续到最大驱动，且梯度被间歇地驱动到长波长模式阈值之上。当该模式为带状流时，这些通向混沌的路径均不存在。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在三波截断的 Hasegawa--Wakatani 模型中，长波长模式为带状流（不能被背景梯度驱动）与为弱驱动漂移波这两种情形，其非线性动力学与通向混沌的路径有何差异；背景密度梯度固定或由外部粒子源与湍流粒子通量自洽演化时，这一差异如何变化。</p>
+    <h4>方法</h4><p>对 Hasegawa--Wakatani 方程作三波截断，比较仅因长波长模式小幅倾斜而不同的两个三波组；在绝热性参数 C 与驱动构成的平面上绘制周期图，并分别考察固定梯度与自洽梯度（外部粒子源 P 供给、湍流粒子通量侵蚀）两种设定，分析通向混沌的分岔路径。</p>
+    <h4>主要发现</h4><p>周期图显示带状三波组几乎总是规则的，而非带状三波组变为混沌；通量对梯度的反馈放大了这一对比，非带状三波组中非周期态比例显著增加，带状三波组中仍可忽略。低绝热性下沿恒定 C 线，固定梯度的非带状三波组通过带间歇性的环面破裂进入混沌，并通过内部危机与倍周期级联离开混沌；自洽梯度下 Neimark--Sacker 分岔导致锁相环面，该环面突然破裂并伴随滞后，混沌持续到最大驱动，梯度被间歇驱动到长波长模式阈值之上。当该模式为带状流时，上述通向混沌的路径均不存在。</p>
+    <h4>局限与展望</h4><p>本文结论基于三波截断模型，其适用范围受截断阶数与参数区域限制，向更高维或更完整谱的推广需进一步验证；自洽梯度下观察到的滞后与间歇性提示，后续可考察外部粒子源强度与绝热性参数对混沌边界的联合影响，但此类推断尚需专门研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2610.39938v1">
+  <div class="paper-head">
+    <h2>具有阶梯型边界条件的两分量修正Camassa-Holm系统的Riemann-Hilbert方法<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.39938v1" rel="noopener noreferrer">2610.39938v1</a>
+  </div>
+  <p class="original-title">A Riemann-Hilbert approach to the two-component modified Camassa-Holm system with step-like boundary conditions</p>
+  <p class="meta"><strong>作者：</strong>Iryna Karpenko、Dmitry Shepelsky、Gerald Teschl</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span> <span class="tag">math.AP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对实轴上非零阶梯型边界条件下的两分量修正Camassa-Holm（2-mCH）系统的Cauchy问题，建立了Riemann-Hilbert形式化框架。从相应的Lax对出发，进行直接谱分析，并建立由初始条件确定的特征函数与谱数据的解析性、对称性及渐近性质。在此基础上，构造矩阵Riemann-Hilbert问题，其解给出原Cauchy问题解的重构公式。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究实轴上非零阶梯型边界条件下两分量修正Camassa-Holm（2-mCH）系统Cauchy问题的可积求解框架。</p>
+    <h4>方法</h4><p>从2-mCH系统的Lax对出发，开展直接谱分析，建立特征函数与谱数据的解析性、对称性和渐近性质，并据此构造矩阵Riemann-Hilbert问题。</p>
+    <h4>主要发现</h4><p>原文明确建立了特征函数与谱数据的解析、对称与渐近性质，并构造出矩阵Riemann-Hilbert问题，其解提供原Cauchy问题解的重构公式。</p>
+    <h4>局限与展望</h4><p>原文未讨论逆谱变换的完整求解、解的存在唯一性或长时间渐近行为；这些可作为后续研究方向，但需进一步论证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.40103v1">
+  <div class="paper-head">
+    <h2>二维复金兹堡-朗道方程中由边界不连续激发的拓扑缺陷列<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.40103v1" rel="noopener noreferrer">2610.40103v1</a>
+  </div>
+  <p class="original-title">Topological defect trains excited by a boundary discontinuity in the two-dimensional complex Ginzburg-Landau equation</p>
+  <p class="meta"><strong>作者：</strong>Alice C. Quillen、Laura Quinonez</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">math.AP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文通过数值模拟研究二维空间中的复金兹堡-朗道方程，发现一个静止但非零且带有不连续性的Dirichlet边界条件能够驱动一列周期性的、等间距的拓扑缺陷；这些缺陷沿边界漂移，并出现在边界附近。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究二维复金兹堡-朗道方程中，带有不连续性的静止非零Dirichlet边界条件能否激发拓扑缺陷，以及这些缺陷具有何种时空结构。</p>
+    <h4>方法</h4><p>对二维复金兹堡-朗道方程进行数值模拟。</p>
+    <h4>主要发现</h4><p>原文明确报告：一个静止但非零且存在不连续性的Dirichlet边界条件，可以驱动一列周期性的、等间距的拓扑缺陷；这些缺陷沿边界漂移，并位于边界附近。</p>
+    <h4>局限与展望</h4><p>原文仅基于数值模拟，未给出解析证明或参数适用范围；该结果是否依赖具体参数区域、边界几何或方程形式，尚需进一步检验。后续可合理推断的方向包括：系统考察不同边界不连续性与参数对缺陷列间距和漂移速度的影响，以及探索相应的理论描述。</p>
+  </section>
+</article><article class="paper" id="paper-2610.40221v1">
+  <div class="paper-head">
+    <h2>当混沌遇上热力学：从费米加速到热化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.40221v1" rel="noopener noreferrer">2610.40221v1</a>
+  </div>
+  <p class="original-title">When chaos meets thermodynamics: from Fermi acceleration to thermalisation</p>
+  <p class="meta"><strong>作者：</strong>Edson Denis Leonel</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">physics.app-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>粒子与运动壁面的碰撞是研究小系统与环境交换能量的最简单力学模型之一。在含时混沌台球中，反复的弹性碰撞可导致费米加速，其特征动能无界增长。这一结果引出一个具有启发性的热力学疑难：处于有限温度的物理壁面应作为热库，使稀薄气体趋于稳态温度，而非无限加热。本文以该疑难为线索，将非线性动力学与基础热力学联系起来。在适当的去相关假设下，碰撞序列在速度空间中产生有效扩散，并给出与正常扩散相关的平方根增长。随后引入保守加速器所缺失的两个要素：相位随机化，用以简化能量交换的统计描述；以及耗散，将能量传回边界未解析的自由度。二者的竞争将无界加速替换为稳态动能尺度。由速度二阶矩的递推关系得到稳态动理学温度尺度 $T_\infty=(mA^2/8k_B)(1+\gamma)/(1-\gamma)$，其中 $A$ 度量边界驱动强度，$\gamma$ 为恢复系数。本文将按碰撞次数刻画的弛豫与物理时间下受傅里叶启发建立的简单传热模型进行比较，强调在瞬态过程中这两种时间标度不可互换。由此得到的图景表明，涨落、耗散、粗粒化与弛豫如何从混沌动力学中产生有效热态，同时也澄清了热力学类比的适用边界。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>含时混沌台球中，运动壁面导致的费米加速（动能无界增长）与有限温度壁面应作为热库使系统趋于稳态温度的热力学预期之间存在矛盾；论文研究如何在混沌碰撞动力学框架下调和这一矛盾，并刻画稳态温度尺度及弛豫行为。</p>
+    <h4>方法</h4><p>在去相关假设下，将碰撞序列建模为速度空间中的有效扩散；在保守加速模型基础上引入相位随机化与耗散（恢复系数 $\gamma$ 刻画能量回传边界未解析自由度）；通过速度二阶矩的递推关系推导稳态动理学温度尺度；并将按碰撞次数刻画的弛豫与物理时间下的简单傅里叶型传热模型进行比较。</p>
+    <h4>主要发现</h4><p>在适当去相关假设下，碰撞序列产生速度空间有效扩散及与正常扩散相关的平方根增长；相位随机化与耗散的竞争将无界加速替换为稳态动能尺度；由速度二阶矩递推得到稳态动理学温度尺度 $T_\infty=(mA^2/8k_B)(1+\gamma)/(1-\gamma)$，其中 $A$ 度量边界驱动、$\gamma$ 为恢复系数；按碰撞次数的弛豫与物理时间下的传热模型在瞬态过程中不可互换。</p>
+    <h4>局限与展望</h4><p>论文指出其结论依赖于去相关等假设，并强调热力学类比存在适用边界；据此可合理推断，后续工作或需检验去相关假设放松时的适用性，并进一步厘清碰撞计数时间与物理时间在瞬态及不同参数区域下的对应关系（此点为推断，非原文结论）。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.37990v1">
+  <div class="paper-head">
+    <h2>循环优势元胞自动机中对称性分辨的周期：区分内禀周期性与晶格诱导的周期性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.37990v1" rel="noopener noreferrer">2610.37990v1</a>
+  </div>
+  <p class="original-title">Symmetry-resolved periods in a cyclic-dominance automaton: separating intrinsic from lattice-induced periodicity</p>
+  <p class="meta"><strong>作者：</strong>Francisco J. Muñoz、Juan Carlos Nuño</p>
+  <p class="meta"><strong>主分类：</strong>math.DS
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DS</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>空间扩展系统的周期吸引子并非只有一个周期，而是存在一个按观测层级与对称性商分层的周期谱系；该谱系将图案自身的演化方式与其适配有限域的方式区分开来。针对 L×L 环面上循环优势的同步阈值模型（等价于 Fisch、Gravner 与 Griffeath 的三色循环元胞自动机），本文对每个吸引子测量一个周期元组：种群周期 Tpop、完整构型周期 Tst，以及构型在颜色旋转（Tcol）、晶格对称（Tgeo）和完整空色群（TG）下的周期。等变性蕴含精确的整除关系与分解式 Tst=TG·m，其中 m 计数对称 h 在 TG 步后将构型映回自身的施加次数：TG 与 h 的类型属于图案，m 属于晶格，吸引子为相对周期轨道，其完整周期源于内禀动力学与晶格对称性的相互作用。围绕一对反向旋转螺旋、具有 Tpop=24 与 TG=8 的一族吸引子从 L=9 持续到 L=40，而 Tst 取值从 24 到 960，且每种情形下均由 h 的阶给出；在 9×12 矩形环面上其取值为 48，该值不出现在任何方形环面中。在 L=8 与 L=9 各进行超过 4.5×10^5 次运行以估计吸引域：不动点占据构型空间的 95–97%，且没有任何单一周期足以区分各振荡吸引子。同一分析定位了局部多样性：当循环具有颜色对称时它是平衡的，而在大晶格上它集中于螺旋核心。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>空间扩展系统的周期吸引子在不同观测层级与对称性商下具有怎样的周期结构，以及如何区分图案内禀的周期性与由有限晶格对称性诱导的周期性。</p>
+    <h4>方法</h4><p>研究 L×L 环面上循环优势的同步阈值模型（等价于三色循环元胞自动机），对每个吸引子测量种群、完整构型、模颜色旋转、模晶格对称及模完整空色群的周期元组；利用等变性导出整除关系与分解式 Tst=TG·m，并通过大规模数值运行（L=8 与 L=9 各超过 4.5×10^5 次）估计吸引域。</p>
+    <h4>主要发现</h4><p>等变性给出精确的整除关系与分解 Tst=TG·m；围绕一对反向旋转螺旋、Tpop=24 且 TG=8 的吸引子族从 L=9 持续到 L=40，Tst 取值 24 至 960 且均由 h 的阶给出；9×12 矩形环面上 Tst=48，不出现在方形环面中；不动点占据构型空间的 95–97%，无单一周期足以区分振荡吸引子；局部多样性在循环具有颜色对称时平衡，在大晶格上集中于螺旋核心。</p>
+    <h4>局限与展望</h4><p>摘要未讨论模型在非环面边界、非同步更新或更多颜色情形下的适用性；所揭示的周期分解是否可推广至其他具有空间对称性的元胞自动机或耦合振子系统，尚需进一步研究；吸引域估计基于有限尺寸（L=8、9），向更大晶格的标度行为有待检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.38866v1">
+  <div class="paper-head">
+    <h2>临界转变的早期预警：从含噪观测中区分超临界与亚临界分岔<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.38866v1" rel="noopener noreferrer">2610.38866v1</a>
+  </div>
+  <p class="original-title">Early warning of critical transitions: Distinguishing supercritical and subcritical bifurcations from noisy observations</p>
+  <p class="meta"><strong>作者：</strong>Paul A. Sanders、Christian Kuehn、Bastian Hilder、Robbin Bastiaansen</p>
+  <p class="meta"><strong>主分类：</strong>math.DS
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DS</span> <span class="tag">nlin.CD</span> <span class="tag">nlin.PS</span> <span class="tag">physics.data-an</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>早期预警方法可以提示系统正在接近稳定性丧失，但通常无法揭示所接近的分岔是超临界还是亚临界。本文研究能否从转变前的含噪观测中作出这一区分。为此，我们在基于回归的稳定性方法中引入主导三次非线性项，并利用其符号预测分岔类型。我们在随机 pitchfork 模型和空间随机 Swift-Hohenberg 方程上检验该方法。在两个模型中，分类效果随观测时间窗延长、与分岔的距离更近、噪声更强以及非线性效应更大而改善。然而，这些条件在亚临界情形下也与更高的噪声诱导 tipping 风险相关联。因此，有效的早期预警窗口取决于在获取足够信息以识别分岔类型与在噪声诱导 tipping 变得过于可能之前完成识别之间的平衡。在空间扩展系统中，我们发现观测完整空间场可在更短的观测时间窗内实现分类，且当更广泛的空间模态对观测动力学有贡献时性能提升。总体而言，我们确定了该方法能够可靠区分超临界与亚临界分岔的条件。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否仅凭转变前的含噪观测区分系统所接近的分岔是超临界还是亚临界。</p>
+    <h4>方法</h4><p>扩展基于回归的稳定性方法，加入主导三次非线性项并以其次项符号预测分岔类型；在随机 pitchfork 模型和空间随机 Swift-Hohenberg 方程上进行检验。</p>
+    <h4>主要发现</h4><p>在两个模型中，分类效果随观测时间窗延长、与分岔距离更近、噪声更强及非线性效应更大而改善；这些条件在亚临界情形下也伴随更高的噪声诱导 tipping 风险；有效早期预警窗口取决于信息获取与 tipping 风险之间的平衡；在空间扩展系统中，观测完整空间场可在更短观测时间窗内实现分类，且当更广泛空间模态参与观测动力学时性能提升。</p>
+    <h4>局限与展望</h4><p>原文指出有效预警窗口受信息量与噪声诱导 tipping 风险的权衡限制；对于更一般的分岔类型、其他系统或实际观测条件（如部分观测、有限模态）下的适用性，原文未作结论，需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.39611v1">
+  <div class="paper-head">
+    <h2>Nikolaevskiy 方程中稳态滚波的存在性与谱不稳定性：一项计算机辅助研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.39611v1" rel="noopener noreferrer">2610.39611v1</a>
+  </div>
+  <p class="original-title">Existence and spectral instability of steady rolls in the Nikolaevskiy equation: a computer-assisted study</p>
+  <p class="meta"><strong>作者：</strong>Nikita V. Konev、Fedor A. Vyazanitsyn、Igor A. Knyazev</p>
+  <p class="meta"><strong>主分类：</strong>math.DS
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DS</span> <span class="tag">math.AP</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Nikolaevskiy 方程是短波斑图形成与中性长波模耦合的模型，一般认为其所有空间周期稳态均不稳定。已有结果多为形式推导、数值结果或局限于发生点附近的小邻域。本文给出三项结果的计算机辅助证明。第一，对任意波数 q∈[0.9,1.1] 及任意控制参数 r∈[(1-q^2)^2,4]，方程存在非平凡、实解析、奇的稳态滚波；这些滚波构成单一连续的双参数族，在发生点处从平凡态分岔，并具有与到发生点距离的平方根成正比的显式振幅界。第二，该族中所有 r∈[0.25,4] 的滚波在实轴上均为谱不稳定：其线性化具有实部至少 6.7e-4 的 Bloch 特征值，且当 r≥0.575 时实部至少为 0.13。第三，在九个样本点上，本文在小 Bloch 数处包围了数值上识别为长波（Matthews-Cox）分支的特征值；其实部在七个点上为正、在两个点上为负，而九个点均存在强不稳定特征值。证明结合了参数化 Newton-Kantorovich 定理、发生点附近的去奇异化、参数盒上的 Taylor 模型界以及 Bloch 谱的 Weyl 序列论证；所有估计均在严格区间算术下求值。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>Nikolaevskiy 方程的空间周期稳态（滚波）是否存在，以及这些稳态在实轴上是否谱不稳定；已有结果多为形式推导、数值结果或局限于发生点附近。</p>
+    <h4>方法</h4><p>结合参数化 Newton-Kantorovich 定理、发生点附近的去奇异化、参数盒上的 Taylor 模型界，以及 Bloch 谱的 Weyl 序列论证；所有估计均在严格区间算术下求值，属于计算机辅助证明。</p>
+    <h4>主要发现</h4><p>对任意 q∈[0.9,1.1] 及 r∈[(1-q^2)^2,4]，存在非平凡、实解析、奇的稳态滚波，构成从平凡态分岔的单一连续双参数族，并具有与到发生点距离平方根成正比的显式振幅界；该族中 r∈[0.25,4] 的滚波在实轴上均谱不稳定，线性化具有实部至少 6.7e-4 的 Bloch 特征值，且 r≥0.575 时实部至少为 0.13；在九个样本点的小 Bloch 数处包围了数值上识别为长波（Matthews-Cox）分支的特征值，其实部在七点为正、两点为负，而九点均存在强不稳定特征值。</p>
+    <h4>局限与展望</h4><p>原文结果限于 q∈[0.9,1.1]、r∈[0.25,4] 等参数范围，且第三项结果仅基于九个样本点；对更广参数范围及全谱结构的推广尚待研究。可合理推断，后续工作或可将计算机辅助框架扩展至其他波数或控制参数区间，并进一步刻画长波分支特征值的符号变化。</p>
+  </section>
+</article><article class="paper" id="paper-2610.39703v1">
+  <div class="paper-head">
+    <h2>耦合振子网络计算：优化、记忆与现代人工智能基本算子<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.39703v1" rel="noopener noreferrer">2610.39703v1</a>
+  </div>
+  <p class="original-title">Computing with Coupled Oscillator Networks: Optimization, Memory, and Modern AI Primitives</p>
+  <p class="meta"><strong>作者：</strong>Ahmed Allibhoy、Fabio Pasqualetti</p>
+  <p class="meta"><strong>主分类：</strong>eess.SY
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">eess.SY</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">cs.SY</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文探讨如何利用耦合振子网络中的同步现象执行多种计算任务。随着传统数字计算机能耗需求不断上升，尤其在机器学习与人工智能的大规模问题上，此类系统作为替代方案日益受到关注。耦合振子网络的普遍性意味着基于振子的计算可被视为一种通用计算范式，涵盖具有多种物理实现的系统，例如模拟电路、神经系统与自旋电子系统。耦合振子网络动力学与其所实现的计算基本算子之间的桥梁是源于统计物理的 Ising 模型；将该模型应用于振子网络，可解释网络中局部相互作用如何涌现出全局复杂且无序的同步模式。本文讨论耦合振子网络在三类基本计算操作中的应用：第一，作为 NP 难组合优化问题的专用硬件求解器，其解编码于同步模式中；第二，作为联想记忆系统，实现以振子相位表示的数据的存储与检索；第三，作为注意力机制的动力学实现，其中同步为键与查询的对齐提供机制。振子网络实现这些计算基本算子的能力，为通过多种物理基底实现新型智能系统开辟了道路。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>耦合振子网络中的同步现象能否以及如何用于执行多种计算任务，特别是组合优化、联想记忆与注意力机制这三类基本计算操作。</p>
+    <h4>方法</h4><p>以源于统计物理的 Ising 模型作为耦合振子网络动力学与其所实现计算基本算子之间的桥梁，分析局部相互作用如何产生全局复杂且无序的同步模式，并分别讨论振子网络在组合优化求解、基于相位的联想记忆以及注意力动力学实现中的应用。</p>
+    <h4>主要发现</h4><p>论文指出耦合振子网络可作为 NP 难组合优化问题的专用硬件求解器并将解编码于同步模式中；可作为联想记忆系统，实现以振子相位表示的数据的存储与检索；可作为注意力机制的动力学实现，其中同步提供键与查询对齐的机制。论文还指出耦合振子网络具有多种物理实现，基于振子的计算可被视为一种通用计算范式。</p>
+    <h4>局限与展望</h4><p>论文的论述以 Ising 模型为统一框架，其结论主要适用于可映射到该模型的振子网络；不同物理基底上的具体性能、可扩展性与能效优势尚需进一步验证。可合理推断，后续方向包括在模拟电路、神经系统、自旋电子系统等具体物理平台上实现并评估上述计算基本算子，以及探索更多智能系统功能与振子网络动力学的对应关系。</p>
+  </section>
+</article><article class="paper" id="paper-2610.39809v1">
+  <div class="paper-head">
+    <h2>临界层波吸收控制波-平均流系统中的混沌<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.39809v1" rel="noopener noreferrer">2610.39809v1</a>
+  </div>
+  <p class="original-title">Critical-level wave absorption controls chaos in a wave--mean flow system</p>
+  <p class="meta"><strong>作者：</strong>Aymeric Lévy-Dauchez、Louis-Philippe Nadeau、Antoine Venaille</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">nlin.CD</span> <span class="tag">physics.ao-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>分层流体中的波-平均流相互作用可驱动自发振荡，但控制周期性与混沌状态之间转变的机制仍不清楚。本文采用一个受准两年振荡（QBO）启发、由波驱动的平均流反转的一维最小模型，识别出两种抑制速度剖面中多重极值形成的不同机制：宽谱无阻尼小尺度重力波的临界层动量沉积，以及指数密度分层导致的波幅增长。尽管物理上不同，这两种机制均抑制通向混沌的路径，并降低对小尺度黏性的敏感性，从而在参数空间中显著扩大周期行为的区域。这些结果揭示了一种稳定波驱动振荡的一般内部机制，对地球物理和天体物理流动中的类QBO现象具有直接意义。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>分层流体中波-平均流相互作用驱动的振荡，其周期性与混沌状态之间转变的控制机制尚不清楚；本文研究何种机制抑制混沌并扩大周期行为区域。</p>
+    <h4>方法</h4><p>采用受准两年振荡（QBO）启发、由波驱动的平均流反转的一维最小模型，考察宽谱无阻尼小尺度重力波的临界层动量沉积与指数密度分层导致的波幅增长这两种机制。</p>
+    <h4>主要发现</h4><p>识别出两种物理上不同但均能抑制速度剖面多重极值形成的机制：临界层动量沉积和指数密度分层引起的波幅增长；两者均抑制通向混沌的路径、降低对小尺度黏性的敏感性，并显著扩大参数空间中的周期行为区域。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果揭示了一种稳定波驱动振荡的一般内部机制，对地球物理和天体物理流动中的类QBO现象具有直接意义；该结论基于一维最小模型，向更复杂实际流动的推广需进一步验证（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.40033v1">
+  <div class="paper-head">
+    <h2>任意阶的S-函数：对称性的超平面与可实现性条件<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.40033v1" rel="noopener noreferrer">2610.40033v1</a>
+  </div>
+  <p class="original-title">The S-function at arbitrary order: hyperplanes of symmetries and the realisability condition</p>
+  <p class="meta"><strong>作者：</strong>L. G. S. Duarte、L. A. C. P. da Mota</p>
+  <p class="meta"><strong>主分类：</strong>math.CA
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.CA</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究标量方程 $y^{(n)}=\varphi(x,y,\dots,y^{(n-1)})$ 的扩展Prelle--Singer方法中的$S$-函数。该$S$-函数是一个向量 $S=(S_0,\dots,S_{n-2})$，即Chandrasekar、Senthilvelan、Lakshmanan及其合作者所定义的无形式向量（null-form vector），同时也是某个首次积分的jet梯度，并满足变分方程的伴随方程。本文内蕴地刻画了$S$所满足系统的解，并判定其中哪些解来自首次积分。在首次积分域$C$上，这些解恰好是$n$维对称特征空间$VV$的超平面，可由$n-1$个独立特征通过Plücker公式恢复；在流盒坐标下，它们是局部叶空间上的超平面场。一个解是某个首次积分的$S$-向量，当且仅当相应的超平面场可积。该Frobenius条件分解为$S$-系统本身加上$\binom n3$个进一步的微分条件，因此对$n=2$是空条件，而对每个$n\ge3$都是真正的限制；本文对后者给出了一个显式的不可实现解。同一图景解释了为何$\lambda$-对称与$S$-函数仅在$n=2$时一致：线场与超平面场只在曲面上相同。关于$S$的计算，本文指出该系统等价于关于最后一个分量的一个标量方程，即伴随变分方程的Riccati形式，并说明了这对有理搜索意味着什么、不意味着什么。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究标量$n$阶常微分方程在扩展Prelle--Singer方法中$S$-函数所满足系统的解的结构，并判定哪些解对应于首次积分。</p>
+    <h4>方法</h4><p>采用内蕴方式刻画$S$-系统；在首次积分域上借助对称特征空间的超平面与Plücker公式描述解；用流盒坐标下的超平面场表述可实现性，并以Frobenius可积性条件给出判据；同时将$S$-系统化为关于最后一个分量的标量Riccati型方程。</p>
+    <h4>主要发现</h4><p>在首次积分域$C$上，$S$-系统的解恰为对称特征空间$VV$的超平面，可由$n-1$个独立特征经Plücker公式恢复；在流盒坐标下为局部叶空间上的超平面场。一个解来自首次积分当且仅当对应超平面场可积；该Frobenius条件分解为$S$-系统本身与$\binom n3$个附加微分条件，故对$n=2$为空条件，对$n\ge3$为真正限制，并给出了$n\ge3$的显式不可实现解。$\lambda$-对称与$S$-函数仅在$n=2$时一致。$S$-系统等价于关于最后一个分量的标量方程，即伴随变分方程的Riccati形式。</p>
+    <h4>局限与展望</h4><p>论文的结论限于标量方程及首次积分域$C$上的讨论；对$n\ge3$的可实现性限制意味着并非所有$S$-系统解都能由首次积分产生。关于Riccati形式对有理搜索的含义，原文仅作说明而未给出完整算法；可合理推断，后续工作或可基于该可实现性条件设计筛选或构造首次积分的方法，但这属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.40217v1">
+  <div class="paper-head">
+    <h2>有限系统中毛细波的波湍流<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.40217v1" rel="noopener noreferrer">2610.40217v1</a>
+  </div>
+  <p class="original-title">Wave Turbulence of Capillary Waves in Finite Systems</p>
+  <p class="meta"><strong>作者：</strong>Alexander O. Korotkevich</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">nlin.PS</span> <span class="tag">physics.comp-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究经典的毛细波湍流问题。通过一系列数值模拟表明，对应能量直接级联的 Zakharov-Filonenko 谱在有限系统中的可实现动态范围有限，且该范围随非线性程度降低而收缩。近期关于该动态范围随平均陡度按 $\sim\mu^{8/3}$ 标度的假设得到确认。作为附带结果，在多种模拟配置下观测到 Zakharov-Filonenko 谱的动态范围接近或超过一个数量级，为迄今记录。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>有限系统中毛细波湍流的 Zakharov-Filonenko 谱（能量直接级联）可实现动态范围有多大，以及该范围如何随非线性程度（平均陡度）变化。</p>
+    <h4>方法</h4><p>开展一系列数值模拟，考察不同非线性水平下 Zakharov-Filonenko 谱的动态范围，并检验其随平均陡度按 $\sim\mu^{8/3}$ 标度的假设。</p>
+    <h4>主要发现</h4><p>Zakharov-Filonenko 谱在有限系统中的动态范围有限，并随非线性程度降低而收缩；动态范围随平均陡度按 $\sim\mu^{8/3}$ 标度的近期假设得到确认；在多种模拟配置下观测到动态范围接近或超过一个数量级的 Zakharov-Filonenko 谱。</p>
+    <h4>局限与展望</h4><p>原文指出该谱在有限系统中的动态范围受非线性水平限制，因此相关结论的适用范围限于所考察的有限系统与模拟配置；至于该标度关系在更广泛参数范围或其他边界条件下的普适性，原文未作断言，需进一步研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.40426v1">
+  <div class="paper-head">
+    <h2>非定常扑翼的气动外形优化<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.40426v1" rel="noopener noreferrer">2610.40426v1</a>
+  </div>
+  <p class="original-title">Aerodynamic Shape Optimization of unsteady flapping wings</p>
+  <p class="meta"><strong>作者：</strong>Hamid R. Karbasian、Brian C. Vermeire</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">math.DS</span> <span class="tag">math.OC</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本研究提出了一种以降阶模型（ROM）形式构建代理模型的新方法，用于偏微分方程约束优化。研究建立了一个物理约束的数据驱动框架，将大规模非线性优化问题转化为ROM约束优化问题。与受前向灵敏度函数不稳定性困扰的传统方法不同，所提方法将优化问题投影为Hilbert空间中的系统动力学优化问题，从而提高稳定性、减少内存需求并降低计算成本。该方法被应用于雷诺数Re=2,400下二维扑翼截面的外形优化，其中翼与流体的非线性相互作用包含混沌流动结构。结果表明，所提方法可将时间平均推力与推进效率分别显著提高37%和40%。作者还将该方法用于三维扑翼测试，结果显示了该方法在航空航天工业中更复杂优化设计方面的潜力。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为偏微分方程约束优化构建稳定的降阶代理模型，并将其用于非定常扑翼的气动外形优化。</p>
+    <h4>方法</h4><p>提出物理约束的数据驱动框架，将大规模非线性优化问题转化为ROM约束优化问题；通过将优化问题投影为Hilbert空间中的系统动力学优化问题来提升稳定性、降低内存需求与计算成本；在Re=2,400的二维扑翼截面外形优化中应用，并测试三维扑翼。</p>
+    <h4>主要发现</h4><p>在二维扑翼截面算例中，所提方法使时间平均推力提高37%、推进效率提高40%；三维扑翼测试结果显示了该方法用于更复杂优化设计的潜力。</p>
+    <h4>局限与展望</h4><p>原文未给出三维算例的定量优化结果，也未讨论方法在其他雷诺数或流动条件下的适用性；其局限与更广泛适用范围尚需进一步验证，后续可合理推断为向更复杂三维气动外形优化扩展。</p>
+  </section>
+</article><article class="paper" id="paper-2610.40597v1">
+  <div class="paper-head">
+    <h2>受迫Aliev-Panfilov可兴奋振荡器的模拟实现与测量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.40597v1" rel="noopener noreferrer">2610.40597v1</a>
+  </div>
+  <p class="original-title">Analog Realization and Measurement of a Forced Aliev-Panfilov Excitable Oscillator</p>
+  <p class="meta"><strong>作者：</strong>Zixuan Fu、Unnikrishna Pillai</p>
+  <p class="meta"><strong>主分类：</strong>eess.SY
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">eess.SY</span> <span class="tag">cs.SY</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究受迫Aliev-Panfilov可兴奋振荡器的离散模拟实现。在该模型中，一个速率参数乘以激励方程右端全部项（包括受迫项）。激励积分器的输入电阻设定该参数，因此无需引入额外状态、延迟元件或控制器。仅通过改变一个电阻，即可使系统从模型的混沌工作点转移到规则工作点。实验在两种电阻取值下采样记录波形，每种取值各进行两次独立运行。测量得到的激励偏移量与数值积分结果相比，在基线设置下误差在3%以内，在速率控制设置下误差在5%以内。两种设置之间，激励偏移量收缩为原来的1/13。在速率控制设置下，恢复偏移量超出预测值8倍。该偏差可归因于状态依赖恢复速率上工作点的偏移；乘法器链的热漂移与高阻抗恢复速率分压器的漏电均可能产生该偏移，但现有数据无法区分二者。测试的双极输入级会强烈加载该分压器，这是理想方程中不存在的约束。决定放大器输入级要求的因素是分压器，而非亚赫兹信号带宽。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用离散模拟电路实现受迫Aliev-Panfilov可兴奋振荡器，并通过单一电阻调节其速率参数，使系统在混沌与规则工作点之间切换，同时评估测量与数值预测的一致性。</p>
+    <h4>方法</h4><p>构建离散模拟电路实现受迫Aliev-Panfilov模型，其中激励积分器的输入电阻设定乘以激励方程右端全部项的速率参数；在两种电阻取值下各进行两次独立运行并采样记录波形，将测量结果与数值积分对比。</p>
+    <h4>主要发现</h4><p>仅改变一个电阻即可使系统从混沌工作点转移到规则工作点；基线设置下激励偏移量与数值积分误差在3%以内，速率控制设置下误差在5%以内；两种设置间激励偏移量收缩为原来的1/13；速率控制设置下恢复偏移量超出预测值8倍，该偏差可归因于状态依赖恢复速率上工作点的偏移，乘法器链热漂移与高阻抗恢复速率分压器漏电均可能产生该偏移，但现有数据无法区分二者；测试的双极输入级会强烈加载该分压器，这是理想方程中不存在的约束；决定放大器输入级要求的是分压器而非亚赫兹信号带宽。</p>
+    <h4>局限与展望</h4><p>现有数据无法区分乘法器链热漂移与高阻抗恢复速率分压器漏电对恢复偏移量超出的贡献，后续可通过针对性实验（如温度控制或分压器阻抗调整）加以分离；双极输入级对分压器的强加载是理想方程未包含的约束，在电路设计中需予以考虑；本文结论限于所测试的两种电阻设置与具体电路实现，向其他参数区域或电路拓扑的推广需进一步验证。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-10-30 11:38 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
