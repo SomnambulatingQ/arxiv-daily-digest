@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-11-02</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">7</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">2</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（5）</h3><ol class="toc-list"><li><a href="#paper-2610.41084v1">标量-标量、矢量-矢量与赝标量-赝标量相互作用所有可能组合下的狄拉克方程</a> <small>2610.41084v1</small></li><li><a href="#paper-2610.41088v1">KdV型格特征函数方程的椭圆孤子解</a> <small>2610.41088v1</small></li><li><a href="#paper-2610.41279v1">视觉系统中的光流决定相互作用力与集体运动</a> <small>2610.41279v1</small></li><li><a href="#paper-2610.41683v1">Kuramoto-Sivashinsky 方程惯性流形维数的一个模型</a> <small>2610.41683v1</small></li><li><a href="#paper-2610.41908v1">曲率与约束：坡状起伏地形上旱地植被格局的稳健性</a> <small>2610.41908v1</small></li></ol><h3>交叉列表（2）</h3><ol class="toc-list"><li><a href="#paper-2610.41438v1">A_{n-1} 透镜椭圆伽马函数星-星关系解的根单位极限</a> <small>2610.41438v1</small></li><li><a href="#paper-2610.41947v1">混合格点上的湍流：规则网格与自相似级联模型的结合</a> <small>2610.41947v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.41084v1">
+  <div class="paper-head">
+    <h2>标量-标量、矢量-矢量与赝标量-赝标量相互作用所有可能组合下的狄拉克方程<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41084v1" rel="noopener noreferrer">2610.41084v1</a>
+  </div>
+  <p class="original-title">Dirac Equations With All Possible Combinations of Scalar-Scalar, Vector-Vector and Pseudoscalar-Pseudoscalar Interactions</p>
+  <p class="meta"><strong>作者：</strong>Avinash Khare、Fred Cooper、John F. Dawson、Avadh Saxena</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在 1+1 维下研究非线性狄拉克（NLD）方程，取形如 ψ(x,t)=e^{-iωt}ψ(x) 的定态解，针对标量-标量（SS）、矢量-矢量（VV）与赝标量-赝标量（PP）相互作用的全部可能组合，在非线性参数 κ=1（对应最一般的四费米子相互作用）下求得精确解，并限定 0&lt;ω&lt;m，其中 ω 与 m 分别为频率与质量。结果表明，在 κ=1 时，所有含 SS、VV 与 PP 相互作用的 NLD 模型均可约化为 SS 与 VV 相互作用的适当组合，因而这些模型中的全部孤立波必为束缚态。十种可能组合中有两种等价于 SS-(1/p)VV 相互作用，另两种等价于 VV-(1/q)SS 相互作用，这两类情形已有已知结果。对其余六种组合，本文表明：依参数取值，部分情形允许整个 0&lt;ω&lt;m 范围，另一些情形则 ω 被限制在较小的区间 ω_min&lt;ω&lt;m；同时依参数取值，部分情形孤立波仅呈单峰，另一些情形则随 ω 取值不同而出现单峰与双峰。本文对每种孤立波解计算了电荷 Q 与能量 E，并表明 E 与 Q 均依赖于耦合常数 g，但其比值 E/Q 与 g 无关；在 κ=1 时所有含 SS、VV 与 PP 相互作用的 NLD 模型均可约化为 SS 与 VV 相互作用的适当组合，因此这些模型中的全部孤立波均为满足 E/Q&lt;m 的束缚态。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 1+1 维非线性狄拉克方程中，标量-标量、矢量-矢量与赝标量-赝标量相互作用的全部可能组合在非线性参数 κ=1 时是否存在精确的定态孤立波解，其存在范围、波形（单峰或双峰）以及电荷、能量与束缚态性质如何。</p>
+    <h4>方法</h4><p>求形如 ψ(x,t)=e^{-iωt}ψ(x)、0&lt;ω&lt;m 的精确解；在 κ=1 下将含 SS、VV、PP 的 NLD 模型约化为 SS 与 VV 相互作用的适当组合，并借助已知的 SS-(1/p)VV 与 VV-(1/q)SS 结果处理十种组合中的四种，对剩余六种组合按参数分类分析 ω 的允许范围与孤立波峰形，并计算各解的电荷 Q 与能量 E。</p>
+    <h4>主要发现</h4><p>在 κ=1 时，所有含 SS、VV 与 PP 相互作用的 NLD 模型均可约化为 SS 与 VV 相互作用的适当组合，故其全部孤立波均为束缚态；十种组合中两种等价于 SS-(1/p)VV、两种等价于 VV-(1/q)SS；其余六种依参数取值，或允许整个 0&lt;ω&lt;m 范围，或限制于 ω_min&lt;ω&lt;m，且孤立波或仅单峰、或随 ω 出现单峰与双峰；E 与 Q 均依赖耦合常数 g，但 E/Q 与 g 无关，且所有孤立波满足 E/Q&lt;m。</p>
+    <h4>局限与展望</h4><p>本文结果限于 1+1 维、κ=1 及 ψ(x,t)=e^{-iωt}ψ(x) 形式的定态解；向更高维、κ≠1 或含其他相互作用组合的推广尚待研究，可合理推断后续工作将考察这些情形下精确解的存在性与束缚态性质是否保持。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41088v1">
+  <div class="paper-head">
+    <h2>KdV型格特征函数方程的椭圆孤子解<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41088v1" rel="noopener noreferrer">2610.41088v1</a>
+  </div>
+  <p class="original-title">Elliptic soliton solutions of lattice eigenfunction equations of the KdV type</p>
+  <p class="meta"><strong>作者：</strong>Xing Li、Ying Shi、Da-jun Zhang、Ruixiao Zhu</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>已知某些可积格方程可由格势KdV（lpKdV）方程Lax三元组的特征函数来表述；这些特征函数满足一个离散Abel公式，其中“积分”常数定义了Adler-Bobenko-Suris（ABS）分类中某些方程的$\delta$参数。本文给出lpKdV方程Lax三元组的一个完整Darboux变换，并用Casoratian表述特征函数。当特征函数取基本离散Lamé函数时，经过$N$重Darboux变换得到lpKdV方程的椭圆$N$-孤子解。随后我们确定了此情形下离散Abel公式中的常数。这些特征函数被用于构造ABS列表中多个方程的椭圆$N$-孤子解，例如H3($\delta$)、$Q1(\Delta)$、Q2和Q3($\Delta$)方程。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为lpKdV方程的Lax三元组构造完整的Darboux变换，并由此得到lpKdV方程及ABS列表中若干方程的椭圆$N$-孤子解，同时确定离散Abel公式中的常数。</p>
+    <h4>方法</h4><p>构造lpKdV方程Lax三元组的完整Darboux变换；以Casoratian形式表述特征函数；取基本离散Lamé函数作为特征函数，实施$N$重Darboux变换；并确定该情形下离散Abel公式中的常数。</p>
+    <h4>主要发现</h4><p>给出了lpKdV方程Lax三元组的完整Darboux变换；特征函数可用Casoratian表述；当特征函数取基本离散Lamé函数时，经$N$重Darboux变换得到lpKdV方程的椭圆$N$-孤子解；确定了此情形下离散Abel公式中的常数；所得特征函数可用于构造ABS列表中H3($\delta$)、$Q1(\Delta)$、Q2和Q3($\Delta$)等方程的椭圆$N$-孤子解。</p>
+    <h4>局限与展望</h4><p>原文未讨论所得解在一般参数下的性质、稳定性或退化情形；可合理推断，所构造的Darboux变换与Casoratian框架或可推广至ABS列表中其他方程，但此点需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41279v1">
+  <div class="paper-head">
+    <h2>视觉系统中的光流决定相互作用力与集体运动<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41279v1" rel="noopener noreferrer">2610.41279v1</a>
+  </div>
+  <p class="original-title">Optic flow in the visual system determines interaction force and collective motion</p>
+  <p class="meta"><strong>作者：</strong>Susumu Ito、Nariya Uchida</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>动物群体的集体运动依赖视觉线索，但个体感觉输入如何转化为群体层面的动力学仍不清楚。传统模型通常预设“3A”规则——避让、吸引与对齐，这要求个体直接获取邻居的精确位置与速度。本文提出一个基于跨物种共有的基本视觉处理——图像尺寸检测与光流检测——的极简模型。研究表明，涡旋与极化鱼群等集体模式可由图像尺寸驱动的避让与光流驱动的接近之间的竞争自发涌现。研究发现，对齐无需预设的速度匹配规则，而是源于个体朝强光流区域的加速。该模型呈现了在动物群体中观察到的无标度速度关联与拓扑视觉特征。结果表明，现象学的3A力并非不可还原的物理规则，而是基本感觉运动反馈的涌现结果。该框架为将感觉输入与宏观集体行为相联系提供了物理视角。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>个体视觉感觉输入（图像尺寸与光流）如何转化为群体层面的集体运动模式，以及传统预设的“3A”规则（避让、吸引、对齐）是否必要。</p>
+    <h4>方法</h4><p>构建一个仅基于图像尺寸检测与光流检测的极简个体模型，通过图像尺寸驱动的避让与光流驱动的接近之间的竞争来生成集体动力学，并考察速度关联与拓扑视觉特征。</p>
+    <h4>主要发现</h4><p>涡旋与极化鱼群等集体模式可从图像尺寸驱动的避让与光流驱动的接近的竞争中自发涌现；对齐不需要预设的速度匹配规则，而是源于个体朝强光流区域的加速；模型呈现无标度速度关联与动物群体中观察到的拓扑视觉特征；3A力可被视为基本感觉运动反馈的涌现结果而非不可还原的物理规则。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论模型局限与适用范围；可合理推断，该框架为从感觉输入到宏观集体行为的联系提供了物理视角，后续或可进一步检验其在更多物种与视觉条件下的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41683v1">
+  <div class="paper-head">
+    <h2>Kuramoto-Sivashinsky 方程惯性流形维数的一个模型<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41683v1" rel="noopener noreferrer">2610.41683v1</a>
+  </div>
+  <p class="original-title">A model for the dimension of the inertial manifold of the Kuramoto-Sivashinsky equation</p>
+  <p class="meta"><strong>作者：</strong>Melisa Y. Vinograd、Patricio Clark di Leoni</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文基于谱能量平衡论证，提出了一个用于估计一维 Kuramoto-Sivashinsky 方程（KSE）惯性流形维数的模型。通过确定能量注入与耗散相平衡的波数，得到截断尺度 $k_d=\sqrt{5/(3\nu)}$，并据此计算动力学活跃的 Fourier 模态数。由此给出由这些模态张成的有效流形维数的显式表达式 $d_M(L,\nu)$，并将其作为惯性流形维数的估计；该维数随区域尺寸呈广延标度。直接数值模拟结果与所估计的谱截断及其随黏性的标度关系一致。借助卷积自编码器以及基于 Lyapunov 指数的估计，作者表明在一系列 $(L,\nu)$ 取值下，实现准确重构所需的最小潜维数与 $d_M$ 相吻合。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何估计一维 Kuramoto-Sivashinsky 方程惯性流形的维数，并检验该估计是否与数值重构所需的最小维数一致。</p>
+    <h4>方法</h4><p>基于谱能量平衡论证确定能量注入与耗散平衡的截断波数 $k_d=\sqrt{5/(3\nu)}$，据此计算动力学活跃 Fourier 模态数并给出维数表达式 $d_M(L,\nu)$；采用直接数值模拟检验谱截断及其随黏性的标度，并使用卷积自编码器与基于 Lyapunov 指数的估计检验最小潜维数。</p>
+    <h4>主要发现</h4><p>所提出的模型给出惯性流形维数的显式估计 $d_M(L,\nu)$，该维数随区域尺寸呈广延标度；直接数值模拟与所估计的谱截断及其随黏性的标度一致；在一系列 $(L,\nu)$ 取值下，准确重构所需的最小潜维数与 $d_M$ 相吻合。</p>
+    <h4>局限与展望</h4><p>该结果是基于谱能量平衡的模型估计而非严格数学证明，其适用范围与精度有待进一步界定；可合理推断，后续工作可将该模型推广至其他耗散偏微分方程，或结合更严格的数学分析检验其有效性。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41908v1">
+  <div class="paper-head">
+    <h2>曲率与约束：坡状起伏地形上旱地植被格局的稳健性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41908v1" rel="noopener noreferrer">2610.41908v1</a>
+  </div>
+  <p class="original-title">Curvature and confinement: robustness of dryland vegetation patterns on sloped, undulating terrain</p>
+  <p class="meta"><strong>作者：</strong>Timothy V Roberts、Punit Gandhi、Mary Silber</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在著名的 Klausmeier 模型基础上引入地形扩展，用以描述具有主上坡方向、并伴随垂直于该方向的小振幅起伏（形成脊与谷）的坡状起伏地形上的植被动态。已有研究表明，与一维坡地情形类似，当降雨量降低并越过某一阈值时，植被会形成横向于主上坡方向的带状或条纹状格局，并缓慢向上坡移动。本文研究起伏振幅与格局动力学之间的联系，目标是理解地形如何影响植被的恢复力。为此，我们利用域中脊与谷的特征，将分析约化为两个相关的一维问题。结合解析分析与数值模拟，我们认为脊方程与谷方程的组合可为完整的二维动力学提供洞见。具体而言，我们发现：在小起伏情形下，脊在决定格局的存在性与稳定性方面起关键作用；当起伏振幅小于一个定义明确的阈值时，脊上植被对干旱胁迫的额外敏感性使植被的恢复力低于均匀坡地模型所指示的水平；当起伏振幅高于该阈值时，植被能够通过局域化于谷地而存活更久，但振幅须进一步增大才能缓解原有的不利效应。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在具有主上坡方向与垂直小振幅起伏（脊与谷）的坡状起伏地形上，起伏振幅如何影响旱地植被带状格局的动力学与恢复力。</p>
+    <h4>方法</h4><p>在 Klausmeier 模型基础上引入地形扩展；利用脊与谷的域特征将二维问题约化为两个相关的一维问题，并结合解析分析与数值模拟，以脊方程与谷方程的组合推断完整二维动力学。</p>
+    <h4>主要发现</h4><p>小起伏时脊在决定格局存在性与稳定性方面起关键作用；当起伏振幅低于一个明确定义的阈值时，脊上植被对干旱胁迫的额外敏感性使植被恢复力低于均匀坡地模型的指示；当振幅高于该阈值时，植被可通过局域化于谷地而存活更久，但需进一步增大振幅才能缓解原有的不利效应。</p>
+    <h4>局限与展望</h4><p>原文的结论基于将二维动力学约化为脊与谷两个一维问题的分析框架，其适用范围与近似条件受该约化及小振幅起伏假设的限制；后续可合理推断的方向包括检验该约化在更大幅度起伏或更复杂地形下的有效性，但原文未对此作出明确结论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.41438v1">
+  <div class="paper-head">
+    <h2>A_{n-1} 透镜椭圆伽马函数星-星关系解的根单位极限<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41438v1" rel="noopener noreferrer">2610.41438v1</a>
+  </div>
+  <p class="original-title">Root-of-unity limit of the $A_{n-1}$ lens elliptic gamma function solution of the star-star relation</p>
+  <p class="meta"><strong>作者：</strong>Masahito Yamazaki</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-th</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究星-星关系的多分量自旋解的根单位极限。该解的 Boltzmann 权重为透镜椭圆伽马函数的乘积，自旋取值于 $\mathbb{R}^{n-1}\times(\mathbb{Z}_r)^{n-1}$。当其中一个椭圆 nome 趋于一个本原 $2rN$ 次单位根时，准经典展开在首阶给出 Bazhanov-Sergeev 多自旋模型的经典星-星关系；在次阶，在关于鞍点的标准假设下，得到一个 $(\mathbb{Z}_{rN})^{n-1}$ 态星-星关系解，该解仅通过 $rN$ 依赖于 $r$ 与 $N$。连续自旋的实 $\mathbb{Z}_n$ 对称构型给出以 $n$-挠点为标签的椭圆 $\mathfrak{sl}(n)$ Kashiwara-Miwa 型模型。推广到一般本原挠点后，这些模型包含 Quano 与 Fujii 的破缺 $\mathbb{Z}_{rN}$ 模型；当 $\gcd(n,rN)=1$ 时，其星-星关系可由他们的 Yang-Baxter 方程推出。在三角极限下，鞍点方程选出 Bazhanov、Kashaev、Mangazeev 与 Stroganov 的 $\mathfrak{sl}(n)$ 手性 Potts 模型的光谱曲线，且 Boltzmann 权重成为该模型的权重。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究以透镜椭圆伽马函数乘积为 Boltzmann 权重的多分量自旋星-星关系解在椭圆 nome 趋于本原单位根时的极限行为，并考察该极限与已知经典模型、有限态解及三角极限模型之间的关系。</p>
+    <h4>方法</h4><p>对多分量自旋解作准经典展开，取椭圆 nome 趋于本原 $2rN$ 次单位根的根单位极限；在首阶与次阶分别分析展开结果，并在关于鞍点的标准假设下导出有限态解；进一步讨论实 $\mathbb{Z}_n$ 对称构型、一般本原挠点以及三角极限。</p>
+    <h4>主要发现</h4><p>首阶极限给出 Bazhanov-Sergeev 多自旋模型的经典星-星关系；次阶在标准鞍点假设下给出一个 $(\mathbb{Z}_{rN})^{n-1}$ 态星-星关系解，且仅通过 $rN$ 依赖于 $r$ 与 $N$。实 $\mathbb{Z}_n$ 对称连续自旋构型给出以 $n$-挠点为标签的椭圆 $\mathfrak{sl}(n)$ Kashiwara-Miwa 型模型；推广到一般本原挠点后包含 Quano-Fujii 破缺 $\mathbb{Z}_{rN}$ 模型，且当 $\gcd(n,rN)=1$ 时其星-星关系可由相应 Yang-Baxter 方程推出。三角极限下鞍点方程选出 $\mathfrak{sl}(n)$ 手性 Potts 模型的光谱曲线，Boltzmann 权重化为该模型的权重。</p>
+    <h4>局限与展望</h4><p>次阶有限态解的导出依赖于关于鞍点的标准假设，其适用条件与更一般情形下的有效性尚待进一步检验；根单位极限与三角极限之间的联系提示可系统研究其他挠点或更一般代数结构下的类似极限，但这属于可合理推断的后续方向，原文未作明确结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41947v1">
+  <div class="paper-head">
+    <h2>混合格点上的湍流：规则网格与自相似级联模型的结合<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41947v1" rel="noopener noreferrer">2610.41947v1</a>
+  </div>
+  <p class="original-title">Turbulence on Hybrid Lattices: regular grids meet self similar cascade models</p>
+  <p class="meta"><strong>作者：</strong>Lorenzo Manfredini、Özgür D. Gürcan、Sai Swetha Venkata Kolluru、Berengere Dubrulle</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>高雷诺数湍流级联跨越多个数量级的尺度，给数值模拟带来挑战。采用对数离散的级联模型可缓解该问题，但难以描述空间结构或实空间细节。本文提出混合格点（Hybrid Lattices, HLs）框架，将规则网格与基于对数离散的级联模型相结合，用于在傅里叶空间中研究湍流级联。该方法包含一个可分辨大尺度相干结构的规则谱区域，并以循环、渐近自相似的方式向外扩展，覆盖多个数量级的尺度。其思想源自壳模型及其扩展，即对数格点、嵌套多面体模型和螺旋链模型。这些模型的对数间距因子（如黄金比例）通常阻碍规则网格与自相似模型之间的相互作用。HLs 通过递推关系（例如 Fibonacci 递推关系）扩展傅里叶空间中的规则区域，生成渐近对数的格点，同时保持笛卡尔分量为规则傅里叶网格间距的整数倍。由此得到的格点保留了连接规则区域与循环区域的三元相互作用，使能量能够在不同区域间传递。然而，连接两区域的三元组急剧减少会产生瓶颈效应；为解决该问题，需在边界引入鬼点区域，使通量能够有效泄漏到循环部分。随后，HL 框架在一维 Burgers 方程和二维不可压缩 Navier-Stokes 湍流上进行了测试。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构建一种傅里叶空间离散框架，使其既能分辨大尺度相干结构，又能以自相似方式跨越多个数量级尺度来研究湍流级联，同时保持规则网格与对数级联区域之间的三元相互作用和能量传递。</p>
+    <h4>方法</h4><p>提出混合格点（HLs）框架：在傅里叶空间中保留规则谱区域，并通过递推关系（如 Fibonacci 递推关系）以循环、渐近自相似方式扩展，使笛卡尔分量保持为规则网格间距的整数倍；为缓解两区域间三元组减少导致的瓶颈效应，在边界引入鬼点区域；并在二维不可压缩 Navier-Stokes 湍流和一维 Burgers 方程上进行测试。</p>
+    <h4>主要发现</h4><p>HLs 生成的渐近对数格点保留了连接规则区域与循环区域的三元相互作用，允许能量在不同区域间传递；但连接两区域的三元组急剧减少会产生瓶颈效应，引入边界鬼点区域可使通量有效泄漏到循环部分；该框架在一维 Burgers 方程和二维不可压缩 Navier-Stokes 湍流中得到了测试。</p>
+    <h4>局限与展望</h4><p>原文仅报告了在一维 Burgers 方程和二维不可压缩 Navier-Stokes 湍流上的测试，尚未给出更广泛参数范围或三维湍流的验证；鬼点区域与瓶颈效应的定量影响、递推关系选择对结果的影响等，尚需进一步研究。可合理推断，后续工作可能将该框架推广至更高维或更复杂的湍流问题，并系统评估其数值性能。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-02 13:50 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
