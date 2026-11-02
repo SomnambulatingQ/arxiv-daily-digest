@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-02</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">2</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2610.41864v1">基于物理信息核的生成式采样</a> <small>2610.41864v1</small></li><li><a href="#paper-2610.42037v1">格点 QCD 中的介子谱学</a> <small>2610.42037v1</small></li></ol><h3>交叉列表（2）</h3><ol class="toc-list"><li><a href="#paper-2610.40515v1">二维环面上最大割问题的单温度排序贪心簇交换算法</a> <small>2610.40515v1</small></li><li><a href="#paper-2610.41256v1">二维 RP² 模型中序参量关联的超幂律衰减：一项由 vibe-proving 得到的严格结果</a> <small>2610.41256v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.41864v1">
+  <div class="paper-head">
+    <h2>基于物理信息核的生成式采样<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41864v1" rel="noopener noreferrer">2610.41864v1</a>
+  </div>
+  <p class="original-title">Generative sampling with physics-informed kernels</p>
+  <p class="meta"><strong>作者：</strong>Friederike Ihssen、Renzo Kapust、Jan M. Pawlowski</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">physics.data-an</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文构建了一种用于格点场论及其他领域蒙特卡罗采样的生成网络，其逐层传播在每一层上独立计算并优化。该架构采用物理信息重整化群流，通过给定层内相应重整化群核的简单一阶偏微分方程，给出从一层到下一层的逐层传播步骤。由此，生成任务被转化为一次性求解变换核的一组相互独立的线性微分方程。由于这些方程解析已知，核可迭代精化。这使我们能够从结构上处理生成模型中常见的域外问题，并为进一步优化开辟路径。我们在标量场论模拟中展示了该架构的实际可行性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为格点场论及其他领域的蒙特卡罗采样构建生成网络，并使逐层传播可在各层独立计算与优化，从而在结构上应对生成模型常见的域外问题。</p>
+    <h4>方法</h4><p>采用物理信息重整化群流构建生成网络；利用给定层内重整化群核的简单一阶偏微分方程描述逐层传播，将生成任务转化为求解一组相互独立的线性微分方程，并因方程解析已知而对核进行迭代精化；在标量场论模拟中验证可行性。</p>
+    <h4>主要发现</h4><p>原文明确表明：该架构的逐层传播可在每一层独立计算并优化；重整化群核的传播步骤可由给定层内的一阶偏微分方程给出；生成任务可转化为一次性求解一组独立线性微分方程；核可迭代精化；该架构在标量场论模拟中具有实际可行性。</p>
+    <h4>局限与展望</h4><p>原文仅报告了标量场论模拟中的可行性验证，未给出与其他生成模型的定量比较或更高维、规范场等情形下的结果；作者提出该架构可从结构上处理域外问题并为进一步优化开辟路径，但相关优势的普遍性与可扩展性仍需后续研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.42037v1">
+  <div class="paper-head">
+    <h2>格点 QCD 中的介子谱学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.42037v1" rel="noopener noreferrer">2610.42037v1</a>
+  </div>
+  <p class="original-title">Meson spectroscopy from lattice QCD</p>
+  <p class="meta"><strong>作者：</strong>Andrew W. Jackura</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>直接从量子色动力学（QCD）确定介子谱仍是一项核心挑战，因为 QCD 在低能区呈强耦合，且大多数激发态以强子衰变道中的共振形式出现。格点 QCD 与散射理论的进展如今为从第一性原理提取介子谱及共振性质提供了系统框架。本文概述该研究纲领，并综述格点 QCD 介子谱学当前最先进的计算，重点介绍在提取共振振幅与耦合道振幅方面的最新进展，以及三体动力学和介子光耦合确定等前沿发展。这些进展共同推动我们更接近对激发介子谱的全面第一性原理描述。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从量子色动力学（QCD）第一性原理出发确定介子谱，特别是低能强耦合下以强子衰变道共振形式出现的激发态。</p>
+    <h4>方法</h4><p>基于格点 QCD 与散射理论的系统框架，综述当前最先进的介子谱学计算，包括共振振幅与耦合道振幅的提取、三体动力学以及介子光耦合的确定。</p>
+    <h4>主要发现</h4><p>格点 QCD 与散射理论的进展为从第一性原理提取介子谱和共振性质提供了系统框架；近期在共振与耦合道振幅提取、三体动力学和介子光耦合确定方面取得进展，这些进展推动了对激发介子谱的全面第一性原理描述。</p>
+    <h4>局限与展望</h4><p>原文为综述性概述，未给出具体数值结论或定量误差；其适用范围限于所综述的格点 QCD 介子谱学研究。三体动力学与介子光耦合被明确列为前沿方向，可合理推断这些方向仍需进一步发展，才能实现对激发介子谱的全面第一性原理描述。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.40515v1">
+  <div class="paper-head">
+    <h2>二维环面上最大割问题的单温度排序贪心簇交换算法<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.40515v1" rel="noopener noreferrer">2610.40515v1</a>
+  </div>
+  <p class="original-title">Single-Temperature Ranked Greedy Cluster Exchange for Max-Cut on Two-Dimensional Tori</p>
+  <p class="meta"><strong>作者：</strong>Hao Geng、Nan Su、Gabriele Cavallaro</p>
+  <p class="meta"><strong>主分类：</strong>math.OC
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.OC</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">hep-lat</span> <span class="tag">physics.comp-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>二维环面格上伊辛自旋玻璃的基态搜索对局部更新启发式算法而言仍然困难，因为崎岖的能量势垒阻碍了系统在亚稳态之间的弛豫。这类自旋玻璃实例等价于零场环面最大割问题，同时也是优化启发式算法的标准基准。许多蒙特卡罗方法将单自旋翻转或簇移动与温度阶梯或退火调度相结合，但即便参数经过调优，也很少能在较大规模上快速、可靠地收敛到基态。本文通过副本之间的协作来满足更快基态搜索的需求，提出排序贪心簇交换（ranked greedy cluster exchange, RGCX），并将其与固定温度 Metropolis 扫描结合，构成单温度 RGCX。副本按割值排序以确定配对处理顺序；对每一对副本，算法确定性地交换所有能提高较优副本割值的不一致簇，保留其补集，并保持该对副本的割值之和不变。在 20,000 自旋的 Gset 实例 G81 上，以 99% 成功概率达到已认证最优解的估计运行时间（TTS99）在 8 核台式计算机上为 12.1 s。在相同种群规模、交换间隔和温度下，该方法在全部 17 个环面 Gset 图上均达到已知最佳割值，其中包括 9 个已认证最优解。这些结果通过确立单温度 RGCX 作为一种高效的基于种群的方法（将排序贪心簇交换与固定温度 Metropolis 动力学相结合），推进了大规模二维环面上的基态搜索。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在大型二维环面伊辛自旋玻璃（等价于零场环面最大割问题）上实现更快、更可靠的基态搜索，克服局部更新启发式因崎岖能量势垒而难以在亚稳态间弛豫的问题。</p>
+    <h4>方法</h4><p>提出排序贪心簇交换（RGCX），并与固定温度 Metropolis 扫描结合形成单温度 RGCX：副本按割值排序以确定配对处理顺序，每对副本确定性地交换所有能提高较优副本割值的不一致簇，保留补集并保持该对副本割值之和不变。</p>
+    <h4>主要发现</h4><p>在 20,000 自旋的 Gset 实例 G81 上，8 核台式计算机上以 99% 成功概率达到已认证最优解的估计运行时间（TTS99）为 12.1 s；在相同种群规模、交换间隔和温度下，该方法在全部 17 个环面 Gset 图上达到已知最佳割值，其中包括 9 个已认证最优解。</p>
+    <h4>局限与展望</h4><p>原文结果限于二维环面 Gset 基准图与所述参数设置；向其他图结构、更大规模或不同温度/种群配置的推广尚需进一步验证。单温度 RGCX 作为基于种群的方法，其与退火调度或其他簇移动策略的结合可作为可合理推断的后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41256v1">
+  <div class="paper-head">
+    <h2>二维 RP² 模型中序参量关联的超幂律衰减：一项由 vibe-proving 得到的严格结果<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41256v1" rel="noopener noreferrer">2610.41256v1</a>
+  </div>
+  <p class="original-title">Faster-than-power-law decay of order parameter correlations in the two-dimensional RP$^2$ model: a rigorous result by vibe-proving</p>
+  <p class="meta"><strong>作者：</strong>Masaki Oshikawa</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-lat</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究二维方格点阵上具有最近邻相互作用的 RP² 模型。该模型将经典 Heisenberg 模型中的自旋替换为不区分相反方向的主管（director）。与经典 Heisenberg 模型或 O(3) 非线性 sigma 模型不同，RP² 模型（及其同类 RP³ 模型）在二维中允许由 π₁(RP²)=Z₂ 分类的点涡缺陷。人们容易预期 Z₂ 涡旋会诱导类似 O(2) 模型（XY 模型）中已确立的 Berezinskii-Kosterlitz-Thouless 相变的相变；文献中确实讨论过 RP² 与 RP³ 模型存在临界相或具有序参量幂律关联的临界点的可能性，但问题的困难性使相图至今未有定论。本文报告一项由人工智能（ChatGPT 6 Astra）给出的严格数学证明：对于二维方格点阵上的 RP² 与 RP³ 模型，在任意有限逆温度 β≥0 下，距离为 r 的序参量两点关联函数的绝对值有上界 C_β exp(−c_β[log(2+r)]²)，其中 C_β 与 c_β 为仅依赖于 β 的正常数。也就是说，关联函数比 r 的任意幂次衰减得更快。该证明已在 Lean 中形式化并验证，形式化代码公开于 doi:10.5281/zenodo.23548847。结合大距离下基于单参数有效理论拟设的启发式论证与上述严格关联界，可以提示（但并不证明）Z₂ 涡旋在任意非零温度下始终处于解绑状态。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>二维方格点阵上 RP²（及 RP³）模型的序参量两点关联函数如何随距离衰减，以及 Z₂ 点涡缺陷是否会导致类似 BKT 的临界相或临界点。</p>
+    <h4>方法</h4><p>借助人工智能（ChatGPT 6 Astra）给出严格数学证明，并在 Lean 中完成形式化验证；另结合大距离下单参数有效理论拟设的启发式论证。</p>
+    <h4>主要发现</h4><p>对任意有限逆温度 β≥0，RP² 与 RP³ 模型序参量两点关联函数的绝对值满足上界 C_β exp(−c_β[log(2+r)]²)，即衰减快于 r 的任意幂次；该证明已在 Lean 中形式化验证。</p>
+    <h4>局限与展望</h4><p>严格结果仅给出关联上界，并未确定完整相图；基于有效理论拟设的启发式论证提示（但未证明）Z₂ 涡旋在任意非零温度下始终解绑，这一结论仍需进一步严格研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-02 13:39 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

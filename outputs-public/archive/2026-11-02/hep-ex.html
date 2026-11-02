@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-ex · 高能实验</h1>
+    <p class="lede">官方公告日：2026-11-02</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">10</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">6</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（4）</h3><ol class="toc-list"><li><a href="#paper-2610.40749v1">组合残差网络：一种无需显式喷注分配的衰变链感知分类器</a> <small>2610.40749v1</small></li><li><a href="#paper-2610.40911v1">在质子-质子碰撞中利用一个瞬发μ子和由两个非瞬发μ子形成的次级顶点特征搜寻长寿命重中性轻子（√s = 13 和 13.6 TeV）</a> <small>2610.40911v1</small></li><li><a href="#paper-2610.41889v1">一次性重建一切：面向未来对撞机的端到端模型</a> <small>2610.41889v1</small></li><li><a href="#paper-2610.42143v1">利用CMS开放数据对顶夸克衰变中奇异夸克极化的首次观测</a> <small>2610.42143v1</small></li></ol><h3>交叉列表（6）</h3><ol class="toc-list"><li><a href="#paper-2610.40724v1">高能Ne–Ne碰撞中核几何标记事件</a> <small>2610.40724v1</small></li><li><a href="#paper-2610.41078v1">改进微扰QCD框架下纯湮灭衰变B_c^+ → ST的研究</a> <small>2610.41078v1</small></li><li><a href="#paper-2610.41533v1">强子分子态：理论</a> <small>2610.41533v1</small></li><li><a href="#paper-2610.41767v1">硬 $pd \to ppn$ 反应中色透明效应对氘核自旋可观测量的影响</a> <small>2610.41767v1</small></li><li><a href="#paper-2610.41894v1">量能器作为推断：粒子簇射的信息含量与能量测量的极限</a> <small>2610.41894v1</small></li><li><a href="#paper-2610.41916v1">ALICE ITS3用MOSAIX ASIC验证中的挑战</a> <small>2610.41916v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.40749v1">
+  <div class="paper-head">
+    <h2>组合残差网络：一种无需显式喷注分配的衰变链感知分类器<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.40749v1" rel="noopener noreferrer">2610.40749v1</a>
+  </div>
+  <p class="original-title">Combinatorial Residual Network: a decay-chain-aware classifier without explicit jet assignment</p>
+  <p class="meta"><strong>作者：</strong>John Alison、Patrick Bryant、Alejandro Gomez Espinosa、Christian Guinto-Brody、Aniket Khanal、Chuyuan Liu、Sindhu Murthy、Guanglei Zhao</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">cs.LG</span> <span class="tag">hep-ph</span> <span class="tag">physics.data-an</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>由重粒子衰变产生的多喷注末态存在组合问题，因为必须（至少隐式地）将喷注分配给其母粒子。我们提出组合残差网络（CoReNet），一种将末态假定的衰变链编码进其架构的分类器。CoReNet 沿衰变层级逐级构建事例表示，以在对象间共享的权重评估每一种喷注分配假设，并通过残差网络以学习到的权重组合这些假设。衰变的交换对称性被内建于构造之中，网络规模不依赖于假设数目，且网络仅用分类损失训练，无需生成器层面的喷注分配。该架构针对 $b\bar{b}b\bar{b}$ 末态开发，并已用于多项 CMS 搜索。在 $b\bar{b}b\bar{b}$ 末态希格斯玻色子对产生对 QCD 多喷注产生的快模拟样本上，具有 1508 个可训练参数的 CoReNet 表现显著优于运动学基线，并可在单块 GPU 上于数分钟内完成训练。尽管训练中未使用分配目标，其假设权重在大多数信号事例中（在真值匹配喷注配对有定义的事例内）选出了真值匹配的喷注配对。由于仅编码的衰变链与末态相关，该构造可推广到其他拓扑，我们用 $HH \to b\bar{b}W^+W^-$ 对半轻子 $t\bar{t}$ 进行了检验。在该检验中，同时编码信号与背景的衰变链进一步改善了分类，代价约为 $10^3$ 个参数。在两种末态中，其性能与规模大两个数量级以上的最先进基于 transformer 的网络相当。实现已公开于 https://github.com/cms-cmu/CoReNet。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>多喷注末态中喷注与母粒子的组合分配问题：如何在不使用生成器层面喷注分配标签的情况下，构建对衰变链感知且规模不随分配假设数增长的分类器。</p>
+    <h4>方法</h4><p>提出 CoReNet，将假定的衰变链编码进网络架构：沿衰变层级逐级构建事例表示，以共享权重评估所有喷注分配假设，并用残差网络以学习权重组合假设；交换对称性内建于构造，仅用分类损失训练。在 $b\bar{b}b\bar{b}$ 快模拟样本（$HH$ 对 QCD 多喷注）上评估，并在 $HH \to b\bar{b}W^+W^-$ 对半轻子 $t\bar{t}$ 上检验可推广性。</p>
+    <h4>主要发现</h4><p>在 $b\bar{b}b\bar{b}$ 末态，1508 个可训练参数的 CoReNet 显著优于运动学基线，单 GPU 数分钟可训练；其假设权重在真值匹配配对有定义的大多数信号事例中选出真值匹配喷注配对，尽管训练未用分配目标。在 $HH \to b\bar{b}W^+W^-$ 对半轻子 $t\bar{t}$ 中，同时编码信号与背景衰变链进一步改善分类，代价约 $10^3$ 个参数。两种末态下性能与规模大两个数量级以上的最先进 transformer 网络相当。</p>
+    <h4>局限与展望</h4><p>原文指出仅编码的衰变链与末态相关，构造可推广到其他拓扑，并以 $HH \to b\bar{b}W^+W^-$ 对半轻子 $t\bar{t}$ 做了初步检验；对其他衰变拓扑的系统性验证、以及在更多实验搜索中的实际表现尚待进一步研究（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.40911v1">
+  <div class="paper-head">
+    <h2>在质子-质子碰撞中利用一个瞬发μ子和由两个非瞬发μ子形成的次级顶点特征搜寻长寿命重中性轻子（√s = 13 和 13.6 TeV）<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.40911v1" rel="noopener noreferrer">2610.40911v1</a>
+  </div>
+  <p class="original-title">Search for long-lived heavy neutral leptons in signatures with one prompt muon and a secondary vertex formed by two non-prompt muons in proton-proton collisions at $\sqrt{s}$ = 13 and 13.6 TeV</p>
+  <p class="meta"><strong>作者：</strong>CMS Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在W玻色子衰变产生的三μ子末态中搜寻重中性轻子（HNL），其中一个μ子瞬发来自主相互作用顶点，另外两个μ子来自同一次级顶点。分析所用的质子-质子碰撞数据包括2016—2018年在质心能量13 TeV下采集的积分亮度138 fb$^{-1}$，以及2022年在13.6 TeV下采集的34.6 fb$^{-1}$。针对较大的HNL衰变长度优化了分析策略：要求高度非瞬发的μ子形成远离束流线的次级顶点，因而这些μ子仅在CERN LHC的CMS实验的μ子系统中被重建。这提升了分析在高HNL寿命区域的灵敏度，该区域对应低HNL质量（2–4 GeV）和与标准模型中微子的小混合参数（10$^{-6}$–10$^{-5}$），而瞬发分析和基于径迹器的非瞬发分析在此区域接受度有限。未发现相对于本底预期的超出。在Majorana HNL假设下，对HNL质量1–5 GeV范围内的混合参数给出了95%置信水平的排除限。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在W玻色子衰变产生的三μ子末态（一个瞬发μ子与由两个非瞬发μ子形成的次级顶点）中，是否存在长寿命重中性轻子（HNL）的信号，并在高HNL寿命、低质量区域给出混合参数的排除限。</p>
+    <h4>方法</h4><p>利用CMS实验在√s = 13 TeV（138 fb$^{-1}$）和13.6 TeV（34.6 fb$^{-1}$）下采集的质子-质子碰撞数据，要求高度非瞬发μ子形成远离束流线的次级顶点且仅在μ子系统中重建，以优化对长HNL衰变长度的灵敏度；未发现信号后，在Majorana HNL假设下对HNL质量1–5 GeV范围内的混合参数设置95%置信水平的排除限。</p>
+    <h4>主要发现</h4><p>未观察到相对于本底预期的超出；在Majorana HNL假设下，对HNL质量1–5 GeV范围内的混合参数给出了95%置信水平的排除限。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；可合理推断，该分析策略主要覆盖高HNL寿命区域（低HNL质量2–4 GeV、小混合参数10$^{-6}$–10$^{-5}$），与瞬发及基于径迹器的非瞬发分析形成互补，后续可通过更多数据或与其他末态联合进一步提升灵敏度。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41889v1">
+  <div class="paper-head">
+    <h2>一次性重建一切：面向未来对撞机的端到端模型<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41889v1" rel="noopener noreferrer">2610.41889v1</a>
+  </div>
+  <p class="original-title">Reconstruct everything everywhere all at once: An end-to-end model for future colliders</p>
+  <p class="meta"><strong>作者：</strong>Max Hart、Kwok Yiu Wong、Samuel Van Stroud、Philippa Duckett、Tim Scanlon、Gabriel Facini</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出“重建一切模型”（Reconstruct Everything Model，REM），这是一种面向稀疏、多模态传感器数据的端到端多任务模型，并在高能物理中进行了演示。据作者所知，REM 首次展示了单一学习框架能够在完整模拟中，直接基于硅径迹探测器、量能器和缪子系统的击中级测量，同时重建多种粒子类型。该模型无需外部重建的径迹或量能器簇作为输入，即可完成击中分配、粒子鉴别、运动学回归和共振态重建。相对于传统粒子流方法和机器学习粒子流方法，REM 提高了粒子重建的效率和纯度，并改善了喷注能量分辨率。在双玻色子事件中，学习得到的共振态重建相比传统喷注重建改善了 W/Z 质量区分能力。这些结果展示了一条从探测器击中到粒子、再到共振态的重建链，并可能应用于其他大规模、稀疏、多模态传感器系统中的结构化预测任务。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否用一个端到端学习框架，直接从探测器击中级测量同时重建多种粒子并进一步重建共振态，而无需依赖外部重建的径迹或量能器簇？</p>
+    <h4>方法</h4><p>提出 Reconstruct Everything Model（REM），一种面向稀疏、多模态传感器数据的端到端多任务模型；在完整模拟中联合使用硅径迹探测器、量能器和缪子系统的击中级数据，同时执行击中分配、粒子鉴别、运动学回归与共振态重建，并与传统及机器学习粒子流方法进行比较。</p>
+    <h4>主要发现</h4><p>REM 无需外部重建的径迹或量能器簇作为输入；相对于传统和机器学习粒子流方法，提高了粒子重建效率与纯度并改善了喷注能量分辨率；在双玻色子事件中，其学习得到的共振态重建相比传统喷注重建改善了 W/Z 质量区分能力。</p>
+    <h4>局限与展望</h4><p>原文指出该重建链从探测器击中到粒子再到共振态，并提示可推广至其他大规模、稀疏、多模态传感器系统的结构化预测；当前演示基于完整模拟，尚未给出在真实实验数据上的验证，实际部署效果与泛化能力仍需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2610.42143v1">
+  <div class="paper-head">
+    <h2>利用CMS开放数据对顶夸克衰变中奇异夸克极化的首次观测<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.42143v1" rel="noopener noreferrer">2610.42143v1</a>
+  </div>
+  <p class="original-title">A first look at strange-quark polarization in top-quark decays with CMS Open Data</p>
+  <p class="meta"><strong>作者：</strong>Yevgeny Kats</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次实现顶夸克衰变中的奇异夸克极化测量。利用质心能量为13 TeV的质子-质子对撞的公开CMS数据，总积分亮度为16.39 fb⁻¹，在半轻子顶夸克对事件的强子化W→c s̄衰变的奇异喷流中测量Λ重子的纵向极化。由于W衰变产生的奇异夸克为完全极化，Λ极化可度量夸克极化在碎裂过程中的传递。在现有有限统计量下，测量结果与零极化以及与LEP味平均测量所推断的极化传递均相容。文中还给出了利用完整Run-2、Run-3及HL-LHC数据集可达到的统计预期。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否在顶夸克衰变的奇异喷流中，通过Λ重子纵向极化实现奇异夸克极化测量，并观测W→c s̄衰变中完全极化的奇异夸克在碎裂过程中的极化传递。</p>
+    <h4>方法</h4><p>使用16.39 fb⁻¹的公开CMS质子-质子对撞数据（√s=13 TeV），在半轻子顶夸克对事件的强子化W→c s̄衰变的奇异喷流中测量Λ重子纵向极化，并将结果与零极化及LEP味平均测量推断的极化传递进行比较，同时投影完整Run-2、Run-3和HL-LHC数据集的统计灵敏度。</p>
+    <h4>主要发现</h4><p>在现有有限统计量下，Λ极化测量结果与零极化相容，也与从LEP味平均测量推断的极化传递相容；原文未给出排除任一假设的显著结论。</p>
+    <h4>局限与展望</h4><p>当前结果受统计量限制，尚无法区分零极化与LEP推断的极化传递；原文基于完整Run-2、Run-3和HL-LHC数据集的统计投影表明未来有望提高灵敏度，但具体显著性需以实际数据为准。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.40724v1">
+  <div class="paper-head">
+    <h2>高能Ne–Ne碰撞中核几何标记事件<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.40724v1" rel="noopener noreferrer">2610.40724v1</a>
+  </div>
+  <p class="original-title">Nuclear-geometry-tagging events in high-energy Ne--Ne collisions</p>
+  <p class="meta"><strong>作者：</strong>Joachim Carlo Kristian Bjerg Hansen、Emil Gorm Dahlbæk Nielsen</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>原子核内核子-核子相互作用产生形变与核团簇等集体性质。超相对论核子-核子碰撞为探测入射核的多体关联提供了新途径，因为核结构会反映在所产生系统的初始几何中。当前低能核理论计算预言高度形变的$^{20}$Ne核具有特征性的$\alpha$+$^{16}$O保龄球瓶状形状。由于此类核近期已在LHC上发生碰撞，研究最大化核结构灵敏度的方法具有现实意义。本文在Monte Carlo Glauber模拟中，利用对几何敏感的观测量——偏心率$\varepsilon_2$与横向紧致度$d_\perp$——考察能否识别$^{20}$Ne核的体-体（body–body）与尖端-尖端（tip–tip）构型。核构型来自核晶格有效场论（NLEFT）框架下的核晶格有效场论计算以及$\textit{ab initio}$投影生成坐标方法（PGCM）。我们采用Fisher线性判别，基于$\varepsilon_2$-$d_\perp$相关性筛选体-体与尖端-尖端构型。在验证样本中选取使目标类保留$30\%$的分类器阈值时，双变量Fisher筛选在NLEFT（PGCM）下对体-体事件和尖端-尖端事件分别获得$0.201$（$0.156$）和$0.573$（$0.540$）的纯度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在高能$^{20}$Ne–Ne碰撞中，能否利用几何敏感观测量（偏心率$\varepsilon_2$与横向紧致度$d_\perp$）在Monte Carlo Glauber模拟中识别$^{20}$Ne核的体-体与尖端-尖端构型，并评估其筛选纯度。</p>
+    <h4>方法</h4><p>采用NLEFT与$\textit{ab initio}$ PGCM计算得到的$^{20}$Ne核构型，在Monte Carlo Glauber模拟中计算$\varepsilon_2$与$d_\perp$；使用Fisher线性判别基于$\varepsilon_2$-$d_\perp$相关性筛选体-体与尖端-尖端构型，并在验证样本中以保留目标类$30\%$为阈值评估纯度。</p>
+    <h4>主要发现</h4><p>在验证样本中保留目标类$30\%$的阈值下，双变量Fisher筛选在NLEFT（PGCM）下对体-体事件获得纯度$0.201$（$0.156$），对尖端-尖端事件获得纯度$0.573$（$0.540$）。</p>
+    <h4>局限与展望</h4><p>原文未讨论筛选效率、统计不确定性或实验探测可行性等局限；基于结果可合理推断，尖端-尖端构型的筛选纯度明显高于体-体构型，后续或可探索更多观测量或分类方法以提升体-体构型的识别能力，但该方向属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41078v1">
+  <div class="paper-head">
+    <h2>改进微扰QCD框架下纯湮灭衰变B_c^+ → ST的研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41078v1" rel="noopener noreferrer">2610.41078v1</a>
+  </div>
+  <p class="original-title">Pure annihilation decay $B_c^+ \to ST$ with improved perturbative QCD formalism</p>
+  <p class="meta"><strong>作者：</strong>Sheng-Yu Wang、Xin Liu、Zhen-Jun Xiao</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次在标准模型框架下研究纯湮灭衰变B_c^+ → ST，其中S和T分别代表轻标量态（1^3P_0）和轻张量态（1^3P_2）。采用q\bar q组态指派并对轻标量进行双情景分类，在强耦合α_s领头阶利用改进微扰QCD（iPQCD）形式计算了B_c^+ → ST的分支比。在CKM favored道中，如B_c^+ → a_0(1450) a_2(1320)、B_c^+ → a_0(980, 1450)^+ f_2(1270)、B_c^+ → K_0^*(700, 1430) K_2^*(1430)以及B_c^+ → f_0(500, 1370, 1500) a_2(1320)^+，iPQCD给出约为10^{-6}量级（在不确定度范围内）的较大分支比，这些预言有望在（近）未来的大型强子对撞机底物理探测器上得到检验。对这些大分支比理论预言及相关典型相对比值的检验，可为理解所涉模式的QCD动力学或轻标量性质以及探索iPQCD形式可靠性提供重要机会。此外，由于仅涉及树图贡献，B_c^+ → ST衰变中的直接电荷-宇称破坏不对称性自然为零。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在标准模型下，纯湮灭衰变B_c^+ → ST（S为轻标量1^3P_0态，T为轻张量1^3P_2态）的分支比如何，能否在现有或将来的实验中被检验？</p>
+    <h4>方法</h4><p>采用q\bar q组态指派与轻标量双情景分类，在强耦合α_s领头阶使用改进微扰QCD（iPQCD）形式计算B_c^+ → ST的分支比。</p>
+    <h4>主要发现</h4><p>在CKM favored道（如B_c^+ → a_0(1450) a_2(1320)、B_c^+ → a_0(980, 1450)^+ f_2(1270)、B_c^+ → K_0^*(700, 1430) K_2^*(1430)、B_c^+ → f_0(500, 1370, 1500) a_2(1320)^+）中，iPQCD给出约为10^{-6}量级（在不确定度范围内）的较大分支比；由于仅涉及树图贡献，直接电荷-宇称破坏不对称性自然为零。</p>
+    <h4>局限与展望</h4><p>原文指出这些预言有望在（近）未来的大型强子对撞机底物理探测器上检验，相关检验有助于理解所涉模式的QCD动力学与轻标量性质，并检验iPQCD形式的可靠性；本文计算限于领头阶α_s，高阶修正及轻标量双情景分类带来的不确定度可能影响预言精度（此为基于原文的合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41533v1">
+  <div class="paper-head">
+    <h2>强子分子态：理论<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41533v1" rel="noopener noreferrer">2610.41533v1</a>
+  </div>
+  <p class="original-title">Hadronic Molecules: Theory</p>
+  <p class="meta"><strong>作者：</strong>C. Hanhart</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>自世纪之交以来，朴素夸克模型无法描述强子（尤其是双重重子区）丰富现象学的事实已日益明显，其中大量态以分子结构作为自然描述。本文综述强子分子态理论，说明如何在有效场论框架下系统描述这类态，以及该结构在可观测量中留下的印记。作者以两个例子阐明分子假设所产生的非平凡预言，这些预言可由未来实验与格点 QCD 计算检验，并有望深入揭示 QCD 的内在机制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>朴素夸克模型难以描述强子（特别是双重重子区）的丰富现象学，大量态可能具有分子结构；论文旨在综述强子分子态的理论描述及其可观测印记。</p>
+    <h4>方法</h4><p>在有效场论框架下系统描述强子分子态，并通过两个具体例子推导分子假设所导致的非平凡预言。</p>
+    <h4>主要发现</h4><p>综述指出分子结构可为大量强子态提供自然描述；有效场论可系统刻画这类态；分子假设在两个例子中给出可在未来实验与格点 QCD 中检验的非平凡预言。</p>
+    <h4>局限与展望</h4><p>原文为会议综述，未给出定量结论；其提出的预言尚待实验与格点 QCD 检验。可合理推断，分子态假设的验证将依赖更高精度实验数据与格点计算的相互印证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41767v1">
+  <div class="paper-head">
+    <h2>硬 $pd \to ppn$ 反应中色透明效应对氘核自旋可观测量的影响<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41767v1" rel="noopener noreferrer">2610.41767v1</a>
+  </div>
+  <p class="original-title">Color transparency effects on the deuteron spin observables in the hard $pd \to ppn$ reaction</p>
+  <p class="meta"><strong>作者：</strong>A. B. Larionov</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在理论上研究了15 GeV/$c$束流质子诱导的氘核无π介子破裂过程，所考虑的 kinematics 为：在氘核静止系中，两个出射质子均为快质子，而中子为慢中子。预期色透明效应对氘核的矢量分析本领和张量分析本领具有显著影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在15 GeV/$c$质子束诱导的硬 $pd \to ppn$ 无π介子破裂过程中，色透明效应是否以及如何影响氘核的矢量与张量分析本领。</p>
+    <h4>方法</h4><p>在氘核静止系中两个出射质子为快质子、中子为慢中子的特定 kinematics 下，对 $pd \to ppn$ 破裂过程进行理论计算与分析。</p>
+    <h4>主要发现</h4><p>原文预期色透明效应对氘核的矢量分析本领和张量分析本领具有显著影响。</p>
+    <h4>局限与展望</h4><p>原文未给出定量结果或实验比较；其结论为理论预期，尚需具体数值计算与实验检验。后续可合理推断的方向包括：开展定量计算以刻画色透明效应的具体影响，并在相应 kinematics 下进行实验测量验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41894v1">
+  <div class="paper-head">
+    <h2>量能器作为推断：粒子簇射的信息含量与能量测量的极限<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41894v1" rel="noopener noreferrer">2610.41894v1</a>
+  </div>
+  <p class="original-title">Calorimetry as inference: the information content of particle showers and the limits of energy measurement</p>
+  <p class="meta"><strong>作者：</strong>Wonyong Chung</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量能器并不直接测量粒子能量，而是从吸收过程留下的记录中推断能量。能量守恒将每个事例写为 E = E_dis + E_B + E_esc + E_nu 的账目，其中只有耗散分量贡献信号，因此能量分辨率受限于耗散记录对缺失项施加约束的能力。本文将这一图景形式化：记录构成一个信息单调的格；对泊松记录进行稀疏化时，Fisher 信息严格按保留比例缩放；以求和方式读出的成簇记录带来 1/(1+cv^2) 的代价；而 a/sqrt(E) (+) b 的正交预算则是所有求和读出的下限。强子量能器的“终极极限”被识别为这一层级阶梯的第一级，即不可见能量围绕单一相关可观测量的残余展宽。本文在铜中强子簇射的 Geant4 真值记录上测量该阶梯之上的各级，从耗散能量求和到时间、位置与多重数分辨的记录，所用估计量在可精确求解的玩具模型上得到验证。在 20–100 GeV 范围内，模型条件下达到的全记录值约为 5.5%/sqrt(E) (+) 0.3%，比同一批事例上的经典单泛函构造低 1.7–1.9 倍（20 GeV 处为 1.29% 对 2.14%）。在重新训练的高精度中子输运下，该值由 1.29% 变为 1.30%，耗散能量求和变化 7%，时间结构带来的增益由 0.28% 变为 0.17%。双读出提供最大份额的信息；簇射形状次之，且几乎完全来自纵向信息，并在约一个相互作用长度处饱和；时间结构无论是否结合簇射形状都贡献相近的信息量；停止 μ 子的中微子损失在 20 GeV 处给出约 0.99% 的估计下限。每个读出维度都有可测量的信息交换率，从而区分新硬件所能换取的信息与更优算法所能恢复的信息。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>量能器如何从吸收过程留下的有限记录中推断粒子能量，以及不同读出维度（耗散能量求和、簇射形状、时间结构、多重数、双读出等）各自携带多少信息、能量测量的极限由什么决定。</p>
+    <h4>方法</h4><p>将量能器测量形式化为记录格上的推断问题，推导泊松稀疏化、成簇求和读出与正交预算下的 Fisher 信息关系；在铜中强子簇射的 Geant4 真值记录上，从耗散能量求和到时间、位置与多重数分辨记录逐级测量信息含量，并用可精确求解的玩具模型验证估计量；同时考察高精度中子输运重训练的影响。</p>
+    <h4>主要发现</h4><p>全记录值在 20–100 GeV 约为 5.5%/sqrt(E) (+) 0.3%（模型条件），比同一批事例上的经典单泛函构造低 1.7–1.9 倍（20 GeV 处 1.29% 对 2.14%）；高精度中子输运下由 1.29% 变为 1.30%，耗散能量求和变化 7%，时间结构增益由 0.28% 变为 0.17%；双读出贡献最大份额信息，簇射形状次之且几乎完全为纵向、约一个相互作用长度处饱和，时间结构贡献与是否结合簇射形状近似无关，停止 μ 子中微子损失在 20 GeV 给出约 0.99% 的估计下限。</p>
+    <h4>局限与展望</h4><p>上述全记录值为模型条件结果，其适用范围受簇射模拟与中子输运精度影响；估计下限基于特定假设，需进一步检验。可合理推断，各读出维度的信息交换率可用于区分硬件升级与算法改进的收益，后续工作可围绕更精确的输运建模与多维读出联合优化展开。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41916v1">
+  <div class="paper-head">
+    <h2>ALICE ITS3用MOSAIX ASIC验证中的挑战<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41916v1" rel="noopener noreferrer">2610.41916v1</a>
+  </div>
+  <p class="original-title">Challenges in the verification of MOSAIX ASIC for ALICE ITS3</p>
+  <p class="meta"><strong>作者：</strong>Simone Scarfi、Matteo Lupi、Adithya Pulli</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>MOSAIX是面向ALICE内径迹系统（ITS3）升级的晶圆级全功能原型ASIC，采用65 nm拼接（stitching）技术实现。该芯片集成144个独立供电的像素矩阵、8个10 Gb/s串行器以及片上数据与功率分配，使全芯片验证的资源开销很高（超过80 GB内存和192,000项测试）。验证工作还针对复杂的上电时序以及粒子注量率10^6 particles s^-1 cm^-2、总电离剂量4 kGy的辐射条件。本文介绍了一种基于UVM的验证策略，该策略共发现260个设计错误，并总结了ASIC签核（sign-off）的关键经验。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何对采用65 nm拼接技术、集成144个独立供电像素矩阵、8个10 Gb/s串行器及片上数据与功率分配的晶圆级全功能原型ASIC MOSAIX进行全芯片验证，并覆盖复杂上电时序与指定辐射条件。</p>
+    <h4>方法</h4><p>采用基于UVM的验证策略，开展全芯片验证；验证规模超过80 GB内存和192,000项测试，并针对上电时序及10^6 particles s^-1 cm^-2、4 kGy TID的辐射条件进行验证。</p>
+    <h4>主要发现</h4><p>该验证策略共识别出260个设计错误，并总结了ASIC签核的关键经验。</p>
+    <h4>局限与展望</h4><p>原文未给出验证覆盖率、签核完成度或流片后测试结果；其方法对其他晶圆级、多模块ASIC验证的适用性有待进一步验证，后续可关注验证效率与辐射条件建模的改进。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-02 13:39 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

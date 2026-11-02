@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-11-02</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">3</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2610.41607v1">用多相输运模型刻画 FAIR 能区 Au+Au 碰撞中横动量微分的径向流涨落</a> <small>2610.41607v1</small></li></ol><h3>交叉列表（3）</h3><ol class="toc-list"><li><a href="#paper-2610.41767v1">硬 $pd \to ppn$ 反应中色透明效应对氘核自旋可观测量的影响</a> <small>2610.41767v1</small></li><li><a href="#paper-2610.42015v1">α团簇核的代数模型</a> <small>2610.42015v1</small></li><li><a href="#paper-2610.42113v1">任意形状导体的磁约翰逊噪声：涨落耗散有限元法的实验验证</a> <small>2610.42113v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.41607v1">
+  <div class="paper-head">
+    <h2>用多相输运模型刻画 FAIR 能区 Au+Au 碰撞中横动量微分的径向流涨落<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41607v1" rel="noopener noreferrer">2610.41607v1</a>
+  </div>
+  <p class="original-title">Characterizing $\pT$-differential Radial-Flow Fluctuations in Au+Au Collisions at FAIR with a Multi-Phase Transport Model</p>
+  <p class="meta"><strong>作者：</strong>Sanchari Thakur、Partha Pratim Bhaduri</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次给出在 SIS100 最高能量（\snn=4.9 GeV）Au+Au 碰撞中横动量（\pT）微分的径向流涨落观测量 \vzpT 的预测，该能区将由 FAIR 加速器装置提供。我们针对不同中心度区间和不同参考 \pT 选择研究径向流及其涨落，以考察所计算长程关联的性质与稳健性。\vzpT 呈现出从低 \pT 处负值到较高 \pT 处正值的特征性演化。采用不同参考 \pT 区间得到的积分 $v_0$ 遵循共同趋势，对包含带电粒子多重数（\nch）近似呈反平方根依赖。当赝快度间隔在 0.2 至 0.8 之间变化，或在体区改变参考 \pT 区间边缘时，\vzpT 信号变化很小。对于鉴别粒子，低 \pT 处 $\pi$ 与质子的 \vzpT 呈现有序排列，与更高能量下看到的质量排序定性相似。然而，与更高碰撞能量不同，\vzpT 未表现出组分夸克标度行为，因此结果不支持以部分子集体性进行解释。这些结果为径向关联向低碰撞能量演化提供了约束，并推动与互补观测量的比较，以澄清其与集体动力学的关系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 FAIR/SIS100 最高能量（\snn=4.9 GeV）的 Au+Au 碰撞中，横动量微分的径向流涨落观测量 \vzpT 具有怎样的特征与稳健性，其能否用部分子集体性解释。</p>
+    <h4>方法</h4><p>采用多相输运模型计算 Au+Au 碰撞中的径向流及其涨落，针对不同中心度区间与不同参考 \pT 选择分析 \vzpT，并考察赝快度间隔与参考 \pT 区间边缘变化的影响，同时对鉴别粒子（$\pi$、质子）进行比较并检验组分夸克标度。</p>
+    <h4>主要发现</h4><p>\vzpT 从低 \pT 的负值演化到较高 \pT 的正值；不同参考 \pT 区间得到的积分 $v_0$ 遵循共同趋势，对 \nch 近似呈反平方根依赖；在体区，赝快度间隔在 0.2–0.8 间变化或改变参考 \pT 区间边缘时 \vzpT 变化很小；低 \pT 处 $\pi$ 与质子的 \vzpT 有序排列，与更高能量下的质量排序定性相似；但 \vzpT 未表现出组分夸克标度，结果不支持部分子集体性解释。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果约束了径向关联向低碰撞能量的演化，并推动与互补观测量的比较以澄清其与集体动力学的关系；摘要未给出进一步的定量后续计划，相关推断需谨慎对待。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.41767v1">
+  <div class="paper-head">
+    <h2>硬 $pd \to ppn$ 反应中色透明效应对氘核自旋可观测量的影响<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41767v1" rel="noopener noreferrer">2610.41767v1</a>
+  </div>
+  <p class="original-title">Color transparency effects on the deuteron spin observables in the hard $pd \to ppn$ reaction</p>
+  <p class="meta"><strong>作者：</strong>A. B. Larionov</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在理论上研究了15 GeV/$c$束流质子诱导的氘核无π介子破裂过程，所考虑的 kinematics 为：在氘核静止系中，两个出射质子均为快质子，而中子为慢中子。预期色透明效应对氘核的矢量分析本领和张量分析本领具有显著影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在15 GeV/$c$质子束诱导的硬 $pd \to ppn$ 无π介子破裂过程中，色透明效应是否以及如何影响氘核的矢量与张量分析本领。</p>
+    <h4>方法</h4><p>在氘核静止系中两个出射质子为快质子、中子为慢中子的特定 kinematics 下，对 $pd \to ppn$ 破裂过程进行理论计算与分析。</p>
+    <h4>主要发现</h4><p>原文预期色透明效应对氘核的矢量分析本领和张量分析本领具有显著影响。</p>
+    <h4>局限与展望</h4><p>原文未给出定量结果或实验比较；其结论为理论预期，尚需具体数值计算与实验检验。后续可合理推断的方向包括：开展定量计算以刻画色透明效应的具体影响，并在相应 kinematics 下进行实验测量验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.42015v1">
+  <div class="paper-head">
+    <h2>α团簇核的代数模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.42015v1" rel="noopener noreferrer">2610.42015v1</a>
+  </div>
+  <p class="original-title">Algebraic models of alpha-cluster nuclei</p>
+  <p class="meta"><strong>作者：</strong>Roelof Bijker</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文综述了适用于 $A=4n$ 的 α 共轭核的代数团簇模型（ACM），以及将其推广至 $A=4n+x$ 核的团簇壳模型（CSM）。CSM 描述单粒子能级在由 α 粒子团簇产生的形变场中的劈裂。作为示例，本文讨论了相邻核 $^{12}$C 与 $^{13}$C 的能量、电磁跃迁和形状因子。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用代数方法描述 α 共轭核（$A=4n$）及邻近核（$A=4n+x$）的团簇结构，并统一处理其能谱、电磁跃迁与形状因子。</p>
+    <h4>方法</h4><p>采用代数团簇模型（ACM）处理 $A=4n$ 的 α 共轭核，并将其推广为团簇壳模型（CSM），用以描述单粒子能级在 α 粒子团簇所产生形变场中的劈裂；以 $^{12}$C 和 $^{13}$C 为例进行计算与讨论。</p>
+    <h4>主要发现</h4><p>原文明确以 $^{12}$C 与 $^{13}$C 为例，讨论了能量、电磁跃迁和形状因子；摘要未给出具体数值结果或定量比较结论。</p>
+    <h4>局限与展望</h4><p>原文为综述性贡献，摘要未明确讨论局限或后续方向；可合理推断，该框架的适用范围限于 α 团簇相关核，其定量有效性需结合更多核的实验数据进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.42113v1">
+  <div class="paper-head">
+    <h2>任意形状导体的磁约翰逊噪声：涨落耗散有限元法的实验验证<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.42113v1" rel="noopener noreferrer">2610.42113v1</a>
+  </div>
+  <p class="original-title">Magnetic Johnson noise from arbitrarily shaped conductors: experimental validation of the fluctuation-dissipation finite-element method</p>
+  <p class="meta"><strong>作者：</strong>S. M. Clayton、Y. J. Kim、T. E. Chupp、A. Epstein、J. M. Feltman、A. Fratangelo、T. M. Ito、I. J. Rhudy、F. H. Sottrel、W. A. Terrano、K. L. Wood</p>
+  <p class="meta"><strong>主分类：</strong>physics.app-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.app-ph</span> <span class="tag">nucl-ex</span> <span class="tag">physics.atom-ph</span> <span class="tag">physics.bio-ph</span> <span class="tag">physics.ins-det</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>磁约翰逊噪声是由导电材料中热电流涨落引起的磁噪声，会干扰测量并限制测量灵敏度。随着实验灵敏度不断提高，在设计与分析阶段准确估计复杂形状实验部件产生的磁约翰逊噪声愈发重要。将涨落耗散定理与有限元计算相结合是一种尤为有力的方法；该通用方法可用于计算任意几何形状导体在较宽频率范围内的磁约翰逊噪声，并适用于具有一般几何形状的磁场探测器，例如有限尺寸线圈或梯度计。我们使用SQUID梯度计阵列测量了复杂几何形状导体产生的磁约翰逊噪声，并将测量结果与该方法的计算结果进行比较。计算复现了测得的噪声幅度及其频率依赖关系，从而为该方法的有效性提供了实验验证。我们还详细分析了几何形状与材料参数如何影响磁约翰逊噪声的频率依赖关系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何准确估计复杂形状导体产生的磁约翰逊噪声，并验证将涨落耗散定理与有限元计算相结合的方法是否可靠。</p>
+    <h4>方法</h4><p>采用SQUID梯度计阵列测量复杂几何形状导体产生的磁约翰逊噪声，并与基于涨落耗散定理的有限元计算结果进行对比；同时分析几何形状与材料参数对噪声频率依赖关系的影响。</p>
+    <h4>主要发现</h4><p>计算结果复现了测得的磁约翰逊噪声幅度及其频率依赖关系，从而为该涨落耗散有限元方法提供了实验验证；并给出了几何形状与材料参数如何影响噪声频率依赖关系的详细分析。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性；该方法适用于任意几何形状导体、较宽频率范围及一般几何形状的磁场探测器。可合理推断，后续可进一步将该验证拓展至更多导体几何与材料体系，或用于复杂实验部件的设计与噪声分析。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-02 13:39 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

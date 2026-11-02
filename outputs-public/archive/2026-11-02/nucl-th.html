@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-th 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-th · 核理论</h1>
+    <p class="lede">官方公告日：2026-11-02</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">14</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">7</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">7</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（7）</h3><ol class="toc-list"><li><a href="#paper-2610.40724v1">高能Ne–Ne碰撞中核几何标记事件</a> <small>2610.40724v1</small></li><li><a href="#paper-2610.40909v1">重离子碰撞中密度框架下的相对论粘性流体力学</a> <small>2610.40909v1</small></li><li><a href="#paper-2610.40912v1">将深度神经网络纳入轻子-核相互作用建模</a> <small>2610.40912v1</small></li><li><a href="#paper-2610.41293v1">XTE J1814-338 是一颗暗物质混合中子星吗？</a> <small>2610.41293v1</small></li><li><a href="#paper-2610.41386v1">自旋极化在逐事件涨落中的作用</a> <small>2610.41386v1</small></li><li><a href="#paper-2610.41767v1">硬 $pd \to ppn$ 反应中色透明效应对氘核自旋可观测量的影响</a> <small>2610.41767v1</small></li><li><a href="#paper-2610.42015v1">α团簇核的代数模型</a> <small>2610.42015v1</small></li></ol><h3>交叉列表（7）</h3><ol class="toc-list"><li><a href="#paper-2610.40877v1">弱耦合与强耦合下周期驱动系统中流体力学吸引子的系统研究</a> <small>2610.40877v1</small></li><li><a href="#paper-2610.40907v1">锔-250 对 r 过程遗迹 γ 射线特征的重要性</a> <small>2610.40907v1</small></li><li><a href="#paper-2610.41020v1">相对弱磁场中双胶子聚变产生 $\pi^0$、$\eta$ 或 $\eta&#x27;$</a> <small>2610.41020v1</small></li><li><a href="#paper-2610.41066v1">弱电场与弱磁场中的解禁闭</a> <small>2610.41066v1</small></li><li><a href="#paper-2610.41082v1">暗物质混合致密天体的双流体径向稳定性：暗致密行星、暗白矮星、暗中子星与暗牡蛎</a> <small>2610.41082v1</small></li><li><a href="#paper-2610.41607v1">用多相输运模型刻画 FAIR 能区 Au+Au 碰撞中横动量微分的径向流涨落</a> <small>2610.41607v1</small></li><li><a href="#paper-2610.42037v1">格点 QCD 中的介子谱学</a> <small>2610.42037v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2610.40724v1">
+  <div class="paper-head">
+    <h2>高能Ne–Ne碰撞中核几何标记事件<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.40724v1" rel="noopener noreferrer">2610.40724v1</a>
+  </div>
+  <p class="original-title">Nuclear-geometry-tagging events in high-energy Ne--Ne collisions</p>
+  <p class="meta"><strong>作者：</strong>Joachim Carlo Kristian Bjerg Hansen、Emil Gorm Dahlbæk Nielsen</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>原子核内核子-核子相互作用产生形变与核团簇等集体性质。超相对论核子-核子碰撞为探测入射核的多体关联提供了新途径，因为核结构会反映在所产生系统的初始几何中。当前低能核理论计算预言高度形变的$^{20}$Ne核具有特征性的$\alpha$+$^{16}$O保龄球瓶状形状。由于此类核近期已在LHC上发生碰撞，研究最大化核结构灵敏度的方法具有现实意义。本文在Monte Carlo Glauber模拟中，利用对几何敏感的观测量——偏心率$\varepsilon_2$与横向紧致度$d_\perp$——考察能否识别$^{20}$Ne核的体-体（body–body）与尖端-尖端（tip–tip）构型。核构型来自核晶格有效场论（NLEFT）框架下的核晶格有效场论计算以及$\textit{ab initio}$投影生成坐标方法（PGCM）。我们采用Fisher线性判别，基于$\varepsilon_2$-$d_\perp$相关性筛选体-体与尖端-尖端构型。在验证样本中选取使目标类保留$30\%$的分类器阈值时，双变量Fisher筛选在NLEFT（PGCM）下对体-体事件和尖端-尖端事件分别获得$0.201$（$0.156$）和$0.573$（$0.540$）的纯度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在高能$^{20}$Ne–Ne碰撞中，能否利用几何敏感观测量（偏心率$\varepsilon_2$与横向紧致度$d_\perp$）在Monte Carlo Glauber模拟中识别$^{20}$Ne核的体-体与尖端-尖端构型，并评估其筛选纯度。</p>
+    <h4>方法</h4><p>采用NLEFT与$\textit{ab initio}$ PGCM计算得到的$^{20}$Ne核构型，在Monte Carlo Glauber模拟中计算$\varepsilon_2$与$d_\perp$；使用Fisher线性判别基于$\varepsilon_2$-$d_\perp$相关性筛选体-体与尖端-尖端构型，并在验证样本中以保留目标类$30\%$为阈值评估纯度。</p>
+    <h4>主要发现</h4><p>在验证样本中保留目标类$30\%$的阈值下，双变量Fisher筛选在NLEFT（PGCM）下对体-体事件获得纯度$0.201$（$0.156$），对尖端-尖端事件获得纯度$0.573$（$0.540$）。</p>
+    <h4>局限与展望</h4><p>原文未讨论筛选效率、统计不确定性或实验探测可行性等局限；基于结果可合理推断，尖端-尖端构型的筛选纯度明显高于体-体构型，后续或可探索更多观测量或分类方法以提升体-体构型的识别能力，但该方向属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2610.40909v1">
+  <div class="paper-head">
+    <h2>重离子碰撞中密度框架下的相对论粘性流体力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.40909v1" rel="noopener noreferrer">2610.40909v1</a>
+  </div>
+  <p class="original-title">Relativistic viscous hydrodynamics in the Density Frame for heavy-ion collisions</p>
+  <p class="meta"><strong>作者：</strong>Jean-François Paquet、Mayank Singh、Derek Teaney</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对密度框架（Density Frame）下的相对论粘性流体力学在2+1维boost不变流中进行了数值研究。密度框架是一种相对论粘性流体力学表述，其在时间上为一阶、不需要辅助场、不存在非流体力学模式，唯一参数是剪切粘度和体粘度以及状态方程。我们以耗散函数的离散类比来构造数值方法，这保证了离散方程在所有长度尺度上都产生熵，并带来一个非常稳健的算法。我们用具有Gubser对称性的弛豫时间近似下的动理学理论精确解来检验该方法。在比较中，我们阐明了动理学解如何与流体力学匹配：我们按不透明度组织解，并展示Bjorken吸引子如何逐阶在梯度展开中过渡到Gubser解。随后，我们将MUSIC代码的流体力学引擎替换为密度框架，并在√s_NN = 5.02 TeV的Pb-Pb碰撞中针对IP-Glasma初始条件比较两者。密度框架更快地抹平陡峭梯度。最大差异出现在体粘性部分：密度框架中的体压对流动瞬时响应，而基于Müller-Israel-Stewart的MUSIC中体压则在有限时间内弛豫。仅考虑剪切粘度时，两个代码给出的末态强子多重数、平均横动量和椭圆流非常相似。密度框架现已可用于重离子数据的完整贝叶斯分析。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在重离子碰撞的boost不变2+1维流中，密度框架下的相对论粘性流体力学数值实现是否可靠，其与动理学精确解及传统Müller-Israel-Stewart型流体力学代码的结果有何异同。</p>
+    <h4>方法</h4><p>以耗散函数的离散类比构造保证全尺度熵产生的数值算法；用Gubser对称性下弛豫时间近似动理学理论的精确解进行检验，并按不透明度组织解以阐明动理学解与流体力学的逐阶匹配；将MUSIC代码的流体力学引擎替换为密度框架，在√s_NN = 5.02 TeV Pb-Pb碰撞的IP-Glasma初始条件下比较两者。</p>
+    <h4>主要发现</h4><p>离散方程在所有长度尺度上产生熵，算法稳健；密度框架能更快抹平陡峭梯度；与MUSIC的最大差异出现在体粘性部分，密度框架的体压对流动瞬时响应，而MUSIC中体压有限时间弛豫；仅考虑剪切粘度时，两代码给出的末态强子多重数、平均横动量和椭圆流非常相似。</p>
+    <h4>局限与展望</h4><p>原文指出密度框架已可用于重离子数据的完整贝叶斯分析；其适用范围和体粘性瞬时响应假设的物理影响有待进一步检验，上述后续方向为基于原文的合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2610.40912v1">
+  <div class="paper-head">
+    <h2>将深度神经网络纳入轻子-核相互作用建模<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.40912v1" rel="noopener noreferrer">2610.40912v1</a>
+  </div>
+  <p class="original-title">Incorporating deep neural networks into lepton-nucleus interaction modeling</p>
+  <p class="meta"><strong>作者：</strong>Hemant Prasad、Jan T. Sobczyk、Krzysztof M. Graczyk、Beata E. Kowal、Rwik Dharmapal Banerjee、J. Luis Bonilla</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种方案，将基于电子-碳散射数据训练的深度神经网络所给出的精确包容截面预测纳入蒙特卡罗事件产生器。该方案利用产生器自身的理论模型，将包容预测分解为相互独立的遍举相互作用道，并据此对生成的事件进行重加权。作者将该方案应用于研究包容与半遍举电子散射测量中的核效应。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将深度神经网络给出的精确包容截面预测与蒙特卡罗事件产生器结合，并用于研究电子散射测量中的核效应。</p>
+    <h4>方法</h4><p>利用事件产生器的理论模型，将神经网络的包容截面预测分解为独立的遍举相互作用道，并对生成事件进行相应重加权；随后将该方案应用于包容与半遍举电子散射测量。</p>
+    <h4>主要发现</h4><p>原文明确报告：所提方案可将基于电子-碳散射数据训练的深度神经网络给出的包容截面预测纳入蒙特卡罗事件产生器，并已应用于研究包容与半遍举电子散射测量中的核效应。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；该方案依赖产生器理论模型完成遍举道分解，其适用范围与分解精度可能受此影响，此点属合理推断。后续可合理推断的方向包括将该方案推广至其他核或散射过程，但需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41293v1">
+  <div class="paper-head">
+    <h2>XTE J1814-338 是一颗暗物质混合中子星吗？<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41293v1" rel="noopener noreferrer">2610.41293v1</a>
+  </div>
+  <p class="original-title">Is XTE J1814-338 a dark matter-admixed neutron star?</p>
+  <p class="meta"><strong>作者：</strong>Hong-Ming Liu、Peng-Cheng Chu、He Liu、Zeng-Hua Li、Xiao-Hua Li</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文基于广义相对论双流体方法，探讨超致密天体 XTE J1814-338 为暗物质混合中子星（DNS）的可能性；该方法中一种流体描述普通核物质，另一种流体描述暗物质。核物质与暗物质的状态方程分别由包含真实三体力的 Brueckner-Hartree-Fock（BHF）理论和一类通用的玻色型自相互作用暗物质模型给出。基于观测数据，我们确定了 XTE J1814-338 作为 DNS 的参数空间，发现仅允许具有高暗物质丰度的晕状星体构型。此外，我们预测了 XTE J1814-338 的其他可观测性质，并给出了这些量的稳健下界。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>超致密天体 XTE J1814-338 是否可能是一颗由普通核物质与暗物质组成的暗物质混合中子星（DNS），以及在观测约束下允许的参数空间为何。</p>
+    <h4>方法</h4><p>采用广义相对论双流体方法，将星体描述为普通核物质流体与暗物质流体；核物质状态方程由包含真实三体力的 Brueckner-Hartree-Fock（BHF）理论给出，暗物质状态方程由一类通用的玻色型自相互作用暗物质模型给出；并基于 XTE J1814-338 的观测数据确定其作为 DNS 的参数空间。</p>
+    <h4>主要发现</h4><p>基于观测数据确定了 XTE J1814-338 作为 DNS 的参数空间，发现仅允许具有高暗物质丰度的晕状星体构型；并预测了该天体的其他可观测性质，给出了这些量的稳健下界。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；可合理推断，所得参数空间与下界依赖于所选取的核物质 BHF 状态方程、玻色型自相互作用暗物质模型及现有观测数据，其他状态方程或暗物质模型下的结果可能不同，需进一步观测检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41386v1">
+  <div class="paper-head">
+    <h2>自旋极化在逐事件涨落中的作用<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41386v1" rel="noopener noreferrer">2610.41386v1</a>
+  </div>
+  <p class="original-title">The role of spin polarization in event-by-event fluctuations</p>
+  <p class="meta"><strong>作者：</strong>Xiao-Ying He、Li-Juan Zhou、Li-Xin Yang、Qian-Qian Du、De-Xian Wei</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>逐事件初始态涨落是理解高能重离子碰撞动力学的关键物理量。由于此类涨落的可用实验数据极为有限，难以对 underlying 初始态性质进行约束或直接表征。本文采用包含由热涡度与热剪切诱导的自旋极化的部分子分布函数，约束初始偏心率与不对称性之间的关联函数。基于动理学理论计算，我们发现考虑自旋极化后的不对称性涨落相较于无自旋极化情形具有显著的分裂效应；这些分裂表现出明显的系统尺寸与能量依赖性。此外，关联函数的比值也呈现类似的系统尺寸与能量依赖性，尤其是在低温区域（$T \lesssim$ 0.12 GeV）。这些结果表明，自旋极化或可作为约束重离子碰撞逐事件初始态涨落的一种有用方法。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用自旋极化约束高能重离子碰撞中逐事件初始态涨落，特别是初始偏心率与不对称性之间的关联函数。</p>
+    <h4>方法</h4><p>采用包含热涡度与热剪切诱导自旋极化的部分子分布函数，并基于动理学理论进行计算。</p>
+    <h4>主要发现</h4><p>考虑自旋极化的不对称性涨落相较于无自旋极化情形出现显著分裂效应，且分裂表现出明显的系统尺寸与能量依赖性；关联函数比值也呈现类似的系统尺寸与能量依赖性，尤其在 $T \lesssim$ 0.12 GeV 的低温区域。</p>
+    <h4>局限与展望</h4><p>原文指出自旋极化或可作为约束重离子碰撞逐事件初始态涨落的有用方法；该结论的适用范围及实验可检验性仍需进一步研究，上述后续方向为基于原文的合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41767v1">
+  <div class="paper-head">
+    <h2>硬 $pd \to ppn$ 反应中色透明效应对氘核自旋可观测量的影响<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.41767v1" rel="noopener noreferrer">2610.41767v1</a>
+  </div>
+  <p class="original-title">Color transparency effects on the deuteron spin observables in the hard $pd \to ppn$ reaction</p>
+  <p class="meta"><strong>作者：</strong>A. B. Larionov</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在理论上研究了15 GeV/$c$束流质子诱导的氘核无π介子破裂过程，所考虑的 kinematics 为：在氘核静止系中，两个出射质子均为快质子，而中子为慢中子。预期色透明效应对氘核的矢量分析本领和张量分析本领具有显著影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在15 GeV/$c$质子束诱导的硬 $pd \to ppn$ 无π介子破裂过程中，色透明效应是否以及如何影响氘核的矢量与张量分析本领。</p>
+    <h4>方法</h4><p>在氘核静止系中两个出射质子为快质子、中子为慢中子的特定 kinematics 下，对 $pd \to ppn$ 破裂过程进行理论计算与分析。</p>
+    <h4>主要发现</h4><p>原文预期色透明效应对氘核的矢量分析本领和张量分析本领具有显著影响。</p>
+    <h4>局限与展望</h4><p>原文未给出定量结果或实验比较；其结论为理论预期，尚需具体数值计算与实验检验。后续可合理推断的方向包括：开展定量计算以刻画色透明效应的具体影响，并在相应 kinematics 下进行实验测量验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.42015v1">
+  <div class="paper-head">
+    <h2>α团簇核的代数模型<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2610.42015v1" rel="noopener noreferrer">2610.42015v1</a>
+  </div>
+  <p class="original-title">Algebraic models of alpha-cluster nuclei</p>
+  <p class="meta"><strong>作者：</strong>Roelof Bijker</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文综述了适用于 $A=4n$ 的 α 共轭核的代数团簇模型（ACM），以及将其推广至 $A=4n+x$ 核的团簇壳模型（CSM）。CSM 描述单粒子能级在由 α 粒子团簇产生的形变场中的劈裂。作为示例，本文讨论了相邻核 $^{12}$C 与 $^{13}$C 的能量、电磁跃迁和形状因子。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用代数方法描述 α 共轭核（$A=4n$）及邻近核（$A=4n+x$）的团簇结构，并统一处理其能谱、电磁跃迁与形状因子。</p>
+    <h4>方法</h4><p>采用代数团簇模型（ACM）处理 $A=4n$ 的 α 共轭核，并将其推广为团簇壳模型（CSM），用以描述单粒子能级在 α 粒子团簇所产生形变场中的劈裂；以 $^{12}$C 和 $^{13}$C 为例进行计算与讨论。</p>
+    <h4>主要发现</h4><p>原文明确以 $^{12}$C 与 $^{13}$C 为例，讨论了能量、电磁跃迁和形状因子；摘要未给出具体数值结果或定量比较结论。</p>
+    <h4>局限与展望</h4><p>原文为综述性贡献，摘要未明确讨论局限或后续方向；可合理推断，该框架的适用范围限于 α 团簇相关核，其定量有效性需结合更多核的实验数据进一步检验。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.40877v1">
+  <div class="paper-head">
+    <h2>弱耦合与强耦合下周期驱动系统中流体力学吸引子的系统研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.40877v1" rel="noopener noreferrer">2610.40877v1</a>
+  </div>
+  <p class="original-title">A systematic study of hydrodynamic attractors in periodically driven systems at weak and strong couplings</p>
+  <p class="meta"><strong>作者：</strong>Aleksas Mazeliauskas、Toshali Mitra、Sören Schlichting、Simon Schneider、Louis Nwakile Onwuka、Martin Vrdoljak</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究共形系统在沿一个空间方向进行周期性膨胀与收缩时的平衡化过程及流体力学响应。我们采用强耦合全息方法（AdS/CFT）、弱耦合动理学理论（弛豫时间近似、标量 φ^4 理论以及 QCD 有效动理学理论中的 Yang--Mills 部分）和流体力学（Navier--Stokes、Müller--Israel--Stewart (MIS) 与 rBRSSS），在振幅 A 和频率 ω 可变的周期驱动下，通过线性响应解析计算和数值模拟研究剪切响应。我们发现，在线性层面（A≪1），周期驱动系统趋于一个循环吸引子，该吸引子一般不同于 Navier--Stokes 行为。该吸引子在各种动理学理论之间具有普适性，并可由 MIS 理论准确描述：对于慢驱动（ωτ_π≪1，其中 τ_π 为剪切弛豫时间），它趋近 Navier--Stokes 极限；而对于快驱动，剪切应力饱和至其非相互作用（自由流）值。在强耦合全息系统中，周期驱动会激发非流体力学准正规模，从而在趋近循环吸引子的过程中产生特征性的振铃，这与动理学理论中纯指数式趋近形成对比；这一差异直接源于两类理论不同的非流体力学谱。此外，与动理学理论不同，全息响应对二阶流体力学的曲率项敏感。在更长时间尺度上，非线性粘性加热（正比于驱动振幅的平方）会升高温度，从而降低 ωτ_π（因为 τ_π∼1/T）。这导致循环吸引子缓慢漂移，并最终在渐近晚期趋近 Navier--Stokes 流体力学。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究共形系统在一维周期膨胀与收缩驱动下的平衡化与流体力学响应，特别是剪切响应如何随驱动振幅 A 和频率 ω 变化，以及不同耦合强度理论中是否存在普适的循环吸引子。</p>
+    <h4>方法</h4><p>结合强耦合全息（AdS/CFT）、弱耦合动理学理论（弛豫时间近似、标量 φ^4 理论、QCD 有效动理学理论的 Yang--Mills 部分）与流体力学（Navier--Stokes、MIS、rBRSSS），在线性响应下进行解析计算并进行数值模拟。</p>
+    <h4>主要发现</h4><p>在线性层面（A≪1），周期驱动系统趋于一个循环吸引子，该吸引子一般不同于 Navier--Stokes 行为；该吸引子在动理学理论间普适并可由 MIS 理论准确描述：慢驱动（ωτ_π≪1）时趋近 Navier--Stokes 极限，快驱动时剪切应力饱和至自由流值。强耦合全息系统中周期驱动激发非流体力学准正规模，导致趋近吸引子时出现特征性振铃，与动理学理论的纯指数趋近不同，这源于两类理论非流体力学谱的差异；全息响应还对二阶流体力学曲率项敏感。长时间下非线性粘性加热（正比于 A^2）升高温度、降低 ωτ_π（τ_π∼1/T），使循环吸引子缓慢漂移并最终在渐近晚期趋近 Navier--Stokes 流体力学。</p>
+    <h4>局限与展望</h4><p>原文的结论主要基于线性响应（A≪1）及所选取的动理学与流体力学模型；非线性效应仅以粘性加热导致的慢漂移形式讨论。后续可合理推断的方向包括：系统研究有限振幅下的非线性吸引子行为、考察其他驱动模式或空间维度，以及进一步量化全息响应中曲率项与准正规模谱的影响；这些均为推断，原文未明确展开。</p>
+  </section>
+</article><article class="paper" id="paper-2610.40907v1">
+  <div class="paper-head">
+    <h2>锔-250 对 r 过程遗迹 γ 射线特征的重要性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.40907v1" rel="noopener noreferrer">2610.40907v1</a>
+  </div>
+  <p class="original-title">The Importance of Curium-250 to the $γ$-Ray Signature of $r$-Process Remnants</p>
+  <p class="meta"><strong>作者：</strong>Axel Gross、Samuel Cupp、G. Wendell Misch、Matthew R. Mumpower</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">astro-ph.SR</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>识别重快中子俘获过程（r 过程）的天体物理场所仍是核天体物理中最突出的未解问题之一。不稳定核衰变发射的 γ 射线被认为是即时和延迟时间尺度上潜在的观测标记，可为 r 过程活动提供确凿证据。本文识别并讨论了 $^{250}$Cm 对遗迹 γ 射线谱的重要性，表明在约 2,000 至 20,000 年的宽广时间范围内，$^{250}$Cm 的衰变谱主导 r 过程抛射物的 γ 射线谱。我们强调了该谱的不确定性：$^{250}$Cm 可通过 α 衰变、β 衰变和自发裂变衰变，但各衰变分支比尚无实验测定，且每种衰变通道产生可能可观测的独特谱线。我们考察了最主要谱特征的可观测性，发现对于常规中子星并合遗迹，当前和未来探测器仅能在很近的星系距离（约 1 kpc）内探测到 γ 射线谱线，而其他可能产生更大抛射物质量的地点则可能具有更远的可观测距离。我们的发现凸显了锕系元素衰变链指示 r 过程核合成的潜力，并进一步强调了测量决定其特征谱线核性质的必要性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究 $^{250}$Cm 在 r 过程遗迹 γ 射线谱中的作用及其谱特征的可观测性。</p>
+    <h4>方法</h4><p>通过分析 $^{250}$Cm 的 α 衰变、β 衰变和自发裂变通道及其产生的谱线，评估其对 r 过程抛射物 γ 射线谱的贡献，并考察常规中子星并合遗迹中主要谱特征的探测距离。</p>
+    <h4>主要发现</h4><p>在约 2,000 至 20,000 年的时间范围内，$^{250}$Cm 的衰变谱主导 r 过程抛射物的 γ 射线谱；其衰变分支比尚无实验测定，各通道产生独特谱线；对于常规中子星并合遗迹，当前和未来探测器仅能在约 1 kpc 的近距离内探测到 γ 射线谱线，而抛射物质量更大的其他场所可能具有更远的可观测距离。</p>
+    <h4>局限与展望</h4><p>论文指出需实验测量决定 $^{250}$Cm 特征谱线的核性质；锕系元素衰变链可能作为 r 过程核合成的指示。其他场所的可观测距离更远属于原文的推断性讨论，尚待进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41020v1">
+  <div class="paper-head">
+    <h2>相对弱磁场中双胶子聚变产生 $\pi^0$、$\eta$ 或 $\eta&#x27;$<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41020v1" rel="noopener noreferrer">2610.41020v1</a>
+  </div>
+  <p class="original-title">Two gluon fusion into a $π^0$, $η$, or $η&#x27;$ in a relatively weak magnetic field</p>
+  <p class="meta"><strong>作者：</strong>Fabio L. Braghin、Enrique Muñoz</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在重离子碰撞热化前的唯象背景下研究胶子聚变作为中性介子（$\pi^0$、$\eta$ 与 $\eta&#x27;$）产生机制的效应；该阶段预期具有大的胶子多重数，并预期出现强背景磁场。为此，我们计算了在背景磁场存在时相对于真空（零场）的发射概率率之比，将其表示为接近中快度区横向动量 $p_T$ 与能量 $\sqrt{s}$ 的函数。理论结果表明，背景磁场的存在具有催化效应：在极小的能量 $s \lesssim 1~\text{GeV}^2$ 下，可能将中性 $\pi$ 介子产生增强若干数量级；而在较大能量 $s \gtrsim 10~\text{GeV}^2$ 下该效应可忽略。相比之下，$\eta$ 与 $\eta&#x27;$ 的产生率对磁场存在（相对于真空）几乎不敏感。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在重离子碰撞热化前、存在背景磁场的环境中，双胶子聚变产生中性介子（$\pi^0$、$\eta$、$\eta&#x27;$）的发射概率率相对于真空是否被磁场改变，以及这种改变如何依赖横向动量 $p_T$ 与能量 $\sqrt{s}$。</p>
+    <h4>方法</h4><p>在背景磁场存在与真空（零场）两种情形下，计算接近中快度区双胶子聚变产生 $\pi^0$、$\eta$、$\eta&#x27;$ 的发射概率率之比，并考察其作为 $p_T$ 与 $\sqrt{s}$ 的函数。</p>
+    <h4>主要发现</h4><p>背景磁场对 $\pi^0$ 产生表现出催化效应：在 $s \lesssim 1~\text{GeV}^2$ 的极小能量下，中性 $\pi$ 介子产生可能增强若干数量级；在 $s \gtrsim 10~\text{GeV}^2$ 的较大能量下该效应可忽略。$\eta$ 与 $\eta&#x27;$ 的产生率相对于真空对磁场存在几乎不敏感。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；可合理推断，该结果依赖于“相对弱磁场”与热化前胶子聚变这一设定，其唯象意义需在更真实的重离子碰撞时空演化与磁场模型中进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41066v1">
+  <div class="paper-head">
+    <h2>弱电场与弱磁场中的解禁闭<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41066v1" rel="noopener noreferrer">2610.41066v1</a>
+  </div>
+  <p class="original-title">Deconfinement in weak electric and magnetic fields</p>
+  <p class="meta"><strong>作者：</strong>Eduardo S. Fraga、Leticia F. Palhares</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究弱电场与弱磁场中的热解禁闭相变，其中强子相由π介子气体描述，夸克—胶子等离子体由MIT袋模型描述。除各相的热响应外，我们还纳入夸克与带电π介子的单圈电磁真空项，并在一个共同重整化标度下重整化，该标度固定了禁闭真空中的电荷。在不拟合电磁响应的情况下，临界温度随电场升高、随磁场降低。电场曲率与格点计算所得大小相当，而磁场曲率则大数倍。我们讨论了结果对夸克质量和重整化标度的依赖，并给出两种曲率的大$N_c$组织方式；二者之和与真空项无关，并直接与微扰QCD相联系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>弱电场与弱磁场如何影响热解禁闭相变，尤其是临界温度随电场和磁场的变化方向与曲率大小。</p>
+    <h4>方法</h4><p>以π介子气体描述强子相、以MIT袋模型描述夸克—胶子等离子体，计入各相的热响应以及夸克和带电π介子的单圈电磁真空项，并在固定禁闭真空电荷的共同标度下重整化；不拟合电磁响应，计算临界温度对电场和磁场的曲率，并讨论其对夸克质量与重整化标度的依赖及大$N_c$组织。</p>
+    <h4>主要发现</h4><p>在不拟合电磁响应的情况下，临界温度随电场升高、随磁场降低；电场曲率与格点结果大小相当，磁场曲率则大数倍；两种曲率之和与真空项无关，并直接与微扰QCD相联系。</p>
+    <h4>局限与展望</h4><p>原文讨论了对夸克质量和重整化标度的依赖，并给出曲率的大$N_c$组织；该框架适用于弱场情形，强场下的适用性未在原文中确立，需进一步检验。电场曲率与格点一致而磁场曲率偏大数倍，提示磁场情形可能需要更精细的处理，此为基于原文结果的推断。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41082v1">
+  <div class="paper-head">
+    <h2>暗物质混合致密天体的双流体径向稳定性：暗致密行星、暗白矮星、暗中子星与暗牡蛎<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41082v1" rel="noopener noreferrer">2610.41082v1</a>
+  </div>
+  <p class="original-title">Two-Fluid Radial Stability of Dark-Matter-Admixed Compact Objects: Dark Compact Planets, Dark White Dwarfs, Dark Neutron Stars, and Dark Oysters</p>
+  <p class="meta"><strong>作者：</strong>José C. Jiménez、Oscar Pastor、Laura Tolos</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.HE</span> <span class="tag">astro-ph.SR</span> <span class="tag">gr-qc</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究由普通重子物质与冷暗物质混合、并通过背景时空耦合的两流体致密天体的平衡结构及其对径向振荡的稳定性。对于普通流体，采用与核密度处手征有效场论相容、并在极低密度处由 BPS 与 Negele-Vautherin 模型补充、在高密度区与微扰 QCD 相容且满足当前天体物理数据的 QCD 状态方程。对于暗流体，假设为自相互作用费米子物质，粒子质量取 $m_f=2,5,10,100$ GeV，自相互作用强度取 $y=0.1$ 与 $10^3$。通过扫描两种流体的大范围中心压强，识别出暗致密行星、暗白矮星、暗中子星以及所谓暗牡蛎的存在。重要的是，这些天体不仅处于双流体流体静力学平衡，而且对双流体径向振荡稳定。研究发现，各类天体在径向稳定样本中的相对占比对 $m_f$ 与 $y$ 的组合高度敏感，某些组合在所采样范围内完全抑制其中某些天体类别而偏好其他类别。此外，强自排斥支持稳定的、暗物质主导的分支，其具有致密的普通物质核心和延展的暗物质晕，并趋近自相互作用费米子星极限。最后，计算普通物质表面的引力红移 $z_{\rm OM}$，并计入延展暗物质晕的贡献，发现存在 $z_{\rm OM}&gt;2$ 的径向稳定构型。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>含普通重子物质与冷暗物质的两流体致密天体是否存在流体静力学平衡构型，以及这些构型是否对双流体径向振荡稳定；不同暗物质粒子质量与自相互作用强度如何影响各类天体的相对占比与引力红移。</p>
+    <h4>方法</h4><p>对普通流体采用与手征有效场论、BPS 与 Negele-Vautherin 模型及微扰 QCD 相容并满足天体物理数据的 QCD 状态方程；对暗流体采用自相互作用费米子物质，取 $m_f=2,5,10,100$ GeV 与 $y=0.1,10^3$；通过大范围扫描两种流体的中心压强，求解双流体平衡结构并进行径向振荡稳定性分析，同时计算普通物质表面引力红移。</p>
+    <h4>主要发现</h4><p>识别出暗致密行星、暗白矮星、暗中子星与暗牡蛎，且这些天体不仅处于双流体流体静力学平衡，还对双流体径向振荡稳定；各类天体在径向稳定样本中的相对占比强烈依赖于 $m_f$ 与 $y$ 的组合，某些组合在采样范围内完全抑制部分类别；强自排斥支持稳定的暗物质主导分支，具有致密普通物质核心与延展暗物质晕，并趋近自相互作用费米子星极限；计入延展暗物质晕后，存在 $z_{\rm OM}&gt;2$ 的径向稳定构型。</p>
+    <h4>局限与展望</h4><p>本文结论限于所采用的 QCD 状态方程、暗流体为自相互作用费米子以及所扫描的中心压强与参数范围；对超出该参数域或采用其他暗物质微观模型的情形，结论需进一步检验。后续可合理推断的方向包括扩展暗物质粒子质量与自相互作用强度参数空间、考察转动或非径向振荡的影响，以及将引力红移等可观测量与更完整的暗物质晕模型结合进行对比。</p>
+  </section>
+</article><article class="paper" id="paper-2610.41607v1">
+  <div class="paper-head">
+    <h2>用多相输运模型刻画 FAIR 能区 Au+Au 碰撞中横动量微分的径向流涨落<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.41607v1" rel="noopener noreferrer">2610.41607v1</a>
+  </div>
+  <p class="original-title">Characterizing $\pT$-differential Radial-Flow Fluctuations in Au+Au Collisions at FAIR with a Multi-Phase Transport Model</p>
+  <p class="meta"><strong>作者：</strong>Sanchari Thakur、Partha Pratim Bhaduri</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次给出在 SIS100 最高能量（\snn=4.9 GeV）Au+Au 碰撞中横动量（\pT）微分的径向流涨落观测量 \vzpT 的预测，该能区将由 FAIR 加速器装置提供。我们针对不同中心度区间和不同参考 \pT 选择研究径向流及其涨落，以考察所计算长程关联的性质与稳健性。\vzpT 呈现出从低 \pT 处负值到较高 \pT 处正值的特征性演化。采用不同参考 \pT 区间得到的积分 $v_0$ 遵循共同趋势，对包含带电粒子多重数（\nch）近似呈反平方根依赖。当赝快度间隔在 0.2 至 0.8 之间变化，或在体区改变参考 \pT 区间边缘时，\vzpT 信号变化很小。对于鉴别粒子，低 \pT 处 $\pi$ 与质子的 \vzpT 呈现有序排列，与更高能量下看到的质量排序定性相似。然而，与更高碰撞能量不同，\vzpT 未表现出组分夸克标度行为，因此结果不支持以部分子集体性进行解释。这些结果为径向关联向低碰撞能量演化提供了约束，并推动与互补观测量的比较，以澄清其与集体动力学的关系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 FAIR/SIS100 最高能量（\snn=4.9 GeV）的 Au+Au 碰撞中，横动量微分的径向流涨落观测量 \vzpT 具有怎样的特征与稳健性，其能否用部分子集体性解释。</p>
+    <h4>方法</h4><p>采用多相输运模型计算 Au+Au 碰撞中的径向流及其涨落，针对不同中心度区间与不同参考 \pT 选择分析 \vzpT，并考察赝快度间隔与参考 \pT 区间边缘变化的影响，同时对鉴别粒子（$\pi$、质子）进行比较并检验组分夸克标度。</p>
+    <h4>主要发现</h4><p>\vzpT 从低 \pT 的负值演化到较高 \pT 的正值；不同参考 \pT 区间得到的积分 $v_0$ 遵循共同趋势，对 \nch 近似呈反平方根依赖；在体区，赝快度间隔在 0.2–0.8 间变化或改变参考 \pT 区间边缘时 \vzpT 变化很小；低 \pT 处 $\pi$ 与质子的 \vzpT 有序排列，与更高能量下的质量排序定性相似；但 \vzpT 未表现出组分夸克标度，结果不支持部分子集体性解释。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果约束了径向关联向低碰撞能量的演化，并推动与互补观测量的比较以澄清其与集体动力学的关系；摘要未给出进一步的定量后续计划，相关推断需谨慎对待。</p>
+  </section>
+</article><article class="paper" id="paper-2610.42037v1">
+  <div class="paper-head">
+    <h2>格点 QCD 中的介子谱学<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.42037v1" rel="noopener noreferrer">2610.42037v1</a>
+  </div>
+  <p class="original-title">Meson spectroscopy from lattice QCD</p>
+  <p class="meta"><strong>作者：</strong>Andrew W. Jackura</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>直接从量子色动力学（QCD）确定介子谱仍是一项核心挑战，因为 QCD 在低能区呈强耦合，且大多数激发态以强子衰变道中的共振形式出现。格点 QCD 与散射理论的进展如今为从第一性原理提取介子谱及共振性质提供了系统框架。本文概述该研究纲领，并综述格点 QCD 介子谱学当前最先进的计算，重点介绍在提取共振振幅与耦合道振幅方面的最新进展，以及三体动力学和介子光耦合确定等前沿发展。这些进展共同推动我们更接近对激发介子谱的全面第一性原理描述。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从量子色动力学（QCD）第一性原理出发确定介子谱，特别是低能强耦合下以强子衰变道共振形式出现的激发态。</p>
+    <h4>方法</h4><p>基于格点 QCD 与散射理论的系统框架，综述当前最先进的介子谱学计算，包括共振振幅与耦合道振幅的提取、三体动力学以及介子光耦合的确定。</p>
+    <h4>主要发现</h4><p>格点 QCD 与散射理论的进展为从第一性原理提取介子谱和共振性质提供了系统框架；近期在共振与耦合道振幅提取、三体动力学和介子光耦合确定方面取得进展，这些进展推动了对激发介子谱的全面第一性原理描述。</p>
+    <h4>局限与展望</h4><p>原文为综述性概述，未给出具体数值结论或定量误差；其适用范围限于所综述的格点 QCD 介子谱学研究。三体动力学与介子光耦合被明确列为前沿方向，可合理推断这些方向仍需进一步发展，才能实现对激发介子谱的全面第一性原理描述。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-02 13:39 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
