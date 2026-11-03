@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-11-03</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">18</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">7</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">11</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（7）</h3><ol class="toc-list"><li><a href="#paper-2611.00372v1">近垒能区$^{19}$O与$^{20}$O离子与质子聚变的比较</a> <small>2611.00372v1</small></li><li><a href="#paper-2611.00385v1">WASA-FRS HypHI实验中轻超核的当前研究结果</a> <small>2611.00385v1</small></li><li><a href="#paper-2611.00529v1">利用Geant4和FLUKA估算SNOLAB处nEXO的宇宙成因本底</a> <small>2611.00529v1</small></li><li><a href="#paper-2611.01285v1">重离子碰撞中粲夸克死锥效应的实验探测</a> <small>2611.01285v1</small></li><li><a href="#paper-2611.03044v1">RHIC束流能量扫描II中Au+Au碰撞中Λ、Ξ和Ω超子的整体极化</a> <small>2611.03044v1</small></li><li><a href="#paper-2611.03139v1">接近N=126的富中子¹⁹⁶⁻²⁰²Au同位素中核心耦合高自旋结构的规律性</a> <small>2611.03139v1</small></li><li><a href="#paper-2611.03237v1">RHIC 束流能量扫描 II 中 Au+Au 碰撞在 $\sqrt{s_{\mathrm{NN}}}=7.7$--$27~\mathrm{GeV}$ 下 $\Lambda$、$\Xi$ 与 $\Omega$ 超子整体极化的微分测量</a> <small>2611.03237v1</small></li></ol><h3>交叉列表（11）</h3><ol class="toc-list"><li><a href="#paper-2308.02629v1">电子束在钽与氘化铒上产生的光中子产额</a> <small>2308.02629v1</small></li><li><a href="#paper-2611.00106v1">利用J-PARC偏振3He气体实现高极化超热中子束</a> <small>2611.00106v1</small></li><li><a href="#paper-2611.00131v1">双势方法中的α衰变宽度与WKB前因子</a> <small>2611.00131v1</small></li><li><a href="#paper-2611.00135v1">在PbPb碰撞中搜寻GeV量级的类轴子粒子</a> <small>2611.00135v1</small></li><li><a href="#paper-2611.00194v1">超越结合能与温度之比展开的重夸克偶素动力学</a> <small>2611.00194v1</small></li><li><a href="#paper-2611.00613v1">利用HIAF上U+U碰撞中的整体Λ极化探测原子核形变</a> <small>2611.00613v1</small></li><li><a href="#paper-2611.01093v1">三核子短程关联中核子的新标度关系</a> <small>2611.01093v1</small></li><li><a href="#paper-2611.01117v1">LHμC构想：CERN的能源前沿反μ子-质子对撞</a> <small>2611.01117v1</small></li><li><a href="#paper-2611.01458v1">介质内相似性重正化群中多体截断的收敛性</a> <small>2611.01458v1</small></li><li><a href="#paper-2611.02836v1">ACTAR TPC中的径迹重建：一个转移反应用例</a> <small>2611.02836v1</small></li><li><a href="#paper-2611.02958v1">RHIC与LHC能量下轻核与超核产生：唯象模型的比较研究</a> <small>2611.02958v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.00372v1">
+  <div class="paper-head">
+    <h2>近垒能区$^{19}$O与$^{20}$O离子与质子聚变的比较<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.00372v1" rel="noopener noreferrer">2611.00372v1</a>
+  </div>
+  <p class="original-title">Comparing the fusion of $^{19}$O and $^{20}$O ions with protons at near barrier energies</p>
+  <p class="meta"><strong>作者：</strong>Rohit Kumar、H. Desilets、R. T. deSouza、S. Hudan、C. Ciampi、A. Chbihi、K. W. Brown、B. Pinheiro、J. Lubian</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>利用活性靶探测器MuSIC@Indiana，以CH$_4$为靶气体，在逆运动学条件下测量了$^{19,20}$O核的质子俘获反应。该测量凭借其本征高效率和自归一化特性，实现了(p,n)截面的直接测量。两种(p,n)反应的激发函数均表现出振荡行为。对于所研究的中子丰核，由于质子的德布罗意波长远大于重离子，测定(p,n)截面即可获得质子聚变截面。观测到$^{19}$O的截面相较$^{20}$O存在显著压低，提示能级密度差异。耦合道计算能够重现$^{20}$O情形下观测到的振荡行为，但未能预言$^{19}$O中观测到的振荡行为，也未能预言聚变截面的整体压低。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在近垒能区，$^{19}$O与$^{20}$O离子与质子的聚变（质子俘获）截面有何差异，耦合道计算能否描述其激发函数行为。</p>
+    <h4>方法</h4><p>采用活性靶探测器MuSIC@Indiana，以CH$_4$气体为靶，在逆运动学条件下测量$^{19,20}$O的(p,n)反应截面；利用质子德布罗意波长远大于重离子的条件，由(p,n)截面获取质子聚变截面，并与耦合道计算结果比较。</p>
+    <h4>主要发现</h4><p>两种(p,n)反应的激发函数均呈现振荡行为；$^{19}$O的截面相较$^{20}$O显著压低，提示能级密度差异；耦合道计算能重现$^{20}$O的振荡行为，但无法预言$^{19}$O的振荡行为及聚变截面的整体压低。</p>
+    <h4>局限与展望</h4><p>原文指出耦合道计算未能描述$^{19}$O的振荡与截面压低，提示现有理论框架在该核上的适用性有限；后续或需引入能级密度等更细致的自由度（此为基于原文的合理推断，原文未明确给出后续方案）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.00385v1">
+  <div class="paper-head">
+    <h2>WASA-FRS HypHI实验中轻超核的当前研究结果<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.00385v1" rel="noopener noreferrer">2611.00385v1</a>
+  </div>
+  <p class="original-title">Current Results on Light Hypernuclei in the WASA-FRS HypHI Experiment</p>
+  <p class="meta"><strong>作者：</strong>C. Rappold、P. Achenbach、H. Alibrahim Alfaki、F. Amjad、M. Armstrong、K. H. Behr、J. Benlliure、Z. Brencic、D. Calongue González、T. Dickel、V. Drozd、S. Dubey、H. Ekawa、S. Escrig、M. Feijoo-Fontan、H. Fujioka、Y. Gao、H. Geissel、F. Goldenbaum、A. Graña Gonzalez、E. Haettner、M. N. Harakeh、Y. He、H. Heggen、C. Hornung、N. Hubbard、K. Itahashi、M. Iwasaki、N. Kalantar-Nayestanaki、A. Kasagi、M. Kavatsyuk、E. Kazantseva、A. Khreptak、B. Kindler、R. Knoebel、H. Kollmus、D. Kostyleva、S. Kraft-Bermuth、N. Kurz、E. Liu、B. Lommel、V. Metag、S. Minami、D. J. Morrissey、P. Moskal、I. Mukha、A. Muneem、M. Nakagawa、K. Nakazawa、C. Nociforo、H. J. Ong、S. Pietri、J. Pochodzalla、S. Purushothaman、E. Rocco、J. L. Rodríguez-Sánchez、P. Roy、R. Ruber、T. R. Saito、S. Schadmand、C. Scheidenberger、P. Schwarz、R. Sekiya、V. Serdyuk、M. Skurzok、B. Streicher、K. Suzuki、B. Szczepanczyk、Y. K. Tanaka、X. Tang、N. Tortorelli、M. Vencelj、H. Wang、T. Weber、H. Weick、M. Will、K. Wimmer、A. Yamamoto、A. Yanai、J. Yoshida、J. Zhao</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>轻超核是带有奇异数的亚原子核，其当前认识正由多个合作组积极研究。近期利用高能重离子束的研究揭示了三体束缚态$^3_Λ$H（即超氚核）的意外结果。多个实验对其寿命和结合能的测量呈现出令人困惑的局面，被称为“超氚核之谜”。该谜题是GSI-FAIR的SuperFRS实验合作组中WASA-FRS HypHI实验数据分析的核心焦点。实验利用1.96 GeV/u的$^6$Li束流轰击固定碳靶，并结合GSI-FAIR的WASA探测器系统和碎片分离器（FRS）研究轻超核。WASA-FRS实验活动于2022年第一季度开展。实验的主要目标是测量$^3_Λ$H和$^4_Λ$H的寿命；nn$Λ$态的可能观测构成WASA-FRS研究计划的第二部分。本文概述了我们对超核的研究，并以WASA-FRS HypHI实验为重点，介绍当前分析状态的细节。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>轻超核（特别是三体束缚态超氚核$^3_Λ$H）的寿命与结合能测量在不同实验间存在不一致，形成所谓“超氚核之谜”；WASA-FRS HypHI实验旨在针对该问题开展测量。</p>
+    <h4>方法</h4><p>在GSI-FAIR的SuperFRS实验合作框架下，利用1.96 GeV/u的$^6$Li束流轰击固定碳靶，结合WASA探测器系统与碎片分离器（FRS）开展实验；实验活动于2022年第一季度进行，主要目标是测量$^3_Λ$H和$^4_Λ$H的寿命，并探索nn$Λ$态的可能观测。</p>
+    <h4>主要发现</h4><p>摘要指出近期高能重离子束研究对超氚核给出了意外结果，多个实验的寿命与结合能测量呈现出被称为“超氚核之谜”的困惑局面；WASA-FRS HypHI实验以该谜题为核心分析焦点，本文概述相关研究并介绍当前分析状态。摘要未给出具体的测量数值或最终物理结论。</p>
+    <h4>局限与展望</h4><p>摘要仅报告分析状态，未给出最终结果；因此其局限与后续方向需在数据完整分析后明确。可合理推断：后续工作将完成$^3_Λ$H与$^4_Λ$H寿命测量并检验“超氚核之谜”，同时继续评估nn$Λ$态的可能观测；这些均为基于实验目标的推断，尚待原文后续结果支持。</p>
+  </section>
+</article><article class="paper" id="paper-2611.00529v1">
+  <div class="paper-head">
+    <h2>利用Geant4和FLUKA估算SNOLAB处nEXO的宇宙成因本底<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.00529v1" rel="noopener noreferrer">2611.00529v1</a>
+  </div>
+  <p class="original-title">Estimating cosmogenic backgrounds in nEXO at SNOLAB using Geant4 and FLUKA</p>
+  <p class="meta"><strong>作者：</strong>R. Ross、S. Al Kharusi、T. Brunner、S. Sangiorgio、E. Caden、U. Wichoski、B. G. Lenardo、B. Mong、A. Odian、A. Piepke、S. Thibado、A. Pocar、R. Saldanha、L. J. Kaufman、E. A. Allen、A. Amy、I. J. Arnquist、A. Atencio、V. Belov、A. Bolotnikov、J. Breslin、P. A. Breur、J. Brodsky、E. Brown、E. van Bruggen、B. Burnell、D. Cesmecioglu、M. Chiu、R. Collister、E. Coulthard、T. Daniels、L. Darroch、X. Defay、R. DeVoe、Y. Ding、M. J. Dolinski、B. Eckert、A. Emara、W. Fairbank、J. Farine、B. T. Foust、D. Gallacher、N. Gallice、A. Gaur、W. Gillis、F. Girard、R. Gornea、G. Gratta、C. A. Hardy、J. Hasi、M. Heffner、E. Hein、J. D. Holt、A. Iverson、T. V. John、A. K. Karelin、D. K. Keblbeck、P. Knauss、A. Kuchenkov、K. S. Kumar、T. Lange、A. Larson、M. B. Latif、S. C. Lavoie、K. G. Leach、A. Lennarz、D. S. Leonard、H. Lewis、X. Li、G. Li、C. Licciardi、R. Lindsay、R. MacLellan、S. Majidi、C. Malbrunot、M. Marquis、J. Masbou、M. Medina-Peregrina、S. Mngonyama、D. C. Moore、X. E. Ngwadla、K. Ni、I. Nitu、A. Nolan、J. C. Nzobadila Ondze、J. L. Orrell、G. Ortega、C. Overman、L. Pagani、H. Peltz Smalley、A. Pena-Perez、J. -F. Pratte、R. Rai、H. Rasiwala、D. Ray、A. Remnant、S. Rescia、F. Retière、G. Richardson、S. Rottoo、S. J. Sekula、T. Shetty、L. Si、V. Stekhanov、X. Sun、Tanmay、A. Todd、M. Yvaine、T. Totev、S. Triambak、O. A. Tyuka、S. Viel、M. P. Watts、M. Wehrfritz、S. Wilde、M. Worcester、H. Xu、L. Yang、M. Yu、O. Zeldovich、J. Zhao</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>nEXO实验旨在利用一个五吨级、同位素富集的液氙时间投影室（TPC）搜寻$^{136}$Xe的无中微子双贝塔衰变。为达到nEXO的灵敏度目标，本底抑制策略受到高度重视。本文评估了nEXO在首选地下宿主站点SNOLAB运行时预期的宇宙成因本底率，并给出了Geant4与FLUKA蒙特卡罗模拟结果的比较。我们使用Geant4和FLUKA对到达SNOLAB地下环境的缪子进行了详细的蒙特卡罗模拟，以研究由直接散裂反应或随后中子诱发反应产生的放射性同位素。我们发现，在所生成的同位素中，唯一对nEXO构成关切的是由中子俘获于氙靶上产生的$^{137}$Xe。我们发展了一种否决策略，预期可实现92\%的$^{137}$Xe排除效率，同时在10年曝光期内将死时间控制在少于1天。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>评估nEXO实验在SNOLAB站点运行时的宇宙成因本底率，并识别其中对实验构成关切的放射性同位素。</p>
+    <h4>方法</h4><p>使用Geant4和FLUKA两种蒙特卡罗模拟工具，对到达SNOLAB地下环境的缪子进行详细模拟，研究直接散裂反应及随后中子诱发反应产生的放射性同位素，并比较两种工具的结果。</p>
+    <h4>主要发现</h4><p>在所生成的同位素中，唯一对nEXO构成关切的是由中子俘获于氙靶上产生的$^{137}$Xe；所发展的否决策略预期可实现92\%的$^{137}$Xe排除效率，同时在10年曝光期内将死时间控制在少于1天。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该否决策略在其他本底来源或不同实验条件下的适用性；其在实际运行中的性能及与其他本底抑制措施的协同效果有待进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.01285v1">
+  <div class="paper-head">
+    <h2>重离子碰撞中粲夸克死锥效应的实验探测<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.01285v1" rel="noopener noreferrer">2611.01285v1</a>
+  </div>
+  <p class="original-title">Probing the charm-quark dead cone effect in heavy ion collisions</p>
+  <p class="meta"><strong>作者：</strong>CMS Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次对重离子碰撞中粲夸克的死锥效应开展实验研究。分析基于CMS实验于2018年在CERN LHC采集的铅-铅（PbPb）碰撞样本，核子对质心能量为5.02 TeV，对应积分亮度1.7 nb$^{-1}$。所研究的观测量为采用late-$k_\mathrm{T}$ grooming算法挑选的喷注内硬共线辐射的角分布。分析使用包容喷注以及含瞬发D$^0$介子的喷注样本。结果显示，相对于包容喷注，PbPb碰撞中D$^0$喷注内late-$k_\mathrm{T}$辐射的角分布向更大角度偏移，表明D$^0$喷注中的共线劈裂受到压低。该偏移符合死锥效应的预期，且与质子-质子碰撞中的类似观测一致。这一新测量不支持重离子碰撞中由介质诱导辐射填充粲夸克死锥的假设。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在重离子（PbPb）碰撞中，粲夸克的死锥效应能否被实验观测到，以及介质诱导辐射是否会填充该死锥。</p>
+    <h4>方法</h4><p>利用CMS实验2018年PbPb碰撞数据（$\sqrt{s_{NN}}=5.02$ TeV，积分亮度1.7 nb$^{-1}$），采用late-$k_\mathrm{T}$ grooming算法选取喷注内硬共线辐射，比较包容喷注与含瞬发D$^0$介子喷注中该辐射的角分布。</p>
+    <h4>主要发现</h4><p>相对于包容喷注，D$^0$喷注中late-$k_\mathrm{T}$辐射的角分布向更大角度偏移，表明D$^0$喷注中共线劈裂受到压低；该偏移符合死锥效应预期，并与质子-质子碰撞中的类似观测一致；结果不支持介质诱导辐射填充粲夸克死锥的假设。</p>
+    <h4>局限与展望</h4><p>摘要未讨论系统不确定度、理论模型细节及更广的适用范围；后续可合理推断的方向包括在更多碰撞中心度、不同粲强子标记及更高统计量下检验该效应，并与其他死锥观测量或理论计算进行更定量比较（此推断需进一步验证）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.03044v1">
+  <div class="paper-head">
+    <h2>RHIC束流能量扫描II中Au+Au碰撞中Λ、Ξ和Ω超子的整体极化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.03044v1" rel="noopener noreferrer">2611.03044v1</a>
+  </div>
+  <p class="original-title">Global polarization of $Λ$, $Ξ$, and $Ω$ hyperons in Au+Au collisions from the RHIC Beam Energy Scan-II</p>
+  <p class="meta"><strong>作者：</strong>STAR Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>利用RHIC束流能量扫描第二阶段的高统计量数据，在质心能量√s_NN = 7.7、9.2、11.5、14.6、17.3、19.6和27 GeV的Au+Au碰撞中测量了Λ、Ξ和Ω超子的整体极化。在所测碰撞能量范围内，未观察到Λ与反Λ极化之间存在显著差异，这为磁场诱导贡献提供了改进的约束。Λ极化随快度大小的增加而增大，线性拟合斜率偏离零达4.8个标准差，首次给出了该能量范围内整体极化具有非零快度依赖性的证据。在这些能量下首次以超过5个标准差的显著性观测到Ξ⁻+反Ξ⁺的整体极化，其幅度与Λ+反Λ相当，并随碰撞能量降低而增大。Ω⁻+反Ω⁺的测量结果与类似的能量依赖性相容，且在整体极化图像假设下以高概率支持衰变参数γ_Ω = +1。这些测量为重离子碰撞中整体极化的能量演化、快度依赖性和种类依赖性提供了新的约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在RHIC束流能量扫描II的Au+Au碰撞中，Λ、Ξ和Ω超子的整体极化随碰撞能量、快度和超子种类的变化规律，以及Λ与反Λ极化差异对磁场诱导贡献的约束。</p>
+    <h4>方法</h4><p>采用RHIC束流能量扫描第二阶段的高统计量Au+Au碰撞数据，在√s_NN = 7.7–27 GeV的七个能量点测量Λ、Ξ和Ω超子的整体极化，并分析其快度依赖性与能量依赖性。</p>
+    <h4>主要发现</h4><p>在所测能量范围内未观察到Λ与反Λ极化存在显著差异；Λ极化随快度大小增加，线性拟合斜率偏离零达4.8个标准差，首次给出该能量范围内非零快度依赖性的证据；首次以超过5个标准差的显著性观测到Ξ⁻+反Ξ⁺的整体极化，其幅度与Λ+反Λ相当并随能量降低而增大；Ω⁻+反Ω⁺测量与类似能量依赖性相容，并在整体极化图像假设下以高概率支持γ_Ω = +1。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，更高统计量与更宽能量范围的测量将有助于进一步检验整体极化的能量演化与种类依赖性，并对磁场诱导贡献及Ω衰变参数给出更严格的约束。</p>
+  </section>
+</article><article class="paper" id="paper-2611.03139v1">
+  <div class="paper-head">
+    <h2>接近N=126的富中子¹⁹⁶⁻²⁰²Au同位素中核心耦合高自旋结构的规律性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.03139v1" rel="noopener noreferrer">2611.03139v1</a>
+  </div>
+  <p class="original-title">Regularity of core coupled high-spin structure in neutron-rich $^{196-202}$Au isotopes approaching N $=126$</p>
+  <p class="meta"><strong>作者：</strong>Y. Cho、Y. H. Kim、A. Navin、M. Rejmund、A. Lemasson、D. Ramos、E. Clément、J. Dudouet、P. {Van Isacker}、C. Yuan、M. Liu、A. N. Andreyev、Y. Son、S. Choi、D. Ackermann、G. {de Angelis}、S. Bae、R. Banik、S. Bhattacharya、S. Bhattacharyya、K. Chae、F. Didierjean、C. Fougères、G. {de France}、G. Fremont、J. Goupil、G. M. Gu、J. Ha、K. I. Hahn、Y. Hirayama、S. C. Jeong、D. T. {Kattikat Melcom}、C. H. Kim、M. J. Kim、S. H. Kim、W. Korten、P. Marini、H. Miyatake、M. Mukai、A. Mukherjee、G. Mukherjee、T. Niwase、T. Otsuka、J. Park、R. M. Pérez-Vidal、F. Recchia、K. Rezynkina、P. Schury、J. C. Thomas、I. Tsekhanovich、A. Utepov、Y. X. Watanabe</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>利用7 MeV/u的¹³⁶Xe与¹⁹⁸Pt之间的多核子转移反应，布居了难以到达的富中子Au（Z=79）同位素中建立在长寿命高自旋同质异能态之上的激发态。借助VAMOS++谱仪、CATLIFE探测系统和AGATA γ射线追踪阵列的组合，首次识别了¹⁹⁶,¹⁹⁸⁻²⁰²Au中的这些态。其测量能量随中子数呈现显著规律性，并被认为继承自相应Hg（Z=80）同位素中晕带成员的能量。大规模壳模型计算再现了观测到的规律性，并表明这些态源于独特宇称轨道π0h₁₁/₂与ν0i₁₃/₂耦合到Hg核心。该规律性归因于Hg和Au同位素的主导质子组态，其中能级能量几乎不依赖于不同中子轨道占据。计算的Au波函数显示出相应Hg核心的显著更高自旋成分，这与基于粒子-核心耦合模型弱耦合/退耦极限的传统解释所预期不同。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究接近N=126的富中子¹⁹⁶⁻²⁰²Au同位素中建立在长寿命高自旋同质异能态之上的激发态结构及其随中子数的系统性规律。</p>
+    <h4>方法</h4><p>在7 MeV/u下利用¹³⁶Xe与¹⁹⁸Pt的多核子转移反应布居目标态，结合VAMOS++谱仪、CATLIFE探测系统和AGATA γ射线追踪阵列进行首次识别与测量；并采用大规模壳模型计算对实验规律进行解释。</p>
+    <h4>主要发现</h4><p>首次识别了¹⁹⁶,¹⁹⁸⁻²⁰²Au中的相关激发态；测量能量随中子数呈现显著规律性，并继承自相应Hg同位素晕带成员的能量；壳模型计算再现该规律性，表明这些态源于π0h₁₁/₂与ν0i₁₃/₂独特宇称轨道耦合到Hg核心，规律性源于Hg和Au的主导质子组态使能级能量几乎不依赖中子轨道占据；计算的Au波函数显示显著的高自旋Hg核心成分，不同于传统弱耦合/退耦极限解释的预期。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，该核心耦合图像及波函数中高自旋核心成分的显著性值得在邻近核区进一步检验，并可能促使重新审视粒子-核心耦合模型在富中子重核区的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.03237v1">
+  <div class="paper-head">
+    <h2>RHIC 束流能量扫描 II 中 Au+Au 碰撞在 $\sqrt{s_{\mathrm{NN}}}=7.7$--$27~\mathrm{GeV}$ 下 $\Lambda$、$\Xi$ 与 $\Omega$ 超子整体极化的微分测量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.03237v1" rel="noopener noreferrer">2611.03237v1</a>
+  </div>
+  <p class="original-title">Differential measurement of global polarization of $Λ$, $Ξ$, and $Ω$ hyperons in Au+Au collisions at $\sqrt{s_{\mathrm{NN}}}=7.7$--$27~\mathrm{GeV}$ from the RHIC Beam Energy Scan-II</p>
+  <p class="meta"><strong>作者：</strong>The STAR Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文基于 STAR 探测器在 RHIC 束流能量扫描第二阶段（BES-II）采集的数据，给出了 Au+Au 碰撞在 $\sqrt{s_{\mathrm{NN}}}=7.7$、$9.2$、$11.5$、$14.6$、$17.3$、$19.6$ 和 $27~\mathrm{GeV}$ 下 $\Lambda$、$\Xi$ 与 $\Omega$ 超子整体极化的高精度微分测量结果。结果显示极化具有明显的中心度依赖性，越趋于边缘碰撞极化越强。在现有实验精度内，$\Lambda$ 与 $\Xi$ 的极化未表现出显著横动量依赖性，$\Xi$ 的极化亦未表现出显著快度依赖性。在当前精度下，$\Xi$ 超子的极化与 $\Lambda$ 超子相当，这与如下图像一致：所有超子从同一整体角动量源获得极化，其差异源于夸克组分与强子化动力学。这些覆盖中心度与 $p_T$、跨越所测能量范围的高精度微分测量，为检验自旋--涡度耦合以及探测不同夸克组分（uds、dss 与 sss）超子间自旋--自旋关联提供了独特手段。在当前精度与所述自旋转移假设下，结果与奇异及多奇异超子共享同一涡度驱动极化机制的图像相符，从而对产生介质中涡度、磁场与夸克味动力学的相互作用给出约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究 RHIC BES-II 能区 Au+Au 碰撞中 $\Lambda$、$\Xi$、$\Omega$ 超子整体极化的中心度、横动量与快度依赖性，并检验不同夸克组分超子是否共享同一极化机制。</p>
+    <h4>方法</h4><p>利用 STAR 探测器在 $\sqrt{s_{\mathrm{NN}}}=7.7$--$27~\mathrm{GeV}$ 七个能量点采集的 Au+Au 碰撞数据，对 $\Lambda$、$\Xi$、$\Omega$ 超子整体极化进行高精度微分测量，并比较不同超子 species 及不同运动学变量下的结果。</p>
+    <h4>主要发现</h4><p>极化随中心度变化明显，越边缘碰撞极化越强；在现有精度内 $\Lambda$ 与 $\Xi$ 无显著 $p_T$ 依赖性，$\Xi$ 无显著快度依赖性；$\Xi$ 极化在当前精度下与 $\Lambda$ 相当，与所有超子从同一整体角动量源获得极化、差异源于夸克组分与强子化动力学的图像一致；结果在当前精度与所述自旋转移假设下与共同的涡度驱动极化机制相符。</p>
+    <h4>局限与展望</h4><p>摘要未给出超出当前精度与自旋转移假设的结论；可合理推断，更高统计精度与更宽运动学覆盖的测量将有助于进一步区分涡度、磁场与夸克味动力学的贡献，并检验超子间自旋--自旋关联，但这些均属推断而非原文结论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2308.02629v1">
+  <div class="paper-head">
+    <h2>电子束在钽与氘化铒上产生的光中子产额<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2308.02629v1" rel="noopener noreferrer">2308.02629v1</a>
+  </div>
+  <p class="original-title">Photoneutron Yield for an Electron Beam on Tantalum and Erbium Deuteride</p>
+  <p class="meta"><strong>作者：</strong>Andrew K. Gillespie、Cuikun Lin、R. V. Duncan</p>
+  <p class="meta"><strong>主分类：</strong>physics.acc-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.acc-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>电子束可用于产生轫致辐射光子，进而在金属中产生光中子，从而作为辐照实验的低能中子源。本文给出了10 MeV电子束在钽箔与氘化铒（ErD$_3$）上优化光中子产额的模拟结果，并改变金属层厚度。钽箔厚度为1.5 mm时，到达第二金属层的光子数最多。当加入ErD$_3$作为第二金属层时，光中子产额随该层厚度增加而增加。当电子束直接入射到ErD$_3$层时，光中子产额与包含钽层时的产额无显著差异。当ErD$_3$层厚度约为12 cm时，定向光中子产额达到最大值。约每$10^4$个源电子产生1个中子。使用2 mA束流时，每秒最多可产生$10^{12}$个中子，使该组合成为一种相对廉价的中子发生器。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何通过改变钽箔与氘化铒（ErD$_3$）层的厚度，优化10 MeV电子束产生轫致辐射光子并进一步产生光中子的产额。</p>
+    <h4>方法</h4><p>采用模拟方法，计算10 MeV电子束在钽箔和ErD$_3$层上产生的光子与光中子，并系统改变金属层厚度以比较光中子产额。</p>
+    <h4>主要发现</h4><p>钽箔厚度为1.5 mm时到达第二金属层的光子数最多；加入ErD$_3$第二层后，光中子产额随该层厚度增加而增加；电子束直接入射ErD$_3$层与包含钽层时的产额无显著差异；ErD$_3$层厚度约12 cm时定向光中子产额达到最大值；约每$10^4$个源电子产生1个中子；2 mA束流下每秒最多可产生$10^{12}$个中子。</p>
+    <h4>局限与展望</h4><p>原文结果基于模拟，尚未给出实验验证；适用范围限于所研究的10 MeV电子束及钽/ErD$_3$组合。后续可合理推断需开展实验测量以验证模拟产额，并评估该组合作为相对廉价中子发生器在实际辐照实验中的可行性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.00106v1">
+  <div class="paper-head">
+    <h2>利用J-PARC偏振3He气体实现高极化超热中子束<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.00106v1" rel="noopener noreferrer">2611.00106v1</a>
+  </div>
+  <p class="original-title">Highly polarized epithermal neutron beam using polarized 3He gas at J-PARC</p>
+  <p class="meta"><strong>作者：</strong>K. Asai、S. Endo、S. Hayashi、H. Isozaki、T. Ino、W. Kambara、S. Kawamura、A. Kimura、M. Kitaguchi、S. Kudo、R. Kobayashi、T. Oku、T. Okudaira、M. Okuizumi、H. M. Shimizu、K. Shimodaira、Y. Suto、S. Takada、S. Takahashi、H. Tanaka、Y. Tsuchikawa、T. Yamaguchi</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本研究在高强度脉冲中子设施J-PARC上，利用在线偏振3He自旋过滤器实现了高极化超热中子束。对于能量低于1 eV的超热中子，中子极化率超过80%；其中0.75 eV中子的极化率达到86.4 ± 0.5%，该能量对应139La+n体系中p波复合态的共振能量。自旋过滤器由20 cm长、3.2 atm的3He气室构成，采用紧凑型激光光学系统通过自旋交换光抽运（SEOP）在束线上完成极化。3He极化率约78%，在束线上稳定维持超过100小时。该偏振超热中子束为离散对称性破缺研究提供了有力工具，包括测量139La等中重核中子吸收中增强的宇称破缺，以及在中子-核体系中搜寻时间反演对称性破缺。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在脉冲中子设施上获得能量低于1 eV、极化率高的超热中子束，以满足离散对称性破缺实验的需求。</p>
+    <h4>方法</h4><p>在J-PARC束线上使用20 cm长、3.2 atm的3He气室，通过紧凑型激光光学系统实施自旋交换光抽运（SEOP）进行在线极化，并以其作为中子自旋过滤器。</p>
+    <h4>主要发现</h4><p>能量低于1 eV的超热中子极化率超过80%；0.75 eV中子极化率为86.4 ± 0.5%；3He极化率约78%，在束线上稳定维持超过100小时。</p>
+    <h4>局限与展望</h4><p>原文指出该束流可用于研究中重核（如139La）中子吸收中增强的宇称破缺及中子-核体系中的时间反演对称性破缺；其适用范围与长期稳定性在其他能量区间或实验条件下的表现尚待进一步验证（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.00131v1">
+  <div class="paper-head">
+    <h2>双势方法中的α衰变宽度与WKB前因子<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.00131v1" rel="noopener noreferrer">2611.00131v1</a>
+  </div>
+  <p class="original-title">$α$-decay widths from two-potential approaches and WKB prefactors</p>
+  <p class="meta"><strong>作者：</strong>Nguyen Thi Huyen Nga、Le Quoc Thai、Chau Van Tao、Le Hoang Chien、Nguyen Tri Toan Phuc</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>精确计算α衰变宽度可通过Gurvitz-Kalbermann双势方法（TPA）的若干等价描述，或同时具备正确势垒穿透率与一致内态归一化前因子的半经典WKB描述实现。该前因子与撞击频率相关，文献中其实现方式多样，导致系统性不同的结果，并可能被误认为α预形成效应。我们采用由量子化约束参数方法确定的Woods-Saxon势，使用多种TPA描述及含四种常用前因子的WKB计算，对161个偶偶核（$A_p=144$--$252$）的单粒子α衰变宽度进行基准检验。各TPA公式在$10^{-8}$量级的几分之内一致，表明其稳健性。在半经典前因子中，仅广泛使用的往返（RT）近似能在百分之几的误差内较好地重现TPA宽度。Airy函数分析表明，这一经$\cos^2\to 1/2$平均的WKB前因子正是精确准束缚态的正确领头阶半经典归一化，从而澄清了与WKB前因子相关的反直觉经验观察。本基准检验确定了适用于α衰变隧穿分析的WKB前因子，并为未来研究中分离预形成与结构效应提供了清晰的参考。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在α衰变宽度的TPA与WKB描述中，不同前因子（与撞击频率相关）的实现方式会导致系统性差异，这些差异可能被误认为α预形成效应；需要检验各TPA描述的等价性，并确定哪种半经典WKB前因子能正确重现TPA宽度。</p>
+    <h4>方法</h4><p>采用由量子化约束参数方法确定的Woods-Saxon势，对161个偶偶核（$A_p=144$--$252$）的单粒子α衰变宽度进行基准检验，比较多种TPA描述与含四种常用前因子的WKB计算，并借助Airy函数分析半经典前因子的归一化性质。</p>
+    <h4>主要发现</h4><p>各TPA公式在$10^{-8}$量级的几分之内一致，表明其稳健性；在半经典前因子中，仅广泛使用的往返（RT）近似能在百分之几的误差内较好地重现TPA宽度；Airy函数分析表明，经$\cos^2\to 1/2$平均的WKB前因子是精确准束缚态的正确领头阶半经典归一化，澄清了与WKB前因子相关的反直觉经验观察。</p>
+    <h4>局限与展望</h4><p>论文指出其基准检验确定了适用于α衰变隧穿分析的WKB前因子，并为未来研究中分离预形成与结构效应提供了清晰参考；原文未明确讨论局限或适用范围，相关后续方向属于可合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.00135v1">
+  <div class="paper-head">
+    <h2>在PbPb碰撞中搜寻GeV量级的类轴子粒子<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.00135v1" rel="noopener noreferrer">2611.00135v1</a>
+  </div>
+  <p class="original-title">Search for $\mathrm{GeV}$-scale axion-like particles in PbPb collisions</p>
+  <p class="meta"><strong>作者：</strong>LHCb collaboration、R. Aaij、M. Abdelfatah、A. S. W. Abdelmotteleb、C. Abellan Beteta、F. Abudinén、T. Ackernley、A. A. Adefisoye、B. Adeva、M. Adinolfi、P. Adlarson、C. Agapopoulou、C. A. Aidala、S. Akar、K. Akiba、H. Al Saleh、P. Albicocco、J. Albrecht、R. Aleksiejunas、F. Alessio、P. Alvarez Cartelle、S. Amato、J. L. Amey、Y. Amhis、Z. Amos、L. An、L. Anderlini、P. Andreola、M. Andreotti、S. Andres Estrada、A. Anelli、D. Ao、C. Arata、F. Archilli、Z. Areg、M. Argenton、S. Arguedas Cuendis、L. Arnone、M. Artuso、E. Aslanides、R. Ataíde Da Silva、M. Atzeni、B. Audurier、J. A. Authier、D. Bacher、I. Bachiller Perea、S. Bachmann、M. Bachmayer、J. J. Back、M. Bai、Z. B. Bai、V. Balagura、A. Balboni、W. Baldini、Z. Baldwin、L. Balzani、H. Bao、J. Baptista de Souza Leite、C. Barbero Pretel、M. Barbetti、I. R. Barbosa、W. Barker、R. J. Barlow、M. Barnyakov、S. Baron、S. Barsuk、W. Barter、J. Bartz、S. Bashir、B. Batsukh、P. B. Battista、A. Bavarchee、A. Bay、A. Beck、M. Becker、F. Bedeschi、I. B. Bediaga、N. A. Behling、S. Belin、A. Bellavista、I. Belyaev、G. Bencivenni、E. Ben-Haim、J. L. M. Berkey、R. Bernet、A. Bertolin、L. Bertsch、F. Betti、J. Bex、O. Bezshyyko、S. Bhattacharya、M. S. Bieker、N. V. Biesuz、A. Biolchini、M. Birch、F. C. R. Bishop、A. Bitadze、A. Bizzeti、T. Blake、F. Blanc、J. E. Blank、S. Blusk、J. A. Boelhauve、O. Boente Garcia、T. Boettcher、A. Bohare、C. Bolognani、R. B. Bonacci、A. Bordelius、F. Borgato、S. Borghi、M. Borsato、J. T. Borsuk、E. Bottalico、S. A. Bouchiba、M. Bovill、T. J. V. Bowcock、A. Boyer、C. Bozzi、J. D. Brandenburg、A. Brea Rodriguez、N. Breer、C. Breitfeld、J. Brodzicka、J. Brown、E. Buchanan、M. Burgos Marcos、C. Burr、E. Butera、C. Buti、J. S. Butter、J. Buytaert、W. Byczynski、S. Cadeddu、H. Cai、Y. Cai、Y. Cai、A. Caillet、R. Calabrese、L. Calefice、M. Calvi、M. Calvo Gomez、P. Camargo Magalhaes、J. I. Cambon Bouzas、P. Campana、A. Campomagnani、A. C. Campos、A. F. Campoverde Quezada、Y. Cao、S. Capelli、M. Caporale、L. Capriotti、R. Caravaca-Mora、A. Carbone、L. Carcedo Salgado、R. Cardinale、A. Cardini、P. Carniti、L. Carus、R. Caspary、G. Casse、M. Cattaneo、G. Cavallero、V. Cavallini、S. Celani、I. Celestino、S. Cesare、A. J. Chadwick、M. Charles、Ph. Charpentier、E. Chatzianagnostou、R. Cheaib、M. Chefdeville、C. Chen、J. Chen、S. Chen、Z. Chen、A. Chen Hu、M. Cherif、S. Chernyshenko、X. Chiotopoulos、G. Chizhik、V. Chobanova、A. Christakakis、M. Chrzaszcz、Y. Chu、V. Chulikov、P. Ciambrone、X. Cid Vidal、P. Cifra、P. E. L. Clarke、M. Clemencic、H. V. Cliff、J. Closier、C. Cocha Toapaxi、V. Coco、A. Codovini、C. S. Codovini、J. Cogan、E. Cogneras、L. Cojocariu、S. Collaviti、P. Collins、T. Colombo、M. Colonna、A. Comerma-Montells、L. Congedo、J. Connaughton、A. Contu、N. Cooke、A. Corallo、G. Cordova、C. Coronel、I. Corredoira、A. Correia、G. Corti、G. C. Costantino、C. Cotirlan、J. Cottee Meldrum、B. Couturier、D. C. Craik、N. Crepet、M. Cruz Torres、M. Cubero Campos、E. Curras Rivera、R. Currie、C. L. Da Silva、X. Dai、J. Dalseno、C. D&#x27;Ambrosio、G. Darze、A. Davidson、O. De Aguiar Francisco、C. De Angelis、F. De Benedetti、J. de Boer、K. De Bruyn、S. De Capua、M. De Cian、U. De Freitas Carneiro Da Graca、F. De Gregorio、E. De Lucia、J. M. De Miranda、L. De Paula、A. De Robertis、E. De Santis、M. De Serio、P. De Simone、F. De Vellis、J. A. de Vries、F. Debernardis、D. Decamp、S. Dekkers、L. Del Buono、B. Delaney、B. Demaire-Lepape、J. Deng、O. Deschamps、F. Dettori、B. Dey、P. Di Nezza、S. Ding、Y. Ding、L. Dittmann、J. F. Diverchy、A. D. Docheva、A. Doheny、C. Dong、F. Dordei、J. Dorta Moreno、A. C. dos Reis、J. Dos Santos Oliveira、A. D. Dowling、L. Dreyfus、W. Duan、P. Duda、L. Dufour、V. Duk、P. Durante、M. M. Duras、J. M. Durham、O. D. Durmus、K. Duwe、A. Dziurda、S. Easo、E. Eckstein、U. Egede、S. Eisenhardt、E. Ejopu、L. Eklund、M. Elashri、D. Elizondo Blanco、J. Ellbracht、S. Ely、A. Ene、T. Evans、F. Fabiano、S. Faghih、L. N. Falcao、B. Fang、R. Fantechi、L. Fantini、M. Faria、K. Farmer、F. Fassin、D. Fazzini、L. Felkowski、C. Feng、M. Feng、A. Fernandez Casani、M. Fernandez Gomez、B. Fernandez Rodino、J. Fernandez-John、A. D. Fernez、F. Ferrari、R. F. Ferreira Leite Considera、F. Ferreira Rodrigues、R. A. Fini、R. Fiorenza、M. Fiorini、M. Firlej、D. S. Fitzgerald、C. Fitzpatrick、T. Fiutowski、F. Fleuret、A. Fomin、M. Fontana、M. Fontes Vaz、L. A. Foreman、R. Forty、D. Foulds-Holt、V. Franco Lima、M. Franco Sevilla、M. Frank、E. Franzoso、G. Frau、C. Frei、D. A. Friday、J. Fu、Y. Fu、Q. Führing、T. Fulghesu、G. Galati、M. D. Galati、A. Gallas Torreira、D. Galli、S. Gambetta、M. Gandelman、P. Gandini、B. Ganie、H. Gao、R. Gao、T. Q. Gao、Y. Gao、Y. Gao、Y. Gao、L. M. Garcia Martin、P. Garcia Moreno、J. García Pardiñas、P. Gardner、L. Garrido、C. Gaspar、A. Gavrikov、J. George、E. Gersabeck、M. Gersabeck、T. Gershon、S. Ghizzo、Z. Ghorbanimoghaddam、F. I. Giasemis、V. Gibson、H. K. Giemza、A. L. Gilman、M. Giovannetti、A. Gioventù、L. Girardey、M. A. Giza、F. C. Glaser、V. V. Gligorov、C. Göbel、L. Golinka-Bezshyyko、E. Golobardes、A. Golutvin、S. Gomez Fernandez、A. G. Gomez Mongui、W. Gomulka、F. Goncalves Abrantes、I. Gonçales Vaz、M. Goncerz、G. Gong、S. Gong、J. A. Gooding、C. Gotti、E. Govorkova、J. P. Grabowski、L. A. Granado Cardoso、R. Grande Quartieri、E. Graugés、E. Graverini、L. Grazette、G. Graziani、A. T. Grecu、N. A. Grieser、L. Grillo、C. Gu、M. Guarise、L. Guerry、A. -K. Guseinov、Y. Guz、T. Gys、K. Habermann、T. Hadavizadeh、C. Hadjivasiliou、G. Haefeli、C. Haen、S. Haken、G. Hallett、P. M. Hamilton、Q. Han、S. Han、X. Han、S. Hansmann-Menzemer、N. Harnew、T. J. Harris、L. Hartman、M. Hartmann、S. Hashmi、J. He、N. Heatley、A. Hedes、F. Hemmer、C. Henderson、R. Henderson、R. D. L. Henderson、A. M. Hennequin、K. Hennessy、A. Henrot、J. Herd、P. Herrero Gascon、J. Heuel、A. Heyn、A. Hicheur、G. Hijano Mendizabal、J. Horswill、R. Hou、Y. Hou、D. C. Houston、N. Howarth、W. Hu、X. Hu、W. Hulsbergen、R. J. Hunter、D. Hutchcroft、M. Idzik、P. Ilten、A. Iohner、S. Jacevicius、H. Jage、S. J. Jaimes Elles、S. Jakobsen、T. Jakoubek、E. Jans、A. Jawahery、C. Jayaweera、A. Jelavic、V. Jevtic、Z. Jia、E. Jiang、X. Jiang、Y. Jiang、Y. J. Jiang、E. Jimenez Moya、N. Jindal、M. John、A. John Rubesh Rajan、D. Johnson、C. R. Jones、S. Joshi、B. Jost、J. Juan Castella、N. Jurik、I. Juszczak、K. Kalecinska、D. Kaminaris、S. Kandybei、M. Kane、Y. Kang、C. Kar、M. Karacson、A. Kauniskangas、J. W. Kautz、M. K. Kazanecki、F. Keizer、M. Kenzie、T. Ketel、B. Khanji、S. Kholodenko、V. Kholoimov、G. Khreich、F. Kiraz、T. Kirn、V. S. Kirsebom、N. Kleijne、A. Kleimenova、D. Klekots、K. Klimaszewski、M. R. Kmiec、T. Knospe、R. Kolb、S. Koliiev、L. Kolk、A. Konoplyannikov、P. Kooij、P. Kopciewicz、P. Koppenburg、A. Korchin、I. Kostiuk、O. Kot、S. Kotriakhova、E. Kowalczyk、O. Kravcov、M. Kreps、W. Krupa、W. Krzemien、O. Kshyvanskyi、S. Kubis、M. Kucharczyk、A. Kupsc、A. Kurzina、V. Kushnir、B. Kutsenko、J. Kvapil、I. Kyryllin、D. Lacarrere、P. Laguarta Gonzalez、A. Lai、A. Lampis、D. Lancierini、C. Landesa Gomez、G. Lanfranchi、C. Langenbruch、T. Latham、F. Lazzari、C. Lazzeroni、R. Le Gac、H. Lee、R. Lefèvre、M. Lehuraux、E. Lemos Cid、O. Leroy、T. Lesiak、E. D. Lesser、B. Leverington、A. Li、C. Li、C. Li、H. Li、J. Li、K. Li、L. Li、L. Li、P. Li、P. -R. Li、Q. Li、T. Li、T. Li、W. Li、Y. Li、Y. Li、Y. Li、Z. Li、Z. Lian、Q. Liang、X. Liang、Z. Liang、S. Libralon、A. Lightbody、J. Lin、S. Lin、T. Lin、R. Lindner、H. Linton、R. Litvinov、D. Liu、F. L. Liu、G. Liu、K. Liu、S. Liu、W. Liu、X. Liu、Y. Liu、Y. Liu、Y. L. Liu、G. Loachamin Ordonez、I. Lobo、A. Lobo Salvia、A. Loi、T. Long、F. C. L. Lopes、J. H. Lopes、A. Lopez Huertas、C. Lopez Iribarnegaray、Q. Lu、C. Lucarelli、D. Lucchesi、M. Lucio Martinez、Y. Luo、A. Lupato、M. Lupberger、E. Luppi、K. Lynch、J. Lyu、S. Lyu、X. -R. Lyu、H. Ma、S. Maccolini、F. Machefert、F. Maciuc、B. Mack、I. Mackay、L. M. Mackey、L. R. Madhan Mohan、M. J. Madurai、D. Magdalinski、J. J. Malczewski、S. Malde、L. Malentacca、G. Manca、C. Mancuso、R. Manera Escalero、A. Mangalasseri、F. Manganella、R. Mangrulkar、D. Manuzzi、S. Mao、D. Marangotto、J. F. Marchand、R. Marchevski、U. Marconi、L. Mareso、E. Mariani、S. Mariani、C. Marin Benito、J. Marks、A. M. Marshall、L. Martel、G. Martelli、G. Martellotti、L. Martinazzoli、M. Martinelli、C. Martinez、A. Martinez Armas、D. Martinez Gomez、D. Martinez Santos、F. Martinez Vidal、A. Martorell i Granollers、A. Massafferri、R. Matev、A. Mathad、C. Matteuzzi、K. R. Mattioli、L. Matzner、A. Mauri、E. Maurice、J. Mauricio、P. Mayencourt、J. Mazorra de Cos、M. Mazurek、D. Mazzanti Tarancon、M. McCann、N. T. McHugh、A. McNab、R. McNulty、B. Meadows、S. E. R. Medaer、D. Melnychuk、D. Mendoza Granada、P. Menendez Valdes Perez、F. M. Meng、M. Merk、A. Merli、L. Meyer Garcia、D. Miao、H. Miao、S. Mico、M. Mikhasenko、D. A. Milanes、A. Minotti、E. Minucci、B. Mitreska、D. S. Mitzel、R. Mocanu、A. Modak、L. Moeser、R. D. Moise、E. F. Molina Cardenas、T. Mombächer、M. Monk、T. Monnard、S. Monteil、A. Morcillo Gomez、G. Morello、M. J. Morello、M. P. Morgenthaler、A. Moro、J. Moron、W. Morren、A. B. Morris、A. G. Morris、R. Mountain、Z. Mu、N. Muangkod、E. Muhammad、F. Muheim、M. Mulder、K. Müller、F. Muñoz-Rojas、V. Mytrochenko、P. Naik、T. Nakada、R. Nandakumar、G. Napoletano、I. Nasteva、M. Needham、N. Neri、S. Neubert、N. Neufeld、J. Nicolini、D. Nicotra、E. M. Niel、L. Nisi、Q. Niu、B. K. Njoki、P. Nogarolli、P. Nogga、J. Nombela Royo、C. Normand、A. Novo Cal、J. Novoa Fernandez、G. Nowak、H. N. Nur、A. Oblakowska-Mucha、T. Oeser、O. Okhrimenko、R. Oldeman、F. Oliva、E. Olivart Pino、M. Olocco、R. H. O&#x27;Neil、J. S. Ordonez Soto、D. Osthues、J. M. Otalora Goicochea、A. Oyanguren、O. Ozcelik、F. Paciolla、A. Padee、K. O. Padeken、B. Pagare、T. Pajero、A. Palano、L. Palini、L. Palombini、M. Palutan、C. Pan、X. Pan、S. Panebianco、S. Paniskaki、L. Paolucci、A. Papanestis、M. Pappagallo、L. L. Pappalardo、C. Pappenheimer、C. Parkes、D. Parmar、G. Passaleva、D. Passaro、A. Pastore、M. Patel、J. Patoc、C. Patrignani、A. Paul、C. J. Pawley、A. Pellegrino、J. Peng、X. Peng、M. Pepe Altarelli、S. Perazzini、H. Pereira Da Costa、M. Pereira Martinez、A. Pereiro Castro、C. Perez、A. Perez Casas、P. Perret、A. Perrevoort、A. Perro、M. J. Peters、A. Petkovic、K. Petridis、A. Petrolini、S. Pezzulo、J. P. Pfaller、H. Pham、L. Pica、M. Piccini、L. Piccolo、B. Pietrzyk、R. N. Pilato、D. Pinci、F. Pisani、M. Pizzichemi、V. M. Placinta、M. Plo Casasus、T. Poeschl、F. Polci、M. Poli Lener、A. Poluektov、I. Polyakov、E. Polycarpo、S. Ponce、D. Popov、K. Popp、K. Prasanth、C. Prouve、D. Provenzano、V. Pugatch、A. Puicercus Gomez、G. Punzi、J. R. Pybus、Q. Qian、W. Qian、N. Qin、R. Quagliani、R. I. Rabadan Trejo、B. Rachwal、R. Racz、J. H. Rademacker、M. Rama、M. Ramírez García、V. Ramos De Oliveira、M. Ramos Pernas、G. Ramsey、M. S. Rangel、G. Raven、M. Rebollo De Miguel、F. Redi、J. Reich、F. Reiss、Z. Ren、P. K. Resmi、M. Ribalda Galvez、R. Ribatti、G. Ricart、D. Riccardi、S. Ricciardi、K. Richardson、M. Richardson-Slipper、F. Riehn、K. Rinnert、P. Robbe、G. Robertson、E. Rodrigues、A. Rodriguez Alvarez、E. Rodriguez Fernandez、J. A. Rodriguez Lopez、E. Rodriguez Rodriguez、J. Roensch、A. Rogovskiy、D. L. Rolf、P. Roloff、A. Romano、V. Romanovskiy、A. Romero Vidal、G. Romolini、F. Ronchetti、T. Rong、W. Rose、M. Rotondo、M. S. Rudolph、G. Ruggiero、M. Ruiz Diaz、J. Ruiz Vidal、J. Ruz Armendariz、J. J. Saavedra-Arias、J. J. Saborido Silva、D. Sahoo、N. Sahoo、B. Saitta、M. Salomoni、I. Sanderswood、R. Santacesaria、C. Santamarina Rios、M. Santimaria、L. Santoro、E. Santovetti、A. Saputi、A. Sarnatskiy、G. Sarpis、M. Sarpis、C. Satriano、A. Satta、M. Saur、H. Sazak、F. Sborzacchi、A. Scarabotto、S. Schael、S. Scherl、M. Schiller、H. Schindler、M. Schmelling、B. Schmidt、N. Schmidt、S. Schmitt、H. Schmitz、O. Schneider、A. Schopper、N. Schulte、H. Schumacher、M. H. Schune、G. Schwering、B. Sciascia、A. Sciuccati、G. Scriven、I. Segal、S. Sellam、M. Senghi Soares、A. Sergi、N. Serra、L. Sestini、B. Sevilla Sanjuan、Y. Shang、D. M. Shangase、R. S. Sharma、L. Shchutska、T. Shears、S. Shelton、J. Shen、Z. Shen、S. Sheng、B. Shi、J. Shi、Q. Shi、W. S. Shi、E. Shmanin、R. Silva Coutinho、G. Simi、S. Simone、M. Singha、I. Siral、N. Skidmore、T. Skwarnicki、M. W. Slater、E. Smith、M. Smith、L. Soares Lavra、M. D. Sokoloff、F. J. P. Soler、A. Solomin、K. Solovieva、N. S. Sommerfeld、R. Song、Y. Song、Y. Song、Y. S. Song、F. L. Souza De Almeida、G. Souza De Castro、B. Souza De Paula、K. M. Sowa、E. Spadaro Norella、E. Spedicato、J. G. Speer、P. Spradlin、F. Stagni、M. Stahl、S. Stahl、S. Stanislaus、M. Stefaniak、O. Steinkamp、F. Suljik、J. Sun、L. Sun、M. Sun、D. Sundfeld、P. Svihra、V. Svintozelskyi、J. Swallow、K. Swientek、F. Swystun、A. Szabelski、T. Szumlak、Y. Tan、Y. Tang、Y. T. Tang、M. D. Tat、J. A. Teijeiro Jimenez、F. Terzuoli、F. Teubert、E. Thomas、D. J. D. Thompson、A. R. Thomson-Strong、R. Thornton、H. Tilquin、V. Tisserand、S. T&#x27;Jampens、M. Tobin、T. T. Todorov、L. Tomassetti、G. Tonani、X. Tong、T. Tork、L. Torlai、L. Toscano、D. Y. Tou、C. Trippl、G. Tuci、N. Tuning、L. H. Uecker、A. Ukleja、A. Upadhyay、B. Urbach、A. Usachov、U. Uwer、V. Vagnoni、A. Vaitkevicius、A. Valassi、V. Valcarce Cadenas、G. Valenti、N. Valls Canudas、J. van Eldik、H. Van Hecke、E. van Herwijnen、C. B. Van Hulse、R. Van Laak、M. van Veghel、P. Varrella、R. Vazquez Gomez、P. Vazquez Regueiro、C. Vázquez Sierra、S. Vecchi、J. Velilla Serna、J. J. Velthuis、M. Veltri、A. Venkateswaran、M. Verdoglia、M. Vesterinen、W. Vetens、D. Vico Benet、P. Vidrier Villalba、M. Vieites Diaz、X. Vilasis-Cardona、E. Vilella Figueras、A. Villa、P. Vincent、B. Vivacqua、F. C. Volle、D. vom Bruch、K. Vos、C. Vrahas、J. Wagner、J. Walsh、N. Walter、E. J. Walton、G. Wan、A. Wang、B. Wang、C. Wang、C. Wang、C. Wang、G. Wang、H. Wang、J. Wang、J. Wang、J. Wang、J. Wang、M. Wang、N. W. Wang、X. Wang、X. Wang、X. Wang、X. W. Wang、Y. Wang、Y. Wang、Y. Wang、Y. H. Wang、Z. Wang、Z. Wang、J. A. Ward、M. Waterlaat、N. K. Watson、D. Websdale、Y. Wei、Z. Weida、J. Wendel、B. D. C. Westhenry、A. S. White、C. White、M. Whitehead、E. Whiter、A. R. Wiederhold、D. Wiedner、M. A. Wiegertjes、C. Wild、G. Wilkinson、M. K. Wilkinson、M. Williams、M. J. Williams、M. R. J. Williams、R. Williams、S. Williams、Z. Williams、F. F. Wilson、M. Winn、W. Wislicki、M. Witek、L. Witola、T. Wolf、E. Wood、G. Wormser、S. A. Wotton、H. Wu、J. Wu、T. Wu、X. Wu、Y. Wu、Z. Wu、K. Wyllie、S. Xian、Z. Xiang、Y. Xie、T. X. Xing、A. Xu、L. Xu、M. Xu、R. Xu、Z. Xu、Z. Xu、Z. Xu、Z. Xu、S. Yadav、K. Yang、X. Yang、Y. Yang、Y. Yang、Z. Yang、Z. Yang、H. Yeung、H. Yin、X. Yin、C. Y. Yu、J. Yu、K. Yu、X. Yuan、Y Yuan、S. Zalambani、J. A. Zamora Saa、F. Zangari、M. Zavertyaev、M. Zdybal、F. Zenesini、C. Zeng、M. Zeng、S. H Zeng、C. Zhang、C. Zhang、D. Zhang、J. Zhang、L. Zhang、Q. Z. Zhang、R. Zhang、S. Zhang、S. L. Zhang、Y. Zhang、Z. Zhang、J. Zhao、M. Zhao、Y. Zhao、A. Zhelezov、S. Z. Zheng、X. Z. Zheng、Y. Zheng、T. Zhou、X. Zhou、V. Zhovkovska、L. Z. Zhu、X. Zhu、X. Zhu、Y. Zhu、V. Zhukov、J. Zhuo Gao、T. Zies、D. Zuliani、X. Zuo</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用LHCb实验采集的PbPb碰撞数据，搜寻质量在3-10 GeV范围内的类轴子粒子（axion-like particles）的产生。所用数据对应积分亮度为$0.228~\mathrm{nb}^{-1}$，核子-核子质心系能量为$\sqrt{s_{\mathrm{NN}}}=5.02$ TeV。这是首个针对前向区域中仅由双光子过程（$\gamma\gamma\to a\to\gamma\gamma$）产生的类轴子粒子的搜寻。该分析将灵敏度扩展至此前未探索的参数空间区域，探测的类轴子粒子质量与耦合分别低至3.0 GeV和$3.2\times10^{-4}~\mathrm{GeV}^{-1}$。该结果为质量在3至5 GeV之间、由遍举光子-光子聚变过程产生的类轴子粒子给出了迄今最严格的限制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在PbPb碰撞中，是否存在质量在3-10 GeV范围内、通过前向遍举双光子聚变过程（$\gamma\gamma\to a\to\gamma\gamma$）产生的类轴子粒子。</p>
+    <h4>方法</h4><p>利用LHCb实验记录的PbPb碰撞数据（积分亮度$0.228~\mathrm{nb}^{-1}$，$\sqrt{s_{\mathrm{NN}}}=5.02$ TeV），对前向区域中由双光子遍举产生的类轴子粒子进行搜寻，并据此对质量与耦合参数空间设定限制。</p>
+    <h4>主要发现</h4><p>该搜寻将灵敏度扩展至此前未探索的参数空间，探测的类轴子粒子质量与耦合分别低至3.0 GeV和$3.2\times10^{-4}~\mathrm{GeV}^{-1}$；并为质量在3至5 GeV之间、由遍举光子-光子聚变过程产生的类轴子粒子给出了迄今最严格的限制。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；可合理推断，该搜寻受限于所分析的积分亮度和3-10 GeV的质量范围，未来利用更大统计量的PbPb数据或可进一步扩展质量与耦合的探测范围（此句为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.00194v1">
+  <div class="paper-head">
+    <h2>超越结合能与温度之比展开的重夸克偶素动力学<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.00194v1" rel="noopener noreferrer">2611.00194v1</a>
+  </div>
+  <p class="original-title">Heavy quarkonium dynamics beyond the binding energy over temperature expansion</p>
+  <p class="meta"><strong>作者：</strong>Nora Brambilla、Arthur Yi-Ting Lin、Tom Magorsch、Antonio Vairo</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文重新审视了在夸克-胶子等离子体中底偶素的 pNRQCD 开放量子系统描述，将完整的主方程写在球基下，并建立了其数值处理框架。该方程不依赖于结合能与温度之比的展开，同时保留了 Born 近似、Markov 近似和稀薄近似。它依赖于库仑格林函数与实时色电场关联函数的适当卷积，而非有限的一组输运系数。方程包含以正号和负号出现的跳跃算符贡献，因此不属于 Lindblad 型。我们利用最优算符旋转来最小化负扇区，并定义了一种正扇区近似，仅保留优化后的正项，从而得到一个可用开源代码 QTraj 对任意色电场谱函数进行高效模拟的 Lindblad 方程。我们将被舍弃的扇区视为与伪 Lindblad 生成元的正定性破坏效应相关的系统不确定性。正定性破坏效应可归因于夸克偶素主方程推导中所作的近似，例如 Born--Markov 近似。使用受已知红外和紫外极限约束的谱模型，我们计算了 $\Upsilon(1\mathrm{S},2\mathrm{S},3\mathrm{S})$ 的介质内宽度和 Bjorken 演化后的存活概率。计算表明结合能与温度之比展开在高温下收敛，并给出了低温区域底偶素的首批大规模量子轨迹模拟结果。因此，我们能够追踪重离子碰撞中整个相关温度范围内的底偶素演化。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在夸克-胶子等离子体中描述底偶素的动力学，而不依赖结合能与温度之比的展开，并建立可数值处理的开放量子系统框架。</p>
+    <h4>方法</h4><p>在球基下写出 pNRQCD 开放量子系统的完整主方程，保留 Born、Markov 和稀薄近似；利用库仑格林函数与实时色电场关联函数的卷积；通过最优算符旋转最小化负扇区并构造正扇区近似，得到可用 QTraj 模拟的 Lindblad 方程；采用受红外和紫外极限约束的谱模型进行计算。</p>
+    <h4>主要发现</h4><p>所得主方程不属于 Lindblad 型，包含正负号的跳跃算符贡献；正扇区近似可得到可高效模拟的 Lindblad 方程；被舍弃扇区可作为正定性破坏效应的系统不确定性；计算给出了 $\Upsilon(1\mathrm{S},2\mathrm{S},3\mathrm{S})$ 的介质内宽度和 Bjorken 演化存活概率；结果表明结合能与温度之比展开在高温下收敛，并给出了低温区域底偶素的首批大规模量子轨迹模拟结果。</p>
+    <h4>局限与展望</h4><p>正定性破坏效应可归因于 Born--Markov 等近似，其影响被处理为系统不确定性；该框架的适用范围受这些近似及谱模型约束；可合理推断，后续工作可进一步改进对负扇区的处理或检验近似的影响，但原文未明确给出具体后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.00613v1">
+  <div class="paper-head">
+    <h2>利用HIAF上U+U碰撞中的整体Λ极化探测原子核形变<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.00613v1" rel="noopener noreferrer">2611.00613v1</a>
+  </div>
+  <p class="original-title">Probing nuclear deformation through global $Λ$ polarization in U$+$U collisions at HIAF</p>
+  <p class="meta"><strong>作者：</strong>Shin-ei Fujii、Kiochi Hattori</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文基于JAM2输运模型，研究了在质心能量√s_NN=2.85 GeV的U+U碰撞中原子核形变对整体Λ极化的影响，以期为HIAF未来的实验测量提供参考。结果表明，尖端-尖端（tip-tip）与侧面-侧面（side-side）位形产生的整体Λ极化显著大于体-体（body-body）位形；并且随着四极形变参数β_2的增大，这种差异也随之增大，说明依赖于碰撞位形的极化对原子核形变具有敏感性。上述结果将原子核形状与超子自旋联系起来，为通过中能重离子碰撞中的极化测量探测原子核形变提供了新途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在√s_NN=2.85 GeV的U+U碰撞中，原子核形变（特别是四极形变参数β_2）如何影响整体Λ极化，以及不同碰撞位形（tip-tip、side-side、body-body）下该效应有何差异。</p>
+    <h4>方法</h4><p>采用JAM2输运模型，对√s_NN=2.85 GeV的U+U碰撞进行模拟，比较不同碰撞位形下的整体Λ极化，并考察其随四极形变参数β_2的变化。</p>
+    <h4>主要发现</h4><p>tip-tip与side-side位形产生的整体Λ极化显著大于body-body位形；随着β_2增大，不同位形间极化的差异也随之增大，表明依赖于碰撞位形的极化对原子核形变具有敏感性。</p>
+    <h4>局限与展望</h4><p>原文结果基于JAM2输运模型的模拟，尚待HIAF未来实验检验；该研究提示，中能重离子碰撞中的整体Λ极化测量或可作为探测原子核形变的一种途径（此为原文明确提出的展望）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.01093v1">
+  <div class="paper-head">
+    <h2>三核子短程关联中核子的新标度关系<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.01093v1" rel="noopener noreferrer">2611.01093v1</a>
+  </div>
+  <p class="original-title">New Scaling Relations for Nucleons in Three-Nucleon Short-Range Correlations</p>
+  <p class="meta"><strong>作者：</strong>Misak M. Sargsian、Ilay Wischnevsky Shlush</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>寻找原子核中的三核子短程关联（3N-SRC）是高密度核物理中活跃的研究方向之一，其动机部分来自基于三核子短程力对两倍太阳质量中子星的预言以及随后对这类星体的观测。3N-SRC 可作为探测量子色动力学中 largely 未知的不可约三核子力动力学的“实验室”，但在高能核过程中识别 3N-SRC 仍然困难，使其研究前景存在问题。本文为 2N-SRC 和 3N-SRC 引入新的动力学参数 β_{2N} 和 β_{3N}，用以刻画超出核子在短程关联中组合计数的短程关联强度。对 2N-SRC，引入 β_{2N} 参数可导出此前已知并经实验验证的 2N-SRC 中质子与中子动量分布关系；对 3N-SRC，β_{3N} 参数使关联中核子的动量分布得以因子化，从而预言 3N-SRC 中质子与中子动量分布之间的新标度关系。若该关系成立，将为在电子-核过程中识别 3N-SRC 提供新途径。尽管所得标度关系适用于相对论区域，但光前分离短程关联质心运动的可能性使得可用非相对论 ab initio 波函数检验该预言。通过分析 3≤A≤12 范围内原子核的 ab initio 波函数，我们发现了对该预言出乎意料地合理的支持，这表明该标度关系具有稳健性，并为实验寻找 3N-SRC 开辟了新方向。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在高能核过程中识别三核子短程关联（3N-SRC），并刻画超出核子组合计数的短程关联强度。</p>
+    <h4>方法</h4><p>引入新的动力学参数 β_{2N} 和 β_{3N} 分别描述 2N-SRC 与 3N-SRC 的强度；利用 β_{3N} 使 3N-SRC 中核子动量分布因子化，推导质子与中子动量分布间的新标度关系；并借助光前分离短程关联质心运动，用 3≤A≤12 原子核的非相对论 ab initio 波函数检验该关系。</p>
+    <h4>主要发现</h4><p>对 2N-SRC，引入 β_{2N} 可导出此前已知且经实验验证的质子与中子动量分布关系；对 3N-SRC，β_{3N} 导致动量分布因子化并预言新的质子-中子动量分布标度关系；分析 A=3 至 12 的 ab initio 波函数发现对该预言出乎意料地合理的支持，表明标度关系具有稳健性。</p>
+    <h4>局限与展望</h4><p>所得标度关系原则上适用于相对论区域，本文仅通过非相对论 ab initio 波函数进行间接检验；其在高能电子-核实验中的有效性尚待实验验证，若成立可为实验寻找 3N-SRC 提供新途径。</p>
+  </section>
+</article><article class="paper" id="paper-2611.01117v1">
+  <div class="paper-head">
+    <h2>LHμC构想：CERN的能源前沿反μ子-质子对撞<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.01117v1" rel="noopener noreferrer">2611.01117v1</a>
+  </div>
+  <p class="original-title">LH$μ$C Concept: Energy-Frontier Antimuon-Proton Collisions at CERN</p>
+  <p class="meta"><strong>作者：</strong>Arda Goroglu、Saleh Sultansoy</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span> <span class="tag">physics.acc-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出LHμC构想，即基于高亮度大型强子对撞机（HL-LHC）的能源前沿反μ子-质子对撞机。文章首先回顾了能源前沿轻子-强子对撞机作为QCD探索工具不可或缺的原因，并梳理了μ子-质子对撞机提案的历史；随后比较了在LHC实现μp对撞的两种方式：采用μ子对撞机束流，以及采用类似μTRISTAN方案所提出的超冷μ⁺束流。针对后者，讨论了μTRISTAN型增强器以及再利用LHeC能量回收直线加速器隧道的问题；将1 TeV反μ子与7 TeV质子对撞可得到√s=5.3 TeV，峰值亮度分别为8.8×10³³与7.2×10³³ cm⁻²s⁻¹。文中还讨论了探测器构想与物理潜力，包括对色八重态μ子和R宇称破坏超对称夸克的搜寻，并概述了主要挑战。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否基于HL-LHC实现能源前沿的μ子-质子（μp）对撞，以及其可能的实现方式、亮度指标、探测器构想与物理潜力。</p>
+    <h4>方法</h4><p>概念性方案设计与比较研究：回顾轻子-强子对撞机的QCD物理动机与μp对撞机历史；比较两种在LHC实现μp对撞的束流方案（μ子对撞机束流与超冷μ⁺束流），并讨论μTRISTAN型增强器及再利用LHeC能量回收直线加速器隧道的可行性；给出1 TeV反μ子与7 TeV质子对撞的质心能量与峰值亮度估算，并讨论探测器构想与物理潜力。</p>
+    <h4>主要发现</h4><p>1 TeV反μ子与7 TeV质子对撞对应√s=5.3 TeV；两种方案给出的峰值亮度分别为8.8×10³³与7.2×10³³ cm⁻²s⁻¹；论文讨论了探测器构想及物理潜力，包括对色八重态μ子和R宇称破坏超对称夸克的搜寻，并概述了主要挑战。</p>
+    <h4>局限与展望</h4><p>原文以概念性讨论为主，尚未给出完整的设计参数或实验验证；其局限与适用范围取决于束流冷却、增强器与隧道再利用等工程可行性。可合理推断，后续工作需进一步细化加速器与探测器设计并评估本底与系统误差；上述推断仅为方向性判断，非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.01458v1">
+  <div class="paper-head">
+    <h2>介质内相似性重正化群中多体截断的收敛性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.01458v1" rel="noopener noreferrer">2611.01458v1</a>
+  </div>
+  <p class="original-title">Convergence of many-body truncations in the in-medium similarity renormalization group</p>
+  <p class="meta"><strong>作者：</strong>L. H. Chen、H. Hergert、J. M. Yao</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">cond-mat.str-el</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>介质内相似性重正化群（IMSRG）是描述原子核的一种重要从头算方法。多数应用将流动算符截断在正规序两体水平，忽略诱导出的更高体项。随着算符阶数提高的收敛性仍认识不足，尤其是在强关联系统中。本文系统评估单参考与多参考 IMSRG 中的多体截断层级，分别保留正规序算符至四体与三体水平。利用一个可精确求解的配对加粒子-空穴模型，我们在从弱关联到强关联的广泛相互作用强度范围内量化了逐级更高体修正。多参考表述比单参考表述表现出更快且更稳健的收敛，其优势在强耦合下最为显著。在该区域，更高阶不可约密度矩阵对实现多体展开的收敛起关键作用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>IMSRG 中随算符阶数提高的多体截断收敛性如何，尤其在强关联系统中，单参考与多参考表述的收敛行为有何差异？</p>
+    <h4>方法</h4><p>在单参考与多参考 IMSRG 中分别保留正规序算符至四体与三体水平，系统评估多体截断层级；使用可精确求解的配对加粒子-空穴模型，在广泛相互作用强度范围内量化逐级更高体修正。</p>
+    <h4>主要发现</h4><p>多参考表述比单参考表述收敛更快且更稳健，优势在强耦合下最显著；在强耦合区域，更高阶不可约密度矩阵对实现多体展开的收敛起关键作用。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；基于结果可合理推断，强关联区域中更高阶不可约密度矩阵的重要性提示需在截断方案中更谨慎处理更高体项，但该推断尚需在更接近真实原子核的模型中验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.02836v1">
+  <div class="paper-head">
+    <h2>ACTAR TPC中的径迹重建：一个转移反应用例<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.02836v1" rel="noopener noreferrer">2611.02836v1</a>
+  </div>
+  <p class="original-title">Track reconstruction with ACTAR TPC: a transfer-reaction use case</p>
+  <p class="meta"><strong>作者：</strong>M. Lozano-González、J. Lois-Fuentes、T. Roger、I. Blanco-Calviño、B. Fernández-Domínguez</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出了一个用于ACTAR时间投影室（ACTAR TPC）径迹重建的统一框架，旨在应对涉及奇异核的直接反应与共振弹性散射实验中的特定挑战。actroot软件包通过集成基于连续性的聚类算法与模块化滤波流程，实现高效的半在线分析，以降低噪声、δ电子污染和径迹碎片化。该软件利用GANIL的LISE3谱仪提供的次级20O束流所采集的实验数据进行了基准测试。该算法在多种事件拓扑下均达到超过90%的重建效率。该系统能够实现准确的粒子鉴别和反应点确定，有助于提取关键物理观测量。这些结果表明，该框架适用于无磁场的立方体主动靶时间投影室中的直接反应实验。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为ACTAR TPC中涉及奇异核的直接反应与共振弹性散射实验建立统一的径迹重建框架，并有效处理噪声、δ电子污染和径迹碎片化等问题。</p>
+    <h4>方法</h4><p>开发actroot软件包，集成基于连续性的聚类算法与模块化滤波流程以进行半在线分析；并使用GANIL的LISE3谱仪提供的次级20O束流实验数据进行基准测试。</p>
+    <h4>主要发现</h4><p>该算法在多种事件拓扑下重建效率超过90%；系统能够实现准确的粒子鉴别和反应点确定，从而有助于提取关键物理观测量。</p>
+    <h4>局限与展望</h4><p>原文表明该框架适用于无磁场的立方体主动靶时间投影室中的直接反应实验；其局限与更广泛的适用范围尚未在摘要中明确说明，后续可合理推断的方向包括在其他束流条件或实验拓扑下进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.02958v1">
+  <div class="paper-head">
+    <h2>RHIC与LHC能量下轻核与超核产生：唯象模型的比较研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.02958v1" rel="noopener noreferrer">2611.02958v1</a>
+  </div>
+  <p class="original-title">Light nucleus and hypernucleus production at RHIC and LHC energies: a comparative study of phenomenological models</p>
+  <p class="meta"><strong>作者：</strong>J. Aichelin、A. Andronic、F. Bellini、M. Bleicher、K. Blum、E. Bratkovskaya、P. Braun-Munzinger、A. Calivà、J. Ditzel、B. Dönigus、M. S. Ege、H. Elfner、S. Glaessel、M. V. Hartung、C. M. Ko、R. Lea、M. Lorenz、M. Mahlein、D. Miśkowiec、S. Mrowczynski、C. Pinto、M. Puccio、K. Redlich、B. Singh、J. Stachel、K. J. Sun、B. Tomašik、V. Vovchenko、Z. Xu、H. Zbroszczyk</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文总结了EMMI快速反应工作组“理解RHIC与LHC能量下轻（反）核产生”的研究工作，该会议于2024年4月8—12日在GSI举行，汇集实验与理论研究人员，讨论高能强子碰撞中轻核与超核产生的当前认识，重点涉及统计强子化、 coalescence、动理学与输运等描述途径。讨论涵盖实验现状、不同理论描述对现有测量结果的再现能力，以及核产生、 femtoscopic关联、源尺寸、核波函数与松散束缚态形成动力学之间的联系。本文综述该工作组期间呈现的主要实验与理论进展，总结讨论中提出的关键问题，并指出可能有助于区分不同产生机制的观测量与未来测量方向。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>高能强子碰撞中轻（反）核与超核的产生机制是什么，以及统计强子化、 coalescence、动理学和输运等唯象模型能否再现RHIC与LHC能量下的实验测量。</p>
+    <h4>方法</h4><p>EMMI快速反应工作组于2024年4月8—12日在GSI召开会议，汇集实验与理论研究人员，对轻核与超核产生的实验现状及多种理论描述进行比较性研讨，并综述相关实验与理论进展。</p>
+    <h4>主要发现</h4><p>会议讨论了统计强子化、 coalescence、动理学与输运等途径对现有测量的再现能力，并探讨了核产生与 femtoscopic关联、源尺寸、核波函数及松散束缚态形成动力学之间的联系；原文未给出具体数值结论。</p>
+    <h4>局限与展望</h4><p>原文指出需通过特定观测量与未来测量来区分不同产生机制；具体哪些观测量最具判别力尚待后续研究明确。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-03 12:56 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
