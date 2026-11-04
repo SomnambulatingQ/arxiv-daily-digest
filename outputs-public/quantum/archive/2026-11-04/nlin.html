@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-11-04</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">8</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">3</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（5）</h3><ol class="toc-list"><li><a href="#paper-2611.04346v1">路径系统通过个体路径优化实现自组织</a> <small>2611.04346v1</small></li><li><a href="#paper-2611.04962v1">具有两个独立共振的扰动可积哈密顿动力系统的不可积性定理</a> <small>2611.04962v1</small></li><li><a href="#paper-2611.05015v1">一个超可积量子场论的整数谱</a> <small>2611.05015v1</small></li><li><a href="#paper-2611.05125v1">具有密集模态与非经典阻尼分布的强非线性耦合振子中的模态相互作用</a> <small>2611.05125v1</small></li><li><a href="#paper-2611.05305v1">高阶色散对耦合克尔腔中孤子相互作用的影响</a> <small>2611.05305v1</small></li></ol><h3>交叉列表（3）</h3><ol class="toc-list"><li><a href="#paper-2611.03857v1">从逆散射变换推导Toda链的热力学Bethe拟设</a> <small>2611.03857v1</small></li><li><a href="#paper-2611.04706v1">通过层级结构设计湍流</a> <small>2611.04706v1</small></li><li><a href="#paper-2611.04752v1">非线性诱导的浴耦合 Floquet 拓扑绝缘体中耗散抑制</a> <small>2611.04752v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.04346v1">
+  <div class="paper-head">
+    <h2>路径系统通过个体路径优化实现自组织<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.04346v1" rel="noopener noreferrer">2611.04346v1</a>
+  </div>
+  <p class="original-title">Trail systems self-organize through individual route optimization</p>
+  <p class="meta"><strong>作者：</strong>Brendan Wallace、Andrew Berdahl</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">q-bio.QM</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>动物（包括人类）行走时会压实脚下的植被与地面，从而降低后续行走者的移动成本。这种正反馈会催生路径网络，使移动更高效，并在代际尺度上储存关于环境的信息。模拟这一过程的模型表明，个体依据局部线索行动即可生成具有许多真实网络特征的路径系统。然而，对于掌握更完整环境信息并具备智能规划行为能力的行走者，相关研究仍然很少。本文提出一个基于个体最小化移动成本的简单通用路径形成模型。与真实环境类似，我们的模拟产生了种类丰富的复杂路径网络。我们表明，这些路径系统会依据行走者的空间需求以最优方式连接空间，其几何结构与理论预测相符，且所生成的系统可能落入多个吸引态。随着技术进步使我们能够量化不同生境和物种中的路径系统，该模型为动物路径的实证研究以及理解人类交通网络的出现提供了理论基础，并对城市设计具有启示意义。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究具备较完整环境知识与智能规划能力的行走者如何通过个体路径优化形成路径系统，以及这些路径系统的连接效率、几何特征与动力学性质。</p>
+    <h4>方法</h4><p>提出一个基于个体最小化移动成本的简单通用路径形成模型，并通过模拟生成路径网络，将其空间连接、几何结构与理论预测进行比较，同时考察系统可能落入的吸引态。</p>
+    <h4>主要发现</h4><p>模拟产生了种类丰富的复杂路径网络；这些路径系统依据行走者的空间需求以最优方式连接空间；路径系统的几何结构与理论预测相符；所生成的系统可能落入多个吸引态。</p>
+    <h4>局限与展望</h4><p>原文指出，随着技术进步使跨生境、跨物种的路径系统量化成为可能，该模型可为动物路径的实证研究及人类交通网络的出现提供理论基础，并对城市设计具有启示；上述应用属于作者明确提出的意义与方向，而非本文已完成的实证验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04962v1">
+  <div class="paper-head">
+    <h2>具有两个独立共振的扰动可积哈密顿动力系统的不可积性定理<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.04962v1" rel="noopener noreferrer">2611.04962v1</a>
+  </div>
+  <p class="original-title">Nonintegrability theorem on perturbed integrable Hamiltonian dynamical systems with two independent resonances</p>
+  <p class="meta"><strong>作者：</strong>Nikos Zafeiriadis、Efthymia Meletlidou、Christos Efthymiopoulos、Christos Volos</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对一类扰动的、自治的二自由度哈密顿动力系统，在系统具有两个独立共振的情形下建立了一个新的不可积性定理。该定理基于一个不可积性判据，判据利用了著名的Poincaré定理以及Lie级数辛变换。文中还就定理成立与不成立的条件给出了一些假设和建议。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何判定具有两个独立共振的扰动自治二自由度哈密顿动力系统是否不可积。</p>
+    <h4>方法</h4><p>基于利用Poincaré定理与Lie级数辛变换构造的不可积性判据，建立新的不可积性定理，并讨论定理成立与不成立的条件。</p>
+    <h4>主要发现</h4><p>原文明确给出了针对具有两个独立共振的扰动自治二自由度哈密顿系统的新不可积性定理，并附有关于定理适用与不适用情形的假设和建议。</p>
+    <h4>局限与展望</h4><p>原文未给出具体应用实例或定量估计；该定理的适用范围受两个独立共振及所设假设条件限制，后续可考虑在具体模型中检验该判据，此点属合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05015v1">
+  <div class="paper-head">
+    <h2>一个超可积量子场论的整数谱<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05015v1" rel="noopener noreferrer">2611.05015v1</a>
+  </div>
+  <p class="original-title">The integer spectrum of a superintegrable quantum field theory</p>
+  <p class="meta"><strong>作者：</strong>Marine De Clerck、Oleg Evnin</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span> <span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.AP</span> <span class="tag">math.CO</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在我们此前发表于 CMP 407 (2026) 131 的文章中，我们研究了由玻色子产生-湮灭算符的四次型构成的特定量子多体哈密顿量所引出的丰富代数结构。该哈密顿量源自 Gérard 与 Grellier 关于 Lax 可积框架下经典湍流能量转移的工作，其量子版本满足若干多项式守恒律的层级结构，这些守恒律以及哈密顿量本身都具有纯整数谱。后一特征此前已由数值研究得知，但一直未获证明。本文给出量子 Gérard-Grellier 哈密顿量的一个初等解法。本征态由分拆（partition）标记，相应的本征值可用主钩长（principal hook length）给出简单的显式表达式。该构造的关键在于我们引入的一组特定基，其灵感来自经典多孤子相干态，在该基下哈密顿量呈上三角形式。本征值的表达式由此直接得到，而完整的本征基可通过 Gram-Schmidt 过程恢复。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何证明量子 Gérard-Grellier 哈密顿量及其多项式守恒律层级具有纯整数谱，并显式求解其本征态与本征值。</p>
+    <h4>方法</h4><p>引入受经典多孤子相干态启发的一组特定基，使哈密顿量在该基下呈上三角形式；本征态由分拆标记，本征值以主钩长显式表达，完整本征基通过 Gram-Schmidt 过程恢复。</p>
+    <h4>主要发现</h4><p>给出了量子 Gérard-Grellier 哈密顿量的初等解法；本征态由分拆标记，本征值可用主钩长给出简单显式表达式，从而证实了此前仅由数值研究得知的整数谱特征。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论该解法的适用范围与局限；可合理推断，该上三角基构造或可推广至同类多项式守恒律层级的研究，但此点尚待进一步工作验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05125v1">
+  <div class="paper-head">
+    <h2>具有密集模态与非经典阻尼分布的强非线性耦合振子中的模态相互作用<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05125v1" rel="noopener noreferrer">2611.05125v1</a>
+  </div>
+  <p class="original-title">Modal interactions in strongly nonlinear coupled oscillators with closely spaced modes and nonclassical damping distribution</p>
+  <p class="meta"><strong>作者：</strong>C. A. Hubay、T. Kalmar-Nagy、L. Bergman、A. F. Vakakis</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">physics.class-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>具有密集模态和非经典（非比例）阻尼分布的线性与非线性机械结构易发生模态相互作用，并伴随模态间的能量交换。本文针对受脉冲激励的两自由度耦合振子，采用作用量-角变量与多尺度法分析此类相互作用。为展示方法的基本步骤，首先从线性系统出发，继而分析具有强非线性立方刚度非线性项系统中的模态相互作用。与线性情形不同，一旦在1:1共振下刻画非线性系统的动力学，强非线性模态相互作用会依能量不同而发生。文中详细分析了这些区域以及捕获吸引、1:1捕获与逃逸捕获。本文的解析研究确定了因共振捕获而发生非线性模态相互作用的参数取值范围。解析预测由运动控制方程的直接数值模拟得到充分验证。文中还讨论了将本工作推广至更多自由度振子系统以及其他类型耗散元件（如摩擦或滞回）的可能扩展。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究具有密集模态和非经典（非比例）阻尼分布的两自由度耦合振子在脉冲激励下的模态相互作用与能量交换，特别是强非线性立方刚度情形下共振捕获相关行为。</p>
+    <h4>方法</h4><p>采用作用量-角变量与多尺度法进行解析分析；先处理线性系统以展示方法步骤，再分析含强非线性立方刚度的系统；并通过运动控制方程的直接数值模拟验证解析预测。</p>
+    <h4>主要发现</h4><p>在线性情形之外，当非线性系统动力学在1:1共振下被刻画后，强非线性模态相互作用会依能量不同而发生；文中详细分析了相关区域以及捕获吸引、1:1捕获与逃逸捕获；解析研究确定了因共振捕获而发生非线性模态相互作用的参数取值范围；解析预测由直接数值模拟充分验证。</p>
+    <h4>局限与展望</h4><p>原文讨论了将本工作推广至更多自由度振子系统以及其他类型耗散元件（如摩擦或滞回）的可能扩展；这些属于作者提出的可能扩展方向，尚未在本文中实现或验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05305v1">
+  <div class="paper-head">
+    <h2>高阶色散对耦合克尔腔中孤子相互作用的影响<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05305v1" rel="noopener noreferrer">2611.05305v1</a>
+  </div>
+  <p class="original-title">Effect of high odrer dispersion on soliton interaction in coupled Kerr cavities</p>
+  <p class="meta"><strong>作者：</strong>Andrei G. Vladimirov</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了在两个近乎相同、相干驱动且相互耦合的微谐振腔中，存在三阶色散（TOD）时耗散克尔孤子的相互作用。通过对耦合Lugiato–Lefever方程进行渐近约化，我们针对弱腔间耦合推导出描述孤子间距与集体漂移的有效相互作用方程。TOD破坏孤子轮廓的宇称对称性，并定性改变有效相互作用，导致非对称相互作用力以及多个稳定与不稳定的孤子团簇。这些团簇的存在性与稳定性由驱动场的相对相位和两谐振腔之间的群速度失配控制。特别地，适当的群速度失配值可产生多个稳定束缚态，而偏离该值会触发连续的鞍结分岔，最终导致周期性的孤子碰撞。对完整耦合系统的数值模拟证实了上述解析预测。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究在存在三阶色散（TOD）时，两个近乎相同、相干驱动且相互耦合的微谐振腔中耗散克尔孤子的相互作用，以及TOD对孤子间距、集体漂移和孤子团簇稳定性的影响。</p>
+    <h4>方法</h4><p>对耦合Lugiato–Leverfer方程进行渐近约化，在弱腔间耦合条件下推导描述孤子间距与集体漂移的有效相互作用方程，并用完整耦合系统的数值模拟验证解析预测。</p>
+    <h4>主要发现</h4><p>TOD破坏孤子轮廓的宇称对称性并定性改变有效相互作用，产生非对称相互作用力以及多个稳定和不稳定的孤子团簇；这些团簇的存在性与稳定性由驱动场相对相位和腔间群速度失配控制；适当的群速度失配可产生多个稳定束缚态，偏离该值则触发连续鞍结分岔并最终导致周期性孤子碰撞；数值模拟证实了解析预测。</p>
+    <h4>局限与展望</h4><p>原文的解析约化基于弱腔间耦合假设，其适用范围受该条件限制；关于更强调制、其他高阶色散或不同耦合强度下的行为，原文未作结论，需进一步研究。可合理推断，后续工作可检验解析预测在更宽参数范围内的有效性，并探索利用群速度失配调控稳定孤子团簇或周期性碰撞的实验可行性。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.03857v1">
+  <div class="paper-head">
+    <h2>从逆散射变换推导Toda链的热力学Bethe拟设<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.03857v1" rel="noopener noreferrer">2611.03857v1</a>
+  </div>
+  <p class="original-title">Thermodynamic Bethe Ansatz for the Toda chain from inverse scattering transform</p>
+  <p class="meta"><strong>作者：</strong>Alberto Brollo</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Yang-Yang提出的热力学Bethe拟设（TBA）流程通过变分问题给出自由能泛函，其极小化不仅给出正确的热力学，也为广义流体力学奠定了基础。该流程最初针对量子系统发展，近来已被成功应用于可积经典粒子系统，但此前从未用于经典场论：尚无经典推导能够一致地同时处理孤子、呼吸子、辐射（色散模式）及其相互作用。本文直接从Toda链的逆散射变换出发推导其TBA方程，得到孤子模式与辐射相互作用的图像，从而推广了孤子气体图像。作者将所得方程与已有的、以粒子模式表述的TBA方程进行数值对比验证。作者预期同一流程可适用于KdV以及纯辐射模型（如散焦NLS与Sinh-Gordon），并讨论了其在聚焦NLS（及Ablowitz-Ladik）与Sine-Gordon等其他模型中的当前局限。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从经典场论层面一致地推导Toda链的热力学Bethe拟设方程，使孤子、呼吸子、辐射（色散模式）及其相互作用都被纳入同一热力学描述。</p>
+    <h4>方法</h4><p>从Toda链的逆散射变换直接推导TBA方程，得到孤子模式与辐射相互作用的表述，并将所得方程与已有的以粒子模式表述的TBA方程进行数值对比验证。</p>
+    <h4>主要发现</h4><p>推导出的TBA方程描述了孤子模式与辐射的相互作用，推广了孤子气体图像；数值验证表明所得方程与已有的粒子模式TBA方程一致。</p>
+    <h4>局限与展望</h4><p>作者预期同一流程可适用于KdV以及纯辐射模型（如散焦NLS与Sinh-Gordon）；并指出聚焦NLS（及Ablowitz-Ladik）与Sine-Gordon等模型目前仍存在局限。上述适用范围的扩展属于作者的预期或推断，尚待进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04706v1">
+  <div class="paper-head">
+    <h2>通过层级结构设计湍流<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.04706v1" rel="noopener noreferrer">2611.04706v1</a>
+  </div>
+  <p class="original-title">Designing turbulence through hierarchies</p>
+  <p class="meta"><strong>作者：</strong>Flavio Tuteri、André Freitas</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>湍流由一组涌现且奇异的现象所定义：恒定通量的能量级联、间歇性、在黏性趋于零时仍存活的耗散率，以及无黏极限下确定性的自发丧失。究竟是哪些物理要素产生了这些现象仍不清楚，因为在流体中它们总是与不可压缩性、空间结构和涡动力学相伴出现。本文表明，一个由刚性约束的纯几何非线性耦合起来的惯性层级就足够了。一个由长度和质量按几何级数递减的刚性摆组成的平面链，仅通过最近邻约束耦合，会发展出一种远离平衡的级联，取代热平衡分配，尽管耦合本质上是非局域的，能量传递在统计上仍是局部的且时间不可逆。其涨落具有间歇性，但隐藏的尺度对称性恢复了自相似性。当黏性趋于零时，耗散率饱和于有限值，并且与涨落-耗散平衡一致的热噪声在大尺度周期的一小部分时间内从最小尺度被放大到最大尺度。由于该层级可调，且相同的动力学可以机械或电学方式实现，湍流成为一种可在实验室中设计和测量的性质。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>哪些物理要素产生了湍流的涌现且奇异现象（恒定通量能量级联、间歇性、黏性消失时仍存活的耗散率、无黏极限下确定性的自发丧失）；在流体中这些现象总与不可压缩性、空间结构和涡动力学相伴，因而难以分离。</p>
+    <h4>方法</h4><p>构造一个由长度和质量按几何级数递减的刚性摆组成的平面链，仅通过最近邻刚性约束耦合，形成由纯几何非线性耦合的惯性层级；分析其远离平衡的统计与能量传递性质，并考察黏性趋于零的极限。</p>
+    <h4>主要发现</h4><p>该层级发展出取代热平衡分配的远离平衡级联；尽管耦合本质非局域，能量传递在统计上是局部的且时间不可逆；涨落具有间歇性，但隐藏的尺度对称性恢复自相似性；黏性趋于零时耗散率饱和于有限值；与涨落-耗散平衡一致的热噪声在大尺度周期的一小部分时间内从最小尺度被放大到最大尺度。</p>
+    <h4>局限与展望</h4><p>原文指出该层级可调且动力学可机械或电学实现，因此湍流成为可在实验室中设计和测量的性质；据此可合理推断，该体系或可作为研究湍流各要素的可控实验平台，但这一推断尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04752v1">
+  <div class="paper-head">
+    <h2>非线性诱导的浴耦合 Floquet 拓扑绝缘体中耗散抑制<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.04752v1" rel="noopener noreferrer">2611.04752v1</a>
+  </div>
+  <p class="original-title">Nonlinearity-Induced Suppression of Dissipation in Bath-Coupled Floquet Topological Insulators</p>
+  <p class="meta"><strong>作者：</strong>Bhoomija Chaurasia、Sebabrata Mukherjee</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.mes-hall
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.mes-hall</span> <span class="tag">nlin.PS</span> <span class="tag">physics.optics</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>拓扑绝缘体可支持手性、抗无序的边缘态，但当其与外浴耦合时会耗散能量。本文表明，非线性相互作用能够实现对激光写入的 Floquet 拓扑绝缘体中边缘态耗散的全光调控；该体系与光子浴周期性耦合。研究发现，中等强度的非线性会因模式混合而增强耗散，而将非线性强度提高至某一最优值时，会通过形成高度局域的行进边缘孤子而显著抑制耗散。这些结果确立了工程化体系—浴耦合与非线性相互作用作为抑制手性拓扑边缘输运耗散的一条途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在浴耦合的 Floquet 拓扑绝缘体中抑制手性拓扑边缘态的耗散。</p>
+    <h4>方法</h4><p>采用激光写入的 Floquet 拓扑绝缘体，使其与光子浴周期性耦合，并引入非线性相互作用，考察不同非线性强度下边缘态耗散的变化。</p>
+    <h4>主要发现</h4><p>中等非线性因模式混合而增强耗散；将非线性强度提高至最优值后，通过形成高度局域的行进边缘孤子，耗散被显著抑制。</p>
+    <h4>局限与展望</h4><p>原文表明工程化体系—浴耦合与非线性相互作用可用于抑制手性拓扑边缘输运的耗散；该结论基于特定激光写入光子平台与周期性浴耦合设置，向其他拓扑平台或耦合方式的推广有待进一步验证。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-04 13:16 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
