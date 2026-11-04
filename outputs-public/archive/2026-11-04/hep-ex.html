@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-ex · 高能实验</h1>
+    <p class="lede">官方公告日：2026-11-04</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">14</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">8</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2611.03904v1">利用FASER对长寿命X17矢量玻色子的约束</a> <small>2611.03904v1</small></li><li><a href="#paper-2611.04531v1">低能区光-光散射的新上限</a> <small>2611.04531v1</small></li><li><a href="#paper-2611.04596v1">在BaBar实验上利用初态辐射方法对$e^+e^-\to\pi^+\pi^-(\gamma)$截面进行新的精确测量</a> <small>2611.04596v1</small></li><li><a href="#paper-2611.04621v1">在BaBar利用初态辐射方法对$e^+e^-\to\pi^+\pi^-(\gamma)$截面进行的新精确测量</a> <small>2611.04621v1</small></li><li><a href="#paper-2611.04904v1">在质子-质子对撞中利用同号同味双轻子末态寻找顶夸克衰变中的重中性轻子（质心能量13 TeV）</a> <small>2611.04904v1</small></li><li><a href="#paper-2611.05107v1">ANUBIS探测器对光致畏缩及费米子耦合轴子样粒子的预期灵敏度</a> <small>2611.05107v1</small></li></ol><h3>交叉列表（8）</h3><ol class="toc-list"><li><a href="#paper-2510.04718v3">BGRem：基于扩散模型的天文图像背景噪声去除工具</a> <small>2510.04718v3</small></li><li><a href="#paper-2610.37287v1">首个基于深度学习的 Fermi-LAT 全天伽马射线源列表</a> <small>2610.37287v1</small></li><li><a href="#paper-2611.03751v1">核中子分布的低能弱混合角电弱约束</a> <small>2611.03751v1</small></li><li><a href="#paper-2611.03782v1">NRQCD 框架下 toponium 强产生的次次领头阶预言</a> <small>2611.03782v1</small></li><li><a href="#paper-2611.03794v1">超对称夸克简化模型的缺陷</a> <small>2611.03794v1</small></li><li><a href="#paper-2611.04430v1">大型强子对撞机上²⁰Ne核碎裂的建模</a> <small>2611.04430v1</small></li><li><a href="#paper-2611.04677v1">利用ALICE探测器研究宇宙射线多缪子事件</a> <small>2611.04677v1</small></li><li><a href="#paper-2611.04991v1">轻核中的π介子化实验</a> <small>2611.04991v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.03904v1">
+  <div class="paper-head">
+    <h2>利用FASER对长寿命X17矢量玻色子的约束<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.03904v1" rel="noopener noreferrer">2611.03904v1</a>
+  </div>
+  <p class="original-title">Constraints on a Long-Lived X17 Vector Boson with FASER</p>
+  <p class="meta"><strong>作者：</strong>FASER Collaboration、Roshan Mammen Abraham、Xiaocong Ai、Saul Alonso Monsalve、John Anders、Emma Kate Anderson、Akitaka Ariga、Tomoko Ariga、Jeremy Atkinson、Florian U. Bernlochner、Jianming Bian、Tobias Boeckh、Eliot Bornand、Jamie Boyd、Lydia Brenner、Angela Burger、Franck Cadoux、Haichuan Cao、Roberto Cardella、David W. Casper、Charlotte Cavanagh、Shiyang Chen、Xin Chen、Xing Cheng、Dhruv Chouhan、Emily Chown、Andrea Coccaro、Fabio Cufino、Stephane Débieux、Ansh Desai、Sergey Dmitrievsky、Radu Dobre、Monica D&#x27;Onofrio、Sinead Eley、Yannick Favre、Jonathan L. Feng、Carlo Alberto Fenoglio、Didier Ferrere、Max Fieg、Wissal Filali、Elena Firu、Haruhi Fujimori、Edward Galantay、Ali Garabaglu、Stephen Gibson、Sergio Gonzalez-Sevilla、Yuri Gornushkin、Yotam Granov、Jinjing Gu、Carl Gwilliam、Elie Hammou、Daiki Hayakawa、Michael Holzbock、Shih-Chieh Hsu、Zhen Hu、Giuseppe Iacobucci、Tomohiro Inada、Luca Iodice、Sune Jakobsen、Cesar Jesus-Valls、Arash Jofrehei、Hans Joos、Enrique Kajomovitz、Hiroaki Kawahara、Alex Keyken、Felix Kling、Daniela Köck、Pantelis Kontaxakis、Jelle Koorn、Umut Kose、Peter Krack、Susanne Kuehn、Thanushan Kugathasan、Sebastian Laudage、Lorne Levinson、Botao Li、Jiaxi Liu、Yi Liu、Joern Mahlstedt、Toni Mäkelä、Yasuhiro Maruya、Anna Mascellani、Lawson McCoy、Josh McFayden、Andrea Pizarro Medina、Hiroaki Menjo、Théo Moretti、Toshiyuki Nakano、Laurie Nevay、Ken Ohashi、Hidetoshi Otono、Lorenzo Paolozzi、Annabelle Parry、Pawan Pawan、Brian Petersen、Titi Preda、Markus Prim、Junkai Qin、Michaela Queitsch-Maitland、Juan Rojo、Hiroki Rokujo、André Rubbia、Jorge Sabater-Iglesias、Osamu Sato、Paola Scampoli、Kristof Schmieden、Matthias Schott、Cristiano Sebastiani、Anna Sfyrla、Davide Sgalaberna、Mansoora Shamim、Yosuke Takubo、Kakeru Tanaka、Simon Thor、Eric Torrence、Serhan Tufanli、Oscar Ivan Valdes Martinez、Svetlana Vasina、Emanuele Villa、Benedikt Vormwald、Chi Wang、Yuxiao Wang、Eli Welch、Aaron White、Monika Wielers、Benjamin James Wilson、Zhongyi Wu、Yue Xu、Heng Yang、Lekai Yao、Daichi Yoshikawa、Stefano Zambito、Shunliang Zhang、Yuxuan Zhang、Xingyu Zhao、Zijian Zhao</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>ATOMKI反常现象促使人们考虑一种新粒子X17的可能性：其质量为17 MeV，与核子和电子的耦合较弱。该粒子可能在对撞机上产生，沿远前向方向飞行480 m，并在FASER中衰变为e⁺e⁻。本文将此前针对暗光子和类轴子粒子（ALP）的FASER搜寻结果相结合，并将其解释为对候选X17粒子（即原恐矢量玻色子）的搜寻。这些搜寻使用的数据来自LHC Run 3中质心能量为√s = 13.6 TeV的pp对撞：暗光子搜寻使用2022年数据，ALP搜寻使用2022–2023年数据。未发现高于预期本底的过量事件；结合后的零结果排除了此前未被约束的“低耦合窗口”，即电子耦合6 × 10⁻⁵ &lt; ε_e &lt; 1.2 × 10⁻⁴。“高耦合窗口”仍然存在。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>检验ATOMKI反常所动机的17 MeV原恐矢量玻色子X17是否可在FASER中被观测，并对尚未被约束的耦合参数空间给出限制。</p>
+    <h4>方法</h4><p>将此前FASER暗光子搜寻（2022年√s = 13.6 TeV pp数据）与ALP搜寻（2022–2023年同能量数据）的结果相结合，并重新解释为对X17候选粒子的搜寻；比较观测事件数与预期本底。</p>
+    <h4>主要发现</h4><p>未发现高于预期本底的过量事件；结合后的零结果排除了电子耦合处于6 × 10⁻⁵ &lt; ε_e &lt; 1.2 × 10⁻⁴区间的“低耦合窗口”，而“高耦合窗口”仍未被排除。</p>
+    <h4>局限与展望</h4><p>原文仅报告上述排除结果；高耦合窗口仍存在，其覆盖可能需要其他实验或后续FASER数据。更广参数空间的检验属于可合理推断的后续方向，原文未作具体承诺。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04531v1">
+  <div class="paper-head">
+    <h2>低能区光-光散射的新上限<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.04531v1" rel="noopener noreferrer">2611.04531v1</a>
+  </div>
+  <p class="original-title">A New Bound on Light-by-Light Scattering in the Low-Energy Regime</p>
+  <p class="meta"><strong>作者：</strong>Aimé Matheron、Michal Šmíd、Felix Karbstein、Sebastian Göde、Willi Hippler、Robert Lötzsch、Naser Ahmadiniaz、Michal Andrzejewski、Sergey Antipov、Carsten Baehtz、Christina Bömer、Victorien Bouffetier、Erik Brambrink、Jakub Bulička、Samuele Di Dio Cafiso、Rafael Celestre、Jaromír Chalupský、Thomas E. Cowan、James P. Edwards、Sebastián Franchino-Viñas、Holger Gies、Jörg Grenzer、Travis Griffin、Věra Hájková、Jens Hauser、Thomas Heinzl、Uwe Hernandez Acosta、Peter Hilz、Hauke Höppner、Alžběta Horynová、Lingen Huang、Oliver Humphries、Šimon Jelínek、Libor Juha、Pooyan Khademi、Ben King、Christian Kohlfürst、Dietrich Krebs、Alejandro Laso-García、Alexander J. Macleod、Berit Marx-Glowna、Masruri Masruri、Nikita Medvedev、Anthony Mercuri-Baron、Elena A. Mosman、Motoaki Nakatsutsumi、Gerhard G. Paulus、Jennifer Popp、Thomas R. Preston、Isabella Probst、Sripati V. Rahul、Lisa Randolph、Ralf Röhlsberger、Thomas Roth、Sakshath Sadashivaiah、Felipe C. Salgado、Roland Sauerbrey、Alexander Sävert、Hans-Peter Schlenvoigt、Sebastian M. Schmidt、Ulrich Schramm、Ralf Schützhold、Jan Patrick Schwinkendorf、Frank Seiboth、Daniel Seipt、Georgiy Shoulga、Thomas Stöhlker、Minxue Tang、Abha Thazhathe Peedika、Monika Toncian、Toma Toncian、Maksim Valialshchikov、Vojtěch Vozda、Edgar Weckert、Colin Wessel、Jan Wild、Andreas Wipf、Ulf Zastrau、Matt Zepf</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>光学中的叠加原理认为电磁场在真空中不发生相互作用，但该原理并非普遍成立：电磁场会通过量子真空涨落发生弱耦合，其显著后果包括光-光散射与真空双折射。本文报道了利用X射线自由电子激光与高强度光学激光对撞，并结合暗场探测与偏振测量抑制本底的实验结果。该方法给出了迄今低能区最严格的光-光散射上限，较此前实验极限提升十个数量级，并为精密测量开辟了道路。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>检验真空中电磁场是否通过量子真空涨落发生相互作用，并在低能区对光-光散射给出实验上限。</p>
+    <h4>方法</h4><p>将X射线自由电子激光与高强度光学激光对撞，采用暗场探测和偏振测量抑制本底。</p>
+    <h4>主要发现</h4><p>给出了迄今低能区最严格的光-光散射上限，较此前实验极限提升十个数量级。</p>
+    <h4>局限与展望</h4><p>原文称该方案为精密测量开辟了道路；其具体适用范围与后续改进方向需结合全文进一步确认，此处不作推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04596v1">
+  <div class="paper-head">
+    <h2>在BaBar实验上利用初态辐射方法对$e^+e^-\to\pi^+\pi^-(\gamma)$截面进行新的精确测量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.04596v1" rel="noopener noreferrer">2611.04596v1</a>
+  </div>
+  <p class="original-title">A New Precise Measurement of the $e^+e^-\toπ^+π^-(γ)$ Cross Section with the Initial-State Radiation Method at BaBar</p>
+  <p class="meta"><strong>作者：</strong>BaBar Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用460 fb$^{-1}$的BaBar初态辐射数据，测量了从阈值到1.4 GeV的$e^+e^-\to\pi^+\pi^-(\gamma)$截面。结果由$\pi^+\pi^-/\mu^+\mu^-$比值获得，从而降低了二者共有的系统不确定度。与2009年BaBar此前的分析不同，本分析通过角分布从统计上将π介子与μ子的贡献分开。文中量化了与先前BaBar结果的一致性，并计入了统计与系统的关联。新测量还在不同能量下以及就其对μ子磁异常的强子真空极化（HVP）贡献，与其他双π结果进行了比较。在0.3–1.4 GeV能量范围内，双π道领头阶HVP贡献为$a_\mu^{\pi\pi}=525.9\pm 3.5_\mathrm{stat}\pm3.8_\mathrm{syst}$（新的2026年测量）和$517.8\pm 2.4_\mathrm{stat}\pm3.3_\mathrm{syst}$（2009年与2026年BaBar测量合并），单位为$10^{-10}$。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>利用BaBar初态辐射数据，从阈值到1.4 GeV精确测量$e^+e^-\to\pi^+\pi^-(\gamma)$截面，并评估其与先前BaBar结果及其他双π结果的一致性，以及该道对μ子磁异常领头阶HVP贡献的大小。</p>
+    <h4>方法</h4><p>使用460 fb$^{-1}$的BaBar初态辐射数据，由$\pi^+\pi^-/\mu^+\mu^-$比值提取截面以压低共有系统不确定度；与2009年分析不同，通过角分布从统计上分离π介子与μ子贡献；量化与先前BaBar结果的一致性时计入统计与系统关联，并与其他双π结果按能量及HVP贡献进行比较。</p>
+    <h4>主要发现</h4><p>给出了阈值至1.4 GeV的$e^+e^-\to\pi^+\pi^-(\gamma)$截面；在0.3–1.4 GeV范围内双π道领头阶HVP贡献为$a_\mu^{\pi\pi}=525.9\pm 3.5_\mathrm{stat}\pm3.8_\mathrm{syst}$（2026年新测量）和$517.8\pm 2.4_\mathrm{stat}\pm3.3_\mathrm{syst}$（2009年与2026年BaBar测量合并），单位为$10^{-10}$；并给出了与先前BaBar结果一致性的量化结果以及与其他双π结果的比较。</p>
+    <h4>局限与展望</h4><p>摘要未讨论局限或后续方向；可合理推断，该测量可为进一步检验双π道HVP贡献及μ子磁异常的理论与实验比较提供输入，但具体影响需依赖独立分析。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04621v1">
+  <div class="paper-head">
+    <h2>在BaBar利用初态辐射方法对$e^+e^-\to\pi^+\pi^-(\gamma)$截面进行的新精确测量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.04621v1" rel="noopener noreferrer">2611.04621v1</a>
+  </div>
+  <p class="original-title">A New Precise Measurement of the $e^+e^-\toπ^+π^-(γ)$ Cross Section with the Initial-State Radiation Method at BaBar</p>
+  <p class="meta"><strong>作者：</strong>BaBar Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报告了在阈值至1.4 GeV能量范围内$e^+e^-\to\pi^+\pi^-(\gamma)$截面的精确测量结果，该能区与μ子$g-2$预言中的强子真空极化贡献相关。利用全部460 fb$^{-1}$的on-和off-$\Upsilon(4S)$数据，截面由$\pi^+\pi^-$与$\mu^+\mu^-$初态辐射（ISR）事件数之比导出，其中多项系统不确定度相互抵消。与2009年BaBar分析不同，本文的π/μ鉴别不依赖粒子鉴别（PID），而是利用二体系统质心系中两者已知的不同角分布。文中讨论了2026年与2009年测量结果的一致性与相关性，并将新测量与其他双π结果进行了比较。使用2026年新测量以及2009与2026年BaBar联合测量，在0.3–1.4 GeV能区计算得到的μ子磁异常领头阶强子贡献分别为$525.9\pm 3.5_\mathrm{stat}\pm3.8_\mathrm{syst}$和$517.8\pm 2.4_\mathrm{stat}\pm3.3_\mathrm{syst}$，单位为$10^{-10}$。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在阈值至1.4 GeV能区内精确测量$e^+e^-\to\pi^+\pi^-(\gamma)$截面，以改进对μ子$g-2$预言中强子真空极化贡献的输入。</p>
+    <h4>方法</h4><p>利用BaBar全部460 fb$^{-1}$的on-和off-$\Upsilon(4S)$数据，采用初态辐射（ISR）方法，由$\pi^+\pi^-$与$\mu^+\mu^-$ISR事件数之比提取截面；π/μ鉴别基于二体系统质心系中不同的角分布，而非粒子鉴别；并讨论了2026年与2009年测量的一致性与相关性。</p>
+    <h4>主要发现</h4><p>给出了阈值至1.4 GeV的$e^+e^-\to\pi^+\pi^-(\gamma)$截面精确结果；使用2026年新测量以及2009与2026年BaBar联合测量，在0.3–1.4 GeV能区得到的领头阶强子贡献分别为$525.9\pm 3.5_\mathrm{stat}\pm3.8_\mathrm{syst}$和$517.8\pm 2.4_\mathrm{stat}\pm3.3_\mathrm{syst}$（单位$10^{-10}$）。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限或后续方向；可合理推断，该测量可作为μ子$g-2$强子真空极化计算的新输入，并需与其他双π测量及2009年结果的相关性处理相结合。上述推断仅为可能方向，非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04904v1">
+  <div class="paper-head">
+    <h2>在质子-质子对撞中利用同号同味双轻子末态寻找顶夸克衰变中的重中性轻子（质心能量13 TeV）<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.04904v1" rel="noopener noreferrer">2611.04904v1</a>
+  </div>
+  <p class="original-title">Search for heavy neutral leptons in top quark decays with same-sign, same-flavor dilepton final states in proton-proton collisions at $\sqrt{s}$ = 13 TeV</p>
+  <p class="meta"><strong>作者：</strong>CMS Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报告了在顶夸克衰变中产生马约拉纳型重中性轻子（HNL）的搜寻结果。分析基于CMS探测器在CERN LHC于2016—2018年采集的质心能量为13 TeV的质子-质子对撞数据，对应积分亮度为138 fb$^{-1}$。在type-I跷跷板模型中，马约拉纳HNL可媒介破坏轻子数的顶夸克衰变。搜寻针对顶夸克对产生事例：其中一个顶夸克衰变为底夸克和W玻色子，该W玻色子随后衰变为带电轻子（电子或缪子）和HNL；马约拉纳HNL再衰变为W玻色子以及一个与伴随HNL产生的轻子具有相同电荷符号和味道的带电轻子。实验特征为同号同味轻子对和喷注。所考察的HNL质量范围为20—100 GeV。数据与标准模型本底预期一致。在95%置信水平下给出了顶夸克衰变为HNL、带电轻子和底夸克的分支比的上限：双电子道观测（预期）上限在[1.1 (0.71)]$\times$10$^{-5}$至[4.8 (3.0)]$\times$10$^{-5}$之间，双缪子道在[3.7 (3.4)]$\times$10$^{-6}$至[2.4 (1.3)]$\times$10$^{-5}$之间。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在type-I跷跷板模型下，马约拉纳型重中性轻子（HNL）能否通过破坏轻子数的顶夸克衰变产生，并在20—100 GeV质量范围内被观测到；若未观测到，其分支比上限为何。</p>
+    <h4>方法</h4><p>利用CMS探测器在$\sqrt{s}$ = 13 TeV下采集的138 fb$^{-1}$质子-质子对撞数据，选取同号同味双轻子加喷注的末态，针对顶夸克对产生事例中一个顶夸克经W玻色子衰变为带电轻子和马约拉纳HNL、HNL再衰变为W玻色子和同号同味带电轻子的过程进行搜寻，并与标准模型本底比较，在95%置信水平下设置分支比上限。</p>
+    <h4>主要发现</h4><p>数据与标准模型本底预期一致，未观测到显著信号。顶夸克衰变为HNL、带电轻子和底夸克的分支比在95%置信水平下的观测（预期）上限为：双电子道[1.1 (0.71)]$\times$10$^{-5}$至[4.8 (3.0)]$\times$10$^{-5}$，双缪子道[3.7 (3.4)]$\times$10$^{-6}$至[2.4 (1.3)]$\times$10$^{-5}$。</p>
+    <h4>局限与展望</h4><p>该结果仅适用于所考察的type-I跷跷板模型下马约拉纳HNL经顶夸克衰变产生、且HNL质量在20—100 GeV范围内的情形，并依赖于同号同味双轻子末态的选取。可合理推断，后续可通过增加数据量、扩展HNL质量范围或结合其他末态来提升灵敏度；这些属于推断，原文未作明确结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05107v1">
+  <div class="paper-head">
+    <h2>ANUBIS探测器对光致畏缩及费米子耦合轴子样粒子的预期灵敏度<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05107v1" rel="noopener noreferrer">2611.05107v1</a>
+  </div>
+  <p class="original-title">Projected sensitivity of the \anubis detector to photophobic and fermion-coupled axion-like particles</p>
+  <p class="meta"><strong>作者：</strong>Riley Aumonier、Oleg Brandt、Theo Reymermier、Francis Sayer、Paul Swallow for the ANUBIS Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>轴子样粒子（ALPs）是寿命前沿实验的常用基准模型，因为其与标准模型粒子的耦合受到压低，可使其在探测器尺度上表现为长寿命粒子。本文给出ANUBIS探测器在高亮度大型强子对撞机（HL-LHC）上对两种情形的预期灵敏度：一种光致畏缩（photophobic）ALP模型，以及Physics Beyond Colliders倡议中味对角、费米子耦合ALP基准的一个修改版本，后者引入额外的 $h\to Za$ 衰变。对于光致畏缩情形，ANUBIS探测器将在ALP质量为 $10$ GeV、$c\tau=1.95$ m处达到峰值灵敏度 $\sigma_{Wa}\cdot Br(a\rightarrow gg)=6.2\times10^{-4}$ pb，较ATLAS实验当前的排除限提高两个数量级，并将 $c\tau$ 覆盖范围扩展三个数量级。对于具有七维Higgs--ALP相互作用的费米子耦合情形，对费米子耦合的峰值灵敏度为 $C_{a^\Phi}=4.4\times10^{-8}$，在ALP质量介于 $16$ 与 $23$ GeV之间达到。总体而言，ANUBIS探测器可对上述两种模型的参数空间提供独特覆盖，覆盖区域既无法由主要LHC实验探测，也无法由HL-LHC的前向探测器探测。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>评估ANUBIS探测器在HL-LHC上对光致畏缩ALP模型以及引入额外 $h\to Za$ 衰变的味对角费米子耦合ALP模型的预期探测灵敏度。</p>
+    <h4>方法</h4><p>基于HL-LHC条件对ANUBIS探测器的预期灵敏度进行模拟/投影分析，分别针对光致畏缩ALP情形和含七维Higgs--ALP相互作用的费米子耦合ALP情形计算峰值灵敏度，并与ATLAS现有排除限及HL-LHC前向探测器覆盖范围进行比较。</p>
+    <h4>主要发现</h4><p>光致畏缩情形下，ANUBIS在ALP质量 $10$ GeV、$c\tau=1.95$ m处达到峰值灵敏度 $\sigma_{Wa}\cdot Br(a\rightarrow gg)=6.2\times10^{-4}$ pb，较ATLAS当前排除限提高两个数量级，并将 $c\tau$ 覆盖扩展三个数量级；费米子耦合情形下，对 $C_{a^\Phi}$ 的峰值灵敏度为 $4.4\times10^{-8}$，对应ALP质量 $16$--$23$ GeV。ANUBIS可对两种模型参数空间提供主要LHC实验与HL-LHC前向探测器均无法覆盖的独特区域。</p>
+    <h4>局限与展望</h4><p>上述结果为基于HL-LHC条件的预期灵敏度投影，实际探测能力取决于探测器性能、本底控制与运行条件；摘要未给出系统不确定度或背景假设的细节。可合理推断，后续工作需结合真实数据与更完整的模拟验证这些投影，并进一步评估其他ALP耦合情形。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2510.04718v3">
+  <div class="paper-head">
+    <h2>BGRem：基于扩散模型的天文图像背景噪声去除工具<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2510.04718v3" rel="noopener noreferrer">2510.04718v3</a>
+  </div>
+  <p class="original-title">BGRem: A background noise remover for astronomical images based on a diffusion model</p>
+  <p class="meta"><strong>作者：</strong>Rodney Nicolaas、Sascha Caron、Fiorenzo Stoppa、Saptashwa Bhattacharyya、Roberto Ruiz de Austri、Paul J. Groot、Andrew J. Levan</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.IM
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.IM</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>背景：天文成像旨在最大化信号捕获并最小化噪声。在探测器层面直接提升信噪比困难且成本高昂，因此推动了大量先进后处理技术的研究。目的：从图像中去除背景噪声是构建星表任务中有价值的预处理步骤。本文介绍 BGRem，一种基于机器学习（ML）的工具，用于去除天文图像中的背景噪声。方法：BGRem 采用以注意力 U-Net 为骨干的扩散模型，在 MeerLICHT 与 Fermi-LAT 望远镜的光学与伽马（γ）射线模拟图像上训练。在监督方式下，BGRem 通过若干扩散步骤学习对天文图像去噪。结果：将 BGRem 的性能与广泛用于天文源编目的工具 SourceExtractor（SExtractor）进行比较。结果表明，当 BGRem 作为预处理步骤时，MeerLICHT 数据中使用 SExtractor 得到的真实正源数量增加约 7%。我们还通过使用不同望远镜的光学图像以及代表 Fermi-LAT 望远镜的模拟 γ 射线数据进行测试，展示了 BGRem 的泛化能力；两种情况下 BGRem 均提升了源检测效率。结论：BGRem 可通过去除复杂背景噪声提升传统基于像素方法的源检测精度。采用零样本（zero-shot）方式时，BGRem 能较好地泛化到多种光学图像。BGRem 在模拟 γ 射线图像与光学数据上的成功应用，表明其对不同噪声特征与观测领域的适应性。这种跨波段性能凸显了其作为多波段天文巡天通用背景去除框架的潜力。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在不依赖探测器层面改进的前提下，通过后处理去除天文图像背景噪声，以提升源检测与编目任务的准确性。</p>
+    <h4>方法</h4><p>提出 BGRem，一种以注意力 U-Net 为骨干的扩散模型，在 MeerLICHT 光学与 Fermi-LAT γ 射线模拟图像上以监督方式训练，通过多个扩散步骤学习去噪；并与 SExtractor 对比，测试其在不同望远镜光学图像及模拟 γ 射线数据上的泛化能力。</p>
+    <h4>主要发现</h4><p>在 MeerLICHT 数据上，以 BGRem 作为预处理步骤后，SExtractor 检出的真实正源数量增加约 7%；在不同望远镜的光学图像与代表 Fermi-LAT 的模拟 γ 射线数据上，BGRem 均提升了源检测效率；零样本方式下可较好地泛化到多种光学图像。</p>
+    <h4>局限与展望</h4><p>原文表明 BGRem 对光学与模拟 γ 射线数据均有效，并具有作为多波段巡天通用背景去除框架的潜力；其在不同真实观测条件与更多波段下的适用性、以及与其他源检测流程的组合效果，尚需进一步验证（此为基于原文的合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2610.37287v1">
+  <div class="paper-head">
+    <h2>首个基于深度学习的 Fermi-LAT 全天伽马射线源列表<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.37287v1" rel="noopener noreferrer">2610.37287v1</a>
+  </div>
+  <p class="original-title">The First Deep Learning all-sky List of Fermi-LAT Gamma-ray Sources</p>
+  <p class="meta"><strong>作者：</strong>Saptashwa Bhattacharyya、Giacomo Principe、Dmitry Malyshev、Roberto Ruiz de Austri、Gabrijela Zaharijas、Sascha Caron、Fiorenzo Stoppa、Guðlaugur Johannesson</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">astro-ph.IM</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>目的：我们开发了一套基于深度学习的流程，用于构建伽马射线源列表，并定量评估背景不确定性对源探测与源性质刻画的影响。本工作扩展并增强了此前用于光学观测的 AutoSource-ID 算法，将其应用于伽马射线数据。方法：源探测通过基于 U-Net 架构的图像分割完成，同时采用专门的深度神经网络（DNN）进行源定位、通量估计，以及将探测到的源分类为真实源或虚假源。训练数据由基于 10 年 Fermi-LAT 观测的蒙特卡罗模拟生成。结果：我们给出了首个使用深度学习方法得到的 Fermi-LAT 伽马射线全天源列表（1FDL），包含 3800 多个源，并给出估计位置、通量以及量化每个探测为真实源或虚假源可能性的概率分数。我们进一步评估了该流程对星际辐射模型（IEM）变化的稳健性，并将所得源列表与 4FGL-DR2 星表进行了比较。结论：我们发现，在针对 IEM 变化的检验中，基于深度学习的方法达到了与标准 Fermi-LAT 星表流程所采用的基于似然的方法相当或更优的性能。1FDL 源列表与同一 10 年观测期内获得的 Fermi-LAT 4FGL-DR2 星表总体一致，其中包括若干在近期 Fermi-LAT 16 年源列表（FL16Y）中得到确认的新源。这些结果展示了 DNN 方法在伽马射线源探测与性质刻画方面的潜力，并为其在未来高能天体物理分析中的应用提供了基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构建基于深度学习的伽马射线源列表，并定量评估背景不确定性（特别是星际辐射模型变化）对源探测与源性质刻画的影响。</p>
+    <h4>方法</h4><p>将 AutoSource-ID 算法扩展至伽马射线数据：使用 U-Net 进行图像分割以探测源，使用专门的深度神经网络进行源定位、通量估计以及真实源/虚假源分类；训练数据来自基于 10 年 Fermi-LAT 观测的蒙特卡罗模拟；并检验流程对 IEM 变化的稳健性，与 4FGL-DR2 星表比较。</p>
+    <h4>主要发现</h4><p>给出了首个基于深度学习的 Fermi-LAT 全天源列表 1FDL，包含 3800 多个源及其位置、通量和真实/虚假源概率分数；在针对 IEM 变化的检验中，性能与标准 Fermi-LAT 星表流程的基于似然方法相当或更优；1FDL 与同期的 4FGL-DR2 总体一致，并包含若干在 FL16Y 中得到确认的新源。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果展示了 DNN 方法在伽马射线源探测与性质刻画方面的潜力，并为未来高能天体物理分析提供基础；原文未进一步给出具体局限或后续工作计划，相关推断需谨慎。</p>
+  </section>
+</article><article class="paper" id="paper-2611.03751v1">
+  <div class="paper-head">
+    <h2>核中子分布的低能弱混合角电弱约束<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.03751v1" rel="noopener noreferrer">2611.03751v1</a>
+  </div>
+  <p class="original-title">Electroweak Constraints on Nuclear Neutron Distributions and the Low-Energy Weak Mixing Angle</p>
+  <p class="meta"><strong>作者：</strong>Xu-Run Huang、Tong-Gang Yue、Zhen Zhang、Lie-Wen Chen</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>相干弹性中微子-原子核散射（CEνNS）为低能检验弱混合角 sin²θ_W 及探索中微子扇区新物理提供了途径，但其可靠解释依赖于对靶核中子分布的独立约束。本文在扩展的 Skyrme 能量密度泛函框架下，利用不同原子核之间的关联，将 CREX 与 PREX-II 宇称破坏电子散射（PVES）测量给出的约束传播至 CEνNS 靶核，从而得到中子形状因子与半径，其半径相对不确定度低于 1%。基于这些推断的中子形状因子，作者联合分析 COHERENT 的 CsI、Ge 与 Ar 数据，得到 sin²θ_W = 0.231^{+0.016}_{-0.015}，与标准模型预言一致。作者指出，这些结果为核结构研究、中微子扇区电弱检验以及暗物质探测器中 CEνNS 信号预言提供了首批由电弱实验约束的基准。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在缺乏靶核中子分布独立约束的情况下，可靠利用 CEνNS 低能检验弱混合角 sin²θ_W 并限制中微子扇区新物理。</p>
+    <h4>方法</h4><p>在扩展的 Skyrme 能量密度泛函框架下，利用核间关联将 CREX 和 PREX-II 的 PVES 约束传播到 CEνNS 靶核，得到中子形状因子与半径；再联合分析 COHERENT 的 CsI、Ge 和 Ar 数据提取 sin²θ_W。</p>
+    <h4>主要发现</h4><p>推断得到的中子半径相对不确定度低于 1%；联合 COHERENT 数据给出 sin²θ_W = 0.231^{+0.016}_{-0.015}，与标准模型预言一致。</p>
+    <h4>局限与展望</h4><p>原文称这些结果为核结构研究、中微子扇区电弱检验及暗物质探测器 CEνNS 信号预言提供了首批电弱实验约束的基准；其适用性依赖于所用 Skyrme 泛函框架与 PVES 数据，后续可合理推断需进一步检验泛函模型依赖性并拓展至更多靶核与数据。</p>
+  </section>
+</article><article class="paper" id="paper-2611.03782v1">
+  <div class="paper-head">
+    <h2>NRQCD 框架下 toponium 强产生的次次领头阶预言<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.03782v1" rel="noopener noreferrer">2611.03782v1</a>
+  </div>
+  <p class="original-title">Toponium hadroproduction at next-to-next-to-leading order in NRQCD</p>
+  <p class="meta"><strong>作者：</strong>Sven Yannick Klein、Fabio Maltoni、Hua-Sheng Shao、Lukas Simon、Guoxing Wang</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在 NRQCD 框架下，针对顶夸克零宽度极限，首次给出了单举色单态 toponium 强产生的次次领头阶（NNLO）预言。核心新结果是赝标量 toponium 产生短距离系数的 NNLO QCD 修正。预言中包含了电弱修正与相对论修正、额外的产生道，以及微扰计算的束缚态矩阵元。在大型强子对撞机质子-质子质心能量 13 TeV 下，得到截面为 4.87^{+0.63}_{-0.65} pb，其中标度不确定性与参数不确定性已合并。相对于 NLO，NNLO 修正将重整化标度与因子化标度不确定性降低约四倍，达到百分之几的水平。剩余的主要不确定性来自束缚态矩阵元对库仑标度的依赖。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究在 NRQCD 框架下，顶夸克零宽度极限内单举色单态 toponium 强产生的 NNLO 预言，重点在于赝标量 toponium 产生短距离系数的 NNLO QCD 修正。</p>
+    <h4>方法</h4><p>采用 NRQCD 因子化框架，在顶夸克零宽度极限下计算单举色单态 toponium 强产生的 NNLO QCD 修正；预言中纳入电弱修正、相对论修正、额外产生道以及微扰计算的束缚态矩阵元，并在 LHC 13 TeV 条件下给出截面及不确定性估计。</p>
+    <h4>主要发现</h4><p>在 LHC 质子-质子质心能量 13 TeV 下得到截面 4.87^{+0.63}_{-0.65} pb（标度与参数不确定性合并）；NNLO 修正相对 NLO 将重整化与因子化标度不确定性降低约四倍，至百分之几水平；剩余主要不确定性来自束缚态矩阵元的库仑标度依赖。</p>
+    <h4>局限与展望</h4><p>原文指出剩余主导不确定性源于束缚态矩阵元的库仑标度依赖，因此可合理推断改进该矩阵元的确定方式或相关库仑标度处理是后续值得关注的方向；论文未明确讨论其他后续方向，相关推断需谨慎对待。</p>
+  </section>
+</article><article class="paper" id="paper-2611.03794v1">
+  <div class="paper-head">
+    <h2>超对称夸克简化模型的缺陷<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.03794v1" rel="noopener noreferrer">2611.03794v1</a>
+  </div>
+  <p class="original-title">Shortcomings of the squark simplified model</p>
+  <p class="meta"><strong>作者：</strong>Kaustubh Agashe、Roberto Franceschini、Gian F. Giudice、Andre Lessa、Xing Wang</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文指出，对撞机分析中常用的超对称夸克（squark）简化模型无法代表现实的低能超对称模型，并显著低估了强子对撞机上超对称夸克的产生率。这一缺陷对从LHC数据中提取超对称夸克质量下限以及评估HL-LHC或FCC-hh的潜在探测范围具有重要影响。具体而言，作者发现当前LHC给出的超对称夸克质量下限实际应在2.6–3.0 TeV区间，而非通常基于简化模型所引用的1.7–1.8 TeV区间。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>对撞机分析中常用的超对称夸克简化模型能否代表现实的低能超对称模型，以及它对LHC超对称夸克质量下限和未来对撞机探测范围的影响。</p>
+    <h4>方法</h4><p>通过论证与比较分析，指出简化模型在描述现实低能超对称模型方面的不足，并据此重新评估强子对撞机上超对称夸克的产生率及相应的质量下限。</p>
+    <h4>主要发现</h4><p>简化模型显著低估了强子对撞机上超对称夸克的产生率；当前LHC的超对称夸克质量下限实际约为2.6–3.0 TeV，而非通常引用的1.7–1.8 TeV。</p>
+    <h4>局限与展望</h4><p>原文未给出具体后续方案；可合理推断，基于简化模型得到的质量下限及HL-LHC、FCC-hh探测范围评估需结合更现实的低能超对称模型重新审视，但该推断尚需进一步研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04430v1">
+  <div class="paper-head">
+    <h2>大型强子对撞机上²⁰Ne核碎裂的建模<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.04430v1" rel="noopener noreferrer">2611.04430v1</a>
+  </div>
+  <p class="original-title">Modeling fragmentation of $^{20}$Ne nuclei at the LHC</p>
+  <p class="meta"><strong>作者：</strong>Aleksandr Svetlichnyi、Savva Savenkov、Igor Pshenichnov</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用Abrasion-Ablation Monte Carlo for Colliders模型（AAMCC-MST）研究相对论性氖核的碎裂。该模型通过最小生成树（MST）算法纳入旁观者物质的前平衡团簇化，并考虑激发团簇的后续衰变以及末态碎片之间的库仑排斥。在利用²⁰Ne和²²Ne在不同靶上碎裂的数据对模型进行验证后，本文对大型强子对撞机（LHC）上√s_NN=5.36 TeV的²⁰Ne-²⁰Ne碰撞中旁观者核碎片、中子和质子的产生进行了建模。计算了²H、⁴He、⁶Li、¹⁰B、¹²C、¹⁴N和¹⁶O碎片的产生截面以及横向和纵向动量分布，因为这些碎片可能污染在LHC中循环的²⁰Ne束流。本文构建了一个简单参数化，用于描述上述碎片种类纵向动量分布的相对宽度。为研究结果对氖核中α团簇化和核密度分布的敏感性，本文对²⁰Ne和²²Ne采用了两种密度分布：形变Woods-Saxon分布和五α双金字塔构型；此外还对²⁰Ne考虑了球形分布。比较这些分布以及使用或不使用MST团簇化所得的结果表明，计算得到的旁观者核子和碎片产额及其动量分布对²⁰,²²Ne的核结构细节和碎裂建模敏感。这些结果为模拟LHC中次级前向核的输运以估计其与循环²⁰Ne束流核的相互作用率提供了输入，也为计算中子和质子零度 calorimeter 对²⁰Ne-²⁰Ne事件的响应提供了输入。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>相对论性²⁰Ne核在LHC能量下碎裂时，旁观者核碎片、中子和质子的产生截面与动量分布如何，以及这些结果对²⁰,²²Ne核结构（α团簇化与密度分布）和碎裂建模的敏感性如何。</p>
+    <h4>方法</h4><p>采用AAMCC-MST模型，该模型结合MST算法处理旁观者物质的前平衡团簇化、激发团簇的后续衰变以及末态碎片间的库仑排斥；先用²⁰Ne和²²Ne在不同靶上的碎裂数据进行验证，再对√s_NN=5.36 TeV的²⁰Ne-²⁰Ne碰撞建模，计算²H、⁴He、⁶Li、¹⁰B、¹²C、¹⁴N和¹⁶O碎片的产生截面及横纵向动量分布，并构建纵向动量分布相对宽度的简单参数化；比较形变Woods-Saxon、五α双金字塔和球形三种密度分布以及有无MST团簇化的结果。</p>
+    <h4>主要发现</h4><p>计算给出了上述碎片在²⁰Ne-²⁰Ne碰撞中的产生截面以及横向和纵向动量分布，并构建了描述其纵向动量分布相对宽度的简单参数化；比较表明，旁观者核子和碎片的产额及其动量分布对²⁰,²²Ne核结构细节和碎裂建模敏感。</p>
+    <h4>局限与展望</h4><p>原文指出，这些结果可为模拟LHC中次级前向核的输运以估计其与循环²⁰Ne束流核的相互作用率提供输入，也可用于计算中子和质子零度 calorimeter 对²⁰Ne-²⁰Ne事件的响应；模型在其他能量、其他碰撞系统或更复杂核结构情形下的适用性尚需进一步检验，这属于可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04677v1">
+  <div class="paper-head">
+    <h2>利用ALICE探测器研究宇宙射线多缪子事件<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.04677v1" rel="noopener noreferrer">2611.04677v1</a>
+  </div>
+  <p class="original-title">Multimuon Events from Cosmic Rays with the ALICE Detector</p>
+  <p class="meta"><strong>作者：</strong>Mario Sitta、for the ALICE Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>欧洲核子研究中心大型强子对撞机上的ALICE实验在2015—2018年（LHC Run 2）期间开展了宇宙射线数据采集活动，实际观测时间共计62.5天。本文的分析仅限于多缪子事件，即探测到的缪子数多于四个的事件。具体而言，在低—中等缪子多重数区间（4 &lt; N_μ &lt; 50）研究了缪子多重数分布（MMD）；而对于N_μ &gt; 100、由数据的大统计涨落主导的区间，则测量了高缪子多重数（HMM）事件的产额。结果与蒙特卡罗模拟进行了比较，模拟采用三种描述大气中空气簇射发展的主要强子相互作用模型：QGSJET-II-04、EPOS-LHC和SIBYLL 2.3d，并假设原初宇宙射线的两种极端成分，即纯质子和纯铁，分别代表最轻和最重的成分。尽管这些模型难以精确描述原初质子和铁核随宇宙射线原初能量变化的趋势，但QGSJET-II-04是唯一在全部所研究能量范围内、在假设重成分时能较好地重现MMD和HMM事件产额的模型。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>利用ALICE探测器在LHC Run 2期间采集的宇宙射线数据，研究多缪子事件（N_μ &gt; 4）的缪子多重数分布（4 &lt; N_μ &lt; 50）以及高缪子多重数事件（N_μ &gt; 100）的产额，并与强子相互作用模型及原初宇宙射线成分假设进行比较。</p>
+    <h4>方法</h4><p>对2015—2018年共62.5天实际观测时间的宇宙射线数据进行多缪子事件分析，测量低—中等多重数区间的MMD和高多重数区间的HMM事件产额；将结果与采用QGSJET-II-04、EPOS-LHC和SIBYLL 2.3d三种强子相互作用模型、并假设纯质子和纯铁两种极端原初成分的蒙特卡罗模拟进行比较。</p>
+    <h4>主要发现</h4><p>所比较的模型均难以精确描述原初质子和铁核随宇宙射线原初能量变化的趋势；在假设重成分的情况下，QGSJET-II-04是唯一在全部所研究能量范围内能较好地重现MMD和HMM事件产额的模型。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；基于结果可合理推断，需进一步检验模型对原初成分随能量变化趋势的描述能力，并借助更多数据或改进的强子相互作用模型来区分原初成分假设。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04991v1">
+  <div class="paper-head">
+    <h2>轻核中的π介子化实验<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.04991v1" rel="noopener noreferrer">2611.04991v1</a>
+  </div>
+  <p class="original-title">Pionization experiments in light nuclei</p>
+  <p class="meta"><strong>作者：</strong>Slawomir Wycech、Guillaume Hupin、Jaume Carbonell</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文考虑轻核中零能反质子的吸收过程。我们分析了最轻核 $^2$H、$^3$He 和 $^4$He 中反质子-中子与反质子-质子俘获率之比 $R_{n/p}$，分析同时基于实验结果和若干选定的理论模型。这些模型被用作确定最低态能级移动与宽度的关键输入。我们确定 $^3$He 中的俘获轨道为角动量 $L=2$ 的态。我们使用若干 N-N 光学势计算了多种重核的 $R_{n/p}$ 值，结果与数据一致。然而，早期研究氦中π介子化的腔室实验与模型不一致。只有 Paris 势有可能成功，前提是该模型预言的 baryonia 态得到更好的理解。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>轻核中零能反质子吸收时，反质子-中子与反质子-质子俘获率之比 $R_{n/p}$ 如何由实验与理论模型描述，以及这些模型能否解释轻核中的俘获轨道与相关实验数据。</p>
+    <h4>方法</h4><p>分析 $^2$H、$^3$He、$^4$He 中 $R_{n/p}$ 的实验结果与选定理论模型；以这些模型作为确定最低态能级移动与宽度的关键输入；使用若干 N-N 光学势计算多种重核的 $R_{n/p}$ 值，并与数据比较。</p>
+    <h4>主要发现</h4><p>确定 $^3$He 中的俘获轨道为角动量 $L=2$ 的态；使用若干 N-N 光学势计算的重核 $R_{n/p}$ 值与数据一致；早期研究氦中π介子化的腔室实验与模型不一致，只有 Paris 势有可能成功，前提是该模型预言的 baryonia 态得到更好理解。</p>
+    <h4>局限与展望</h4><p>原文指出早期氦π介子化腔室实验与模型不一致，Paris 势的成功可能性依赖于对 baryonia 态的更好理解；可合理推断，baryonia 态的性质及模型适用性是后续需要澄清的方向。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-04 13:06 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

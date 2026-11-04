@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-04</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">3</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（3）</h3><ol class="toc-list"><li><a href="#paper-2611.03874v1">迹变形三维SU(2)杨-米尔斯理论再禁闭相中的禁闭弦</a> <small>2611.03874v1</small></li><li><a href="#paper-2611.04735v1">多级蒙特卡洛方法能否解决有限密度玻色气体中的符号问题？</a> <small>2611.04735v1</small></li><li><a href="#paper-2611.05051v1">关于手征费米子规范理论格点定义的一点注记</a> <small>2611.05051v1</small></li></ol><h3>交叉列表（3）</h3><ol class="toc-list"><li><a href="#paper-2611.00639v1">双周期瞬子：ADHM 方法及自对偶单极子—中心涡旋链</a> <small>2611.00639v1</small></li><li><a href="#paper-2611.03837v1">负规范耦合下与紧致U(1)规范场耦合的格点自旋系统：阻挫诱导的新相与相变</a> <small>2611.03837v1</small></li><li><a href="#paper-2611.05329v1">费米子的精确量子场论/格点映射</a> <small>2611.05329v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.03874v1">
+  <div class="paper-head">
+    <h2>迹变形三维SU(2)杨-米尔斯理论再禁闭相中的禁闭弦<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.03874v1" rel="noopener noreferrer">2611.03874v1</a>
+  </div>
+  <p class="original-title">Confining strings in the reconfined phase of trace deformed three dimensional $\mathrm{SU}(2)$ Yang-Mills theory</p>
+  <p class="meta"><strong>作者：</strong>Claudio Bonati、Michele Caselle、Alessio Negro、Dario Panfalone、Lorenzo Verzichelli</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在杨-米尔斯作用量中加入迹变形可使理论在标准退禁闭温度以上仍保持禁闭，即所谓再禁闭相。本文通过格点模拟研究三维迹变形SU(2)理论中的禁闭通量管，计算Polyakov圈关联函数。随着变形增大，基态能量偏离通常的Nambu-Gotō有效弦描述；在再禁闭相深处，数据可由Polchinski-Yang刚性弦——一种以外在曲率项为主导的有效弦——准确描述。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>迹变形三维SU(2)杨-米尔斯理论在再禁闭相中禁闭通量管的有效弦描述如何随变形变化。</p>
+    <h4>方法</h4><p>对迹变形SU(2)理论进行格点模拟，计算Polyakov圈关联函数以提取禁闭弦的基态能量，并与Nambu-Gotō和Polchinski-Yang等有效弦模型比较。</p>
+    <h4>主要发现</h4><p>随着变形增大，基态能量偏离通常的Nambu-Gotō有效弦描述；在再禁闭相深处，数据可由以外部曲率项为主导的Polchinski-Yang刚性弦准确描述。</p>
+    <h4>局限与展望</h4><p>原文未讨论该有效弦描述的适用范围与系统误差；后续可合理推断需进一步检验不同变形参数与晶格间距下的稳定性，并探讨外在曲率项主导机制的物理来源。</p>
+  </section>
+</article><article class="paper" id="paper-2611.04735v1">
+  <div class="paper-head">
+    <h2>多级蒙特卡洛方法能否解决有限密度玻色气体中的符号问题？<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.04735v1" rel="noopener noreferrer">2611.04735v1</a>
+  </div>
+  <p class="original-title">Can multi-level Monte-Carlo address the sign problem in a finite-density Bose gas?</p>
+  <p class="meta"><strong>作者：</strong>Rajatha Ranpatige、Finn M. Stokes</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>复作用量场论的数值模拟受到符号问题的困扰，该问题导致统计采样噪声呈指数增长。有限重子化学势下的QCD是这类理论的关键例子，对原子核结构与中子星研究具有重要应用。迄今为止，符号问题阻碍了能够为这些重要物理系统提供关键洞察的第一性原理数值计算。本文提出一种规避该限制的方法：将重加权（reweighting）过程与多级蒙特卡洛（multi-level Monte-Carlo）采样算法相结合，后者可提供统计量的指数级增强以抵消符号问题。我们在一个在有限化学势下表现出相同符号问题的简化模型上检验了该方法。结果表明该方法具有前景，显著扩展了可进行精确计算的范围，并一直改善到相变处。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在存在符号问题的复作用量场论（以有限化学势下的QCD为重要动机）中，扩展可进行精确数值计算的范围。</p>
+    <h4>方法</h4><p>将重加权（reweighting）过程与多级蒙特卡洛（multi-level Monte-Carlo）采样算法相结合，并在一个在有限化学势下表现出相同符号问题的简化模型上进行检验。</p>
+    <h4>主要发现</h4><p>在所检验的简化模型上，该方法显著扩展了可进行精确计算的范围，并一直改善到相变处，显示出该方法的潜力。</p>
+    <h4>局限与展望</h4><p>原文仅在简化模型上进行了检验，尚未直接应用于有限重子化学势下的QCD；该方法能否在更接近真实QCD的模型中同样有效，尚需进一步研究（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05051v1">
+  <div class="paper-head">
+    <h2>关于手征费米子规范理论格点定义的一点注记<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05051v1" rel="noopener noreferrer">2611.05051v1</a>
+  </div>
+  <p class="original-title">A Note On Lattice Definition of Gauge Theories With Chiral Fermions</p>
+  <p class="meta"><strong>作者：</strong>Edward Witten</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>由于费米子倍增问题，为四维规范理论与手征费米子耦合构造格点算法长期是一个难题。近期，Craig 描述了一种实现该目标的算法，推广了此前文献中的部分结果。本文描述该算法的一个变体：其基础是将格点规范场插值到连续统（与 Craig 的工作相同），并将插值后的规范场与连续统手征费米子耦合。Hsu 近期也独立提出了同一变体。该方案在任意维度和任意无反常表示下原则上均可在计算机上实现，但由于手征费米子路径积分不正定，实际上无法用蒙特卡罗方法实现。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在格点上定义并研究四维规范理论与手征费米子耦合的理论，克服费米子倍增问题带来的困难。</p>
+    <h4>方法</h4><p>将格点规范场插值到连续统，再把插值后的规范场与连续统手征费米子耦合，从而构造 Craig 算法的变体。</p>
+    <h4>主要发现</h4><p>该变体在任意维度和任意无反常表示下原则上均可在计算机上实现；但由于手征费米子路径积分不正定，实际上无法用蒙特卡罗方法实现。</p>
+    <h4>局限与展望</h4><p>原文明确指出该方案在实际蒙特卡罗计算中不可行；因此可合理推断，后续方向可能包括寻找规避路径积分不正定性的替代算法或符号问题处理方案，但原文未给出具体方案。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.00639v1">
+  <div class="paper-head">
+    <h2>双周期瞬子：ADHM 方法及自对偶单极子—中心涡旋链<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.00639v1" rel="noopener noreferrer">2611.00639v1</a>
+  </div>
+  <p class="original-title">Doubly-periodic instanton via the ADHM method and the self-dual monopole-center vortex chain</p>
+  <p class="meta"><strong>作者：</strong>Yui Hayashi、Yuya Tanizaki</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>热子（caloron），即 $\mathbb{R}^3\times S^1$ 上具有非平凡渐近和乐（holonomy）的瞬子，可分解为 $N$ 个基本单极子组分。这一事实提示，$\mathbb{R}^2\times T^2$ 上的双周期 Yang--Mills 瞬子或许可以用单极子组分的周期阵列来描述。本文从 Atiyah--Drinfeld--Hitchin--Manin（ADHM）构造出发，导出带有杂质的二维 Abel Hitchin 系统，作为双周期瞬子的对偶描述。随后，在假定由 delta 函数杂质引起的紫外发散满足某一标度 ansatz 的前提下，我们给出由该系统的 Green 函数重构瞬子的方案。在环面周期强各向异性的远场极限下，我们推广了 Bruckmann 与 van Baal 对多热子的分析，并识别出一条由 BPS 单极子与 Kaluza--Klein（KK）单极子组分交替构成的链：单极子—中心涡旋链源于非 Abel 自对偶场，尤其当 &#x27;t Hooft 扭曲将环面切割为 $1/N$ 碎片时。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用单极子组分的周期阵列描述 $\mathbb{R}^2\times T^2$ 上的双周期 Yang--Mills 瞬子，并刻画其远场结构。</p>
+    <h4>方法</h4><p>从 ADHM 构造出发，导出带杂质的二维 Abel Hitchin 系统作为对偶描述；在 delta 函数杂质所致紫外发散满足标度 ansatz 的假设下，由该系统的 Green 函数重构瞬子；并在强各向异性环面周期的远场极限下推广 Bruckmann 与 van Baal 的多热子分析。</p>
+    <h4>主要发现</h4><p>导出了带杂质的二维 Abel Hitchin 系统作为双周期瞬子的对偶描述；给出了基于该系统 Green 函数重构瞬子的方案（依赖对紫外发散的标度 ansatz）；在强各向异性远场极限下识别出 BPS 与 KK 单极子组分交替构成的链，并指出单极子—中心涡旋链源于非 Abel 自对偶场，尤其当 &#x27;t Hooft 扭曲将环面切割为 $1/N$ 碎片时。</p>
+    <h4>局限与展望</h4><p>重构方案依赖对 delta 函数杂质所致紫外发散的标度 ansatz，其适用性与自洽性有待进一步检验；远场链结构的识别限于强各向异性环面周期的极限。后续可合理推断的方向包括：放宽标度 ansatz 或系统处理紫外发散，以及将分析推广至更一般的环面周期与扭曲情形。</p>
+  </section>
+</article><article class="paper" id="paper-2611.03837v1">
+  <div class="paper-head">
+    <h2>负规范耦合下与紧致U(1)规范场耦合的格点自旋系统：阻挫诱导的新相与相变<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.03837v1" rel="noopener noreferrer">2611.03837v1</a>
+  </div>
+  <p class="original-title">Lattice spin systems coupled to a compact U(1) gauge field with negative gauge coupling favoring frustration</p>
+  <p class="meta"><strong>作者：</strong>Claudio Bonati、Ettore Vicari</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究三维紧致格点阿贝尔希格斯模型在负规范耦合下的相图与相变性质。该类模型描述多分量复标量场与紧致U(1)规范场的耦合；负规范耦合倾向于阻挫的元格（plaquette）构型，并与物质场类铁磁相互作用抑制阻挫的倾向相竞争。对单位电荷的一分量与二分量标量场模型开展蒙特卡罗模拟与有限尺寸标度分析，发现其相结构较非负规范耦合情形显著更丰富。对于二分量情形，与规范不变双线性序参量相关的O(3)相变线延伸至负耦合区域，并随K减小转变为一级相变线，趋向完全阻挫的K→-∞极限；一分量标量物质在负规范耦合下也出现类似的一级相变线。两类模型在足够大的物质耦合下均出现另外两条连续相变线，其能量累积量标度行为与三维Ising及XY临界指数一致，分别提示属于Z_2与XY规范普适类的拓扑相变。上述结果揭示了由物质有序与动力学规范阻挫之间竞争所产生的新相，其物理刻画仍为开放问题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究三维紧致格点阿贝尔希格斯模型在负规范耦合下的相图与相变性质，特别是负规范耦合所诱导的阻挫与物质场有序倾向之间的竞争如何改变相结构。</p>
+    <h4>方法</h4><p>采用蒙特卡罗模拟与有限尺寸标度分析，研究对象为单位电荷的一分量和二分量复标量场与紧致U(1)规范场耦合的格点模型，并考察K→-∞的完全阻挫极限。</p>
+    <h4>主要发现</h4><p>二分量模型中，与规范不变双线性序参量相关的O(3)相变线延伸至负耦合区，并随K减小转为一级相变线，趋向K→-∞极限；一分量标量物质在负规范耦合下也出现类似的一级相变线；两类模型在足够大的物质耦合下均出现另外两条连续相变线，其能量累积量标度与三维Ising和XY临界指数一致，分别提示Z_2与XY规范普适类的拓扑相变。</p>
+    <h4>局限与展望</h4><p>原文指出，由物质有序与动力学规范阻挫竞争所产生的新相的物理刻画仍是开放问题；其微观性质、序参量描述及与拓扑规范理论的联系有待进一步研究。上述关于普适类的判断基于能量累积量标度与已知临界指数的一致性，尚需更多独立证据支持。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05329v1">
+  <div class="paper-head">
+    <h2>费米子的精确量子场论/格点映射<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05329v1" rel="noopener noreferrer">2611.05329v1</a>
+  </div>
+  <p class="original-title">An Exact QFT/Lattice Map for Fermions</p>
+  <p class="meta"><strong>作者：</strong>Shu-Heng Shao、Nikita Sopenko</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在1+1维构造了连续费米子场与格点场之间的精确映射。该映射将连续哈密顿量改写为具有最近邻耦合和无限维局域希尔伯特空间的格点哈密顿量。所得格点模型在任意有限格点上精确重现连续量子场论的能量谱、全局算符代数、手征对称性及反常。与畴壁费米子不同，截断局域希尔伯特空间不会引入额外无质量模式，且区间纠缠熵在截断移除时收敛。格点局域代数为I型，并位于嵌套空间区域的III型连续代数之间，符合分裂性质。作者对N个Majorana费米子显式展示了该构造，实现了O(N)_L×O(N)_R格点手征对称性；并构造了Schwinger模型的精确格点模型，数值重现了质量间隙e/√π。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在1+1维中建立连续费米子场与格点场之间的精确映射，使格点模型精确保持连续量子场论的能谱、算符代数、手征对称性与反常，并避免畴壁费米子截断带来的额外无质量模式。</p>
+    <h4>方法</h4><p>构造连续费米子场到格点场的精确映射，将连续哈密顿量改写为具有最近邻耦合和无限维局域希尔伯特空间的格点哈密顿量；对N个Majorana费米子显式实现O(N)_L×O(N)_R格点手征对称性；并构造Schwinger模型的精确格点模型进行数值计算。</p>
+    <h4>主要发现</h4><p>所得格点模型在任意有限格点上精确重现连续量子场论的能量谱、全局算符代数、手征对称性和反常；截断局域希尔伯特空间不引入额外无质量模式，区间纠缠熵在截断移除时收敛；格点局域代数为I型并位于嵌套空间区域的III型连续代数之间，符合分裂性质；对N个Majorana费米子实现了O(N)_L×O(N)_R格点手征对称性；Schwinger模型数值重现了质量间隙e/√π。</p>
+    <h4>局限与展望</h4><p>原文讨论限于1+1维；向更高维或规范理论的一般化、截断误差的定量控制以及更大规模数值验证属于可合理推断的后续方向，但原文未作明确结论。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-04 13:06 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
