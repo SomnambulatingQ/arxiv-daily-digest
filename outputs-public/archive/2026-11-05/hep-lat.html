@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-05</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">12</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">7</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">5</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（7）</h3><ol class="toc-list"><li><a href="#paper-2611.05051v1">关于手征费米子规范理论格点定义的一点注记</a> <small>2611.05051v1</small></li><li><a href="#paper-2611.05379v1">横向场Ising模型的VQE模拟</a> <small>2611.05379v1</small></li><li><a href="#paper-2611.05395v1">格点上的精确手征对称性、非厄米性与轴反常：无序诱导去简并的对称类判据</a> <small>2611.05395v1</small></li><li><a href="#paper-2611.05402v1">Schwinger模型的虫算法研究</a> <small>2611.05402v1</small></li><li><a href="#paper-2611.05899v1">Luescher 形式中在壳减除的有限体积分析</a> <small>2611.05899v1</small></li><li><a href="#paper-2611.05987v1">场论中纠缠不对称性与量子姆潘巴效应的量子计算</a> <small>2611.05987v1</small></li><li><a href="#paper-2611.06880v1">手征规范理论的格点模拟</a> <small>2611.06880v1</small></li></ol><h3>交叉列表（5）</h3><ol class="toc-list"><li><a href="#paper-2611.05491v1">量子计算在高能核物理中的应用</a> <small>2611.05491v1</small></li><li><a href="#paper-2611.05635v1">由电磁形状因子重建质子广义部分子分布：一个受理论约束的现象学重构</a> <small>2611.05635v1</small></li><li><a href="#paper-2611.06154v1">量子码中的统计力学与可学习性层级：从广义对称性到非阿贝尔拓扑序</a> <small>2611.06154v1</small></li><li><a href="#paper-2611.06503v1">对偶 QCD 成为流体力学的一种对偶模型</a> <small>2611.06503v1</small></li><li><a href="#paper-2611.06771v1">非紧致Kogut-Susskind规范理论：具有精确SL(2,ℝ)规范不变性的一维格点模型</a> <small>2611.06771v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.05051v1">
+  <div class="paper-head">
+    <h2>关于手征费米子规范理论格点定义的一点注记<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05051v1" rel="noopener noreferrer">2611.05051v1</a>
+  </div>
+  <p class="original-title">A Note On Lattice Definition of Gauge Theories With Chiral Fermions</p>
+  <p class="meta"><strong>作者：</strong>Edward Witten</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>由于费米子倍增问题，为四维规范理论与手征费米子耦合构造格点算法长期是一个难题。近期，Craig 描述了一种实现该目标的算法，推广了此前文献中的部分结果。本文描述该算法的一个变体：其基础是将格点规范场插值到连续统（与 Craig 的工作相同），并将插值后的规范场与连续统手征费米子耦合。Hsu 近期也独立提出了同一变体。该方案在任意维度和任意无反常表示下原则上均可在计算机上实现，但由于手征费米子路径积分不正定，实际上无法用蒙特卡罗方法实现。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在格点上定义并研究四维规范理论与手征费米子耦合的理论，克服费米子倍增问题带来的困难。</p>
+    <h4>方法</h4><p>将格点规范场插值到连续统，再把插值后的规范场与连续统手征费米子耦合，从而构造 Craig 算法的变体。</p>
+    <h4>主要发现</h4><p>该变体在任意维度和任意无反常表示下原则上均可在计算机上实现；但由于手征费米子路径积分不正定，实际上无法用蒙特卡罗方法实现。</p>
+    <h4>局限与展望</h4><p>原文明确指出该方案在实际蒙特卡罗计算中不可行；因此可合理推断，后续方向可能包括寻找规避路径积分不正定性的替代算法或符号问题处理方案，但原文未给出具体方案。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05379v1">
+  <div class="paper-head">
+    <h2>横向场Ising模型的VQE模拟<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05379v1" rel="noopener noreferrer">2611.05379v1</a>
+  </div>
+  <p class="original-title">A VQE simulation of the transverse field Ising model</p>
+  <p class="meta"><strong>作者：</strong>Luke Bennett</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子计算最具前景的应用之一是模拟量子系统。凝聚态物理中一个尤为重要的量是系统的基态能量。本文实现了一种称为变分量子本征求解器（VQE）的混合量子-经典算法，用于估计一个典型量子自旋系统的基态能量。所采用的自旋系统为横向场Ising模型（TFIM），该模型已知在临界点处表现出量子相变（QPT）。我们将VQE应用于4个自旋的TFIM，并使用局部噪声模型和IBM量子硬件评估其性能，以估计基态能量并重现QPT。所得基态能量估计与QPT行为均与精确对角化基准进行了比较。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用变分量子本征求解器（VQE）估计横向场Ising模型（TFIM）的基态能量，并在噪声与真实量子硬件条件下重现其量子相变行为。</p>
+    <h4>方法</h4><p>实现混合量子-经典VQE算法，针对4个自旋的TFIM进行模拟；采用局部噪声模型及IBM量子硬件运行，并将结果与精确对角化基准对比。</p>
+    <h4>主要发现</h4><p>原文明确报告了VQE对4自旋TFIM的基态能量估计及QPT行为，并将其与精确对角化基准进行了比较；摘要未给出具体数值或定量误差结论。</p>
+    <h4>局限与展望</h4><p>摘要仅涉及4自旋TFIM，未讨论更大系统规模或更高维模型的可扩展性；后续可合理推断的方向包括在更大自旋数或不同噪声条件下检验VQE性能，但该推断需进一步研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05395v1">
+  <div class="paper-head">
+    <h2>格点上的精确手征对称性、非厄米性与轴反常：无序诱导去简并的对称类判据<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05395v1" rel="noopener noreferrer">2611.05395v1</a>
+  </div>
+  <p class="original-title">Exact chiral symmetry, non-Hermiticity, and the axial anomaly on the lattice: A symmetry-class criterion for disorder-induced undoubling</p>
+  <p class="meta"><strong>作者：</strong>Laurence A. Jacobs</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.other</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文以现代工具重新审视 Jacobs 于 1983 年提出的手征无序费米子（chiral disordered fermions, CDF）格点 Dirac 算符。该算符通过以淬火随机场加权导数来保持精确手征对称性。我们证明，无序平均后的算符在所有无序强度阶数上精确满足 \anticomm{\Deff}{\gfive}=0。无序解除加倍子（doubler）的简并，将其驱离实轴、赋予复质量，而物理模式仍受保护；但这一机制源于非厄米性，而非 Ginsparg–Wilson 关系。因此，轴指标在所有表述中均为零：包括厄米迹 \Tr(\gfive D)、非厄米算符的双正交指标以及代数 Riesz 投影指标，在例外点处亦然。故 CDF 算符无法重现轴反常；其失败恰恰由其所保持的精确手征对称性所强制。我们按承载格点结构的 Dirac 通道对邻近构造进行分类：\g_μ 通道中的无序保持手征性，实现 Altland–Zirnbauer 手征类，不能承载指标；\mathbb{1} 质量通道中的无序破坏手征对称性，给出 Callan–Harvey/畴壁物理。二者之间由单参数族插值，1983 年算符与 Kaplan 畴壁为其相反极限，区分二者的不是无序本身，而是无序所占据的通道。这一结果将格点 QCD 的去简并与无序 Dirac 费米子的十重分类相统一，并厘清了通向手征格点费米子的无序路线。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否利用无序在格点上构造既保持精确手征对称性、又能正确重现轴反常（即实现去简并且不产生加倍子）的 Dirac 算符；1983 年 CDF 算符是否可实现这一目标。</p>
+    <h4>方法</h4><p>以现代格点场论与随机系综工具重新分析 CDF 算符：证明无序平均算符满足 \anticomm{\Deff}{\gfive}=0；考察无序对加倍子质量谱的作用；在厄米迹、非厄米双正交指标与 Riesz 投影指标三种表述下计算轴指标（含例外点）；并按承载格点结构的 Dirac 通道（\g_μ 通道与 \mathbb{1} 质量通道）对邻近构造进行分类，构造连接 CDF 与 Kaplan 畴壁的单参数插值族。</p>
+    <h4>主要发现</h4><p>无序平均算符在所有无序阶上精确满足 \anticomm{\Deff}{\gfive}=0；无序将加倍子驱离实轴、赋予复质量，同时保护物理模式，其机制为非厄米性而非 Ginsparg–Wilson 关系；轴指标在厄米迹 \Tr(\gfive D)、非厄米双正交指标与 Riesz 投影指标中均为零，例外点处亦然；因此 CDF 算符无法重现轴反常，且这一失败由其所保持的精确手征对称性强制；\g_μ 通道无序保持手征性、属于 Altland–Zirnbauer 手征类且不能承载指标，\mathbb{1} 质量通道无序破坏手征对称性并给出 Callan–Harvey/畴壁物理；单参数族以 1983 年算符与 Kaplan 畴壁为相反极限，区分二者的是无序所在通道而非无序本身。</p>
+    <h4>局限与展望</h4><p>原文结论限于所考察的 CDF 算符及按 Dirac 通道分类的邻近构造，未给出数值模拟或有限体积、有限无序强度下的定量结果；可合理推断，后续工作或可沿单参数插值族系统考察中间通道构造的谱与指标行为，并将该通道判据推广至其他维数与对称类，但此类推广尚需独立验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05402v1">
+  <div class="paper-head">
+    <h2>Schwinger模型的虫算法研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05402v1" rel="noopener noreferrer">2611.05402v1</a>
+  </div>
+  <p class="original-title">Worm Algorithms for the Schwinger Model</p>
+  <p class="meta"><strong>作者：</strong>Lucas Ramírez Zalduendo</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本论文利用格点表述及其对偶表示研究(1+1)维Schwinger模型。该模型为考察规范理论的典型现象（包括屏蔽、与禁闭相关的行为、Schwinger效应以及对拓扑角θ的依赖）提供了一个简单而非平凡的框架。在引入采用交错费米子的欧几里得表述之后，我们描述了对偶变换：在此变换中，原有的自由度被替换为元胞（plaquette）、二聚体（dimer）的构型，而在有质量的情形下还包括单体（monomer）。主要目标是研究在存在费米子质量和拓扑角时该模型的数值行为。我们实现了适用于对偶表示的Monte Carlo算法，包括允许对可容许构型进行抽样的局域与非局域更新。对于有质量的模型，我们还分析了符号问题的出现及其通过重加权（reweighting）对观测量估计的影响。由模拟我们计算了若干量，包括平均元胞、二聚体密度、手征凝聚以及平均符号。这些观测量刻画了对质量、耦合和拓扑角θ的依赖关系，并识别出符号问题最为显著的区域。最后，我们讨论了数值结果以及对偶表述在研究非微扰区域规范理论方面的有用性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究(1+1)维Schwinger模型在格点表述及其对偶表示下的数值行为，重点考察存在费米子质量和拓扑角θ时该模型的行为，以及符号问题的出现及其对观测量估计的影响。</p>
+    <h4>方法</h4><p>采用交错费米子的欧几里得格点表述并进行对偶变换，将原有自由度替换为元胞、二聚体（有质量情形下还包括单体）的构型；实现对偶表示下的Monte Carlo算法，包括局域与非局域更新以抽样可容许构型；对有质量模型分析符号问题并通过重加权估计观测量。</p>
+    <h4>主要发现</h4><p>计算了平均元胞、二聚体密度、手征凝聚和平均符号等量；这些观测量刻画了对质量、耦合和拓扑角θ的依赖关系，并识别出符号问题最为显著的区域。</p>
+    <h4>局限与展望</h4><p>论文讨论了数值结果及对偶表述在研究非微扰区域规范理论方面的有用性；原文未明确给出具体局限或后续方向，相关推断需谨慎对待。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05899v1">
+  <div class="paper-head">
+    <h2>Luescher 形式中在壳减除的有限体积分析<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05899v1" rel="noopener noreferrer">2611.05899v1</a>
+  </div>
+  <p class="original-title">Finite-volume Analysis of On-shell Subtraction in the Luescher formalism</p>
+  <p class="meta"><strong>作者：</strong>Wanchen Lei、Yuting Wang、Jin-Yi Pang</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在壳减除是有限体积分析中的一个重要步骤，其目的是分离出在壳奇异性，并在在壳取值处计算依赖于动量的正则因子。对于具有有限质量间隙的短程相互作用，与在壳减除相关的修正在大体积下呈指数压低，因而在相应精度下可以忽略。本文考察该修正随相关质量参数减小而发生的变化。采用一种常用的维数正规化方案，我们针对若干代表性动量结构推导了所得有限体积修正的解析表达式，并对其数值行为进行了考察。对于非零质量参数，修正在大 $\mu L$ 下确实呈指数压低；而在无质量极限下，这种压低被增强的有限体积依赖性所取代。更重要的是，在无质量极限下，$S$ 波贡献可能出现有限体积修正的红外发散。这些结果澄清了在壳减除可被应用的条件，并为评估涉及长程效应的有限体积强子计算（包括 QCD+QED）中的此类修正提供了指导。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 Luescher 形式中，在壳减除所引入的有限体积修正如何随相关质量参数减小而变化，特别是在无质量极限下的行为。</p>
+    <h4>方法</h4><p>采用一种常用的维数正规化方案，针对若干代表性动量结构推导有限体积修正的解析表达式，并进行数值考察。</p>
+    <h4>主要发现</h4><p>对于非零质量参数，修正在大 $\mu L$ 下呈指数压低；在无质量极限下，指数压低被增强的有限体积依赖性取代；$S$ 波贡献在无质量极限下可能出现有限体积修正的红外发散。</p>
+    <h4>局限与展望</h4><p>原文未讨论具体局限；结果可用于澄清在壳减除的适用条件，并可为涉及长程效应的有限体积强子计算（包括 QCD+QED）中此类修正的评估提供参考。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05987v1">
+  <div class="paper-head">
+    <h2>场论中纠缠不对称性与量子姆潘巴效应的量子计算<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05987v1" rel="noopener noreferrer">2611.05987v1</a>
+  </div>
+  <p class="original-title">Quantum Computing for Entanglement Asymmetry and the Quantum Mpemba Effect in Field Theory</p>
+  <p class="meta"><strong>作者：</strong>Keisuke Fujii、Harunobu Fujimura、Masazumi Honda、Duc Truyen Le</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文构建了一种用于估计Rényi纠缠不对称性的量子测量协议。纠缠不对称性在子系统层面量化对称性破缺，并可作为量子姆潘巴效应的探针。该协议将SWAP测试与基于随机对称旋转的电荷分辨程序相结合。对于固定的加性精度ε，所需测量次数按O(ε^{-2})标度，且不显式依赖于总系统尺寸，这使其特别适用于量子多体系统和格点量子场论。作为代表性应用，我们利用经典态矢量模拟研究了含θ项的格点Schwinger模型中的量子姆潘巴效应。我们进一步估计了在含噪中等规模量子（NISQ）设备、容错量子计算机（FTQC）以及一种代表性早期FTQC架构上实施该协议所需的资源。我们的结果为研究量子多体系统和量子场论中的反常对称性恢复动力学提供了一个测量高效的框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何以测量高效的方式估计Rényi纠缠不对称性，并以此探测量子多体系统与格点量子场论中的量子姆潘巴效应。</p>
+    <h4>方法</h4><p>构建结合SWAP测试与基于随机对称旋转的电荷分辨程序的量子测量协议；以经典态矢量模拟研究含θ项的格点Schwinger模型中的量子姆潘巴效应；并估计在NISQ设备、FTQC及一种代表性早期FTQC架构上实施该协议所需的资源。</p>
+    <h4>主要发现</h4><p>对于固定加性精度ε，协议所需测量次数按O(ε^{-2})标度且不显式依赖总系统尺寸；在含θ项的格点Schwinger模型中通过经典态矢量模拟研究了量子姆潘巴效应；给出了在NISQ、FTQC及早期FTQC架构上实施该协议的资源估计。</p>
+    <h4>局限与展望</h4><p>原文未给出具体局限性结论；基于其表述可合理推断，该协议对量子多体系统与格点量子场论尤为适用，后续可进一步在实际量子硬件上验证其资源估计与测量效率，并推广至其他规范理论或对称性恢复动力学的研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06880v1">
+  <div class="paper-head">
+    <h2>手征规范理论的格点模拟<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.06880v1" rel="noopener noreferrer">2611.06880v1</a>
+  </div>
+  <p class="original-title">Simulating a chiral gauge theory</p>
+  <p class="meta"><strong>作者：</strong>Laurens Lootens、Hersh Singh</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>手征规范理论是标准模型的基础，但迄今尚无对其非微扰模拟的实现。规避 Nielsen-Ninomiya 阻碍的格点构造通常涉及复费米子测度或无限维局域希尔伯特空间。本文提出一种规范不变哈密顿格点正则化方案，用于 1+1 维阿贝尔手征规范理论；该方案基于带 $\mathbb{Z}_N$ 规范场的 clock-and-shift qudit 构建，其中整体手征对称性及其 &#x27;t Hooft 反常以模 $N$ 的方式精确保持。格点上的反常抵消使得高斯定律可以被精确施加并求解，从而将理论约化为无约束的 qudit 链。利用无限矩阵乘积态，我们模拟了典型的 1+1 维手征规范理论——34-50 模型，结果与解析预言高度一致，表明在 $N=6$ 的有限维局域希尔伯特空间即可重现连续 34-50 模型预期的红外物理。该工作为在经典计算机和量子计算机上模拟 1+1 维一般阿贝尔手征规范理论提供了高效且实用的方案。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何对具有整体手征对称性及其 &#x27;t Hooft 反常的手征规范理论进行非微扰的格点模拟，同时避免 Nielsen-Ninomiya 阻碍所导致的复费米子测度或无限维局域希尔伯特空间问题。</p>
+    <h4>方法</h4><p>构建基于 clock-and-shift qudit 与 $\mathbb{Z}_N$ 规范场的规范不变哈密顿格点正则化；利用格点上的反常抵消精确施加并求解高斯定律，将理论约化为无约束 qudit 链；采用无限矩阵乘积态对 1+1 维 34-50 模型进行数值模拟。</p>
+    <h4>主要发现</h4><p>整体手征对称性及其 &#x27;t Hooft 反常在格点上以模 $N$ 的方式精确保持；反常抵消使高斯定律可被精确求解；对 34-50 模型的模拟结果与解析预言高度一致，且 $N=6$ 的有限维局域希尔伯特空间即可重现连续 34-50 模型预期的红外物理。</p>
+    <h4>局限与展望</h4><p>原文明确针对 1+1 维阿贝尔手征规范理论；向更高维或非阿贝尔情形的推广属于可合理推断的后续方向，尚需进一步研究。该方案在经典与量子计算机上的实际效率与扩展性有待后续工作检验。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.05491v1">
+  <div class="paper-head">
+    <h2>量子计算在高能核物理中的应用<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05491v1" rel="noopener noreferrer">2611.05491v1</a>
+  </div>
+  <p class="original-title">Quantum computing for high energy nuclear physics</p>
+  <p class="meta"><strong>作者：</strong>João Barata</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子信息科学（QIS）提供了一套概念性与计算性工具，特别适合研究强相互作用量子系统的多体、非平衡与实时性质。这些主题在高能核物理中有自然的对应：其核心目标是在极端条件下描述量子色动力学（QCD）——强相互作用理论——的性质，相关例子涵盖强子的形成与内部结构、强相互作用QCD物质的集体与热化动力学，以及复杂多体散射过程的性质。尽管过去数十年间，借助微扰方法、格点QCD和有效理论描述，核物理语境下对QCD的理解已取得巨大进展，但本质上与实时动力学、高度纠缠的多体演化或有限密度区域相关的现象，仍只能被现有方法部分触及。本文主张，QIS有助于为实现应对这些开放问题的新范式。为使讨论对高能核物理与QIS两类读者均可理解，我们概述了高能核物理中若干精选开放问题，重点放在由对撞机唯象学所激发的方面，并讨论如何用QIS工具处理它们。这一联系通过近期文献中的代表性例子加以说明，从而论证QIS有望在未来数年成为核物理发现的重要驱动力。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文讨论的问题是：高能核物理中与实时动力学、高度纠缠的多体演化及有限密度区域相关的QCD现象，现有微扰方法、格点QCD和有效理论只能部分处理，如何借助量子信息科学（QIS）的概念与计算工具加以应对。</p>
+    <h4>方法</h4><p>论文采用综述与论证性论述的方法：概述高能核物理中若干精选开放问题（侧重对撞机唯象学所激发的方面），讨论如何用QIS工具处理，并通过近期文献中的代表性例子说明这一联系。</p>
+    <h4>主要发现</h4><p>原文明确支持的主要结果是：QIS提供了一套特别适合研究强相互作用量子系统多体、非平衡与实时性质的概念与计算工具；这些主题与高能核物理的核心目标自然对应；现有方法对实时动力学、高度纠缠多体演化或有限密度区域相关现象只能部分触及；QIS有望成为未来数年核物理发现的重要驱动力。</p>
+    <h4>局限与展望</h4><p>原文为综述与立场性论证，未给出具体量子算法或实验验证结果；其适用范围限于所选取的开放问题与代表性文献例子。可合理推断的后续方向包括：针对实时动力学、纠缠多体演化与有限密度QCD现象发展具体的QIS方法，并推动高能核物理与QIS两个领域的交叉研究；这些推断需以未来具体研究加以检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05635v1">
+  <div class="paper-head">
+    <h2>由电磁形状因子重建质子广义部分子分布：一个受理论约束的现象学重构<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05635v1" rel="noopener noreferrer">2611.05635v1</a>
+  </div>
+  <p class="original-title">Proton generalized parton distributions from electromagnetic form factors: A theoretically constrained phenomenological reconstruction</p>
+  <p class="meta"><strong>作者：</strong>A. Capelo-Astudillo、T. Aguilar、M. Conde-Correa、A. Duenas-Vidal、P. G. Ortega、J. Segovia</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出对质子非极化、手征偶、领头阶扭转广义部分子分布 H^q 与 E^q 的一种受理论约束的现象学重构。在零偏度情形下，将价夸克分布与依赖于味道的指数型剖面相结合，并同时以质子和中子电磁形状因子的现象学表示进行标定。该构造严格满足价夸克归一化与反常磁矩归一化、低标度条件 B^{u+d}(0)=0、所要求的端点行为以及完整的高斯碰撞参数正定性约束。所得参数化对电磁形状因子及其斜率给出合理描述，同时揭示出在所采用的拟设下，严格的 GPD 自洽性与对全部低 Q^2 可观测量的精确再现之间存在张力。我们利用归一化双分布将分布推广至非零偏度，并引入独立的 D 项以补全相应的 Mellin 多项式。我们考察了电磁形状因子与能量—动量张量形状因子、碰撞参数分布、正定性、多项式性以及若干示意性的力学性质。该分析区分了由电磁数据约束的信息与支配偏度及力学部分的额外假设，从而为未来核子到共振态跃迁 GPD 的研究提供了一个透明的弹性基线。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在理论约束下，由质子和中子电磁形状因子现象学地重构质子非极化、手征偶、领头阶扭转广义部分子分布 H^q 与 E^q，并考察其自洽性与相关性质。</p>
+    <h4>方法</h4><p>在零偏度下将价夸克分布与味道相关的指数型剖面结合，并同时针对质子和中子电磁形状因子的现象学表示进行标定；施加价夸克与反常磁矩归一化、低标度条件 B^{u+d}(0)=0、端点行为及高斯碰撞参数正定性约束；利用归一化双分布推广至非零偏度，并引入独立 D 项补全 Mellin 多项式；考察电磁与能量—动量张量形状因子、碰撞参数分布、正定性、多项式性及示意性力学性质。</p>
+    <h4>主要发现</h4><p>所得参数化对电磁形状因子及其斜率给出合理描述；同时揭示出在所采用拟设下，严格的 GPD 自洽性与对全部低 Q^2 可观测量的精确再现之间存在张力；分析区分了由电磁数据约束的信息与支配偏度及力学部分的额外假设。</p>
+    <h4>局限与展望</h4><p>原文指出该工作为未来核子到共振态跃迁 GPD 研究提供了透明的弹性基线；所采用的拟设下严格 GPD 自洽性与低 Q^2 精确再现之间的张力表明，后续可能需要改进拟设或引入额外约束，但原文未给出具体方案。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06154v1">
+  <div class="paper-head">
+    <h2>量子码中的统计力学与可学习性层级：从广义对称性到非阿贝尔拓扑序<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06154v1" rel="noopener noreferrer">2611.06154v1</a>
+  </div>
+  <p class="original-title">Statistical mechanics and hierarchy of learnability in quantum codes: From generalized symmetries to non-Abelian topological orders</p>
+  <p class="meta"><strong>作者：</strong>Hiromi Ebisu、Masazumi Honda</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>局域弱测量提供关于量子码中编码可观测量的含噪信息。本文将一大类拓扑稳定子码所对应的贝叶斯推断问题映射为具有广义对称性的经典自旋模型。当波函数形变与高斯测量强度相同时，复制模型获得扩大的对称性。我们利用该对称性推导测量记录平均关联函数之间的精确恒等式，这些关联函数刻画了与分数化激发相关的非局域可观测量的可学习性。结合相应干净铁磁模型中的关联不等式，这些恒等式建立了可学习性层级：若两个可观测量在长距离下仍可学习，则其乘积也必须保持可学习。我们在 rank-2 toric code 与 X-cube 模型中展示了这些关系，其经典描述分别呈现调制对称性与子系统对称性。我们进一步将分析推广到有限群量子双模型，包括非阿贝尔情形。我们推导了可学习性与相应经典模型中关联之间的精确关系，并表明任意子的表示结构与融合规则在适当正性条件下施加额外约束。这些结果限制了哪些类型的非局域信息可被同时学习，为局域弱测量下量子码的相图学习提供了指导。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>局域弱测量下，量子拓扑稳定子码中与分数化激发相关的非局域可观测量的可学习性如何受编码结构与测量条件约束，以及不同可观测量的可学习性之间存在何种关系。</p>
+    <h4>方法</h4><p>将贝叶斯推断问题映射为具有广义对称性的经典自旋模型；在波函数形变与高斯测量强度相同时利用复制模型的扩大对称性推导测量记录平均关联函数的精确恒等式；结合干净铁磁模型中的关联不等式；在 rank-2 toric code、X-cube 模型及有限群量子双模型（含非阿贝尔情形）中具体分析。</p>
+    <h4>主要发现</h4><p>推导出测量记录平均关联函数之间的精确恒等式，并建立可学习性层级：若两个可观测量在长距离下仍可学习，则其乘积也必须保持可学习；在 rank-2 toric code 与 X-cube 模型中分别对应调制对称性与子系统对称性；推广至有限群量子双模型（含非阿贝尔情形），得到可学习性与经典模型关联之间的精确关系，并表明任意子的表示结构与融合规则在适当正性条件下施加额外约束。</p>
+    <h4>局限与展望</h4><p>结果限制了可同时学习的非局域信息类型，可为局域弱测量下量子码的相图学习提供指导；摘要未明确讨论方法的适用边界与实验可行性，相关推广需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06503v1">
+  <div class="paper-head">
+    <h2>对偶 QCD 成为流体力学的一种对偶模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06503v1" rel="noopener noreferrer">2611.06503v1</a>
+  </div>
+  <p class="original-title">A Duality Model in Which Dual QCD Becomes Hydrodynamics</p>
+  <p class="meta"><strong>作者：</strong>Noriaki Aibara、So Katagiri、Yoshiki Matsuoka、Kazuya Mitsutani、Akio Sugamoto</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文重新审视一种对偶模型：在该模型中，对偶 QCD 表现为流体力学，或者说对偶胶子表现为一种流体。作者指出，这一图像有助于理解 QCD 中的若干疑难问题，例如夸克—胶子等离子体（QGP）的近完美流体行为，以及高能下结构函数中的胶子饱和现象。该对偶将胶子作用量转化为由具有八种颜色的 2-形式流函数 $W^a_{\mu\nu}$ 描述的流体力学；在此表述下，所有相互作用都化为 Nambu–Jona-Lasinio 型的流—流相互作用。所得理论允许围绕流体展开强耦合展开，作者据此提出，这可以作为微扰 QCD 与格点 QCD 之外的第三种方法。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何通过一种对偶模型理解 QCD 中的若干疑难现象，特别是 QGP 的近完美流体行为与高能结构函数中的胶子饱和，并由此获得超越微扰 QCD 与格点 QCD 的新计算途径。</p>
+    <h4>方法</h4><p>重新审视一种将 QCD 对偶为流体力学（对偶胶子即流体）的模型：把胶子作用量改写为由八色 2-形式流函数 $W^a_{\mu\nu}$ 描述的流体力学，使全部相互作用成为 Nambu–Jona-Lasinio 型的流—流相互作用，并在流体附近建立强耦合展开。</p>
+    <h4>主要发现</h4><p>原文明确指出，该对偶模型有助于理解 QGP 的近完美流体行为与高能下结构函数中的胶子饱和；胶子作用量可转化为由八色 2-形式流函数描述的流体力学，所有相互作用化为 Nambu–Jona-Lasinio 型流—流相互作用；所得理论允许围绕流体作强耦合展开，可作为微扰 QCD 与格点 QCD 之外的第三种方法。</p>
+    <h4>局限与展望</h4><p>原文仅将该强耦合展开表述为对微扰 QCD 与格点 QCD 的补充方法，未给出定量验证或适用范围的具体结论；其能否实际用于描述 QGP 输运性质与胶子饱和仍有待检验（此为合理推断，非原文结论）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06771v1">
+  <div class="paper-head">
+    <h2>非紧致Kogut-Susskind规范理论：具有精确SL(2,ℝ)规范不变性的一维格点模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06771v1" rel="noopener noreferrer">2611.06771v1</a>
+  </div>
+  <p class="original-title">Non-compact Kogut-Susskind gauge theories: 1D lattice models with exact ${\rm SL}(2,\mathbb{R})$ gauge invariance</p>
+  <p class="meta"><strong>作者：</strong>Carlos Fulgado-Claudio、Torsten V. Zache</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">gr-qc</span> <span class="tag">hep-lat</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Kogut-Susskind（KS）规范理论表述在空间格点上精确实现紧致李群的规范不变性，从而构造量子多体哈密顿量。本文针对非紧致规范群重新审视这一构造。尽管部分动机来自广义相对论等一阶表述以非紧致洛伦兹群为局域对称性的理论，本文聚焦于一维空间中的较简单情形，类似于Schwinger模型。采用自下而上的方法，我们展示如何在1D格点上精确保持最简单非紧致李群SL(2,ℝ)的规范不变性，并指出其相对于紧致规范群出现的差异，包括规范场Casimir算符的连续谱以及物质场无穷维表示的出现。对于纯规范理论，我们讨论如何一致地限制到正半群SL⁺(2,ℝ)，并重现Jackiw-Teitelboim（JT）引力量子化的已知结果。受广义膨胀引力约束结构启发，我们引入耦合到非紧致规范场的静态电荷，其可由生活在额外合成维度中的单费米子自由度实现。含静态电荷时，格点模型仍精确可积；但推广到动力学费米子物质时，我们得到一个相互作用的一维SL(2,ℝ) KS规范理论。我们将该模型解释为电荷链，电荷间由弦依次连接，弦的张力根据相对连续SL(2,ℝ)通量的符号将物质向左或向右拉。当所涉SL(2,ℝ)电荷具有强自相互作用时，这一图像变得精确，此时我们解析求解了约化的两体问题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在空间格点上精确实现非紧致李群SL(2,ℝ)的规范不变性，并构造相应的Kogut-Susskind型量子多体哈密顿量，同时刻画其与紧致规范群情形的差异。</p>
+    <h4>方法</h4><p>采用自下而上的格点构造方法，将KS表述推广到非紧致规范群SL(2,ℝ)；在一维空间中构造精确规范不变的格点模型，讨论纯规范理论中限制到正半群SL⁺(2,ℝ)与JT引力量子化的联系，引入由合成维度中单费米子实现的静态电荷，并推广至动力学费米子物质；在强自相互作用极限下解析求解约化两体问题。</p>
+    <h4>主要发现</h4><p>在一维格点上可精确保持SL(2,ℝ)规范不变性；与紧致群相比出现规范场Casimir算符的连续谱和物质场无穷维表示；纯规范理论限制到SL⁺(2,ℝ)可重现JT引力量子化的已知结果；含静态电荷的格点模型保持精确可积；推广到动力学费米子后得到相互作用的一维SL(2,ℝ) KS规范理论，并可解释为电荷由弦依次连接、弦张力依相对连续SL(2,ℝ)通量符号左右拉动物质的链式图像；在强自相互作用极限下该图像精确且约化两体问题可解析求解。</p>
+    <h4>局限与展望</h4><p>本文聚焦于一维空间与SL(2,ℝ)这一最简单非紧致李群，尚未涉及更高维或更一般非紧致规范群；与广义相对论等实际非紧致规范理论的联系目前仅为动机层面。后续可合理推断的方向包括：将构造推广到更高维格点、考察其他非紧致群、以及进一步分析动力学费米子情形下的谱性质与可积性破坏；这些均为推断，原文未作明确结论。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-05 13:19 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

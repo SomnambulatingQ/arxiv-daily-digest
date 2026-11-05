@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-th 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-th · 核理论</h1>
+    <p class="lede">官方公告日：2026-11-05</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">10</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">5</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（5）</h3><ol class="toc-list"><li><a href="#paper-2611.05491v1">量子计算在高能核物理中的应用</a> <small>2611.05491v1</small></li><li><a href="#paper-2611.05858v1">Jost-随机相位近似中作为S矩阵极点的虚假质心模式</a> <small>2611.05858v1</small></li><li><a href="#paper-2611.06697v1">有限温度下的相互作用玻色子系统：格点QCD结果的处理</a> <small>2611.06697v1</small></li><li><a href="#paper-2611.06867v1">多声子摆动激发作为动力学准粒子排列的探针</a> <small>2611.06867v1</small></li><li><a href="#paper-2611.06883v1">中子丰盈氧同位素中密度驱动的α粒子团簇</a> <small>2611.06883v1</small></li></ol><h3>交叉列表（5）</h3><ol class="toc-list"><li><a href="#paper-2611.05466v1">面向中子散射的量子信息基础</a> <small>2611.05466v1</small></li><li><a href="#paper-2611.05498v1">高能QCD中胶子饱和的Goldstone理论：从色玻璃到色超流凝聚体</a> <small>2611.05498v1</small></li><li><a href="#paper-2611.05635v1">由电磁形状因子重建质子广义部分子分布：一个受理论约束的现象学重构</a> <small>2611.05635v1</small></li><li><a href="#paper-2611.06128v1">从格点QCD热力学到有限温度下胶子物质的等效准粒子描述</a> <small>2611.06128v1</small></li><li><a href="#paper-2611.06707v1">热介质中重夸克偶素的自旋输运</a> <small>2611.06707v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.05491v1">
+  <div class="paper-head">
+    <h2>量子计算在高能核物理中的应用<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05491v1" rel="noopener noreferrer">2611.05491v1</a>
+  </div>
+  <p class="original-title">Quantum computing for high energy nuclear physics</p>
+  <p class="meta"><strong>作者：</strong>João Barata</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子信息科学（QIS）提供了一套概念性与计算性工具，特别适合研究强相互作用量子系统的多体、非平衡与实时性质。这些主题在高能核物理中有自然的对应：其核心目标是在极端条件下描述量子色动力学（QCD）——强相互作用理论——的性质，相关例子涵盖强子的形成与内部结构、强相互作用QCD物质的集体与热化动力学，以及复杂多体散射过程的性质。尽管过去数十年间，借助微扰方法、格点QCD和有效理论描述，核物理语境下对QCD的理解已取得巨大进展，但本质上与实时动力学、高度纠缠的多体演化或有限密度区域相关的现象，仍只能被现有方法部分触及。本文主张，QIS有助于为实现应对这些开放问题的新范式。为使讨论对高能核物理与QIS两类读者均可理解，我们概述了高能核物理中若干精选开放问题，重点放在由对撞机唯象学所激发的方面，并讨论如何用QIS工具处理它们。这一联系通过近期文献中的代表性例子加以说明，从而论证QIS有望在未来数年成为核物理发现的重要驱动力。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文讨论的问题是：高能核物理中与实时动力学、高度纠缠的多体演化及有限密度区域相关的QCD现象，现有微扰方法、格点QCD和有效理论只能部分处理，如何借助量子信息科学（QIS）的概念与计算工具加以应对。</p>
+    <h4>方法</h4><p>论文采用综述与论证性论述的方法：概述高能核物理中若干精选开放问题（侧重对撞机唯象学所激发的方面），讨论如何用QIS工具处理，并通过近期文献中的代表性例子说明这一联系。</p>
+    <h4>主要发现</h4><p>原文明确支持的主要结果是：QIS提供了一套特别适合研究强相互作用量子系统多体、非平衡与实时性质的概念与计算工具；这些主题与高能核物理的核心目标自然对应；现有方法对实时动力学、高度纠缠多体演化或有限密度区域相关现象只能部分触及；QIS有望成为未来数年核物理发现的重要驱动力。</p>
+    <h4>局限与展望</h4><p>原文为综述与立场性论证，未给出具体量子算法或实验验证结果；其适用范围限于所选取的开放问题与代表性文献例子。可合理推断的后续方向包括：针对实时动力学、纠缠多体演化与有限密度QCD现象发展具体的QIS方法，并推动高能核物理与QIS两个领域的交叉研究；这些推断需以未来具体研究加以检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05858v1">
+  <div class="paper-head">
+    <h2>Jost-随机相位近似中作为S矩阵极点的虚假质心模式<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05858v1" rel="noopener noreferrer">2611.05858v1</a>
+  </div>
+  <p class="original-title">Spurious center-of-mass mode as an $S$-matrix pole within the Jost-random-phase approximation</p>
+  <p class="meta"><strong>作者：</strong>Kazuhito Mizuyama</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在Jost-随机相位近似（Jost-RPA）框架下，虚假质心模式是Jost行列式的零点，因而也是S矩阵的极点。当该零点位于零激发能E=0处时，无论其来源于自洽性还是剩余相互作用的标定，只要它仅有一个独立解、每个未占据束缚轨道都位于空穴之上、且每个空穴与所有允许的分波配对，该零点就是恰好二阶的极点；极点的阶数由零点的位置决定，而非由自洽性决定。该二阶极点的状态由其E^{-2}系数的Autonne-Takagi分解给出，即按惯性归一化的零能解。在采用单一中子与质子密度能量密度的自洽模型中，所有延拓至E=0的物理S矩阵元都携带E^{-2}项，这与早先的结论相反。从响应中减去该模式的主部，仅通过平滑效应改变实E≠0处的强度，并且在此类模型中与理想虚假态的投影一致。在未标定的^{16}O与^{208}Pb Woods-Saxon模型中，该模式是虚轴上的一对极点。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在Jost-RPA框架下，虚假质心模式作为S矩阵极点的阶数及其性质如何确定，以及它对响应函数和S矩阵元的影响。</p>
+    <h4>方法</h4><p>采用Jost-随机相位近似，通过分析Jost行列式零点的位置与独立解数目确定极点阶数，并利用E^{-2}系数的Autonne-Takagi分解刻画二阶极点状态；在自洽能量密度模型及未标定的Woods-Saxon模型中进行检验。</p>
+    <h4>主要发现</h4><p>零激发能处的零点在给定条件下为恰好二阶极点，其阶数由零点位置而非自洽性决定；该二阶极点状态由E^{-2}系数的Autonne-Takagi分解给出，即按惯性归一化的零能解；在单一能量密度的自洽模型中，所有延拓至E=0的物理S矩阵元均携带E^{-2}项，与早先结论相反；减去主部仅通过平滑改变实E≠0处强度，并与理想虚假态投影一致；在未标定的^{16}O和^{208}Pb Woods-Saxon模型中，该模式表现为虚轴上一对极点。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该结论对更一般模型或超出所述条件的适用性；后续可合理推断的方向包括检验其他核结构模型中标定与未标定情形下极点阶数的变化，以及E^{-2}项对可观测响应函数的具体数值影响，但这些均需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06697v1">
+  <div class="paper-head">
+    <h2>有限温度下的相互作用玻色子系统：格点QCD结果的处理<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.06697v1" rel="noopener noreferrer">2611.06697v1</a>
+  </div>
+  <p class="original-title">Interacting Boson System at Finite Temperatures: The treatment of the lattice QCD results</p>
+  <p class="meta"><strong>作者：</strong>D. Anchishkin、V. Gnatovskyy、D. Zhuravel、V. Karpenko</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在热力学自洽的平均场框架下，研究了有限温度、固定同位旋密度下带电玻色子的相互作用相对论系统。相互作用由排斥性的 phi-4 与 phi-6 自相互作用表示，由此产生依赖于密度的玻色准粒子有效质量。我们在扩展正则系综中建立热力学表述，该系综由巨正则描述经同位旋化学势到守恒同位旋密度的 Legendre 变换得到。在凝聚相中，化学势受玻色凝聚条件约束，因而通过有效质量自洽地确定。我们将该形式应用于有限同位旋下的类π系统，并澄清用于π介子与夸克自由度的同位旋化学势约定之间的关系。采用格点QCD计算中所用的约定，我们将压强、同位旋密度、能量密度与迹反常同 T=120 MeV 的格点结果进行比较。以一个拟合格点压强的常数，各模型均能重现格点的同位旋密度、能量密度与迹反常。phi-4 与 phi-6 模型均能重现格点数据的主要特征，其中 phi-6 相互作用给出更好的描述。扩展正则系综为处理跨越玻色凝聚相变的相互作用粒子-反粒子系统提供了便利的框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在热力学自洽的平均场框架下描述有限温度、固定同位旋密度下相互作用的相对论带电玻色子系统，并将其热力学量与格点QCD结果进行比较。</p>
+    <h4>方法</h4><p>采用扩展正则系综，由巨正则描述经同位旋化学势到同位旋密度的 Legendre 变换得到；相互作用用排斥性 phi-4 与 phi-6 自相互作用表示，产生密度依赖的准粒子有效质量；在凝聚相中由玻色凝聚条件自洽确定化学势；澄清π介子与夸克自由度间同位旋化学势约定的关系，并在 T=120 MeV 下与格点QCD的压强、同位旋密度、能量密度和迹反常比较，以一个常数拟合格点压强。</p>
+    <h4>主要发现</h4><p>以一个拟合格点压强的常数，phi-4 与 phi-6 模型均能重现格点的同位旋密度、能量密度与迹反常；两者均重现格点数据的主要特征，其中 phi-6 相互作用给出更好的描述；扩展正则系综为处理跨越玻色凝聚相变的相互作用粒子-反粒子系统提供了便利框架。</p>
+    <h4>局限与展望</h4><p>原文仅在 T=120 MeV 下与格点结果比较，且每个模型仅以一个常数拟合格点压强，其适用温度范围与更高密度区域未在原文中验证；后续可合理推断的方向包括在更宽温度与同位旋密度范围内检验该框架，以及进一步区分 phi-4 与 phi-6 相互作用的适用条件，但这些均属推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06867v1">
+  <div class="paper-head">
+    <h2>多声子摆动激发作为动力学准粒子排列的探针<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.06867v1" rel="noopener noreferrer">2611.06867v1</a>
+  </div>
+  <p class="original-title">Multi-phonon wobbling excitations as a probe for dynamical quasiparticle alignment</p>
+  <p class="meta"><strong>作者：</strong>R. Budaca、A. I. Budaca</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用$^{163,165}$Lu核中多条且延伸很长的三轴强形变带，确定奇准粒子排列的自旋依赖性。研究发现，带首倾向于倾斜的排列几何，并逐渐演化为横向构型。据此，在特定能带和自旋区间内识别出不同的动力学区域，并基于波函数和$E2$跃迁概率的分析，以摆动激发加以讨论。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究$^{163,165}$Lu核中奇准粒子排列的自旋依赖性，并探讨其与多声子摆动激发的关系。</p>
+    <h4>方法</h4><p>利用$^{163,165}$Lu核的多条延伸很长的三轴强形变带，分析带首的排列几何及其随自旋的演化，并基于波函数和$E2$跃迁概率讨论摆动激发。</p>
+    <h4>主要发现</h4><p>带首倾向于倾斜的排列几何，并逐渐演化为横向构型；在特定能带和自旋区间内识别出不同的动力学区域。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，该工作为利用多声子摆动激发探测量子准粒子排列动力学提供了案例，其适用范围可能限于所研究的三轴强形变奇A核能带。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06883v1">
+  <div class="paper-head">
+    <h2>中子丰盈氧同位素中密度驱动的α粒子团簇<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.06883v1" rel="noopener noreferrer">2611.06883v1</a>
+  </div>
+  <p class="original-title">Density-driven $α$-particle clustering in neutron-rich oxygen isotopes</p>
+  <p class="meta"><strong>作者：</strong>M. Davies、E. Yüksel、J. -P. Ebran、E. Khan</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了价中子在富中子氧同位素中密度驱动局域化效应的影响。计算在多重维度约束的相对论 Hartree--Bogoliubov 模型框架内进行，采用 DD-ME2 协变能量密度泛函。通过将质量均方根半径约束至较大数值，研究了这些核在渐进稀释下的结构演化，即从空间上离域化的组态到局域化团簇态。分析了总能量、配对关联、形变以及质子和中子密度分布，以确定价中子如何影响类α团簇的出现。对于所研究的三个同位素，均发现从空间离域化的核子组态向四面体类4α结构的转变。该转变在由半径导出的相对稀释参数 χ_PT=ρ_PT/ρ_GS≃0.28--0.31 的相近取值处发生，且对中子数的依赖较弱。多余中子通过增加中心区域及团簇之间的密度来改变团簇密度，但基本保持底层的四面体核心结构不变。最后，还采用了唯象的四中心 Hückel 型核映射，为团簇结构提供了类分子轨道的解释。发现随着原子核逐步膨胀，团簇中心之间的有效耦合减弱。以质心为参考的能量移动 ΔE_val 也随中子数增加而变得不那么负，相对于其质心提供的净类分子轨道能量降低更小。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>价中子如何影响富中子氧同位素中密度驱动的局域化与类α团簇的形成。</p>
+    <h4>方法</h4><p>在多重维度约束的相对论 Hartree--Bogoliubov 模型中使用 DD-ME2 协变能量密度泛函，通过约束质量均方根半径研究渐进稀释下的结构演化，并分析总能量、配对关联、形变及质子/中子密度分布；另采用唯象四中心 Hückel 型映射进行类分子轨道解释。</p>
+    <h4>主要发现</h4><p>三个同位素均出现从空间离域化核子组态向四面体类4α结构的转变，转变发生在半径导出的相对稀释参数 χ_PT=ρ_PT/ρ_GS≃0.28--0.31 附近，对中子数依赖较弱；多余中子增加中心区域及团簇间密度，但基本保持四面体核心结构；随原子核膨胀，团簇中心间有效耦合减弱，ΔE_val 随中子数增加变得不那么负，净类分子轨道能量降低更小。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；可合理推断，该结论的适用范围受限于所采用的 DD-ME2 泛函与约束方法，向其他能量密度泛函、更宽同位素链或实验可观测量的推广有待进一步检验。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.05466v1">
+  <div class="paper-head">
+    <h2>面向中子散射的量子信息基础<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05466v1" rel="noopener noreferrer">2611.05466v1</a>
+  </div>
+  <p class="original-title">Toward a Quantum Information Foundation for Neutron Scattering</p>
+  <p class="meta"><strong>作者：</strong>Michael J. Landry、Yongqiang Cheng、Daniel Pajerowski、Joshua J. Turner、Mingda Li</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cond-mat.mtrl-sci</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>中子散射是研究量子材料的核心探针，但一次散射实验原则上能提取哪些量子信息仍不清楚。本文将中子散射表述为一种量子测量，其中散射振幅充当作用于材料态的 Kraus 算符。这一框架统一描述了常规强度、相干散射、干涉测量以及纠缠见证（包括基于量子 Fisher 信息的见证）。随后，作者探讨这一联系能在多大程度上推广到量子态的非线性性质。针对两个独立制备的样品，本文推导了探针介导的测量概率的一般结构，并证明对于保持自旋投影的动力学，低阶散射无法分辨确定纯度所需的某些多体相干性。相反，一个理想化的单自旋协议表明，当实现适当的两副本操作时，探针介导的交换可以获取纯度。本文结果建立了中子散射的量子信息描述，并界定了通过常规测量与干涉测量可获取的信息。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>中子散射实验原则上能提取哪些量子信息，以及这一量子测量视角能在多大程度上推广到量子态的非线性性质（如纯度）。</p>
+    <h4>方法</h4><p>将中子散射表述为量子测量，以散射振幅作为作用于材料态的 Kraus 算符；据此统一描述常规强度、相干散射、干涉测量与纠缠见证；并针对两个独立制备样品推导探针介导测量概率的一般结构，分析保持自旋投影的动力学下低阶散射的可分辨性，另提出理想化单自旋协议。</p>
+    <h4>主要发现</h4><p>该框架统一描述了常规强度、相干散射、干涉测量及包括基于量子 Fisher 信息的纠缠见证；对于两个独立制备样品，给出了探针介导测量概率的一般结构；证明在保持自旋投影的动力学下，低阶散射无法分辨确定纯度所需的某些多体相干性；理想化单自旋协议表明，当实现适当的两副本操作时，探针介导的交换可获取纯度。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论实验实现难度与适用范围；可合理推断，将结论推广到非理想探测、有限统计及更一般动力学是后续方向，且两副本操作的实际实现可能是获取纯度类非线性信息的关键挑战。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05498v1">
+  <div class="paper-head">
+    <h2>高能QCD中胶子饱和的Goldstone理论：从色玻璃到色超流凝聚体<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05498v1" rel="noopener noreferrer">2611.05498v1</a>
+  </div>
+  <p class="original-title">Goldstone theory of gluon saturation in high energy QCD: From color glass to color superfluid condensate</p>
+  <p class="meta"><strong>作者：</strong>V. P. Nair、Raju Venugopalan</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在高能Regge渐近下，QCD中胶子的快速过密导致胶子饱和，其特征是尺度为1/Q_S的非微扰半经典团块构型，其中Q_S≫Λ_QCD为动力学半硬饱和标度。本文讨论描述该现象的色玻璃凝聚（CGC）框架的一种推广，其途径是审慎处理凝聚体对整体对称性的破缺。特别地，我们表明色整体子群的破缺导致Goldstone有效场论（EFT），其动力学由Goldstone衰变常数f_G=√N Q_S刻画，其中N=O(1/α_S)为凝聚体的相空间占据数，在α_S(Q_S)≪1时很大。此外，这些有色Goldstone与共线胶子模式的耦合导致凝聚体耗散，从而在由f_G控制的时间尺度上修改CGC的静态冲击波散射框架。在这些更长时间尺度上，CGC EFT是一种新颖的色超流。在CGC外部探针中频率ω≤α_S Q_S的低频模式对超流动力学敏感，这对深度非弹性散射和超相对论核碰撞具有有意义的物理后果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>高能QCD Regge渐近下胶子饱和的非微扰半经典构型如何在CGC框架中通过整体色对称性破缺得到更完整的有效描述，以及这种描述对散射与凝聚体动力学的影响。</p>
+    <h4>方法</h4><p>在CGC框架基础上审慎处理凝聚体对整体色对称性子群的破缺，构造Goldstone有效场论，引入Goldstone衰变常数f_G=√N Q_S与相空间占据数N=O(1/α_S)，并分析有色Goldstone与共线胶子模式的耦合。</p>
+    <h4>主要发现</h4><p>整体色子群破缺产生Goldstone EFT，其动力学由f_G=√N Q_S刻画；有色Goldstone与共线胶子耦合导致凝聚体耗散，并在由f_G控制的时间尺度上修改CGC的静态冲击波散射框架；在更长时间尺度上CGC EFT表现为色超流；外部探针中ω≤α_S Q_S的低频模式对超流动力学敏感。</p>
+    <h4>局限与展望</h4><p>原文指出该超流动力学对深度非弹性散射和超相对论核碰撞具有有意义的物理后果；这些后果的具体形式与定量影响尚待进一步研究，属于可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05635v1">
+  <div class="paper-head">
+    <h2>由电磁形状因子重建质子广义部分子分布：一个受理论约束的现象学重构<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05635v1" rel="noopener noreferrer">2611.05635v1</a>
+  </div>
+  <p class="original-title">Proton generalized parton distributions from electromagnetic form factors: A theoretically constrained phenomenological reconstruction</p>
+  <p class="meta"><strong>作者：</strong>A. Capelo-Astudillo、T. Aguilar、M. Conde-Correa、A. Duenas-Vidal、P. G. Ortega、J. Segovia</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出对质子非极化、手征偶、领头阶扭转广义部分子分布 H^q 与 E^q 的一种受理论约束的现象学重构。在零偏度情形下，将价夸克分布与依赖于味道的指数型剖面相结合，并同时以质子和中子电磁形状因子的现象学表示进行标定。该构造严格满足价夸克归一化与反常磁矩归一化、低标度条件 B^{u+d}(0)=0、所要求的端点行为以及完整的高斯碰撞参数正定性约束。所得参数化对电磁形状因子及其斜率给出合理描述，同时揭示出在所采用的拟设下，严格的 GPD 自洽性与对全部低 Q^2 可观测量的精确再现之间存在张力。我们利用归一化双分布将分布推广至非零偏度，并引入独立的 D 项以补全相应的 Mellin 多项式。我们考察了电磁形状因子与能量—动量张量形状因子、碰撞参数分布、正定性、多项式性以及若干示意性的力学性质。该分析区分了由电磁数据约束的信息与支配偏度及力学部分的额外假设，从而为未来核子到共振态跃迁 GPD 的研究提供了一个透明的弹性基线。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在理论约束下，由质子和中子电磁形状因子现象学地重构质子非极化、手征偶、领头阶扭转广义部分子分布 H^q 与 E^q，并考察其自洽性与相关性质。</p>
+    <h4>方法</h4><p>在零偏度下将价夸克分布与味道相关的指数型剖面结合，并同时针对质子和中子电磁形状因子的现象学表示进行标定；施加价夸克与反常磁矩归一化、低标度条件 B^{u+d}(0)=0、端点行为及高斯碰撞参数正定性约束；利用归一化双分布推广至非零偏度，并引入独立 D 项补全 Mellin 多项式；考察电磁与能量—动量张量形状因子、碰撞参数分布、正定性、多项式性及示意性力学性质。</p>
+    <h4>主要发现</h4><p>所得参数化对电磁形状因子及其斜率给出合理描述；同时揭示出在所采用拟设下，严格的 GPD 自洽性与对全部低 Q^2 可观测量的精确再现之间存在张力；分析区分了由电磁数据约束的信息与支配偏度及力学部分的额外假设。</p>
+    <h4>局限与展望</h4><p>原文指出该工作为未来核子到共振态跃迁 GPD 研究提供了透明的弹性基线；所采用的拟设下严格 GPD 自洽性与低 Q^2 精确再现之间的张力表明，后续可能需要改进拟设或引入额外约束，但原文未给出具体方案。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06128v1">
+  <div class="paper-head">
+    <h2>从格点QCD热力学到有限温度下胶子物质的等效准粒子描述<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06128v1" rel="noopener noreferrer">2611.06128v1</a>
+  </div>
+  <p class="original-title">From lattice QCD thermodynamics to an effective quasiparticle description of gluonic matter at finite temperature</p>
+  <p class="meta"><strong>作者：</strong>Cheng-Gang Guo、La-Yuan Peng、Zhen-Yan Lu、Marco Ruggieri、Shu-Peng Wang、Zhi-Jun Ma</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文构建了有限温度下纯SU(3) Yang-Mills物质的受格点约束的准粒子描述。温度依赖的有效胶子准粒子质量由0.70≤T/T_c≤5范围内的格点熵密度确定，并被解释为刻画胶子激发介质修正的有效热力学参数，而非物理胶子质量。在固定该质量后，我们利用单一压强归一化条件重构了热力学一致性所需的背景贡献。随后将所得压强、能量密度、熵密度、相互作用量度以及声速平方与已有格点结果进行比较。在T_c附近，有效质量的快速变化伴随着相互作用量度在T/T_c≃1.09处的显著极大值、声速平方的强烈压低以及背景贡献的极大值。这些相互关联的特征刻画了转变区域对共形行为的显著偏离。在更高温度下，相互作用量度下降，声速平方趋近共形极限。我们还考察了每个激发的能量比E/n_g，其在T/T_c≃1.21处取得约964 MeV的极小值；该比值提供了准粒子描述中激发能标的度量。总体而言，结果表明如何在保持热力学一致性的同时将格点热力学映射到有效胶子激发谱上。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为有限温度下的纯SU(3) Yang-Mills物质构建一个受格点QCD热力学约束、且保持热力学一致性的有效准粒子描述。</p>
+    <h4>方法</h4><p>从0.70≤T/T_c≤5范围内的格点熵密度确定温度依赖的有效胶子准粒子质量；将该质量视为有效热力学参数；在固定质量后，利用单一压强归一化条件重构背景贡献；计算压强、能量密度、熵密度、相互作用量度、声速平方及E/n_g，并与格点结果比较。</p>
+    <h4>主要发现</h4><p>有效质量在T_c附近快速变化，并伴随相互作用量度在T/T_c≃1.09处的显著极大值、声速平方的强烈压低以及背景贡献的极大值；在更高温度下，相互作用量度下降，声速平方趋近共形极限；E/n_g在T/T_c≃1.21处取得约964 MeV的极小值。</p>
+    <h4>局限与展望</h4><p>有效质量被明确定位为编码介质修正的有效热力学参数而非物理胶子质量，因此该描述的适用范围限于所考察的温度区间及纯SU(3) Yang-Mills情形；向包含夸克自由度或更宽温度范围的推广有待进一步检验，这属于可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06707v1">
+  <div class="paper-head">
+    <h2>热介质中重夸克偶素的自旋输运<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06707v1" rel="noopener noreferrer">2611.06707v1</a>
+  </div>
+  <p class="original-title">Heavy quarkonium spin transport in a hot medium</p>
+  <p class="meta"><strong>作者：</strong>Nora Brambilla、Shuo Fang、Tom Magorsch、Panayiotis Panayiotou</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文基于势非相对论量子色动力学（pNRQCD），采用开放量子系统方法研究重夸克偶素在介质中的自旋输运。我们将重夸克偶素的双轻子衰变角分布表示为晚期夸克偶素自旋相关分布函数的函数。在量子光学区域（即夸克偶素尺度的倒数远大于结合能，且结合能可与介质温度 T 相当或更大）内，我们推导了包含解离与再生的自旋相关量子主方程，并进一步得到相应的投影半经典玻尔兹曼方程。在耦合的领头阶，我们保留了相对量级为 T/M 的反冲修正，这些修正对领头自旋相关碰撞核有贡献，其中 M 表示重夸克质量。在流体梯度的零阶，我们表明夸克偶素与介质之间的相对运动提供了领头各向异性，而自旋-色磁相互作用与自旋-轨道相互作用均对领头的非零自旋排列核有贡献。作为探索性的唯象应用，我们还使用简化的速率方程估计了底夸克偶素 Υ(1S) 的介质诱导极化参数 λ_θ，其中背景密度矩阵由 QTraj 通过 Lindblad 方程获得。在这一简化处理下，所得的介质诱导极化非常小，而针对粲夸克偶素的朴素重标度可以定性描述粲夸克偶素的极化。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>重夸克偶素在热介质中的自旋输运如何描述，以及介质诱导的自旋排列/极化如何产生？</p>
+    <h4>方法</h4><p>基于 pNRQCD 的开放量子系统方法；在量子光学区域推导自旋相关量子主方程及投影半经典玻尔兹曼方程，保留领头阶 T/M 反冲修正；在流体梯度零阶分析领头各向异性与自旋排列核；并用基于 Lindblad 方程（QTraj 提供背景密度矩阵）的简化速率方程对 Υ(1S) 的 λ_θ 做探索性估计。</p>
+    <h4>主要发现</h4><p>双轻子衰变角分布可用晚期自旋相关分布函数表示；推导出包含解离与再生的自旋相关量子主方程及相应半经典玻尔兹曼方程；领头阶保留 T/M 反冲修正并贡献于领头自旋相关碰撞核；流体梯度零阶下，夸克偶素与介质相对运动提供领头各向异性，自旋-色磁与自旋-轨道相互作用均贡献领头非零自旋排列核；简化处理下 Υ(1S) 的介质诱导极化非常小，而粲夸克偶素的朴素重标度可定性描述其极化。</p>
+    <h4>局限与展望</h4><p>文中的唯象估计基于简化速率方程与 QTraj 背景密度矩阵，属于探索性处理；其适用范围与定量可靠性有待更完整的自旋相关主方程或玻尔兹曼方程模拟检验；后续可合理推断的方向包括改进背景介质描述、纳入更系统的反冲与梯度修正，并对粲夸克偶素极化做更定量的研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-05 13:19 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

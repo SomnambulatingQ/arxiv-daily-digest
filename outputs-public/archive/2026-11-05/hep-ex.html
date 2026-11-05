@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-ex · 高能实验</h1>
+    <p class="lede">官方公告日：2026-11-05</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">11</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">9</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2611.06142v1">ATLAS探测器在√s=8 TeV质子-质子碰撞中孤立双光子伴随喷注产生的测量</a> <small>2611.06142v1</small></li><li><a href="#paper-2611.06586v1">ALICE实验事件处理节点GPU集群高效可持续运行中的运维挑战</a> <small>2611.06586v1</small></li></ol><h3>交叉列表（9）</h3><ol class="toc-list"><li><a href="#paper-2611.05444v1">用于轴子晕探测器的基于电光微波—光转换的光子计数读出</a> <small>2611.05444v1</small></li><li><a href="#paper-2611.05453v1">顶夸克的探索</a> <small>2611.05453v1</small></li><li><a href="#paper-2611.05463v1">基于等变Transformer的顶夸克自旋与CP测量</a> <small>2611.05463v1</small></li><li><a href="#paper-2611.05501v1">FCC-ee上通过偶极门户对重中性轻子进行间接探测</a> <small>2611.05501v1</small></li><li><a href="#paper-2611.05635v1">由电磁形状因子重建质子广义部分子分布：一个受理论约束的现象学重构</a> <small>2611.05635v1</small></li><li><a href="#paper-2611.06761v1">用于普林斯顿轴子搜寻的亚GHz动态电感行波参量放大器的近量子极限读出</a> <small>2611.06761v1</small></li><li><a href="#paper-2611.06769v1">MC@NLO与FxFx合并中具有一致簇射起始标度的Born展宽</a> <small>2611.06769v1</small></li><li><a href="#paper-2611.06807v1">CMS ECAL Phase-2升级：三级低压功率转换系统的特性表征与稳定性分析</a> <small>2611.06807v1</small></li><li><a href="#paper-2611.06824v1">交叉矩一致性与强子τ衰变中的第五Adler系数</a> <small>2611.06824v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.06142v1">
+  <div class="paper-head">
+    <h2>ATLAS探测器在√s=8 TeV质子-质子碰撞中孤立双光子伴随喷注产生的测量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.06142v1" rel="noopener noreferrer">2611.06142v1</a>
+  </div>
+  <p class="original-title">Measurements of isolated photon pair production in association with jets in pp collisions at $\sqrt{s}$ = 8 TeV with the ATLAS detector</p>
+  <p class="meta"><strong>作者：</strong>ATLAS Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文基于ATLAS实验在√s=8 TeV质子-质子碰撞中采集的2012年数据（积分亮度20.3 fb⁻¹），给出了有、无伴随强子喷注事件中两个孤立光子产生截面（积分截面与微分截面）的测量结果。测量选取赝快度满足|η^γ|&lt;1.37或1.56&lt;|η^γ|&lt;2.37、横能量E_T^γ&gt;22 GeV的光子；喷注要求为|η^j|&lt;2.4时p_T^j&gt;25 GeV，2.4&lt;|η^j|&lt;4.4时p_T^j&gt;50 GeV。事件按喷注数目分类，并给出双光子产生伴随包含性与排他性喷注数目的积分基准截面。文中还给出了对16个双光子、喷注、双喷注及光子-喷注观测量微分的基准截面，并在所有喷注类别中与领头阶Sherpa 1.4.1预言、部分类别中与固定阶次领头阶GoSam和BlackHat计算、以及所有类别中与Sherpa 2.2.14的NLO匹配预言进行了比较。总体而言，NLO预言对数据给出了合理描述；随着喷注多重数增加，尤其在角度变量上出现显著偏差，这被归因于计算中缺少高阶项。Sherpa 2.2.14的NLO匹配预言在所有喷注类别和观测量上对数据给出了最佳的整体描述。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在√s=8 TeV质子-质子碰撞中，孤立双光子产生及其伴随强子喷注的积分与微分截面如何，并与多种理论预言进行比较。</p>
+    <h4>方法</h4><p>利用ATLAS实验2012年20.3 fb⁻¹数据，选取满足特定赝快度与横能量条件的光子及满足特定横动量与赝快度条件的喷注，按喷注数目分类，测量积分与微分基准截面，并与Sherpa 1.4.1领头阶、GoSam和BlackHat固定阶NLO以及Sherpa 2.2.14 NLO匹配预言进行比较。</p>
+    <h4>主要发现</h4><p>NLO预言总体对数据给出合理描述；随喷注多重数增加出现显著偏差，尤其在角度变量上，原文将其归因于计算中缺少高阶项；Sherpa 2.2.14的NLO匹配预言在所有喷注类别和观测量上给出最佳整体描述。</p>
+    <h4>局限与展望</h4><p>原文指出偏差可归因于计算缺少高阶项，据此可合理推断：纳入更高阶修正可能改善对高喷注多重数及角度变量的描述；该推断尚需进一步理论计算与实验检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06586v1">
+  <div class="paper-head">
+    <h2>ALICE实验事件处理节点GPU集群高效可持续运行中的运维挑战<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.06586v1" rel="noopener noreferrer">2611.06586v1</a>
+  </div>
+  <p class="original-title">Operational Challenges in Efficient and Sustainable Operation of the Event Processing Nodes GPU Farm at the ALICE Experiment</p>
+  <p class="meta"><strong>作者：</strong>Federico Ronchetti、Giada Erba</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>ALICE实验的事件处理节点（Event Processing Nodes, EPN）集群按容量计是CERN最大的GPU计算设施，由350个基于GPU的节点和2800块GPU组成，总计算能力约为48 PFLOP/s。在LHC Run 3期间，该集群成功实现了对50 kHz重离子碰撞的实时处理。该设施在设计上兼顾可持续性、延长硬件使用寿命和降低运维开销。高可用性依托稳健的技术架构和明确定义的运维实践得以保障，从而在数据采集期间确保可靠、连续的运行。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文关注ALICE实验EPN GPU集群在高效与可持续运行中面临的运维挑战，以及如何在大规模GPU设施上保障数据采集期间的高可用性与连续运行。</p>
+    <h4>方法</h4><p>依据原文，论文介绍该集群的规模与算力（350个GPU节点、2800块GPU、约48 PFLOP/s），说明其在LHC Run 3中实现50 kHz重离子碰撞实时处理，并描述支撑高可用性的技术架构与运维实践；原文摘要未给出更具体的运维方法细节。</p>
+    <h4>主要发现</h4><p>原文明确支持：该集群是CERN按容量计最大的GPU计算设施；已在LHC Run 3期间成功实现50 kHz重离子碰撞的实时处理；设施设计面向可持续性、延长硬件寿命和降低运维开销；依托稳健技术架构与明确运维实践保障高可用性和数据采集期间的可靠连续运行。</p>
+    <h4>局限与展望</h4><p>原文摘要未给出具体局限或后续计划。可合理推断：面向可持续性与降低运维开销的设计在长期运行中的实际效果、以及运维实践在其他大规模GPU设施上的可移植性，可能值得进一步评估，但这属于推断而非原文结论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.05444v1">
+  <div class="paper-head">
+    <h2>用于轴子晕探测器的基于电光微波—光转换的光子计数读出<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05444v1" rel="noopener noreferrer">2611.05444v1</a>
+  </div>
+  <p class="original-title">Photon-Counting Readout via Electro-Optic Microwave-to-Optical Transduction for Axion Haloscopes</p>
+  <p class="meta"><strong>作者：</strong>Jing Wu、Raphael Cervantes、Doga Murat Kurkcuoglu、Zheshen Zhang、Silvia Zorzetti</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>轴子暗物质搜寻需要兼具高灵敏度与高扫描速率的探测方案，以高效覆盖参数空间。在传统的 Sikivie 晕腔方案中，轴子在置于磁场中的谐振腔内转换为微波光子；本文在此基础之上，提出一种基于电光微波—光转换器的光子计数方案。通过建立考虑现实实验约束的完整理论模型，我们发现最优工作区间采用过耦合微波腔，以牺牲峰值转换效率来换取转换器噪声的降低。进一步地，若将现有器件已实现的参数与优化的外部耦合率相结合，相对于量子极限零拍探测，扫描速率可提升 5–10 倍；品质因数、耦合率与热管理方面的改进可将该提升推至 50 倍以上。我们的定量模型以 9 GHz 为基准，但该方案可良好适配 5–12 GHz 范围内的晕腔探测器，在该范围内腔体积缩小会严重降低可实现的扫描速率。这些结果表明，电光光子探测有望成为轴子暗物质搜寻中的高速探测技术。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在传统 Sikivie 晕腔（轴子在磁场中的谐振腔内转换为微波光子）基础上，利用电光微波—光转换器实现光子计数读出，从而在保持灵敏度的同时提高轴子暗物质搜寻的扫描速率。</p>
+    <h4>方法</h4><p>建立考虑现实实验约束的完整理论模型，分析电光微波—光转换器用于晕腔光子计数读出的工作区间与噪声特性，并与量子极限零拍探测进行扫描速率对比；定量模型以 9 GHz 为基准，并讨论其在 5–12 GHz 范围内的适用性。</p>
+    <h4>主要发现</h4><p>最优工作区间为过耦合微波腔，即以牺牲峰值转换效率换取转换器噪声降低；结合现有器件已实现的参数与优化的外部耦合率，扫描速率相对量子极限零拍探测可提升 5–10 倍；品质因数、耦合率与热管理的改进可将提升推至 50 倍以上；该方案可适配 5–12 GHz 范围内的晕腔探测器，而该范围内腔体积缩小会严重降低可实现的扫描速率。</p>
+    <h4>局限与展望</h4><p>原文指出该方案在 5–12 GHz 范围内适配良好，但定量模型仅在 9 GHz 基准上给出；品质因数、耦合率与热管理的进一步改进被明确列为可提升扫描速率的方向。原文未给出具体实验实现或系统噪声的实测验证，相关实验验证与更宽频段的定量评估属于可合理推断的后续工作。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05453v1">
+  <div class="paper-head">
+    <h2>顶夸克的探索<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05453v1" rel="noopener noreferrer">2611.05453v1</a>
+  </div>
+  <p class="original-title">The Search for the Top Quark</p>
+  <p class="meta"><strong>作者：</strong>Paul D. Grannis</p>
+  <p class="meta"><strong>主分类：</strong>physics.hist-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.hist-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>1995年顶夸克的发现补全了标准模型及其诸多扩展模型所预期的物质粒子（夸克与轻子）谱系。然而，顶夸克并不符合其姊妹夸克所确立的模式，并已成为当前超越主流范式的新物理探索中的关键组成部分。（本文为2025年11月CERN第4届粒子物理史国际研讨会会议论文集而准备。）</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文讨论的是顶夸克的发现历程及其在粒子物理标准模型与超越标准模型探索中的地位。</p>
+    <h4>方法</h4><p>根据摘要，本文为粒子物理史研讨会会议论文，属于历史回顾性论述，摘要未给出具体分析方法或实验技术细节。</p>
+    <h4>主要发现</h4><p>原文明确指出：1995年顶夸克的发现补全了标准模型及许多扩展模型所预期的夸克与轻子谱系；顶夸克不符合其姊妹夸克所确立的模式；它已成为当前超越主流范式的新物理探索中的关键组成部分。</p>
+    <h4>局限与展望</h4><p>摘要未讨论局限或后续方向；可合理推断，本文作为历史回顾，可能梳理顶夸克发现的过程及其对后续新物理搜索的意义，但具体内容需以原文为准。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05463v1">
+  <div class="paper-head">
+    <h2>基于等变Transformer的顶夸克自旋与CP测量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05463v1" rel="noopener noreferrer">2611.05463v1</a>
+  </div>
+  <p class="original-title">Top Spin and CP from Equivariant Transformers</p>
+  <p class="meta"><strong>作者：</strong>Henning Bahl、Marco Menen、Antoine Petitjean、Tilman Plehn</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>自旋关联与CP性质的测量是精确LHC物理计划中既重要又具有挑战性的组成部分。本文首先展示，作为洛伦兹等变Transformer的L-GATr-slim能够显著提升强子衰变顶夸克的自旋分析能力。随后，我们表明在其架构中引入赝标量通道后，可以学习并解释最优可观测量及其CP性质。我们在部分子层次的弱玻色子融合（WBF）希格斯产生过程以及包含探测器效应的顶夸克对产生过程中演示了上述方法。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何提升强子衰变顶夸克的自旋分析能力，并学习与解释最优可观测量及其CP性质。</p>
+    <h4>方法</h4><p>采用洛伦兹等变Transformer模型L-GATr-slim，并在其架构中加入赝标量通道。</p>
+    <h4>主要发现</h4><p>L-GATr-slim显著提升了强子顶夸克的自旋分析能力；加入赝标量通道后能够学习并解释最优可观测量及其CP性质，并在部分子层次WBF希格斯产生及含探测器效应的顶夸克对产生中得到了演示。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或适用范围；后续可合理推断的方向包括将方法推广至其他过程或更完整的实验模拟，但该推断需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05501v1">
+  <div class="paper-head">
+    <h2>FCC-ee上通过偶极门户对重中性轻子进行间接探测<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05501v1" rel="noopener noreferrer">2611.05501v1</a>
+  </div>
+  <p class="original-title">Indirect probes of heavy neutral leptons through the dipole portal at FCC-ee</p>
+  <p class="meta"><strong>作者：</strong>Natascia Vignaroli</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究在FCC-ee上对马约拉纳重中性轻子（HNL）的规范不变偶极门户进行间接探测。虚HNL通过包含两个偶极相互作用的圈图修正电弱规范玻色子传播子和轻子耦合。我们计算由此产生的有限匹配修正及其对Z极点可观测量的影响。对于实的、味道对齐的耦合，局域响应由四种耦合移动组合确定。独立的局域紫外相互作用可以重现全部四种组合，使得偶极解释依赖于对这些相互作用的假设。在改进的标准模型预言下，当HNL质量为1 TeV时，FCC-ee可探测到小至0.14 TeV^{-2}的等号、同号超荷和弱偶极系数。该投影假设偶极主导，并将独立紫外系数在HNL质量两倍处设为零。我们量化了额外紫外贡献如何削弱或增强灵敏度。在1 TeV处，对于马约拉纳HNL，投影灵敏度与HL-LHC同号双轻子搜寻具有竞争力；而在更大质量下，可在有效理论的适用范围内探测更小的偶极系数。辐射希格斯衰变提供适度的进一步改进。本分析使用的FeynRules、FeynArts和UFO模型公开可得，见doi:10.5281/zenodo.23667622。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在FCC-ee上，马约拉纳重中性轻子的规范不变偶极门户能否通过圈图修正电弱规范玻色子传播子和轻子耦合，产生可观测的Z极点效应，并达到怎样的探测灵敏度？</p>
+    <h4>方法</h4><p>计算虚HNL通过两个偶极相互作用圈图产生的有限匹配修正及其对Z极点可观测量的影响；对实的、味道对齐耦合，用四种耦合移动组合刻画局域响应；在偶极主导、独立紫外系数在HNL质量两倍处设为零的假设下，投影FCC-ee对等号、同号超荷和弱偶极系数的灵敏度，并量化额外紫外贡献的影响。</p>
+    <h4>主要发现</h4><p>虚HNL通过圈图修正电弱规范玻色子传播子和轻子耦合，产生有限匹配修正并影响Z极点可观测量的四种耦合移动组合；独立局域紫外相互作用可重现全部四种组合，使偶极解释依赖假设；在改进的标准模型预言下，HNL质量为1 TeV时FCC-ee可探测小至0.14 TeV^{-2}的偶极系数；该灵敏度与HL-LHC同号双轻子搜寻在1 TeV处具有竞争力，更大质量可探测更小偶极系数；辐射希格斯衰变提供适度改进。</p>
+    <h4>局限与展望</h4><p>上述投影依赖偶极主导及独立紫外系数在HNL质量两倍处设为零的假设；额外紫外贡献可削弱或增强灵敏度，因此偶极解释的稳健性取决于对这些相互作用的假设。更大质量下的探测需在有效理论适用范围内解读。后续可进一步研究独立紫外相互作用的具体实现及其对灵敏度的影响，并利用辐射希格斯衰变等通道改进探测。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05635v1">
+  <div class="paper-head">
+    <h2>由电磁形状因子重建质子广义部分子分布：一个受理论约束的现象学重构<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05635v1" rel="noopener noreferrer">2611.05635v1</a>
+  </div>
+  <p class="original-title">Proton generalized parton distributions from electromagnetic form factors: A theoretically constrained phenomenological reconstruction</p>
+  <p class="meta"><strong>作者：</strong>A. Capelo-Astudillo、T. Aguilar、M. Conde-Correa、A. Duenas-Vidal、P. G. Ortega、J. Segovia</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出对质子非极化、手征偶、领头阶扭转广义部分子分布 H^q 与 E^q 的一种受理论约束的现象学重构。在零偏度情形下，将价夸克分布与依赖于味道的指数型剖面相结合，并同时以质子和中子电磁形状因子的现象学表示进行标定。该构造严格满足价夸克归一化与反常磁矩归一化、低标度条件 B^{u+d}(0)=0、所要求的端点行为以及完整的高斯碰撞参数正定性约束。所得参数化对电磁形状因子及其斜率给出合理描述，同时揭示出在所采用的拟设下，严格的 GPD 自洽性与对全部低 Q^2 可观测量的精确再现之间存在张力。我们利用归一化双分布将分布推广至非零偏度，并引入独立的 D 项以补全相应的 Mellin 多项式。我们考察了电磁形状因子与能量—动量张量形状因子、碰撞参数分布、正定性、多项式性以及若干示意性的力学性质。该分析区分了由电磁数据约束的信息与支配偏度及力学部分的额外假设，从而为未来核子到共振态跃迁 GPD 的研究提供了一个透明的弹性基线。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在理论约束下，由质子和中子电磁形状因子现象学地重构质子非极化、手征偶、领头阶扭转广义部分子分布 H^q 与 E^q，并考察其自洽性与相关性质。</p>
+    <h4>方法</h4><p>在零偏度下将价夸克分布与味道相关的指数型剖面结合，并同时针对质子和中子电磁形状因子的现象学表示进行标定；施加价夸克与反常磁矩归一化、低标度条件 B^{u+d}(0)=0、端点行为及高斯碰撞参数正定性约束；利用归一化双分布推广至非零偏度，并引入独立 D 项补全 Mellin 多项式；考察电磁与能量—动量张量形状因子、碰撞参数分布、正定性、多项式性及示意性力学性质。</p>
+    <h4>主要发现</h4><p>所得参数化对电磁形状因子及其斜率给出合理描述；同时揭示出在所采用拟设下，严格的 GPD 自洽性与对全部低 Q^2 可观测量的精确再现之间存在张力；分析区分了由电磁数据约束的信息与支配偏度及力学部分的额外假设。</p>
+    <h4>局限与展望</h4><p>原文指出该工作为未来核子到共振态跃迁 GPD 研究提供了透明的弹性基线；所采用的拟设下严格 GPD 自洽性与低 Q^2 精确再现之间的张力表明，后续可能需要改进拟设或引入额外约束，但原文未给出具体方案。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06761v1">
+  <div class="paper-head">
+    <h2>用于普林斯顿轴子搜寻的亚GHz动态电感行波参量放大器的近量子极限读出<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06761v1" rel="noopener noreferrer">2611.06761v1</a>
+  </div>
+  <p class="original-title">Near-Quantum-Limited Readout for the Princeton Axion Search using a sub-GHz Kinetic Inductance Traveling Wave Parametric Amplifier</p>
+  <p class="meta"><strong>作者：</strong>Joe Wiedemann、Roman Kolevatov、Jianyang Fu、Joelle-Marie Begin、Nate Otto、Felix St-Amour、Lyman Page、Henry LeDuc、Peter Day、Saptarshi Chaudhuri</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">astro-ph.IM</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>参量放大器是1 GHz以上近量子极限测量的核心器件，但1 GHz以下的放大器发展相对有限。本文报道了一种工作在300–700 MHz的动态电感行波参量放大器（KI-TWPA），增益超过30 dB，泵浦功率仅为数百纳瓦。采用变温噪声源测得的系统噪声性能为2.5–3.5个量子。该器件为亚GHz信号的精密测量提供了一种通用的新工具，潜在应用包括半导体自旋量子比特读出、超导探测器阵列读出以及超出标准模型的新物理搜寻。我们表征了与轴子搜寻相关的放大器性能，包括增益漂移、压缩点、不同工作温度下的放大器噪声、带输入环行器的读出以及磁场不敏感性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在1 GHz以下频段实现近量子极限的参量放大，并评估其用于普林斯顿轴子搜寻等亚GHz精密测量的适用性。</p>
+    <h4>方法</h4><p>研制工作在300–700 MHz的动态电感行波参量放大器（KI-TWPA），测量其增益与泵浦功率；使用变温噪声源测量系统噪声；并表征增益漂移、压缩点、不同工作温度下的噪声、带输入环行器的读出以及磁场不敏感性等与轴子搜寻相关的性能。</p>
+    <h4>主要发现</h4><p>该KI-TWPA在300–700 MHz范围内增益超过30 dB，泵浦功率为数百纳瓦；变温噪声源测得的系统噪声为2.5–3.5个量子；并给出了增益漂移、压缩点、不同工作温度下噪声、带输入环行器读出及磁场不敏感性等表征结果。</p>
+    <h4>局限与展望</h4><p>原文指出该器件可用于半导体自旋量子比特读出、超导探测器阵列读出及超出标准模型的新物理搜寻；摘要未给出长期稳定性、系统集成或在实际轴子搜寻中的最终灵敏度等结论，这些方面有待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06769v1">
+  <div class="paper-head">
+    <h2>MC@NLO与FxFx合并中具有一致簇射起始标度的Born展宽<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06769v1" rel="noopener noreferrer">2611.06769v1</a>
+  </div>
+  <p class="original-title">Born spreading with consistent shower starting scales in MC@NLO and FxFx merging</p>
+  <p class="meta"><strong>作者：</strong>Rikkert Frederix、Paolo Torrielli</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>负权重是大型强子对撞机上NLO事件产生与部分子簇射匹配时的一项主要成本，因为要达到给定统计精度就需要更多事件。Born展宽通过将Born贡献重新分配到辐射变量上，降低了MC@NLO中负权重S事件的比例。只有当传递给部分子簇射的内容连同S事件一起都仅依赖于Born层次量时，它才不会引入偏差。我们证明，为了使MC抵消项重现第一次簇射发射，无论辐射相空间如何积分，都需要同样的条件。在MadGraph5_aMC@NLO中，S事件的起始标度并未完全满足这一条件，这此前阻碍了Born展宽的公开释放。我们提出了一种新的、一致的起始标度构造，适用于普通MC@NLO、FxFx合并和MC@NLO-Δ，借助该构造，Born展宽现已公开可用，包括用于合并样本。我们还研究了MC抵消项的修改形式，以及最多包含两个NLO喷注的FxFx合并W+jets产生；对于后者，Born展宽在不影响预言的情况下降低了合并后负权重的比例，并且事件样本的生成速度比旧实现快六倍。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在MC@NLO与FxFx合并中构造与Born展宽相容的簇射起始标度，以降低负权重比例而不引入偏差。</p>
+    <h4>方法</h4><p>分析MC抵消项重现首次簇射发射所需条件；在MadGraph5_aMC@NLO中为普通MC@NLO、FxFx合并和MC@NLO-Δ构造一致的S事件起始标度；研究MC抵消项的修改形式，并考察最多两个NLO喷注的FxFx合并W+jets产生。</p>
+    <h4>主要发现</h4><p>只有当传递给部分子簇射的内容连同S事件一起仅依赖Born层次量时，Born展宽才不引入偏差，且MC抵消项重现首次簇射发射也需同一条件；旧实现的S事件起始标度未完全满足该条件；新构造使Born展宽公开可用并支持合并样本；在FxFx合并W+jets中，Born展宽降低合并后负权重比例且不影响预言，事件样本生成速度比旧实现快六倍。</p>
+    <h4>局限与展望</h4><p>摘要未讨论新构造在更复杂过程或更高 multiplicity 下的适用性；其局限与适用范围需进一步检验。可合理推断，后续工作可关注将一致起始标度推广至其他匹配/合并方案，并系统评估负权重降低带来的计算收益。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06807v1">
+  <div class="paper-head">
+    <h2>CMS ECAL Phase-2升级：三级低压功率转换系统的特性表征与稳定性分析<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06807v1" rel="noopener noreferrer">2611.06807v1</a>
+  </div>
+  <p class="original-title">CMS ECAL Phase-2 upgrade: characterisation and stability analysis of a three-stage low-voltage power-conversion system</p>
+  <p class="meta"><strong>作者：</strong>Liv Anke Richter、Günther Dissertori、Werner Lustermann、Krzysztof Stachon</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">cs.SY</span> <span class="tag">eess.SY</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>作为大型强子对撞机高亮度升级的一部分，紧凑缪子线圈电磁量能器桶部的前端电子学正在被更换。升级后的电子学由一套三级低压功率转换系统供电。由于级联动态特性需要进行表征以确保稳定运行，本文利用Nyquist判据在两个接口处评估了三个转换级之间的相互作用。基于Bode 100频率响应分析仪并经校验的分流注入装置，可在带载条件下进行原位阻抗测量，用以评估平均转换器模型的准确性。结果表明，在所评估的配置下两个接口均保持稳定，模型给出的到临界点的最小距离分别为0.76和0.79。一项开启过程研究确定，第3级的电容充电是触发第2级过流保护的主要浪涌电流来源。两种第3级板卡变体在板内与板间错开转换器使能时序，使测得的两塔电流低于5 A，处于8.0 A保护阈值之内。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在高亮度LHC升级背景下，CMS ECAL桶部前端电子学所用三级低压功率转换系统的级联动态特性与稳定性如何，以及开启过程中的浪涌电流问题。</p>
+    <h4>方法</h4><p>利用Nyquist判据在两个级间接口评估三级转换器之间的相互作用；采用经校验的、基于Bode 100频率响应分析仪的分流注入装置进行带载原位阻抗测量，以检验平均转换器模型的准确性；并开展开启过程研究以定位浪涌电流来源，测试两种第3级板卡变体的使能错开方案。</p>
+    <h4>主要发现</h4><p>在所评估的配置下两个接口均稳定，模型给出的到临界点最小距离分别为0.76和0.79；第3级的电容充电是触发第2级过流保护的主要浪涌电流来源；两种第3级板卡变体在板内与板间错开转换器使能，使测得的两塔电流低于5 A，处于8.0 A保护阈值之内。</p>
+    <h4>局限与展望</h4><p>上述稳定性结论限于论文所评估的配置与平均模型范围；使能错开方案的有效性基于所测两塔电流，向更多塔或不同配置的推广需进一步验证（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06824v1">
+  <div class="paper-head">
+    <h2>交叉矩一致性与强子τ衰变中的第五Adler系数<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06824v1" rel="noopener noreferrer">2611.06824v1</a>
+  </div>
+  <p class="original-title">Cross-Moment Consistency and the Fifth Adler Coefficient in Hadronic Tau Decays</p>
+  <p class="meta"><strong>作者：</strong>Gauhar Abbas、Debabina Biswas、Pratham Dadhich、Vartika Singh</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>未知系数 $c_{5,1}$ 控制着包容性强子 $\tau$ 衰变固定阶分析中首个被忽略的五阶项。本文确定四个已知Adler系数实际能够检验什么。对于任意归一化多项式权重，固定阶的Adler到矩映射为三角矩阵且对角元为1。因此，一个共同的Adler系数误差以相同绝对大小进入每个矩，多权重相对检验约化为单一绝对容差。对三个代表性权重，百分之十的检验仅能将 $c_{5,1}$ 分辨至约 $\pm24$；最接近的轮廓改进检验弱一个数量级以上。此外，任何保持直接Padé/Shanks缺陷观测符号的延拓都给出 $c_{5,1}\geq378.03$，因此接近 $280$ 的取值需要额外结构。将校准-证伪协议应用于简化的Beneke--Jamin型纯幂拟设，得到条件性估计 $c_{5,1}=248\pm30\,(\mathrm{struct})\pm74\,(\mathrm{method})=248\pm80$。在物理阶，其中心值在代数上与精确四参数拟合一致；该协议增加了可证伪的可容许性检验与方法不确定度，而非新的系数信息。本文还澄清，常被引用的Beneke--Jamin值 $283$ 是对总宽度FOPT结果的线性外推。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在包容性强子 $\tau$ 衰变固定阶分析中，四个已知Adler系数能够对未知第五阶系数 $c_{5,1}$ 提供何种检验与约束。</p>
+    <h4>方法</h4><p>分析固定阶Adler到矩映射的三角结构；对三个代表性权重进行多权重检验；考察保持Padé/Shanks缺陷符号的延拓；并将校准-证伪协议应用于简化的Beneke--Jamin型纯幂拟设。</p>
+    <h4>主要发现</h4><p>固定阶Adler到矩映射为三角且对角元为1，故共同Adler系数误差以相同绝对大小进入各矩，多权重相对检验约化为单一绝对容差；百分之十检验仅将 $c_{5,1}$ 分辨至约 $\pm24$，轮廓改进检验弱一个数量级以上；保持直接Padé/Shanks缺陷观测符号的延拓给出 $c_{5,1}\geq378.03$；校准-证伪协议给出条件性估计 $c_{5,1}=248\pm80$，其中心值在物理阶与精确四参数拟合代数一致，协议本身不提供新的系数信息；常引用的 $283$ 是总宽度FOPT结果的线性外推。</p>
+    <h4>局限与展望</h4><p>上述结果依赖于特定权重选择、固定阶框架及所采用的延拓与拟设假设；接近 $280$ 的取值需要额外结构，而 $c_{5,1}$ 的进一步确定可能需要超出本文框架的独立输入或更高阶信息（此为合理推断）。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-05 13:19 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
