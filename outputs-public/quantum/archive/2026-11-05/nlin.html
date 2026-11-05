@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-11-05</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">11</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">6</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（5）</h3><ol class="toc-list"><li><a href="#paper-2611.05613v1">Kaup--Kupershmidt方程的N孤子解公式</a> <small>2611.05613v1</small></li><li><a href="#paper-2611.06088v1">具有距离依赖高阶相互作用的活动粒子集群中的同步转变</a> <small>2611.06088v1</small></li><li><a href="#paper-2611.06156v1">环境资源可用性波动改变公共地悲剧的振荡行为</a> <small>2611.06156v1</small></li><li><a href="#paper-2611.06466v1">不确定且状态依赖耦合的振子网络中的相位锁定</a> <small>2611.06466v1</small></li><li><a href="#paper-2611.06567v1">旋转弦进入混沌时三种模型的比较</a> <small>2611.06567v1</small></li></ol><h3>交叉列表（6）</h3><ol class="toc-list"><li><a href="#paper-2611.05563v1">非厄米趋肤效应诱导的旁路转捩</a> <small>2611.05563v1</small></li><li><a href="#paper-2611.05732v1">原生质流动的库埃特流变学与速度分布</a> <small>2611.05732v1</small></li><li><a href="#paper-2611.05782v1">极化激元凝聚体中涌现的不可压缩性用于可扩展XY自旋模拟</a> <small>2611.05782v1</small></li><li><a href="#paper-2611.06037v1">化学混沌倍周期通向的热力学特征</a> <small>2611.06037v1</small></li><li><a href="#paper-2611.06780v1">硬方块模型的局部 Yang-Baxter 障碍</a> <small>2611.06780v1</small></li><li><a href="#paper-2611.06882v1">奇毛细性</a> <small>2611.06882v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.05613v1">
+  <div class="paper-head">
+    <h2>Kaup--Kupershmidt方程的N孤子解公式<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.05613v1" rel="noopener noreferrer">2611.05613v1</a>
+  </div>
+  <p class="original-title">The \texorpdfstring{$\mathbf N$-soliton}{N-soliton} solution formula for the Kaup--Kupershmidt equation</p>
+  <p class="meta"><strong>作者：</strong>Tuncay Aktosun、Ramazan Ercan、Mehmet Unlu</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文给出了Kaup--Kupershmidt方程的$\mathbf N$孤子解的显式公式，适用于任意正整数$\mathbf N$。该公式的输入数据由$\mathbf N$个互不相同的正$p_j$值与$\mathbf N$个任意选取的正$c_j$值组成。公式由三阶线性算子的逆散射问题在无反射情形下的解导出，其中$p_j$值与透射系数的束缚态极点相关，$c_j$值与束缚态依赖常数相关。文中说明了该公式如何由Riemann--Hilbert问题的解以及用于表述上述逆散射问题的Marchenko积分方程的解构造得到。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为Kaup--Kupershmidt方程给出任意正整数$\mathbf N$的$\mathbf N$孤子解的显式公式。</p>
+    <h4>方法</h4><p>利用三阶线性算子的逆散射问题，在无反射情形下，以$\mathbf N$个互不相同的正$p_j$值（对应透射系数的束缚态极点）和$\mathbf N$个任意选取的正$c_j$值（对应束缚态依赖常数）为输入数据；由Riemann--Hilbert问题的解和Marchenko积分方程的解构造该公式。</p>
+    <h4>主要发现</h4><p>原文明确给出了Kaup--Kupershmidt方程对任意正整数$\mathbf N$的$\mathbf N$孤子解显式公式，并说明该公式可由无反射逆散射问题的解导出，且可由Riemann--Hilbert问题与Marchenko积分方程的解构造。</p>
+    <h4>局限与展望</h4><p>原文未讨论公式的收敛性、奇异性、物理解的可容许性及与其他求解方法的等价性；这些方面可作为后续研究的方向（此为由原文范围合理推断，非原文结论）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06088v1">
+  <div class="paper-head">
+    <h2>具有距离依赖高阶相互作用的活动粒子集群中的同步转变<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.06088v1" rel="noopener noreferrer">2611.06088v1</a>
+  </div>
+  <p class="original-title">Synchronization transitions in ensembles of active particles with distance-dependent higher-order interactions</p>
+  <p class="meta"><strong>作者：</strong>Dhrubajyoti Biswas、P. S. Burada、Pintu Patra</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">physics.bio-ph</span> <span class="tag">physics.chem-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>高阶相互作用在生物系统中普遍存在，可用于更好地描述自驱动粒子集群的集体动力学。为此，本文研究了一个具有距离依赖高阶相互作用的 Vicsek-Kuramoto 模型，并在若干假设下给出了刻画其集体动力学的解析结果。随后，通过系统方程的数值模拟对这些结果进行了验证，结果表明异步集体态与同步集体态之间存在连续转变和爆炸性转变。进一步的数值结果还显示，短程相互作用和紧密聚集的初始状态会导致偏离理论预测，而后者可通过提高共同自驱动速度予以抵消。这些结果为一大类具有高阶相互作用的活动物质系统提供了认识，并为针对特定应用设计和利用此类系统提供了框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究具有距离依赖高阶相互作用的自驱动粒子集群的集体动力学，特别是异步态与同步态之间的转变类型及其解析刻画。</p>
+    <h4>方法</h4><p>构建具有距离依赖高阶相互作用的 Vicsek-Kuramoto 模型，在特定假设下进行解析分析，并通过系统方程的数值模拟对解析结果进行验证。</p>
+    <h4>主要发现</h4><p>在特定假设下得到了刻画集体动力学的解析结果；数值模拟验证了这些结果，并显示异步与同步集体态之间存在连续转变和爆炸性转变；短程相互作用与紧密聚集的初始状态会导致偏离理论预测，而提高共同自驱动速度可抵消该偏离。</p>
+    <h4>局限与展望</h4><p>解析结果依赖于原文所述假设，其适用范围受此限制；短程相互作用和紧密聚集初始态下的偏离机制尚待进一步阐明。可合理推断，后续工作可放宽假设以扩展理论框架，或利用共同自驱动速度调控偏离，为具有高阶相互作用的活动物质系统的设计与应用提供依据。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06156v1">
+  <div class="paper-head">
+    <h2>环境资源可用性波动改变公共地悲剧的振荡行为<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.06156v1" rel="noopener noreferrer">2611.06156v1</a>
+  </div>
+  <p class="original-title">Fluctuations in Environmental Resource Availability Alter the Oscillatory Tragedy of the Commons</p>
+  <p class="meta"><strong>作者：</strong>Yi-Duo Chen、Zhi-Xi Wu、Jian-Yue Guan</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">q-bio.PE</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>现实复杂系统中的环境噪声——包括温度、湿度及相关环境条件的波动——不可避免地调节个体的代谢能力，进而影响公共资源利用效率。然而，引入环境反馈的传统演化博弈模型通常以确定性方式处理资源动态。本文将随机波动纳入噪声修正的复制子动力学框架，通过理论分析与随机生灭模拟得到一个反直觉的结果：在多种收益格局下，中等强度的环境噪声会稳定而非破坏内部不动点，同时抑制或消除灾难性振荡。这些发现重新定位了环境变异性的作用：它不仅是扰动因素，更是促进复杂社会与生态系统中策略共存和资源可持续利用的机制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>环境资源可用性的随机波动如何影响带有环境反馈的公共资源演化博弈中的策略动态与振荡行为。</p>
+    <h4>方法</h4><p>在噪声修正的复制子动力学框架中引入随机波动，并结合理论分析与随机生灭模拟进行研究。</p>
+    <h4>主要发现</h4><p>在多种收益格局下，中等强度的环境噪声会稳定内部不动点，而非使其失稳，同时抑制或消除灾难性振荡。</p>
+    <h4>局限与展望</h4><p>原文未讨论噪声强度过大或过小情形下的具体行为，也未给出实证验证；后续可合理推断的方向包括考察不同噪声强度区间的相变机制，以及在具体社会或生态系统中检验该理论预测。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06466v1">
+  <div class="paper-head">
+    <h2>不确定且状态依赖耦合的振子网络中的相位锁定<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.06466v1" rel="noopener noreferrer">2611.06466v1</a>
+  </div>
+  <p class="original-title">Phase Locking in Oscillator Networks with Uncertain and State-Dependent Couplings</p>
+  <p class="meta"><strong>作者：</strong>Iva Bačić、Philipp C. Böttcher、Marc Hunkemöller、Carsten Hartmann、David Gross、Andrea Benigni、Dirk Witthaut</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">cs.SY</span> <span class="tag">eess.SY</span> <span class="tag">math.DS</span> <span class="tag">math.OC</span> <span class="tag">physics.soc-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>振子网络中的相位锁定关键取决于耦合单元之间的相互作用强度。然而在许多应用中，这些耦合是不确定的、状态依赖的或时变的。本文针对Kuramoto型网络，在每条耦合强度仅已知于给定区间内的情形下，推导了相位锁定的严格条件。基于非线性不动点方程的凸表述，我们得到了对任意可行近似均成立、且在所有容许耦合上一致成立的逐边误差界。这些误差界给出了存在具有给定相位差限制的相位锁定态的充分条件。我们以电压幅值不确定的交流电网和具有状态依赖耦合的自适应振子网络为例说明了该框架。对于后者，利用耦合的状态依赖性可进一步收紧误差界。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>当Kuramoto型振子网络中每条耦合强度仅已知于给定区间内（不确定、状态依赖或时变）时，如何给出相位锁定存在的严格条件。</p>
+    <h4>方法</h4><p>基于非线性不动点方程的凸表述，推导对任意可行近似成立、并在所有容许耦合上一致成立的逐边误差界，由此得到存在具有给定相位差限制的相位锁定态的充分条件；并以电压幅值不确定的交流电网和状态依赖耦合的自适应振子网络为例进行说明。</p>
+    <h4>主要发现</h4><p>所推导的逐边误差界对任意可行近似成立且在所有容许耦合上一致成立；这些误差界给出相位锁定态存在的充分条件，并带有给定的相位差限制；对于状态依赖耦合的自适应网络，利用耦合的状态依赖性可进一步收紧误差界。</p>
+    <h4>局限与展望</h4><p>原文未讨论计算复杂度、保守性程度或非Kuramoto型动力学等局限；可合理推断的后续方向包括将框架推广至其他耦合结构或时变情形，但此类推断需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06567v1">
+  <div class="paper-head">
+    <h2>旋转弦进入混沌时三种模型的比较<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.06567v1" rel="noopener noreferrer">2611.06567v1</a>
+  </div>
+  <p class="original-title">A comparison of three models of a whirling string as it becomes chaotic</p>
+  <p class="meta"><strong>作者：</strong>Nicholas B. Tufillaro</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">math.DS</span> <span class="tag">physics.class-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>受拉伸的金属丝在接近其基频处受驱时，可能离开驱动力所在平面并发生旋转。在较大振幅下，这种旋转会出现调制、反向并进入混沌。该运动的三种常用模型为：几何精确弦方程；双模态模型，即Kirchhoff-Carrier方程，在每个平面内各取一个横向模态；以及这两个模态慢变振幅的平均方程。我们在相近条件下对三种模型进行数值积分，并沿通往混沌的路径进行比较。该路径始于稳态旋转的Hopf分岔，经过倍周期分岔，最终形成由Shil&#x27;nikov同宿轨道组织的混沌吸引子。平均化的小参数为调制速率与基频之比 $\varepsilon = c/\omega_1$，取值范围为0.005至0.02。定性上，三种模型在分岔序列、共存吸引子、回归映射和Lyapunov指数方面一致。定量上，平均化使每个局部分岔在标度失谐量中上移 $0.7\varepsilon$ 至 $1.2\varepsilon$。当 $\varepsilon \le 0.01$ 时，几何精确模型与双模态模型在局部分岔处的差异在0.002以内。决定混沌是否伴随同宿轨道出现的Shil&#x27;nikov比值在 $\varepsilon \le 0.01$ 时三种模型间一致到1.5%以内；然而同宿分岔本身在较低阻尼下移动约 $\varepsilon$，在较高阻尼下移动约6至9倍 $\varepsilon$；这一差异由同宿环的回归随失谐量变化的快慢决定。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文比较旋转弦在接近基频驱动下由稳态旋转经Hopf分岔、倍周期分岔走向混沌的过程中，几何精确弦方程、双模态Kirchhoff-Carrier方程及慢变振幅平均方程这三种模型在定性和定量上的一致性与差异。</p>
+    <h4>方法</h4><p>在相近条件下对三种模型进行数值积分，沿通往混沌的路径比较分岔序列、共存吸引子、回归映射、Lyapunov指数、局部分岔位置、Shil&#x27;nikov比值及同宿分岔位置；平均化小参数 $\varepsilon = c/\omega_1$ 取0.005至0.02。</p>
+    <h4>主要发现</h4><p>三种模型在分岔序列、共存吸引子、回归映射和Lyapunov指数上定性一致；平均化使每个局部分岔在标度失谐量中上移 $0.7\varepsilon$ 至 $1.2\varepsilon$；当 $\varepsilon \le 0.01$ 时几何精确模型与双模态模型在局部分岔处差异在0.002以内；Shil&#x27;nikov比值在 $\varepsilon \le 0.01$ 时三种模型间一致到1.5%以内；同宿分岔在较低阻尼下移动约 $\varepsilon$，在较高阻尼下移动约6至9倍 $\varepsilon$，差异由同宿环回归随失谐量变化的快慢决定。</p>
+    <h4>局限与展望</h4><p>论文结果限于所考察的 $\varepsilon$ 范围（0.005至0.02）及所采用的三种模型与参数条件；对更小或更大 $\varepsilon$、其他阻尼与驱动条件，定量偏差可能不同，需进一步验证。平均化导致的局部分岔上移及同宿分岔位移提示，在定量预测分岔位置时应谨慎使用平均模型；后续可合理推断需系统考察 $\varepsilon$ 与阻尼对同宿分岔位移的影响，并评估其他降维模型在混沌路径上的定量可靠性。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.05563v1">
+  <div class="paper-head">
+    <h2>非厄米趋肤效应诱导的旁路转捩<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05563v1" rel="noopener noreferrer">2611.05563v1</a>
+  </div>
+  <p class="original-title">Bypass Transition via the Non-Hermitian Skin Effect</p>
+  <p class="meta"><strong>作者：</strong>Konghao Sun、Haiping Hu</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.mes-hall
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.mes-hall</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>非厄米趋肤晶格能够对传播信号产生定向放大。本文表明，这种放大与非线性反馈共同驱动了一种向自持运动的旁路转捩，该现象与剪切流中的旁路转捩类似。有限幅值的局部激励即可触发持续周期运动或混沌运动，而静止态在线上仍保持稳定。我们建立了一种回归映射理论，用于预测触发阈值、该阈值随定向增益的标度关系，以及支配近临界动力学的失稳机制。阈值随链长呈指数下降。弱噪声同样能够触发持续运动，在固定观测时间下，其特征点火长度随噪声减弱呈对数增长。本工作确立了经由趋肤效应实现旁路转捩的途径，为预测与调控非线性波动动力学开辟了新方向。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>非厄米趋肤晶格中的定向放大与非线性反馈能否在静止态线性稳定的条件下，由有限局部激励或弱噪声触发向自持周期或混沌运动的旁路转捩，以及如何预测其触发阈值与近临界动力学。</p>
+    <h4>方法</h4><p>构建非厄米趋肤晶格模型，结合定向放大与非线性反馈；发展回归映射理论，用以预测触发阈值、阈值随定向增益的标度关系及近临界失稳机制；并分析弱噪声触发情形下的点火长度随噪声强度与观测时间的变化。</p>
+    <h4>主要发现</h4><p>有限局部激励可触发持续周期运动或混沌运动，而静止态保持线性稳定；回归映射理论能够预测触发阈值及其随定向增益的标度关系，并给出支配近临界动力学的失稳机制；阈值随链长指数下降；弱噪声亦可触发持续运动，在固定观测时间下特征点火长度随噪声减弱呈对数增长。</p>
+    <h4>局限与展望</h4><p>原文未讨论具体实验平台与参数范围；可合理推断，该趋肤效应旁路转捩机制或可推广至其他具有非厄米定向增益与非线性反馈的晶格或连续系统，并为非线性波动的预测与控制提供理论依据，但这一推广仍需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05732v1">
+  <div class="paper-head">
+    <h2>原生质流动的库埃特流变学与速度分布<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05732v1" rel="noopener noreferrer">2611.05732v1</a>
+  </div>
+  <p class="original-title">Rheology and Velocity Distribution of Couette Flow for Protoplasmic Streaming</p>
+  <p class="meta"><strong>作者：</strong>Tomoya Souma、Fumitake Kato、Hiroshi Koibuchi</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文以平行平板间的二维库埃特流作为植物细胞原生质流动的模型，采用朗之万与纳维-斯托克斯相结合的方法进行模拟。流体与生物材料之间的相互作用通过 Finsler 几何（FG）建模技术实现，其中以相对黏度等量表征的相互作用强度随与生物材料相关的内部自由度（IDOF）有效变化。模拟表明，库埃特流在垂直于平板的竖直方向上呈现线性速度剖面，并且速度分布中出现与激光光散射实验观测报道一致的峰值结构。模拟还表明，该模型表现出非牛顿流体典型的剪切变稀行为，且黏度在边界区域达到最小。此外，我们发现流变性质与流体和 IDOF 之间相互作用的共形变换相联系。在 FG 建模框架内，引入 IDOF 的共形平坦构型——既非各向异性也非随机各向同性——作为最小能量态，用以刻画二维库埃特流的剪切变稀流变性质。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何以平行平板间二维库埃特流为模型，描述植物细胞原生质流动的流变学性质与速度分布，并解释其剪切变稀行为的来源。</p>
+    <h4>方法</h4><p>采用朗之万与纳维-斯托克斯相结合的模拟方法；利用 Finsler 几何（FG）建模技术实现流体与生物材料之间的相互作用，使以相对黏度等量表征的相互作用强度随内部自由度（IDOF）变化；并分析流变性质与流体-IDOF 相互作用共形变换之间的联系。</p>
+    <h4>主要发现</h4><p>模拟显示库埃特流在垂直于平板的竖直方向具有线性速度剖面，速度分布中出现与激光光散射实验观测报道一致的峰值结构；模型表现出非牛顿流体典型的剪切变稀行为，黏度在边界区域最小；流变性质与流体和 IDOF 之间相互作用的共形变换相联系；在 FG 框架内，IDOF 的共形平坦构型（既非各向异性也非随机各向同性）被引入为最小能量态，用以刻画二维库埃特流的剪切变稀流变性质。</p>
+    <h4>局限与展望</h4><p>原文结论基于二维库埃特流模型与 FG 建模框架，其适用范围可能受二维设定及模型假设限制；向三维或更复杂细胞几何的推广、以及与其他实验观测的定量对比，属于可合理推断的后续方向，尚需进一步研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.05782v1">
+  <div class="paper-head">
+    <h2>极化激元凝聚体中涌现的不可压缩性用于可扩展XY自旋模拟<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.05782v1" rel="noopener noreferrer">2611.05782v1</a>
+  </div>
+  <p class="original-title">Emergent Incompressibility in Polariton Condensates for Scalable XY Spin Simulation</p>
+  <p class="meta"><strong>作者：</strong>Chengyong Yu、Youya Xu、Xuan Ye、Yan Zhou、Sanjib Ghosh</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.mes-hall
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.mes-hall</span> <span class="tag">nlin.AO</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>驱动-耗散极化激元网络为模拟连续自旋哈密顿量提供了有力的模拟平台。然而，其实际可扩展性从根本上受限于振幅-相位耦合以及高度阻挫能量景观中的亚稳态俘获。本文提出一种原位双重增强机制，无需外部逐点精细调节即可应对上述瓶颈。首先，基于密度重标度的重整化群分析表明，高阶非线性损耗驱动凝聚体趋向不可压缩区域，从内在上抑制振幅涨落并强制实现纯相位动力学。对于宏观XY网络（最多10,000个自旋），这种相位-振幅解耦使能量降低超过50倍，同时将标准差缩小为原来的六分之一。更一般地，它恢复了优化后XY能量随系统尺寸的广延标度。其次，为在崎岖的非凸能量景观中导航，我们引入弱厄米脉冲。通过多阶段协议实施时，这些脉冲使系统能够反复逃离局部极小值并驱动其到达更深的能量极小值。基准测试显示优势随系统尺寸增大而增加，极化激元模拟器在每个采样的宏观实现中均优于经典Monte Carlo-SQP基线。本工作为可扩展的极化激元模拟计算提供了物理框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>驱动-耗散极化激元网络在模拟连续自旋哈密顿量时，受振幅-相位耦合和高度阻挫能量景观中亚稳态俘获的限制，如何在不依赖外部逐点精细调节的情况下提升其可扩展性。</p>
+    <h4>方法</h4><p>提出原位双重增强机制：其一，基于密度重标度的重整化群分析，利用高阶非线性损耗驱动凝聚体进入不可压缩区域，抑制振幅涨落并强制纯相位动力学；其二，引入弱厄米脉冲，并通过多阶段协议使系统反复逃离局部极小值以寻找更深能量极小值；在最多10,000个自旋的宏观XY网络上进行基准测试，并与经典Monte Carlo-SQP基线比较。</p>
+    <h4>主要发现</h4><p>重整化群分析表明高阶非线性损耗驱动凝聚体趋向不可压缩区域；对于宏观XY网络（最多10,000个自旋），相位-振幅解耦使能量降低超过50倍，标准差缩小为原来的六分之一，并恢复优化后XY能量随系统尺寸的广延标度；弱厄米脉冲的多阶段协议使系统反复逃离局部极小值并到达更深能量极小值；基准测试显示优势随系统尺寸增大而增加，极化激元模拟器在每个采样的宏观实现中均优于经典Monte Carlo-SQP基线。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与适用范围；基于其结论可合理推断，该机制在更大规模或不同拓扑的XY网络上的有效性仍需进一步验证，弱厄米脉冲协议的具体参数优化及其对非XY型自旋哈密顿量的适用性也可能是有待探索的方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06037v1">
+  <div class="paper-head">
+    <h2>化学混沌倍周期通向的热力学特征<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06037v1" rel="noopener noreferrer">2611.06037v1</a>
+  </div>
+  <p class="original-title">Thermodynamic signatures of the period-doubling route to chemical chaos</p>
+  <p class="meta"><strong>作者：</strong>Kyota Tamano、Keiji Saito</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>化学反应网络可通过连续倍周期分岔从稳定振荡演化为混沌。本文研究可逆、充分混合的反应网络在混沌起始附近及混沌区内的熵产生涨落的一般性质。在孤立的超临界倍周期分岔附近，我们发现扩散系数出现单侧发散，其临界指数为1。对于满足所述条件的混沌吸引子，当先取宏观极限时，单位体积的熵方差呈指数增长；其指数增长率等于 $2\lambda_{\max}$，其中 $\lambda_{\max}$ 为最大 Lyapunov 指数，这意味着扩散系数发散。文中还讨论了涨落的体积依赖性及其背后的物理机制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>可逆、充分混合的化学反应网络在倍周期通向混沌的过程中，熵产生涨落（特别是扩散系数与熵方差）在分岔附近和混沌区内呈现何种一般性质。</p>
+    <h4>方法</h4><p>针对可逆、充分混合的反应网络，分析孤立超临界倍周期分岔附近的熵产生涨落，并考察满足给定条件的混沌吸引子上单位体积熵方差在宏观极限下的行为，借助最大 Lyapunov 指数刻画其增长率。</p>
+    <h4>主要发现</h4><p>在孤立超临界倍周期分岔附近，扩散系数出现单侧发散，临界指数为1；对于满足所述条件的混沌吸引子，当先取宏观极限时，单位体积熵方差呈指数增长，增长率为 $2\lambda_{\max}$（$\lambda_{\max}$ 为最大 Lyapunov 指数），并由此推出扩散系数发散。</p>
+    <h4>局限与展望</h4><p>原文结论依赖于可逆、充分混合以及所述混沌吸引子条件等前提，适用范围受这些假设限制；关于涨落体积依赖性与物理机制的讨论提示，后续可进一步厘清有限体积效应与宏观极限次序之间的关系，但具体推广方向需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06780v1">
+  <div class="paper-head">
+    <h2>硬方块模型的局部 Yang-Baxter 障碍<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06780v1" rel="noopener noreferrer">2611.06780v1</a>
+  </div>
+  <p class="original-title">A local Yang-Baxter obstruction for the hard-square model</p>
+  <p class="meta"><strong>作者：</strong>Gabriel Ortega、Eliecer Peña-Ancavil</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>二维格点模型的许多精确解依赖于满足 Yang-Baxter 方程的一族解析权重。硬六边形模型正是以这种方式求解的，而与之相邻的硬方块模型尚无已知的封闭形式。本文确定了在不引入隐藏高度的情况下编码硬方块的 height alphabets，并证明恰好有两个连通的编码：占据变量本身，以及 Andrews、Baxter 和 Forrester 的四高度编码。硬六边形在这两种编码上均可积，但在非零活度下，没有任何解析的 Yang-Baxter 面权重族能经过硬方块。差异源于排斥规则：对硬方块而言，少数 Yang-Baxter 方程化为多项式恒等式，迫使辅助权重为零。这并不排除硬方块存在封闭形式，但若沿此路线求解，就必须离开这些编码，或超越经过该模型的单一解析族。含隐藏高度的编码仍有待研究。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>硬方块模型是否存在可经由解析 Yang-Baxter 权重族求解的编码，以及其与可积的硬六边形模型之间的差异来源。</p>
+    <h4>方法</h4><p>确定在不引入隐藏高度的情况下编码硬方块的 height alphabets，并分析这些编码上的 Yang-Baxter 方程在非零活度下的可解性。</p>
+    <h4>主要发现</h4><p>恰好存在两个连通的、无隐藏高度的硬方块编码：占据变量本身与 Andrews–Baxter–Forrester 四高度编码；硬六边形在这两种编码上均可积，但在非零活度下没有任何解析 Yang-Baxter 面权重族经过硬方块；原因是硬方块的排斥规则使若干 Yang-Baxter 方程化为迫使辅助权重为零的多项式恒等式。</p>
+    <h4>局限与展望</h4><p>原文明确指出这不排除硬方块存在封闭形式，但沿此路线的解必须离开上述编码或超越经过该模型的单一解析族；含隐藏高度的编码仍为开放问题。</p>
+  </section>
+</article><article class="paper" id="paper-2611.06882v1">
+  <div class="paper-head">
+    <h2>奇毛细性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06882v1" rel="noopener noreferrer">2611.06882v1</a>
+  </div>
+  <p class="original-title">Odd Capillarity</p>
+  <p class="meta"><strong>作者：</strong>Nadia Bihari Padhan、Axel Voigt</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">cond-mat.soft</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>毛细性通过宇称偶的机械应力支配二元流体中的界面弛豫与流体动力学运动。本文引入“奇毛细性”这一破坏宇称的界面力学响应，其做法是在 Cahn–Hilliard–Navier–Stokes（CHNS）方程中加入一个对称、非变分、宇称奇的毛细应力。该应力沿界面产生力，方向与普通毛细力垂直，并做机械功，而该功不由组分自由能的变化所平衡。直接数值模拟表明，奇毛细性会阻止畴粗化，同时维持湍流流体运动，且不存在常规的惯性能量级联，因为能量注入主要被黏性耗散所平衡。在非对称混合物中，奇毛细性驱动的变形与破碎会中断液滴生长，产生动力学上被阻止的乳液，其组分具有超均匀性，且大尺度涡量涨落受到抑制。这些发现确立了奇毛细性作为一种独特的界面机制，可用于控制相分离并维持非平衡流体运动。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在二元流体中引入破坏宇称的界面力学响应（奇毛细性）后，相分离、畴粗化、液滴生长及流体运动将如何变化。</p>
+    <h4>方法</h4><p>在 Cahn–Hilliard–Navier–Stokes（CHNS）方程中引入一个对称、非变分、宇称奇的毛细应力，并通过直接数值模拟研究其对界面动力学的影响。</p>
+    <h4>主要发现</h4><p>直接数值模拟显示：奇毛细性阻止畴粗化，同时维持湍流流体运动，且不存在常规的惯性能量级联，能量注入主要被黏性耗散平衡；在非对称混合物中，奇毛细性驱动的变形与破碎中断液滴生长，产生动力学上被阻止的乳液，其组分具有超均匀性，且大尺度涡量涨落受到抑制。</p>
+    <h4>局限与展望</h4><p>原文将奇毛细性确立为一种控制相分离并维持非平衡流体运动的独特界面机制；其局限、适用范围及后续方向未在摘要中明确说明，需进一步研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-05 13:30 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
