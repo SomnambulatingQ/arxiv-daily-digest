@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-06</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">9</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（5）</h3><ol class="toc-list"><li><a href="#paper-2611.07045v1">双曲格点上的二维Ising模型与边界条件的作用</a> <small>2611.07045v1</small></li><li><a href="#paper-2611.07641v1">基于约束蒙特卡罗的精确与近精确逆重整化群</a> <small>2611.07641v1</small></li><li><a href="#paper-2611.07745v1">超对称QCD的重叠费米子表述及微扰结果</a> <small>2611.07745v1</small></li><li><a href="#paper-2611.07864v1">双核子散射的夸克质量依赖性</a> <small>2611.07864v1</small></li><li><a href="#paper-2611.08161v1">SU(3)离散子群Σ(216×3)的原始量子门</a> <small>2611.08161v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2611.07003v1">费米子的非局域魔法受纠缠涨落限制，且对自由费米子呈对数增长</a> <small>2611.07003v1</small></li><li><a href="#paper-2611.07004v1">共形自举的无阻塞方法</a> <small>2611.07004v1</small></li><li><a href="#paper-2611.08266v1">介观 Wilson--Dirac 算子的指标：I</a> <small>2611.08266v1</small></li><li><a href="#paper-2611.08279v1">格点模拟中是否已观测到夸克子物质？</a> <small>2611.08279v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.07045v1">
+  <div class="paper-head">
+    <h2>双曲格点上的二维Ising模型与边界条件的作用<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.07045v1" rel="noopener noreferrer">2611.07045v1</a>
+  </div>
+  <p class="original-title">The 2d Ising Model on Hyperbolic Lattices and the Role of Boundary Conditions</p>
+  <p class="meta"><strong>作者：</strong>Pallabi Dey、Debasish Banerjee、Arnab Kundu、Ritam Sinha</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了边界条件对正双曲镶嵌上铁磁Ising模型临界行为的影响。采用worm算法与Metropolis模拟，比较了开放边界与通过共同辅助自旋实现的有线边界。对于开放边界，磁化率表现出基于体积的有限尺寸标度行为，其非平均场标度指数在四种镶嵌上近似稳定，支持可能存在共同普适类的观点；与Binder交点和磁化率峰值的比较揭示了显著的有限尺寸效应。对于有线边界，中心自旋到辅助自旋的关联函数表现出与平均场磁化指数一致的径向标度行为；中心自旋对均匀磁场的响应为δ=3提供了进一步的一致性检验。对弱边界场的分层响应还表明，诱导磁化向内部增强。这些结果凸显了边界条件以及内部观测量与全系统观测量之区分在刻画非可均格点上临界现象时的重要性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究正双曲镶嵌上铁磁Ising模型的临界行为如何受边界条件影响，并考察内部观测量与全系统观测量之间的区别。</p>
+    <h4>方法</h4><p>使用worm算法和Metropolis模拟，在四种正双曲镶嵌上比较开放边界与通过共同辅助自旋实现的有线边界；分析磁化率的有限尺寸标度、Binder交点、磁化率峰值、中心—辅助自旋关联、中心自旋对均匀磁场的响应以及分层边界场响应。</p>
+    <h4>主要发现</h4><p>开放边界下磁化率呈基于体积的有限尺寸标度，非平均场标度指数在四种镶嵌上近似稳定，支持可能存在共同普适类；Binder交点与磁化率峰值比较显示显著有限尺寸效应；有线边界下中心—辅助自旋关联呈与平均场磁化指数一致的径向标度，中心自旋对均匀磁场的响应与δ=3一致；弱边界场的分层响应显示诱导磁化向内部增强。</p>
+    <h4>局限与展望</h4><p>结果表明边界条件以及内部观测量与全系统观测量的区分对非可均格点上的临界现象刻画很重要；原文未给出超出上述镶嵌与模型范围的结论，后续可合理推断需在更多格点或观测量上检验共同普适类的稳定性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.07641v1">
+  <div class="paper-head">
+    <h2>基于约束蒙特卡罗的精确与近精确逆重整化群<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.07641v1" rel="noopener noreferrer">2611.07641v1</a>
+  </div>
+  <p class="original-title">Exact and Near-Exact Inverse Renormalization Group with Constrained Monte Carlo</p>
+  <p class="meta"><strong>作者：</strong>Dimitrios Bachtis</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文确立了通过约束马尔可夫过程实现逆重整化群精确性的条件。约束马尔可夫过程是一类蒙特卡罗模拟，其在细格子上对某个块内的自由度进行采样，并施加约束：这些自由度须按照前向重整化群变换与粗格子上相应的自由度保持一致。我们解析地证明，对于任意变换，约束马尔可夫过程对应于不动点作用量处重整化群的精确逆变换，并在不动点附近对应于近精确逆变换。随后，我们直接在逆重整化后的构型上优化重整化群变换，以有效地将作用量映射到自身，并确保高维系统构型生成中的计算稳定性。从三维 φ⁴ 量子场论在格子体积 V=16³ 下的一组非关联构型出发，我们利用约束蒙特卡罗对重整化群进行逆变换，为 V=128³ 构造了一组非关联的、接近平衡的构型，并提取了该系统的两个临界指数。该逆变换未表现出临界慢化，其动态临界指数为 z=0.03(2)。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究如何通过约束马尔可夫过程实现逆重整化群的精确性或近精确性，并将其用于从粗格子构型生成细格子构型、提取临界指数。</p>
+    <h4>方法</h4><p>定义约束马尔可夫过程：在细格子上对块内自由度采样，并约束其按前向重整化群变换与粗格子自由度一致；解析证明其在不动点作用量处为精确逆变换、在不动点附近为近精确逆变换；在逆重整化构型上直接优化重整化群变换；对三维 φ⁴ 量子场论从 V=16³ 的非关联构型出发，用约束蒙特卡罗构造 V=128³ 的非关联近平衡构型并提取临界指数。</p>
+    <h4>主要发现</h4><p>解析证明对任意变换，约束马尔可夫过程在不动点作用量处对应重整化群的精确逆变换，在不动点附近对应近精确逆变换；在逆重整化构型上优化重整化群变换可有效将作用量映射到自身并确保高维系统构型生成的计算稳定性；对三维 φ⁴ 量子场论从 V=16³ 构造 V=128³ 的非关联近平衡构型并提取两个临界指数；逆变换无临界慢化，动态临界指数 z=0.03(2)。</p>
+    <h4>局限与展望</h4><p>原文的解析结论以不动点作用量及其邻域为条件，近精确性在远离不动点时的适用范围需进一步界定；数值验证限于三维 φ⁴ 量子场论与特定格子体积，向其他模型或更高维度的推广有待检验；优化重整化群变换以维持计算稳定性的做法在高维系统中的一般性仍需研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.07745v1">
+  <div class="paper-head">
+    <h2>超对称QCD的重叠费米子表述及微扰结果<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.07745v1" rel="noopener noreferrer">2611.07745v1</a>
+  </div>
+  <p class="original-title">First Overlap Formulation and Perturbative Results for Supersymmetric QCD</p>
+  <p class="meta"><strong>作者：</strong>Marios Costa、Elias Antoniou、Herodotos Herodotou、Eleni Ioannou、Constantinos Kartoudes、Gregoris Spanoudes、Haralambos Panagopoulos</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出了基于重叠费米子的N=1超对称QCD（SQCD）格点表述，给出了一种满足Ginsparg-Wilson关系的离散化方案。重点在于构造Yukawa项，使其保持涉及重叠夸克与胶微子的格点修正手征对称性。为在Yukawa扇区实现该修正手征对称性，我们遵循Lüscher的策略，分别对夸克场和胶微子场引入辅助Dirac费米子场与Majorana费米子场。对这些辅助场做泛函积分后，会得到超局域相互作用项，作为格点作用量的额外贡献。在此框架下，并采用Wilson规范作用量描述胶子，我们还完成了一圈微扰计算。具体而言，我们在存在夸克质量和标量夸克质量的情况下计算了夸克、胶子、胶微子和标量夸克场的自能，从而能够在格点上无歧义地确定相应的场重整化常数与质量反项。该工作为未来微扰确定规范耦合、Yukawa耦合和四次耦合的精细调节提供了坚实基础，并且如预期那样，已显示出相对于Wilson型费米子所需反项数目的减少。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为N=1超对称QCD构造满足Ginsparg-Wilson关系的重叠费米子格点表述，并在Yukawa扇区保持格点修正手征对称性，同时给出相应的一圈微扰结果。</p>
+    <h4>方法</h4><p>采用重叠费米子离散化；遵循Lüscher策略，对夸克和胶微子分别引入辅助Dirac与Majorana费米子场，经泛函积分得到超局域相互作用项；胶子采用Wilson规范作用量；在存在夸克与标量夸克质量的情况下进行一圈微扰计算，计算夸克、胶子、胶微子和标量夸克场的自能，并确定场与质量反项。</p>
+    <h4>主要发现</h4><p>构造了基于重叠费米子且满足Ginsparg-Wilson关系的SQCD格点表述，并给出了保持涉及重叠夸克与胶微子的格点修正手征对称性的Yukawa项构造；通过辅助场泛函积分得到超局域相互作用项；完成一圈微扰计算，得到夸克、胶子、胶微子和标量夸克场在存在相应质量时的自能，从而无歧义地确定格点上的场与质量反项；结果如预期显示出相对于Wilson型费米子所需反项数目的减少。</p>
+    <h4>局限与展望</h4><p>该工作为未来微扰确定规范耦合、Yukawa耦合和四次耦合的精细调节提供了基础；原文未给出非微扰数值结果或超出微扰层面的结论，相关后续方向需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.07864v1">
+  <div class="paper-head">
+    <h2>双核子散射的夸克质量依赖性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.07864v1" rel="noopener noreferrer">2611.07864v1</a>
+  </div>
+  <p class="original-title">Quark-mass dependence of two-nucleon scattering</p>
+  <p class="meta"><strong>作者：</strong>Jorge Baeza-Ballesteros、André Baião-Raposo、Davide Laudicina、Malcolm Lazarow、Thomas R. Richardson、Miguel Salg、John Bulava、Jeremy R. Green、Andrew Hanlon、Renwick J. Hudspith、Daniel Mohler、Colin Morningstar、Amy Nicholson、Fernando Romero-López、André Walker-Loud、Hartmut Wittig</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>理解可见宇宙的性质如何依赖于粒子物理标准模型的参数，需要进行从头算（ab initio）理论计算。为此，我们研究了氘核道和双中子道中低能核子-核子散射对夸克质量的依赖性。我们在π介子质量 M_π≈200 和 280 MeV 处进行了格点QCD计算，并将结果与物理点处的唯象学结果以及此前在 M_π≈710 MeV 处的计算进行了比较。散射振幅、相移和阈值参数由有限体积谱通过显式包含单π交换长程效应的量子化条件确定。我们使用手征有效场论，分别采用 Weinberg 和 Kaplan-Savage-Wise 幂次计数，分析了散射长度和有效力程对π介子质量的依赖性。据此，我们估计了物理点处逆散射长度和束缚动量的π介子质量导数。两种幂次计数均表明，氘核在 M_π≈220 MeV 附近解束缚。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究低能核子-核子散射（氘核道与双中子道）对夸克质量（以π介子质量表征）的依赖性，并估计物理点处散射参数对π介子质量的导数。</p>
+    <h4>方法</h4><p>在 M_π≈200 和 280 MeV 处开展格点QCD计算，由有限体积谱结合显式包含单π交换长程效应的量子化条件提取散射振幅、相移与阈值参数；与物理点唯象学及此前 M_π≈710 MeV 的计算比较；并用手征有效场论（Weinberg 与 Kaplan-Savage-Wise 两种幂次计数）分析散射长度和有效力程的π介子质量依赖性。</p>
+    <h4>主要发现</h4><p>论文给出了 M_π≈200 和 280 MeV 处的散射振幅、相移与阈值参数，并与物理点唯象学及 M_π≈710 MeV 的先前计算进行了比较；基于两种幂次计数估计了物理点处逆散射长度和束缚动量的π介子质量导数；两种幂次计数均表明氘核在 M_π≈220 MeV 附近解束缚。</p>
+    <h4>局限与展望</h4><p>结果依赖于所采用的格点QCD参数与手征有效场论幂次计数，且仅在所计算的π介子质量点及外推框架内成立；后续可合理推断的方向包括在更多π介子质量点或更接近物理点处进行计算，以及进一步检验不同幂次计数下外推的系统不确定性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08161v1">
+  <div class="paper-head">
+    <h2>SU(3)离散子群Σ(216×3)的原始量子门<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08161v1" rel="noopener noreferrer">2611.08161v1</a>
+  </div>
+  <p class="original-title">Primitive Quantum Gates for an $SU(3)$ Discrete Subgroup: $Σ(216\times3)$</p>
+  <p class="meta"><strong>作者：</strong>Erik J. Gustafson、Henry Lamm、Edison Murairi、Sebastian Osorio Perez</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对SU(3)的648阶离散子群Σ(216×3)的数字量子模拟，构建了一套原始门集合。该门集合包含五个算法原语：求逆、群乘法、迹、群傅里叶变换和动能相位门，并给出了相应的量子比特分解以及qutrit-量子比特分解。以10^3空间格点、50个时间步、总合成误差预算为10^{-8}的剪切黏度计算为基准，估计的容错成本为：在量子比特架构下需要2.3–6.8×10^{10}个T门，在qutrit-量子比特架构下需要1.3–5.9×10^{12}个R门。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为SU(3)的648阶离散子群Σ(216×3)的数字量子模拟构建原始门集合，并估计其容错量子计算成本。</p>
+    <h4>方法</h4><p>构建包含求逆、群乘法、迹、群傅里叶变换和动能相位门五个算法原语的原始门集合，给出量子比特与qutrit-量子比特分解，并以10^3空间格点、50个时间步、总合成误差预算10^{-8}的剪切黏度计算为基准估计容错成本。</p>
+    <h4>主要发现</h4><p>原文明确给出了五个算法原语及其量子比特和qutrit-量子比特分解；在所述基准计算下，估计容错成本为量子比特架构2.3–6.8×10^{10}个T门，qutrit-量子比特架构1.3–5.9×10^{12}个R门。</p>
+    <h4>局限与展望</h4><p>原文未讨论所述门集合与成本估计在其他格点规模、时间步数、误差预算或物理量计算中的适用性；相关外推需进一步验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.07003v1">
+  <div class="paper-head">
+    <h2>费米子的非局域魔法受纠缠涨落限制，且对自由费米子呈对数增长<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.07003v1" rel="noopener noreferrer">2611.07003v1</a>
+  </div>
+  <p class="original-title">Nonlocal magic of fermions is bounded by entanglement fluctuations and is logarithmic for free fermions</p>
+  <p class="meta"><strong>作者：</strong>Raghav G. Jha、Dengyao Luo、Alexander F. Kemper、Bojko N. Bakalov</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cond-mat.other</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>自由费米子态是经典可模拟的，但若写成量子比特形式，它们通常携带广延的魔法（magic），即稳定子电路所缺乏的量子资源。其中一部分魔法是非局域的：分别作用于系统两部分的局域酉变换无法将其消除。若将这些局域酉变换限制为高斯酉变换，则非局域魔法随部分纠缠费米子对的数量 m 线性增长。本文表明，这种增长是高斯限制造成的假象：局域高斯酉变换至多在三对时使非局域稳定子 Rényi 熵最小，但从四对起不再如此。保持费米子宇称的一般局域非高斯酉变换可将 m 个自由费米子对变换为费米子 Bell 对，其保真度至多以 1/√m 衰减，而高斯酉变换下则为指数衰减，因此非局域魔法随 m 从线性下降为对数增长。其原因在于统计性质：Bell 对具有相等的 Schmidt 权重，即完全简并的纠缠谱；一个态只有在 Schmidt 权重跨越多个数量级分布时，才能远离 Bell 对。这种分布由纠缠容量 C_E（纠缠哈密顿量的方差）度量，且任何费米子态的非局域魔法至多随 C_E 对数增长。自由费米子对独立地贡献 C_E，因此 C_E 仅随 m 线性增长，从而导致稳定子保真度至多以 1/√m 衰减。因此，自由费米子（包括 Hartree–Fock 与 BCS 平均场态）的几乎全部魔法都是局域的。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>自由费米子态写成量子比特形式时携带广延魔法，其中非局域部分在高斯局域酉变换下随部分纠缠费米子对数量 m 线性增长；本文追问这种线性增长是否为高斯限制的假象，以及一般局域非高斯酉变换下非局域魔法的真实标度行为及其统计根源。</p>
+    <h4>方法</h4><p>比较局域高斯酉变换与保持费米子宇称的一般局域非高斯酉变换对非局域稳定子 Rényi 熵的优化效果；以将 m 个自由费米子对变换为费米子 Bell 对的保真度作为度量；引入纠缠容量 C_E（纠缠哈密顿量的方差）刻画 Schmidt 权重的分布，并推导非局域魔法与 C_E 的上界关系。</p>
+    <h4>主要发现</h4><p>局域高斯酉变换至多在三对时最小化非局域稳定子 Rényi 熵，从四对起不再如此；一般局域非高斯酉变换达到 Bell 对的保真度至多以 1/√m 衰减，而高斯酉变换下为指数衰减，故非局域魔法随 m 从线性降为对数增长；任何费米子态的非局域魔法至多随 C_E 对数增长；自由费米子对的 C_E 独立相加、仅随 m 线性增长，导致稳定子保真度至多以 1/√m 衰减；自由费米子（含 Hartree–Fock 与 BCS 平均场态）的几乎全部魔法是局域的。</p>
+    <h4>局限与展望</h4><p>摘要未讨论具体数值验证规模、有限 m 下的常数因子或非自由费米子体系中 C_E 与魔法关系的普适性；后续可合理推断的方向包括：在相互作用费米子体系中检验 C_E 对非局域魔法的约束是否仍具操作性，以及将纠缠谱涨落作为资源度量的思路推广到其他量子资源。上述推断仅为可能方向，非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.07004v1">
+  <div class="paper-head">
+    <h2>共形自举的无阻塞方法<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.07004v1" rel="noopener noreferrer">2611.07004v1</a>
+  </div>
+  <p class="original-title">Conformal Bootstrap Unblocked</p>
+  <p class="meta"><strong>作者：</strong>Li-Yuan Chiang、David Poland</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-lat</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种新的共形自举方法，直接以共形对称性、反射正性与交叉对称性为出发点，而不显式依赖算符乘积展开或共形块。通过由成对局域算符所创态构造 Gram 矩阵，并借助共形生成元施加谱约束，得到一族半正定规划，直接约束关联函数。作者在一至三维演示了该方法，获得了关联函数与谱的界，这些界体现了广义自由场行为，并在二维与三维中重现了特征性的 Ising kink。进一步表明，不同插入位形下态的联合正性可自然约束远离自对偶运动学区域的关联函数。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在不显式使用算符乘积展开或共形块的前提下，直接基于共形对称性、反射正性与交叉对称性构造共形自举，并用于约束关联函数与谱。</p>
+    <h4>方法</h4><p>由成对局域算符所创态构造 Gram 矩阵，利用共形生成元施加谱约束，导出一族半正定规划以直接约束关联函数；在一至三维中实施该方法，并考察不同插入位形下态的联合正性。</p>
+    <h4>主要发现</h4><p>在一至三维中获得了关联函数与谱的界，这些界体现了广义自由场行为，并在二维与三维中重现了特征性的 Ising kink；不同插入位形下态的联合正性可自然约束远离自对偶运动学区域的关联函数。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论该方法的局限与适用范围；其在一至三维之外的可扩展性、计算成本以及与其他自举形式的系统比较有待进一步研究，上述方向为基于现有内容的合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08266v1">
+  <div class="paper-head">
+    <h2>介观 Wilson--Dirac 算子的指标：I<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08266v1" rel="noopener noreferrer">2611.08266v1</a>
+  </div>
+  <p class="original-title">The index of mesoscopic Wilson--Dirac operators: I</p>
+  <p class="meta"><strong>作者：</strong>Mikio Furuta、Shinichiroh Matsuo</p>
+  <p class="meta"><strong>主分类：</strong>math.DG
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DG</span> <span class="tag">hep-lat</span> <span class="tag">math-ph</span> <span class="tag">math.KT</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文是关于闭黎曼流形上介观 Wilson--Dirac 算子指标研究系列论文的第一篇，该系列旨在将 Dirac 算子的指标离散化。在平坦环面上，这一目标可由正则格点上的格点规范理论 Wilson--Dirac 算子实现；但在一般闭黎曼流形上不存在正则格点。作为连续 Dirac 算子与其离散化之间的中间步骤，作者在任意闭黎曼流形上引入介观 Wilson--Dirac 算子，其定义方式是在与某一固定长度尺度相当的距離上对协变差商进行积分。本文通过谱流定义介观 Wilson--Dirac 算子的指标，并证明在所有充分小的尺度下该指标与连续 Dirac 算子的指标一致。证明依赖于一个关于尺度一致的椭圆估计以及一个 Rellich 型紧性定理。系列的第二篇论文将从介观算子过渡到离散 Wilson--Dirac 算子。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在一般闭黎曼流形上为 Dirac 算子的指标构造离散化，并在连续情形与离散情形之间建立中间步骤。</p>
+    <h4>方法</h4><p>在任意闭黎曼流形上，通过在固定长度尺度上积分协变差商定义介观 Wilson--Dirac 算子；用谱流定义其指标；证明中使用了尺度一致的椭圆估计与 Rellich 型紧性定理。</p>
+    <h4>主要发现</h4><p>论文证明：在所有充分小的尺度下，介观 Wilson--Dirac 算子的指标（由谱流定义）与连续 Dirac 算子的指标一致。</p>
+    <h4>局限与展望</h4><p>本文仅处理介观算子与连续 Dirac 算子指标的一致性；从介观算子到离散 Wilson--Dirac 算子的过渡被明确留待系列第二篇论文。该结果适用于闭黎曼流形，其向离散情形的推广及具体离散化方案的有效性尚待后续工作验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08279v1">
+  <div class="paper-head">
+    <h2>格点模拟中是否已观测到夸克子物质？<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08279v1" rel="noopener noreferrer">2611.08279v1</a>
+  </div>
+  <p class="original-title">Has Quarkyonic Matter Been Seen in Lattice Simulations?</p>
+  <p class="meta"><strong>作者：</strong>Kohei Fujikura、Kenji Fukushima、Yoshimasa Hidaka、Etsuko Itou、Larry McLerran</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>夸克子物质指介于禁闭强子与准自由夸克之间的一种双重物态。这种双重性对分布函数的行为给出了稳健的约束。本文在基于分布函数对夸克子物质作系统评述之后，讨论了近期格点数据：有限重子数密度下(1+1)维与(3+1)维双色QCD，以及有限同位旋密度下(3+1)维QCD，并结合由天体物理推断的物态方程。综合来看，这些结果呈现出与格点模拟中夸克子物质出现相一致的连贯图像。未来在高密度下对重子及规范不变夸克动量分布函数的格点计算，将为检验这一解释提供更直接的判据。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>格点模拟数据是否显示出夸克子物质（介于禁闭强子与准自由夸克之间的双重物态）出现的迹象。</p>
+    <h4>方法</h4><p>基于分布函数对夸克子物质进行系统评述，并分析有限重子数密度下(1+1)维与(3+1)维双色QCD、有限同位旋密度下(3+1)维QCD的近期格点数据，同时结合天体物理推断的物态方程。</p>
+    <h4>主要发现</h4><p>上述结果综合起来呈现出与格点模拟中夸克子物质出现相一致的连贯图像；分布函数的双重性对分布函数行为给出稳健约束。</p>
+    <h4>局限与展望</h4><p>当前证据属于间接一致性，尚非直接检验；未来在高密度下对重子及规范不变夸克动量分布函数开展格点计算，有望为这一解释提供更直接的检验（此为原文明确提出的后续方向）。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-06 13:03 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
