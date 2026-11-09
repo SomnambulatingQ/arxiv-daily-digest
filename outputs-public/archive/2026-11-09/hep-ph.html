@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-ph 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-ph · 高能唯象</h1>
+    <p class="lede">官方公告日：2026-11-09</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">40</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">23</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">17</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（23）</h3><ol class="toc-list"><li><a href="#paper-2611.08573v1">大质量夸克的软胶子有效耦合</a> <small>2611.08573v1</small></li><li><a href="#paper-2611.08579v1">重离子碰撞中通过TEEC观测横向动量展宽</a> <small>2611.08579v1</small></li><li><a href="#paper-2611.08595v1">量子计算机上集体中微子振荡中的纠缠</a> <small>2611.08595v1</small></li><li><a href="#paper-2611.08621v1">导数型重子数破坏算符的紫外完备化</a> <small>2611.08621v1</small></li><li><a href="#paper-2611.08680v1">通向增强暗物质湮灭的相变门户</a> <small>2611.08680v1</small></li><li><a href="#paper-2611.08690v1">基于演化算符的精确与混合中微子振荡概率</a> <small>2611.08690v1</small></li><li><a href="#paper-2611.08875v1">$k_{T}$ 因子化下 $\gamma\gamma\to\pi^{0}\eta^{(\prime)}$ 与 $\eta^{(\prime)}\eta^{(\prime)}$ 的 twist-3 及味单态贡献</a> <small>2611.08875v1</small></li><li><a href="#paper-2611.08899v1">相位调制椭圆偏振电场驱动的真空电子—正电子对产生中的螺旋动量谱与自旋不对称</a> <small>2611.08899v1</small></li><li><a href="#paper-2611.09037v1">利用高能宇宙中微子味组成探测味依赖的中微子—暗物质相互作用</a> <small>2611.09037v1</small></li><li><a href="#paper-2611.09095v1">在 $B_s^0$ 衰变中产生具有隐奇异性的隐粲分子候选态</a> <small>2611.09095v1</small></li><li><a href="#paper-2611.09101v1">非局域夸克流两点关联函数的重整子链贡献与轻介子分布振幅</a> <small>2611.09101v1</small></li><li><a href="#paper-2611.09132v1">原初黑洞周围的受激轴子衰变与弥散射电背景</a> <small>2611.09132v1</small></li><li><a href="#paper-2611.09193v1">光前动力学中转动对称性的恢复</a> <small>2611.09193v1</small></li><li><a href="#paper-2611.09243v1">f_0(980)与a_0(980)在Λ_c^+→pK_S^0K_S^0过程中的作用：Kar K末态相互作用的干净探针</a> <small>2611.09243v1</small></li><li><a href="#paper-2611.09297v1">手征微扰理论下大 $b$ 区域的 Collins-Soper 核</a> <small>2611.09297v1</small></li><li><a href="#paper-2611.09299v1">LHC上微扰QCD中$t\bar{t}$产生与衰变的自旋关联</a> <small>2611.09299v1</small></li><li><a href="#paper-2611.09363v1">核子共振态对$p\bar{p}\to\eta_c\eta$反应的贡献</a> <small>2611.09363v1</small></li><li><a href="#paper-2611.09408v1">面向未来正负电子对撞机的部分子密度函数</a> <small>2611.09408v1</small></li><li><a href="#paper-2611.09478v1">三个中微子混合角之间的一个相互关系</a> <small>2611.09478v1</small></li><li><a href="#paper-2611.09483v1">一般平衡密度矩阵的热场论</a> <small>2611.09483v1</small></li><li><a href="#paper-2611.09666v1">低 tanβ 下 MSSM Higgs 玻色子搜寻中的干涉效应：gg→H→WW、ZZ、hh 及 gg→A→Zh 道</a> <small>2611.09666v1</small></li><li><a href="#paper-2611.09775v1">利用μ子对撞机上的Z玻色子聚变揭示TeV能标暗物质</a> <small>2611.09775v1</small></li><li><a href="#paper-2611.09893v1">标准模型及其扩展中最小暖暴胀面临的挑战</a> <small>2611.09893v1</small></li></ol><h3>交叉列表（17）</h3><ol class="toc-list"><li><a href="#paper-2610.42103v1">四腿梯形格点上对称质量生成相的电荷泵浦轻子生成</a> <small>2610.42103v1</small></li><li><a href="#paper-2611.08583v1">DarkMatterFM-Registry：从 arXiv 文献中提取的暗物质模型机器可读登记库</a> <small>2611.08583v1</small></li><li><a href="#paper-2611.08585v1">原初还是暴胀后：区分宇宙微波背景中尺度依赖特征的起源</a> <small>2611.08585v1</small></li><li><a href="#paper-2611.08586v1">Magic Is in the Eye of the Measure</a> <small>2611.08586v1</small></li><li><a href="#paper-2611.08606v1">Just CaloCHILL：在学习到的潜空间中快速生成强子簇射</a> <small>2611.08606v1</small></li><li><a href="#paper-2611.08636v1">非线性尺度上的非标准暗物质</a> <small>2611.08636v1</small></li><li><a href="#paper-2611.08656v1">高能物理中基于学习代理的高阶成分归因</a> <small>2611.08656v1</small></li><li><a href="#paper-2611.08742v1">弯曲时空中的中微子对湮灭：快速矩方法与味转换几何</a> <small>2611.08742v1</small></li><li><a href="#paper-2611.09033v1">热密核物质在相对论平均场模型中的重子数磁化率</a> <small>2611.09033v1</small></li><li><a href="#paper-2611.09150v1">热手征交叉区中QCD拓扑的手征响应</a> <small>2611.09150v1</small></li><li><a href="#paper-2611.09404v1">集体核振动对中心Pb+Pb碰撞初始各向异性的影响：Glauber与Trento模型的比较研究</a> <small>2611.09404v1</small></li><li><a href="#paper-2611.09549v1">Kramers-Henneberger 变换的相对论类比与粒子对产生</a> <small>2611.09549v1</small></li><li><a href="#paper-2611.09631v1">线性协变规范下QCD中的动力学胶子质量产生、Schwinger机制、自发对称性破缺与色禁闭</a> <small>2611.09631v1</small></li><li><a href="#paper-2611.09635v1">黑洞X射线双星双谱中ridge与hypotenuse的可能联系：基于准周期调制的解释</a> <small>2611.09635v1</small></li><li><a href="#paper-2611.09788v1">镓异常的可能解决方案？核跃迁密度</a> <small>2611.09788v1</small></li><li><a href="#paper-2611.09797v1">利用CMS开放数据以解析与机器学习方法重建顶夸克对运动学</a> <small>2611.09797v1</small></li><li><a href="#paper-2611.09865v1">中心涡旋网络的出现与聚合物物理：面向 SU(4) 格点杨-米尔斯理论的检验</a> <small>2611.09865v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.08573v1">
+  <div class="paper-head">
+    <h2>大质量夸克的软胶子有效耦合<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08573v1" rel="noopener noreferrer">2611.08573v1</a>
+  </div>
+  <p class="original-title">Soft-gluon effective coupling for massive quarks</p>
+  <p class="meta"><strong>作者：</strong>Luca Bason、Simone Devoto、Andrea Ghira、Simone Marzani、Pier Francesco Monni、Giovanni Ridolfi</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文将基于硬偶极子软辐射强度定义的软胶子物理耦合推广至大质量硬发射体情形。我们推导了该耦合与 $\overline{\rm MS}$ 耦合在双圈阶的关系，涵盖两个硬发射体均为大质量、仅一个为大质量以及均非大质量的全部位形。结果表明，大质量发射体的存在为物理耦合方案的定义引入了额外自由度，并在双圈阶对该自由度进行了刻画。本文结果为涉及重夸克过程的精确 QCD 重求和以及高阶部分子簇射算法的发展提供了新要素。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将基于硬偶极子软辐射强度定义的软胶子物理耦合推广到大质量硬发射体，并确定其与 $\overline{\rm MS}$ 耦合在双圈阶的关系。</p>
+    <h4>方法</h4><p>以硬偶极子软辐射强度定义软胶子物理耦合，将其推广至大质量硬发射体，并在双圈阶推导该耦合与 $\overline{\rm MS}$ 耦合的关系，覆盖两个、一个或没有硬发射体为大质量的全部位形；同时在双圈阶刻画大质量发射体所引入的额外方案自由度。</p>
+    <h4>主要发现</h4><p>原文明确给出该软胶子物理耦合与 $\overline{\rm MS}$ 耦合在双圈阶的关系，涵盖两个硬发射体均为大质量、仅一个为大质量以及均非大质量的全部位形；并表明大质量发射体的存在为物理耦合方案的定义引入额外自由度，且在双圈阶对该自由度进行了刻画。</p>
+    <h4>局限与展望</h4><p>原文指出其结果可为涉及重夸克过程的精确 QCD 重求和以及高阶部分子簇射算法的发展提供新要素；至于这些结果在具体重求和计算与部分子簇射实现中的适用性与效果，尚需进一步研究，原文未作结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08579v1">
+  <div class="paper-head">
+    <h2>重离子碰撞中通过TEEC观测横向动量展宽<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08579v1" rel="noopener noreferrer">2611.08579v1</a>
+  </div>
+  <p class="original-title">Observing Transverse Momentum Broadening from TEECs in Heavy Ion Collisions</p>
+  <p class="meta"><strong>作者：</strong>João Barata、Hai Tao Li、Andrey V. Sadofyev、João M. Silva</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究重离子碰撞中双喷注事件里横向能量-能量关联函数（TEEC）的方位角依赖。在背对背区域，该观测量能够分辨φ=π附近的能量流，并对介质诱导的动量展宽及介质响应敏感。为隔离末态效应，作者考虑一个在色单态硬过程中产生、并在均匀背景介质中传播的夸克-反夸克对。从真空TMD因子化公式出发，将NLL&#x27;重求和与强耦合一阶的介质修正相结合。在所研究的参数下，（经典）动量展宽降低背对背峰，而分布其余部分几乎不变；辐射修正进一步显著压低峰值，并增强较大角度的去关联。作者还以平均能量流的形式加入了每个喷注所引发的介质响应。该响应将沉积能量散布到整个方位角范围，使其对TEEC的贡献在背对背区域变化缓慢，在峰值处较小，并随角度增大而增长。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>重离子碰撞双喷注事件中，TEEC在背对背区域的方位角分布如何受介质诱导的横向动量展宽、辐射修正及介质响应影响。</p>
+    <h4>方法</h4><p>在色单态夸克-反夸克对于均匀背景介质中传播的简化设定下，从真空TMD因子化出发，结合NLL&#x27;重求和与强耦合一阶的介质修正，并额外以平均能量流形式加入每个喷注引发的介质响应。</p>
+    <h4>主要发现</h4><p>在所研究参数下，经典动量展宽降低背对背峰而其余分布近乎不变；辐射修正进一步显著压低峰值并增强较大角度的去关联；介质响应将沉积能量散布至整个方位角，其对TEEC的贡献在背对背区域变化缓慢、峰值处较小并随角度增大而增长。</p>
+    <h4>局限与展望</h4><p>结果基于均匀介质与色单态夸克-反夸克对的简化模型，向真实重离子碰撞的推广及介质非均匀性等效应尚待进一步研究；本文未对此作出结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08595v1">
+  <div class="paper-head">
+    <h2>量子计算机上集体中微子振荡中的纠缠<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08595v1" rel="noopener noreferrer">2611.08595v1</a>
+  </div>
+  <p class="original-title">Entanglement in Collective Neutrino Oscillations on a Quantum Computer</p>
+  <p class="meta"><strong>作者：</strong>Katarina Bleau、Nikolina Ilic、Joachim Kopp、Ushak Rahaman、Xin Yue Yu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.HE</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在超新星或中子星并合等致密环境中，中微子味振荡的量子计算机模拟被视为下一代研究工具。然而，量子优势取决于中微子系综中是否存在量子纠缠，而此前有观点认为，在中微子数密度很大的极限下这种纠缠会变得可忽略。本文通过在经典与量子硬件上显式模拟粒子数 N 可变的纠缠中微子系综的多粒子动力学，并将结果与基于 Boltzmann 型动理学方程的传统“平均场”方法所得结果进行比较，来回应这一问题。对于简单的玩具系统，我们从解析和数值两方面证明：在大 N 极限下，完整多粒子模拟的预言确实与平均场方法一致。在此过程中，我们发展了在经典与量子硬件上高效模拟纠缠中微子气体的新算法。随后我们讨论了纠缠中微子系统无法仅用平均场动力学描述、因而量子纠缠具有现象学相关性的物理情形，并评述了这些情形可能在超新星核心或中子星并合中实现的条件。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在致密环境中微子系综的集体味振荡中，量子纠缠是否在大粒子数 N 极限下变得可忽略，从而决定量子计算机模拟是否存在量子优势。</p>
+    <h4>方法</h4><p>在经典与量子硬件上显式模拟粒子数 N 可变的纠缠中微子系综的多粒子动力学，并与基于 Boltzmann 型动理学方程的平均场方法比较；同时发展用于高效模拟纠缠中微子气体的新算法，并结合解析与数值分析。</p>
+    <h4>主要发现</h4><p>对于简单玩具系统，解析和数值结果均表明，在大 N 极限下完整多粒子模拟的预言与平均场方法一致；论文还识别出纠缠中微子系统无法仅由平均场动力学描述、量子纠缠因而具有现象学相关性的物理情形。</p>
+    <h4>局限与展望</h4><p>论文评述了上述非平均场情形可能在超新星核心或中子星并合中实现的条件；这些条件在实际天体物理环境中的可行性尚待进一步检验，相关推断需结合具体模型验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08621v1">
+  <div class="paper-head">
+    <h2>导数型重子数破坏算符的紫外完备化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08621v1" rel="noopener noreferrer">2611.08621v1</a>
+  </div>
+  <p class="original-title">Opening up derivative baryon-number-violating operators</p>
+  <p class="meta"><strong>作者：</strong>Julian Heeck、Diana Sokhashvili</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>重子数破坏是探测超出标准模型物理的最灵敏探针，通常以高维有效算符的形式编码。含导数的算符在现象学分析中常被忽略，因为一般认为它们相对于无导数算符受到压低。本文在标准模型有效场论（扩展了右手中微子）框架下，系统构造了质量维度至12的导数型重子数破坏算符的树级紫外完备化，并表明导数算符未必受到压低。作者提供的公开代码可用于对其他导数算符进行紫外完备化。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在标准模型有效场论（含右手中微子）中，导数型重子数破坏算符是否必然相对于无导数算符受到压低，以及如何系统构造其树级紫外完备化。</p>
+    <h4>方法</h4><p>在标准模型有效场论（扩展右手中微子）框架下，系统构造质量维度至12的导数型重子数破坏算符的树级紫外完备化，并开发公开代码以支持其他导数算符的完备化。</p>
+    <h4>主要发现</h4><p>论文构造了质量维度至12的导数型重子数破坏算符的树级紫外完备化，并表明导数算符未必受到压低。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论所得完备化的适用范围与局限性；后续可合理推断的方向包括将公开代码应用于更广泛的导数算符，以及在具体紫外模型中检验导数算符压低假设的失效对现象学的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08680v1">
+  <div class="paper-head">
+    <h2>通向增强暗物质湮灭的相变门户<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08680v1" rel="noopener noreferrer">2611.08680v1</a>
+  </div>
+  <p class="original-title">A Phase-Transition Portal to Enhanced Dark Matter Annihilation</p>
+  <p class="meta"><strong>作者：</strong>Peisi Huang、Anibal D. Medina、Carlos E. M. Wagner、Kairui Zhang</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种热暗物质（DM）情景：在冻结之后发生的一次相变同时改变暗物质谱与主导湮灭过程，从而在压低直接探测信号的同时允许增强的现今湮灭速率。我们在一个双希格斯二重态模型中实现该机制，该模型额外引入一个复标量单态、一个马约拉纳费米子和一个较重的狄拉克费米子。在相变之前，马约拉纳态通过进入单态标量的 $p$-波湮灭而冻结。随后的相变改变暗费米子的质量与混合，使得通过赝标量门户的 $s$-波湮灭成为可能。存活下来的遗迹粒子在质量与组成上均不同于初始态。我们找到了与遗迹丰度相容的解，其现今湮灭速率比标准热遗迹值高出一个数量级以上，且无需调节到媒介子共振，同时满足直接探测限制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在冻结后通过相变改变暗物质谱与主导湮灭过程，从而在满足直接探测限制的同时获得增强的现今暗物质湮灭速率。</p>
+    <h4>方法</h4><p>构建一个双希格斯二重态模型，并额外引入复标量单态、马约拉纳费米子和较重的狄拉克费米子；分析相变前后暗费米子质量、混合及湮灭过程（由 $p$-波转为 $s$-波）的变化，并考察遗迹丰度、现今湮灭速率与直接探测限制。</p>
+    <h4>主要发现</h4><p>相变前马约拉纳态通过进入单态标量的 $p$-波湮灭冻结；相变后暗费米子质量与混合改变，通过赝标量门户实现 $s$-波湮灭；存活遗迹粒子在质量与组成上不同于初始态；存在与遗迹丰度相容的解，其现今湮灭速率比标准热遗迹值高出一个数量级以上，且无需调节到媒介子共振，并满足直接探测限制。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论该机制的局限与适用范围；可合理推断，其可行性依赖于相变时序与暗费米子质量/混合的具体参数选择，相关参数空间及更广泛的模型实现有待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08690v1">
+  <div class="paper-head">
+    <h2>基于演化算符的精确与混合中微子振荡概率<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08690v1" rel="noopener noreferrer">2611.08690v1</a>
+  </div>
+  <p class="original-title">Exact and hybrid neutrino oscillation probabilities via the evolution operator</p>
+  <p class="meta"><strong>作者：</strong>Juan Carlos D&#x27;Olivo、José Arnulfo Herrera Lara、Oscar A. Sampayo</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用以Lagrange-Sylvester插值表示的演化矩阵，重新研究常密度物质中的三味中微子振荡。借助系统Hamiltonian的Vieta公式，我们推导出振荡概率$P_{ee}$、$P_{\mu e}$和$P_{\mu\tau}$的精确闭式表达式；这些表达式简洁，且与真空对应形式在结构上相同。正比于Jarlskog不变量$\mathcal{J}$的CP破坏贡献表现为一个清晰分离的单项。该方法无需在介质中引入中微子混合，也避免使用依赖物质的CP破坏相位，从而便于将真正的CP破坏与物质效应诱导的CP破坏区分开。我们明确验证：当$V \to 0$时，味转换概率表达式退化为众所周知的真空公式。若将精确但物理意义不甚清晰的三角函数本征值替换为根式近似表达式，概率的精确结构仍得以保持。我们以通过Hamiltonian两次连续旋转得到的本征值说明这一混合方法。对于类似DUNE的实验，混合概率值与精确概率值在所有通道中的绝对误差约为$2\times 10^{-6}$，且$P_{ee}$、$P_{\mu e}$和$P_{\mu\tau}$的相对误差小于$0.01\%$。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在常密度物质中给出简洁、结构上与真空情形一致的三味中微子振荡概率精确表达式，并清晰分离真正的CP破坏与物质效应诱导的CP破坏。</p>
+    <h4>方法</h4><p>采用以Lagrange-Sylvester插值表示的演化矩阵，并利用系统Hamiltonian的Vieta公式推导$P_{ee}$、$P_{\mu e}$、$P_{\mu\tau}$的精确闭式表达式；进一步以通过Hamiltonian两次连续旋转得到的根式近似本征值替代精确三角函数本征值，构造混合方法。</p>
+    <h4>主要发现</h4><p>推导出的精确概率表达式简洁，且与真空对应形式在结构上相同；CP破坏贡献正比于Jarlskog不变量$\mathcal{J}$并表现为清晰分离的单项；方法无需在介质中引入中微子混合，也避免使用依赖物质的CP破坏相位；当$V \to 0$时表达式退化为已知真空公式；对类似DUNE的实验，混合概率与精确概率在所有通道的绝对误差约为$2\times 10^{-6}$，$P_{ee}$、$P_{\mu e}$、$P_{\mu\tau}$的相对误差小于$0.01\%$。</p>
+    <h4>局限与展望</h4><p>论文针对常密度物质情形；所提出的混合方法在类似DUNE的实验参数下误差很小，但其适用范围与在其他物质密度剖面或实验条件下的表现需进一步检验；后续可合理推断的方向包括将框架推广至非恒定密度情形或系统评估近似本征值带来的误差。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08875v1">
+  <div class="paper-head">
+    <h2>$k_{T}$ 因子化下 $\gamma\gamma\to\pi^{0}\eta^{(\prime)}$ 与 $\eta^{(\prime)}\eta^{(\prime)}$ 的 twist-3 及味单态贡献<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08875v1" rel="noopener noreferrer">2611.08875v1</a>
+  </div>
+  <p class="original-title">Twist-3 and flavor-singlet contributions to $γγ\toπ^{0}η^{(\prime)}$ and $η^{(\prime)}η^{(\prime)}$ in $k_{T}$ factorization</p>
+  <p class="meta"><strong>作者：</strong>Cong Wang、Jun-Kang He</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在 $k_{T}$ 因子化框架下研究质心能量 $2&lt;Q&lt;4\,\mathrm{GeV}$ 范围内双光子产生赝标量对 $\pi^{0}\eta$、$\pi^{0}\eta^{\prime}$、$\eta\eta$、$\eta\eta^{\prime}$ 与 $\eta^{\prime}\eta^{\prime}$ 的过程，计算中纳入手征增强的 twist-3 振幅以及 $\eta^{(\prime)}$ 的双胶子成分。结果表明，twist-3 振幅使全部五个通道的硬散射截面提高约一个量级：$\eta\eta$ 截面接近 Belle 数据，而 $\pi^{0}\eta$ 仍低 3 至 5 倍且随能量下降过慢。在不确定度范围内改变双胶子分布振幅，$\pi^{0}\eta$ 与 $\eta\eta$ 截面变化约 2%，而 $\eta^{\prime}$ 通道变化可达 24%，因此后者可作为双胶子分布振幅的探针。硬机制与 handbag 机制各自给出近乎常数的截面比 $\sigma(\pi^{0}\eta)/\sigma(\pi^{0}\pi^{0})$ 与 $\sigma(\eta\eta)/\sigma(\pi^{0}\pi^{0})$；但在 $3.2\,\mathrm{GeV}$ 以下，实测 $\pi^{0}\eta$ 比值高于两种预言，而 $\eta\eta$ 比值低于两种预言。将 handbag 振幅相干加入（其模由 $\pi$ 与 $K$ 通道确定、相位拟合），可重现直至 $4\,\mathrm{GeV}$ 的 $\pi^{0}\eta$ 比值以及 $2.8\,\mathrm{GeV}$ 以下的 $\eta\eta$ 比值，并使 $\sigma(\pi^{0}\eta)$ 的 $Q^{-n}$ 能量依赖变陡至 $n=9.7\pm1.6$，与测量值 $10.5\pm1.2\pm0.5$ 相符。由此，截面比值的能量依赖可理解为两个量级相当的机制之间的干涉。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 $k_{T}$ 因子化下，twist-3 手征增强振幅与 $\eta^{(\prime)}$ 的双胶子成分对 $\gamma\gamma\to\pi^{0}\eta^{(\prime)}$、$\eta^{(\prime)}\eta^{(\prime)}$ 截面及其能量依赖的贡献为何，以及能否解释 Belle 数据中截面比值的能量依赖。</p>
+    <h4>方法</h4><p>在 $k_{T}$ 因子化框架下计算 $2&lt;Q&lt;4\,\mathrm{GeV}$ 范围内五个赝标量对的雙光子产生截面，纳入 twist-3 振幅与双胶子分布振幅；考察双胶子分布振幅不确定度的影响；比较硬机制与 handbag 机制给出的截面比，并将 handbag 振幅相干加入（模由 $\pi$、$K$ 通道确定，相位拟合）以拟合数据。</p>
+    <h4>主要发现</h4><p>twist-3 振幅使五个通道的硬截面提高约一个量级；$\eta\eta$ 接近 Belle 数据，$\pi^{0}\eta$ 仍低 3 至 5 倍且下降过慢。双胶子分布振幅变化使 $\pi^{0}\eta$、$\eta\eta$ 截面变化约 2%，使 $\eta^{\prime}$ 通道变化至多 24%。硬机制与 handbag 机制各自给出近乎常数的 $\sigma(\pi^{0}\eta)/\sigma(\pi^{0}\pi^{0})$ 与 $\sigma(\eta\eta)/\sigma(\pi^{0}\pi^{0})$；$3.2\,\mathrm{GeV}$ 以下实测 $\pi^{0}\eta$ 比值高于两者、$\eta\eta$ 比值低于两者。相干加入 handbag 振幅可重现直至 $4\,\mathrm{GeV}$ 的 $\pi^{0}\eta$ 比值与 $2.8\,\mathrm{GeV}$ 以下的 $\eta\eta$ 比值，并使 $\sigma(\pi^{0}\eta)$ 的 $Q^{-n}$ 依赖变为 $n=9.7\pm1.6$，与测量值 $10.5\pm1.2\pm0.5$ 相符。</p>
+    <h4>局限与展望</h4><p>结果限于 $2&lt;Q&lt;4\,\mathrm{GeV}$ 的 $k_{T}$ 因子化计算框架；handbag 振幅的相位为拟合参数，其理论确定尚待进一步研究；$\eta^{\prime}$ 通道对双胶子分布振幅的显著敏感性提示其可作为该分布振幅的探针，但需在更宽能量范围与更高精度数据上检验；截面比值能量依赖可由两种量级相当机制的干涉解释，这一图像的可推广性有待验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08899v1">
+  <div class="paper-head">
+    <h2>相位调制椭圆偏振电场驱动的真空电子—正电子对产生中的螺旋动量谱与自旋不对称<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08899v1" rel="noopener noreferrer">2611.08899v1</a>
+  </div>
+  <p class="original-title">Spiral momentum spectra and spin asymmetry in vacuum pair production driven by phase-modulated elliptically polarized electric fields</p>
+  <p class="meta"><strong>作者：</strong>Li-Yi Yang、Hong-Hao Fan、Jing-He Huang、Shuo Yang、Bai-Song Xie</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用量子动理学方程研究相位调制椭圆偏振电场中的真空电子—正电子对产生，分析调制幅度、调制频率、椭圆率及调制形式对自旋分辨动量谱和自旋不对称的影响。余弦型调制可将环状动量分布形变为螺旋图案，这种形变对调制幅度和频率呈非单调依赖，并在圆偏振情形下最为显著。在横向动量平面内，自旋分辨产额倾向于选择沿场手性方向的自旋通道；反转场手性将反转所倾向的通道，而总产额保持不变。正弦型调制近似保持环状与镜像对称的谱结构，但其导致的自旋不对称对调制幅度的依赖强于余弦型调制。结果表明，相位调制与椭圆率可调控真空对产生中的动量谱图案，且相位调制亦能影响自旋不对称的程度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>相位调制椭圆偏振电场中，调制幅度、频率、椭圆率与调制形式如何影响真空电子—正电子对产生的自旋分辨动量谱及自旋不对称。</p>
+    <h4>方法</h4><p>采用量子动理学方程研究相位调制椭圆偏振电场驱动的真空电子—正电子对产生。</p>
+    <h4>主要发现</h4><p>余弦型调制可将环状动量分布形变为螺旋图案，该形变对调制幅度和频率呈非单调依赖，并在圆偏振下最显著；横向动量平面内自旋分辨产额倾向于沿场手性方向的自旋通道，反转手性会反转所倾向通道而总产额不变；正弦型调制近似保持环状与镜像对称谱，但其自旋不对称对调制幅度的依赖强于余弦型调制。</p>
+    <h4>局限与展望</h4><p>原文表明相位调制与椭圆率可调控动量谱图案并影响自旋不对称程度；其结论基于量子动理学方程框架与所考察的调制形式，向其他场构型或参数范围的推广需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09037v1">
+  <div class="paper-head">
+    <h2>利用高能宇宙中微子味组成探测味依赖的中微子—暗物质相互作用<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09037v1" rel="noopener noreferrer">2611.09037v1</a>
+  </div>
+  <p class="original-title">Probing flavor-dependent neutrino-dark matter interactions with the flavor composition of high-energy cosmic neutrinos</p>
+  <p class="meta"><strong>作者：</strong>Ki-Young Choi、Ankhbayar Tugssaikhan</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.HE</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>高能天体物理中微子可在宇宙学距离上探测非标准中微子相互作用。本文研究在耀变体 TXS~0506+056 超大质量黑洞周围致密暗物质（DM）尖峰内产生的中微子与暗物质之间味依赖的相互作用。相干前向散射产生的味对角势 $V_\alpha=A_\alpha\,\rho_\chi(r)$ 改变介质中的混合，而味依赖的散射截面沿视线衰减中微子通量。我们表明，中微子在尖峰和晕中的传播是绝热的，因此源处产生的物质本征态得以守恒，仅在到达地球时重新投影到味本征态。由此出现两种情形：当 $A\ll 10^{-38}\,{\rm cm^3}$ 时，混合不受影响，IceCube 的三味组成将截面限制为 $\sigma_{\nu\chi}/m_\chi\lesssim 10^{-28}\,{\rm cm^2/GeV}$；当 $A$ 更大时，发生相互作用的那一味在源处被隔离到单一物质本征态，其余两个本征态无衰减地逃逸，形成存活平台，使限制放宽最多达四个数量级。势的符号在中微子与反中微子之间可以不同，因此被隔离的态对 $\nu$ 和 $\bar\nu$ 连接不同的真空质量本征态，即使没有衰减也会在味组成上留下特征印记。要求地球周围暗物质密度诱导的势不影响观测到的 PMNS 矩阵（即地球处的味投影使用局部物质混合进行），给出 $A\lesssim 10^{-30}\,{\rm cm^3}$。联合限制在 $(A,\sigma_{\nu\chi}/m_\chi)$ 平面上给出，并与矢量媒介子基准进行比较。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>味依赖的中微子—暗物质相互作用如何影响源自耀变体 TXS~0506+056 暗物质尖峰内的高能宇宙中微子的传播与味组成，并据此对相互作用强度给出限制。</p>
+    <h4>方法</h4><p>在暗物质尖峰与晕的密度分布下，引入相干前向散射诱导的味对角势 $V_\alpha=A_\alpha\rho_\chi(r)$ 与味依赖散射截面导致的通量衰减，分析传播的绝热性，将源处物质本征态在到达地球时重新投影到味本征态，并结合 IceCube 三味组成限制以及地球处 PMNS 矩阵不受局部暗物质势影响的要求，在 $(A,\sigma_{\nu\chi}/m_\chi)$ 平面上给出联合限制并与矢量媒介子基准比较。</p>
+    <h4>主要发现</h4><p>传播在尖峰和晕中均为绝热，源处物质本征态守恒、仅在地球处重新投影；当 $A\ll 10^{-38}\,{\rm cm^3}$ 时混合不受影响，IceCube 三味组成给出 $\sigma_{\nu\chi}/m_\chi\lesssim 10^{-28}\,{\rm cm^2/GeV}$；当 $A$ 更大时，相互作用味被隔离到单一物质本征态，其余两个本征态无衰减逃逸形成存活平台，使限制放宽最多四个数量级；势的符号在 $\nu$ 与 $\bar\nu$ 间可不同，使隔离态连接不同真空质量本征态，即使无衰减也在味组成上留下特征印记；地球处 PMNS 矩阵不受局部暗物质势影响的要求给出 $A\lesssim 10^{-30}\,{\rm cm^3}$。</p>
+    <h4>局限与展望</h4><p>本文结果依赖于特定源（TXS~0506+056）周围暗物质尖峰密度分布与绝热传播假设，限制的适用范围受这些建模选择影响；后续可通过更精确的源内暗物质分布、非绝热情形以及更多高能中微子源的味组成数据检验上述存活平台与 $\nu/\bar\nu$ 符号差异印记（后者为可合理推断的方向）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09095v1">
+  <div class="paper-head">
+    <h2>在 $B_s^0$ 衰变中产生具有隐奇异性的隐粲分子候选态<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09095v1" rel="noopener noreferrer">2611.09095v1</a>
+  </div>
+  <p class="original-title">Production of hidden-charm molecular candidates with hidden strangeness in $B_s^0$ decays</p>
+  <p class="meta"><strong>作者：</strong>Yue Su、Ying-Bo He、Xiao-Yun Wang、Xiao-Hai Liu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究在伴随 $\eta$ 的 $B_s^0$ 衰变中，自旋为1的 $D_{s0}^*(2317)\bar D_s^*$、$D_{s1}(2460)\bar D_s^*$ 与 $D_{s1}(2536)\bar D_s^*$ 分子候选态的产生，为检验其结构与产生机制提供互补探针。介子圈重散射振幅由因子化弱源与重强子手征相互作用构造。组分耦合借助依赖于阈值的复合度关系估计，相关输入不确定性被传播至预言速率。相反 $C$ 宇称伙伴态假设以继承的基准参数纳入。我们计算了两种相对符号下的分支比。在截断参数范围 $2\leq\alpha\leq5$ 内，较大的中心分支比达到 $10^{-6}$ 至 $10^{-5}$ 量级，表明未来实验测量可能具备可及性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究在 $B_s^0$ 衰变中伴随 $\eta$ 产生自旋为1的隐粲隐奇异分子候选态 $D_{s0}^*(2317)\bar D_s^*$、$D_{s1}(2460)\bar D_s^*$ 与 $D_{s1}(2536)\bar D_s^*$ 的机制与可观测性，以互补检验这些态的内部结构。</p>
+    <h4>方法</h4><p>由因子化弱源与重强子手征相互作用构造介子圈重散射振幅；利用依赖于阈值的复合度关系估计组分耦合，并将输入不确定性传播到预言速率；对相反 $C$ 宇称伙伴态假设采用继承的基准参数；计算两种相对符号下的分支比。</p>
+    <h4>主要发现</h4><p>在截断参数范围 $2\leq\alpha\leq5$ 内，较大的中心分支比达到 $10^{-6}$ 至 $10^{-5}$ 量级，提示未来实验测量可能具备可及性。</p>
+    <h4>局限与展望</h4><p>结果依赖于截断参数 $\alpha$、复合度关系估计的耦合以及相反 $C$ 宇称伙伴态假设的基准参数，输入不确定性已传播至速率；上述分支比仅为模型预言，尚需实验检验。后续可通过更精确的耦合确定与实验数据对分子态假设进行区分（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09101v1">
+  <div class="paper-head">
+    <h2>非局域夸克流两点关联函数的重整子链贡献与轻介子分布振幅<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09101v1" rel="noopener noreferrer">2611.09101v1</a>
+  </div>
+  <p class="original-title">Renormalon-chain contributions to two-point correlators of nonlocal quark currents and light-meson distribution amplitudes</p>
+  <p class="meta"><strong>作者：</strong>S. V. Mikhailov、N. Volchanskiy</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在QCD求和规则框架下，本文在大$\beta_0$近似下研究$\pi$介子与纵向极化$\rho$介子领头扭度分布振幅的端点斜率。为此，我们计算了非局域复合矢量夸克流的两点无质量关联函数，其中胶子线由单圈费米子泡链修饰。该关联函数依赖于与复合流相关的Bjorken分数$x$，并在大$\beta_0$近似下给出微扰论各阶的主导贡献。我们导出了这些分布振幅第二Gegenbauer矩所满足的一个不等式，该不等式与格点QCD的预言一致。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在大$\beta_0$近似下，非局域夸克流两点关联函数的重整子链贡献如何约束$\pi$介子和纵向极化$\rho$介子领头扭度分布振幅的端点斜率，特别是其第二Gegenbauer矩？</p>
+    <h4>方法</h4><p>采用QCD求和规则框架，计算非局域复合矢量夸克流的两点无质量关联函数，其中胶子线由单圈费米子泡链修饰；该关联函数依赖Bjorken分数$x$，并在大$\beta_0$近似下给出微扰论各阶的主导贡献。</p>
+    <h4>主要发现</h4><p>导出了$\pi$介子和纵向极化$\rho$介子分布振幅第二Gegenbauer矩所满足的一个不等式，该不等式与格点QCD的预言一致。</p>
+    <h4>局限与展望</h4><p>结果基于大$\beta_0$近似，未包含更高阶或非主导的微扰贡献；其适用范围和精度需进一步检验。后续可合理推断的方向包括将分析推广至其他轻介子或更高扭度分布振幅，并与更多格点QCD结果进行对比。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09132v1">
+  <div class="paper-head">
+    <h2>原初黑洞周围的受激轴子衰变与弥散射电背景<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09132v1" rel="noopener noreferrer">2611.09132v1</a>
+  </div>
+  <p class="original-title">Stimulated Axion Decay around Primordial Black Holes and the Diffuse Radio Background</p>
+  <p class="meta"><strong>作者：</strong>Ki-Young Choi、Junghoon Joh、Kenji Kadota</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究原初黑洞（PBH）周围致密轴子晕中的受激轴子衰变，假设PBH与轴子共同构成暗物质。我们通过将受PBH势主导的类氢孤子核与次级吸积产生的r^{-9/4}尖峰相匹配来构造轴子密度分布，并在最内稳定圆轨道处施加内截断。我们推导了光子和轴子数密度的局部Boltzmann方程，包含自发与受激衰变、逆衰变、光子逃逸和轴子填充。我们以数值方法和半解析近似求解这些方程。受激发射发生在光子放大超过逃逸的内区。我们计算单个PBH晕的光子发射，并对其在整个宇宙历史中的PBH族群进行积分。通过要求所得弥散射电谱不超过ARCADE~2测量的射电背景，我们导出PBH占暗物质份额的上限。这些上限在中等PBH质量处最强，并且随着轴子与光子耦合增强而适用于更宽的质量范围。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在PBH与轴子共同构成暗物质的假设下，PBH周围致密轴子晕中的受激轴子衰变会产生怎样的光子发射，以及由此对PBH暗物质份额给出何种限制。</p>
+    <h4>方法</h4><p>构造由PBH势主导的孤子核与r^{-9/4}尖峰匹配、并在最内稳定圆轨道截断的轴子密度分布；建立包含自发与受激衰变、逆衰变、光子逃逸和轴子填充的局部Boltzmann方程，用数值和半解析近似求解；计算单个PBH晕的光子发射并对宇宙历史中的PBH族群积分，与ARCADE~2射电背景比较以导出上限。</p>
+    <h4>主要发现</h4><p>受激发射发生在光子放大超过逃逸的内区；将积分得到的弥散射电谱与ARCADE~2测量比较，可导出PBH占暗物质份额的上限，该上限在中等PBH质量处最强，并随轴子-光子耦合增强而适用于更宽的质量范围。</p>
+    <h4>局限与展望</h4><p>所得上限依赖于所采用的轴子密度分布构造、内截断假设以及ARCADE~2射电背景数据；后续方向可合理推断为改进晕剖面建模或利用其他射电观测检验这些限制。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09193v1">
+  <div class="paper-head">
+    <h2>光前动力学中转动对称性的恢复<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09193v1" rel="noopener noreferrer">2611.09193v1</a>
+  </div>
+  <p class="original-title">Restoration of rotational symmetry in light-front dynamics</p>
+  <p class="meta"><strong>作者：</strong>V. A. Karmanov、E. A. Kupriyanova</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在光前动力学框架下（态矢量定义于光前平面 t+z=0），求解束缚态问题时可以发现：在截断之后——即用有限个 Fock 分量近似表示态矢量——束缚能开始依赖于角动量在 z 轴上的投影。这就是所谓光前动力学中转动对称性的破坏。本文表明，物理解是这些态以某些明确定义的系数的叠加。作为检验，我们还求解了 Bethe-Salpeter 方程，并将其解投影到光前，得到了不受转动不变性破坏影响的波函数。将叠加形式的解与之比较表明，不仅束缚能，而且波函数本身也都能由这些分裂态的叠加相当好地描述。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>光前动力学中因 Fock 分量截断导致束缚能依赖于角动量 z 投影（转动对称性破坏）的问题，以及如何从这些分裂态恢复物理解。</p>
+    <h4>方法</h4><p>在光前动力学框架下分析截断后态矢量的叠加形式；并求解 Bethe-Salpeter 方程，将其解投影到光前平面以获得无转动不变性破坏的波函数，再与叠加形式的解进行比较。</p>
+    <h4>主要发现</h4><p>物理解是分裂态以明确定义系数的叠加；与 Bethe-Salpeter 方程投影得到的波函数比较表明，叠加形式不仅能相当好地描述束缚能，也能相当好地描述波函数本身。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该叠加方案在更高 Fock 分量截断或更复杂体系中的适用性；其收敛性与截断依赖性有待进一步检验（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09243v1">
+  <div class="paper-head">
+    <h2>f_0(980)与a_0(980)在Λ_c^+→pK_S^0K_S^0过程中的作用：Kar K末态相互作用的干净探针<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09243v1" rel="noopener noreferrer">2611.09243v1</a>
+  </div>
+  <p class="original-title">Roles of $f_0(980)$ and $a_0(980)$ in the process $Λ_c^+ \to pK_S^0K_S^0$: a clean probe of the $K\bar K$ final-state interaction</p>
+  <p class="meta"><strong>作者：</strong>Li-Na Zhou、Le-Le Wei、Li-Juan Liu、En Wang</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>基于Belle实验对Λ_c^+→pK_S^0K_S^0的测量，本文在手征幺正方法框架下研究由S波赝标介子—赝标介子相互作用动力学产生的轻标量介子f_0(980)与a_0(980)对K_S^0K_S^0不变质量平方分布中阈值增强的贡献，并考察pK_S^0子系统中中间态Σ(1620)共振的可能贡献。文中首先论证，由于φ与Λ^*的贡献被禁戒、且Σ(1620)与Σ(1660)同ar K N道的耦合较弱，Λ_c^+→pK_S^0K_S^0道是比带电道Λ_c^+→pK^+K^-更干净的Kar K末态相互作用探针。结果表明，K_S^0K_S^0不变质量平方分布中的阈值增强可仅由S波K^0ar K^0末态相互作用很好地描述，其中f_0(980)的贡献占主导，a_0(980)的贡献较小，这支持将f_0(980)解释为Kar K强子分子态。Belle II以及拟议的超级τ-粲工厂的未来高精度测量将有助于检验f_0(980)、a_0(980)以及可能的Σ(1620)贡献在该过程中的作用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在Λ_c^+→pK_S^0K_S^0过程中，f_0(980)与a_0(980)对K_S^0K_S^0不变质量平方分布阈值增强的贡献如何，以及中间态Σ(1620)是否存在可能贡献；该道是否比带电道更适合探测Kar K末态相互作用。</p>
+    <h4>方法</h4><p>基于Belle对Λ_c^+→pK_S^0K_S^0的测量数据，采用手征幺正方法，将f_0(980)与a_0(980)作为S波赝标介子—赝标介子相互作用动力学产生的态，计算其对K_S^0K_S^0不变质量平方分布的贡献，并考察pK_S^0子系统中Σ(1620)共振的可能贡献。</p>
+    <h4>主要发现</h4><p>Λ_c^+→pK_S^0K_S^0道中φ与Λ^*贡献被禁戒，Σ(1620)与Σ(1660)同ar K N道耦合较弱，因而该道是比Λ_c^+→pK^+K^-更干净的Kar K末态相互作用探针；K_S^0K_S^0不变质量平方分布的阈值增强可仅由S波K^0ar K^0末态相互作用很好描述，其中f_0(980)贡献占主导、a_0(980)贡献较小，支持f_0(980)作为Kar K强子分子态的解释。</p>
+    <h4>局限与展望</h4><p>本文结论基于对Belle数据的描述与手征幺正方法框架，其定量可靠性受现有数据精度限制；Σ(1620)的贡献仅为可能性的考察。Belle II与拟议的超级τ-粲工厂的未来高精度测量可望检验f_0(980)、a_0(980)以及可能的Σ(1620)贡献在该过程中的作用。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09297v1">
+  <div class="paper-head">
+    <h2>手征微扰理论下大 $b$ 区域的 Collins-Soper 核<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09297v1" rel="noopener noreferrer">2611.09297v1</a>
+  </div>
+  <p class="original-title">Collins-Soper kernel at large $b$ from Chiral Perturbation Theory</p>
+  <p class="meta"><strong>作者：</strong>Alexey Vladimirov</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在手征微扰理论框架下为横向动量依赖（TMD）分布构造了有效算符。由π介子场与核子场构造的算符具备 QCD 算符的主要性质，包括可乘性重整化的快度发散。通过提取领头快度发散，我们得到了大 $b$ 区域、低能标度点处 Collins-Soper 核的表达式；该表达式在相差一个可加常数的意义下与模型无关。在此区域内，Collins-Soper 核呈现近乎常数的行为。我们还发现，在大 $b$ 处它依赖于同位旋道与强子类型，尽管这一依赖在数值上非常小。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用手征微扰理论描述大 $b$ 区域的 Collins-Soper 核，并考察其行为及对同位旋道和强子类型的依赖。</p>
+    <h4>方法</h4><p>在手征微扰理论中，由π介子场和核子场构造具有 QCD 算符主要性质（含可乘性重整化快度发散）的 TMD 分布有效算符，并提取领头快度发散以得到 Collins-Soper 核的表达式。</p>
+    <h4>主要发现</h4><p>得到大 $b$、低能标度点处 Collins-Soper 核的表达式，该表达式在相差一个可加常数的意义下与模型无关；在此区域内 Collins-Soper 核呈近乎常数的行为；大 $b$ 处它依赖同位旋道与强子类型，但数值上非常小。</p>
+    <h4>局限与展望</h4><p>该结果适用于手征微扰理论有效描述所覆盖的大 $b$、低能标度区域，且存在一个未被确定的加性常数；后续工作或可关注该常数的确定，以及将分析推广至更高阶或更广的强子种类，但这些均属推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09299v1">
+  <div class="paper-head">
+    <h2>LHC上微扰QCD中$t\bar{t}$产生与衰变的自旋关联<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09299v1" rel="noopener noreferrer">2611.09299v1</a>
+  </div>
+  <p class="original-title">Spin Correlations in $t\bar{t}$ Production and Decay at the LHC in Perturbative QCD</p>
+  <p class="meta"><strong>作者：</strong>Emanuele Re</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在LHC顶夸克物理的近期进展中，阈值附近顶夸克对的产生受到相当关注，部分原因在于数据与理论预言之间存在张力。我们表明，通过保留$\alpha_s/v$的前几阶幂次（其中$v$为顶夸克的相对速度），可以在微扰论中获得对阈值敏感观测量（如自旋关联和$t\bar{t}$不变质量微分分布）的可靠预言。将该方法应用于对自旋敏感观测量的标称蒙特卡罗预言进行重加权，我们发现与数据符合良好。我们还讨论了如何将阈值效应（包括束缚态贡献）逐事件地纳入全微分蒙特卡罗事件产生器。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>LHC上阈值附近顶夸克对产生中，自旋关联与$t\bar{t}$不变质量分布等阈值敏感观测量的理论预言与数据存在张力，如何在此区域获得可靠的理论预言。</p>
+    <h4>方法</h4><p>在微扰QCD中保留$\alpha_s/v$的前几阶幂次（$v$为顶夸克相对速度）计算阈值敏感观测量，并用该方法对自旋敏感观测量的标称蒙特卡罗预言进行重加权；同时讨论将阈值效应（含束缚态贡献）逐事件纳入全微分蒙特卡罗事件产生器。</p>
+    <h4>主要发现</h4><p>保留$\alpha_s/v$前几阶幂次可在微扰论中给出对自旋关联和$t\bar{t}$不变质量微分分布的可靠预言；对蒙特卡罗预言重加权后，结果与数据符合良好。</p>
+    <h4>局限与展望</h4><p>原文仅讨论了将阈值效应（包括束缚态贡献）逐事件纳入全微分蒙特卡罗事件产生器的途径，未给出该实现的定量结果；该方法的适用范围与系统不确定性有待进一步明确。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09363v1">
+  <div class="paper-head">
+    <h2>核子共振态对$p\bar{p}\to\eta_c\eta$反应的贡献<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09363v1" rel="noopener noreferrer">2611.09363v1</a>
+  </div>
+  <p class="original-title">Nucleon-resonance contributions to the $p\bar{p}\toη_cη$ reaction</p>
+  <p class="meta"><strong>作者：</strong>Wen-Ying Liu、Xiang Liu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在有效拉格朗日量框架下研究伴随粲偶素产生的反应$p\bar{p}\to\eta_c\eta$，能量范围从阈值至$\sqrt{s}=5.00\,\mathrm{GeV}$，并纳入基态核子以及核子共振态$N(1535)$、$N(1650)$、$N(1895)$和$N(1710)$的中间态贡献。有效共振参数由BESIII对交叉衰变$\eta_c\to p\bar{p}\eta$的测量约束，分别对应构造性（Solution C）与破坏性（Solution D）辐射干涉解。利用这些受衰变约束的参数，我们预言了$p\bar{p}\to\eta_c\eta$反应的总截面与微分Born截面。结果表明，相干共振交换主导近阈值产生动力学，并且相较于存在强烈动力学抵消的纯核子交换贡献，显著增强了总截面。随着碰撞能量升高，快速增长的核子贡献逐渐稀释共振项，使Solution C与Solution D总截面之间的相对差异减小。此外，尽管由于赝标量耦合结构，纯核子交换振幅在$\theta=90^\circ$处存在精确的动力学零点，但共振交换在预言的角分布中填补了该节点，从而为检验 underlying 交换机制提供了可观测检验。这些预言可在未来$\bar{\mathrm{P}}\mathrm{ANDA}$的反质子湮灭实验中检验。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在有效拉格朗日量框架下，核子共振态对$p\bar{p}\to\eta_c\eta$反应从阈值至$\sqrt{s}=5.00\,\mathrm{GeV}$的截面与角分布有何贡献，尤其是相干共振交换与纯核子交换的差异。</p>
+    <h4>方法</h4><p>采用有效拉格朗日量方法，纳入基态核子与$N(1535)$、$N(1650)$、$N(1895)$、$N(1710)$共振态的中间态贡献；利用BESIII对$\eta_c\to p\bar{p}\eta$的测量约束有效共振参数，并针对构造性（Solution C）与破坏性（Solution D）辐射干涉解分别预言$p\bar{p}\to\eta_c\eta$的总截面与微分Born截面。</p>
+    <h4>主要发现</h4><p>相干共振交换主导近阈值产生动力学，并显著增强总截面，而纯核子交换贡献因强烈动力学抵消而较小；随碰撞能量升高，核子贡献增长并稀释共振项，使Solution C与Solution D的总截面相对差异减小；纯核子交换振幅因赝标量耦合结构在$\theta=90^\circ$处存在精确动力学零点，而共振交换在预言角分布中填补该节点。</p>
+    <h4>局限与展望</h4><p>文中的预言可在未来$\bar{\mathrm{P}}\mathrm{ANDA}$反质子湮灭实验中检验；所给结果基于有效拉格朗日量框架与由$\eta_c\to p\bar{p}\eta$衰变约束的参数，其适用性限于该模型与所考虑的能量范围，后续可通过实验数据进一步检验交换机制。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09408v1">
+  <div class="paper-head">
+    <h2>面向未来正负电子对撞机的部分子密度函数<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09408v1" rel="noopener noreferrer">2611.09408v1</a>
+  </div>
+  <p class="original-title">Parton density functions for future electron-positron colliders</p>
+  <p class="meta"><strong>作者：</strong>Andrej Arbuzov、Cecilia Romero、Uliana Voznaya</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>精确的QED辐射修正是未来高能e^+e^-对撞机物理项目中的关键要素。本文综述了用于重求和共线光子与对产生效应的当前最先进QED部分子密度函数（PDF）形式体系。针对初态辐射（ISR）的数值分析表明，微扰级数收敛缓慢，且对产生在高阶下的重要性不断上升。最后，本文强调有必要将这些理论改进纳入现代蒙特卡罗产生器，以满足即将开展的实验测量对精度的严格要求。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>未来高能正负电子对撞机所需的高精度QED辐射修正，特别是共线光子与对产生的重求和问题。</p>
+    <h4>方法</h4><p>综述当前最先进的QED部分子密度函数（PDF）形式体系，并对初态辐射（ISR）进行数值分析。</p>
+    <h4>主要发现</h4><p>ISR的微扰级数收敛缓慢；对产生在高阶下的重要性不断上升。</p>
+    <h4>局限与展望</h4><p>需要将这些理论改进实现于现代蒙特卡罗产生器中，以满足未来实验测量的精度要求；具体实现方式与适用范围尚待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09478v1">
+  <div class="paper-head">
+    <h2>三个中微子混合角之间的一个相互关系<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09478v1" rel="noopener noreferrer">2611.09478v1</a>
+  </div>
+  <p class="original-title">An interrelation of three neutrino mixing angles</p>
+  <p class="meta"><strong>作者：</strong>Zhi-zhong Xing</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出三个中微子混合角之间的一种新关系猜想：$\theta^{}_{23} = (\theta^{}_{12} + \theta^{}_{13})/2 + \pi/8$。以最新的 JUNO 与 Daya Bay 精确数据为输入，该关系预言 $\theta^{}_{23} = 43.46^{+0.51^\circ}_{-0.52^\circ}$。作者提出一个简单的 ansatz 以导出这一在现象学上受青睐且可被实验检验的角度关系，并作为副产品给出轻子味混合矩阵按单一小参数的幂次展开的新形式。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>三个中微子混合角之间是否存在可检验的定量相互关系，以及能否用简单的理论 ansatz 导出该关系。</p>
+    <h4>方法</h4><p>提出混合角关系猜想 $\theta^{}_{23} = (\theta^{}_{12} + \theta^{}_{13})/2 + \pi/8$，以最新 JUNO 和 Daya Bay 精确数据为输入进行数值预言，并构造一个简单 ansatz 导出该关系；同时给出轻子味混合矩阵按单一小参数幂次展开的新形式。</p>
+    <h4>主要发现</h4><p>在该关系下，以 JUNO 与 Daya Bay 数据为输入预言 $\theta^{}_{23} = 43.46^{+0.51^\circ}_{-0.52^\circ}$；作者称该角度关系在现象学上受青睐且可被实验检验，并可由所提 ansatz 导出；此外得到轻子味混合矩阵按单一小参数展开的新表达式。</p>
+    <h4>局限与展望</h4><p>该关系目前为猜想，其理论依据来自所提 ansatz 而非第一性原理；预言精度受 JUNO 与 Daya Bay 输入数据精度限制，适用性有待未来中微子振荡实验检验。后续可合理推断的方向包括：用更高精度的 $\theta^{}_{23}$ 测量检验该关系，以及探讨该 ansatz 的更深层理论动机。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09483v1">
+  <div class="paper-head">
+    <h2>一般平衡密度矩阵的热场论<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09483v1" rel="noopener noreferrer">2611.09483v1</a>
+  </div>
+  <p class="original-title">Thermal Field Theory for General Equilibrium Density Matrices</p>
+  <p class="meta"><strong>作者：</strong>Alberto Salvio</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>热场论（TFT）是统计力学与相对论量子场论的结合。本（书）章对一般平衡密度矩阵的热场论作了教学性介绍与综述；此类密度矩阵不仅允许温度与化学势取任意值，也允许平均角动量取任意值。文中说明了一种计算系综平均的一般技术，并发展了路径积分方法，用于研究配分函数以及任意算符、任意点数热格林函数，且适用于所有物理上相关的场论。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为允许温度、化学势以及平均角动量均取任意值的一般平衡密度矩阵建立热场论框架，并计算相应的系综平均、配分函数与热格林函数。</p>
+    <h4>方法</h4><p>采用教学性介绍与综述的方式，说明计算系综平均的一般技术，并发展路径积分方法以研究配分函数和任意算符、任意点数的热格林函数。</p>
+    <h4>主要发现</h4><p>原文明确指出：该章给出了针对一般平衡密度矩阵的热场论介绍与综述；此类密度矩阵允许温度、化学势和平均角动量取任意值；所发展的路径积分方法适用于所有物理上相关的场论。</p>
+    <h4>局限与展望</h4><p>原文未具体讨论局限性或后续方向；其适用范围限于“物理上相关的场论”这一表述所界定的范围。可合理推断，该框架可能为涉及平均角动量的平衡态场论计算提供基础，但此点需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09666v1">
+  <div class="paper-head">
+    <h2>低 tanβ 下 MSSM Higgs 玻色子搜寻中的干涉效应：gg→H→WW、ZZ、hh 及 gg→A→Zh 道<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09666v1" rel="noopener noreferrer">2611.09666v1</a>
+  </div>
+  <p class="original-title">Interference effects in MSSM Higgs boson searches at low $tanβ$: the $gg\to H\to WW, ZZ, hh$ and $gg \to A \to Zh$ channels</p>
+  <p class="meta"><strong>作者：</strong>Abdelhak Djouadi、John Ellis</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>LHC 对最小超对称标准模型（MSSM）重中性 Higgs 玻色子的限制（在真空期望值之比 tanβ 较小时尤为重要）此前是在窄宽度近似下得到的，未包含纯 Higgs 信号与 QCD 背景之间的干涉。本文研究低 tanβ（1≤tanβ≤6）情形下，CP 偶 H 与 CP 奇 A 玻色子的共振贡献与非共振胶子聚变振幅在 gg→VV（V=W,Z）、gg→hh 和 gg→Zh 过程中的干涉。计算在领头阶进行，但保留精确的顶夸克质量依赖；纵向 VV 与 Zh 振幅由 Goldstone 玻色子等价定理给出，由此得到的圈形状因子与 gg→hh 中出现的形状因子类似。四个搜寻道中的线型由单一复参数 κ 决定，κ 为峰值处共振振幅与非共振振幅之比。由于 H 和 A 与所考虑末态耦合较弱，同时又被其衰变到顶夸克所增宽，即使总宽度仍处于百分量级，|κ| 在 0.5–1 TeV 质量区间也降至几个量级。干涉因此可使信号率提高最多数十个百分点，并使其线型发生畸变。对于当前 ATLAS（推测 CMS 亦然）Run II 排除限制，除 H→hh 等高线的高质量端外，净效应仍较为有限；但对于高亮度 LHC 将探测的质量区间，该效应变得重要。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在低 tanβ 的 MSSM 中，重中性 Higgs 玻色子 H、A 的共振信号与胶子聚变 QCD 背景之间的干涉，对 gg→WW、ZZ、hh 及 gg→Zh 搜寻道有何影响；此前 LHC 限制基于窄宽度近似且忽略该干涉。</p>
+    <h4>方法</h4><p>在领头阶、保留精确顶夸克质量依赖的条件下，计算 CP 偶 H 与 CP 奇 A 的共振振幅与非共振胶子聚变振幅在 gg→VV（V=W,Z）、gg→hh、gg→Zh 中的干涉；纵向 VV 与 Zh 振幅由 Goldstone 玻色子等价定理获得，并引入峰值处共振与非共振振幅之比这一复参数 κ 描述线型。</p>
+    <h4>主要发现</h4><p>四个道的线型由复参数 κ 决定；由于 H、A 与末态耦合弱且被衰变到顶夸克增宽，|κ| 在 0.5–1 TeV 质量区间降至几个量级，尽管总宽度仍在百分量级；干涉可使信号率提高最多数十个百分点并畸变线型；对当前 ATLAS（推测 CMS 亦然）Run II 排除限制，除 H→hh 等高线的高质量端外净效应较有限。</p>
+    <h4>局限与展望</h4><p>该效应在高亮度 LHC 将探测的质量区间变得重要，因此未来限制与发现潜力评估需纳入干涉；本文为领头阶计算，更高阶修正及实验分析中的具体实现有待进一步研究（后者为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09775v1">
+  <div class="paper-head">
+    <h2>利用μ子对撞机上的Z玻色子聚变揭示TeV能标暗物质<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09775v1" rel="noopener noreferrer">2611.09775v1</a>
+  </div>
+  <p class="original-title">Uncovering TeV-scale dark matter with Z-fusion at a muon collider</p>
+  <p class="meta"><strong>作者：</strong>Anindya Datta、Jayita Lahiri、Biswarup Mukhopadhyaya</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文论证了在高能、高亮度μ子对撞机上利用Z玻色子聚变道激发TeV能标标量暗物质（DM）信号的优势。该方案的优势在于：(a) 可实现约10 TeV的高质心能量；(b) 预期可获得大于约10 ab^{-1}的大积分亮度；(c) 具备高效探测极前向标记μ子的能力。分析基于由Z聚变驱动的过程 μ^+ μ^- → μ^+ μ^- + 缺失能量。作者在两种情景下给出结果：(i) 由六维有效耦合描述的情景；(ii) 惰性二重态模型。在分别施加各情景对应的限制后，对于暗物质质量约为1 TeV、积分亮度为10 ab^{-1}的情形，情景(i)可获得约6.7σ的信号显著性，情景(ii)可获得约5.5σ的信号显著性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在高能、高亮度μ子对撞机上，Z玻色子聚变道能否有效产生TeV能标标量暗物质的可观测信号。</p>
+    <h4>方法</h4><p>基于 μ^+ μ^- → μ^+ μ^- + 缺失能量 过程，利用极前向标记μ子，在六维有效耦合情景与惰性二重态模型两种理论框架下，分别施加对应限制后进行信号显著性分析。</p>
+    <h4>主要发现</h4><p>对于暗物质质量约为1 TeV、积分亮度为10 ab^{-1}的情形，情景(i)的信号显著性约为6.7σ，情景(ii)约为5.5σ。</p>
+    <h4>局限与展望</h4><p>上述显著性依赖于约10 TeV质心能量、约10 ab^{-1}积分亮度及高效极前向μ子标记等假设条件；若这些条件不能完全满足，显著性预计会降低（此为合理推断）。后续可进一步研究其他暗物质模型或系统误差的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09893v1">
+  <div class="paper-head">
+    <h2>标准模型及其扩展中最小暖暴胀面临的挑战<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09893v1" rel="noopener noreferrer">2611.09893v1</a>
+  </div>
+  <p class="original-title">Challenges for minimal warm inflation in the Standard Model and beyond</p>
+  <p class="meta"><strong>作者：</strong>Anish Ghoshal、Alessandro Strumia</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>暖暴胀的一种最小实现——即使在标准模型框架内——假定暴胀子 φ 通过有效算符 φ G G̃ 耦合。本文表明，标准模型中的解与等离子体计算存在张力（因为每次 sphaleron 跃迁释放的能量远大于温度），也与所假定的有效算符描述存在张力。将 φ 作为可重整化 Peccei-Quinn 理论中的 Goldstone 玻色子嵌入时，需要反常系数 ≳100，这意味着 QCD 会出现 Landau 极点。对于耦合更强的暗规范扇区，这些张力得到缓解。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究标准模型及其扩展中最小暖暴胀实现（暴胀子通过 φ G G̃ 有效算符耦合）是否自洽。</p>
+    <h4>方法</h4><p>通过分析等离子体计算与有效算符描述的一致性，并考察将 φ 嵌入可重整化 Peccei-Quinn 理论作为 Goldstone 玻色子的情形。</p>
+    <h4>主要发现</h4><p>标准模型的解与等离子体计算存在张力，因为每次 sphaleron 跃迁释放的能量远大于温度；同时与所假定的有效算符描述存在张力。将 φ 嵌入 Peccei-Quinn 理论需要反常系数 ≳100，导致 QCD 出现 Landau 极点。</p>
+    <h4>局限与展望</h4><p>对于耦合更强的暗规范扇区，上述张力得到缓解；论文未进一步给出定量条件或具体模型构建，相关推断需后续工作验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.42103v1">
+  <div class="paper-head">
+    <h2>四腿梯形格点上对称质量生成相的电荷泵浦轻子生成<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.42103v1" rel="noopener noreferrer">2610.42103v1</a>
+  </div>
+  <p class="original-title">Charge Pumping Leptogenesis from the Symmetric Mass Generation Phase on a Four-Leg Ladder Lattice</p>
+  <p class="meta"><strong>作者：</strong>Runze Chi、Meng Zeng、Tao Xiang、Yi-Zhuang You、Bertrand I. Halperin、Juven Wang</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子霍尔体系中的量子化电荷泵浦是一种体拓扑性质，通常在无能隙边界上表现为磁通插入时通过手征边缘模的谱流。当边界无反常时，可通过对称质量生成（SMG）相互作用使其对称地打开能隙。然而，相互作用打开能隙的边界对量子化电荷泵浦的影响尚不清楚。本文利用密度矩阵重整化群模拟，研究四腿梯形准(2+1)维实现，该实现对应(1+1)维3-4-5-0格点手征费米子模型，并在一条边缘上引入六费米子相互作用。我们发现，在弱耦合和强耦合下相互作用边缘附近均存在无能隙模，但在中间耦合下边缘可处于完全打开能隙的SMG相。我们还识别出在临界相互作用强度以上模型$\mathbb{Z}_2$对称性的自发破缺。在三种边界相中，我们都发现每个磁通量子泵浦相同电荷量的量子化电荷泵浦，但泵浦电荷的空间分布在各相之间有所不同。除电荷泵浦外，我们研究了开放边界条件下单个注入费米子的传播。在SMG相中，打开能隙边缘的端点处会出现相互作用诱导的味混合流，这在弱耦合和强耦合极限下均不存在；该流揭示了SMG相特有的电荷再分布机制。此外，我们提出该模型中的电荷泵浦与(3+1)维标准模型中的拓扑轻子生成情景之间的类比：3-4-5-0模型的无反常手征U(1)对称性所起的作用类似于标准模型中的重子数减轻子数对称性；在两种情形中，电荷泵浦都可与沿经典定义但量子反常方向的连续形变相关联，同时一个离散子群仍为精确的量子对称性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>相互作用打开能隙的边界（特别是对称质量生成相）如何影响量子化电荷泵浦，以及该模型与标准模型拓扑轻子生成之间是否存在类比。</p>
+    <h4>方法</h4><p>对四腿梯形准(2+1)维实现的(1+1)维3-4-5-0格点手征费米子模型进行密度矩阵重整化群模拟，在一条边缘上引入六费米子相互作用，并研究开放边界条件下单费米子注入的传播。</p>
+    <h4>主要发现</h4><p>弱耦合与强耦合下相互作用边缘附近存在无能隙模，中间耦合下边缘可处于完全打开能隙的SMG相；临界相互作用强度以上出现$\mathbb{Z}_2$对称性自发破缺；三种边界相均表现出每个磁通量子泵浦相同电荷量的量子化电荷泵浦，但泵浦电荷空间分布不同；SMG相中打开能隙边缘端点出现相互作用诱导的味混合流，弱耦合与强耦合极限下不存在。</p>
+    <h4>局限与展望</h4><p>原文指出该味混合流揭示了SMG相特有的电荷再分布机制，并提出与(3+1)维标准模型拓扑轻子生成的类比；该类比及SMG相电荷再分布机制的普适性有待进一步研究，本文结果基于特定四腿梯形格点模型与密度矩阵重整化群模拟，其向其他维度或模型的推广需谨慎推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08583v1">
+  <div class="paper-head">
+    <h2>DarkMatterFM-Registry：从 arXiv 文献中提取的暗物质模型机器可读登记库<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08583v1" rel="noopener noreferrer">2611.08583v1</a>
+  </div>
+  <p class="original-title">DarkMatterFM-Registry: A Machine-Readable Registry of Dark-Matter Models Extracted from the arXiv Literature</p>
+  <p class="meta"><strong>作者：</strong>Ioana A. Zelko、Jo Bovy、Nolan Koblischke</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.CO
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.CO</span> <span class="tag">astro-ph.IM</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>要使用一个暗物质模型，需要知道它由什么定义、影响哪些观测量、由哪些代码和似然函数进行评估，以及已发表的限制在何种假设下适用。这些信息分散在数万篇论文中。本文提出 DarkMatterFM-Registry，一个由分阶段大语言模型（LLM）流程从 arXiv 全文提取的暗物质模型机器可读登记库：包含 6,145 张结构化模型卡片，经一套含七个文件的 JSON Schema 套件验证，按观测后续跟进的预期价值排序，并对排名前约 2,000 的模型补充了观测量、限制以及从理论到观测量的路径。97.8% 的卡片通过 schema 检查；对分层抽样卡片进行的 LLM 评判准确性研究显示，81% 的分节判定正确，18% 部分正确，未发现幻觉。作为首个应用，我们将登记库转化为一份按优先级加权的路线图，包含社区可构建的 25 个具体项目。该路线图通过将每个补充模型的“理论到观测量”路径中的每个计算步骤判定为可用、部分可用或缺失，并按模型优先级对所得的类型化缺口进行聚合而构建。我们发现，阻碍最多高优先级模型的并非缺失理论，而是缺失共享基础设施：现有丰度求解器的模型文件、通用的非冷 Boltzmann 代码框架、可复用的间接探测似然函数，以及用于非冷暗物质的 Lyman-$\alpha$ 森林似然函数（这是结构形成探针的最大缺口）。模型卡片、schema、路线图和排序均已发布，使项目可复现，并使卡片可供社区使用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将分散在大量 arXiv 论文中的暗物质模型定义、相关观测量、评估代码与似然函数以及已发表限制的适用假设，整理为机器可读、可验证且可排序的登记库，并据此识别阻碍高优先级暗物质模型观测跟进的基础设施缺口。</p>
+    <h4>方法</h4><p>采用分阶段大语言模型（LLM）流程从 arXiv 全文提取暗物质模型，生成 6,145 张结构化模型卡片；使用含七个文件的 JSON Schema 套件进行验证；按观测后续跟进的预期价值排序；对排名前约 2,000 的模型补充观测量、限制与理论到观测量的路径；对分层抽样卡片进行 LLM 评判的准确性研究；并将每个补充模型的理论到观测量路径中的每个计算步骤判定为可用、部分可用或缺失，按模型优先级加权聚合类型化缺口，形成 25 个具体项目的路线图。</p>
+    <h4>主要发现</h4><p>97.8% 的模型卡片通过 schema 检查；在分层抽样卡片上，LLM 评判的准确性研究显示 81% 的分节判定正确、18% 部分正确、未发现幻觉。基于类型化缺口聚合的路线图表明，阻碍最多高优先级模型的并非缺失理论，而是缺失共享基础设施，具体包括：现有丰度求解器的模型文件、通用的非冷 Boltzmann 代码框架、可复用的间接探测似然函数，以及用于非冷暗物质的 Lyman-$\alpha$ 森林似然函数（结构形成探针的最大缺口）。</p>
+    <h4>局限与展望</h4><p>原文未报告登记库在 schema 检查与 LLM 评判抽样之外的独立人工全面核验结果，也未给出路线图中各项目的可行性或成本评估；其适用范围受限于所处理的 arXiv 全文语料与 LLM 提取流程。可合理推断，后续工作可扩展语料与 schema 覆盖、引入更多人工校验，并围绕所识别的共享基础设施缺口开展社区协作建设；这些均为推断，非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08585v1">
+  <div class="paper-head">
+    <h2>原初还是暴胀后：区分宇宙微波背景中尺度依赖特征的起源<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08585v1" rel="noopener noreferrer">2611.08585v1</a>
+  </div>
+  <p class="original-title">Primordial or Post-Inflationary: Distinguishing the Origin of Scale-Dependent Features in the CMB</p>
+  <p class="meta"><strong>作者：</strong>Matteo Braglia、Wenzer Qin、Xingang Chen、Tracy R. Slatyer</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.CO
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.CO</span> <span class="tag">gr-qc</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>超出标准模型的物理过程，无论起源于原初时期还是暴胀后时期，都可能在宇宙微波背景（CMB）各向异性中留下尺度依赖的信号。本文研究这两大类信号的可区分程度，并量化其简并水平。在这项初步研究中，对于原初特征，我们仅限于“尖锐型”和“共振型”两类；对于暴胀后特征，我们考虑两个定性不同的模型：奇异能量注入（向原初等离子体注入能量并改变整体热力学历史）和早期暗能量（EDE，通过背景膨胀和引力扰动影响CMB）。通过研究代表性示例，我们发现：原初特征可以在CMB功率谱中留下频率和跑动几乎任意的振荡印记，而本文所考虑的暴胀后模型产生定性不同的图样，一般无法重现原初特征振荡所特有的跑动。我们首先用主成分分析验证这些发现，并表明仅使用最显著的主成分时，本文所考虑的原初特征与暴胀后特征之间不存在显著简并；其次用全似然分析验证，结果表明在考虑单类模型或原初/暴胀后特征的组合时，所得后验分布没有显著变化。尽管这两个暴胀后模型探测的是不同的物理机制，且均以简化的现象学方式实现，但本文所用方法可以推广到包含更真实的信号或其他类别的信号。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>原初时期与暴胀后时期物理过程在CMB中留下的尺度依赖特征在多大程度上可区分、是否存在简并。</p>
+    <h4>方法</h4><p>选取“尖锐型”和“共振型”原初特征，以及奇异能量注入和早期暗能量两类暴胀后模型，通过代表性示例比较其CMB功率谱图样；先用主成分分析检验简并，再用全似然分析检验单类模型及组合情形下的后验变化。</p>
+    <h4>主要发现</h4><p>原初特征可在CMB功率谱中产生频率和跑动几乎任意的振荡印记；所考虑的暴胀后模型产生定性不同的图样，一般无法重现原初特征振荡所特有的跑动。主成分分析表明仅用最显著主成分时两类特征无显著简并；全似然分析表明考虑单类模型或原初/暴胀后特征组合时后验分布无显著变化。</p>
+    <h4>局限与展望</h4><p>两个暴胀后模型均以简化的现象学方式实现，且仅覆盖有限的原初特征类型；本文方法可推广至更真实的信号或其他类别的信号，但这一推广属于方法层面的合理推断，尚未在原文中实现。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08586v1">
+  <div class="paper-head">
+    <h2>Magic Is in the Eye of the Measure<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08586v1" rel="noopener noreferrer">2611.08586v1</a>
+  </div>
+  <p class="original-title">Magic Is in the Eye of the Measure</p>
+  <p class="meta"><strong>作者：</strong>Zhi-Heng Shen、Zhewei Yin、Hao-Lin Zhang</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  <p class="warning">⚠ 中文生成失败，本条目需要人工检查。</p>
+  <section>
+    <h3>中文摘要</h3>
+    <p>Magic, or nonstabilizerness, is the quantum resource behind universal quantum computation. Its applications in high-energy and nuclear physics rely almost exclusively on the stabilizer Rényi entropy (SRE), although magic has no unique measure. For two qubits, we compare the SRE with three measures defined through optimizations over stabilizer states: the min- and max-relative entropies of magic and the logarithmic free robustness. We determine the maximal-magic states of all four measures, with exact proofs, and find that they depend on the measure. In the determination of the weak mixing angle from minimal magic in Møller scattering, the min-relative entropy gives an energy-dependent value that differs from that of the SRE, whereas the max-relative entropy and the logarithmic free robustness give $\sin^2θ_W=1/4$ at all energies. We trace this difference to the non-analytic structure of the optimization-based measures. Physical conclusions drawn from extremizing magic can thus depend on the measure.</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>方法</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>主要发现</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>局限与展望</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08606v1">
+  <div class="paper-head">
+    <h2>Just CaloCHILL：在学习到的潜空间中快速生成强子簇射<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08606v1" rel="noopener noreferrer">2611.08606v1</a>
+  </div>
+  <p class="original-title">Just CaloCHILL: fast hadronic shower generation in a learned latent space</p>
+  <p class="meta"><strong>作者：</strong>Henry Day-Hall、Frank Gaede、Gregor Kasieczka、Katja Krüger、Martina Mozzanica</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">cs.LG</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">physics.data-an</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量能器簇射是探测器模拟中开销最大的部分，而高粒度量能器使这一开销进一步增加，因为单次强子簇射就会留下数千个能量沉积。本文提出 CaloCHILL（Calorimeter Hits In Learned Latents），一种生成模型；它不逐个生成这些沉积，而是在学习到的潜空间中生成簇射的紧凑摘要，仅在最后将其展开到全分辨率。完整簇射（包括每个击中点的到达时间）分三阶段构建：首先由 flow-matching 模型确定每个量能器层的击中数及最早击中时间，随后由 mean-flow 模型生成潜摘要，最后由变分自编码器的解压器将其转换为完整点云，为每个击中点赋予位置、能量和时间。沿簇射轴的稀疏注意力使这种压缩对具有数千个击中点的簇射仍可负担。在国际直线对撞机（ILDR，拟议的 FCC-ee 探测器）量能器中的正π介子簇射上，CaloCHILL 再现了主要簇射观测量，包括其时间结构。该新模型比其前身快 600 倍，同时在所考虑的所有精度指标上均有改进。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何高效生成高粒度量能器中强子簇射的完整点云（含每个击中点的位置、能量与时间），以降低探测器模拟的计算开销。</p>
+    <h4>方法</h4><p>提出 CaloCHILL 生成模型，在学习到的潜空间中生成簇射的紧凑摘要并在最后展开到全分辨率；采用三阶段流程：flow-matching 模型设定各量能器层的击中数与最早击中时间，mean-flow 模型生成潜摘要，变分自编码器解压器输出完整点云；并使用沿簇射轴的稀疏注意力控制压缩开销。</p>
+    <h4>主要发现</h4><p>在 ILD 量能器（拟议的 FCC-ee 探测器）中的正π介子簇射上，CaloCHILL 再现了主要簇射观测量及其时间结构；相比前身模型快 600 倍，且在所考虑的所有精度指标上均有改进。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与适用范围；摘要仅报告了正π介子簇射上的结果，向其他粒子种类、探测器几何或能量范围的泛化能力尚待验证（此为推断）。后续可合理探索的方向包括扩展至更广泛的簇射类型与探测器配置（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08636v1">
+  <div class="paper-head">
+    <h2>非线性尺度上的非标准暗物质<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08636v1" rel="noopener noreferrer">2611.08636v1</a>
+  </div>
+  <p class="original-title">Nonstandard Dark Matter at Nonlinear Scales</p>
+  <p class="meta"><strong>作者：</strong>Rafael C. Nunes</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.CO
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.CO</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用 N 体模拟研究标准 ΛCDM 框架的两种扩展如何影响物质密度场与速度散度场从线性区到深度非线性尺度的演化。所考察的两种情景均对暗物质（DM）的典型性质作出修改：第一种情景中暗物质与暗能量发生相互作用（DM–DE 相互作用）；第二种情景允许暗物质状态方程参数偏离无压极限 w_DM=0。对于耦合 DM–DE 情景，我们发现物质功率谱相对 ΛCDM 存在量级为 50%–100% 的显著且依赖尺度的偏离，该偏离持续存在于整个非线性区，速度散度谱则提供互补且部分独立的敏感性。对于 w_DM≠0 情景，我们发现系统性但极小的偏离，在所有探测尺度上均限于 5% 以内。结果指出了哪些尺度对区分这些非标准情景与 ΛCDM 具有最强的判别力。我们表明，利用当前与未来的大尺度结构巡天，通过密度场和/或速度场分析检验这些模型，在从观测数据得到稳健限制之前，仍需更深入的理论理解与精确的非线性建模。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>两种对暗物质典型性质的扩展——暗物质与暗能量相互作用、以及暗物质状态方程参数偏离无压极限——如何影响物质密度场与速度散度场从线性区到深度非线性尺度的演化，以及哪些尺度对区分这些模型与 ΛCDM 最具判别力。</p>
+    <h4>方法</h4><p>采用 N 体模拟，考察耦合 DM–DE 情景与 w_DM≠0 情景，分析物质功率谱与速度散度谱从线性区到深度非线性尺度的演化，并与 ΛCDM 对比。</p>
+    <h4>主要发现</h4><p>耦合 DM–DE 情景下，物质功率谱相对 ΛCDM 出现量级 50%–100% 的显著且依赖尺度的偏离，并持续存在于整个非线性区；速度散度谱提供互补且部分独立的敏感性。w_DM≠0 情景下，偏离系统性但极小，在所有探测尺度上限于 5% 以内。结果识别出对区分这些非标准情景与 ΛCDM 判别力最强的尺度。</p>
+    <h4>局限与展望</h4><p>原文指出，利用当前与未来大尺度结构巡天通过密度场和/或速度场分析检验这些模型，在获得稳健观测限制之前仍需更深入的理论理解与精确的非线性建模；本文结果基于 N 体模拟，观测约束的可行性尚待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08656v1">
+  <div class="paper-head">
+    <h2>高能物理中基于学习代理的高阶成分归因<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08656v1" rel="noopener noreferrer">2611.08656v1</a>
+  </div>
+  <p class="original-title">Higher Order Component Attribution via Learned Surrogates in High Energy Physics</p>
+  <p class="meta"><strong>作者：</strong>Lauri Laatu、Aritra Bal、Benedikt Maier、Markus Klute、Michael Spannowsky</p>
+  <p class="meta"><strong>主分类：</strong>cs.LG
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cs.LG</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>实验高能物理（HEP）已将 Transformer 架构用于喷注鉴别，其中代表性的 Particle Transformer（ParT）在注意力机制中显式注入粒子关联信息。尽管 ParT 在准确率上达到当前最优水平，但对其有效性来源的可解释性仍然有限。本文提出基于 Kolmogorov-Arnold Networks（KAN）的成分归因方法，将归因结果直接关联到喷注的物理描述量，用以考察多头注意力（MHA）或 ParT 架构等机制是否能够将这些物理描述量学习为判别特征。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究 ParT 等 Transformer 架构在高能物理喷注鉴别中取得高性能的可解释性问题，具体考察多头注意力或 ParT 架构是否将喷注的物理描述量学习为判别特征。</p>
+    <h4>方法</h4><p>提出基于 Kolmogorov-Arnold Networks（KAN）的成分归因方法，将归因结果直接对应到喷注的物理描述量，并据此探查 MHA 与 ParT 架构所学特征。</p>
+    <h4>主要发现</h4><p>原文摘要仅说明所提方法用于探查上述机制能否将喷注物理描述量学习为判别特征，未在摘要中给出具体归因结果或定量结论。</p>
+    <h4>局限与展望</h4><p>摘要未讨论局限与适用范围；后续可合理推断的方向包括将该归因方法扩展到其他喷注标记架构或与其他可解释性手段结合，但此推断需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08742v1">
+  <div class="paper-head">
+    <h2>弯曲时空中的中微子对湮灭：快速矩方法与味转换几何<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08742v1" rel="noopener noreferrer">2611.08742v1</a>
+  </div>
+  <p class="original-title">Neutrino pair annihilation in curved spacetime: a fast moment method and the geometry of flavour conversion</p>
+  <p class="meta"><strong>作者：</strong>Rafael C. R. de Lima、Luciano de Oliveira Junior、Pedro Martins Bailer</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">gr-qc</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>黑洞吸积盘上方的中微子—反中微子湮灭同时受广义相对论输运与中微子味转换影响，二者能否独立处理取决于引力对不同味种群的权重方式。本文采用Schwarzschild与Kerr时空中的反向光线追踪，并结合湮灭核的精确角向矩表述（该表述已针对解析球对称解与已发表吸积盘计算完成验证），研究上述相互作用。首先确认：当味转换均匀且初始重轻子中微子发射可忽略时，味转换修正与时空几何无关。对于均匀转换，当不同味对应的发射区重叠时，这种可分离性近似成立：与具有相同局部速度的平直空间同类吸积盘相比，引力使沉积能量增强1.4—5倍，而在所考虑的大多数温度剖面下，相对转换效应的变化不超过6%；在快速旋转黑洞周围，随盘变化的转换使该变化升至22%。当重轻子中微子来自与电子味发射区分离的内环时，出现性质不同的情形：相对论性弯曲与能量移动优先增强涉及内环中微子的湮灭，产生高达平直空间2.4倍的相对论性转换因子。在一种构型中，味均分使平直空间中的沉积减少54%，却在Kerr时空中使其增加11%。这些结果表明，在所考虑的模型中，味相关中微子球的空间排布是决定味转换与相对论输运能否分开处理的关键因素。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>黑洞吸积盘上方的中微子—反中微子湮灭中，广义相对论输运与中微子味转换能否独立处理，以及引力如何对不同味种群加权。</p>
+    <h4>方法</h4><p>在Schwarzschild与Kerr时空中进行反向光线追踪，并采用湮灭核的精确角向矩表述；该表述针对解析球对称解与已发表吸积盘计算进行了验证。</p>
+    <h4>主要发现</h4><p>当味转换均匀且初始重轻子中微子发射可忽略时，味转换修正与时空几何无关；均匀转换下，若味相关发射区重叠，可分离性近似成立：与相同局部速度的平直空间吸积盘相比，引力使沉积能量增强1.4—5倍，大多数温度剖面下相对转换效应变化不超过6%，快速旋转黑洞周围随盘变化的转换使该变化升至22%；当重轻子中微子来自与电子味发射区分离的内环时，相对论性弯曲与能量移动优先增强涉及内环中微子的湮灭，相对论性转换因子最高达平直空间的2.4倍；一种构型中味均分使平直空间沉积减少54%，而在Kerr时空中增加11%。</p>
+    <h4>局限与展望</h4><p>结果表明，在所考虑的模型中，味相关中微子球的空间排布是决定味转换与相对论输运能否分开处理的关键因素；本文结论的适用范围限于所考察的时空、吸积盘与温度剖面，向更一般构型的推广需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09033v1">
+  <div class="paper-head">
+    <h2>热密核物质在相对论平均场模型中的重子数磁化率<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09033v1" rel="noopener noreferrer">2611.09033v1</a>
+  </div>
+  <p class="original-title">Baryon Number Susceptibilities of Hot and Dense Nuclear Matter in Relativistic Mean-Field Models</p>
+  <p class="meta"><strong>作者：</strong>Deepak Kumar、Biswarup Das、Sandeep Chatterjee、Ujjal Kumar Dey</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文建立了一个全解析框架，用于在有限温度和有限重子化学势下计算热密核物质的相对论平均场（RMF）模型中的重子数磁化率。该形式体系被应用于若干具有代表性的非线性 RMF 参数化集，以研究在较宽温度与重子化学势范围内重子数涨落的模型依赖性。所考虑的全部 RMF 参数化均能再现累积量比值随束流能量变化的整体定性行为；在 RMF 模型内得到的偏度与峰度满足实验值。具体而言，FSU 系列参数化与实测重离子观测量（即累积量比值）的偏差相对较小。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在有限温度和有限重子化学势下，以全解析方式计算相对论平均场模型中的重子数磁化率，并考察重子数涨落对模型参数化的依赖性。</p>
+    <h4>方法</h4><p>建立计算重子数磁化率的全解析框架，并将其应用于若干代表性非线性 RMF 参数化集，在较宽的温度与重子化学势范围内比较重子数涨落及累积量比值。</p>
+    <h4>主要发现</h4><p>所考虑的全部 RMF 参数化均能再现累积量比值随束流能量变化的整体定性行为；RMF 模型给出的偏度和峰度满足实验值；FSU 系列参数化与实测重离子累积量比值的偏差相对较小。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；就现有结果可合理推断，该框架的适用性仍限于所考察的 RMF 参数化与观测量范围，其向其他参数化或更宽条件的外推有待进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09150v1">
+  <div class="paper-head">
+    <h2>热手征交叉区中QCD拓扑的手征响应<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09150v1" rel="noopener noreferrer">2611.09150v1</a>
+  </div>
+  <p class="original-title">Chiral Response of QCD Topology across the Thermal Crossover</p>
+  <p class="meta"><strong>作者：</strong>Heng-Tong Ding、Jin-Biao Gu、José Javier Hernández Hernández、Sheng-Tai Li、Jia Ni</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文建立了一个新关系，将量子色动力学（QCD）中拓扑磁化率对轻夸克质量的导数与拓扑荷平方和积分轻夸克标量密度之间的连通关联联系起来。该关系使得在每个温度下仅需固定夸克质量的单一系综即可直接获得QCD拓扑的手征响应，即拓扑磁化率对轻夸克质量的局域对数导数，而无需在偏移质量处进行额外模拟。将这一关系应用于（2+1）味格点QCD，在m_π≃220 MeV、温度从远低于到远高于手征交叉区的范围内，我们发现该响应在穿越交叉区时从约1迅速上升至约2。这一演化对应于拓扑磁化率对轻夸克质量的依赖从近似线性变为近似二次。以手征响应作为轻夸克质量局域幂律的指数，我们从拓扑磁化率确定了其有效振幅。该振幅在交叉温度附近达到最大值，反映了拓扑磁化率下降与手征响应上升之间的竞争。这些结果揭示了QCD拓扑的夸克质量依赖在热手征交叉区发生了重组，而不仅仅是拓扑涨落的抑制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究QCD拓扑磁化率对轻夸克质量的依赖如何随温度变化，特别是在手征交叉区附近的行为。</p>
+    <h4>方法</h4><p>提出一个将拓扑磁化率对轻夸克质量的导数与拓扑荷平方和积分轻夸克标量密度的连通关联联系起来的新关系，并应用于（2+1）味格点QCD，在m_π≃220 MeV下覆盖从远低于到远高于手征交叉区的温度范围。</p>
+    <h4>主要发现</h4><p>手征响应在穿越交叉区时从约1迅速上升至约2，对应于拓扑磁化率对轻夸克质量的依赖从近似线性变为近似二次；以手征响应为指数的局域幂律有效振幅在交叉温度附近达到最大值，反映了拓扑磁化率下降与手征响应上升之间的竞争。</p>
+    <h4>局限与展望</h4><p>该研究局限于m_π≃220 MeV的（2+1）味格点QCD，未涉及更轻的物理夸克质量；后续可合理推断将关系推广至更轻的π介子质量或包括更精细的温度扫描，以检验手征响应演化的普适性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09404v1">
+  <div class="paper-head">
+    <h2>集体核振动对中心Pb+Pb碰撞初始各向异性的影响：Glauber与Trento模型的比较研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09404v1" rel="noopener noreferrer">2611.09404v1</a>
+  </div>
+  <p class="original-title">Effect of collective nuclear vibrations on initial anisotropies in central Pb+Pb collisions: A comparative study in Glauber and Trento models</p>
+  <p class="meta"><strong>作者：</strong>B. G. Zakharov</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文比较了Glauber模型与Trento模型对LHC能量下中心Pb+Pb碰撞初始态方位角各向异性ε_{2,3}{2}的预测。我们在采样核子位置时，通过对四极矩和八极矩施加滤波，将^{208}Pb中的量子集体效应纳入其中。所用滤波为数据驱动型，其参数经过调整，以重现从实验强度函数提取的四极矩与八极矩均方值。研究发现，集体效应显著降低了ε_2{2}/ε_3{2}比值，且该降低在Trento模型中更为明显。在Glauber(Trento)模型中，我们得到ε_2{2}/ε_3{2}≈0.75÷0.79(0.68÷0.71)。这些数值有助于解决v_2与v_3之间的疑难。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在LHC能量下的中心Pb+Pb碰撞中，考虑^{208}Pb的量子集体振动效应后，Glauber模型与Trento模型对初始态方位角各向异性ε_2{2}与ε_3{2}及其比值的预测有何差异，以及该效应能否解释v_2与v_3之间的疑难。</p>
+    <h4>方法</h4><p>在Glauber与Trento框架下，通过按四极矩和八极矩对核子位置采样施加数据驱动滤波，引入^{208}Pb的量子集体效应；滤波参数调整至重现由实验强度函数提取的四极矩与八极矩均方值，并比较两模型给出的ε_{2,3}{2}及ε_2{2}/ε_3{2}。</p>
+    <h4>主要发现</h4><p>集体效应使ε_2{2}/ε_3{2}比值明显降低，且Trento模型中的降低幅度大于Glauber模型；所得比值为Glauber模型约0.75÷0.79、Trento模型约0.68÷0.71，这些数值可解决v_2与v_3之间的疑难。</p>
+    <h4>局限与展望</h4><p>原文表明该比较限于LHC能量下的中心Pb+Pb碰撞及所采用的Glauber与Trento初始态模型；滤波依赖从实验强度函数提取的矩信息。可合理推断，将类似集体效应处理推广至其他碰撞能量、中心度或核体系，以及检验不同初始态模型下的稳健性，是后续可能的研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09549v1">
+  <div class="paper-head">
+    <h2>Kramers-Henneberger 变换的相对论类比与粒子对产生<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09549v1" rel="noopener noreferrer">2611.09549v1</a>
+  </div>
+  <p class="original-title">Relativistic analogue of the Kramers-Henneberger transformation and pair creation</p>
+  <p class="meta"><strong>作者：</strong>Johannes Marschall、Christian Kohlfürst、Naser Ahmadiniaz、Ralf Schützhold</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文类比非相对论量子力学中的 Kramers-Henneberger 变换，提出并研究一种用于 Dirac 方程的旋量变换，该变换可将依赖于时空的矢量势 A(t,x)e_x 消去。在无质量情形下，该变换精确地化为自由 Dirac 方程；而对于有质量 Dirac 场，变换后出现一个包含时空依赖相位的非平凡质量矩阵。文中重点讨论了外场 A(t,x)e_x 中的费米子对产生现象，该旋量变换有助于在概念上区分对产生的不同贡献。该变换还可用于重新表述 WKB 方法与 Riccati 方程（在某些情形下可能具有优势），并为动态辅助对产生的机制提供进一步认识。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为 Dirac 方程构造一个类比于非相对论 Kramers-Henneberger 变换的旋量变换，以消去依赖时空的矢量势 A(t,x)e_x，并借此分析外场中的费米子对产生？</p>
+    <h4>方法</h4><p>提出并研究一种针对 Dirac 方程的旋量变换；在无质量与有质量两种情形下分别考察变换后的方程形式；将该变换用于重新表述 WKB 方法与 Riccati 方程，并用于分析对产生的不同贡献及动态辅助对产生机制。</p>
+    <h4>主要发现</h4><p>在无质量情形下，该变换精确给出自由 Dirac 方程；在有质量情形下，变换后得到包含时空依赖相位的非平凡质量矩阵。该变换能够在概念上区分外场 A(t,x)e_x 中对产生的不同贡献，并可用于重新表述 WKB 方法与 Riccati 方程，为动态辅助对产生机制提供额外认识。</p>
+    <h4>局限与展望</h4><p>原文未给出定量数值结果或适用范围的具体边界；该变换在何种参数区域对 WKB 与 Riccati 表述具有优势，原文仅表述为“在某些情形下可能有利”，需进一步研究。可合理推断，后续工作或可围绕有质量情形下非平凡质量矩阵的微扰处理及动态辅助对产生的定量分析展开，但这属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09631v1">
+  <div class="paper-head">
+    <h2>线性协变规范下QCD中的动力学胶子质量产生、Schwinger机制、自发对称性破缺与色禁闭<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09631v1" rel="noopener noreferrer">2611.09631v1</a>
+  </div>
+  <p class="original-title">Dynamical gluon mass generation, the Schwinger mechanism, spontaneous symmetry breaking, and color confinement in the linear covariant gauges of QCD</p>
+  <p class="meta"><strong>作者：</strong>Giorgio Comitini</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文重新审视了色禁闭的Kugo-Ojima（KO）方案，指出其推导中存在若干不一致之处及一处关键错误。在KO框架内，于惯常假设下，我们证明BRST四重态结构包含一种唯一的动力学胶子质量产生机制，即由Aguilar、Binosi、Ferreira和Papavassiliou（ABFP）发展的Schwinger机制。我们表明Schwinger机制是一种Higgs机制，因为它与全局规范荷的自发破缺同时发生，这符合预期；ABFP束缚态是相应的（非物理的）复合Goldstone玻色子。在推导中，Pinch Technique–Background-Field Method（PT-BFM）下胶子传播子的零动量值自然出现，为质量产生设定了一个重整化群不变的标度，并提示了PT-BFM的一种新的非微扰解释。BRST对称性取代了破缺对称性的角色，而谱的色对称性保持未破缺。我们得到一个唯一、良定义、未破缺且BRST精确的渐近色荷算符，它在BRST上同调中不存在有色渐近态的意义上实现了色禁闭。仍在KO框架内，我们为证明线性协变规范下QCD的非微扰幺正性迈出了首个基础性步骤，并讨论了支持Schwinger机制其实验证据。我们为Yang-Mills理论线性协变规范下规范玻色子质量产生的统一理论奠定了基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文重新审视色禁闭的Kugo-Ojima（KO）方案，指出其推导中的不一致与关键错误，并探讨线性协变规范下QCD中动力学胶子质量产生、Schwinger机制、自发对称性破缺与色禁闭之间的关系。</p>
+    <h4>方法</h4><p>在KO框架及惯常假设下进行理论推导，结合BRST四重态结构、ABFP发展的Schwinger机制、PT-BFM框架下的胶子传播子分析，并讨论相关实验证据。</p>
+    <h4>主要发现</h4><p>作者指出KO方案推导中存在若干不一致和一处关键错误；证明BRST四重态结构包含唯一的动力学胶子质量产生机制即Schwinger机制；表明该机制是一种Higgs机制，伴随全局规范荷自发破缺，ABFP束缚态为相应的非物理复合Goldstone玻色子；PT-BFM下胶子传播子零动量值自然出现并设定重整化群不变标度；得到唯一、良定义、未破缺且BRST精确的渐近色荷算符，在BRST上同调中无有色渐近态的意义上实现色禁闭。</p>
+    <h4>局限与展望</h4><p>论文为线性协变规范下QCD非微扰幺正性的证明迈出首个基础性步骤，并为Yang-Mills理论线性协变规范下规范玻色子质量产生的统一理论奠定基础；其局限与适用范围需进一步检验，后续方向可合理推断为完善非微扰幺正性证明及统一理论的构建。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09635v1">
+  <div class="paper-head">
+    <h2>黑洞X射线双星双谱中ridge与hypotenuse的可能联系：基于准周期调制的解释<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09635v1" rel="noopener noreferrer">2611.09635v1</a>
+  </div>
+  <p class="original-title">A possible connection between the ridge and hypotenuse in the bispectrum of black hole X-ray binaries through quasi-periodic modulation</p>
+  <p class="meta"><strong>作者：</strong>Pei Jin、Mariano Méndez、Federico García、Diego Altamirano、Haifan Zhu、Liang Zhang、Guobao Zhang</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.HE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.HE</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>黑洞X射线双星中的准周期振荡（QPO）与宽带变率存在非线性耦合，并在双相干谱中产生特征性的ridge、hypotenuse及网状结构，但这些结构的起源尚不清楚。本文建立了一个数学模型：一个与QPO相位锁定的调制器以乘性方式作用于背景变率，由此产生的频率混合自然给出与基频QPO相关的ridge和hypotenuse，并将二者统一为同一调制诱导双谱结构的两个部分；该机制亦可推广至二次谐波。模型进一步预言，每条ridge与其对应hypotenuse之间的双相位（biphase）符号相反。我们利用NICER对Swift J1727.8$-$1613和MAXI J1820$+$070的观测检验上述预言。双谱图显示出与QPO相关的ridge–hypotenuse结构，总体上与模型相符，且每条ridge与其对应hypotenuse之间的双相位在定性上符号相反；双相位图还提供了补充诊断，可揭示仅凭双相干谱难以识别的弱耦合结构。我们还将测得的双谱模量与孤立ridge和hypotenuse的预言进行比较，预言总体上再现了观测到的频率依赖关系，但在基频QPO与二次谐波频率附近仍存在局部偏离，该处不同双谱结构发生重叠。结果表明，双谱中的网状图样可在简单的数学框架下由QPO相位锁定调制器与背景变率之间的乘性耦合自然产生。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>黑洞X射线双星双相干谱中与QPO相关的ridge、hypotenuse及网状结构如何起源，ridge与hypotenuse之间是否存在统一联系。</p>
+    <h4>方法</h4><p>构建一个与QPO相位锁定的调制器对背景变率作乘性作用的数学模型，推导频率混合产生的双谱结构及双相位符号预言；利用NICER对Swift J1727.8$-$1613和MAXI J1820$+$070的观测，检验双谱图、双相位图及双谱模量的频率依赖。</p>
+    <h4>主要发现</h4><p>模型将基频QPO的ridge与hypotenuse解释为同一调制诱导双谱结构的两个部分，并可推广至二次谐波；预言每条ridge与其对应hypotenuse的双相位符号相反。观测的双谱图显示与QPO相关的ridge–hypotenuse结构，总体上与模型相符，双相位在定性上符号相反；双相位图可揭示双相干谱难以识别的弱耦合结构；双谱模量的预言总体再现观测频率依赖，但在基频QPO和二次谐波频率附近存在局部偏离，该处不同双谱结构重叠。</p>
+    <h4>局限与展望</h4><p>结果仅基于两个源的NICER观测，模型对ridge与hypotenuse双相位符号相反的预言目前仅在定性层面得到支持；局部偏离提示重叠结构需更精细建模。后续可合理推断的方向包括：将模型推广至更多黑洞X射线双星样本与其他QPO类型，并发展能处理结构重叠的更完整双谱模型，但上述推断尚待验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09788v1">
+  <div class="paper-head">
+    <h2>镓异常的可能解决方案？核跃迁密度<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09788v1" rel="noopener noreferrer">2611.09788v1</a>
+  </div>
+  <p class="original-title">Possible Solution to the Gallium Anomaly? Nuclear Transition Densities</p>
+  <p class="meta"><strong>作者：</strong>D. Castillo、D. Frycz、J. Menéndez</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>镓异常——即测得的 $^{71}$Ga 上 $\nu_e$ 俘获率存在约 20% 的亏缺——至今仍未得到解释。近期工作 [Phys. Rev. Lett. 137, 131805 (2026), arXiv:2512.20560] 提出一种解决方案，其依据是截面预言所依赖的轻子与核波函数因子化失效，并结合了特设的 Gamow-Teller 核跃迁密度。我们利用在核壳模型（NSM）框架内计算、归一化到 $^{71}$Ge 电子俘获半衰期并与 Dirac-Hartree-Fock-Slater 电子波函数卷积的跃迁密度，检验该提议方案。我们考察了多种 NSM 相互作用、裸与有效 Gamow-Teller 算符以及价空间的影响。在所有情形下，我们都得到高度一致的 NSM 跃迁密度。我们的因子化与非因子化截面彼此相符，且仍比测量值高 20%。此外，我们以 NSM 单核子跃迁密度作为 ansatz，发现要解决该异常需要精细调节的密度，伴随百分之一量级的抵消以及比计算所得 NSM 密度大若干数量级的整体标度。我们由此得出结论：使用现实的核跃迁密度时，镓异常并未得到解决。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文检验近期提出的、基于轻子与核波函数因子化失效及特设 Gamow-Teller 核跃迁密度的方案能否解释镓异常（$^{71}$Ga 上 $\nu_e$ 俘获率约 20% 的亏缺）。</p>
+    <h4>方法</h4><p>在核壳模型（NSM）框架内计算 $^{71}$Ga/$^{71}$Ge 跃迁密度，归一化到 $^{71}$Ge 电子俘获半衰期，并与 Dirac-Hartree-Fock-Slater 电子波函数卷积；考察多种 NSM 相互作用、裸与有效 Gamow-Teller 算符及价空间的影响；比较因子化与非因子化截面；并以 NSM 单核子跃迁密度作为 ansatz 检验所需密度的性质。</p>
+    <h4>主要发现</h4><p>在所有考察情形下均得到高度一致的 NSM 跃迁密度；因子化与非因子化截面彼此相符，且仍比测量值高 20%；以 NSM 单核子跃迁密度为 ansatz 时，解决异常需要精细调节的密度，伴随百分之一量级的抵消以及比计算所得 NSM 密度大若干数量级的整体标度。</p>
+    <h4>局限与展望</h4><p>原文结论为：使用现实的核跃迁密度时镓异常并未得到解决。其局限在于检验限于 NSM 框架及所考察的相互作用、算符与价空间；可合理推断，若异常持续存在，则需在核结构计算之外寻找解释，但原文未对此作出明确论断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09797v1">
+  <div class="paper-head">
+    <h2>利用CMS开放数据以解析与机器学习方法重建顶夸克对运动学<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09797v1" rel="noopener noreferrer">2611.09797v1</a>
+  </div>
+  <p class="original-title">Kinematic Reconstruction of Top-Quark Pairs Using Analytical and Machine-Learning Methods with CMS Open Data</p>
+  <p class="meta"><strong>作者：</strong>V. Aushev、M. Spitsyn、R. Yermolenko、O. Zenaiev</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在双轻子t\bar{t}衰变道中，由于存在两个未被探测到的中微子，重建顶夸克对（t\bar{t}）的运动学具有挑战性。本文利用质心能量为7 TeV的CMS开放数据中t\bar{t}事件的蒙特卡罗样本，研究了CMS合作组现有的运动学重建方法。通过对进入重建的喷注-轻子配对施加更严格的要求，发展了松散运动学重建的改进版本LKRv2。进一步的修改版本LKRv3利用双轻子与中微子对系统之间的运动学相似性，相对于基线LKR将重建的t\bar{t}不变质量分辨率提高了7%，对t\bar{t}的横向动量和快度的改进较小。此外，利用残差多层感知机和条件归一化流开发了两种基于机器学习（ML）的方法。相对于LKRv3，它们将不变质量、横向动量和快度的分辨率分别提高约30%、20%和15%。特别是在产生阈值附近，重建的t\bar{t}不变质量达到了30 GeV的分辨率。专门的产生器级研究和产生器到探测器的迁移测试表明，ML方法学习到的是对ν\barν近似的真实物理驱动修正，而非仅仅利用探测器特定效应。这些结果展示了基于ML的方法在改进双轻子t\bar{t}事件重建方面的强大潜力，同时指出中微子对近似是实现分辨率的重要限制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在双轻子t\bar{t}衰变道中，如何改进由于两个未探测中微子而导致困难的t\bar{t}运动学重建，并比较解析方法与机器学习方法的性能。</p>
+    <h4>方法</h4><p>使用CMS开放数据在7 TeV下的t\bar{t}蒙特卡罗样本，研究CMS现有的运动学重建方法；通过更严格的喷注-轻子配对要求发展LKRv2，并利用双轻子与中微子对系统的运动学相似性发展LKRv3；同时采用残差多层感知机和条件归一化流两种机器学习方法。</p>
+    <h4>主要发现</h4><p>LKRv3相对于基线LKR将重建的t\bar{t}不变质量分辨率提高7%，对横向动量和快度的改进较小；两种ML方法相对于LKRv3将不变质量、横向动量和快度的分辨率分别提高约30%、20%和15%，在产生阈值附近不变质量分辨率达到30 GeV；产生器级研究和产生器到探测器迁移测试表明ML方法学习到对ν\barν近似的物理驱动修正，而非仅利用探测器效应。</p>
+    <h4>局限与展望</h4><p>中微子对近似被识别为实现分辨率的重要限制；ML方法在双轻子t\bar{t}重建中具有强大潜力，但本文结果基于7 TeV的CMS开放数据蒙特卡罗样本，向其他能量或数据条件的推广需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09865v1">
+  <div class="paper-head">
+    <h2>中心涡旋网络的出现与聚合物物理：面向 SU(4) 格点杨-米尔斯理论的检验<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09865v1" rel="noopener noreferrer">2611.09865v1</a>
+  </div>
+  <p class="original-title">Emergence and polymer physics of the center-vortex network: Confronting SU(4) lattice Yang-Mills theory</p>
+  <p class="meta"><strong>作者：</strong>Luis E. Oxman、Jackson A. Mickley、Derek B. Leinweber</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>中心涡旋网络的几何组织与统计性质为理解杨-米尔斯理论中禁闭背后的红外动力学提供了窗口。受这一联系启发，我们研究此前提出的一种基于物理等价的基本 Cartan 通量的禁闭机制所蕴含的新推论。我们表明，在逾渗相中，这些通量会动力学地重组为中心电荷扇区，其主导涡旋张力满足 Casimir 标度律，类似于在禁闭弦张力中观测到的行为。随后，我们将该结果与第一个非平凡的杨-米尔斯情形相对照：即近期在 SU(4) 格点模拟中观测到的双荷涡旋链。为提取将格点系综与有效描述相连接所需的参数，我们采用此前未应用于中心涡旋的聚合物启发技术，刻画了中心涡旋链在 SU(3) 与 SU(4) 中如何生长与弯曲。我们发现，对于 SU(4) 双荷扇区存在良好的定量一致性，这为所提出的机制提供了进一步证据。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究中心涡旋网络的几何组织与统计性质如何反映杨-米尔斯理论中禁闭的红外动力学，并检验一种基于物理等价基本 Cartan 通量的禁闭机制。</p>
+    <h4>方法</h4><p>基于此前提出的禁闭机制进行理论分析，表明逾渗相中基本 Cartan 通量动力学重组为中心电荷扇区并满足 Casimir 标度律；采用聚合物启发技术刻画 SU(3) 与 SU(4) 中中心涡旋链的生长与弯曲，以提取连接格点系综与有效描述的参数，并与 SU(4) 格点模拟中观测到的双荷涡旋链进行对照。</p>
+    <h4>主要发现</h4><p>在逾渗相中，物理等价的基本 Cartan 通量动力学地重组为中心电荷扇区，其主导涡旋张力满足 Casimir 标度律，类似于禁闭弦张力的行为；对 SU(4) 双荷扇区，有效描述与格点结果呈现良好的定量一致性，为所提出的禁闭机制提供了进一步证据。</p>
+    <h4>局限与展望</h4><p>论文的检验集中于 SU(4) 双荷扇区，所提机制的适用范围与在其他规范群或扇区中的表现尚待进一步研究；后续工作可合理推断为将该框架推广至更多规范群与涡旋扇区，并进一步检验聚合物启发参数化与有效描述的一致性。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-09 14:01 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

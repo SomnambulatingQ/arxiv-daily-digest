@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-ex · 高能实验</h1>
+    <p class="lede">官方公告日：2026-11-09</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">12</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">9</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（3）</h3><ol class="toc-list"><li><a href="#paper-2611.08514v1">KOTO II 实验</a> <small>2611.08514v1</small></li><li><a href="#paper-2611.08694v1">GeoRead：面向连续AC-LGAD读出重建的几何感知Transformer</a> <small>2611.08694v1</small></li><li><a href="#paper-2611.09797v1">利用CMS开放数据以解析与机器学习方法重建顶夸克对运动学</a> <small>2611.09797v1</small></li></ol><h3>交叉列表（9）</h3><ol class="toc-list"><li><a href="#paper-2611.08579v1">重离子碰撞中通过TEEC观测横向动量展宽</a> <small>2611.08579v1</small></li><li><a href="#paper-2611.08586v1">Magic Is in the Eye of the Measure</a> <small>2611.08586v1</small></li><li><a href="#paper-2611.08606v1">Just CaloCHILL：在学习到的潜空间中快速生成强子簇射</a> <small>2611.08606v1</small></li><li><a href="#paper-2611.08656v1">高能物理中基于学习代理的高阶成分归因</a> <small>2611.08656v1</small></li><li><a href="#paper-2611.09095v1">在 $B_s^0$ 衰变中产生具有隐奇异性的隐粲分子候选态</a> <small>2611.09095v1</small></li><li><a href="#paper-2611.09478v1">三个中微子混合角之间的一个相互关系</a> <small>2611.09478v1</small></li><li><a href="#paper-2611.09489v1">PIONEER实验中的ATAR：致密紧凑型顶点探测器</a> <small>2611.09489v1</small></li><li><a href="#paper-2611.09517v1">PICO-40L探测器</a> <small>2611.09517v1</small></li><li><a href="#paper-2611.09788v1">镓异常的可能解决方案？核跃迁密度</a> <small>2611.09788v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.08514v1">
+  <div class="paper-head">
+    <h2>KOTO II 实验<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08514v1" rel="noopener noreferrer">2611.08514v1</a>
+  </div>
+  <p class="original-title">The Koto II experiment</p>
+  <p class="meta"><strong>作者：</strong>Silvia Martellotti</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>$K_L \rightarrow \pi^0\nu\bar{\nu}$ 是味物理中的黄金模式：该衰变在标准模型中受到高度压低，预言分支比为 $3 \times 10^{-11}$，理论不确定度仅为 2%，因此对新物理极为敏感。位于 J-PARC 的 KOTO 实验正在搜寻该衰变，利用 2021 年采集的数据，在 90% 置信水平下给出了迄今最严格的分支比上限 $2.2 \times 10^{-9}$。本文介绍 KOTO II——2024 年在 J-PARC 提出的下一代实验，其目标是在 2030 年代以低于 $10^{-12}$ 的灵敏度测量 $K_L \rightarrow \pi^0\nu\bar{\nu}$ 分支比。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在 J-PARC 实验上搜寻并测量标准模型中高度压低、对新物理敏感的 $K_L \rightarrow \pi^0\nu\bar{\nu}$ 衰变。</p>
+    <h4>方法</h4><p>KOTO 实验利用 2021 年采集的数据对该衰变进行搜寻；本文提出下一代实验 KOTO II，计划在 2030 年代以低于 $10^{-12}$ 的灵敏度测量其分支比。</p>
+    <h4>主要发现</h4><p>KOTO 基于 2021 年数据在 90% 置信水平下给出了迄今最严格的分支比上限 $2.2 \times 10^{-9}$；标准模型预言该分支比为 $3 \times 10^{-11}$，理论不确定度为 2%。</p>
+    <h4>局限与展望</h4><p>KOTO II 的目标灵敏度为低于 $10^{-12}$，计划于 2030 年代实现；摘要未给出该目标的具体实验方案、时间表细节或系统误差评估，这些方面有待原文进一步说明。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08694v1">
+  <div class="paper-head">
+    <h2>GeoRead：面向连续AC-LGAD读出重建的几何感知Transformer<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08694v1" rel="noopener noreferrer">2611.08694v1</a>
+  </div>
+  <p class="original-title">GeoRead: Geometry-Aware Transformer for Continuous AC-LGAD Readout Reconstruction</p>
+  <p class="meta"><strong>作者：</strong>Lixing Wang、Leena Diehl、Spencer Ellis、Marcos Fernández García、Gabriele Giacomini、Vagelis Gkougkousis、Ben Kilminster、Jingyu Luo、Anna Macchiolo、Yajna Mahabeer、Yevhenii Padniuk、Daria Senina、Samantha Sunnarborg、Jessica Tang、Alessandro Tricoli、Don C. Wong、Gaetano Barone</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">physics.data-an</span> <span class="tag">physics.ins-det</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>AC耦合低增益雪崩二极管（AC-LGAD）是高精度四维追踪中颇具前景的硅传感器技术。AC-LGAD的位置重建依赖于多个读出焊盘上所感应波形之间的相关性，而信号传播的解析求解较为困难，这促使人们采用基于数据的机器学习重建方法。现有机器学习方法通常假设固定的读出焊盘布局，并从孤立且时间对齐的波形窗口中预测单个击中。这些假设限制了其在不同传感器设计间的灵活性，也限制了其在连续读出场景中的适用性——在连续读出中，信号到达时间事先未知，且多个击中可能在相同波形中重叠。我们提出GeoRead，一种时空Transformer，可实现多事件连续位置预测与不确定度估计。该方法将相对焊盘位置纳入注意力机制，并给出具有预测不确定度的、时间分辨的击中位置估计。利用时间抖动与加性事件混合增强，模型可在由单事件测量合成的时间失配与重叠波形上训练。使用500\mum间距AC-LGAD的四通道瞬态电流技术（TCT）数据，GeoRead在190\volt下于读出焊盘中心凸包内达到5.8\mum的中位位置误差，在整个扫描区域达到8.2\mum。模型在时间偏移下保持相近精度，并展示了无需预定义逐事件窗口的叠加事件时间分辨重建。这些结果为将基于波形的位置重建推广至连续读出和灵活传感器几何提供了基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在AC-LGAD中实现不依赖固定读出焊盘布局、无需预定义逐事件时间窗口的连续位置重建，并在时间失配与多击中重叠条件下给出带不确定度的位置估计。</p>
+    <h4>方法</h4><p>提出GeoRead，一种将相对焊盘位置纳入注意力机制的时空Transformer，输出时间分辨的击中位置估计及预测不确定度；训练时采用时间抖动与加性事件混合增强，从单事件测量合成时间失配与重叠波形；在500\mum间距AC-LGAD的四通道TCT数据上评估。</p>
+    <h4>主要发现</h4><p>在190\volt下，GeoRead在读出焊盘中心凸包内取得5.8\mum的中位位置误差，在整个扫描区域取得8.2\mum；模型在时间偏移下保持相近精度，并实现了无需预定义逐事件窗口的叠加事件时间分辨重建。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果为将基于波形的位置重建推广至连续读出和灵活传感器几何提供了基础；当前评估基于特定500\mum间距器件的四通道TCT数据，向其他传感器设计与更复杂重叠场景的泛化能力尚待进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09797v1">
+  <div class="paper-head">
+    <h2>利用CMS开放数据以解析与机器学习方法重建顶夸克对运动学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09797v1" rel="noopener noreferrer">2611.09797v1</a>
+  </div>
+  <p class="original-title">Kinematic Reconstruction of Top-Quark Pairs Using Analytical and Machine-Learning Methods with CMS Open Data</p>
+  <p class="meta"><strong>作者：</strong>V. Aushev、M. Spitsyn、R. Yermolenko、O. Zenaiev</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在双轻子t\bar{t}衰变道中，由于存在两个未被探测到的中微子，重建顶夸克对（t\bar{t}）的运动学具有挑战性。本文利用质心能量为7 TeV的CMS开放数据中t\bar{t}事件的蒙特卡罗样本，研究了CMS合作组现有的运动学重建方法。通过对进入重建的喷注-轻子配对施加更严格的要求，发展了松散运动学重建的改进版本LKRv2。进一步的修改版本LKRv3利用双轻子与中微子对系统之间的运动学相似性，相对于基线LKR将重建的t\bar{t}不变质量分辨率提高了7%，对t\bar{t}的横向动量和快度的改进较小。此外，利用残差多层感知机和条件归一化流开发了两种基于机器学习（ML）的方法。相对于LKRv3，它们将不变质量、横向动量和快度的分辨率分别提高约30%、20%和15%。特别是在产生阈值附近，重建的t\bar{t}不变质量达到了30 GeV的分辨率。专门的产生器级研究和产生器到探测器的迁移测试表明，ML方法学习到的是对ν\barν近似的真实物理驱动修正，而非仅仅利用探测器特定效应。这些结果展示了基于ML的方法在改进双轻子t\bar{t}事件重建方面的强大潜力，同时指出中微子对近似是实现分辨率的重要限制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在双轻子t\bar{t}衰变道中，如何改进由于两个未探测中微子而导致困难的t\bar{t}运动学重建，并比较解析方法与机器学习方法的性能。</p>
+    <h4>方法</h4><p>使用CMS开放数据在7 TeV下的t\bar{t}蒙特卡罗样本，研究CMS现有的运动学重建方法；通过更严格的喷注-轻子配对要求发展LKRv2，并利用双轻子与中微子对系统的运动学相似性发展LKRv3；同时采用残差多层感知机和条件归一化流两种机器学习方法。</p>
+    <h4>主要发现</h4><p>LKRv3相对于基线LKR将重建的t\bar{t}不变质量分辨率提高7%，对横向动量和快度的改进较小；两种ML方法相对于LKRv3将不变质量、横向动量和快度的分辨率分别提高约30%、20%和15%，在产生阈值附近不变质量分辨率达到30 GeV；产生器级研究和产生器到探测器迁移测试表明ML方法学习到对ν\barν近似的物理驱动修正，而非仅利用探测器效应。</p>
+    <h4>局限与展望</h4><p>中微子对近似被识别为实现分辨率的重要限制；ML方法在双轻子t\bar{t}重建中具有强大潜力，但本文结果基于7 TeV的CMS开放数据蒙特卡罗样本，向其他能量或数据条件的推广需进一步验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.08579v1">
+  <div class="paper-head">
+    <h2>重离子碰撞中通过TEEC观测横向动量展宽<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08579v1" rel="noopener noreferrer">2611.08579v1</a>
+  </div>
+  <p class="original-title">Observing Transverse Momentum Broadening from TEECs in Heavy Ion Collisions</p>
+  <p class="meta"><strong>作者：</strong>João Barata、Hai Tao Li、Andrey V. Sadofyev、João M. Silva</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究重离子碰撞中双喷注事件里横向能量-能量关联函数（TEEC）的方位角依赖。在背对背区域，该观测量能够分辨φ=π附近的能量流，并对介质诱导的动量展宽及介质响应敏感。为隔离末态效应，作者考虑一个在色单态硬过程中产生、并在均匀背景介质中传播的夸克-反夸克对。从真空TMD因子化公式出发，将NLL&#x27;重求和与强耦合一阶的介质修正相结合。在所研究的参数下，（经典）动量展宽降低背对背峰，而分布其余部分几乎不变；辐射修正进一步显著压低峰值，并增强较大角度的去关联。作者还以平均能量流的形式加入了每个喷注所引发的介质响应。该响应将沉积能量散布到整个方位角范围，使其对TEEC的贡献在背对背区域变化缓慢，在峰值处较小，并随角度增大而增长。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>重离子碰撞双喷注事件中，TEEC在背对背区域的方位角分布如何受介质诱导的横向动量展宽、辐射修正及介质响应影响。</p>
+    <h4>方法</h4><p>在色单态夸克-反夸克对于均匀背景介质中传播的简化设定下，从真空TMD因子化出发，结合NLL&#x27;重求和与强耦合一阶的介质修正，并额外以平均能量流形式加入每个喷注引发的介质响应。</p>
+    <h4>主要发现</h4><p>在所研究参数下，经典动量展宽降低背对背峰而其余分布近乎不变；辐射修正进一步显著压低峰值并增强较大角度的去关联；介质响应将沉积能量散布至整个方位角，其对TEEC的贡献在背对背区域变化缓慢、峰值处较小并随角度增大而增长。</p>
+    <h4>局限与展望</h4><p>结果基于均匀介质与色单态夸克-反夸克对的简化模型，向真实重离子碰撞的推广及介质非均匀性等效应尚待进一步研究；本文未对此作出结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08586v1">
+  <div class="paper-head">
+    <h2>Magic Is in the Eye of the Measure<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08586v1" rel="noopener noreferrer">2611.08586v1</a>
+  </div>
+  <p class="original-title">Magic Is in the Eye of the Measure</p>
+  <p class="meta"><strong>作者：</strong>Zhi-Heng Shen、Zhewei Yin、Hao-Lin Zhang</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  <p class="warning">⚠ 中文生成失败，本条目需要人工检查。</p>
+  <section>
+    <h3>中文摘要</h3>
+    <p>Magic, or nonstabilizerness, is the quantum resource behind universal quantum computation. Its applications in high-energy and nuclear physics rely almost exclusively on the stabilizer Rényi entropy (SRE), although magic has no unique measure. For two qubits, we compare the SRE with three measures defined through optimizations over stabilizer states: the min- and max-relative entropies of magic and the logarithmic free robustness. We determine the maximal-magic states of all four measures, with exact proofs, and find that they depend on the measure. In the determination of the weak mixing angle from minimal magic in Møller scattering, the min-relative entropy gives an energy-dependent value that differs from that of the SRE, whereas the max-relative entropy and the logarithmic free robustness give $\sin^2θ_W=1/4$ at all energies. We trace this difference to the non-analytic structure of the optimization-based measures. Physical conclusions drawn from extremizing magic can thus depend on the measure.</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>方法</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>主要发现</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>局限与展望</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08606v1">
+  <div class="paper-head">
+    <h2>Just CaloCHILL：在学习到的潜空间中快速生成强子簇射<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08606v1" rel="noopener noreferrer">2611.08606v1</a>
+  </div>
+  <p class="original-title">Just CaloCHILL: fast hadronic shower generation in a learned latent space</p>
+  <p class="meta"><strong>作者：</strong>Henry Day-Hall、Frank Gaede、Gregor Kasieczka、Katja Krüger、Martina Mozzanica</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">cs.LG</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">physics.data-an</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量能器簇射是探测器模拟中开销最大的部分，而高粒度量能器使这一开销进一步增加，因为单次强子簇射就会留下数千个能量沉积。本文提出 CaloCHILL（Calorimeter Hits In Learned Latents），一种生成模型；它不逐个生成这些沉积，而是在学习到的潜空间中生成簇射的紧凑摘要，仅在最后将其展开到全分辨率。完整簇射（包括每个击中点的到达时间）分三阶段构建：首先由 flow-matching 模型确定每个量能器层的击中数及最早击中时间，随后由 mean-flow 模型生成潜摘要，最后由变分自编码器的解压器将其转换为完整点云，为每个击中点赋予位置、能量和时间。沿簇射轴的稀疏注意力使这种压缩对具有数千个击中点的簇射仍可负担。在国际直线对撞机（ILDR，拟议的 FCC-ee 探测器）量能器中的正π介子簇射上，CaloCHILL 再现了主要簇射观测量，包括其时间结构。该新模型比其前身快 600 倍，同时在所考虑的所有精度指标上均有改进。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何高效生成高粒度量能器中强子簇射的完整点云（含每个击中点的位置、能量与时间），以降低探测器模拟的计算开销。</p>
+    <h4>方法</h4><p>提出 CaloCHILL 生成模型，在学习到的潜空间中生成簇射的紧凑摘要并在最后展开到全分辨率；采用三阶段流程：flow-matching 模型设定各量能器层的击中数与最早击中时间，mean-flow 模型生成潜摘要，变分自编码器解压器输出完整点云；并使用沿簇射轴的稀疏注意力控制压缩开销。</p>
+    <h4>主要发现</h4><p>在 ILD 量能器（拟议的 FCC-ee 探测器）中的正π介子簇射上，CaloCHILL 再现了主要簇射观测量及其时间结构；相比前身模型快 600 倍，且在所考虑的所有精度指标上均有改进。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与适用范围；摘要仅报告了正π介子簇射上的结果，向其他粒子种类、探测器几何或能量范围的泛化能力尚待验证（此为推断）。后续可合理探索的方向包括扩展至更广泛的簇射类型与探测器配置（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08656v1">
+  <div class="paper-head">
+    <h2>高能物理中基于学习代理的高阶成分归因<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08656v1" rel="noopener noreferrer">2611.08656v1</a>
+  </div>
+  <p class="original-title">Higher Order Component Attribution via Learned Surrogates in High Energy Physics</p>
+  <p class="meta"><strong>作者：</strong>Lauri Laatu、Aritra Bal、Benedikt Maier、Markus Klute、Michael Spannowsky</p>
+  <p class="meta"><strong>主分类：</strong>cs.LG
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cs.LG</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>实验高能物理（HEP）已将 Transformer 架构用于喷注鉴别，其中代表性的 Particle Transformer（ParT）在注意力机制中显式注入粒子关联信息。尽管 ParT 在准确率上达到当前最优水平，但对其有效性来源的可解释性仍然有限。本文提出基于 Kolmogorov-Arnold Networks（KAN）的成分归因方法，将归因结果直接关联到喷注的物理描述量，用以考察多头注意力（MHA）或 ParT 架构等机制是否能够将这些物理描述量学习为判别特征。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究 ParT 等 Transformer 架构在高能物理喷注鉴别中取得高性能的可解释性问题，具体考察多头注意力或 ParT 架构是否将喷注的物理描述量学习为判别特征。</p>
+    <h4>方法</h4><p>提出基于 Kolmogorov-Arnold Networks（KAN）的成分归因方法，将归因结果直接对应到喷注的物理描述量，并据此探查 MHA 与 ParT 架构所学特征。</p>
+    <h4>主要发现</h4><p>原文摘要仅说明所提方法用于探查上述机制能否将喷注物理描述量学习为判别特征，未在摘要中给出具体归因结果或定量结论。</p>
+    <h4>局限与展望</h4><p>摘要未讨论局限与适用范围；后续可合理推断的方向包括将该归因方法扩展到其他喷注标记架构或与其他可解释性手段结合，但此推断需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09095v1">
+  <div class="paper-head">
+    <h2>在 $B_s^0$ 衰变中产生具有隐奇异性的隐粲分子候选态<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09095v1" rel="noopener noreferrer">2611.09095v1</a>
+  </div>
+  <p class="original-title">Production of hidden-charm molecular candidates with hidden strangeness in $B_s^0$ decays</p>
+  <p class="meta"><strong>作者：</strong>Yue Su、Ying-Bo He、Xiao-Yun Wang、Xiao-Hai Liu</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究在伴随 $\eta$ 的 $B_s^0$ 衰变中，自旋为1的 $D_{s0}^*(2317)\bar D_s^*$、$D_{s1}(2460)\bar D_s^*$ 与 $D_{s1}(2536)\bar D_s^*$ 分子候选态的产生，为检验其结构与产生机制提供互补探针。介子圈重散射振幅由因子化弱源与重强子手征相互作用构造。组分耦合借助依赖于阈值的复合度关系估计，相关输入不确定性被传播至预言速率。相反 $C$ 宇称伙伴态假设以继承的基准参数纳入。我们计算了两种相对符号下的分支比。在截断参数范围 $2\leq\alpha\leq5$ 内，较大的中心分支比达到 $10^{-6}$ 至 $10^{-5}$ 量级，表明未来实验测量可能具备可及性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究在 $B_s^0$ 衰变中伴随 $\eta$ 产生自旋为1的隐粲隐奇异分子候选态 $D_{s0}^*(2317)\bar D_s^*$、$D_{s1}(2460)\bar D_s^*$ 与 $D_{s1}(2536)\bar D_s^*$ 的机制与可观测性，以互补检验这些态的内部结构。</p>
+    <h4>方法</h4><p>由因子化弱源与重强子手征相互作用构造介子圈重散射振幅；利用依赖于阈值的复合度关系估计组分耦合，并将输入不确定性传播到预言速率；对相反 $C$ 宇称伙伴态假设采用继承的基准参数；计算两种相对符号下的分支比。</p>
+    <h4>主要发现</h4><p>在截断参数范围 $2\leq\alpha\leq5$ 内，较大的中心分支比达到 $10^{-6}$ 至 $10^{-5}$ 量级，提示未来实验测量可能具备可及性。</p>
+    <h4>局限与展望</h4><p>结果依赖于截断参数 $\alpha$、复合度关系估计的耦合以及相反 $C$ 宇称伙伴态假设的基准参数，输入不确定性已传播至速率；上述分支比仅为模型预言，尚需实验检验。后续可通过更精确的耦合确定与实验数据对分子态假设进行区分（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09478v1">
+  <div class="paper-head">
+    <h2>三个中微子混合角之间的一个相互关系<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09478v1" rel="noopener noreferrer">2611.09478v1</a>
+  </div>
+  <p class="original-title">An interrelation of three neutrino mixing angles</p>
+  <p class="meta"><strong>作者：</strong>Zhi-zhong Xing</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出三个中微子混合角之间的一种新关系猜想：$\theta^{}_{23} = (\theta^{}_{12} + \theta^{}_{13})/2 + \pi/8$。以最新的 JUNO 与 Daya Bay 精确数据为输入，该关系预言 $\theta^{}_{23} = 43.46^{+0.51^\circ}_{-0.52^\circ}$。作者提出一个简单的 ansatz 以导出这一在现象学上受青睐且可被实验检验的角度关系，并作为副产品给出轻子味混合矩阵按单一小参数的幂次展开的新形式。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>三个中微子混合角之间是否存在可检验的定量相互关系，以及能否用简单的理论 ansatz 导出该关系。</p>
+    <h4>方法</h4><p>提出混合角关系猜想 $\theta^{}_{23} = (\theta^{}_{12} + \theta^{}_{13})/2 + \pi/8$，以最新 JUNO 和 Daya Bay 精确数据为输入进行数值预言，并构造一个简单 ansatz 导出该关系；同时给出轻子味混合矩阵按单一小参数幂次展开的新形式。</p>
+    <h4>主要发现</h4><p>在该关系下，以 JUNO 与 Daya Bay 数据为输入预言 $\theta^{}_{23} = 43.46^{+0.51^\circ}_{-0.52^\circ}$；作者称该角度关系在现象学上受青睐且可被实验检验，并可由所提 ansatz 导出；此外得到轻子味混合矩阵按单一小参数展开的新表达式。</p>
+    <h4>局限与展望</h4><p>该关系目前为猜想，其理论依据来自所提 ansatz 而非第一性原理；预言精度受 JUNO 与 Daya Bay 输入数据精度限制，适用性有待未来中微子振荡实验检验。后续可合理推断的方向包括：用更高精度的 $\theta^{}_{23}$ 测量检验该关系，以及探讨该 ansatz 的更深层理论动机。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09489v1">
+  <div class="paper-head">
+    <h2>PIONEER实验中的ATAR：致密紧凑型顶点探测器<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09489v1" rel="noopener noreferrer">2611.09489v1</a>
+  </div>
+  <p class="original-title">The ATAR, a dense and compact vertex detector for the PIONEER experiment</p>
+  <p class="meta"><strong>作者：</strong>Tilman Rohe、for the PIONEER collaboration</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>PIONEER是获准在瑞士Villigen的保罗谢勒研究所（PSI）开展的实验，目标是以0.01%的精度测量带电π介子衰变为电子与μ子的分支比。这一精度较前代实验提升一个数量级，并接近标准模型预言的精度。PIONEER的关键部件包括围绕高粒度有源靶（ATAR）同心布置的高分辨率量能器。ATAR由48层低增益雪崩条探测器（LGAD）堆叠构成，用于阻止束流π介子并提供详细的事件拓扑信息，包括约200 ps量级的时间信息、约60微米精度的空间信息，以及高动态范围的脉冲高度信息，以区分π介子停止、μ子和最小电离粒子（MIP）。为避免影响正子的能量测量，读出电子学置于量能器接受角之外，由快速放大器和快速采样芯片组成，对LGAD波形进行数字化以用于实时分析。本文介绍PIONEER实验，重点阐述ATAR及其读出系统，并报告2026年的研制进展与活动。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>PIONEER实验旨在以0.01%的精度测量带电π介子衰变为电子与μ子的分支比，较前代实验精度提升一个数量级并接近标准模型预言精度；本文聚焦于该实验中ATAR有源靶及其读出系统的设计与研制。</p>
+    <h4>方法</h4><p>ATAR由48层低增益雪崩条探测器（LGAD）堆叠构成，用于阻止束流π介子并提供事件拓扑信息：约200 ps量级的时间信息、约60微米精度的空间信息以及高动态范围的脉冲高度信息，以区分π介子停止、μ子和MIP。读出电子学置于量能器接受角之外以避免影响正子能量测量，由快速放大器和快速采样芯片组成，对LGAD波形进行数字化以用于实时分析。</p>
+    <h4>主要发现</h4><p>原文明确给出PIONEER的实验目标精度（0.01%）、ATAR的层数（48层LGAD）、时间分辨（约200 ps量级）、空间精度（约60微米）及读出电子学的组成与布局安排；摘要未报告具体的性能测量结果或实验数据。</p>
+    <h4>局限与展望</h4><p>原文仅说明将报告2026年的研制进展与活动，未给出具体结论；该探测器的实际时间与空间分辨性能、高动态范围脉冲高度信息对π介子停止、μ子和MIP的区分能力，以及读出系统在真实束流条件下的表现，尚待后续研制与测试验证（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09517v1">
+  <div class="paper-head">
+    <h2>PICO-40L探测器<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09517v1" rel="noopener noreferrer">2611.09517v1</a>
+  </div>
+  <p class="original-title">The PICO-40L detector</p>
+  <p class="meta"><strong>作者：</strong>PICO Collaboration、E. Adams、B. Ali、R. Anderson-Dornan、D. J. Auty、E. Behnke、M. Bai、M. Bressler、B. Broerman、G. Cao、W. C. Chen、U. Chowdhury、K. Clark、J. I. Collar、J. Corbett、C. B. Coutu、D. Cranshaw、M. Crisler、C. E. Dahl、M. Das、S. Fallows、R. Filgas、A. García-Viltres、C. Gaudreau、F. Girard、G. Giroux、P. Grylls、C. Hardy、O. Harris、H. Hawley-Herrera、R. Hill、T. Hillier、C. B. Krauss、M. Laurin、I. Lawson、A. Leblanc、H. Leng、I. Levine、Q. Malin、A. Mathewson、D. Maurya、S. Meister、V. Monette、C. Moore、R. Neilson、A. J. Noble、H. Nozard、A. Ortega、S. Pal、M. -C. Piro、A. Plante、S. Priya、M. Rangen、C. Rethmeier、M. Robert、A. E. Robinson、J. Savoie、S. J. Sekula、N. Starinski、I. Štekl、T. Sullivan、M. Tripathi、E. Vázquez-Jáuregui、E. Weima、U. Wichoski、W. Woodley</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>PICO合作组设计并建造了一台新型气泡室，用于搜寻弱相互作用大质量粒子（WIMP）这一主要暗物质候选者的证据。PICO-40L探测器是PICO-60的后继装置，采用全新设计的系统，在气泡成核事件后对灵敏体积进行加压。在PICO-40L中，压力通过两组嵌套的合成石英容器传递至靶流体，两组容器由位于灵敏体积下方的波纹管连接。这与早期探测器的设计不同：早期设计中，压力经由靶流体上方的缓冲流体传递，且位于单一合成石英容器内，波纹管连接于灵敏体积上方。去除缓冲流体消除了两种流体界面产生本底的可能性，而将波纹管移至靶流体下方则抑制了源自波纹管的颗粒物可能带来的本底。PICO-40L这一新探测器概念被称为Right-Side-Up（RSU）设计，需要专门的热系统使探测器下部保持低温，同时上部稳定处于过热状态。PICO-40L的主要目标是确立RSU探测器概念的性能特征，为目前正在SNOLAB建造的最终代PICO暗物质探测器PICO-500的运行配置提供依据。本文综述了PICO-40L探测器的设计、安装与性能。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>PICO合作组为搜寻WIMP暗物质设计并建造了PICO-40L气泡室探测器，其核心问题是验证一种去除缓冲流体、将波纹管置于灵敏体积下方的新型RSU探测器概念的性能特征，为最终代PICO-500探测器的运行配置提供依据。</p>
+    <h4>方法</h4><p>PICO-40L采用两组嵌套的合成石英容器，通过位于灵敏体积下方的波纹管将压力传递至靶流体，从而去除靶流体上方的缓冲流体；并配备专门的热系统，使探测器下部保持低温、上部稳定处于过热状态。论文综述了该探测器的设计、安装与性能。</p>
+    <h4>主要发现</h4><p>原文明确指出，去除缓冲流体消除了两种流体界面产生本底的可能性，将波纹管移至靶流体下方则抑制了源自波纹管的颗粒物可能带来的本底；PICO-40L是PICO-60的后继装置，其主要目标是确立RSU探测器概念的性能特征，以指导正在SNOLAB建造的PICO-500的运行配置。</p>
+    <h4>局限与展望</h4><p>原文未报告具体的物理灵敏度或本底测量结果；PICO-40L的定位是概念验证与性能表征，其结论将用于确定PICO-500的运行配置。RSU概念在更大规模探测器中的适用性及最终暗物质搜寻能力，尚待PICO-500建成后验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09788v1">
+  <div class="paper-head">
+    <h2>镓异常的可能解决方案？核跃迁密度<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09788v1" rel="noopener noreferrer">2611.09788v1</a>
+  </div>
+  <p class="original-title">Possible Solution to the Gallium Anomaly? Nuclear Transition Densities</p>
+  <p class="meta"><strong>作者：</strong>D. Castillo、D. Frycz、J. Menéndez</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>镓异常——即测得的 $^{71}$Ga 上 $\nu_e$ 俘获率存在约 20% 的亏缺——至今仍未得到解释。近期工作 [Phys. Rev. Lett. 137, 131805 (2026), arXiv:2512.20560] 提出一种解决方案，其依据是截面预言所依赖的轻子与核波函数因子化失效，并结合了特设的 Gamow-Teller 核跃迁密度。我们利用在核壳模型（NSM）框架内计算、归一化到 $^{71}$Ge 电子俘获半衰期并与 Dirac-Hartree-Fock-Slater 电子波函数卷积的跃迁密度，检验该提议方案。我们考察了多种 NSM 相互作用、裸与有效 Gamow-Teller 算符以及价空间的影响。在所有情形下，我们都得到高度一致的 NSM 跃迁密度。我们的因子化与非因子化截面彼此相符，且仍比测量值高 20%。此外，我们以 NSM 单核子跃迁密度作为 ansatz，发现要解决该异常需要精细调节的密度，伴随百分之一量级的抵消以及比计算所得 NSM 密度大若干数量级的整体标度。我们由此得出结论：使用现实的核跃迁密度时，镓异常并未得到解决。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文检验近期提出的、基于轻子与核波函数因子化失效及特设 Gamow-Teller 核跃迁密度的方案能否解释镓异常（$^{71}$Ga 上 $\nu_e$ 俘获率约 20% 的亏缺）。</p>
+    <h4>方法</h4><p>在核壳模型（NSM）框架内计算 $^{71}$Ga/$^{71}$Ge 跃迁密度，归一化到 $^{71}$Ge 电子俘获半衰期，并与 Dirac-Hartree-Fock-Slater 电子波函数卷积；考察多种 NSM 相互作用、裸与有效 Gamow-Teller 算符及价空间的影响；比较因子化与非因子化截面；并以 NSM 单核子跃迁密度作为 ansatz 检验所需密度的性质。</p>
+    <h4>主要发现</h4><p>在所有考察情形下均得到高度一致的 NSM 跃迁密度；因子化与非因子化截面彼此相符，且仍比测量值高 20%；以 NSM 单核子跃迁密度为 ansatz 时，解决异常需要精细调节的密度，伴随百分之一量级的抵消以及比计算所得 NSM 密度大若干数量级的整体标度。</p>
+    <h4>局限与展望</h4><p>原文结论为：使用现实的核跃迁密度时镓异常并未得到解决。其局限在于检验限于 NSM 框架及所考察的相互作用、算符与价空间；可合理推断，若异常持续存在，则需在核结构计算之外寻找解释，但原文未对此作出明确论断。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-09 14:01 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

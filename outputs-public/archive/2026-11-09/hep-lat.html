@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-09</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">2</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（3）</h3><ol class="toc-list"><li><a href="#paper-2611.09150v1">热手征交叉区中QCD拓扑的手征响应</a> <small>2611.09150v1</small></li><li><a href="#paper-2611.09817v1">机器学习用于格点QCD</a> <small>2611.09817v1</small></li><li><a href="#paper-2611.09865v1">中心涡旋网络的出现与聚合物物理：面向 SU(4) 格点杨-米尔斯理论的检验</a> <small>2611.09865v1</small></li></ol><h3>交叉列表（2）</h3><ol class="toc-list"><li><a href="#paper-2610.42103v1">四腿梯形格点上对称质量生成相的电荷泵浦轻子生成</a> <small>2610.42103v1</small></li><li><a href="#paper-2611.09297v1">手征微扰理论下大 $b$ 区域的 Collins-Soper 核</a> <small>2611.09297v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.09150v1">
+  <div class="paper-head">
+    <h2>热手征交叉区中QCD拓扑的手征响应<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09150v1" rel="noopener noreferrer">2611.09150v1</a>
+  </div>
+  <p class="original-title">Chiral Response of QCD Topology across the Thermal Crossover</p>
+  <p class="meta"><strong>作者：</strong>Heng-Tong Ding、Jin-Biao Gu、José Javier Hernández Hernández、Sheng-Tai Li、Jia Ni</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文建立了一个新关系，将量子色动力学（QCD）中拓扑磁化率对轻夸克质量的导数与拓扑荷平方和积分轻夸克标量密度之间的连通关联联系起来。该关系使得在每个温度下仅需固定夸克质量的单一系综即可直接获得QCD拓扑的手征响应，即拓扑磁化率对轻夸克质量的局域对数导数，而无需在偏移质量处进行额外模拟。将这一关系应用于（2+1）味格点QCD，在m_π≃220 MeV、温度从远低于到远高于手征交叉区的范围内，我们发现该响应在穿越交叉区时从约1迅速上升至约2。这一演化对应于拓扑磁化率对轻夸克质量的依赖从近似线性变为近似二次。以手征响应作为轻夸克质量局域幂律的指数，我们从拓扑磁化率确定了其有效振幅。该振幅在交叉温度附近达到最大值，反映了拓扑磁化率下降与手征响应上升之间的竞争。这些结果揭示了QCD拓扑的夸克质量依赖在热手征交叉区发生了重组，而不仅仅是拓扑涨落的抑制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究QCD拓扑磁化率对轻夸克质量的依赖如何随温度变化，特别是在手征交叉区附近的行为。</p>
+    <h4>方法</h4><p>提出一个将拓扑磁化率对轻夸克质量的导数与拓扑荷平方和积分轻夸克标量密度的连通关联联系起来的新关系，并应用于（2+1）味格点QCD，在m_π≃220 MeV下覆盖从远低于到远高于手征交叉区的温度范围。</p>
+    <h4>主要发现</h4><p>手征响应在穿越交叉区时从约1迅速上升至约2，对应于拓扑磁化率对轻夸克质量的依赖从近似线性变为近似二次；以手征响应为指数的局域幂律有效振幅在交叉温度附近达到最大值，反映了拓扑磁化率下降与手征响应上升之间的竞争。</p>
+    <h4>局限与展望</h4><p>该研究局限于m_π≃220 MeV的（2+1）味格点QCD，未涉及更轻的物理夸克质量；后续可合理推断将关系推广至更轻的π介子质量或包括更精细的温度扫描，以检验手征响应演化的普适性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09817v1">
+  <div class="paper-head">
+    <h2>机器学习用于格点QCD<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09817v1" rel="noopener noreferrer">2611.09817v1</a>
+  </div>
+  <p class="original-title">Machine learning for lattice QCD</p>
+  <p class="meta"><strong>作者：</strong>Gurtej Kanwar、Scott Lawrence、Alessandro Nada、Phiala Shanahan</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cs.LG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>机器学习（ML）方法已被探索用于优化格点场论计算，近年来相关兴趣持续增长。本章介绍并总结了在不引入任何不可控近似的前提下，利用ML方法优化格点场论的研究进展。内容聚焦于截至2025年末已明确确立的研究方向；该时间点恰逢格点规范理论研究肇始五十周年。本章为在线著作《Lattice QCD at 50 years》（LQCD@50，由Tanmoy Bhattacharya、Maarten Golterman、Rajan Gupta、Laurent Lellouch和Steve Sharpe编辑）的组成部分。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在不引入不可控近似的前提下，利用机器学习方法优化格点场论（尤其是格点QCD）计算。</p>
+    <h4>方法</h4><p>以综述章节形式，对截至2025年末已明确确立的、将ML用于优化格点场论计算的研究方向进行介绍与总结。</p>
+    <h4>主要发现</h4><p>原文指出ML方法已被探索作为优化格点场论计算的手段，且近年来兴趣增长；本章聚焦于截至2025年末已明确确立的相关方向，并强调这些应用不引入不可控近似。</p>
+    <h4>局限与展望</h4><p>原文未具体讨论局限或后续方向；作为综述章节，其覆盖范围限于截至2025年末已确立的方向，未确立或新兴的方向可能未被纳入（此点为基于原文时间界定的推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09865v1">
+  <div class="paper-head">
+    <h2>中心涡旋网络的出现与聚合物物理：面向 SU(4) 格点杨-米尔斯理论的检验<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09865v1" rel="noopener noreferrer">2611.09865v1</a>
+  </div>
+  <p class="original-title">Emergence and polymer physics of the center-vortex network: Confronting SU(4) lattice Yang-Mills theory</p>
+  <p class="meta"><strong>作者：</strong>Luis E. Oxman、Jackson A. Mickley、Derek B. Leinweber</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>中心涡旋网络的几何组织与统计性质为理解杨-米尔斯理论中禁闭背后的红外动力学提供了窗口。受这一联系启发，我们研究此前提出的一种基于物理等价的基本 Cartan 通量的禁闭机制所蕴含的新推论。我们表明，在逾渗相中，这些通量会动力学地重组为中心电荷扇区，其主导涡旋张力满足 Casimir 标度律，类似于在禁闭弦张力中观测到的行为。随后，我们将该结果与第一个非平凡的杨-米尔斯情形相对照：即近期在 SU(4) 格点模拟中观测到的双荷涡旋链。为提取将格点系综与有效描述相连接所需的参数，我们采用此前未应用于中心涡旋的聚合物启发技术，刻画了中心涡旋链在 SU(3) 与 SU(4) 中如何生长与弯曲。我们发现，对于 SU(4) 双荷扇区存在良好的定量一致性，这为所提出的机制提供了进一步证据。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究中心涡旋网络的几何组织与统计性质如何反映杨-米尔斯理论中禁闭的红外动力学，并检验一种基于物理等价基本 Cartan 通量的禁闭机制。</p>
+    <h4>方法</h4><p>基于此前提出的禁闭机制进行理论分析，表明逾渗相中基本 Cartan 通量动力学重组为中心电荷扇区并满足 Casimir 标度律；采用聚合物启发技术刻画 SU(3) 与 SU(4) 中中心涡旋链的生长与弯曲，以提取连接格点系综与有效描述的参数，并与 SU(4) 格点模拟中观测到的双荷涡旋链进行对照。</p>
+    <h4>主要发现</h4><p>在逾渗相中，物理等价的基本 Cartan 通量动力学地重组为中心电荷扇区，其主导涡旋张力满足 Casimir 标度律，类似于禁闭弦张力的行为；对 SU(4) 双荷扇区，有效描述与格点结果呈现良好的定量一致性，为所提出的禁闭机制提供了进一步证据。</p>
+    <h4>局限与展望</h4><p>论文的检验集中于 SU(4) 双荷扇区，所提机制的适用范围与在其他规范群或扇区中的表现尚待进一步研究；后续工作可合理推断为将该框架推广至更多规范群与涡旋扇区，并进一步检验聚合物启发参数化与有效描述的一致性。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2610.42103v1">
+  <div class="paper-head">
+    <h2>四腿梯形格点上对称质量生成相的电荷泵浦轻子生成<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2610.42103v1" rel="noopener noreferrer">2610.42103v1</a>
+  </div>
+  <p class="original-title">Charge Pumping Leptogenesis from the Symmetric Mass Generation Phase on a Four-Leg Ladder Lattice</p>
+  <p class="meta"><strong>作者：</strong>Runze Chi、Meng Zeng、Tao Xiang、Yi-Zhuang You、Bertrand I. Halperin、Juven Wang</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子霍尔体系中的量子化电荷泵浦是一种体拓扑性质，通常在无能隙边界上表现为磁通插入时通过手征边缘模的谱流。当边界无反常时，可通过对称质量生成（SMG）相互作用使其对称地打开能隙。然而，相互作用打开能隙的边界对量子化电荷泵浦的影响尚不清楚。本文利用密度矩阵重整化群模拟，研究四腿梯形准(2+1)维实现，该实现对应(1+1)维3-4-5-0格点手征费米子模型，并在一条边缘上引入六费米子相互作用。我们发现，在弱耦合和强耦合下相互作用边缘附近均存在无能隙模，但在中间耦合下边缘可处于完全打开能隙的SMG相。我们还识别出在临界相互作用强度以上模型$\mathbb{Z}_2$对称性的自发破缺。在三种边界相中，我们都发现每个磁通量子泵浦相同电荷量的量子化电荷泵浦，但泵浦电荷的空间分布在各相之间有所不同。除电荷泵浦外，我们研究了开放边界条件下单个注入费米子的传播。在SMG相中，打开能隙边缘的端点处会出现相互作用诱导的味混合流，这在弱耦合和强耦合极限下均不存在；该流揭示了SMG相特有的电荷再分布机制。此外，我们提出该模型中的电荷泵浦与(3+1)维标准模型中的拓扑轻子生成情景之间的类比：3-4-5-0模型的无反常手征U(1)对称性所起的作用类似于标准模型中的重子数减轻子数对称性；在两种情形中，电荷泵浦都可与沿经典定义但量子反常方向的连续形变相关联，同时一个离散子群仍为精确的量子对称性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>相互作用打开能隙的边界（特别是对称质量生成相）如何影响量子化电荷泵浦，以及该模型与标准模型拓扑轻子生成之间是否存在类比。</p>
+    <h4>方法</h4><p>对四腿梯形准(2+1)维实现的(1+1)维3-4-5-0格点手征费米子模型进行密度矩阵重整化群模拟，在一条边缘上引入六费米子相互作用，并研究开放边界条件下单费米子注入的传播。</p>
+    <h4>主要发现</h4><p>弱耦合与强耦合下相互作用边缘附近存在无能隙模，中间耦合下边缘可处于完全打开能隙的SMG相；临界相互作用强度以上出现$\mathbb{Z}_2$对称性自发破缺；三种边界相均表现出每个磁通量子泵浦相同电荷量的量子化电荷泵浦，但泵浦电荷空间分布不同；SMG相中打开能隙边缘端点出现相互作用诱导的味混合流，弱耦合与强耦合极限下不存在。</p>
+    <h4>局限与展望</h4><p>原文指出该味混合流揭示了SMG相特有的电荷再分布机制，并提出与(3+1)维标准模型拓扑轻子生成的类比；该类比及SMG相电荷再分布机制的普适性有待进一步研究，本文结果基于特定四腿梯形格点模型与密度矩阵重整化群模拟，其向其他维度或模型的推广需谨慎推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09297v1">
+  <div class="paper-head">
+    <h2>手征微扰理论下大 $b$ 区域的 Collins-Soper 核<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09297v1" rel="noopener noreferrer">2611.09297v1</a>
+  </div>
+  <p class="original-title">Collins-Soper kernel at large $b$ from Chiral Perturbation Theory</p>
+  <p class="meta"><strong>作者：</strong>Alexey Vladimirov</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在手征微扰理论框架下为横向动量依赖（TMD）分布构造了有效算符。由π介子场与核子场构造的算符具备 QCD 算符的主要性质，包括可乘性重整化的快度发散。通过提取领头快度发散，我们得到了大 $b$ 区域、低能标度点处 Collins-Soper 核的表达式；该表达式在相差一个可加常数的意义下与模型无关。在此区域内，Collins-Soper 核呈现近乎常数的行为。我们还发现，在大 $b$ 处它依赖于同位旋道与强子类型，尽管这一依赖在数值上非常小。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用手征微扰理论描述大 $b$ 区域的 Collins-Soper 核，并考察其行为及对同位旋道和强子类型的依赖。</p>
+    <h4>方法</h4><p>在手征微扰理论中，由π介子场和核子场构造具有 QCD 算符主要性质（含可乘性重整化快度发散）的 TMD 分布有效算符，并提取领头快度发散以得到 Collins-Soper 核的表达式。</p>
+    <h4>主要发现</h4><p>得到大 $b$、低能标度点处 Collins-Soper 核的表达式，该表达式在相差一个可加常数的意义下与模型无关；在此区域内 Collins-Soper 核呈近乎常数的行为；大 $b$ 处它依赖同位旋道与强子类型，但数值上非常小。</p>
+    <h4>局限与展望</h4><p>该结果适用于手征微扰理论有效描述所覆盖的大 $b$、低能标度区域，且存在一个未被确定的加性常数；后续工作或可关注该常数的确定，以及将分析推广至更高阶或更广的强子种类，但这些均属推断。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-09 14:01 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
