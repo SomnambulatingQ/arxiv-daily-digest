@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-11-09</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">14</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">10</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（4）</h3><ol class="toc-list"><li><a href="#paper-2611.08980v1">跨越聚焦到散焦转变的呼吸子：从类衍射动力学到Talbot地毯</a> <small>2611.08980v1</small></li><li><a href="#paper-2611.09180v1">三态活性Potts模型中时空斑图形成的连续平均场理论</a> <small>2611.09180v1</small></li><li><a href="#paper-2611.09564v1">混合相互作用下Kuramoto振子的同步相变</a> <small>2611.09564v1</small></li><li><a href="#paper-2611.09841v1">主动锁模半导体激光器中的离散时间晶体与异宿切换</a> <small>2611.09841v1</small></li></ol><h3>交叉列表（10）</h3><ol class="toc-list"><li><a href="#paper-2611.06618v1">同步的心脏，去同步的大脑：功能与衰竭的非线性动力学视角</a> <small>2611.06618v1</small></li><li><a href="#paper-2611.08532v1">置换序支配临界单输入布尔网络的吸引域熵</a> <small>2611.08532v1</small></li><li><a href="#paper-2611.08692v1">基于Gershgorin圆盘定理的大型动力系统稳定性分析</a> <small>2611.08692v1</small></li><li><a href="#paper-2611.08786v1">矢量非线性薛定谔方程的Talanov动力学与啁啾控制的异常波形成</a> <small>2611.08786v1</small></li><li><a href="#paper-2611.08848v1">高偶数阶正常色散下自注入锁定暗孤子克尔光频梳</a> <small>2611.08848v1</small></li><li><a href="#paper-2611.09324v1">复超自旋机与对称性淬火：基准测试及扩展至百万自由度</a> <small>2611.09324v1</small></li><li><a href="#paper-2611.09339v1">Korteweg--de Vries 方程孤子解的缩放 TW-PINN 框架</a> <small>2611.09339v1</small></li><li><a href="#paper-2611.09498v1">选择与残差：Dubreil-Jacotin-Long 方程的深度学习求解器及其在第二模态内孤立波中的应用</a> <small>2611.09498v1</small></li><li><a href="#paper-2611.09531v1">剧烈弛豫再探</a> <small>2611.09531v1</small></li><li><a href="#paper-2611.09545v1">倾斜层对流中的模态相互作用：一种物理解释</a> <small>2611.09545v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.08980v1">
+  <div class="paper-head">
+    <h2>跨越聚焦到散焦转变的呼吸子：从类衍射动力学到Talbot地毯<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.08980v1" rel="noopener noreferrer">2611.08980v1</a>
+  </div>
+  <p class="original-title">Breathers across the Focusing-to-Defocusing Transition: From Diffraction-Like Dynamics to Talbot Carpets</p>
+  <p class="meta"><strong>作者：</strong>Andrea Armaroli、Hung-Chu Hsu、Meng-Syue Li、Lili Kimmoun、Jie Zhang、Michel Benoit、Nobuhito Mori、Stefano Trillo、Amin Chabchoub</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">physics.flu-dyn</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文实验研究了基频不稳定呼吸子波群在从聚焦区向散焦区转变过程中的传播行为。在流体力学中，该转变通过在短空间区间内快速减小水深来实现。研究表明，时间周期的Akhmediev呼吸子在散焦区发展出类Talbot的复现图样，但实验仅能观测到其初始阶段。相比之下，Peregrine呼吸子表现出定性不同的行为，其特征为振荡的包络动力学。当色散主导非线性时，这些振荡可理解为非线性Schrödinger框架内的一种纯线性现象，扩展传播距离的数值模拟进一步证实了这一点。在色散与非线性相对强度显著不同的各区域中，实验观测与有限水深非线性Schrödinger理论的预测高度吻合。本文结果揭示了衍射的时间类比，并为在其他非线性色散介质中探索聚焦到散焦转变提供了基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>基频不稳定呼吸子波群在从聚焦区向散焦区转变时如何演化，Akhmediev呼吸子与Peregrine呼吸子在该转变中的行为有何差异。</p>
+    <h4>方法</h4><p>在水槽中通过短空间区间内快速减小水深实现聚焦到散焦的转变，对呼吸子波群进行实验观测，并与有限水深非线性Schrödinger方程的预测及扩展传播距离的数值模拟进行对比。</p>
+    <h4>主要发现</h4><p>Akhmediev呼吸子在散焦区发展出类Talbot复现图样，但实验仅能观测到其初始阶段；Peregrine呼吸子表现为振荡包络动力学，当色散主导非线性时该振荡可理解为非线性Schrödinger框架内的纯线性现象，数值模拟予以证实；实验观测与有限水深非线性Schrödinger预测在色散与非线性相对强度显著不同的区域中高度吻合。</p>
+    <h4>局限与展望</h4><p>实验仅能触及Akhmediev呼吸子类Talbot复现的初始阶段，完整复现图样的观测可能受传播距离或装置条件限制；本文结果提示可在其他非线性色散介质中探索聚焦到散焦转变，但该推广属于合理推断，尚待验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09180v1">
+  <div class="paper-head">
+    <h2>三态活性Potts模型中时空斑图形成的连续平均场理论<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09180v1" rel="noopener noreferrer">2611.09180v1</a>
+  </div>
+  <p class="original-title">Continuum mean-field theory of spatiotemporal pattern formation in a three-state active Potts model</p>
+  <p class="meta"><strong>作者：</strong>Yuta Tateyama、Songhao Yin、Hiroaki Ito、Hiroyuki Kitahata、Hiroshi Noguchi</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">cond-mat.stat-mech</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究具有循环跃迁偏置的三态活性Potts模型的时空动力学。从微观Glauber型动力学出发，通过空间平均场近似推导宏观连续场方程。线性稳定性与弱非线性分析表明，增大耦合强度会诱导Hopf分岔，在分岔点附近临界振幅动力学由复Ginzburg-Landau方程描述。在空间均匀极限下，系统表现出极限环振荡和有序态，并存在由Z_3对称异宿分岔界定的双稳态中间区域。在二维情形下，系统支持稳定的旋转螺旋波。基于一维行波前的微扰理论，我们半解析地预测了圆形波前的曲率依赖传播速度，以及螺旋波的旋转角速度和螺距。最后，我们将连续模型与离散Monte Carlo模拟进行比较，以阐明热涨落的作用并评估平均场近似的有效性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究具有循环跃迁偏置的三态活性Potts模型的时空动力学，包括分岔行为、均匀态动力学、二维螺旋波形成及其传播特性。</p>
+    <h4>方法</h4><p>从微观Glauber型动力学出发，采用空间平均场近似推导宏观连续场方程；运用线性稳定性分析和弱非线性分析（导出复Ginzburg-Landau方程）；基于一维行波前的微扰理论半解析预测圆形波前传播速度和螺旋波旋转特性；并与离散Monte Carlo模拟进行比较。</p>
+    <h4>主要发现</h4><p>增大耦合强度诱导Hopf分岔，分岔附近临界振幅动力学由复Ginzburg-Landau方程描述；空间均匀极限下系统表现出极限环振荡和有序态，存在由Z_3对称异宿分岔界定的双稳态中间区域；二维系统中存在稳定的旋转螺旋波；基于一维行波前的微扰理论可半解析预测圆形波前的曲率依赖传播速度以及螺旋波的旋转角速度和螺距。</p>
+    <h4>局限与展望</h4><p>通过比较连续模型与离散Monte Carlo模拟，阐明了热涨落的作用并评估了平均场近似的有效性；平均场近似的适用范围可能受热涨落强度影响，后续可进一步研究涨落对斑图稳定性和螺旋波动力学的影响（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09564v1">
+  <div class="paper-head">
+    <h2>混合相互作用下Kuramoto振子的同步相变<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09564v1" rel="noopener noreferrer">2611.09564v1</a>
+  </div>
+  <p class="original-title">Synchronization transitions in Kuramoto oscillators with mixed interactions</p>
+  <p class="meta"><strong>作者：</strong>Abhishek Sharma、Ayushi Suman、Mehernaz Anvari、Manish Dev Shrimali、Charo I. del Genio、Sarika Jalan</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">math.DS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Kuramoto模型是研究涌现同步现象的典型系统，已有大量工作考察其从非相干到相干动力学的相变。然而，以往研究几乎都假设振子之间为全局耦合，尽管许多真实系统以特定网络结构组织。本文通过考察具有混合阶相互作用的网络上Kuramoto振子系综的有限尺寸效应来填补这一空白。基于数值模拟，我们展示了系统规模、节点平均度以及相互作用强度等参数如何改变同步相变行为，并相对于针对全局耦合无限系统所导出的已知理论结果进行了比较。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>具有混合阶相互作用的网络化Kuramoto振子系综中，有限尺寸效应如何影响同步相变，以及系统规模、节点平均度和相互作用强度等参数如何改变该相变相对于全局耦合无限系统理论结果的偏离。</p>
+    <h4>方法</h4><p>采用数值模拟，研究网络结构上具有混合阶相互作用的Kuramoto振子系综，并系统改变系统规模、节点平均度和相互作用强度等参数。</p>
+    <h4>主要发现</h4><p>数值模拟表明，系统规模、节点平均度和相互作用强度等参数会改变同步相变的行为，使其相对于针对全局耦合无限系统导出的已知理论结果发生偏离。</p>
+    <h4>局限与展望</h4><p>原文未给出解析理论或对偏离机制的定量刻画；其结论主要基于数值模拟，适用范围限于所考察的网络与参数设置。后续可合理推断的方向包括发展考虑有限尺寸与网络结构的理论描述，但需进一步研究加以验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09841v1">
+  <div class="paper-head">
+    <h2>主动锁模半导体激光器中的离散时间晶体与异宿切换<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.09841v1" rel="noopener noreferrer">2611.09841v1</a>
+  </div>
+  <p class="original-title">Discrete time crystals and heteroclinic switching in actively mode-locked semiconductor lasers</p>
+  <p class="meta"><strong>作者：</strong>Elias R. Koch、Albert Gallemí、Clàudia López、Finn Petersen、Julien Javaloyes、Svetlana V. Gurevich</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了主动锁模半导体激光器中离散时间晶体出现的机制。分析基于推广的Haus主方程，该方程在往返之间保留载流子记忆。通过详细的叉式分岔分析，揭示出明确的次谐波态层级结构，说明当调制频率快于脉冲往返频率时，脉冲如何抑制其相邻脉冲。为识别其内在机制，我们推导了耦合脉冲能量、脉冲相对于调制透射极大值的位置以及局部时变增益的有效运动方程。结果表明，时间晶体态之间的转变通过跨临界全局分岔发生，从而开启了一个对称简并构型之间异宿无胜者竞争的区域。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>主动锁模半导体激光器中离散时间晶体的产生机制，以及次谐波态之间的转变方式。</p>
+    <h4>方法</h4><p>采用在往返之间保留载流子记忆的推广Haus主方程，进行详细的叉式分岔分析，并推导耦合脉冲能量、脉冲相对调制透射极大值位置与局部时变增益的有效运动方程。</p>
+    <h4>主要发现</h4><p>分岔分析揭示出明确的次谐波态层级结构，表明当调制频率快于脉冲往返频率时脉冲可抑制相邻脉冲；有效方程表明时间晶体态之间的转变通过跨临界全局分岔发生，并开启对称简并构型之间的异宿无胜者竞争区域。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与适用范围；基于所得机制可合理推断，后续工作或可考察载流子记忆强度、调制参数等对次谐波层级与异宿竞争区域的影响，但此类推断尚需进一步验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.06618v1">
+  <div class="paper-head">
+    <h2>同步的心脏，去同步的大脑：功能与衰竭的非线性动力学视角<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.06618v1" rel="noopener noreferrer">2611.06618v1</a>
+  </div>
+  <p class="original-title">Synchronized Hearts, Desynchronized Brains: A Nonlinear Dynamics Perspective for Function and Failure</p>
+  <p class="meta"><strong>作者：</strong>Irene Pellini、Simon Bauer、Seba Contreras、Ruben Fernández Busnadiego、Anushka Deb、Sophia Hartmann、Sayedeh Hussaini、Dörte M. Katschinski、Sarah Köster、Stephan E. Lehnart、Tobias Moser、Andreas Neef、Ulrich Parlitz、Silvio Rizzoli、Maria-Patapia Zafeiriou、Wolfram-Hubertus Zimmermann、Johannes Zierenberg、Philip Bittihn、Viola Priesemann</p>
+  <p class="meta"><strong>主分类：</strong>q-bio.NC
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">q-bio.NC</span> <span class="tag">nlin.AO</span> <span class="tag">physics.bio-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>心脏与大脑均由电可兴奋细胞构成，但其涌现动力学却截然不同。在心肌中，一致的动作电位行波确保协调收缩；在大脑皮层中，分布式的、不规则的放电活动支撑着高效的信息处理与行为产生。本文运用复杂系统的概念，阐明这种截然不同的非线性动力学得以涌现的原理。我们跨尺度追踪这些原理：从离子通道与细胞动作电位的产生，到细胞耦合机制与网络架构，再到器官层面动力学与临床表型。心脏与大脑可被理解为分别运行于同步相变的相反两侧：前者被设计为支持同步波，后者被设计为支持去同步的信息处理。跨越这一相变意味着两个器官均出现病理动力学：心脏失去同步导致心律失常；大脑同步过度则导致癫痫发作。我们讨论了包括可塑性、调制、重塑与学习在内的适应机制如何维持适当的（去）同步水平。总体而言，我们提供了一个统一的可兴奋系统视角，并附带一个教学笔记本，以促进对心脏与神经功能及病理的跨学科洞见。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>心脏与大脑同样由电可兴奋细胞构成，为何其涌现动力学分别表现为同步行波与去同步不规则放电，以及这种差异如何跨尺度产生并在病理条件下被打破。</p>
+    <h4>方法</h4><p>采用复杂系统与非线性的视角，跨尺度（离子通道、细胞动作电位、细胞耦合、网络架构、器官动力学、临床表型）梳理并比较心脏与大脑的可兴奋系统原理，辅以教学笔记本。</p>
+    <h4>主要发现</h4><p>心脏与大脑可被理解为分别位于同步相变的相反两侧：心脏依赖同步行波实现协调收缩，大脑依赖去同步的信息处理；心脏失去同步导致心律失常，大脑同步过度导致癫痫发作；可塑性、调制、重塑与学习等适应机制参与维持适当的（去）同步水平。</p>
+    <h4>局限与展望</h4><p>原文为综述性视角，未提供新的定量实验证据；其统一框架的适用范围与预测能力有待具体模型与实验检验。后续可合理推断的方向包括：将同步相变框架用于量化评估心律失常与癫痫的临界转变，以及考察适应机制失调如何推动系统跨越相变。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08532v1">
+  <div class="paper-head">
+    <h2>置换序支配临界单输入布尔网络的吸引域熵<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08532v1" rel="noopener noreferrer">2611.08532v1</a>
+  </div>
+  <p class="original-title">Permutation order governs basin entropy in critical one-input Boolean networks</p>
+  <p class="meta"><strong>作者：</strong>Ruodan Liu、Ahana Ghosh、Sean Campbell、Venkata Sai Narayana Bavisetty、Matthew Wheeler、Claus Kadelka</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.AO</span> <span class="tag">q-bio.MN</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>吸引域熵度量对网络长期行为的不确定性。对于每个具有 $m$ 个相关节点的临界单输入同步布尔网络，我们证明其反馈回路诱导的置换结构在相差一个普适误差的意义下决定吸引域熵。尽管各回路独立振荡，其相对相位可发生偏移，从而产生偏离可加性的偏差，该偏差可随 $m$ 线性增长。然而在系综层面，此前导出的可加性预测在首个次领头项范围内仍成立，差异出现在 $\ln m\ln\ln m$ 阶。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>临界单输入同步布尔网络的吸引域熵由什么结构决定，以及反馈回路间相对相位偏移对可加性预测的影响。</p>
+    <h4>方法</h4><p>对具有 $m$ 个相关节点的临界单输入同步布尔网络进行解析研究，分析反馈回路诱导的置换结构，并在系综层面考察可加性预测的偏差阶数。</p>
+    <h4>主要发现</h4><p>反馈回路诱导的置换结构在相差一个普适误差的意义下决定吸引域熵；回路虽独立振荡，但相对相位偏移可导致偏离可加性的偏差随 $m$ 线性增长；在系综层面，此前导出的可加性预测在首个次领头项范围内保持成立，差异出现在 $\ln m\ln\ln m$ 阶。</p>
+    <h4>局限与展望</h4><p>摘要未讨论方法的适用范围与局限；后续方向可合理推断为将置换结构分析推广至非临界或多输入网络，并进一步刻画 $\ln m\ln\ln m$ 阶差异的来源，但这些均属推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08692v1">
+  <div class="paper-head">
+    <h2>基于Gershgorin圆盘定理的大型动力系统稳定性分析<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08692v1" rel="noopener noreferrer">2611.08692v1</a>
+  </div>
+  <p class="original-title">Stability of large dynamical systems using Gershgorin Disc Theorem</p>
+  <p class="meta"><strong>作者：</strong>Yuvrajsingh Pravinsingh Patil、Chandrakala Meena</p>
+  <p class="meta"><strong>主分类：</strong>math.DS
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DS</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>理解大型非线性动力系统的稳定性是生物、技术与社交网络等诸多领域的基础问题。传统稳定性方法通常依赖显式特征值计算或Lyapunov函数的构造，对于大型互联系统而言计算困难。本文提出一种稳定性分类器，无需进行完整谱分析即可高效判定复杂系统的稳定性。该方法将动力雅可比系综框架（利用网络结构与底层动力学构造雅可比矩阵）与Gershgorin圆盘定理（给出系统雅可比矩阵特征值的界）相结合，推导出一个解析分类器，仅依据少量动力学与网络参数即可预测动力系统是渐近稳定、不稳定还是敏感稳定。分析表明，大型动力系统的稳定性受高度连接的枢纽节点强烈影响，据此可将稳定性条件简化为仅关注枢纽相关Gershgorin圆盘的贡献。针对大量雅可比矩阵系综的数值模拟证实，该分类器在广泛的动力学参数与网络结构范围内能准确区分稳定、不稳定与敏感稳定区域。该框架为预测大型动力网络稳定性提供了简单且可扩展的工具，并刻画了网络拓扑与交互动力学之间的相互作用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在不进行完整谱分析或构造Lyapunov函数的情况下，高效判定大型非线性动力系统的稳定性，并刻画网络拓扑与交互动力学对稳定性的影响。</p>
+    <h4>方法</h4><p>将动力雅可比系综框架与Gershgorin圆盘定理相结合：利用网络结构和底层动力学构造雅可比矩阵，借助Gershgorin圆盘给出特征值界，进而推导基于少量动力学与网络参数的解析稳定性分类器；并通过大量雅可比矩阵系综的数值模拟进行验证。</p>
+    <h4>主要发现</h4><p>推导出可预测系统渐近稳定、不稳定或敏感稳定的解析分类器；分析表明大型动力系统稳定性受高度连接的枢纽节点强烈影响，稳定性条件可简化为关注枢纽相关Gershgorin圆盘的贡献；数值模拟证实该分类器在广泛动力学参数与网络结构范围内能准确区分稳定、不稳定与敏感稳定区域。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论方法的局限性或适用范围；基于Gershgorin圆盘给出的特征值界可能偏保守，其在实际系统中的紧致性有待进一步检验（此为推断）。后续可合理推断的方向包括将该框架应用于具体生物、技术或社交网络的稳定性预测，以及进一步分析枢纽节点结构对稳定性判据的影响（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08786v1">
+  <div class="paper-head">
+    <h2>矢量非线性薛定谔方程的Talanov动力学与啁啾控制的异常波形成<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08786v1" rel="noopener noreferrer">2611.08786v1</a>
+  </div>
+  <p class="original-title">Talanov dynamics and chirp-controlled rogue-wave formation for the vector nonlinear Schrödinger equation</p>
+  <p class="meta"><strong>作者：</strong>G. Ortenzi、G. Roberti、M. Sommacal</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究聚焦型矢量非线性薛定谔方程（即Manakov系统），针对一对耦合初值条件，其密度剖面为紧支撑凹抛物线型，相位为空间坐标的二次函数。我们关注由这类剖面生成的一类自然自相似解，并将其无色散演化称为Talanov动力学。我们将最初针对单场建立的有限时间爆破判据推广到Manakov情形。对于两个场中任意初始啁啾，我们给出其演化的闭式表达式，并在梯度灾变发生时给出灾变时间的显式表达式，同时对耦合对灾变的影响进行分类。取决于初始啁啾，两个场可能各自发生灾变或弛豫，正如它们在解耦时各自会表现的那样；然而，耦合也可能迫使原本在解耦时会弛豫的场发生灾变。对于相同的初始支撑，在存在色散的情形下，我们通过数值方法表明：在半经典区域，同一无色散判据决定完全色散解在每个场中是弛豫还是形成异常波，且异常波的起始时间可由相应的无色散灾变时间准确预测，这与标量情形直接类比。由于啁啾和振幅在实验上相对容易控制，我们预期这些结果与非线性光学和玻色-爱因斯坦凝聚中的实验相关，并将标量方程的已有观测推广到耦合系统。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究聚焦型矢量非线性薛定谔方程（Manakov系统）在紧支撑凹抛物线密度剖面和二次相位初值下的自相似（Talanov）动力学，特别是有限时间爆破/梯度灾变判据、耦合对灾变的影响，以及色散情形下异常波形成与无色散灾变时间的关系。</p>
+    <h4>方法</h4><p>解析推导与数值模拟相结合：将单场有限时间爆破判据推广到Manakov耦合情形；对任意初始啁啾给出场演化的闭式表达式及梯度灾变时间的显式表达式，并对耦合效应进行分类；在相同初始支撑且存在色散时，通过数值方法在半经典区域检验无色散判据对完全色散解弛豫或异常波形成的预测能力。</p>
+    <h4>主要发现</h4><p>论文给出了两个场在任意初始啁啾下的闭式演化表达式和梯度灾变时间的显式表达式，并对耦合对灾变的影响进行了分类；表明取决于初始啁啾，两个场可能各自发生灾变或弛豫（如同解耦时），但耦合也可迫使原本解耦时会弛豫的场发生灾变；数值结果表明，在相同初始支撑和半经典区域下，同一无色散判据决定完全色散解在每个场中是弛豫还是形成异常波，且异常波起始时间可由相应的无色散灾变时间准确预测，与标量情形直接类比。</p>
+    <h4>局限与展望</h4><p>论文的解析判据和闭式表达式主要针对紧支撑凹抛物线密度剖面与二次相位这一特定初值类；数值验证限于相同初始支撑和半经典区域。由于啁啾和振幅在实验上相对容易控制，作者预期结果与非线性光学和玻色-爱因斯坦凝聚实验相关，并可将标量方程的观测推广到耦合系统；这一实验相关性属于作者的预期而非本文已验证的结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.08848v1">
+  <div class="paper-head">
+    <h2>高偶数阶正常色散下自注入锁定暗孤子克尔光频梳<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.08848v1" rel="noopener noreferrer">2611.08848v1</a>
+  </div>
+  <p class="original-title">Self-injection-locked dark-soliton Kerr optical frequency combs with high even-order normal dispersion</p>
+  <p class="meta"><strong>作者：</strong>Lei Shi、Rujiang Li、Shilong Liu、Dumitru Mihalache、Boris A. Malomed、Pengfei Li</p>
+  <p class="meta"><strong>主分类：</strong>physics.optics
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.optics</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在带有自注入锁定（SIL）的微谐振腔中，数值研究了纯高偶数阶正常（HEON）色散作用下的耗散暗孤子（DDS）微梳。纯4阶、6阶、10阶和14阶正常色散均可支持由互锁切换波形成的DDS，并可通过基于SIL的即开即用方案直接激发，无需扫描失谐。与纯4阶情形相比，随着色散阶数增加，切换波尾部振荡周期增大、衰减速率减小。尽管光梳整体带宽收窄，但高于同一绝对功率阈值的非泵浦梳线数量增加。此外，反馈相位控制DDS占空比和腔内梳线功率分布，而泵浦功率增加可提高所估算的泵浦到光梳输出转换效率。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在微谐振腔中，纯高偶数阶正常色散（4、6、10、14阶）能否在自注入锁定条件下支持耗散暗孤子微梳，以及色散阶数、反馈相位和泵浦功率如何影响其特性。</p>
+    <h4>方法</h4><p>对带有自注入锁定的微谐振腔进行数值模拟，考察纯4阶、6阶、10阶和14阶正常色散下的耗散暗孤子形成与激发，并分析切换波尾部振荡、光梳带宽与梳线数量、反馈相位及泵浦功率的影响。</p>
+    <h4>主要发现</h4><p>纯4、6、10、14阶正常色散均可支持由互锁切换波形成的DDS，并可通过基于SIL的即开即用方案直接激发而无需扫描失谐；随色散阶数增加，切换波尾部振荡周期增大、衰减速率减小；光梳整体带宽收窄，但高于同一绝对功率阈值的非泵浦梳线数量增加；反馈相位控制DDS占空比和腔内梳线功率分布；泵浦功率增加提高所估算的泵浦到光梳输出转换效率。</p>
+    <h4>局限与展望</h4><p>本文为数值研究，结论限于所考察的纯高偶数阶正常色散与SIL参数范围；实验验证及更高阶或混合色散情形下的适用性尚待进一步研究（推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09324v1">
+  <div class="paper-head">
+    <h2>复超自旋机与对称性淬火：基准测试及扩展至百万自由度<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09324v1" rel="noopener noreferrer">2611.09324v1</a>
+  </div>
+  <p class="original-title">Complex Hyperspin Machine and Symmetry Quenching: Benchmark and scaling up to millions of degrees of freedom</p>
+  <p class="meta"><strong>作者：</strong>Tommaso Piacenti、Marcello Calvanese Strinati、Claudio Conti</p>
+  <p class="meta"><strong>主分类：</strong>physics.comp-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.comp-ph</span> <span class="tag">nlin.CD</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>驱动耗散振子网络已被提出用于在物理硬件上模拟自旋模型，但此前多集中于二值（Ising）自旋系统或低维自旋矢量系统。等化超自旋机（equalized hyperspin machine）近期被引入，旨在为模拟具有可调维度 D 的 N 个耦合自旋矢量的一般模型提供单一平台，并实现随时间改变自旋维度的动力学退火协议。这些方案局限于由实耦合矩阵耦合的实自旋。本文提出超自旋机的推广，使其适用于复场并处理复厄米耦合矩阵，同时实现振幅等化方案；该系统被称为复超自旋机，可求解可映射为复 D 维矢量哈密顿量的复值超自旋优化问题。作者在复 D=2 超自旋上、N 至 80 的范围内，以差分进化（DE）算法为基准对机器进行评测，结果表明：机器找到更低能量解的实例比例随系统规模和耦合密度增加而增长，在最大规模下达到 92.5%；当 DE 找到更低能量解时，机器仍能达到介于 10^{-15} 与 10^{-12} 之间的中位相对能量偏差，且计算成本显著更低。利用场的复本性，作者提出一种新的降维协议——对称性淬火（symmetry quenching），通过开启参量泵浦将映射到 XY 自旋的复变量坍缩为实 Ising 自旋。在已知基态的最大割（Max-Cut）实例上，对称性淬火优于固定泵浦的 Ising 机，在等化条件下可达到精确基态。作者进一步将系统扩展至 N=10^6 个超自旋（即 8×10^6 个动力学变量），运行于厄米稀疏二维晶格上。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将等化超自旋机从实自旋、实耦合矩阵推广到复场与复厄米耦合矩阵，以求解复 D 维矢量哈密顿量对应的优化问题，并评估其相对差分进化算法的性能、引入降维协议以及扩展至大规模自由度。</p>
+    <h4>方法</h4><p>提出复超自旋机，采用复场与复厄米耦合矩阵并实现振幅等化方案；在复 D=2 超自旋、N 至 80 的范围内以差分进化（DE）算法为基准进行评测；提出对称性淬火降维协议，通过开启参量泵浦将复变量坍缩为实 Ising 自旋，并在已知基态的最大割实例上验证；在厄米稀疏二维晶格上将系统扩展至 N=10^6 个超自旋（8×10^6 个动力学变量）。</p>
+    <h4>主要发现</h4><p>机器找到更低能量解的实例比例随系统规模和耦合密度增加而增长，在最大规模下达到 92.5%；当 DE 找到更低能量解时，机器仍达到介于 10^{-15} 与 10^{-12} 之间的中位相对能量偏差，且计算成本显著更低；在已知基态的最大割实例上，对称性淬火优于固定泵浦的 Ising 机，在等化条件下可达到精确基态；系统已扩展至 N=10^6 个超自旋（8×10^6 个动力学变量）。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该方法的局限与适用范围；基准测试限于复 D=2 超自旋且 N 不超过 80，更大规模下的解质量对比未在摘要中给出。可合理推断的后续方向包括：将基准评测扩展到更高维度 D 与更大 N，以及在更多优化问题类型上评估对称性淬火协议；这些均为推断，尚需原文进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09339v1">
+  <div class="paper-head">
+    <h2>Korteweg--de Vries 方程孤子解的缩放 TW-PINN 框架<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09339v1" rel="noopener noreferrer">2611.09339v1</a>
+  </div>
+  <p class="original-title">A scaled TW-PINN framework for soliton solutions of the Korteweg--de Vries equation</p>
+  <p class="meta"><strong>作者：</strong>Seungwan Han、Jiaxi Gu、Daniel Olmos-Liceaga、Jae-Hun Jung</p>
+  <p class="meta"><strong>主分类：</strong>math.NA
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.NA</span> <span class="tag">cs.NA</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>针对物理信息神经网络（PINN）在逼近 Korteweg--de Vries（KdV）方程孤子解时面临的局部波结构、高阶空间导数、孤子间非线性相互作用以及长时间预测困难等问题，本文提出一种缩放 PINN 框架。该框架将控制方程变换为归一化形式，用 PINN 求解器逼近其解，再通过逆缩放重构原始变量下的解。作者针对单孤子和双孤子问题分别引入缩放变换与 PINN 求解器：单孤子情形采用引入行波坐标的 PINN 求解器以刻画孤子传播；双孤子情形采用两步训练过程，第一步学习各孤子剖面并估计其传播速度，第二步利用估计速度在 PINN 求解器中构造行波坐标，逼近包含非线性相互作用的完整双孤子解。此外，作者提出孤子信息采样（SIS），在孤子轨迹附近增加配点。数值结果表明，该缩放 PINN 框架能准确刻画单孤子传播、解析双孤子相互作用，并在两种情形下的长时间外推中保持孤子剖面；补充的三孤子实验提示所提出的两步训练过程可适用于多孤子解。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何使 PINN 准确逼近 KdV 方程的单孤子与多孤子解，并缓解局部波结构、高阶空间导数、孤子间非线性相互作用及长时间预测带来的困难。</p>
+    <h4>方法</h4><p>提出缩放 PINN 框架：将方程归一化后用 PINN 求解并逆缩放重构；单孤子采用含行波坐标的 PINN 求解器；双孤子采用两步训练（先学习各孤子剖面并估计速度，再以估计速度构造行波坐标逼近完整解）；并引入孤子信息采样（SIS）在孤子轨迹附近增加配点。</p>
+    <h4>主要发现</h4><p>数值结果表明该框架能准确刻画单孤子传播、解析双孤子相互作用，并在两种情形下的长时间外推中保持孤子剖面；补充的三孤子实验提示两步训练过程可适用于多孤子解。</p>
+    <h4>局限与展望</h4><p>原文仅以数值实验验证，未给出理论误差或收敛性保证；三孤子结果仅为提示性实验，多孤子与更高阶相互作用的适用性尚需进一步验证。后续可合理推断的方向包括：将框架推广至更多孤子数目与更复杂相互作用情形，以及结合理论分析评估缩放与采样策略的稳定性与精度。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09498v1">
+  <div class="paper-head">
+    <h2>选择与残差：Dubreil-Jacotin-Long 方程的深度学习求解器及其在第二模态内孤立波中的应用<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09498v1" rel="noopener noreferrer">2611.09498v1</a>
+  </div>
+  <p class="original-title">Selection versus residuals: deep-learning solvers for the Dubreil-Jacotin-Long equation and application to mode-2 internal solitary waves</p>
+  <p class="meta"><strong>作者：</strong>Qiang Li、Yaoyin Zhang</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>神经求解器为内孤立波的 Dubreil-Jacotin-Long（DJL）方程提供了结构上的灵活性，而该方程同时容许平凡态、振荡波列以及展宽的近似解。求解器必须先选出物理波，再对其进行分辨。Turkington 变分原理通过可用势能（APE）的非线性来选择波。一个精确的维里（virial）分解表明，每个局域波所携带的动能都多于 APE，因此二次型 APE 会偏向展宽的场。对于所计算的波，非线性 APE 增强为 $1.27$--$2.06\times$，这逆转了上述排序，尽管偏好宽度仍只是弱选择。从共同的 KdV 导出初值出发，受约束的 Deep Ritz 目标可恢复第一模态波；而强形式与弱形式的残差目标在每个精确解处均为零，因而不会偏好物理波而非其他根，它们在一个下降轮次内就丢失了规定的 APE。所恢复的波分辨不足，因为其残差由高波数误差主导，而能量目标对该误差惩罚甚微；随后在精确 APE 下进行残差精化，即可满足全部接受准则。通过从试探空间中结构性地排除第一模态，我们在四种层结上计算了第二模态波。一个计算得到的波核在定性上重现了南海陆架上观测到的双瓣结构。在深水盆地中，所选波核未通过残差准则，残差精化使其展宽，而能量目标变化很小。两个已分辨的线性估计表明，当波半宽与共振波长之比更大时，相对的第一模态辐射更弱。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何使深度学习求解器在 DJL 方程存在平凡态、振荡波列和展宽近似解的情况下先选出物理内孤立波再对其分辨，并将方法用于第二模态内孤立波的计算。</p>
+    <h4>方法</h4><p>基于 Turkington 变分原理与可用势能（APE）的非线性选择机制；通过精确维里分解分析动能与 APE 的关系；比较受约束的 Deep Ritz 能量目标与强形式、弱形式残差目标；从共享的 KdV 导出初值出发求解，并在精确 APE 下进行残差精化；在试探空间中结构性排除第一模态以计算四种层结上的第二模态波。</p>
+    <h4>主要发现</h4><p>每个局域波的动能均多于 APE，二次型 APE 会偏向展宽场，而所计算波的非线性 APE 增强为 $1.27$--$2.06\times$，逆转该排序但宽度选择仍弱；受约束 Deep Ritz 目标可恢复第一模态波，强、弱形式残差目标在一个下降轮次内丢失规定 APE；恢复波因高波数误差主导残差而分辨不足，残差精化后可满足全部接受准则；排除第一模态后计算出的第二模态波核在定性上重现南海陆架观测的双瓣结构；深水盆地中波核未通过残差准则，精化使其展宽而能量目标变化很小；两个已分辨的线性估计表明波半宽与共振波长之比更大时相对第一模态辐射更弱。</p>
+    <h4>局限与展望</h4><p>摘要未给出定量误差、收敛性或广泛参数扫描的结论；方法的适用范围与稳健性需进一步验证。基于现有结果可合理推断：将能量选择目标与残差精化结合、并对模态进行结构性约束，可能是处理多解与分辨不足的可行途径；深水盆地中波核未通过残差准则提示该情形下选择与分辨之间仍存在张力，需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09531v1">
+  <div class="paper-head">
+    <h2>剧烈弛豫再探<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09531v1" rel="noopener noreferrer">2611.09531v1</a>
+  </div>
+  <p class="original-title">Violent relaxation redux</p>
+  <p class="meta"><strong>作者：</strong>Michael L. Nastac、Yonadav Barry Ginat、Robert J. Ewart、Michael Barnes、Alexander A. Schekochihin</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.GA
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.GA</span> <span class="tag">astro-ph.CO</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.CD</span> <span class="tag">physics.plasm-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>无碰撞自引力系统（如并合星系）长期被视为统计力学原理的一个例外：混沌多体系统通常会弛豫到最大熵态，而Lynden-Bell针对其“剧烈弛豫”建立的统计力学因相空间体积（等价地，无穷多个无碰撞Casimir不变量）严格守恒而似乎并不能很好地描述这类系统。我们提出，剧烈弛豫确实会产生Lynden-Bell的最大熵平衡态，但二者均由引力湍流所支撑：在引力湍流中，大尺度引力涨落驱动粒子分布函数的混沌相空间混合。我们推导了该湍流的普适小尺度（亚Jeans）谱，并表明它导致相空间体积守恒被破坏的时间尺度仅比动力学（剧烈弛豫）时间在对粒子数N上多一个对数因子。这种时间尺度分离使系统能够通过一系列Lynden-Bell平衡态“绝热”地弛豫，每个平衡态对应Casimir不变量的瞬时值。在长时间下，系统趋近于接近其“基态”的平衡态：该分布的Casimir不变量已调整，使系统能量成为其可能的最小能量。因此，系统的普适倾向是朝向最小能量、最大熵的状态。我们用一维N体模拟佐证了这一图像，并假设它能够解释星系与暗物质晕的普适平衡态。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>无碰撞自引力系统（如并合星系）是否遵循统计力学中混沌多体系统弛豫到最大熵态的原理；具体而言，Lynden-Bell的剧烈弛豫统计力学为何似乎不能很好地描述这类系统，以及剧烈弛豫是否确实导致Lynden-Bell最大熵平衡态。</p>
+    <h4>方法</h4><p>提出引力湍流机制：大尺度引力涨落驱动粒子分布函数的混沌相空间混合；推导该湍流的普适小尺度（亚Jeans）谱；分析相空间体积守恒被破坏的时间尺度与动力学时间及粒子数N的关系；并用一维N体模拟进行佐证。</p>
+    <h4>主要发现</h4><p>推导表明，引力湍流导致相空间体积守恒被破坏的时间尺度仅比动力学（剧烈弛豫）时间在对粒子数N上多一个对数因子；这种时间尺度分离使系统能够通过一系列Lynden-Bell平衡态“绝热”地弛豫，每个平衡态对应Casimir不变量的瞬时值；在长时间下，系统趋近于接近其“基态”的平衡态，即Casimir不变量已调整使系统能量成为其可能的最小能量；因此系统的普适倾向是朝向最小能量、最大熵的状态；一维N体模拟佐证了这一图像。</p>
+    <h4>局限与展望</h4><p>作者假设该图像能够解释星系与暗物质晕的普适平衡态，但这一假设尚待进一步验证；摘要未明确讨论该理论在三维系统、不同初始条件或更广泛参数范围内的适用性，也未给出与观测的直接对比，这些可作为后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.09545v1">
+  <div class="paper-head">
+    <h2>倾斜层对流中的模态相互作用：一种物理解释<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.09545v1" rel="noopener noreferrer">2611.09545v1</a>
+  </div>
+  <p class="original-title">Mode interaction in inclined-layer convection: a physical interpretation</p>
+  <p class="meta"><strong>作者：</strong>Zheng Zheng、Laurette S. Tuckerman、Tobias M. Schneider</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对倾斜于重力方向的流体层中的 Oberbeck–Boussinesq 方程开展数值研究，计算了包含不同数量同向旋转卷筒（co-rotating rolls）的平衡态。混合模态分支将分别包含四个和六个相同同向旋转卷筒状态的分支连接起来。这些分支呈现出两种对比鲜明的减少（或增加）卷筒数量的路径：一种路径中卷筒消失（或出现），另一种路径中卷筒合并（或分裂）。作者结合 $(2,3)$ 模态相互作用情景对这些结果进行了解释。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在倾斜于重力方向的流体层中，不同数量同向旋转卷筒的平衡态之间如何通过混合模态分支相互连接，以及卷筒数量增减的转变路径具有何种结构。</p>
+    <h4>方法</h4><p>对 Oberbeck–Boussinesq 方程进行数值研究，计算含不同数量同向旋转卷筒的平衡态，并追踪连接四卷筒与六卷筒状态的混合模态分支。</p>
+    <h4>主要发现</h4><p>混合模态分支连接了分别含四个和六个相同同向旋转卷筒状态的分支；这些分支表现出两种对比鲜明的卷筒数量减少（或增加）路径，其一为卷筒消失（或出现），其二为卷筒合并（或分裂）；结果依据 $(2,3)$ 模态相互作用情景加以解释。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与适用范围；后续工作或可检验 $(2,3)$ 模态相互作用解释在其他卷筒数量或参数区域中的适用性（此为合理推断，非原文结论）。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-09 14:18 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
