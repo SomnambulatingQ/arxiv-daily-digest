@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-11-11</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">2</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2611.12994v1">$^{169}$Tm($\gamma,n$)$^{168}$Tm 反应截面的测量及其对 $\gamma$ 过程计算的意义</a> <small>2611.12994v1</small></li></ol><h3>交叉列表（2）</h3><ol class="toc-list"><li><a href="#paper-2611.13234v1">EMC效应的α团簇模型</a> <small>2611.13234v1</small></li><li><a href="#paper-2611.14202v1">用于 LEGEND-1000 的微孔 PET 与结晶 PEN 反射体在液氩中的光学特性</a> <small>2611.14202v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.12994v1">
+  <div class="paper-head">
+    <h2>$^{169}$Tm($\gamma,n$)$^{168}$Tm 反应截面的测量及其对 $\gamma$ 过程计算的意义<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.12994v1" rel="noopener noreferrer">2611.12994v1</a>
+  </div>
+  <p class="original-title">Measurement of the $^{169}$Tm$(γ,n)$$^{168}$Tm Cross Section and Implications for $γ$-Process Calculations</p>
+  <p class="meta"><strong>作者：</strong>De-Xin Wang、Su-Ya-La-Tu Zhang、Hao Zi-rui、Han Guo、Wen-Yu Xin、Guo Li、Yong-Shun Huang、Jin-Feng Bai、Kai Wang、Mei-Rong Huang、Xi Bao-Shan、Peter Mohr、Jian-Fang Zhang、Gong-Tao Fan、Hong-Wei Wang</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在上海激光电子伽马源（SLEGS）上，利用准单能激光康普顿散射 $\gamma$ 射线，测量了 $^{169}\mathrm{Tm}(\gamma,n)^{168}\mathrm{Tm}$ 反应截面，能量范围从中子阈至 14.61~MeV。使用 LaBr$_3$(Ce) 谱仪确定光子通量和能量分布，并通过迭代展开方法获得单能截面。在 12~MeV 以下，本文截面与 NewSUBARU 数据及 IAEA-2019 评价一致；但在 $(\gamma,n)$ 激发函数极大值附近，本文截面显著高于 NewSUBARU 数据和 IAEA-2019 评价值。通过拟合 SLEGS 和 NewSUBARU 的实验截面，导出了 $E1$ $\gamma$ 射线强度函数。将这些受约束的 $\gamma$ 射线强度函数引入 TALYS 程序，计算了 $^{169}\mathrm{Tm}(\gamma,n)$ 和 $^{168}\mathrm{Tm}(n,\gamma)$ 的恒星反应率。将计算得到的 $^{169}\mathrm{Tm}(\gamma,n)$ 反应率用于 $20 M\odot$ 核心坍缩超新星模型中激波加热的富 O/Ne 层的完整 $p$ 过程反应网络，进行敏感性分析。结果表明，更新后的反应率对最终 $p$ 核素丰度的影响可以忽略。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>测量 $^{169}\mathrm{Tm}(\gamma,n)^{168}\mathrm{Tm}$ 反应截面，并评估其对 $\gamma$ 过程（$p$ 过程）计算的影响。</p>
+    <h4>方法</h4><p>在 SLEGS 上使用准单能激光康普顿散射 $\gamma$ 射线，能量范围从中子阈至 14.61~MeV；用 LaBr$_3$(Ce) 谱仪确定光子通量和能量分布，用迭代展开方法获得单能截面；拟合 SLEGS 与 NewSUBARU 数据导出 $E1$ $\gamma$ 射线强度函数，并输入 TALYS 计算恒星反应率；再将反应率用于 $20 M\odot$ 核心坍缩超新星模型富 O/Ne 层的 $p$ 过程反应网络进行敏感性分析。</p>
+    <h4>主要发现</h4><p>12~MeV 以下截面与 NewSUBARU 数据及 IAEA-2019 评价一致；在 $(\gamma,n)$ 激发函数极大值附近，本文截面显著高于 NewSUBARU 数据和 IAEA-2019 评价值。基于受约束 $\gamma$ 射线强度函数计算的更新反应率对最终 $p$ 核素丰度影响可以忽略。</p>
+    <h4>局限与展望</h4><p>原文表明，在所采用的 $20 M\odot$ 核心坍缩超新星模型富 O/Ne 层场景中，该反应率更新对 $p$ 核素丰度影响可忽略；其局限在于结论基于特定模型与反应网络，向其他质量、其他天体环境或更广泛核区的适用性尚需进一步检验（此句为合理推断）。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.13234v1">
+  <div class="paper-head">
+    <h2>EMC效应的α团簇模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13234v1" rel="noopener noreferrer">2611.13234v1</a>
+  </div>
+  <p class="original-title">The Alpha Clustering Model of the EMC Effect</p>
+  <p class="meta"><strong>作者：</strong>Whitney Armstrong</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>EMC效应指深度非弹性散射中核结构函数相对于自由核子预期出现修改的现象，四十余年来始终缺乏公认的微观解释。本文提出，EMC效应的强度及其对质量数A的依赖可能由核内α团簇现象主导，且该现象可解释与EMC效应相关的大部分部分子修改。作者据此构建了EMC效应的α团簇模型（ACME），并采用数据驱动方法展示该模型能够重现现有的核深度非弹性散射数据。文中进一步对^{16}O、^{20}Ne和^{48}Ca等核作出预测，并探讨了该模型对自旋相关EMC效应及核部分子分布全局分析的影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>EMC效应（核深度非弹性散射结构函数相对自由核子预期的修改）的微观起源，以及其强度与A依赖性的解释。</p>
+    <h4>方法</h4><p>提出EMC效应的α团簇模型（ACME），并以数据驱动方式检验模型对现有核深度非弹性散射数据的重现能力。</p>
+    <h4>主要发现</h4><p>α团簇现象可能主导EMC效应的强度与A依赖性，并可解释与EMC效应相关的大部分部分子修改；ACME模型能够重现现有核深度非弹性散射数据，并对^{16}O、^{20}Ne、^{48}Ca等核给出预测。</p>
+    <h4>局限与展望</h4><p>原文探讨了该模型对自旋相关EMC效应和核部分子分布全局分析的影响；模型的适用范围与局限性、以及预测能否被未来实验检验，尚待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14202v1">
+  <div class="paper-head">
+    <h2>用于 LEGEND-1000 的微孔 PET 与结晶 PEN 反射体在液氩中的光学特性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14202v1" rel="noopener noreferrer">2611.14202v1</a>
+  </div>
+  <p class="original-title">Optical characterization of microcellular PET and crystallized PEN reflectors in liquid argon for LEGEND-1000</p>
+  <p class="meta"><strong>作者：</strong>Marta Babicz、Laura Baudis、Andreas Leonhardt、Francesco Piastra、Lorenzo Pietropaoli、Stefan Schönert、Gloria Senatore、Esteban Tapia Peñas、Tim van de Vendel</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>液氩（LAr）闪烁光的高效收集对 LEGEND 实验的本底抑制至关重要。本文研究微孔聚对苯二甲酸乙二醇酯（PET）与结晶聚萘二甲酸乙二醇酯（PEN）作为 LEGEND-1000 候选反射体材料的光学性能。我们在液氩中测量了这两种材料对 450 nm 光及 128 nm 液氩闪烁光的响应，并在空气环境中补充了室温反射率测量。在闪烁光照射下，与黑金属绒参考样品相比，与 PEN 薄膜耦合的 PET 和结晶 PEN 分别使探测到的光电子产额提高至 $2.36\pm0.11$ 倍和 $1.75\pm0.10$ 倍。基于 Geant4 的光学模型给出液氩中 450 nm 处的反射率估计：PET 为 $(90\pm4)\%$，结晶 PEN 为 $(81\pm5)\%$，而 Tetratex 参考样品为 $(80\pm5)\%$。这些结果支持对这两种材料在液氩探测设备中的进一步研究，包括其放射性纯度、长期低温稳定性以及在匹配探测器条件下的性能。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为 LEGEND-1000 寻找并表征能够高效收集液氩闪烁光、从而有助于本底抑制的反射体材料。</p>
+    <h4>方法</h4><p>在液氩中测量微孔 PET 与结晶 PEN 对 450 nm 光和 128 nm 液氩闪烁光的响应，并在空气中进行室温反射率测量作为补充；同时使用基于 Geant4 的光学模型估计液氩中的反射率。</p>
+    <h4>主要发现</h4><p>在闪烁光照射下，与黑金属绒参考样品相比，与 PEN 薄膜耦合的 PET 和结晶 PEN 分别使探测到的光电子产额提高至 $2.36\pm0.11$ 倍和 $1.75\pm0.10$ 倍；Geant4 光学模型给出液氩中 450 nm 处反射率估计为 PET $(90\pm4)\%$、结晶 PEN $(81\pm5)\%$，Tetratex 参考样品为 $(80\pm5)\%$。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果支持对两种材料开展进一步研究，包括放射性纯度、长期低温稳定性以及在匹配探测器条件下的性能；上述方面尚未在本文中评估，属于后续工作方向。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-11 12:49 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

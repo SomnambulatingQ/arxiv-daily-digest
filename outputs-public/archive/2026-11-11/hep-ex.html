@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-ex · 高能实验</h1>
+    <p class="lede">官方公告日：2026-11-11</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">10</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">6</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（4）</h3><ol class="toc-list"><li><a href="#paper-2611.13222v1">AlphaHits：面向命中级基础模型的全事件径迹重建与多任务重建</a> <small>2611.13222v1</small></li><li><a href="#paper-2611.13643v1">ATLAS 实验中 pp 碰撞下 Υ(nS) 产生与底层事件的关联研究</a> <small>2611.13643v1</small></li><li><a href="#paper-2611.14170v1">ANUBIS探测器对与τ耦合的重中性轻子的预期灵敏度</a> <small>2611.14170v1</small></li><li><a href="#paper-2611.14335v1">在质心能量13 TeV的质子-质子碰撞中单轻子末态下寻找电荷为5/3的重顶夸克伙伴</a> <small>2611.14335v1</small></li></ol><h3>交叉列表（6）</h3><ol class="toc-list"><li><a href="#paper-2611.13583v1">研究生暑期学校中的主动学习：可行性、学生反馈与教师培训的作用</a> <small>2611.13583v1</small></li><li><a href="#paper-2611.13602v1">SBN与DUNE能区ν_μ(\barν_μ)诱导η产生中的核介质效应与末态相互作用效应</a> <small>2611.13602v1</small></li><li><a href="#paper-2611.13915v1">四种相对论波函数表示下ψ(3770)、ψ(4040)与ψ(4160)的强衰变</a> <small>2611.13915v1</small></li><li><a href="#paper-2611.14040v1">用于电子离子对撞机的BNL 20微米和30微米厚LGAD的表征</a> <small>2611.14040v1</small></li><li><a href="#paper-2611.14103v1">物理π介子质量下及连续极限中格点QCD的核子σ项</a> <small>2611.14103v1</small></li><li><a href="#paper-2611.14447v1">金属样品在真空紫外波段的角度分辨反射率测量</a> <small>2611.14447v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.13222v1">
+  <div class="paper-head">
+    <h2>AlphaHits：面向命中级基础模型的全事件径迹重建与多任务重建<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13222v1" rel="noopener noreferrer">2611.13222v1</a>
+  </div>
+  <p class="original-title">AlphaHits: Full-Event Tracking and Reconstruction Towards a Hit-Level Foundation Model</p>
+  <p class="meta"><strong>作者：</strong>Sascha Caron、Nadezhda Dobreva、Polina Moskvitina、Eugene Shalugin、Javad Sohrabi、Roberto Ruiz、Yue Zhao</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出 AlphaHits，一种基于 Transformer、面向 LHC 物理命中级基础模型的方法，其架构建立在 TrackFormer 与 HiggsFormer 之上。AlphaHits 直接作用于探测器命中（hit），展示了从低层探测器信息出发的可扩展全事件带电粒子重建以及多任务事件重建与分类能力。AlphaHits-TrackFormer 可在不对目标径迹施加横动量选择的情况下，重建完整 TrackML 事件中的全部带电粒子内容；在类 HL-LHC 堆积条件下，它处理包含最多 1.5×10^5 个命中的事件中的像素与条带命中，并在其运动学范围内将命中分配给各条重建径迹，其中包括 TrackML 样本中低至约 150 MeV 的具有挑战性的低 p_T 粒子群。在全部可重建径迹上，其 TrackML 得分为 0.959，据作者所知，这是全探测器、包容性带电粒子重建所报告的最高 TrackML 得分。基于 TrackFormer 架构，AlphaHits 先在大规模带电粒子径迹重建上预训练，再针对多任务重建与分类进行微调；它从共享的命中级表示出发，预测径迹、喷注、喷注味以及事件级观测量。AlphaHits 在 Higgs 事件分类上取得 0.944 的 AUC，性能与使用完全重建输入的 Particle Transformer（ParT）基线相当；在喷注重建、喷注味分类与缺失横动量回归方面，其性能也与基于 Delphes 的基线相当。上述结果表明，直接从探测器命中开展可扩展的全事件径迹重建与多任务学习具有潜力，是迈向可迁移命中级表示与 LHC 物理通用基础模型的有前景的一步。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否直接从探测器命中级信息出发，实现可扩展的全事件带电粒子径迹重建，并在共享表示上完成多任务事件重建与分类，从而为 LHC 物理的命中级基础模型奠定基础。</p>
+    <h4>方法</h4><p>提出基于 Transformer 的 AlphaHits，架构继承 TrackFormer 与 HiggsFormer；AlphaHits-TrackFormer 直接处理像素与条带命中，在类 HL-LHC 堆积条件下对完整 TrackML 事件进行不施加横动量选择的包容性径迹重建；随后在带电粒子径迹重建上预训练，并微调用于多任务重建与分类，从共享命中级表示预测径迹、喷注、喷注味与事件级观测量。</p>
+    <h4>主要发现</h4><p>AlphaHits-TrackFormer 可处理最多 1.5×10^5 个命中的事件，并将命中分配给各重建径迹，覆盖低至约 150 MeV 的低 p_T 粒子群；在全部可重建径迹上取得 0.959 的 TrackML 得分，作者称这是全探测器包容性带电粒子重建所报告的最高得分。多任务方面，Higgs 事件分类 AUC 为 0.944，与使用完全重建输入的 ParT 基线相当；喷注重建、喷注味分类与缺失横动量回归性能与基于 Delphes 的基线相当。</p>
+    <h4>局限与展望</h4><p>结果基于 TrackML 样本与类 HL-LHC 堆积条件，向真实探测器数据与其他对撞机环境的迁移尚待验证；多任务性能仅与相应基线相当而非超越。作者将可迁移命中级表示与 LHC 物理通用基础模型视为后续方向，其可行性仍需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13643v1">
+  <div class="paper-head">
+    <h2>ATLAS 实验中 pp 碰撞下 Υ(nS) 产生与底层事件的关联研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13643v1" rel="noopener noreferrer">2611.13643v1</a>
+  </div>
+  <p class="original-title">Correlations between $\ensuremath{\mitΥ(n\text{S})}\xspace$ production and the underlying event in $\ensuremath{p\!p}\xspace$ collisions with the ATLAS detector</p>
+  <p class="meta"><strong>作者：</strong>Baidyanath Sahoo</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>近期 LHC 与 RHIC 多个实验的研究表明，小碰撞系统呈现出通常在大系统中观测到的类夸克-胶子等离子体（QGP）特征。虽然类 QGP 特征已在软扇区被观测到，但硬扇区对可能的部分子能量损失给出了强约束。与此同时，有多项证据指向质子-质子碰撞中硬粒子产生与软粒子产生之间的关联。本文利用含 Υ 介子的事件研究 pp 碰撞中硬、软粒子产生的关联，Υ 介子为研究此类效应提供了有价值的硬探针。基于 ATLAS 实验在 LHC 上以 √s = 13 TeV 采集的 139 fb⁻¹ 数据，测量了伴随 Υ 介子产生的带电粒子的多重数及运动学变量分布。测量按前三个 Υ(nS) 态分别进行，并按 Υ 的横动量分区间给出。在低横动量区间，观测到产生 Υ(2S) 或 Υ(3S) 的碰撞中伴随带电粒子多重数系统性低于产生 Υ(1S) 的碰撞，且该差异随 Υ 横动量增大而减小。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 pp 碰撞中，硬探针 Υ 介子的产生与底层事件（软粒子产生）之间存在何种关联，且不同 Υ(nS) 态之间是否存在差异。</p>
+    <h4>方法</h4><p>利用 ATLAS 实验在 √s = 13 TeV 下采集的 139 fb⁻¹ pp 数据，对伴随 Υ 介子产生的带电粒子测量其多重数与运动学变量分布，并按 Υ(1S)、Υ(2S)、Υ(3S) 三个态及 Υ 横动量区间分别进行测量。</p>
+    <h4>主要发现</h4><p>在低横动量区间，产生 Υ(2S) 或 Υ(3S) 的碰撞中伴随带电粒子多重数系统性低于产生 Υ(1S) 的碰撞；该差异随 Υ 横动量增大而减小。</p>
+    <h4>局限与展望</h4><p>摘要未讨论物理机制解释、系统不确定度或理论模型比较；后续可合理推断的方向包括在更多 Υ 横动量区间与不同碰撞能量下检验该多重数差异，并结合模型探讨其与硬-软关联及部分子能量损失图像的关系，但这些均属推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14170v1">
+  <div class="paper-head">
+    <h2>ANUBIS探测器对与τ耦合的重中性轻子的预期灵敏度<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14170v1" rel="noopener noreferrer">2611.14170v1</a>
+  </div>
+  <p class="original-title">Projected sensitivity of the ANUBUIS detector to tau-coupled Heavy Neutral Leptons</p>
+  <p class="meta"><strong>作者：</strong>Camilia Ben Messaouda、Theo Reymermier、Paul Swallow、Oleg Brandt for the ANUBIS Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>重中性轻子（HNL）为标准模型中微子部分提供了一种最小且动机充分的扩展；当标准模型中微子与HNL之间的混合角较小时，HNL天然具有长寿命。此前一项ANUBIS研究给出了对仅与电子或仅与μ子耦合的单一Majorana HNL的预期灵敏度，分别对应Physics Beyond Colliders倡议的BC6与BC7基准情景。本文将该工作扩展至互补的BC8情景，即HNL仅与τ轻子耦合。由于τ轻子本身不稳定，且带电流HNL衰变模式仅在运动学上超过τ轻子产生阈值时才开放，该情景的产生、衰变与事件选择特征无法通过将电子或μ子耦合结果按味进行重标度得到。分析使用已发布的SET-ANUBIS v1.0.0框架端到端完成，从信号样本产生、接收度评估直至灵敏度提取。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在HNL仅与τ轻子耦合的BC8基准情景下，ANUBIS探测器对长寿命Majorana HNL的预期灵敏度如何；该情景能否由已有的电子或μ子耦合结果按味重标度得到。</p>
+    <h4>方法</h4><p>使用SET-ANUBIS v1.0.0框架开展端到端分析：产生信号样本、评估探测器接收度并提取灵敏度；针对τ轻子不稳定及带电流衰变模式存在产生阈值的特征进行专门处理。</p>
+    <h4>主要发现</h4><p>原文指出，由于τ轻子不稳定且带电流HNL衰变模式仅在超过τ轻子产生阈值时开放，BC8情景的产生、衰变和事件选择特征不能通过将BC6或BC7结果按味重标度获得；分析以SET-ANUBIS v1.0.0完成了从信号样本产生到灵敏度提取的全流程。原文摘要未给出具体的灵敏度数值或排除曲线。</p>
+    <h4>局限与展望</h4><p>该工作将ANUBIS的HNL灵敏度研究从电子、μ子耦合扩展至τ耦合情景；其局限与适用范围需结合原文正文中的具体假设与参数空间判断。后续可合理推断的方向包括：在统一框架下比较BC6、BC7与BC8情景，以及进一步考察其他耦合结构或探测器配置，但这些均属推断，原文摘要未作明确陈述。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14335v1">
+  <div class="paper-head">
+    <h2>在质心能量13 TeV的质子-质子碰撞中单轻子末态下寻找电荷为5/3的重顶夸克伙伴<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14335v1" rel="noopener noreferrer">2611.14335v1</a>
+  </div>
+  <p class="original-title">Search for heavy top quark partners with charge 5/3 in the single-lepton final state in proton-proton collisions at $\sqrt{s}$ = 13 TeV</p>
+  <p class="meta"><strong>作者：</strong>CMS Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报告了对矢量型夸克X$_{5/3}$（顶夸克的重费米子伙伴，电荷为5/3）对产生过程的寻找。该分析针对包含一个轻子（电子或μ子）的末态，使用CMS实验在LHC上于2016至2018年采集的质心能量为13 TeV的质子-质子碰撞数据，对应积分亮度为138 fb$^{-1}$。分析考虑两种衰变模式：在常规模式中，假定X$_{5/3}$仅衰变为顶夸克和W玻色子；在另一种奇异情景中，假定其仅衰变为顶夸克和带电希格斯玻色子，并假定该带电希格斯玻色子随后仅衰变为顶夸克和底夸克。数据中未观察到相对于标准模型预期的超出。在95%置信水平下，给出了X$_{5/3}$对产生截面随其质量变化的预期和观测上限。在衰变为标准模型粒子的情形下，X$_{5/3}$质量的观测排除范围上限达到1630 GeV；在带电希格斯玻色子质量为800 GeV的奇异衰变模式下，排除范围上限达到1740 GeV。这些结果是针对X$_{5/3}$衰变为顶夸克和W玻色子的最严格限制，也是针对X$_{5/3}$衰变为顶夸克和带电希格斯玻色子的首批限制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在LHC的13 TeV质子-质子碰撞中，寻找电荷为5/3的矢量型夸克X$_{5/3}$的对产生，并在单轻子末态下检验其两种衰变模式（X$_{5/3}$→顶夸克+W玻色子，以及X$_{5/3}$→顶夸克+带电希格斯玻色子）。</p>
+    <h4>方法</h4><p>使用CMS实验2016至2018年采集的、积分亮度为138 fb$^{-1}$的13 TeV质子-质子碰撞数据，在包含一个电子或μ子的末态中进行分析；考虑常规衰变模式与奇异衰变模式（带电希格斯玻色子随后衰变为顶夸克和底夸克），并将数据与标准模型预期进行比较，在95%置信水平下给出X$_{5/3}$对产生截面的预期和观测上限。</p>
+    <h4>主要发现</h4><p>数据中未观察到相对于标准模型预期的超出。在95%置信水平下设定了X$_{5/3}$对产生截面的预期和观测上限；X$_{5/3}$质量的观测排除范围在衰变为标准模型粒子时上限达到1630 GeV，在带电希格斯玻色子质量为800 GeV的奇异衰变模式下上限达到1740 GeV。这些结果是X$_{5/3}$衰变为顶夸克和W玻色子的最严格限制，也是X$_{5/3}$衰变为顶夸克和带电希格斯玻色子的首批限制。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向。可合理推断：所得限制依赖于所假设的衰变分支比与末态选择，适用于本文考虑的两种衰变情景；奇异衰变模式的排除范围以带电希格斯玻色子质量为800 GeV为前提，其他质量假设下的结果需另行给出。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.13583v1">
+  <div class="paper-head">
+    <h2>研究生暑期学校中的主动学习：可行性、学生反馈与教师培训的作用<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13583v1" rel="noopener noreferrer">2611.13583v1</a>
+  </div>
+  <p class="original-title">Active learning at a graduate summer school: feasibility, student response, and the role of instructor training</p>
+  <p class="meta"><strong>作者：</strong>Nicholas Kamp、Louis Deslauriers、Carlos A. Argüelles、Gonzalo Herrera、William G. Thompson</p>
+  <p class="meta"><strong>主分类：</strong>physics.ed-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ed-ph</span> <span class="tag">astro-ph.CO</span> <span class="tag">astro-ph.HE</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>主动学习正在成为北美本科STEM教学的常规实践，但在研究生课程中的采用仍较缓慢。研究生暑期学校通常为一至两周的密集专业课程，由研究领域内的专家授课，教学方式几乎仍为传统讲授。本文报告了一项在中微子与天体粒子物理研究生暑期学校开展的研究，为期一周，共有来自8个国家的38名学生参加。六位此前很少或没有主动学习教学经验的讲师，在物理教育专家主导的约四小时培训后，将同伴教学（Peer Instruction）风格的主动学习引入课堂。三条主要讲座系列各自在一天采用传统讲授、另一天采用主动学习形式。学生在第一天和第二天结束后以及周末接受问卷调查，六位讲师也均接受调查。在涉及三位讲师、三个主题的每一节主动学习课堂中，82%–100%的受访者表示互动环节有助于保持投入并检验理解；在每条讲座系列中，主动学习日的难度匹配评价均更好。周末调查中，36名受访学生里有33人希望未来研究生课程采用此类教学，无人表示反对。六位讲师均认为该方法有效并打算再次使用，但仅两位认为实施过程顺利。研究表明，经过简短的专家培训，初次接触主动学习的讲师能够面向异质听众成功实施主动学习，学生和讲师都希望增加此类教学。该暑期学校也是六位讲师首次实施结构化主动学习：暑期学校既能培养学生，也能促进讲师发展。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在研究生暑期学校这一由领域专家授课、教学传统上以讲授为主的环境中，缺乏主动学习经验的讲师能否在简短培训后成功实施同伴教学式主动学习，学生与讲师如何评价，以及此类培训对讲师发展有何作用。</p>
+    <h4>方法</h4><p>在一周制中微子与天体粒子物理研究生暑期学校（38名学生，来自8个国家）开展研究；六位讲师经物理教育专家约四小时培训后，在三条主要讲座系列中分别安排传统讲授日与主动学习日；在第二天和周末对学生进行问卷调查，并对全部六位讲师进行问卷调查。</p>
+    <h4>主要发现</h4><p>在涉及三位讲师、三个主题的每节主动学习课堂中，82%–100%的受访者报告互动环节有助于保持投入和检验理解；每条讲座系列的难度匹配在主动学习日评价更好；周末调查中36名学生有33人希望未来研究生课程采用此类教学，无人反对；六位讲师均认为方法有效并打算再次使用，但仅两位认为实施顺利；六位讲师均为首次实施结构化主动学习。</p>
+    <h4>局限与展望</h4><p>研究基于单一一周制暑期学校、38名学生和六位讲师，样本与情境有限，结论向其他学科、常规学期课程或更大规模课堂的推广需谨慎；讲师普遍反映实施并不轻松，提示简短培训之外可能仍需持续支持。可合理推断，后续研究可考察更大样本与更长周期中的实施效果，以及讲师培训强度与实施顺畅度之间的关系。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13602v1">
+  <div class="paper-head">
+    <h2>SBN与DUNE能区ν_μ(\barν_μ)诱导η产生中的核介质效应与末态相互作用效应<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13602v1" rel="noopener noreferrer">2611.13602v1</a>
+  </div>
+  <p class="original-title">Nuclear medium and final state interaction effects in $η$ production induced by $ν_μ(\barν_μ)$ at SBN and DUNE energies</p>
+  <p class="meta"><strong>作者：</strong>A. Fatima、S. K. Noor Alam、M. Sajjad Athar、S. K. Singh</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了在^{12}C和^{40}Ar靶上由带电流和中性流ν_μ(\barν_μ)诱导的η介子产生过程中的核介质修正与末态相互作用。核介质采用局域密度近似描述，并引入N^*(1535)共振的介质内修正；已知该共振通过其Nη衰变道在η产生中起主导作用。η介子在核内的后续传播与吸收采用蒙特卡罗方法模拟。研究发现，核介质修正与末态相互作用导致产生截面受到显著压低，表明核效应在解释η产生数据时具有重要性。本文结果为当前SBND和MicroBooNE实验以及即将运行的DUNE实验中η产生的分析提供了有价值的理论输入。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在SBN与DUNE能区，ν_μ(\barν_μ)在^{12}C和^{40}Ar上诱导η介子产生时，核介质修正与末态相互作用对产生截面有何影响。</p>
+    <h4>方法</h4><p>采用局域密度近似描述核介质，纳入对η产生起主导作用的N^*(1535)共振的介质内修正；对η介子在核内的传播与吸收使用蒙特卡罗方法模拟，并计算带电流与中性流ν_μ(\barν_μ)诱导的η产生。</p>
+    <h4>主要发现</h4><p>核介质修正与末态相互作用导致产生截面受到显著压低，说明核效应在解释η产生数据时不可忽略。</p>
+    <h4>局限与展望</h4><p>结果可为SBND、MicroBooNE及DUNE实验中η产生的分析提供理论输入；原文未进一步讨论其他核靶、能区或模型依赖性的影响，相关外推需谨慎。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13915v1">
+  <div class="paper-head">
+    <h2>四种相对论波函数表示下ψ(3770)、ψ(4040)与ψ(4160)的强衰变<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13915v1" rel="noopener noreferrer">2611.13915v1</a>
+  </div>
+  <p class="original-title">Strong decays of $ψ(3770)$, $ψ(4040)$ and $ψ(4160)$ in four relativistic wave-function representations</p>
+  <p class="meta"><strong>作者：</strong>Wen-Yuan Ke、Wan-Li Ju、Tianhong Wang、Qiang Li、Guo-Li Wang</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>强衰变可直接检验重夸克偶素波函数的相对论结构。本文在Salpeter方程框架下，采用四种相对论波函数表示φ1–φ4（它们在独立保留的S波、P波与D波分量上有所不同）以及修正的³P₀模型，研究矢量粲偶素ψ(3770)、ψ(4040)与ψ(4160)的OZI允许强子衰变。夸克对产生强度由拟合实验测得的ψ(3770)→D D̄宽度一次性固定，此后不再调整，因此对两个更高激发态的结果是无参数预言。表示φ2预言ψ(4040)宽度为94^{+34}_{-23} MeV、ψ(4160)宽度为100^{+23}_{-20} MeV，与实验值84.5±12.3 MeV和69±10 MeV相符，并且是唯一其预言宽度比与数据相容的表示。相比之下，φ1对ψ(4040)的预言超出实验值2.5σ；φ3给出最大宽度，在5σ水平上不被数据支持；φ4不含独立S波分量，对ψ(3770)的预言偏低约2σ，且不能应用于含矢量介子的末态。这些结果表明，成功的表示必须包含独立的S、P、D分量，其中P波项提供主要的相对论修正，而波函数的节点结构则解释了预言的大不确定性。由φ2提取的混合角7.92°、25.8°与26.3°与耦合道模型所得数值一致。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在Salpeter方程与修正的³P₀模型框架下，何种相对论波函数表示（在独立保留的S波、P波、D波分量上不同）能够正确描述矢量粲偶素ψ(3770)、ψ(4040)与ψ(4160)的OZI允许强衰变宽度及宽度比。</p>
+    <h4>方法</h4><p>采用Salpeter方程构造四种相对论波函数表示φ1–φ4，结合修正的³P₀模型计算OZI允许强子衰变；夸克对产生强度由ψ(3770)→D D̄的实测宽度一次性固定，不随后调整，从而对ψ(4040)与ψ(4160)给出无参数预言，并与实验宽度及宽度比比较。</p>
+    <h4>主要发现</h4><p>φ2预言ψ(4040)宽度94^{+34}_{-23} MeV、ψ(4160)宽度100^{+23}_{-20} MeV，与实测84.5±12.3 MeV和69±10 MeV相符，且是唯一宽度比与数据相容的表示；φ1对ψ(4040)超出实验2.5σ；φ3给出最大宽度并在5σ水平被排除；φ4无独立S波分量，对ψ(3770)低估约2σ且不能用于含矢量介子的末态。由φ2提取的混合角7.92°、25.8°、26.3°与耦合道模型一致。</p>
+    <h4>局限与展望</h4><p>结果表明成功的波函数表示需包含独立的S、P、D分量，P波项为主要相对论修正来源，波函数节点结构导致预言的大不确定性；上述结论限于本文所研究的三个矢量粲偶素态与所采用的Salpeter方程加修正³P₀模型框架，向其他夸克偶素态或衰变机制的推广需进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14040v1">
+  <div class="paper-head">
+    <h2>用于电子离子对撞机的BNL 20微米和30微米厚LGAD的表征<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14040v1" rel="noopener noreferrer">2611.14040v1</a>
+  </div>
+  <p class="original-title">Characterization of BNLs 20 and 30 micrometer thick LGADs for the Electron Ion Collider</p>
+  <p class="meta"><strong>作者：</strong>F. Zareef、J. J. Chwastowski、M. Pycior、I. Ahmad、W. Fryt、G. Giacomini、S. Kusyk、A. Obłąkowska-Mucha、P. Płatek、T. Polański、P. Rzeźnik、J. Swakoń、T. Szumlak、A. Tricoli、D. Wróbel</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文评估了布鲁克海文国家实验室（BNL）研制的20微米和30微米厚低增益雪崩探测器（LGAD）。详细电学测量表明，其增益层结构良好且稳定，漏电流持续较低。采用瞬态电流技术（TCT）评估增益。快速激光时间测量显示，时间分辨率为数十皮秒量级。为评估电子离子对撞机子探测器系统在实际条件下的工作寿命，器件被30 MeV和60 MeV质子辐照至10^13至10^14 neq/cm^2的注量，从而能够集中研究辐射对增益稳定性和时间性能的影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>评估BNL研制的20微米和30微米厚LGAD在电子离子对撞机子探测器应用中的电学特性、增益、时间分辨率及辐射耐受性。</p>
+    <h4>方法</h4><p>开展详细电学测量；使用瞬态电流技术（TCT）评估增益；通过快速激光时间测量研究时间分辨率；将器件用30 MeV和60 MeV质子辐照至10^13至10^14 neq/cm^2注量，以研究辐射对增益稳定性和时间性能的影响。</p>
+    <h4>主要发现</h4><p>电学测量表明增益层结构良好且稳定，漏电流持续较低；快速激光时间测量得到数十皮秒量级的时间分辨率；质子辐照实验为集中研究辐射诱导的增益稳定性和时间性能变化提供了条件。</p>
+    <h4>局限与展望</h4><p>原文未明确给出辐照后增益稳定性和时间性能的具体变化结论；后续可基于该辐照实验进一步分析辐射诱导效应，并评估器件在电子离子对撞机实际运行条件下的适用性（此方向为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14103v1">
+  <div class="paper-head">
+    <h2>物理π介子质量下及连续极限中格点QCD的核子σ项<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14103v1" rel="noopener noreferrer">2611.14103v1</a>
+  </div>
+  <p class="original-title">Nucleon sigma terms in lattice QCD at physical pion mass and in the continuum</p>
+  <p class="meta"><strong>作者：</strong>Constantia Alexandrou、Christos Iona、Giannis Koutsou、Yan Li、Srijit Paul、Ferenc Pittler</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文使用四个N_f=2+1+1 twisted-mass规范系综，在物理π介子质量下确定核子的轻、奇异和粲σ项；这些系综的空间体积近似相同。四个格点间距从0.080 fm到0.049 fm，所用作用量具有O(a)改进，因此可将结果外推至连续极限。我们分析了价夸克和海夸克的贡献，并考虑了低能多强子态造成的激发态污染。对所有系综进行全局拟合，得到σ_πN=53.0(7.4)(1.6) MeV、σ_s=58.2(17.0)(2.1) MeV和σ_c=112(28)(25) MeV，其中括号内依次为统计误差和系统误差。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在格点QCD中，于物理π介子质量下确定核子的轻、奇异和粲σ项，并控制连续极限外推与激发态污染。</p>
+    <h4>方法</h4><p>采用四个N_f=2+1+1 twisted-mass规范系综，π介子质量取物理值，空间体积近似相同；格点间距为0.080–0.049 fm，作用量具有O(a)改进；分析价夸克与海夸克贡献，并处理低能多强子态引起的激发态污染；对所有系综进行全局拟合并外推至连续极限。</p>
+    <h4>主要发现</h4><p>全局拟合给出σ_πN=53.0(7.4)(1.6) MeV、σ_s=58.2(17.0)(2.1) MeV和σ_c=112(28)(25) MeV，括号内依次为统计误差与系统误差。</p>
+    <h4>局限与展望</h4><p>摘要未讨论计算范围之外的适用性；后续工作可考虑进一步减小统计与系统误差，并检验多强子态处理及连续极限外推的稳健性（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14447v1">
+  <div class="paper-head">
+    <h2>金属样品在真空紫外波段的角度分辨反射率测量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14447v1" rel="noopener noreferrer">2611.14447v1</a>
+  </div>
+  <p class="original-title">Angle-Resolved Reflectance Measurements in the Vacuum Ultraviolet for Metallic Samples</p>
+  <p class="meta"><strong>作者：</strong>H. Amar、J. Álvarez、X. Arrue、C. Benitez、A. Cervera-Villanueva、J. Martín-Albo、L. Molina-Bueno、A. Roche、M. Sorel、J. Soto-Oton、S. Teruel-Pardo、N. Yahlali</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>惰性元素闪烁探测器的光产额强烈依赖于探测器材料在真空紫外（VUV）波段的反射特性，而该波段的光学测量数据十分稀缺。为此，我们在IFIC搭建了一套定制的旋转式测量装置，配备单色仪并在气态氩气氛下运行，用于在镜面反射平面内开展角度分辨反射率测量。本文介绍该装置及其全面的表征，以及在128至500 nm波长范围内、不同入射角下测量材料双向反射分布函数（BRDF）的流程，该波长范围覆盖氩（128 nm）和氙（175 nm）的闪烁波长。为展示装置性能，我们给出了粗糙铝表面和不锈钢表面作为参考材料的测量结果。利用解析GGX微表面模型拟合测得的角分布，可提取各样品的折射率实部与虚部以及表面粗糙度参数。随后利用这些参数将面内测量外推至整个半球，并从气态氩外推至液态介质，从而推断气态氩、液氩和液氙中的半球反射率。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>惰性元素闪烁探测器所用金属材料在真空紫外波段（128–500 nm）的反射特性缺乏光学测量数据，需要建立角度分辨的反射率测量手段并获取相关材料参数。</p>
+    <h4>方法</h4><p>在IFIC搭建配备单色仪、运行于气态氩气氛的定制旋转装置，在镜面反射平面内测量材料在不同入射角下的双向反射分布函数（BRDF），波长覆盖128至500 nm；并用解析GGX微表面模型拟合角分布以提取折射率实部、虚部及表面粗糙度参数。</p>
+    <h4>主要发现</h4><p>装置及其表征、BRDF测量流程得到描述；对粗糙铝和不锈钢参考样品的测量角分布可由GGX模型拟合，从而提取各样品的折射率实部与虚部以及表面粗糙度参数；基于这些参数可将面内测量外推至全半球及从气态氩到液态介质，进而推断气态氩、液氩和液氙中的半球反射率。</p>
+    <h4>局限与展望</h4><p>摘要仅以粗糙铝和不锈钢作为参考材料展示装置能力，未给出其他材料或液态介质中的直接测量；向液态介质的外推依赖GGX模型拟合参数，其适用性与精度需进一步验证。后续可合理推断为将该方法扩展至更多探测器材料及实际液氩/液氙条件下的验证。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-11 12:49 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

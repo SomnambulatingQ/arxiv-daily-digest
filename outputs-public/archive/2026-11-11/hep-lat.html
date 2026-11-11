@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-11</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">0</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2611.13117v1">基于机器学习的格点QCD中π介子极化率重构</a> <small>2611.13117v1</small></li><li><a href="#paper-2611.13852v1">规范不变PEPS拟设跨越拓扑相变的表现能力评估</a> <small>2611.13852v1</small></li><li><a href="#paper-2611.13886v1">手征规范理论的格点哈密顿量</a> <small>2611.13886v1</small></li><li><a href="#paper-2611.14080v1">零温格点QCD中磁场下赝标量介子质量的研究</a> <small>2611.14080v1</small></li><li><a href="#paper-2611.14103v1">物理π介子质量下及连续极限中格点QCD的核子σ项</a> <small>2611.14103v1</small></li><li><a href="#paper-2611.14324v1">二维 O(3) 非线性 σ 模型中能动量张量的非微扰重整化</a> <small>2611.14324v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.13117v1">
+  <div class="paper-head">
+    <h2>基于机器学习的格点QCD中π介子极化率重构<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13117v1" rel="noopener noreferrer">2611.13117v1</a>
+  </div>
+  <p class="original-title">Reconstruction of pion polarizabilities in lattice QCD with machine learning</p>
+  <p class="meta"><strong>作者：</strong>Hanxing Jiang、Frank X. Lee</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文将从生成式机器学习中的去噪扩散概率模型（DDPM）应用于带电与中性π介子的电极化率和磁极化率的模型无关重构。输入数据为此前在淬火Wilson格点上、约370至1100 MeV之间四个π介子质量下模拟得到的格点QCD连通夸克线贡献的稀疏动量空间四点函数数据。对于带电π介子，弹性贡献由π介子形状因子斜率获得，完整的电与磁非弹性项分别重构；中性π介子的电与磁通道在不含弹性电荷半径贡献的情况下重构。研究采用四类不同的合成训练函数族，从而不对格点数据预设单一解析拟合函数。文中给出低动量重构并外推至极化率定义所在的零动量转移极限，以及至物理π介子质量138 MeV的质量外推。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在不预设单一解析拟合函数的前提下，从格点QCD中稀疏的动量空间四点函数数据模型无关地重构带电与中性π介子的电、磁极化率，并外推至零动量转移与物理π介子质量。</p>
+    <h4>方法</h4><p>采用生成式机器学习中的去噪扩散概率模型（DDPM），以淬火Wilson格点上四个π介子质量（约370–1100 MeV）下连通夸克线贡献的稀疏动量空间四点函数为输入；带电π介子的弹性贡献由π介子形状因子斜率给出，电与磁非弹性项分别重构，中性π介子通道不含弹性电荷半径贡献；使用四类不同的合成训练函数族以避免预设单一解析拟合形式，并进行低动量重构至零动量转移极限及至138 MeV的质量外推。</p>
+    <h4>主要发现</h4><p>原文明确报告了对带电与中性π介子的电、磁极化率进行模型无关重构，其中带电π介子的弹性贡献来自形状因子斜率、非弹性电与磁项分别重构，中性π介子电与磁通道在不含弹性电荷半径贡献下重构；给出了低动量重构至零动量转移极限的结果以及至物理π介子质量138 MeV的质量外推。</p>
+    <h4>局限与展望</h4><p>该方法基于淬火Wilson格点及有限个π介子质量下的连通夸克线贡献数据，其适用性受这些模拟设置限制；向包含海夸克效应、更多格点数据或更轻π介子质量的可推广性有待进一步检验（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13852v1">
+  <div class="paper-head">
+    <h2>规范不变PEPS拟设跨越拓扑相变的表现能力评估<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13852v1" rel="noopener noreferrer">2611.13852v1</a>
+  </div>
+  <p class="original-title">Assessing the expressive power of a gauge-invariant PEPS ansatz across a topological phase transition</p>
+  <p class="meta"><strong>作者：</strong>Etsuko Itou、Tsuyoshi Okubo</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究规范高斯费米子投影纠缠对态（GGFPEPS）拟设的表现能力，该拟设是面向(2+1)维格点规范理论的显式规范不变张量网络拟设。在GGFPEPS中，每条链上的规范场通过与置于链两端的虚费米子的费米子数耦合来表示。此前工作曾用变分蒙特卡洛（VMC）方法研究该拟设，但VMC的统计误差使变分参数难以精确确定，因而无法准确考察拟设的表现能力。本文将计算重构为Grassmann张量网络（TN），对整个网络进行确定性收缩，并引入高阶张量重整化群（HOTRG），从而可在最大至L=34的大体积下计算；同时使用角转移矩阵重整化群（CTMRG）评估无限体积系统。我们发现，仅含八个复变分参数的拟设能够准确描述纯Z2规范理论，包括拓扑相变区域，不仅在能量上，而且在拓扑纠缠熵上也是如此。由相应磁化率峰值得到的临界耦合与连续时间量子蒙特卡洛模拟的预测定量一致。此外，在转变点附近，我们表明该拟设所表示的状态位于plaquette乘积族之外；plaquette乘积族是构造该拟设时作为强弱耦合极限之间简单插值所假设的一参数态族。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>评估显式规范不变的GGFPEPS拟设对(2+1)维纯Z2规范理论在拓扑相变区域的表现能力，并克服此前VMC方法因统计误差导致的参数确定不精确问题。</p>
+    <h4>方法</h4><p>将GGFPEPS的计算重构为Grassmann张量网络并进行确定性全网络收缩，引入HOTRG以在最大L=34的体积下计算，并使用CTMRG评估无限体积系统；通过能量、拓扑纠缠熵及磁化率峰值确定临界耦合。</p>
+    <h4>主要发现</h4><p>仅含八个复变分参数的拟设在能量和拓扑纠缠熵上均能准确描述纯Z2规范理论，包括拓扑相变区域；由磁化率峰值得到的临界耦合与连续时间量子蒙特卡洛模拟结果定量一致；在转变点附近，该拟设表示的状态位于plaquette乘积族之外。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性；可合理推断，该确定性张量网络方法可推广至其他规范群或更高维规范理论的拟设评估，但此点尚需后续工作验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13886v1">
+  <div class="paper-head">
+    <h2>手征规范理论的格点哈密顿量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13886v1" rel="noopener noreferrer">2611.13886v1</a>
+  </div>
+  <p class="original-title">Lattice Hamiltonians for Chiral Gauge Theories</p>
+  <p class="meta"><strong>作者：</strong>Dorota M. Grabowska</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出了一个定义在 slab 边界上的手征规范理论的格点哈密顿量。该表述采用固定规范，因此规范变量为边界场的物理模式，高斯定律严格成立。体规范场由边界场和一个整数标号决定，该标号是边界所产生、体以局域瞬子形式存储的拓扑荷。体作为电介质进入，两个规范反常条件都转化为边界能否独立满足高斯定律的问题。对于背景规范场，我们证明在 Pauli-Villars 减除后，相差一个体电荷单位的扇区是简并的，且镜像费米子退耦。边界理论没有真空角。哈密顿量中的每一项都由边界规范变量、整数标号和费米子模式定义，可作为量子线路构造的起点。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在格点上为手征规范理论构造一个规范固定、高斯定律严格成立且能处理规范反常条件的哈密顿量表述。</p>
+    <h4>方法</h4><p>在 slab 边界上建立格点哈密顿量；采用固定规范使规范变量为边界场的物理模式；体规范场由边界场与一个整数拓扑标号确定；体作为电介质；对背景规范场进行 Pauli-Villars 减除。</p>
+    <h4>主要发现</h4><p>两个规范反常条件均转化为边界能否独立满足高斯定律的问题；对于背景规范场，相差一个体电荷单位的扇区在 Pauli-Villars 减除后简并，镜像费米子退耦；边界理论没有真空角；哈密顿量各项均由边界规范变量、整数标号和费米子模式定义。</p>
+    <h4>局限与展望</h4><p>该表述为量子线路构造提供了起点；其局限、适用范围及具体量子模拟可行性需进一步研究，原文未明确讨论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14080v1">
+  <div class="paper-head">
+    <h2>零温格点QCD中磁场下赝标量介子质量的研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14080v1" rel="noopener noreferrer">2611.14080v1</a>
+  </div>
+  <p class="original-title">Pseudoscalar meson masses in magnetic fields at zero temperature from lattice QCD</p>
+  <p class="meta"><strong>作者：</strong>Heng-Tong Ding、Dan Zhang</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在零温、物理夸克质量的(2+1)味QCD中，利用背景磁场研究了中性和带电赝标量介子的质量。采用高度改进交错夸克作用量，在四个格点间距上，从π介子、K介子以及虚构的s\bar{s}赝标量η^0_{s\bar{s}}的连通关联函数出发，得到了连续极限外推的质量。中性赝标量介子质量随磁场增强而减小，其中中性π介子的相对减小幅度最大。相比之下，带电π介子和K介子质量最初上升，但在较强磁场下趋于平缓或下降，偏离了点粒子最低朗道能级的预期。为探究这种磁场依赖性的来源，我们在有限格点间距下比较了中性和带电π介子质量，分别考虑磁场仅包含在价夸克传播子中或仅包含在海夸克行列式中。仅价夸克情形下的质量近似重现了完整结果，而仅海夸克情形下的质量则接近其对应的零场值。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在零温、物理夸克质量的(2+1)味QCD中，背景磁场如何影响中性和带电赝标量介子（π介子、K介子及虚构的s\bar{s}赝标量）的质量？</p>
+    <h4>方法</h4><p>采用高度改进交错夸克作用量，在四个格点间距上进行格点QCD计算，从连通关联函数提取介子质量并做连续极限外推；通过分别将磁场仅纳入价夸克传播子或仅纳入海夸克行列式，比较有限格点间距下的中性和带电π介子质量。</p>
+    <h4>主要发现</h4><p>中性赝标量介子质量随磁场增强而减小，中性π介子的相对减小幅度最大；带电π介子和K介子质量最初上升，但在较强磁场下趋于平缓或下降，偏离点粒子最低朗道能级的预期；仅价夸克情形下的质量近似重现完整结果，而仅海夸克情形下的质量接近零场值。</p>
+    <h4>局限与展望</h4><p>原文未讨论系统误差或更大磁场范围等局限；基于现有结果可合理推断，磁场对赝标量介子质量的影响主要来自价夸克传播子，海夸克行列式的贡献相对较弱，后续可进一步检验该结论在不同作用量或更大磁场范围下的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14103v1">
+  <div class="paper-head">
+    <h2>物理π介子质量下及连续极限中格点QCD的核子σ项<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14103v1" rel="noopener noreferrer">2611.14103v1</a>
+  </div>
+  <p class="original-title">Nucleon sigma terms in lattice QCD at physical pion mass and in the continuum</p>
+  <p class="meta"><strong>作者：</strong>Constantia Alexandrou、Christos Iona、Giannis Koutsou、Yan Li、Srijit Paul、Ferenc Pittler</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文使用四个N_f=2+1+1 twisted-mass规范系综，在物理π介子质量下确定核子的轻、奇异和粲σ项；这些系综的空间体积近似相同。四个格点间距从0.080 fm到0.049 fm，所用作用量具有O(a)改进，因此可将结果外推至连续极限。我们分析了价夸克和海夸克的贡献，并考虑了低能多强子态造成的激发态污染。对所有系综进行全局拟合，得到σ_πN=53.0(7.4)(1.6) MeV、σ_s=58.2(17.0)(2.1) MeV和σ_c=112(28)(25) MeV，其中括号内依次为统计误差和系统误差。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在格点QCD中，于物理π介子质量下确定核子的轻、奇异和粲σ项，并控制连续极限外推与激发态污染。</p>
+    <h4>方法</h4><p>采用四个N_f=2+1+1 twisted-mass规范系综，π介子质量取物理值，空间体积近似相同；格点间距为0.080–0.049 fm，作用量具有O(a)改进；分析价夸克与海夸克贡献，并处理低能多强子态引起的激发态污染；对所有系综进行全局拟合并外推至连续极限。</p>
+    <h4>主要发现</h4><p>全局拟合给出σ_πN=53.0(7.4)(1.6) MeV、σ_s=58.2(17.0)(2.1) MeV和σ_c=112(28)(25) MeV，括号内依次为统计误差与系统误差。</p>
+    <h4>局限与展望</h4><p>摘要未讨论计算范围之外的适用性；后续工作可考虑进一步减小统计与系统误差，并检验多强子态处理及连续极限外推的稳健性（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14324v1">
+  <div class="paper-head">
+    <h2>二维 O(3) 非线性 σ 模型中能动量张量的非微扰重整化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14324v1" rel="noopener noreferrer">2611.14324v1</a>
+  </div>
+  <p class="original-title">Non-perturbative renormalization of the energy-momentum tensor in the 2d $O(3)$ non-linear $σ$-model</p>
+  <p class="meta"><strong>作者：</strong>Leonardo Giusti、Mitsuaki Hirasawa、Michele Pepe</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在格点上构造二维 O(3) 非线性 σ 模型的能动量张量无迹分量，使其关联函数在连续极限下满足相应的 Ward 恒等式。理论由作用量和能动量张量的标准格点离散化定义。时空的离散化导致 O(2) 的无迹两指标对称不可约表示分裂为二面体群 D_4 的两个不可约表示，二者各自需要独立的重整化常数。这些常数通过施加平移边界条件下单点函数连续 Ward 恒等式的离散版本以非微扰方式定义，并借助蒙特卡罗模拟进行非微扰计算；在所研究的无量纲裸耦合常数平方范围 0≤g_0^2≤0.6 内，所得重整化常数的最终精度优于千分之一。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在格点上构造二维 O(3) 非线性 σ 模型的能动量张量无迹分量，并对其在连续极限下满足 Ward 恒等式所需的独立重整化常数进行非微扰确定。</p>
+    <h4>方法</h4><p>采用作用量与能动量张量的标准格点离散化；利用平移边界条件下单点函数连续 Ward 恒等式的离散版本定义重整化常数，并通过蒙特卡罗模拟进行非微扰计算。</p>
+    <h4>主要发现</h4><p>由于时空离散化，O(2) 的无迹两指标对称不可约表示分裂为 D_4 的两个不可约表示，每个表示需要独立的重整化常数；在所研究的 0≤g_0^2≤0.6 范围内，这些常数被确定到优于千分之一的最终精度。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该构造在更大裸耦合或连续极限外推下的表现，也未涉及其他模型或维度的推广；相关适用性与扩展方向需进一步研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-11 12:49 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
