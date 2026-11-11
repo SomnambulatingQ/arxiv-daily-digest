@@ -1,0 +1,2066 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv quant-ph 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>quant-ph · 量子物理</h1>
+    <p class="lede">官方公告日：2026-11-11</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">90</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">71</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">19</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（71）</h3><ol class="toc-list"><li><a href="#paper-2611.12971v1">时间倒流及其止步之处：固有时超振荡与环境记忆</a> <small>2611.12971v1</small></li><li><a href="#paper-2611.12993v1">两 qutrit 系统 PPT 纠缠成本层级在第二层终止</a> <small>2611.12993v1</small></li><li><a href="#paper-2611.13079v1">在超导与离子阱处理器上以二进制与一元位置编码量子模拟实时玻色动力学</a> <small>2611.13079v1</small></li><li><a href="#paper-2611.13084v1">约瑟夫森行波参量放大器中的场致相位匹配</a> <small>2611.13084v1</small></li><li><a href="#paper-2611.13085v1">自由费米子基态的时间方向纠缠熵</a> <small>2611.13085v1</small></li><li><a href="#paper-2611.13089v1">运动学量子几何</a> <small>2611.13089v1</small></li><li><a href="#paper-2611.13094v1">无阻挫控制制备量子态：精确首达理论</a> <small>2611.13094v1</small></li><li><a href="#paper-2611.13098v1">相干错误下的表面码：最优解码与有限尺寸交叉</a> <small>2611.13098v1</small></li><li><a href="#paper-2611.13099v1">分布式随机测量中的三阶量子信息</a> <small>2611.13099v1</small></li><li><a href="#paper-2611.13103v1">训练量子模型时哪些数据样本重要？</a> <small>2611.13103v1</small></li><li><a href="#paper-2611.13110v1">Finite Measured Entropy Production Does Not Imply Finite Microscopic Irreversibility</a> <small>2611.13110v1</small></li><li><a href="#paper-2611.13111v1">FusionQ：面向超低延迟量子纠错的通用最优解码框架</a> <small>2611.13111v1</small></li><li><a href="#paper-2611.13154v1">基于重复直至成功协议的理性量子谱滤波</a> <small>2611.13154v1</small></li><li><a href="#paper-2611.13156v1">扩散子关联退相干导致的长程关联量子误差</a> <small>2611.13156v1</small></li><li><a href="#paper-2611.13174v1">窃听者需要多宽？环面码逻辑比特向条带的泄漏与西森点</a> <small>2611.13174v1</small></li><li><a href="#paper-2611.13175v1">量子线路光锥附近测量记录的量子化记忆</a> <small>2611.13175v1</small></li><li><a href="#paper-2611.13221v1">非马尔可夫量子态扩散中的奇异点：从系数动力学到态特征</a> <small>2611.13221v1</small></li><li><a href="#paper-2611.13301v1">面向容错量子计算的编译器</a> <small>2611.13301v1</small></li><li><a href="#paper-2611.13315v1">5×5 Jacobi 矩阵的早期状态排除</a> <small>2611.13315v1</small></li><li><a href="#paper-2611.13320v1">波动方程与双电子原子波函数</a> <small>2611.13320v1</small></li><li><a href="#paper-2611.13347v1">Clifford与Ising量子计算机的计算能力</a> <small>2611.13347v1</small></li><li><a href="#paper-2611.13371v1">硅基量子LDPC码的综合征提取：分布式纠缠与移动辅助量子比特</a> <small>2611.13371v1</small></li><li><a href="#paper-2611.13373v1">PriorTilt：通过信念传播先验的稀疏扰动解码量子LDPC码</a> <small>2611.13373v1</small></li><li><a href="#paper-2611.13428v1">单拷贝与纠缠测量下费米子及玻色子高斯态学习的样本复杂度</a> <small>2611.13428v1</small></li><li><a href="#paper-2611.13447v1">六方氮化硼自旋缺陷的双量子相干控制与磁传感</a> <small>2611.13447v1</small></li><li><a href="#paper-2611.13465v1">多模腔QED中延迟量子反馈产生的实时频谱梳</a> <small>2611.13465v1</small></li><li><a href="#paper-2611.13625v1">混合量子-经典数据包的分组式多跳量子路由</a> <small>2611.13625v1</small></li><li><a href="#paper-2611.13630v1">面向聚变型量子计算实时需求的机器学习解码器</a> <small>2611.13630v1</small></li><li><a href="#paper-2611.13658v1">在任意整数区间上制备均匀叠加态的高效量子算法</a> <small>2611.13658v1</small></li><li><a href="#paper-2611.13665v1">观测两个原子间的强电偶极-偶极相互作用</a> <small>2611.13665v1</small></li><li><a href="#paper-2611.13671v1">量子辅助生成式异常检测：潜在精炼的维度控制研究</a> <small>2611.13671v1</small></li><li><a href="#paper-2611.13755v1">面向有机锡氢氧化物基于采样量子对角化的硬件训练生成式量子本征求解器（至70量子比特）</a> <small>2611.13755v1</small></li><li><a href="#paper-2611.13778v1">用于矩阵逆作用的多项式量子循环通道：延迟重置动力学与切比雪夫滤波</a> <small>2611.13778v1</small></li><li><a href="#paper-2611.13791v1">紧凑型超导谐振腔阵列的本征模式与场成像</a> <small>2611.13791v1</small></li><li><a href="#paper-2611.13796v1">三维单原子里德堡阵列上求解加权MaxCut问题的模拟量子近似优化算法</a> <small>2611.13796v1</small></li><li><a href="#paper-2611.13799v1">基于共振荧光零拍探测的中性原子量子比特相干光学读出</a> <small>2611.13799v1</small></li><li><a href="#paper-2611.13815v1">自适应策略引导的误差缓解（APGEM）：面向量子机器学习噪声韧性的统一学习型框架</a> <small>2611.13815v1</small></li><li><a href="#paper-2611.13900v1">耦合非马尔可夫环境所携带与调控的关联</a> <small>2611.13900v1</small></li><li><a href="#paper-2611.13934v1">自旋系综中由库诱导的量子相变</a> <small>2611.13934v1</small></li><li><a href="#paper-2611.13948v1">循环网络的量子多参数估计</a> <small>2611.13948v1</small></li><li><a href="#paper-2611.13967v1">谐波囚禁离子晶体中振动激发的量子传播</a> <small>2611.13967v1</small></li><li><a href="#paper-2611.13981v1">交换冯·诺依曼代数的Mermin不等式最大违反与量子场论中的多体真空纠缠</a> <small>2611.13981v1</small></li><li><a href="#paper-2611.13998v1">无池化、残差触发的变分虚时演化拟设增长：固定算符顺序何时优于自适应筛选</a> <small>2611.13998v1</small></li><li><a href="#paper-2611.14006v1">相空间中量子线路经典模拟的归一化流方法</a> <small>2611.14006v1</small></li><li><a href="#paper-2611.14023v1">PINNverse 与 Jordan-Wigner 变换：学习长自旋链的哈密顿量</a> <small>2611.14023v1</small></li><li><a href="#paper-2611.14044v1">连续变量孪生场量子密钥分发</a> <small>2611.14044v1</small></li><li><a href="#paper-2611.14081v1">动力学 GKP 码</a> <small>2611.14081v1</small></li><li><a href="#paper-2611.14114v1">通过云服务对量子处理器中GHZ态生成的跨平台基准测试</a> <small>2611.14114v1</small></li><li><a href="#paper-2611.14139v1">量子同步的相干-耗散交叉</a> <small>2611.14139v1</small></li><li><a href="#paper-2611.14142v1">含时电子—离子—光子系统中的多粒子纠缠</a> <small>2611.14142v1</small></li><li><a href="#paper-2611.14147v1">量子程序中的安全信息流</a> <small>2611.14147v1</small></li><li><a href="#paper-2611.14173v1">互补关联辅助功蒸馏中的量子优势</a> <small>2611.14173v1</small></li><li><a href="#paper-2611.14179v1">面向 DYRK1A 的量子增强 QSAR：评估互补且实用的 QPU 衍生分子表示</a> <small>2611.14179v1</small></li><li><a href="#paper-2611.14180v1">量子增强图分解算法</a> <small>2611.14180v1</small></li><li><a href="#paper-2611.14182v1">面向有界收益不完全信息博弈的量子辅助反事实遗憾最小化</a> <small>2611.14182v1</small></li><li><a href="#paper-2611.14188v1">紧致U(1)格点规范理论的低能谱窗截断</a> <small>2611.14188v1</small></li><li><a href="#paper-2611.14214v1">经典相位展开使大时间步酉量子Krylov子空间对角化成为可能</a> <small>2611.14214v1</small></li><li><a href="#paper-2611.14295v1">从可分离量子记录中读取长程信息需要纠缠测量</a> <small>2611.14295v1</small></li><li><a href="#paper-2611.14308v1">4H-SiC a面横向pin二极管中V2硅空位的电学斯塔克调谐与原位电场传感</a> <small>2611.14308v1</small></li><li><a href="#paper-2611.14314v1">误差鲁棒性与酉2-设计</a> <small>2611.14314v1</small></li><li><a href="#paper-2611.14339v1">Floquet驱动Landau极化激元的动力学Casimir辐射：规范不变性禁止超辐射相变</a> <small>2611.14339v1</small></li><li><a href="#paper-2611.14358v1">基于约瑟夫森数字电路皮秒脉冲的Fluxonium量子比特高速控制</a> <small>2611.14358v1</small></li><li><a href="#paper-2611.14368v1">不变性可防止量子神经网络中的过拟合与捷径学习</a> <small>2611.14368v1</small></li><li><a href="#paper-2611.14376v1">保留量子服务结果的引用更新操作限制</a> <small>2611.14376v1</small></li><li><a href="#paper-2611.14391v1">利用片上耗散实现超导量子比特的快速复位</a> <small>2611.14391v1</small></li><li><a href="#paper-2611.14398v1">在容错量子计算机上模拟Tavis-Cummings晶格的闭系统与开系统动力学</a> <small>2611.14398v1</small></li><li><a href="#paper-2611.14406v1">多维量子分组Turbo码</a> <small>2611.14406v1</small></li><li><a href="#paper-2611.14422v1">量子计算机中加载经典数据的能量代价</a> <small>2611.14422v1</small></li><li><a href="#paper-2611.14458v1">基于非线性环境耦合的量子热晶体管</a> <small>2611.14458v1</small></li><li><a href="#paper-2611.14461v1">QKD辅助无人机边缘计算中的有限密钥就绪与认证密钥补充</a> <small>2611.14461v1</small></li><li><a href="#paper-2611.14484v1">超导量子处理器上(2+1)维格点规范理论中的非微扰弦动力学</a> <small>2611.14484v1</small></li></ol><h3>交叉列表（19）</h3><ol class="toc-list"><li><a href="#paper-2611.00626v1">洛伦兹熵、次高斯矩阵集中与适用于所有拟阵的锐利函数不等式</a> <small>2611.00626v1</small></li><li><a href="#paper-2611.12985v1">面向量子纠错的参数化携带证明编译</a> <small>2611.12985v1</small></li><li><a href="#paper-2611.13032v1">非谐物质波透镜中的普适折叠焦散</a> <small>2611.13032v1</small></li><li><a href="#paper-2611.13071v1">由反射谱与负度谱刻画的三体非局域魔法</a> <small>2611.13071v1</small></li><li><a href="#paper-2611.13088v1">全息拖曳力与纠缠膜：几何重构与信息传播</a> <small>2611.13088v1</small></li><li><a href="#paper-2611.13097v1">BPS Bootstrap</a> <small>2611.13097v1</small></li><li><a href="#paper-2611.13101v1">量子控制几何作为混沌的度量</a> <small>2611.13101v1</small></li><li><a href="#paper-2611.13141v1">Rényi纠缠熵的动力学与本征态热化</a> <small>2611.13141v1</small></li><li><a href="#paper-2611.13235v1">一维量子流体密度依赖性的中子散射研究</a> <small>2611.13235v1</small></li><li><a href="#paper-2611.13475v1">质子治疗中量子行走输运算子与标量射程统计量的振幅估计</a> <small>2611.13475v1</small></li><li><a href="#paper-2611.13522v1">全GPU加速的半随机Epstein-Nesbet微扰理论</a> <small>2611.13522v1</small></li><li><a href="#paper-2611.13852v1">规范不变PEPS拟设跨越拓扑相变的表现能力评估</a> <small>2611.13852v1</small></li><li><a href="#paper-2611.13886v1">手征规范理论的格点哈密顿量</a> <small>2611.13886v1</small></li><li><a href="#paper-2611.14082v1">具有强光致偶极相互作用的两原子体系</a> <small>2611.14082v1</small></li><li><a href="#paper-2611.14108v1">非高斯性揭示长时动力学中的初态记忆</a> <small>2611.14108v1</small></li><li><a href="#paper-2611.14200v1">无序诱导的量子涨落对数扩散与局域化</a> <small>2611.14200v1</small></li><li><a href="#paper-2611.14271v1">有限陈数薄片的边缘量子权重及其拓扑下限</a> <small>2611.14271v1</small></li><li><a href="#paper-2611.14319v1">电子哈密顿量无自旋平方和能量界的一种新计算模型</a> <small>2611.14319v1</small></li><li><a href="#paper-2611.14460v1">基于量子信息理论的单-j模型关联结构研究</a> <small>2611.14460v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.12971v1">
+  <div class="paper-head">
+    <h2>时间倒流及其止步之处：固有时超振荡与环境记忆<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.12971v1" rel="noopener noreferrer">2611.12971v1</a>
+  </div>
+  <p class="original-title">Time Running Backwards, and Where It Stops: Superoscillations of Proper Time and the Memory of the Environment</p>
+  <p class="meta"><strong>作者：</strong>Yakir Aharonov、Avshalom C. Elitzur</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">gr-qc</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究一个量子系统在固有时叠加态下的演化：时钟的世界线处于叠加态，或时钟静止于叠加的引力势中，此时各分支按相同动力学演化不同时长。对设定固有时的控制自由度进行后选择，可将该叠加态转化为时间膨胀因子的超振荡：系统被发现在固有时 $\alpha_w t$ 内演化，其中弱值 $\alpha_w$ 可大于 1、为零或为负，即 Aharonov、Anandan、Popescu 与 Vaidman 提出的量子时间平移机。我们追问此类机器能将不可逆过程回溯多远。测试系统为一个密封腔，包含激发态原子、原子发射进入的辐射场以及吸收壁，三者作为一个量子对象整体处理；判据是投影式的：在后选择子系综中，运行前已开始衰变的原子比插入时更激发。答案精确且仅依赖原子的存活振幅。在两分支情形下，仅当衰变年龄短于环境记忆时间时判据成立，此后发射变为马尔可夫型。超过该时间后，后选择放大了两分支中腔内内容的微小差异，该差异由原子及其场的全部能量展宽而非线宽决定，判据失效。要将衰变回溯至超过记忆时间，需要多分支、具有严格有界谱的环境，以及随后选择概率随待撤销的环境振荡数指数下降。因此，逆转的障碍不是熵而是带宽——正是最初使发射不可逆的同一带宽。我们给出四种叠加时钟速率的方式，从空心大质量壳层到惯性速度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>量子时间平移机（通过固有时叠加与后选择产生的弱值时间演化）能将不可逆衰变过程回溯多远，以及环境记忆时间在其中起何作用。</p>
+    <h4>方法</h4><p>将激发态原子、其发射的辐射场与吸收壁作为一个密封腔量子对象整体处理；对设定固有时的控制自由度进行后选择，使时间膨胀因子产生超振荡；以投影式判据检验后选择子系综中原子是否比插入时更激发，并分析两分支与多分支情形。</p>
+    <h4>主要发现</h4><p>判据精确且仅依赖原子的存活振幅；两分支情形下，仅当衰变年龄短于环境记忆时间时判据成立，之后发射变为马尔可夫型且判据失效；超过记忆时间后，后选择放大的两分支差异由原子及其场的全部能量展宽而非线宽决定；逆转超过记忆时间的衰变需要多分支、严格有界谱的环境，且后选择概率随待撤销的环境振荡数指数下降；逆转的障碍是带宽而非熵。</p>
+    <h4>局限与展望</h4><p>论文指出逆转障碍源于带宽，并给出四种叠加时钟速率的方式（从空心大质量壳层到惯性速度）；多分支方案所需的后选择概率指数下降，暗示实际实现难度随待撤销振荡数迅速增加，但原文未给出具体实验参数或可行性评估。</p>
+  </section>
+</article><article class="paper" id="paper-2611.12993v1">
+  <div class="paper-head">
+    <h2>两 qutrit 系统 PPT 纠缠成本层级在第二层终止<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.12993v1" rel="noopener noreferrer">2611.12993v1</a>
+  </div>
+  <p class="original-title">Second-level termination of the PPT entanglement-cost hierarchy for two qutrits</p>
+  <p class="meta"><strong>作者：</strong>Wei Song、Xiao-Lan Zong、Ming Yang</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文证明：对任意两 qutrit 量子态，PPT 纠缠成本的半定规划下界层级在第二层终止。因此，在保持正部分转置的操作下，其零误差渐近纠缠成本可由仅涉及三个 Hermitian 矩阵变量的半定规划得到。证明的关键是将可行对偶链缩短一层；为此，作者结合了由精确有理算术验证的有限证书与参数域边界附近的解析估计。该结果表明，两 qutrit 系统存在统一的终止层级，而在所有维度上并不存在统一的终止层级。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究两 qutrit 量子态的 PPT 纠缠成本半定规划下界层级是否在有限层终止，以及是否存在统一的终止层级。</p>
+    <h4>方法</h4><p>通过缩短可行对偶链一层来证明第二层终止；结合精确有理算术验证的有限证书与参数域边界附近的解析估计。</p>
+    <h4>主要发现</h4><p>对任意两 qutrit 量子态，该半定规划下界层级在第二层终止；其零误差渐近纠缠成本可由仅含三个 Hermitian 矩阵变量的半定规划获得；两 qutrit 系统存在统一终止层级，而所有维度上不存在统一终止层级。</p>
+    <h4>局限与展望</h4><p>原文未讨论计算复杂度或数值稳定性等实际实现问题；其方法是否可推广到其他固定局部维度或特定态族，需进一步研究，本文未作断言。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13079v1">
+  <div class="paper-head">
+    <h2>在超导与离子阱处理器上以二进制与一元位置编码量子模拟实时玻色动力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13079v1" rel="noopener noreferrer">2611.13079v1</a>
+  </div>
+  <p class="original-title">Quantum simulation of real-time bosonic dynamics with binary and unary position encodings on superconducting and trapped-ion processors</p>
+  <p class="meta"><strong>作者：</strong>Masanori Hanada、Jiwoo Seo、Seok-Kyun Son、Junggi Yoon</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在量子比特硬件上模拟玻色自由度需要对其位置空间进行离散化，而所得格点的量子比特编码决定了实现其实时动力学的量子线路。本文在超导（IBM）与离子阱（IonQ）处理器上比较位置格点的二进制编码与一元编码。二进制编码通过量子傅里叶变换施加动能项；一元编码每个格点使用一个量子比特，势能项用单量子比特旋转实现，动能项用保持激发数的交换门实现。对于单个自由度，一元动力学是一个自由费米子问题，其乘积公式可精确压缩为固定规模的最近邻线路。利用约两百个两比特门，这些线路在两个处理器上均分辨出对称双势阱中的隧穿：IBM 上右阱概率从 0.97 降至 0.06，IonQ 上从 0.96 降至 0.12；而需要数千个两比特门的二进制乘积公式线路未能重现该转移。无噪声仿真表明，这一对比既反映编码也反映编译：若不做固定规模优化，能捕捉该转移的一元乘积公式同样需要数千个两比特门。对单激发子空间的后选择可消除泄漏；由于对称格点的每个能量本征态在两个势阱中布居相等，测得的布居反转给出了能量本征态之间相干性的下界。在耦合振子基准测试中，寄存器间相互作用阻止了这种精确压缩，结果表明更优编码取决于格点规模与演化时间。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在量子比特硬件上模拟玻色自由度的实时动力学时，位置格点的二进制编码与一元编码在超导和离子阱处理器上的实现代价与物理保真度如何比较。</p>
+    <h4>方法</h4><p>将位置空间离散化为格点，分别采用二进制编码（用量子傅里叶变换实现动能项）和一元编码（每格点一个量子比特，单量子比特旋转实现势能、激发数守恒交换门实现动能）；对单自由度利用一元动力学等价于自由费米子问题将乘积公式精确压缩为固定规模最近邻线路；在 IBM 超导与 IonQ 离子阱处理器上运行对称双势阱隧穿实验，并进行无噪声仿真、单激发子空间后选择以及耦合振子基准测试。</p>
+    <h4>主要发现</h4><p>约两百个两比特门的一元压缩线路在两个处理器上均分辨出双势阱隧穿，右阱概率在 IBM 上从 0.97 降至 0.06、在 IonQ 上从 0.96 降至 0.12；需要数千个两比特门的二进制乘积公式线路未能重现该转移。无噪声仿真表明该对比同时源于编译与编码：未做固定规模优化时，能捕捉转移的一元乘积公式同样需要数千个两比特门。单激发子空间后选择可消除泄漏；由于对称格点每个能量本征态在两个势阱中布居相等，测得的布居反转给出能量本征态间相干性的下界。耦合振子基准中寄存器间相互作用阻止精确压缩，更优编码取决于格点规模与演化时间。</p>
+    <h4>局限与展望</h4><p>本文结论限于所考察的单自由度对称双势阱与耦合振子基准及所用处理器条件；耦合振子结果表明一元编码的固定规模压缩并非普遍适用，编码选择需随格点规模与演化时间重新评估。后续可合理推断的方向包括：针对多自由度或相互作用体系设计兼顾压缩与保真度的编码与编译策略，以及在更多硬件平台上检验上述编码权衡。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13084v1">
+  <div class="paper-head">
+    <h2>约瑟夫森行波参量放大器中的场致相位匹配<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13084v1" rel="noopener noreferrer">2611.13084v1</a>
+  </div>
+  <p class="original-title">Field-induced phase-matching in Josephson traveling wave parametric amplifiers</p>
+  <p class="meta"><strong>作者：</strong>Daniil E. Bazulin、Simon Gandorfer、Niklas Bruckmoser、Kedar E. Honasoge、Leon Koch、Maria-Teresa Handschuh、Matthias Hirschbichler、Kirill Shulga、Achim Marx、Michael Haider、Stefan Filipp、Kirill G. Fedorov</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>超导约瑟夫森行波参量放大器（JTWPAs）能够对微弱微波信号实现宽带、量子极限的放大，是超导量子比特单次读出、宽带真空压缩以及微波簇态制备等应用的关键器件。此类放大器中信模与泵浦模之间的相位匹配是一项重要的工程挑战，通常通过在非线性介质中集成谐振器以裁剪电磁色散关系，从而实现宽带高增益放大。本文实验演示了一种基于约瑟夫森元件的均匀非线性介质的相位匹配方法，利用磁场不均匀性实现相位匹配。我们表明，该磁场不均匀性可导致三波混频非线性符号反转，并稳定参量放大。我们预期该技术可作为传统相位匹配方法的一种可行替代方案。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在基于约瑟夫森元件的均匀非线性介质中实现JTWPAs的信模与泵浦模相位匹配，从而避免依赖集成谐振器裁剪色散的传统方案。</p>
+    <h4>方法</h4><p>实验演示一种利用磁场不均匀性的相位匹配方法，基于约瑟夫森元件的均匀非线性介质开展研究，并分析该磁场不均匀性对三波混频非线性及参量放大稳定性的影响。</p>
+    <h4>主要发现</h4><p>实验表明，磁场不均匀性可导致三波混频非线性符号反转，并稳定参量放大；该场致相位匹配方法在均匀非线性介质中可行。</p>
+    <h4>局限与展望</h4><p>原文将该技术定位为传统相位匹配方法的可行替代方案；其具体适用范围、增益带宽等性能指标及在不同器件参数下的普适性尚需进一步研究，后续可合理推断的方向包括与其他相位匹配方案的对比评估及向实际读出与压缩应用的推广。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13085v1">
+  <div class="paper-head">
+    <h2>自由费米子基态的时间方向纠缠熵<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13085v1" rel="noopener noreferrer">2611.13085v1</a>
+  </div>
+  <p class="original-title">Time Direction Entanglement Entropy of Free Fermion Ground States</p>
+  <p class="meta"><strong>作者：</strong>Xinyu Sun、Bowei Liu、Joshua Yi、Biao Lian</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>空间子区域的纠缠熵已被广泛研究，而时间方向区间上量子态的纠缠熵仍缺乏充分探讨。本文研究最近定义的时间方向纠缠熵（TDEE）在自由费米子量子态中的标度行为；该量由最小支撑时间方向区间内所有时间演化算符的子希尔伯特空间的约化密度矩阵计算得到。基于 Toeplitz 矩阵的 Fisher--Hartwig 猜想，我们建立了一个分析框架，用于理解离散时间步长 $\tau$ 下时间区间内的 TDEE。对于无序的一维系统（无能隙费米子或能带绝缘体），在能隙、带宽与 $\tau$ 的不同参数区域中，我们发现 TDEE 在时间长度上可呈现面积律（非零能隙时）、对数律或体积律。对于一维 Anderson 绝缘体，数值结果显示 TDEE 呈现类 Page 曲线行为：短时间增长，超过由局域化决定的交叉时间后按幂律衰减。在连续时间极限 $\tau\rightarrow 0$ 下，无序无能隙费米子、能带绝缘体和 Anderson 绝缘体的 TDEE 分别呈现对数律、面积律和次面积律。我们还表明，时间方向区间的子希尔伯特空间在 $\tau\rightarrow 0$ 极限下趋于稳定，这可理解为 Lieb-Robinson 因果菱形希尔伯特空间的一个子空间。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为时间方向区间上的量子态定义并刻画纠缠熵，特别是自由费米子基态中时间方向纠缠熵（TDEE）随时间长度的标度行为。</p>
+    <h4>方法</h4><p>基于 Toeplitz 矩阵的 Fisher--Hartwig 猜想建立离散时间步长 $\tau$ 下 TDEE 的解析框架，并结合对一维 Anderson 绝缘体的数值计算。</p>
+    <h4>主要发现</h4><p>对无序一维系统（无能隙费米子或能带绝缘体），TDEE 在能隙、带宽与 $\tau$ 的不同区域可呈现面积律（非零能隙）、对数律或体积律；一维 Anderson 绝缘体的 TDEE 呈类 Page 曲线行为，短时间增长、超过局域化决定的交叉时间后按幂律衰减；在 $\tau\rightarrow 0$ 极限下，无序无能隙费米子、能带绝缘体和 Anderson 绝缘体的 TDEE 分别呈对数律、面积律和次面积律；时间方向区间的子希尔伯特空间在 $\tau\rightarrow 0$ 极限下稳定，可理解为 Lieb-Robinson 因果菱形希尔伯特空间的子空间。</p>
+    <h4>局限与展望</h4><p>原文结果主要针对自由费米子与一维情形，向相互作用系统及更高维度的推广尚待研究；基于子希尔伯特空间与 Lieb-Robinson 因果菱形的联系，可合理推断 TDEE 或可作为刻画时间方向信息传播与局域化的候选量，但该推断仍需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13089v1">
+  <div class="paper-head">
+    <h2>运动学量子几何<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13089v1" rel="noopener noreferrer">2611.13089v1</a>
+  </div>
+  <p class="original-title">Kinematic Quantum Geometry</p>
+  <p class="meta"><strong>作者：</strong>Bernardo Barrera、Nishchhal Verma、Raquel Queiroz、Anatoli Polkovnikov、Anushya Chandran</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cond-mat.mes-hall</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>运动学量子几何描述一类快速自由度：它们绝热地跟随由慢自由度的坐标与速度共同参数化的量子态。该框架推广了仅依赖坐标的 Born-Oppenheimer 几何，引入混合 Berry 曲率，并修正支配慢自由度的有效理论。本文在两个体系中检验其预言：自旋粒子在磁织构中的运动，以及石墨烯中狄拉克电子与 LC 电路的耦合。在第一个体系中，运动学量子几何给出速度依赖的有效质量张量，并产生对速度非线性的类洛伦兹力，该力甚至可在共面磁织构中出现。在第二个体系中，它重整化电路电容，并产生对电场非线性的霍尔电流。在小速度极限下，该框架重现了近期关于电子在外电磁场及赝自旋织构中动力学的若干结果；同时，只要运动学态随参数变化足够缓慢，该框架可在大速度下超出微扰区域仍保持有效。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将 Born-Oppenheimer 几何从仅依赖慢自由度坐标的情形推广到同时依赖慢自由度坐标与速度的情形，并刻画这种推广对慢自由度有效理论的修正。</p>
+    <h4>方法</h4><p>构建以慢自由度坐标和速度为参数的绝热运动学态，引入混合 Berry 曲率，推导修正后的慢自由度有效理论；并在两个具体体系中检验：自旋粒子在磁织构中运动，以及石墨烯狄拉克电子与 LC 电路耦合。</p>
+    <h4>主要发现</h4><p>在磁织构体系中，运动学量子几何产生速度依赖的有效质量张量，并生成对速度非线性的类洛伦兹力，该力可在共面织构中出现；在石墨烯-LC 电路体系中，它重整化电路电容并产生对电场非线性的霍尔电流；在小速度极限下，该框架重现近期关于电子在外电磁场和赝自旋织构中动力学的若干结果。</p>
+    <h4>局限与展望</h4><p>原文指出，只要运动学态随参数变化足够缓慢，该框架可在大速度下超出微扰区域仍保持有效；其适用范围与绝热条件及运动学态缓慢变化的程度相关，超出该条件时的行为原文未作结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13094v1">
+  <div class="paper-head">
+    <h2>无阻挫控制制备量子态：精确首达理论<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13094v1" rel="noopener noreferrer">2611.13094v1</a>
+  </div>
+  <p class="original-title">Frustration-free control for quantum-state preparation: an exact first-passage theory</p>
+  <p class="meta"><strong>作者：</strong>T. Dörstel、T. C. Lang、T. Iadecola、J. H. Wilson、M. Buchhold</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>基于局域测量与反馈的量子电路能够自主制备并稳定纠缠多体态。在无阻挫控制中，目标流形由局域约束指定，约束的违背通过测量被检测并由反馈消除。本文针对 $N_q$ 个量子比特的 Dicke 态制备，发展了这一机制的精确理论。Dicke 态张成置换对称子空间，每个磁化扇区各有一个。局域单重态投影算符定义约束并检测对置换对称性的偏离。所得动力学精确闭合于 $N_q(N_q-1)/2$ 个单重态对投影算符的张成空间上，并等价于一个经典首达过程：测量移动对的端点，而反馈在被测键上吸收对。该闭合将指数规模的多体 Liouvillian 约化为多项式规模的生成元。在一维情形下，我们以闭合形式求解该过程。其最慢速率（以测量速率为单位）为 $2[1-\cos(\pi/N_q)]$，是一个精确的 Liouvillian 本征值。对于此类中的任意方案，弛豫时间下界由反馈作用的对构型所占比例的倒数给出；局域反馈可及 $O(N_q^2)$ 个构型中的 $O(N_q)$ 个，因而所需时间至少与 $N_q$ 成线性。第二个精确闭合确定了从任意初始条件到达的最终态。对修改输运、受限反馈和物理误差的扩展给出了精确的输运—吸收体交叉、几何制备律以及稳态泄漏的界。精确的二阶矩闭合确定了系综涨落：测量噪声是守恒的，而反馈产生移除散粒噪声和对关联。因此，制备、加速、鲁棒性与涨落均由同一个可精确求解的过程——局域约束违背的输运与吸收——所支配。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为基于局域测量与反馈的无阻挫控制制备 Dicke 态建立精确理论，并刻画其动力学、弛豫时间、最终态、鲁棒性与涨落。</p>
+    <h4>方法</h4><p>将局域单重态投影算符定义的约束所诱导的动力学精确闭合到单重态对投影算符张成空间，并映射为经典首达（输运—吸收）过程；在一维情形下以闭合形式求解，并利用精确闭合分析最终态、扩展情形与二阶矩。</p>
+    <h4>主要发现</h4><p>动力学精确闭合于 $N_q(N_q-1)/2$ 个单重态对投影算符的张成空间，将指数规模 Liouvillian 约化为多项式规模生成元；一维最慢速率为 $2[1-\cos(\pi/N_q)]$（以测量速率为单位），是精确的 Liouvillian 本征值；任意此类方案的弛豫时间下界由反馈作用的对构型比例倒数给出，局域反馈所需时间至少与 $N_q$ 成线性；第二个精确闭合确定从任意初始条件到达的最终态；扩展分析给出精确的输运—吸收体交叉、几何制备律与稳态泄漏界；二阶矩闭合表明测量噪声守恒，反馈产生移除散粒噪声与对关联。</p>
+    <h4>局限与展望</h4><p>摘要未给出高维情形下首达过程的闭合形式解，也未给出物理误差下稳态泄漏界的具体形式；所讨论的扩展（修改输运、受限反馈、物理误差）的适用范围需以原文推导条件为准。后续可合理推断的方向包括将精确闭合推广至其他由局域约束定义的目标流形，以及在实验噪声模型下检验所得界。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13098v1">
+  <div class="paper-head">
+    <h2>相干错误下的表面码：最优解码与有限尺寸交叉<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13098v1" rel="noopener noreferrer">2611.13098v1</a>
+  </div>
+  <p class="original-title">Surface codes with coherent errors: optimal decoding and finite-size crossovers</p>
+  <p class="meta"><strong>作者：</strong>Xu-Dong Dai、Zhou-Quan Wan、Xi Dai、Guo-Yi Zhu</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">cond-mat.str-el</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究在均匀相干 Z 旋转 exp(iθZ) 之后进行完美综合征测量情形下的表面码；该情形已知具有强烈的有限尺寸效应，使得渐近解码阈值的提取变得复杂。我们识别出 Pauli 解码度量与相干信息的有限尺寸行为由两个特征长度刻画：代数型弹道交叉尺度 d_ba ∼ 1/β_R^α（奇数 d 时 α=1，偶数 d 时 α=2），以及大得多的重整化群尺度 d_RG ∼ exp(C/β_R^4)，其中 β_R = -(1/2) ln tanθ，d 为系统尺寸。当 θ 趋近弹道 SWAP 点 π/4 时，这两个长度尺度以非常不同的速率发散，留下一个宽广的中间区域 d_ba ≪ d ≪ d_RG；在该区域内，这些量表现出显著的有限尺寸漂移和近似平台。为确立这一交叉图像的微观基础，我们在复制 Majorana 理论中推导出阶为 β_R^2 的主导味间四体相互作用，由此给出通向 class-D 非线性 sigma 模型的途径。所得的边缘重整化群流启发了标度变量 X_4 = β_R^4 ln d；在自由费米子模拟中，解码度量在该变量下呈现近似坍缩。这些结果与热力学极限下 θ_c = π/4 处的 Pauli 解码阈值相一致。对于任意偶数 d，我们证明最大似然 Pauli 解码在所有确定性综合征条件量子恢复中最大化纠缠保真度，并且其解码阈值达到量子最优极限，与由相干信息定义的阈值重合。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在均匀相干 Z 旋转加完美综合征测量的表面码中，有限尺寸效应如何影响 Pauli 解码度量与相干信息的行为，以及 Pauli 解码阈值与量子最优阈值之间的关系。</p>
+    <h4>方法</h4><p>识别并分析两个特征长度尺度（弹道交叉尺度 d_ba 与重整化群尺度 d_RG）；在复制 Majorana 理论中推导主导味间四体相互作用以联系 class-D 非线性 sigma 模型；提出标度变量 X_4=β_R^4 ln d 并用自由费米子模拟检验解码度量的坍缩；对偶数 d 证明最大似然 Pauli 解码在确定性综合征条件量子恢复中最大化纠缠保真度。</p>
+    <h4>主要发现</h4><p>有限尺寸行为由 d_ba ∼ 1/β_R^α 与 d_RG ∼ exp(C/β_R^4) 两个尺度刻画，二者在 θ→π/4 时以不同速率发散，形成 d_ba ≪ d ≪ d_RG 的宽广中间区域并伴随有限尺寸漂移与近似平台；复制 Majorana 理论给出阶为 β_R^2 的主导味间四体相互作用；自由费米子模拟显示解码度量在 X_4=β_R^4 ln d 下近似坍缩；结果与热力学极限下 θ_c=π/4 的 Pauli 解码阈值一致；对偶数 d，最大似然 Pauli 解码最大化纠缠保真度且其阈值达到量子最优极限并与相干信息定义的阈值重合。</p>
+    <h4>局限与展望</h4><p>上述阈值结论主要基于自由费米子模拟与重整化群标度分析，尚未给出完整相互作用理论下的严格证明；d_RG 的指数形式与 X_4 标度坍缩的适用范围仍需进一步检验。后续可合理推断的方向包括：在更大系统尺寸上验证标度坍缩、将分析推广至其他相干错误模型或码族，以及考察非完美综合征测量对交叉图像的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13099v1">
+  <div class="paper-head">
+    <h2>分布式随机测量中的三阶量子信息<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13099v1" rel="noopener noreferrer">2611.13099v1</a>
+  </div>
+  <p class="original-title">Third-Order Quantum Information from Distributed Randomized Measurements</p>
+  <p class="meta"><strong>作者：</strong>Giovanni Scala、Corrado Cosimo Mattiacci、Gniewomir Sarbicki</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>随机测量为探测量子态的非线性性质提供了一种无需重构完整密度矩阵的途径。针对由相距遥远实验室共享的量子态，本文研究在同一局域设置下测得的三项结果概率之积，并在独立的局域随机幺正变换上取平均。对于任意数量的参与方，我们确定了这些平均值能够保留哪些三阶局域幺正不变组合，以及无法分离哪些组合。可获取的信息编码于量子态的代数不变量中，并通过分析分布式测量协议所诱导的置换对称性进行重构。利用这些对称性，无论测量结果数目多少，重构问题都归结为一个 3×3 矩阵的符号求逆。因此，无需对分布式多体量子系统中通常出现的指数规模矩阵求逆，即可提取非线性信息。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在多个相距遥远实验室共享量子态的情形下，基于同一局域设置下三项结果概率之积并对独立局域随机幺正变换取平均的分布式随机测量，能够保留哪些三阶局域幺正不变信息，以及如何从这些平均量中重构该信息。</p>
+    <h4>方法</h4><p>研究三项结果概率之积在独立局域随机幺正变换上的平均；对任意参与方数目分析这些平均值所保留与无法分离的三阶局域幺正不变组合；利用分布式测量协议诱导的置换对称性，将重构问题化为一个 3×3 矩阵的符号求逆。</p>
+    <h4>主要发现</h4><p>论文确定了对于任意数量的参与方，所研究的平均量能够保留哪些三阶局域幺正不变组合、无法分离哪些组合；可获取信息编码于量子态的代数不变量中，并可通过置换对称性重构；无论测量结果数目多少，重构问题均归结为 3×3 矩阵的符号求逆，从而避免对分布式多体量子系统中通常出现的指数规模矩阵求逆。</p>
+    <h4>局限与展望</h4><p>原文表明该方法可在不重构完整密度矩阵、不对指数规模矩阵求逆的情况下提取非线性信息；其具体适用范围与在实验条件下的可行性需进一步研究，后续方向可合理推断为将分析推广至更高阶不变量或在具体分布式量子信息任务中检验该重构方案。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13103v1">
+  <div class="paper-head">
+    <h2>训练量子模型时哪些数据样本重要？<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13103v1" rel="noopener noreferrer">2611.13103v1</a>
+  </div>
+  <p class="original-title">Which data samples matter when training a quantum model?</p>
+  <p class="meta"><strong>作者：</strong>M. Emre Sahin、Cenk Tüysüz、David Galvin、Oscar Wallis、Alex Gregory、Paul Edwards、Christa Zoufal</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子机器学习模型的表现力、损失景观与泛化行为已被广泛研究，但相关研究主要采取以模型为中心的视角，特定量子模型与具体数据集的兼容性仍知之甚少。本文以数据依赖的视角研究量子机器学习模型，建立了一种与量子计算兼容的 V-usable information（V-可用信息）形式。该指标量化模型能够从数据集中提取的信息，从而支持不同模型之间直接的、以数据为中心的比较。作者利用该指标研究哪些数据点对模型的学习过程贡献最大，并据此提出一种有依据的数据子集预选策略，该策略能够显著提升训练流程的数据效率。本文确立了 V-usable information 作为学习动力学诊断工具的有效性，并为数据高效的量子机器学习提供了一条实用路径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：在训练量子机器学习模型时，哪些数据样本对模型的学习过程最为重要；以及特定量子模型与具体数据集之间的兼容性如何，从而摆脱仅以模型为中心的研究视角。</p>
+    <h4>方法</h4><p>作者建立了一种与量子计算兼容的 V-usable information 指标，用以量化模型能够从数据集中提取的信息，并据此对不同模型进行以数据为中心的比较；随后利用该指标分析各数据点对学习过程的贡献，进而设计数据子集的预选策略。</p>
+    <h4>主要发现</h4><p>原文明确表明：所建立的量子兼容 V-usable information 可作为学习动力学的诊断工具；基于该指标的数据子集预选策略能够显著提升训练流程的数据效率；该工作为数据高效的量子机器学习提供了一条实用路径。</p>
+    <h4>局限与展望</h4><p>原文未具体讨论该指标的适用范围与局限性；可合理推断，其有效性可能依赖于所考察的模型类别与数据集特性，向更广泛量子模型与真实任务的推广仍需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13110v1">
+  <div class="paper-head">
+    <h2>Finite Measured Entropy Production Does Not Imply Finite Microscopic Irreversibility<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13110v1" rel="noopener noreferrer">2611.13110v1</a>
+  </div>
+  <p class="original-title">Finite Measured Entropy Production Does Not Imply Finite Microscopic Irreversibility</p>
+  <p class="meta"><strong>作者：</strong>Hieu Nguyen</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cond-mat.stat-mech</span></div>
+  <p class="warning">⚠ 中文生成失败，本条目需要人工检查。</p>
+  <section>
+    <h3>中文摘要</h3>
+    <p>Coarse-grained measurements provide a lower bound on entropy production, but how much microscopic irreversibility can they conceal? We construct a driven quantum system in which an imperfect counter registers a finite, strictly positive arrow of time while the microscopic entropy production is infinite. The system is a degenerate parametric oscillator below threshold, coupled to a thermal reservoir through repeated interactions with bosonic ancillas. The oscillator sustains a finite, positive heat current into the vacuum bath, where absorption is forbidden and forward and reverse trajectory laws have different supports. A photon counter with finite collection efficiency, gated time bins, and independent dark counts defines a common coarse-graining of the aligned trajectory laws. For fixed observation duration $\mathcal T$ and detector parameters, we prove that the observed relative entropy remains uniformly bounded as the bath temperature $T_b$ vanishes and is strictly positive at vacuum. The hidden contribution obeys $Σ_{\mathrm{hid}}(\mathcal T,T_b)=\mathcal T\dot Q_0/(k_BT_b)+O(1)$, where $\dot Q_0&gt;0$ is the stationary vacuum heat current. False positives conceal the support mismatch while preserving measurable time asymmetry. Thus, finite and informative measurements of entropy production can coexist with infinite microscopic irreversibility.</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>方法</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>主要发现</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>局限与展望</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13111v1">
+  <div class="paper-head">
+    <h2>FusionQ：面向超低延迟量子纠错的通用最优解码框架<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13111v1" rel="noopener noreferrer">2611.13111v1</a>
+  </div>
+  <p class="original-title">FusionQ: A Generic and Optimal Decoding Framework for Ultra-Low-Latency Quantum Error Correction</p>
+  <p class="meta"><strong>作者：</strong>Junyu Zhou、Sean Garner、Aarthi Sundaram、Gushu Li、Yue Wu</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子纠错（QEC）解码传统上围绕固定的解码实例组织：在积累足够的综合征数据后，将单一的时空探测器错误模型（DEM）或预先确定的时间窗口交给后端解码器。本文提出 FusionQ，一种融合解码框架，改变了这一范式：它从观测到的综合征中导出局部解码任务，再将其结果融合为单一的全局校正。FusionQ 不强制每次采样都求解同一个全局或窗口化问题，而是围绕被触发的探测器簇构建开放边界的局部 DEM，并且仅当局部最优解使用虚拟边界错误时才扩展相应的覆盖范围。FusionQ 在解码器后端上是通用的：调度器仅需要局部解与边界使用标志，因此精确求解器、图状 DEM 上的匹配式解码器以及启发式解码器可以共享同一运行时。我们证明了一个组合最优性定理：在精确最小权局部后端与无边界发布条件下，融合已发布的局部解码结果可得到原 DEM 的全局最可能错误（MLE）解。评估表明，在精确后端下，FusionQ 在每次采样上都与整体式 MLE 结果一致。在多种解码器后端上，FusionQ 通过将局部解码与硬件综合征采集相重叠，显著降低了解码延迟。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在量子纠错解码中避免对每次采样都求解固定的整体式或窗口化解码问题，并在保持全局最优性的同时降低解码延迟。</p>
+    <h4>方法</h4><p>提出 FusionQ 融合解码框架：从观测综合征导出局部解码任务，围绕被触发的探测器簇构建开放边界的局部 DEM，仅在局部最优解使用虚拟边界错误时扩展覆盖范围，并将局部结果融合为全局校正；调度器仅依赖局部解与边界使用标志，以支持精确求解器、匹配式解码器和启发式解码器；并证明组合最优性定理。</p>
+    <h4>主要发现</h4><p>论文证明：在精确最小权局部后端与无边界发布条件下，融合局部解码结果可得到原 DEM 的全局 MLE 解；评估显示，在精确后端下 FusionQ 在每次采样上都与整体式 MLE 结果一致；在多种解码器后端上，FusionQ 通过将局部解码与硬件综合征采集重叠，显著降低了解码延迟。</p>
+    <h4>局限与展望</h4><p>组合最优性定理的成立依赖于精确最小权局部后端与无边界发布条件；对于启发式或非精确后端，其最优性保证是否成立、以及边界扩展策略在更复杂 DEM 上的开销，原文未作结论，需进一步研究；将局部解码与硬件采集重叠的思路可合理推断为适用于对延迟敏感的实时 QEC 场景，但具体适用范围仍需实验验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13154v1">
+  <div class="paper-head">
+    <h2>基于重复直至成功协议的理性量子谱滤波<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13154v1" rel="noopener noreferrer">2611.13154v1</a>
+  </div>
+  <p class="original-title">Rational quantum spectral filtering by repeat-until-success protocol</p>
+  <p class="meta"><strong>作者：</strong>Maksim A. Gavreev、Aleksey K. Fedorov、Evgeniy O. Kiktenko</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种有限记忆的重复直至成功（repeat-until-success, RUS）框架，用于在量子计算机上实现有理谱滤波器，从而将谱滤波从量子信号处理（QSP）与量子奇异值变换（QSVT）所实现的多项式变换推广到更一般的函数类。该方法交替执行对厄米算子 $X$（其谱位于 $[-1,1]$）的块编码查询与中途测量；测量结果可为接受、拒绝或继续计算，且继续时无需重置量子态。尽管协议可能运行任意多轮，其终止统计由有限维 Lyapunov 方程确定。在均匀终止与相位反转对称条件下，本文精确刻画了接受时可实现的谱滤波器 $R(X)$：$R$ 可为任意在 $[-1,1]$ 上无极点且取值位于 $[0,1]$ 的实有理函数。作者为任意可容许的 $R$ 给出了构造性编译器，并给出记忆量与期望查询代价的界，同时通过谱相干核刻画了被接受的量子操作。将本框架应用于正则化预解式与洛伦兹谱学，得到了精确的低阶实现，并相对于本文所考虑的固定深度 QSVT 多项式后选择基线具有查询代价优势；代价统计中包含了拒绝后的所有重复与独立重启。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在量子计算机上实现超越 QSP/QSVT 多项式变换的有理谱滤波，并刻画可实现的滤波器类及其查询代价。</p>
+    <h4>方法</h4><p>提出有限记忆的重复直至成功（RUS）框架，交替使用对谱在 $[-1,1]$ 内的厄米算子 $X$ 的块编码查询与中途测量（接受、拒绝或继续且不重置）；用有限维 Lyapunov 方程确定终止统计；在均匀终止与相位反转对称下刻画可实现的谱滤波器，并给出构造性编译器、记忆与期望查询代价的界以及谱相干核描述。</p>
+    <h4>主要发现</h4><p>在均匀终止与相位反转对称条件下，接受时可实现的谱滤波器 $R(X)$ 恰为在 $[-1,1]$ 上无极点且取值在 $[0,1]$ 内的任意实有理函数；作者为任意可容许 $R$ 提供了构造性编译器，并给出记忆量与期望查询代价的界；在正则化预解式与洛伦兹谱学应用中给出精确低阶实现，且相对于所考虑的固定深度 QSVT 多项式后选择基线具有查询代价优势（代价包含拒绝后的所有重复与独立重启）。</p>
+    <h4>局限与展望</h4><p>摘要未讨论噪声、容错或非均匀终止条件下的性能；所声称的查询代价优势是相对于本文所考虑的固定深度 QSVT 多项式后选择基线而言，其适用范围与更广泛基线下的比较有待进一步研究；后续方向可合理推断为将该框架推广到更一般的算子与误差模型，但需明确验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13156v1">
+  <div class="paper-head">
+    <h2>扩散子关联退相干导致的长程关联量子误差<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13156v1" rel="noopener noreferrer">2611.13156v1</a>
+  </div>
+  <p class="original-title">Long-range correlated quantum errors from diffuson-correlated dephasing</p>
+  <p class="meta"><strong>作者：</strong>N. R. S. van Venrooij、M. E. Flatté</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>电学固态量子比特通常通过扩散导体进行初始化、操控与读出。本文表明，此类导体中由无序诱导的低能模式——扩散子（diffusons）——会对共享该导体的任意量子比特施加空间关联的退相干，作者将这一机制称为扩散子关联退相干。作者从描述无序导电区域的 Keldysh 非线性 sigma 模型出发，并将其与二能级系统电容耦合，得到了闭式形式的噪声核。该噪声核按量子比特间距的平方反比衰减，并随量子比特对取向改变符号，因此等间距的量子比特对可能表现为正关联或反关联，这构成明确的实验特征。在二维情形下，单个量子比特与阵列其余部分共享的关联噪声在最坏情况下随阵列尺寸对数增长而非收敛。因此，关联噪声下容错所需的充分条件被违反，标准阈值定理不再能保证大规模量子比特阵列免受该通道影响。由于该退相干源于环境的软模成分而非任何具体门操作细节，作者预期只要固态量子比特或传感器共享无隙导电介质，就会出现此类关联退相干通道。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>扩散导体中由无序诱导的低能模式（扩散子）是否会在共享该导体的量子比特之间产生空间关联的退相干，以及这种关联噪声对大规模量子比特阵列容错的影响。</p>
+    <h4>方法</h4><p>从无序导电区域的 Keldysh 非线性 sigma 模型出发，将导电区域与二能级系统电容耦合，解析推导噪声核的闭式表达式，并分析其空间关联性质及二维阵列中的标度行为。</p>
+    <h4>主要发现</h4><p>噪声核按量子比特间距平方反比衰减，并随量子比特对取向改变符号，使等间距量子比特对可呈正关联或反关联；二维中最坏情况下单量子比特与阵列其余部分共享的关联噪声随阵列尺寸对数增长而非收敛；关联噪声下容错的充分条件被违反，标准阈值定理不再保证大规模阵列免受该通道影响。</p>
+    <h4>局限与展望</h4><p>该退相干源于环境软模成分而非具体门细节，作者据此推断：凡固态量子比特或传感器共享无隙导电介质，均可能出现此类关联退相干通道；原文未给出具体阈值数值或实验验证，相关推断需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13174v1">
+  <div class="paper-head">
+    <h2>窃听者需要多宽？环面码逻辑比特向条带的泄漏与西森点<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13174v1" rel="noopener noreferrer">2611.13174v1</a>
+  </div>
+  <p class="original-title">How wide must an eavesdropper be? Leakage of a toric-code logical bit to a strip and the Nishimori point</p>
+  <p class="meta"><strong>作者：</strong>Konstantinos Karagiannis</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">cs.CR</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>容错量子计算机将每个逻辑量子比特的部分信息分配给不同的解码器模块和共享读出线路，因此一个局部区域究竟会泄漏多少信息成为关键问题。本文证明，对任意区域和任意泡利噪声（包括关联噪声），观察者在学习某个逻辑比特上的最优优势恰为 1 - 2 P_fail，其中 P_fail 是限制在该区域内的最大似然解码失败概率。由此得到两点结论：保护来自几何而非噪声——遗漏代码某一列的区域在任何噪声水平下都学不到任何信息，而横跨代码的区域只有在不切实际的距离下才能获得噪声保护（在翻转率 10^-3 时，单行需要 d &gt; 350）；宽度也不是风险的可靠指标——在独立同分布噪声下，两行条带与一行条带泄漏的信息完全相同，但在阈值以下，窃听者所需宽度仅按 ln d 增长。借助上述恒等式，条带的操作阈值对应于随机键伊辛模型的西森点，本文用宽度至多 16 的 Walsh-Hadamard 转移矩阵将其定位到千分之几的精度。在两台 IBM Heron 处理器（d = 3, 5）上，模拟的条带窃听者在宽度为三时表现出预测的跃变，而非均匀的量子比特错误使经过训练的攻擊者能够从均匀噪声下无用的第二行中获利。作者将这些结果转化为分区解码与复用读出的设计规则，并附上代码与数据。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在容错量子计算中，逻辑量子比特的信息被分散到不同解码器模块与共享读出线路，论文研究一个局部区域（条带）会向观察者泄漏多少关于逻辑比特的信息，以及这种泄漏如何随区域几何、噪声模型和代码距离变化。</p>
+    <h4>方法</h4><p>论文证明了一个恒等式：对任意区域和任意泡利噪声，观察者学习逻辑比特的最优优势等于 1 - 2 P_fail，其中 P_fail 是限制在该区域的最大似然解码失败概率；利用该恒等式将条带的操作阈值映射为随机键伊辛模型的西森点，并用宽度至多 16 的 Walsh-Hadamard 转移矩阵进行数值定位；同时在两台 IBM Heron 处理器（d = 3, 5）上模拟条带窃听者进行实验验证。</p>
+    <h4>主要发现</h4><p>论文证明观察者的最优优势恰为 1 - 2 P_fail；遗漏代码某一列的区域在任何噪声水平下泄漏为零；横跨代码的区域仅在 d &gt; 350（翻转率 10^-3 的单行情形）等不切实际的距离下才受噪声保护；在独立同分布噪声下两行条带与一行条带泄漏相同，但阈值以下窃听者所需宽度仅按 ln d 增长；条带的操作阈值对应随机键伊辛模型的西森点，数值定位精度达千分之几；在 IBM Heron 处理器上，模拟窃听者在宽度为三时出现预测的跃变，非均匀量子比特错误使训练后的攻擊者能从第二行获利。</p>
+    <h4>局限与展望</h4><p>论文的结论主要基于最大似然解码框架与特定噪声模型（泡利噪声，包括关联噪声），实际解码器与硬件噪声的偏差可能影响定量结论；西森点的数值定位受转移矩阵宽度（至多 16）限制。后续可合理推断的方向包括：将恒等式推广到更一般的解码器与泄漏度量，在更大代码距离与更多硬件平台上验证条带行为，以及依据所得设计规则优化分区解码与复用读出的布局。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13175v1">
+  <div class="paper-head">
+    <h2>量子线路光锥附近测量记录的量子化记忆<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13175v1" rel="noopener noreferrer">2611.13175v1</a>
+  </div>
+  <p class="original-title">Quantized memory of measurement records near the light cone of quantum circuits</p>
+  <p class="meta"><strong>作者：</strong>Jamal Slim</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子处理器已能在电路中途测量量子比特，由此产生的测量结果流是纠错、基于测量的态制备以及受监测动力学的原始输出。对于扰乱型电路，预测该结果流的统计与模拟处理器本身同样困难，因此一旦器件规模超出经典模拟能力，便缺乏可对照的精确参考。本文表明，在光锥附近该问题对任意两比特门均可精确求解。在砖墙式电路中，若一个量子比特被极化、其余处于最大混合背景，则沿光锥边缘的测量构成一个两态马尔可夫链；位于边缘内侧 d 个格点的测量由随边缘移动的 ⌊d/2⌋+1 个量子比特生成，而链的其余部分无论多大，对它们而言都表现为无记忆浴。因此记录的记忆是量子化的：边缘处为一位，每向内位移一个格点至多再增加一位，且一般门可达到该上界。同一因果结构决定了记录能感知哪些硬件噪声，可在不增加门成本的情况下消除该敏感性，并给出无需层析的对偶幺正性见证。在一台 156 量子比特超导处理器上，一项预先指定分析的演示在光锥边缘及内侧两个格点处观测到预测的记忆，而在理论禁止之处未观测到记忆。这为动态电路在任意系统规模下提供了精确参考，并表明开放系统理论中的碰撞模型精确地出现在混沌动力学内部。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为超出经典模拟能力的扰乱型量子线路中段测量结果流提供精确可检验的统计参考，并刻画光锥附近测量记录的记忆结构。</p>
+    <h4>方法</h4><p>对砖墙式量子线路（一个极化量子比特置于最大混合背景中）在光锥附近进行解析求解，适用于任意两比特门；并在 156 量子比特超导处理器上开展预先指定分析的实验演示。</p>
+    <h4>主要发现</h4><p>沿光锥边缘的测量构成两态马尔可夫链；边缘内侧 d 个格点的测量由随边缘移动的 ⌊d/2⌋+1 个量子比特生成，链的其余部分表现为无记忆浴；记录的记忆量子化为边缘一位、每向内位移一个格点至多再增加一位，且一般门可达到该上界；同一因果结构决定记录可感知的硬件噪声，可在不增加门成本下消除该敏感性，并给出无需层析的对偶幺正性见证；实验在光锥边缘及内侧两个格点处观测到预测记忆，在理论禁止处未观测到。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该精确可解性在远离光锥区域或非砖墙几何下的适用性；可合理推断，该框架为动态电路提供了任意系统规模下的精确参考，并提示开放系统碰撞模型可在混沌动力学内部精确涌现，但相关推广仍需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13221v1">
+  <div class="paper-head">
+    <h2>非马尔可夫量子态扩散中的奇异点：从系数动力学到态特征<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13221v1" rel="noopener noreferrer">2611.13221v1</a>
+  </div>
+  <p class="original-title">Exceptional points in non-Markovian quantum-state diffusion: From coefficient dynamics to state signatures</p>
+  <p class="meta"><strong>作者：</strong>Yusui Chen、Hang Liu、Kaiqi Xiong、Quanzhen Ding、Eric Guo</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>记忆系数方程的奇异点未必在每一个量子态可观测量中呈现相同的特征。本文在精确非马尔可夫量子态扩散（NMQSD）框架内考察这一关系，沿同一算符闭合路径，从系数动力学追踪至经噪声平均得到的非马尔可夫主方程。有限维齐次提升识别出因果初始化所到达的 Jordan 链，而态重构则决定哪些贡献在特定读出中存活。两个模型揭示了上述区别。对于限制在零激发与单激发子空间的共同浴量子比特，一个与噪声无关的降算符形式 $O$ 给出闭合主方程；每个缺陷衰减模将其全部极点阶数传递给适当的无条件激发—参考相干性。一个已知的三阶构型同时展示了二次—指数型相干性以及另一正交分量中最高阶项的抵消。对于固定光子数光力子空间中的位置耦合振子，精确闭合包含一个标量噪声历史项。在浴衰减率低于振子频率时所研究的正则可归一化分支上，两个二阶系数块导致条件位移对 NMQSD 噪声历史的响应在长制备年龄与固定延迟下出现二重极点；纯代数的系数尾部从条件高斯宽度中抵消。完整的噪声平均改变主方程系数，并将条件宽度与态中心的加权展布结合起来。两个模型共同表明，因果制备、态重构与平均如何赋予系数奇异点以精确且依赖于读出的含义。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>记忆系数方程中的奇异点（exceptional point）是否在量子态可观测量中具有相同特征，以及系数动力学中的奇异点如何经由态重构与噪声平均映射为具体的读出特征。</p>
+    <h4>方法</h4><p>在精确非马尔可夫量子态扩散（NMQSD）框架下，沿同一算符闭合从系数动力学推导至噪声平均后的非马尔可夫主方程；用有限维齐次提升识别因果初始化所到达的 Jordan 链，并通过态重构确定特定读出中存活的贡献；以共同浴量子比特（零激发与单激发子空间）和固定光子数光力子空间中的位置耦合振子两个模型进行考察。</p>
+    <h4>主要发现</h4><p>共同浴量子比特模型中，与噪声无关的降算符形式 $O$ 给出闭合主方程，每个缺陷衰减模将全部极点阶数传递给适当的无条件激发—参考相干性；已知三阶构型同时出现二次—指数型相干性与另一正交分量中最高阶项的抵消。位置耦合振子模型中，精确闭合含标量噪声历史项；在浴衰减率低于振子频率的正则可归一化分支上，两个二阶系数块使条件位移对 NMQSD 噪声历史的响应在长制备年龄与固定延迟下出现二重极点，而纯代数系数尾部从条件高斯宽度中抵消；完整噪声平均改变主方程系数，并将条件宽度与态中心的加权展布结合。</p>
+    <h4>局限与展望</h4><p>论文表明系数奇异点的意义依赖于因果制备、态重构与平均，因而并非在所有读出中普遍相同；其结论限于所考察的两个模型及相应参数分支（如振子模型中浴衰减率低于振子频率的正则可归一化分支）。对其他模型、参数区域或读出量的推广需进一步验证，属可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13301v1">
+  <div class="paper-head">
+    <h2>面向容错量子计算的编译器<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13301v1" rel="noopener noreferrer">2611.13301v1</a>
+  </div>
+  <p class="original-title">A Compiler for Fault Tolerant Quantum Computing</p>
+  <p class="meta"><strong>作者：</strong>Narasinga Rao Miniskar、Elaine Wong、Seyong Lee、Vicente Leyton-Ortega、Jeffrey S. Vetter、Travis S. Humble</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>容错量子计算（FTQC）需要编译器中间表示（IR）在分析、模拟与硬件降级过程中保留纠错码选择、综合征信息以及非 Clifford 资源需求。本文报告了构建 FTQC 的实践经验：FTQC 是一个开源的多级中间表示（MLIR）方言，将逻辑量子比特、综合征、魔术态和 Pauli 帧建模为带类型的静态单赋值（SSA）值。其纠错感知类型系统、两级降级设计以及驻留于 IR 的资源分析，构成一条可检查的流水线，可输出至 OpenQASM~3、量子中间表示（QIR）、Stim 与 IQM 硬件。跨三个码族的案例研究表明，带类型的元数据使码特定决策可验证且可重定向：在橡树岭国家实验室的 20 量子比特 Pathfinder 上，解码将逻辑读出错误降低了 3.3 倍；同时也揭示了隐藏的架构开销：对于三量子比特量子傅里叶变换（QFT-3），魔术态工厂所需的峰值量子比特数为编码电路的 5 倍。这些经验为跨软件与硬件目标开发和评估容错编译器变换提供了实用基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>容错量子计算需要怎样的编译器中间表示，才能在整个分析、模拟与硬件降级流程中保留纠错码选择、综合征信息与非 Clifford 资源需求。</p>
+    <h4>方法</h4><p>构建开源 MLIR 方言 FTQC，将逻辑量子比特、综合征、魔术态与 Pauli 帧表示为带类型的 SSA 值；采用纠错感知类型系统、两级降级设计与驻留 IR 的资源分析，形成通往 OpenQASM~3、QIR、Stim 与 IQM 硬件的可检查流水线，并在三个码族上开展案例研究。</p>
+    <h4>主要发现</h4><p>带类型的元数据使码特定决策可验证且可重定向；在橡树岭国家实验室 20 量子比特 Pathfinder 上，解码将逻辑读出错误降低 3.3 倍；对 QFT-3，魔术态工厂所需峰值量子比特数为编码电路的 5 倍，揭示了隐藏的架构开销。</p>
+    <h4>局限与展望</h4><p>论文报告的是实践经验与案例研究，其结论受限于所考察的三个码族与特定硬件/工具链目标；作者提出这些经验为跨软件与硬件目标开发和评估容错编译器变换提供了实用基础，可合理推断后续工作将扩展至更多码族、更大规模电路与更多后端目标。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13315v1">
+  <div class="paper-head">
+    <h2>5×5 Jacobi 矩阵的早期状态排除<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13315v1" rel="noopener noreferrer">2611.13315v1</a>
+  </div>
+  <p class="original-title">Early State Exclusion for $5\times5$ Jacobi Matrices</p>
+  <p class="meta"><strong>作者：</strong>Jasmin G. Enriquez、Anastasiia Minenkova</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究一个源于量子计算的问题：当待传输的量子态在完美态传输首次出现之前就已完全消失时，会出现何种情形。该问题此前被提为一维量子链上的开放问题，其中量子比特数 n&gt;4 且为奇数。本文给出 n=5 时的解答。文中证明仅需具备三角学与微积分基础即可理解；在设定层面则需要线性代数中的特征理论与内积知识。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究一维量子链中待传输量子态在完美态传输首次发生之前完全消失的现象，针对 n&gt;4 的奇数量子比特链，此前为开放问题；本文聚焦 n=5 的情形。</p>
+    <h4>方法</h4><p>利用线性代数中的特征理论与内积，并结合三角学与微积分，对 5×5 Jacobi 矩阵进行解析论证。</p>
+    <h4>主要发现</h4><p>原文明确给出 n=5 时该开放问题的解答，并说明其证明对学过三角学与微积分的学生而言是可理解的。</p>
+    <h4>局限与展望</h4><p>原文仅处理 n=5 的情形，未给出一般奇数 n 的结论；对更大 n 的推广属于可合理推断的后续方向，需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13320v1">
+  <div class="paper-head">
+    <h2>波动方程与双电子原子波函数<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13320v1" rel="noopener noreferrer">2611.13320v1</a>
+  </div>
+  <p class="original-title">The wave equation and two-electron atomic wavefunctions</p>
+  <p class="meta"><strong>作者：</strong>John Lekner</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文表明，三维空间中经典波动方程的轴对称解与湮灭双电子动能算符的函数之间存在一一对应关系，其中该动能算符以相对于固定原子核的坐标表示。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究三维经典波动方程的轴对称解与双电子原子波函数（具体为湮灭以相对固定原子核坐标表示的双电子动能算符的函数）之间的对应关系。</p>
+    <h4>方法</h4><p>通过建立经典波动方程的轴对称解与湮灭双电子动能算符的函数之间的一一对应关系进行论证。</p>
+    <h4>主要发现</h4><p>原文明确指出：三维空间中经典波动方程的轴对称解与湮灭以相对固定原子核坐标表示的双电子动能算符的函数之间存在一一对应。</p>
+    <h4>局限与展望</h4><p>摘要仅陈述该一一对应关系，未讨论其适用范围、局限性或后续应用；相关推断需在全文基础上进一步考察。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13347v1">
+  <div class="paper-head">
+    <h2>Clifford与Ising量子计算机的计算能力<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13347v1" rel="noopener noreferrer">2611.13347v1</a>
+  </div>
+  <p class="original-title">Computational Power of Clifford and Ising Quantum Computers</p>
+  <p class="meta"><strong>作者：</strong>Sawyer Dobson、Zhenghan Wang</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.CC</span> <span class="tag">math.QA</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文将Ising量子计算机的高效经典模拟从编织操作推广到测量。通过改变电路生成器的能力，研究了若干不同的高效Clifford量子计算定义。当电路生成器能够看到整个输入时，本文给出详细证明：若此类计算可被高效经典模拟，则将蕴含复杂度类P与PSPACE的分离。当电路生成器仅能看到输入长度时，本文证明Clifford量子计算机所判定的语言正是所谓的仿射语言。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究Clifford与Ising量子计算机在不同电路生成器能力定义下的计算能力，并探讨其高效经典模拟与复杂度类分离之间的关系。</p>
+    <h4>方法</h4><p>通过改变电路生成器所能获取的输入信息（完整输入或仅输入长度），定义多种高效Clifford量子计算模型，并对Ising量子计算机的经典模拟从编织操作扩展到测量。</p>
+    <h4>主要发现</h4><p>当电路生成器可见完整输入时，若高效经典模拟成立，则蕴含P与PSPACE的分离；当电路生成器仅可见输入长度时，Clifford量子计算机判定的语言类为仿射语言。</p>
+    <h4>局限与展望</h4><p>摘要未讨论具体局限与适用范围；后续方向可合理推断为考察其他电路生成器能力定义下的模拟性质，但该推断需进一步工作验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13371v1">
+  <div class="paper-head">
+    <h2>硅基量子LDPC码的综合征提取：分布式纠缠与移动辅助量子比特<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13371v1" rel="noopener noreferrer">2611.13371v1</a>
+  </div>
+  <p class="original-title">Syndrome extraction for quantum LDPC codes in silicon: Distributed entanglement and mobile ancillas</p>
+  <p class="meta"><strong>作者：</strong>William Chow、Jonathan Baugh</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子低密度奇偶校验（qLDPC）码能够降低每个逻辑量子比特所需的数据量子比特数，但其校验需要在平面器件上实现长程相互作用。本文针对硅节点网络上的双变量自行车（bivariate-bicycle）码，构建了一种单态（singlet）编织结构：在穿梭通道上产生自旋单态，并将其分发到各节点之间，节点上的局域操作消耗这些单态以测量非局域稳定子。我们构建了两种综合征提取电路，分别基于分布式GHZ态和辅助量子比特隐形传态，并使用受硬件约束的调度方案与电路级存储模拟对其进行评估。我们将这两种电路与CAbLECAR进行比较，后者在每个校验所涉及的数据量子比特之间传输一个移动辅助量子比特。当传输过程同时包含自旋翻转与退相位时，隐形传态在其原始布局上可以优于CAbLECAR。然而，将移动辅助量子比特置于我们的节点晶格上，可将[[144,12,12]] Gross码的平均调度路径从350 μm缩短至153 μm，并在所采样的比特翻转区间内将其逻辑错误率最多降低50倍。此时，直接传输在所采样的每个Gross码参数点上均比两种单态电路获得更低的逻辑错误率。在频繁发生传输比特翻转的情况下，一旦双量子比特门与读出错误降至约4–5×10⁻⁴（约为本文假设值的一半），GHZ电路便会反超直接传输。固定辅助量子比特访问数据量子比特的顺序，揭示出更短路径与辅助量子比特故障所产生的关联错误之间的权衡。源 heralding 可改善两种单态电路，而相位纯化仅在高于某个依赖噪声的交叉点时才有助于GHZ电路，并且在整个过程中都会使隐形传态变差。这些结果表明，物理布局与相互作用顺序可能与提取电路的选择同样重要，并且更干净的纠缠资源未必能产生更可靠的逻辑存储器。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在平面硅器件上为qLDPC码（特别是双变量自行车码）实现需要长程相互作用的校验综合征提取，并比较分布式纠缠方案与移动辅助量子比特方案在硬件约束下的性能。</p>
+    <h4>方法</h4><p>在硅节点网络上构建单态编织结构，利用穿梭通道产生并分发自旋单态；构建基于分布式GHZ态和辅助量子比特隐形传态的两种综合征提取电路；采用受硬件约束的调度与电路级存储模拟进行评估；与CAbLECAR（在数据量子比特间传输移动辅助量子比特）进行比较，并考察源heralding与相位纯化的影响。</p>
+    <h4>主要发现</h4><p>当传输包含自旋翻转与退相位时，隐形传态在其原始布局上可优于CAbLECAR；将移动辅助量子比特置于节点晶格上可将[[144,12,12]] Gross码的平均调度路径从350 μm缩短至153 μm，并在采样比特翻转区间内将逻辑错误率最多降低50倍；直接传输在每个采样的Gross码参数点上均优于两种单态电路；在频繁传输比特翻转下，当双量子比特门与读出错误降至约4–5×10⁻⁴时GHZ电路反超直接传输；固定辅助量子比特访问顺序揭示更短路径与关联错误之间的权衡；源heralding改善两种单态电路，相位纯化仅在高于噪声依赖交叉点时有助于GHZ电路且始终使隐形传态变差。</p>
+    <h4>局限与展望</h4><p>结果表明物理布局与相互作用顺序可能与提取电路选择同等重要，更干净的纠缠资源未必带来更可靠的逻辑存储器；本文结论基于特定硅节点网络、双变量自行车码与所假设的噪声模型及采样区间，向其他码族、器件参数与噪声条件的推广需进一步验证；后续可合理推断的方向包括优化辅助量子比特访问顺序以平衡路径长度与关联错误，以及针对具体噪声水平选择提取电路。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13373v1">
+  <div class="paper-head">
+    <h2>PriorTilt：通过信念传播先验的稀疏扰动解码量子LDPC码<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13373v1" rel="noopener noreferrer">2611.13373v1</a>
+  </div>
+  <p class="original-title">PriorTilt: Decoding quantum LDPC codes with sparse perturbations of belief propagation priors</p>
+  <p class="meta"><strong>作者：</strong>Min Ye、Nicolas Delfosse</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>信念传播（BP）是经典低密度奇偶校验（LDPC）码中广泛采用的解码器，但其在量子场景下的准确性受限。本文提出PriorTilt，一种BP变体：在保持相同消息传递规则的前提下，利用近期后验与出射消息统计量确定的偏移量，选择性地扰动少量先验对数似然比。针对三个基准码的电路级解码，我们将PriorTilt与Relay-BP及束搜索解码器进行比较。在所有测试数据点上，PriorTilt的逻辑错误率（LER）均低于两种基线。对于噪声率p=10^{-3}的[[144,12,12]] Gross码BB144，其LER相对Relay-BP降低4.3倍，相对束搜索解码器降低3.1倍。在p=10^{-3}时，PriorTilt在三个码上的平均解码时间均低于Relay-BP，相对束搜索解码器取得约2.6倍至3.0倍的平均解码加速。对于p=10^{-3}的BB144，在相同迭代预算下，PriorTilt的LER比标准最小和BP解码器低约610倍，而每轮平均扰动的先验不足0.5%。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>量子LDPC码电路级解码中，标准信念传播（BP）解码器准确性受限的问题。</p>
+    <h4>方法</h4><p>提出PriorTilt，一种保持BP消息传递规则不变、但利用近期后验与出射消息统计量确定的偏移量对少量先验对数似然比进行选择性扰动的BP变体；在三个基准码上与Relay-BP和束搜索解码器进行电路级解码对比。</p>
+    <h4>主要发现</h4><p>在所有测试数据点上PriorTilt的LER均低于Relay-BP和束搜索解码器；对p=10^{-3}的BB144，LER相对Relay-BP降低4.3倍、相对束搜索降低3.1倍；p=10^{-3}时平均解码时间低于Relay-BP，相对束搜索加速约2.6倍至3.0倍；对BB144在相同迭代预算下LER比标准最小和BP低约610倍，每轮平均扰动先验不足0.5%。</p>
+    <h4>局限与展望</h4><p>原文未讨论计算开销随码长与噪声率变化的扩展性，也未给出理论解释；后续可合理推断的方向包括在更多码族与噪声区间验证该方法，以及分析稀疏扰动策略的适用条件。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13428v1">
+  <div class="paper-head">
+    <h2>单拷贝与纠缠测量下费米子及玻色子高斯态学习的样本复杂度<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13428v1" rel="noopener noreferrer">2611.13428v1</a>
+  </div>
+  <p class="original-title">Sample complexity of learning fermionic and bosonic Gaussian states with single-copy and entangled measurements</p>
+  <p class="meta"><strong>作者：</strong>Ron Rubin</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究费米子与玻色子高斯态在单拷贝测量、k 拷贝测量及集体测量下的样本复杂度。对于 m 模的混合费米子高斯态（包括纯态），单拷贝测量以 Θ(m^3/ε^2) 个拷贝即可达到迹距离 ε 的精度，且不含对数因子；相比之下，集体测量的已知复杂度为 Θ(m^2/ε^2)。作者证明了该上界，从而解决了 arXiv:2609.23189 中的猜想 10.1（该文给出了 ε≤1/3600 时的下界），并填补了费米子与玻色子高斯态样本复杂度表中单拷贝、k 拷贝与集体测量下的大部分空白条目。单拷贝测量的噪声在每个占据数尺度上与所采用的度量相匹配。对于 k 个拷贝的分块，arXiv:2611.07271 中的协变最高权测量经 Weyl 位移估计器读出后对任意态均无偏；它在所有态上以 Frobenius 范数、并在与纯态边界保持固定距离的每一类态上以迹距离给出 Θ(max{m^3/k,m^2}/ε^2) 的复杂度。因此，在远离纯态边界处相对于冷数守恒态上 1/√k 的增益，达到了 1/k（k≤m）的增益。对于协方差有界、位移与压缩任意、占据数满足 n_1≤…≤n_m 的玻色子高斯态，O((m^2+r^3+∑_{i,j&gt;r}1/(n_i+n_j))/ε^2) 次单拷贝测量即足够，其中 r 为满足 r n_r≤2 的最大指标；该结果在二进区间类上是极小极大速率，不假设谱隙或冷模数，且对位移被动态无需协方差界。在能量或压缩无界的情形下，非高斯测量可从 O(ε^{-2}) 个单拷贝学习中心单模态（包括混合态），从 O(m^2/ε^2) 个单拷贝学习中心纯 m 模态，且不含高斯测量中的 log log E 项；并可从 O(m^3/ε^2) 个拷贝学习 m 模态态，其中纠缠仅在第一轮作用于 4m+6 个拷贝的分块上。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究费米子与玻色子高斯态在单拷贝、k 拷贝及集体测量下的样本复杂度，重点解决单拷贝测量学习混合费米子高斯态所需的拷贝数上界，并填补相关样本复杂度表中的空白条目。</p>
+    <h4>方法</h4><p>构造与度量在每个占据数尺度上噪声匹配的单拷贝测量以证明上界；采用 arXiv:2611.07271 的协变最高权测量并通过 Weyl 位移估计器读出，分析 k 拷贝分块下的无偏性与复杂度；对玻色子高斯态给出基于占据数指标 r 的单拷贝测量方案；在能量或压缩无界时采用非高斯测量，并分析中心单模态、中心纯 m 模态及一般 m 模态态的学习复杂度。</p>
+    <h4>主要发现</h4><p>单拷贝测量学习 m 模混合费米子高斯态（含纯态）达到迹距离 ε 需 Θ(m^3/ε^2) 个拷贝且无对数因子，而集体测量为 Θ(m^2/ε^2)；该上界解决了 arXiv:2609.23189 的猜想 10.1（其下界适用于 ε≤1/3600）。k 拷贝分块下协变最高权测量经 Weyl 位移估计器读出对任意态无偏，给出 Frobenius 范数下所有态及固定远离纯态边界类上迹距离下的 Θ(max{m^3/k,m^2}/ε^2)，从而在远离纯态边界处实现 1/k（k≤m）增益，对比冷数守恒态上的 1/√k。协方差有界的玻色子高斯态在任意位移与压缩、占据数 n_1≤…≤n_m 下，O((m^2+r^3+∑_{i,j&gt;r}1/(n_i+n_j))/ε^2) 次单拷贝测量足够，r 为满足 r n_r≤2 的最大指标，该速率在二进区间类上为极小极大速率，不假设谱隙或冷模数，且对位移被动态无需协方差界。能量或压缩无界时，非高斯测量从 O(ε^{-2}) 个单拷贝学习中心单模态（含混合态）、从 O(m^2/ε^2) 个单拷贝学习中心纯 m 模态，且无高斯测量的 log log E 项；从 O(m^3/ε^2) 个拷贝学习 m 模态态，纠缠仅在第一轮作用于 4m+6 个拷贝的分块上。</p>
+    <h4>局限与展望</h4><p>论文的上界与已知下界在费米子单拷贝与集体测量情形下匹配，但 k 拷贝测量在纯态边界附近的复杂度、玻色子情形在更一般协方差或占据数分布下的极小极大性、以及非高斯测量方案中纠缠分块大小与轮数的进一步优化，仍需后续工作检验；上述方向为基于原文结果的合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13447v1">
+  <div class="paper-head">
+    <h2>六方氮化硼自旋缺陷的双量子相干控制与磁传感<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13447v1" rel="noopener noreferrer">2611.13447v1</a>
+  </div>
+  <p class="original-title">Double-quantum enhanced coherent control and magnetic sensing of spin defects in hexagonal boron nitride</p>
+  <p class="meta"><strong>作者：</strong>Shihao Ru、Abdullah Rasmita、Jiakai Chen、Yuzhe Yang、Xiaodan Lyu、Robert Cernansky、Edwin Hang Tong Teo、Jesús Zúñiga-Pérez、Fedor Jelezko、Weibo Gao</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>六方氮化硼（hBN）中的负电荷硼空位（$V_{\mathrm{B}}^{-}$）是二维材料体系中具有前景的量子传感自旋缺陷。此前的hBN实验主要分别利用两个自旋三重态基态单量子跃迁。本文实现了一种双量子驱动方案，该方案基于对两个基态单量子跃迁的同时共振微波激发，从而在$V_{\mathrm{B}}^{-}$系综中建立对$\Delta m_s=2$流形的相干控制。我们在相同实验条件下比较了所得双量子响应与相应单量子协议。双量子协议提高了光学读出对比度，并在交流磁测量中带来2.6倍的信噪比提升。我们进一步将双量子弛豫通道用作电场噪声与应变噪声的差分探针，结果表明当前数据与相关表面涨落或体分布涨落相容，而在本文分析的假设范围内，短程非相关表面噪声模型不被支持。这些结果在hBN自旋系综中建立了双量子相干控制与频率分辨交流磁测量，并指出了确定主导弛豫通道微观起源所需的、依赖于样品的测量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在hBN的$V_{\mathrm{B}}^{-}$自旋系综中实现双量子相干控制，并评估其相对于单量子协议在光学读出与交流磁测量中的表现，同时利用双量子弛豫通道探测电场与应变噪声。</p>
+    <h4>方法</h4><p>对两个基态单量子跃迁同时施加共振微波激发，实现双量子驱动方案；在相同实验条件下与单量子协议对比；将双量子弛豫通道作为电场噪声与应变噪声的差分探针，并检验不同噪声模型与数据的相容性。</p>
+    <h4>主要发现</h4><p>双量子协议提高了光学读出对比度，并在交流磁测量中实现2.6倍信噪比提升；双量子弛豫通道数据与相关表面涨落或体分布涨落相容，短程非相关表面噪声模型在本文分析假设下不被支持。</p>
+    <h4>局限与展望</h4><p>双量子弛豫通道对噪声微观起源的判定依赖于分析中所采用的模型假设，且主导弛豫通道的微观起源尚未确定；需开展依赖于样品的测量以确定其微观起源。上述后续方向为基于原文表述的合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13465v1">
+  <div class="paper-head">
+    <h2>多模腔QED中延迟量子反馈产生的实时频谱梳<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13465v1" rel="noopener noreferrer">2611.13465v1</a>
+  </div>
+  <p class="original-title">Real-time spectral combs from delayed quantum feedback in multimode cavity QED</p>
+  <p class="meta"><strong>作者：</strong>Diego Aranda-Lozano、Héctor M. Castro-Beltrán、José Récamier、Ricardo Román-Ancheyta、Carlos A. González-Gutiérrez</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究一个二能级原子与电磁腔中大量离散模式耦合时光的含时物理谱。置于腔中心的原子所发射的辐射在往返时间 $t_r$ 后返回并再次激发原子，随后被再次发射，从而产生一系列原子布居复活。当耦合在原子的线宽范围内近似为常数时，发射动力学约化为 Bixon--Jortner 型延迟微分方程。利用该方程以 Laguerre 多项式表示的分析解，我们考察了相继的发射与再吸收循环如何塑造含时谱。物理谱呈现复活现象，其间形成间距为 $2\pi/t_r$ 的瞬态频率梳。该频率梳源于相继发射阶段之间的量子干涉；其梳齿并不位于腔模处，而是位于由共振反射原子所形成的有效两个半腔的共振处。可见度按 $e^{-\Gamma t_r}$ 标度，其中 $\Gamma$ 为滤波器带宽；在长时间下频率梳收敛于缀饰模谱，我们亦以解析方式得到该谱，并与精确对角化定量吻合。我们表明，在发射阶段良好分离的区域，物理谱能够分辨反馈相位，而原子布居对该相位不敏感，并且物理谱还提供了原子位置的额外频率分辨特征。我们讨论了利用与微波谐振器和表面声波谐振器耦合的 transmon（人工原子）实现本文结果的两项可行实验方案。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究二能级原子与多模电磁腔耦合时，原子发射的光经腔往返延迟后返回并再次激发原子，这种延迟量子反馈如何影响光的含时物理谱。</p>
+    <h4>方法</h4><p>将原子置于腔中心，考虑耦合在原子线宽内近似平坦，把发射动力学约化为 Bixon--Jortner 型延迟微分方程；利用以 Laguerre 多项式表示的分析解研究相继发射与再吸收循环对含时谱的塑造，并将缀饰模谱的解析结果与精确对角化进行对比。</p>
+    <h4>主要发现</h4><p>物理谱出现复活，其间形成间距为 $2\pi/t_r$ 的瞬态频率梳；该频率梳源于相继发射阶段间的量子干涉，梳齿位于由共振反射原子形成的有效两个半腔的共振处而非腔模处；可见度按 $e^{-\Gamma t_r}$ 标度；长时间下频率梳收敛于缀饰模谱，解析结果与精确对角化定量吻合；物理谱可分辨原子布居不敏感的反馈相位，并提供原子位置的额外频率分辨特征。</p>
+    <h4>局限与展望</h4><p>原文讨论了利用与微波谐振器和表面声波谐振器耦合的 transmon 实现结果的两项可行实验方案；摘要未明确给出局限或适用范围，相关推断需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13625v1">
+  <div class="paper-head">
+    <h2>混合量子-经典数据包的分组式多跳量子路由<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13625v1" rel="noopener noreferrer">2611.13625v1</a>
+  </div>
+  <p class="original-title">Packet-wise multi-hop quantum routing of hybrid quantum-classical packets</p>
+  <p class="meta"><strong>作者：</strong>Tae Yeong Park、Youn Chang Jeong、Myeong Soo Kang、Kwang Yong Song、Paul G. Kwiat、Hee Su Park</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在多个节点之间动态路由量子信息，是实现通用且可扩展量子网络的关键需求。量子路由器通过处理由经典报头与量子载荷组成的混合数据包，实现超越静态点对点连接的分组级路由。此前提出的方法利用波长分离器和光开关选择性地访问数据包的经典分量与量子分量，并在通过出射链路传输前对混合数据包进行重新封装，同时再生经典报头。本文报道了一种新型的基于光纤的量子路由器，其通过更透明的操作将混合数据包所受的扰动与延迟降至最低。我们实验演示了经由两个级联路由器的双跳路由，将数据包送达三个不同接收端，且无需再生报头。作为一项实际应用，基于时间-bin量子比特以及采用双诱骗态方法的BB84协议的量子密钥分发数据包被成功送达三个接收端，并获得了非零的成码率。这些结果证明了由多级路由器节点互连的大规模量子网络的可行性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何实现混合量子-经典数据包在多节点间的分组级路由，并在减少对数据包扰动与延迟的同时避免经典报头再生。</p>
+    <h4>方法</h4><p>提出一种基于光纤的量子路由器，采用更透明的操作处理由经典报头与量子载荷组成的混合数据包；实验上使用两个级联路由器进行双跳路由，并以基于时间-bin量子比特和双诱骗态BB84协议的量子密钥分发数据包作为应用验证。</p>
+    <h4>主要发现</h4><p>实验实现了经由两个级联路由器的双跳路由，将数据包送达三个不同接收端且无需再生报头；基于时间-bin量子比特与双诱骗态BB84协议的量子密钥分发数据包成功送达三个接收端，并获得非零的成码率。</p>
+    <h4>局限与展望</h4><p>原文结果表明由多级路由器节点互连的大规模量子网络具有可行性；其局限与适用范围原文未明确讨论，后续可合理推断的方向包括在更多跳数或更复杂网络拓扑下进一步验证该路由方案。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13630v1">
+  <div class="paper-head">
+    <h2>面向聚变型量子计算实时需求的机器学习解码器<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13630v1" rel="noopener noreferrer">2611.13630v1</a>
+  </div>
+  <p class="original-title">Machine-learning decoders for fusion-based quantum computing in real time</p>
+  <p class="meta"><strong>作者：</strong>Daniel Barter、Jacob C. Bridgeman、Chris Dawson、Terry Farrelly、Shane Fleming、Mercedes Gimeno-Segovia、Paul Hartke、Timothy Hein、Sean Howell、Gregory Hyegang Jun、Siddhartha Kamalakara、Yehua Liu、Jose M. Monsalve Diaz、Eddie Richter、Sam Roberts</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.AR</span> <span class="tag">cs.LG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>容错量子计算要求解码器兼具准确性、吞吐量、低延迟以及可扩展至大量物理量子比特的能力。在光子聚变型架构中，光子丢失导致的擦除和概率性聚变测量是主要错误机制，因此需要在高擦除率下仍保持准确的解码器。本文提出 PRISM，一种基于 Transformer 的机器学习解码器，旨在利用同时存在 Pauli 错误与擦除错误的协议中擦除位置的已知信息。我们在基于表面码、颜色码和量子低密度奇偶校验码的多种容错协议上对 PRISM 进行基准测试，码距最高达 24。在这些基准测试中，PRISM 的逻辑错误率达到基于整数规划的解码器水平，同时速度显著更快，包括在高达阈值 50% 的错误率下。我们进一步优化了解码器及其实时硬件实现，以在保持准确性的同时降低延迟。我们在 AMD VP1902 FPGA 上的优化实现能够对空间和时间两个维度上码距均为 8 的逻辑块进行解码，展示出 6.59 微秒的延迟以及每个逻辑块 1.56 微秒的摊销解码时间。这些结果表明，机器学习解码可为以擦除为主的容错量子架构提供准确、低延迟的推理。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为以擦除错误为主的光子聚变型容错量子计算架构设计同时具备高准确性、高吞吐量、低延迟和可扩展性的解码器。</p>
+    <h4>方法</h4><p>提出基于 Transformer 的机器学习解码器 PRISM，利用 Pauli 错误与擦除错误共存协议中擦除位置的已知信息；在基于表面码、颜色码和量子 LDPC 码的多种容错协议（码距最高 24）上进行基准测试，并与基于整数规划的解码器比较；进一步优化解码器及其在 AMD VP1902 FPGA 上的实时硬件实现。</p>
+    <h4>主要发现</h4><p>在测试的基准上，PRISM 的逻辑错误率达到基于整数规划的解码器水平，同时速度显著更快，包括在高达阈值 50% 的错误率下；优化后的 FPGA 实现可对空间和时间码距均为 8 的逻辑块解码，延迟为 6.59 微秒，每个逻辑块摊销解码时间为 1.56 微秒。</p>
+    <h4>局限与展望</h4><p>原文结果表明机器学习解码可为以擦除为主的容错量子架构提供准确、低延迟的推理；其局限与适用范围未在摘要中明确讨论，后续可合理推断的方向包括在更多协议与更大码距上验证，以及进一步降低延迟和提升硬件可扩展性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13658v1">
+  <div class="paper-head">
+    <h2>在任意整数区间上制备均匀叠加态的高效量子算法<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13658v1" rel="noopener noreferrer">2611.13658v1</a>
+  </div>
+  <p class="original-title">An Efficient Quantum Algorithm for Preparing Uniform Superpositions over Arbitrary Integer Intervals</p>
+  <p class="meta"><strong>作者：</strong>Alok Shukla、Prakash Vedula</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究在 $n$ 量子比特寄存器中，精确制备支撑于任意非空整数标签区间上的均匀量子态。对于任意满足 $0\leq a&lt;a+M\leq 2^n$ 的区间，作者给出一个无需辅助比特、仅使用单量子比特门与单控单量子比特门的电路。在文中规定的逻辑门模型下，该直接构造的精确最坏情况门数为 $5n-9$（$n\geq3$）；$n=1$ 与 $n=2$ 时的精确最大值分别为 $1$ 与 $3$。最坏情况下界 $\Omega(n)$ 表明该构造在寄存器宽度意义下渐近最优。此外，门复杂度具有依赖于实例的界 $O(\log_2 M+\varepsilon)$，其中 $\varepsilon$ 是由二进制汉明权重定义的偏移相关参数。作者还推导了一种反射构造，以及一个从若干精确电路中选取门数较低者的经典过程。直接构造具有 $O(n)$ 的逻辑深度上界。文中亦处理区间的按位异或像，以及间距为二的幂的等差数列。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在 $n$ 量子比特寄存器中精确制备支撑于任意非空整数区间 $[a,a+M)$ 上的均匀量子态，并刻画其门复杂度与深度。</p>
+    <h4>方法</h4><p>构造无需辅助比特、仅使用单量子比特门和单控单量子比特门的量子电路；在论文规定的逻辑门模型下分析最坏情况与实例相关的门数，给出 $\Omega(n)$ 下界，并推导反射构造及选取较低门数精确电路的经典过程。</p>
+    <h4>主要发现</h4><p>直接构造的精确最坏情况门数为 $5n-9$（$n\geq3$），$n=1$ 和 $n=2$ 时分别为 $1$ 和 $3$；存在 $\Omega(n)$ 最坏情况下界，故在寄存器宽度上渐近最优；门复杂度具有实例相关界 $O(\log_2 M+\varepsilon)$，其中 $\varepsilon$ 为偏移相关参数；直接构造的逻辑深度上界为 $O(n)$；并给出反射构造与选取较低门数电路的经典过程，同时处理区间的按位异或像及间距为二的幂的等差数列。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该构造在含噪或特定硬件约束下的实际开销，也未给出 $\varepsilon$ 的具体取值范围或紧性分析；后续可考虑将方法推广至其他结构化标签集合，或研究在更受限门集下的复杂度，但这些均为基于现有结果的推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13665v1">
+  <div class="paper-head">
+    <h2>观测两个原子间的强电偶极-偶极相互作用<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13665v1" rel="noopener noreferrer">2611.13665v1</a>
+  </div>
+  <p class="original-title">Observation of strong electric dipole-dipole interactions between two atoms</p>
+  <p class="meta"><strong>作者：</strong>Yu-Kun Lu、Jiahao Lyu、Wolfgang Ketterle</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">physics.atom-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文制备了密度超过 $10^{16}/\rm{cm}^3$（对应 $n\lambdabar^3&gt;10$）的原子对，并研究了它们与光的相互作用。在该区域，电偶极-偶极相互作用的相干部分大于耗散部分，单光子发射可向原子传递大动量（超过单光子反冲的十倍）。对于非共振激光，原子被约 1 Debye 的电偶极矩缀饰并发生相干相互作用。这种光诱导的偶极-偶极相互作用此前仅在远场平均场区域被观测到。对于两个原子，共振由两体 Lamb 位移移动，该位移由偶极相互作用的近场部分主导。此前偶极共振位移仅在多个原子与偶极相互作用远场部分相互作用时被观测到。本研究为光缔合过程提供了新认识，并为研究具有强电偶极-偶极相互作用的驱动量子系统铺平了道路。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究高密度（$n\lambdabar^3&gt;10$）下两个原子之间的电偶极-偶极相互作用，特别是其相干部分与耗散部分的相对大小、单光子发射传递的动量，以及两体 Lamb 位移对共振的影响。</p>
+    <h4>方法</h4><p>制备密度超过 $10^{16}/\rm{cm}^3$ 的原子对，研究其与光的相互作用；利用非共振激光将原子缀饰约 1 Debye 的电偶极矩，观测光诱导的相干偶极-偶极相互作用及两体 Lamb 位移导致的共振移动。</p>
+    <h4>主要发现</h4><p>在该区域，电偶极-偶极相互作用的相干部分大于耗散部分；单光子发射可向原子传递超过十倍单光子反冲的动量；非共振激光下原子被约 1 Debye 的电偶极矩缀饰并发生相干相互作用；两原子共振由两体 Lamb 位移移动，该位移由偶极相互作用的近场部分主导。</p>
+    <h4>局限与展望</h4><p>原文指出该工作为光缔合过程提供了新认识，并为研究具有强电偶极-偶极相互作用的驱动量子系统铺平了道路；摘要未明确讨论局限或适用范围，相关后续方向需进一步推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13671v1">
+  <div class="paper-head">
+    <h2>量子辅助生成式异常检测：潜在精炼的维度控制研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13671v1" rel="noopener noreferrer">2611.13671v1</a>
+  </div>
+  <p class="original-title">Quantum-Assisted Generative Anomaly Detection: A Dimension-Controlled Study of Latent Refinement</p>
+  <p class="meta"><strong>作者：</strong>Thesath Wijayasiri、Omar Bacarreza、William Clements、Kar Wai Fok、Vrizlynn L. L. Thing</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>基于异常的恶意软件检测器学习良性文件的特征并标记偏离样本。此类问题的生成式方法可利用“潜在”或“先验”数据表示，该表示通常被选为高斯分布。本文探讨先验分布的选择是否重要，以及由量子硬件产生的先验分布是否与经典先验分布表现不同。我们在仅用良性数据训练的基于风格的检测器 SAGEGAN 基础上，比较三种潜在分布：原始的 512 维高斯分布、48 维高斯分布，以及由 ORCA Computing PT-2 光子量子处理器采样的 48 维分布。随后，我们使用贪心方法和强化学习方法对每个已训练模型的冻结表示进行精炼。在十个随机种子下，量子导出的模型表现出更丰富的内部结构，具有更好的有效秩和潜在相似性，并且从精炼中获益最大。尽管最终检测准确率与精炼后的高斯潜在模型相近，这些发现表明不同训练配置在潜在几何与精炼行为上存在差异。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在基于异常的恶意软件检测中，潜在/先验分布的选择是否重要，以及量子硬件产生的先验分布是否与经典先验分布表现不同。</p>
+    <h4>方法</h4><p>在仅用良性数据训练的 SAGEGAN 基础上，比较三种潜在分布（512 维高斯、48 维高斯、由 ORCA Computing PT-2 光子量子处理器采样的 48 维分布），并使用贪心和强化学习方法对每个已训练模型的冻结表示进行精炼，在十个随机种子下评估。</p>
+    <h4>主要发现</h4><p>量子导出的模型表现出更丰富的内部结构，具有更好的有效秩和潜在相似性，并且从精炼中获益最大；最终检测准确率与精炼后的高斯潜在模型相近。</p>
+    <h4>局限与展望</h4><p>研究仅涉及单一量子处理器与特定维度设置，结论的普适性有待验证；量子先验在潜在几何与精炼行为上的差异是否可转化为检测性能优势，尚需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13755v1">
+  <div class="paper-head">
+    <h2>面向有机锡氢氧化物基于采样量子对角化的硬件训练生成式量子本征求解器（至70量子比特）<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13755v1" rel="noopener noreferrer">2611.13755v1</a>
+  </div>
+  <p class="original-title">A Hardware-Trained Generative Quantum Eigensolver for Sample-Based Quantum Diagonalization of Organotin Hydroxides up to 70 Qubits</p>
+  <p class="meta"><strong>作者：</strong>Kunal Kumar、Kimberlee Keithley、Toshiya Iwamori、Shu Kanno、Ikko Hamamura、Takao Kobayashi、Akira Koseki、Qi Gao、Naoki Yamamoto、Hiroshi Horii、Yuri Kobayashi、Borja Peropadre、Kouhei Nakaji、Toru Imai、Takayuki Osogami</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.AI</span> <span class="tag">physics.chem-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子硬件可为训练电路生成器提供反馈，使其超越精确经典模拟的可及范围。我们训练生成式量子本征求解器（GQE）策略——以分子描述符为条件的Transformer——为基于采样的量子对角化（SQD）生成态制备电路。训练先在无噪声模拟器上进行，随后将IBM Heron处理器ibm_kobe置入训练回路，在46与70量子比特规模下进行（四次主要训练运行共1.2×10^8次采样）。训练分子的经典CCSD(T)参考能量仅进入准入判据和两个辅助奖励项。硬件训练期间，奖励惩罚项防止策略坍缩为仅采样Hartree-Fock行列式的电路。在过渡金属配合物上训练的策略无需再训练即被应用于Sn(OH)_3-Me及其水合物——极紫外光刻中有机锡光刻胶的最小模型——规模从32至70量子比特。经过一轮硬件采样，随后进行经典排序并利用分子哈密顿量恢复缓存的计数、且不再调用QPU之后，46–70量子比特的28次运行中有27次与密度矩阵重整化群（DMRG）参考值的偏差在15 mHa以内（中位数4.5 mHa）；在全部八次含未训练对照的运行中，训练后策略均更准确。在56–70量子比特规模下，所选电路使用的双量子比特门数比针对同一设备转译的局域酉簇Jastrow（LUCJ）电路少34–72倍。这些结果表明，电路生成器可在70量子比特规模下利用量子硬件进行训练。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否利用量子硬件在回路中训练生成式量子本征求解器（GQE）策略，使其为基于采样的量子对角化（SQD）生成态制备电路，并在超出精确经典模拟能力的规模（至70量子比特）上应用于有机锡氢氧化物等分子体系。</p>
+    <h4>方法</h4><p>训练以分子描述符为条件的Transformer策略以生成SQD态制备电路；训练先在无噪声模拟器上进行，再将IBM Heron处理器ibm_kobe置入训练回路，在46与70量子比特规模下运行（四次主要训练运行共1.2×10^8次采样）。经典CCSD(T)参考能量仅用于准入判据和两个辅助奖励项，并引入奖励惩罚项防止策略坍缩为仅采样Hartree-Fock行列式。在过渡金属配合物上训练的策略不经再训练直接应用于Sn(OH)_3-Me及其水合物（32至70量子比特）；经一轮硬件采样后进行经典排序，并利用分子哈密顿量恢复缓存计数，不再调用QPU。</p>
+    <h4>主要发现</h4><p>在46–70量子比特的28次运行中，有27次与DMRG参考值的偏差在15 mHa以内（中位数4.5 mHa）；在全部八次含未训练对照的运行中，训练后策略均更准确。在56–70量子比特规模下，所选电路使用的双量子比特门数比针对同一设备转译的LUCJ电路少34–72倍。结果表明电路生成器可在70量子比特规模下利用量子硬件进行训练。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性；其适用范围限于所研究的分子体系与设备条件。可合理推断，后续方向包括将硬件在回路训练扩展至其他分子体系或更大规模，并进一步评估该方法在不同硬件噪声条件下的稳健性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13778v1">
+  <div class="paper-head">
+    <h2>用于矩阵逆作用的多项式量子循环通道：延迟重置动力学与切比雪夫滤波<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13778v1" rel="noopener noreferrer">2611.13778v1</a>
+  </div>
+  <p class="original-title">Polynomial Quantum Recurrent Channels for Matrix Inverse Actions: Deferred-Reset Dynamics and Chebyshev Filtering</p>
+  <p class="meta"><strong>作者：</strong>Vahid Tavakkoli、Kabeh Mohsenzadegan、Kyandoghere Kyamakya</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.ET</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文构建了用于量子解态制备的完全正、保迹的多项式循环通道，并推导了定点界与时变跟踪界。在 2,880 组合成配置中，驻留式切比雪夫递推在 608 种情形下提高了满足精度要求的快照计数，在 2,271 种情形下与对照持平，仅在 1 种情形下劣于对照。另一项包含 360 个场景的成本研究表明，在全部 184 个联合可行场景中，全新递推的成本更低（驻留式与全新式成本比的中位数为 3.12），而驻留式递推在 74 个场景中唯一满足精度要求。在逻辑噪声率为 $10^{-4}$ 时，两种循环方法均不达标。基于精确约化密度模拟与假设的成本模型，本文结果展示了有条件的跟踪优势，但未给出普遍的端到端加速或总成本收益。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为量子解态制备（矩阵逆作用）设计完全正、保迹的多项式循环通道，并评估驻留式与全新式切比雪夫递推在精度跟踪与成本上的相对表现。</p>
+    <h4>方法</h4><p>构建完全正、保迹的多项式循环通道，推导定点界与时变跟踪界；在 2,880 组合成配置上比较驻留式切比雪夫递推与对照的精度通过快照计数，并在 360 个场景中开展驻留式与全新式递推的成本研究；采用精确约化密度模拟与假设的成本模型，并考察逻辑噪声率 $10^{-4}$ 下的表现。</p>
+    <h4>主要发现</h4><p>在 2,880 组合成配置中，驻留式切比雪夫递推在 608 种情形下提高精度通过快照计数，2,271 种持平，1 种劣于对照；在 360 个场景的成本研究中，全部 184 个联合可行场景下全新递推成本更低（驻留式与全新式成本比中位数 3.12），而驻留式递推在 74 个场景中唯一满足精度要求；逻辑噪声率 $10^{-4}$ 时两种循环方法均不达标。</p>
+    <h4>局限与展望</h4><p>结果基于精确约化密度模拟与假设的成本模型，仅表明有条件的跟踪优势，未证明普遍的端到端加速或总成本收益；适用范围受噪声率与成本模型假设限制，后续方向需在更贴近实际的噪声与成本条件下进一步验证（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13791v1">
+  <div class="paper-head">
+    <h2>紧凑型超导谐振腔阵列的本征模式与场成像<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13791v1" rel="noopener noreferrer">2611.13791v1</a>
+  </div>
+  <p class="original-title">Eigenmode and field imaging of a compact superconducting resonator array</p>
+  <p class="meta"><strong>作者：</strong>Benedek Gaál、Vincent Jouanny、Simone Frasca、Christophe Galland、Pasquale Scarlino、Valentin Goblot</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>超导谐振腔阵列可用于调控量子信息处理所需的光子环境，但仅依赖常规的端口微波谱学无法分辨其模式丰富的空间结构。本文对由33个集总元件谐振腔按蜂窝晶格排列、并承载拓扑边缘态的二维超导谐振腔阵列，采用激光扫描显微术（LSM）与氮-空位（NV）色心磁强计进行表征。我们展示了两种技术的互补性：LSM对本征模式成像，NV磁强计则绘制局部微波磁场振幅。借助这些空间信息，我们实验验证了所实现的晶格与设计一致，对拓扑边缘态进行了成像并测量其子晶格极化，同时给出晶格中相对在位频率无序度约0.3%的上界。本工作为紧凑型超导谐振腔阵列建立了一种联合空间表征方法，可应用于自旋-超导混合量子系统。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何对承载拓扑边缘态的紧凑型二维超导谐振腔阵列进行空间分辨的模式与场表征，并验证其晶格实现与无序水平。</p>
+    <h4>方法</h4><p>将激光扫描显微术（LSM）与氮-空位（NV）色心磁强计联合应用于由33个集总元件谐振腔构成的蜂窝晶格阵列：LSM用于本征模式成像，NV磁强计用于局部微波磁场振幅成像。</p>
+    <h4>主要发现</h4><p>两种技术具有互补性；实验验证所实现晶格与设计一致；对拓扑边缘态成像并测量其子晶格极化；给出相对在位频率无序度约0.3%的上界。</p>
+    <h4>局限与展望</h4><p>该方法面向紧凑型超导谐振腔阵列的空间表征，原文指出其可应用于自旋-超导混合量子系统；其适用范围与在其他阵列构型或更大规模系统中的推广尚待进一步验证（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13796v1">
+  <div class="paper-head">
+    <h2>三维单原子里德堡阵列上求解加权MaxCut问题的模拟量子近似优化算法<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13796v1" rel="noopener noreferrer">2611.13796v1</a>
+  </div>
+  <p class="original-title">Analog quantum approximate optimization algorithm for solving the weighted MaxCut problem on three-dimensional single-atom Rydberg array</p>
+  <p class="meta"><strong>作者：</strong>Junxi Chen、I. I. Beterov</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文从理论上研究量子近似优化算法（QAOA）求解加权最大割问题（MaxCut）的模拟实现方案。该方案采用由全局寻址激光脉冲驱动的、单独囚禁里德堡原子的三维阵列，并在里德堡共振附近施加依赖于格点的失谐。作为基准测试，我们考虑二十个随机加权的3-正则图，每个图含12个顶点。通过选取合适的三维原子位置，问题权重被直接编码到原子间相互作用能中。我们比较两种参数优化策略：离散化量子退火，以及使用图神经网络（GNN）的热启动初始化。在无噪声情形下，组合优化策略构成的组合方案在几乎所有实例上均优于Goemans-Williamson（GW）舍入。我们分析了两种方法的采样统计与总脉冲时间成本。最后，我们利用Aquila中性原子量子处理器的实际误差模型，在量子轨迹上模拟了优化后调度方案的性能。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在三维单原子里德堡阵列上以模拟方式实现QAOA，并求解加权MaxCut问题；同时比较不同参数优化策略的效果与成本。</p>
+    <h4>方法</h4><p>采用全局寻址激光脉冲驱动、单独囚禁于三维阵列的里德堡原子，在里德堡共振附近施加格点依赖失谐；通过选择三维原子位置将问题权重编码到原子间相互作用能中。以二十个随机加权3-正则图（每个12个顶点）为基准，比较离散化量子退火与基于图神经网络的热启动初始化两种参数优化策略，并分析采样统计与总脉冲时间成本；最后在Aquila中性原子量子处理器的实际误差模型下用量子轨迹模拟优化调度方案的性能。</p>
+    <h4>主要发现</h4><p>在无噪声情形下，两种优化策略组合形成的组合方案在几乎所有实例上优于Goemans-Williamson（GW）舍入；文中还给出了两种方法的采样统计与总脉冲时间成本分析，以及在Aquila实际误差模型下优化调度方案的量子轨迹模拟结果。</p>
+    <h4>局限与展望</h4><p>本文为理论研究，基准仅限二十个12顶点的随机加权3-正则图，结论的普适性需进一步验证；基于Aquila误差模型的模拟结果受该特定硬件噪声特性约束。后续可合理推断的方向包括扩展到更大规模或不同结构的图，以及在更多硬件平台上检验该组合优化策略的鲁棒性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13799v1">
+  <div class="paper-head">
+    <h2>基于共振荧光零拍探测的中性原子量子比特相干光学读出<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13799v1" rel="noopener noreferrer">2611.13799v1</a>
+  </div>
+  <p class="original-title">Coherent Optical Readout of Neutral-Atom Qubits via Homodyne Detection of Resonant Fluorescence</p>
+  <p class="meta"><strong>作者：</strong>Minho Jang、Jaeyong Hwang、Minhyeok Kim、Sanghyo Park、Donggyu Kim</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>快速、非破坏性的量子比特读出对于重复采样、电路中间测量以及容错中性原子量子处理至关重要，但基于相机的荧光探测会引入超出荧光收集时间的电子学延迟。本文提出利用光电二极管的平衡零拍探测，对与态相关的共振荧光进行相干读出。我们建立了解析模型，定量刻画原子运动对时间积分正交信号与噪声的影响，结果表明：简谐运动导致相位平均，而光子反冲产生依赖轨迹的信号涨落；信号积累与运动诱导退相干之间的竞争决定了最优探测时间。三维蒙特卡罗模拟验证了该模型，并在实验现实参数下预测：在100 μs内可实现超过99%的态探测保真度。这些结果确立了中性原子量子比特快速相干荧光读出的读出条件与物理约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何实现快速、非破坏性的中性原子量子比特读出，以支持重复采样、电路中间测量和容错量子处理；具体而言，能否用光电二极管的平衡零拍探测替代基于相机的荧光探测，从而避免相机引入的电子学延迟。</p>
+    <h4>方法</h4><p>提出对态依赖的共振荧光进行平衡零拍探测的相干读出方案；建立解析模型，量化原子运动（简谐运动与光子反冲）对时间积分正交信号和噪声的影响；并用三维蒙特卡罗模拟验证模型。</p>
+    <h4>主要发现</h4><p>解析模型表明，简谐运动导致相位平均，光子反冲产生依赖轨迹的信号涨落，信号积累与运动诱导退相干之间的竞争决定最优探测时间；三维蒙特卡罗模拟验证了该模型，并在实验现实参数下预测在100 μs内态探测保真度超过99%。</p>
+    <h4>局限与展望</h4><p>摘要仅给出模型与模拟层面的预测，未报告实验实现；其适用范围受所设实验现实参数与原子运动条件约束。后续可合理推断的方向包括实验验证该读出方案，以及在更广泛参数与运动条件下检验最优探测时间与保真度预测（此句为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13815v1">
+  <div class="paper-head">
+    <h2>自适应策略引导的误差缓解（APGEM）：面向量子机器学习噪声韧性的统一学习型框架<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13815v1" rel="noopener noreferrer">2611.13815v1</a>
+  </div>
+  <p class="original-title">Adaptive Policy-Guided Error Mitigation (APGEM): A Unified Learning-Based Framework for Noise Resilience in Quantum Machine Learning</p>
+  <p class="meta"><strong>作者：</strong>Bisma Majid、Shabir Ahmad Sofi、Mir Mohammad Yousuf</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.LG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>误差缓解是变分量子算法在当前含噪硬件上获得有用结果的关键环节，但实践中通常一次性人工选定某种缓解方法，并在整个实验周期内保持不变。这种做法难以适应量子机器学习（QML）场景：随着训练推进，电路与噪声均会漂移，某一阶段的最优策略在另一阶段往往不再适用。本文提出自适应策略引导的误差缓解（APGEM）的推广形式，将缓解技术的选择视为基于算法自身反馈的在线决策问题。单一上下文赌博机控制器观测任意变分算法本就会产生的信号（如保真度、熵、奖励或损失以及梯度行为），并在每一步于零噪声外推、概率误差消除、测量误差缓解、动态解耦与电路优化之间进行选择。由于仅依赖这一共享反馈接口，该框架可原样适用于监督、无监督、强化及混合量子-经典学习。在覆盖 80 种算法与噪声条件的五个范式上评估，自适应选择达到始终选取最优技术的 oracle 的 95.5%，并显著优于全部六种固定策略（Friedman $\chi^{2}=92.18$，$p\approx1.1\times10^{-17}$；成对 Wilcoxon $p&lt;4\times10^{-6}$）。所学策略具有噪声感知性：随着去极化与读出误差上升，其偏好的技术会发生转移。在来自八台真实 IBM 设备的噪声模型上，APGEM 在 3 至 8 个量子比特范围内以约 $1.3\times10^{4}$ 次采样的平稳开销几乎精确地跟踪 oracle（达到 oracle 效用的 99.9%）。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在量子机器学习训练过程中电路与噪声会持续漂移的背景下，如何避免一次性人工选定并固定使用某种误差缓解技术，而是根据算法自身反馈在线自适应地选择缓解技术。</p>
+    <h4>方法</h4><p>提出自适应策略引导的误差缓解（APGEM）的推广形式，使用单一上下文赌博机控制器，观测变分算法已有的反馈信号（保真度、熵、奖励或损失、梯度行为），在零噪声外推、概率误差消除、测量误差缓解、动态解耦与电路优化之间逐步选择；在五个范式、80 种算法与噪声条件上评估，并与 oracle 及六种固定策略比较，另在八台真实 IBM 设备的噪声模型上测试。</p>
+    <h4>主要发现</h4><p>自适应选择达到始终选取最优技术的 oracle 的 95.5%，显著优于全部六种固定策略（Friedman $\chi^{2}=92.18$，$p\approx1.1\times10^{-17}$；成对 Wilcoxon $p&lt;4\times10^{-6}$）；所学策略具有噪声感知性，偏好的技术随去极化与读出误差上升而转移；在八台真实 IBM 设备的噪声模型上，APGEM 达到 oracle 效用的 99.9%，且在 3 至 8 个量子比特范围内采样开销平稳，约为 $1.3\times10^{4}$ 次。</p>
+    <h4>局限与展望</h4><p>原文的评估基于五个范式与 80 种算法-噪声条件，并在真实设备噪声模型上验证，尚未报告在真实硬件上的在线部署结果；其适用范围受限于所依赖的共享反馈接口与候选缓解技术集合。后续可合理推断的方向包括在真实量子硬件上验证在线自适应选择，以及扩展候选缓解技术与反馈信号的范围。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13900v1">
+  <div class="paper-head">
+    <h2>耦合非马尔可夫环境所携带与调控的关联<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13900v1" rel="noopener noreferrer">2611.13900v1</a>
+  </div>
+  <p class="original-title">Correlations carried and controlled by coupled non-Markovian environments</p>
+  <p class="meta"><strong>作者：</strong>Stuart Flannigan</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>环境能够保留量子信息并在空间分离的系统之间传递这些信息；描述上述过程的综合影响需要同时处理环境记忆与空间关联。本文针对与空间关联的非马尔可夫环境耦合、且环境模式之间可交换激发的量子系统，构建了纯态的局域层级（local hierarchy of pure states）方法。利用该方法，我们描述了由局域耦合的 Rabi 自旋—腔对构成的自旋链的约化自旋动力学，其动机来自腔 QED 实现；在被消去的腔环境中，光子跳跃在原本相互隔离的自旋之间产生关联与纠缠。对中间腔进行监测并将其测量记录反馈至相应自旋，可进一步增强未接受直接反馈的端点自旋之间的关联。反馈开始时响应的延迟，以及反馈停止后纠缠的持续增长，支持这样一种机制：相干的环境动力学将先前反馈的效果传递至端点自旋。最后，对 XXZ 链与 Heisenberg 链的张量网络模拟表明，环境输运如何改变多体关联模式。这些结果表明，耦合环境与局域反馈能够调控远距自旋之间的关联。我们提供了一个数值精确的随机纯态框架来模拟这些过程，为探索相互作用非马尔可夫多体系统的相干与耗散控制开辟了途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在同时考虑环境记忆与空间关联的条件下，描述并调控与空间关联非马尔可夫环境耦合的量子系统（尤其是自旋—腔链）中远距自旋之间的关联与纠缠。</p>
+    <h4>方法</h4><p>构建纯态的局域层级（local hierarchy of pure states）方法，用于环境模式之间可交换激发的空间关联非马尔可夫环境；以局域耦合的 Rabi 自旋—腔对链为对象描述约化自旋动力学；对中间腔进行监测并将测量记录反馈至相应自旋；并采用张量网络模拟 XXZ 链与 Heisenberg 链。</p>
+    <h4>主要发现</h4><p>被消去腔环境中的光子跳跃可在原本隔离的自旋之间产生关联与纠缠；对中间腔的监测与反馈可增强未接受直接反馈的端点自旋之间的关联；反馈开始时出现延迟响应，反馈停止后纠缠仍持续增长，支持相干环境动力学将先前反馈效果传递至端点自旋的机制；张量网络模拟显示环境输运改变多体关联模式。</p>
+    <h4>局限与展望</h4><p>原文指出该工作提供了数值精确的随机纯态框架，并称其为探索相互作用非马尔可夫多体系统的相干与耗散控制开辟了途径；具体适用范围与局限原文未明确展开，后续方向应理解为作者所述的可能性而非已证结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13934v1">
+  <div class="paper-head">
+    <h2>自旋系综中由库诱导的量子相变<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13934v1" rel="noopener noreferrer">2611.13934v1</a>
+  </div>
+  <p class="original-title">Reservoir-induced Quantum Phase Transitions in spin ensembles</p>
+  <p class="meta"><strong>作者：</strong>Giuseppe Musolino、Daniele Lamberto、Gabriele Orlando、Omar Di Stefano、Salvatore Savasta</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对由 N 个二能级原子组成的开放量子系统在热力学极限下与玻色库耦合的情形进行了系统分析。结果表明，当系统-库相互作用不存在亚稳极小值（如无抵消项情形）时，系统可发生由库结构而非相干内部动力学决定的量子相变。作者采用精确量子朗之万方程（在临界附近过阻尼区域、损耗率可超过软化模式共振频率时仍适用），通过复激发谱确定临界点，并得到闭合形式的反射谱与透射谱；这些谱在相变附近表现出模式软化以及逐渐增强的非对称线型。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究热力学极限下 N 个二能级原子与玻色库耦合的开放量子系统中，量子相变是否可由库结构而非相干内部动力学驱动，并刻画临界点附近的谱特征。</p>
+    <h4>方法</h4><p>采用精确量子朗之万方程，该方程在临界附近的过阻尼区域（损耗率可超过软化模式共振频率）仍适用；通过复激发谱确定临界点，并推导闭合形式的反射谱与透射谱。</p>
+    <h4>主要发现</h4><p>当系统-库相互作用不存在亚稳极小值（如无抵消项情形）时，系统可发生由库结构决定的量子相变；通过复激发谱可定位临界点；所得反射谱与透射谱在相变附近显示模式软化及逐渐增强的非对称线型。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；其结论基于热力学极限与玻色库设定，向有限 N、其他库结构或非过阻尼区域的推广需进一步验证（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13948v1">
+  <div class="paper-head">
+    <h2>循环网络的量子多参数估计<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13948v1" rel="noopener noreferrer">2611.13948v1</a>
+  </div>
+  <p class="original-title">Multiparameter quantum estimation of circulant networks</p>
+  <p class="meta"><strong>作者：</strong>Maria Popovic、Silvia Cassina、Ilaria Gianani、Claudia Benedetti</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>网络为相互作用模式、输运介质与通信架构提供了自然的描述框架，准确刻画其耦合结构是量子技术中的关键挑战。本文研究由连续时间量子行走探测的循环网络中耦合强度的多参数量子估计。我们推导了量子Fisher信息矩阵，确定了最优探测态，并给出了量子测量所允许的最终精度及其随未知耦合数目的标度行为。我们进一步分析了通过对行走者进行位置测量所能达到的精度，将最优探测态与局域探测态对应的经典Cramér-Rao界与量子极限进行比较。最后，我们考虑由粗粒化位置测量建模的有限分辨率探测。尽管粗粒化通常会降低估计精度，但我们发现低分辨率测量在某些情形下可以优于其他空间分辨率更细的测量。本文结果系统刻画了基于量子行走的网络推断中耦合估计的基本极限与实际极限。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何对由连续时间量子行走探测的循环网络中的耦合强度进行多参数量子估计，并确定其最终精度极限及实际位置测量可达到的精度。</p>
+    <h4>方法</h4><p>推导量子Fisher信息矩阵，确定最优探测态，分析精度随未知耦合数目的标度行为；计算位置测量对应的经典Cramér-Rao界，并与量子极限比较；以粗粒化位置测量建模有限分辨率探测。</p>
+    <h4>主要发现</h4><p>得到了量子Fisher信息矩阵、最优探测态以及量子测量允许的最终精度及其随未知耦合数目的标度；给出了最优与局域探测态下位置测量的经典Cramér-Rao界并与量子极限作了比较；发现粗粒化通常降低估计精度，但低分辨率测量在某些情形下可优于空间分辨率更细的测量。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限性与适用范围；粗粒化测量在特定情形下优于更细分辨率测量这一现象的具体条件与机制有待进一步阐明，其向其他网络结构或探测方式的推广属于可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13967v1">
+  <div class="paper-head">
+    <h2>谐波囚禁离子晶体中振动激发的量子传播<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13967v1" rel="noopener noreferrer">2611.13967v1</a>
+  </div>
+  <p class="original-title">Quantum propagation of vibrational excitation in harmonically confined trapped-ion crystal</p>
+  <p class="meta"><strong>作者：</strong>Takumi Yuri、Yu-Xuan Chen、Kenji Toyoda</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>囚禁离子中的振动激发（声子）是量子信息处理（包括量子模拟与量子计算）的有用资源。离子振动运动的局域激发（局域声子）可用于模拟在系统中传播的量子粒子。本文实验研究了一维囚禁离子晶体中局域振动激发的传播，所用体系为谐波势中囚禁的10离子晶体。研究发现，离子间距的不均匀性导致相邻跳跃和整体移动等特征行为。实验结果与数值模拟的对比表明，二者在细节层面亦相符。该体系有望推广至玻色子多体系统以及更复杂的准粒子。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究一维谐波囚禁离子晶体中局域振动激发（局域声子）的传播行为，并考察离子间距不均匀性对传播特征的影响。</p>
+    <h4>方法</h4><p>在谐波势中囚禁10个离子形成一维离子晶体，实验观测局域振动激发的传播，并将实验结果与数值模拟进行对比。</p>
+    <h4>主要发现</h4><p>离子间距的不均匀性导致相邻跳跃和整体移动等特征传播行为；实验结果与数值模拟在细节层面相符。</p>
+    <h4>局限与展望</h4><p>原文指出该体系可推广至玻色子多体系统及更复杂的准粒子；这一推广属于作者提出的展望，尚未在本文中实现。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13981v1">
+  <div class="paper-head">
+    <h2>交换冯·诺依曼代数的Mermin不等式最大违反与量子场论中的多体真空纠缠<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13981v1" rel="noopener noreferrer">2611.13981v1</a>
+  </div>
+  <p class="original-title">Maximal Violation of Mermin Inequality for Commuting von Neumann Algebras and Multipartite Vacuum Entanglement in QFT</p>
+  <p class="meta"><strong>作者：</strong>Kan He、Jinchuan Hou、Shuyuan Yang、Bingke Zheng</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Summers与Werner曾证明，在相对论量子场论的真空态中，Bell不等式被最大且普遍地违反（Commun. Math. Phys. 110 (1987), 247-259）。其判据针对两方情形，即存在两个量子可观测量代数：一个代数及其交换子。在此情形下，当且仅当该代数强稳定时，每个正规态中的CHSH值都收敛到最大值。本文研究三个及更多相互交换的冯·诺依曼代数所对应的相应问题，聚焦多方Mermin不等式而非CHSH不等式。对于三方Mermin泛函，我们证明：在每个正规态中达到最大违反，等价于存在共同的渐近GHZ稳定子序列。每个局域因子的强稳定性是最大违反的必要条件，而无限GHZ张量积的联合嵌入则是充分条件。反例表明，即使各单个代数强稳定且为III_1型，并同时具备三方对偶性，也不足以达到最大违反。相关结果亦推广至n≥3方情形。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>对于三个及更多相互交换的冯·诺依曼代数，多方Mermin不等式在何种条件下于每个正规态中被最大违反，以及该性质与各局域代数强稳定性、类型及渐近GHZ稳定子之间的关系为何。</p>
+    <h4>方法</h4><p>将Summers-Werner关于两方CHSH最大违反的判据推广到多方情形，以三方Mermin泛函为主要对象，通过渐近GHZ稳定子序列、无限GHZ张量积的联合嵌入以及反例构造进行分析，并推广至n≥3方。</p>
+    <h4>主要发现</h4><p>三方Mermin泛函在每个正规态中达到最大违反，等价于存在共同的渐近GHZ稳定子序列；每个局域因子的强稳定性是最大违反的必要条件，无限GHZ张量积的联合嵌入是充分条件；反例表明各代数强稳定且为III_1型、并具备三方对偶性仍不足以保证最大违反；结果可推广至n≥3方。</p>
+    <h4>局限与展望</h4><p>原文未讨论非正规态或其他不等式族下的对应判据；强稳定性与联合GHZ嵌入之间的充要刻画在多方一般情形下是否成立，尚需进一步研究；所得判据在具体量子场论模型中的适用性有待考察。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13998v1">
+  <div class="paper-head">
+    <h2>无池化、残差触发的变分虚时演化拟设增长：固定算符顺序何时优于自适应筛选<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13998v1" rel="noopener noreferrer">2611.13998v1</a>
+  </div>
+  <p class="original-title">Pool-free, residual-triggered ansatz growth for variational imaginary-time evolution: when a fixed operator order beats adaptive screening</p>
+  <p class="meta"><strong>作者：</strong>Yu-Hao Chen、Renata Wong</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>自适应变分算法（如 ADAPT-VQE 与 AVQITE）在每一步增长时都需要筛选算符池，ADAPT-VQE 还会重新优化全部参数。本文研究变分虚时演化（VITE）的一种无池化替代方案：各层由哈密顿量的嵌套对易子预先固定，并按对称性与粒子数分组；当相对 McLachlan 残差超过阈值时追加下一层。在五个非可积系统（混合场 Ising 链与环面，以及拉伸的 H$_4$）上，这种动态 VITE 达到 $10^{-4}$ 的相对误差所需线路数，比六至八种自适应变体中最廉价者少 1.6–5.4 倍；这些自适应变体包括单 Pauli 串池、量子比特激发池以及批量 ADAPT-VQE。在链模型上，该优势从 8 个格点持续到 16 个格点。筛选与重新优化构成了自适应方法的大部分开销。在自旋模型上，纵向场扫描表明该优势需要可积性破缺，因为可积性破缺会使自适应筛选代价高昂。该优势在横场 Ising 模型上、在更严格的目标（相对误差 $10^{-6}$）下，以及在调度将弱层前置的情形中均会丧失。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>对于变分虚时演化（VITE），能否用预先固定、由哈密顿量嵌套对易子确定且按对称性与粒子数分组的算符层顺序，替代 ADAPT-VQE、AVQITE 等自适应算法中逐步筛选算符池并重新优化参数的做法，并在何种条件下更具线路效率。</p>
+    <h4>方法</h4><p>提出无池化、残差触发的 VITE：层顺序由哈密顿量的嵌套对易子预先固定并按对称性与粒子数分组，当相对 McLachlan 残差超过阈值时追加下一层；在五个非可积系统（混合场 Ising 链与环面、拉伸 H$_4$）上与六至八种自适应变体（含单 Pauli 串池、量子比特激发池、批量 ADAPT-VQE）比较达到相对误差 $10^{-4}$ 所需线路数，并在链模型上考察 8 至 16 个格点、在自旋模型上做纵向场扫描，另考察横场 Ising 模型、$10^{-6}$ 严格目标与弱层前置调度等情形。</p>
+    <h4>主要发现</h4><p>在五个非可积系统上，动态 VITE 达到 $10^{-4}$ 相对误差所需线路数比最廉价的自适应变体少 1.6–5.4 倍；在链模型上该优势从 8 个格点持续到 16 个格点；筛选与重新优化构成自适应方法的大部分开销；纵向场扫描表明该优势需要可积性破缺，因为可积性破缺使自适应筛选代价高昂；该优势在横场 Ising 模型、$10^{-6}$ 严格目标以及弱层前置的调度下均丧失。</p>
+    <h4>局限与展望</h4><p>原文表明该无池化策略的收益依赖于可积性破缺、相对宽松的误差目标与合理的层调度，在横场 Ising 模型、更严格目标及弱层前置调度下不具优势；其适用范围限于所考察的非可积自旋模型与拉伸 H$_4$，向其他体系与更大规模的推广有待进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14006v1">
+  <div class="paper-head">
+    <h2>相空间中量子线路经典模拟的归一化流方法<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14006v1" rel="noopener noreferrer">2611.14006v1</a>
+  </div>
+  <p class="original-title">Normalizing Flows for Classical Simulation of Quantum Circuits in Phase Space</p>
+  <p class="meta"><strong>作者：</strong>Edward Jiang、Timothy Heightman、Marcin Płodzień</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.LG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一个基于多体系统相空间表述学习量子线路表示的新框架。鉴于 $N$ 量子比特态可表示为光滑 $2N$ 维流形上的概率分布，作者展示如何将酉门参数化为这些分布之间的归一化流，从而为使用生成模型进行量子线路模拟开辟新途径。作者在三类常见量子线路族上评估该方法，并表明在大系统规模下其精度超过当前最先进的神经网络方法。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用多体系统的相空间表述与生成模型，为量子线路的经典模拟学习一种有效表示，并在精度上超越现有神经网络方法。</p>
+    <h4>方法</h4><p>将 $N$ 量子比特态表示为光滑 $2N$ 维流形上的概率分布，把酉门参数化为这些分布之间的归一化流，并据此构建基于生成模型的量子线路模拟框架；在三类常见量子线路族上进行评估。</p>
+    <h4>主要发现</h4><p>原文明确报告：该方法在三类常见量子线路族上进行了评估，且在大系统规模下其精度超过当前最先进的神经网络方法。</p>
+    <h4>局限与展望</h4><p>原文未讨论局限性或适用范围；可合理推断，后续方向可能包括将该框架扩展到更多线路族与更大规模系统，并与其它经典模拟方法进行更全面的比较，但这些均属推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14023v1">
+  <div class="paper-head">
+    <h2>PINNverse 与 Jordan-Wigner 变换：学习长自旋链的哈密顿量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14023v1" rel="noopener noreferrer">2611.14023v1</a>
+  </div>
+  <p class="original-title">PINNverse meets Jordan--Wigner: learning the Hamiltonian of long spin chains</p>
+  <p class="meta"><strong>作者：</strong>Gubio G De Lima</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">physics.comp-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>逆物理信息神经网络（PINNverse）能够从测量的期望值中学习量子哈密顿量的参数，但其网络输出随量子比特数 N 以 4^N 增长。本文表明，对于具有最近邻交换相互作用的自旋链，Jordan-Wigner 变换可消除这一指数开销：动力学在 N×N 的单体密度矩阵上闭合，因此网络仅需 N^2 个输出，数据为在五种全局设置下测量的局域可观测量。寄生 ZZ 耦合（串扰）通过含时 Hartree-Fock 闭合纳入。在合成数据上，同一网络先求解运动方程，再恢复最多 50 个量子比特链的哈密顿量参数，耦合学习精度优于 0.1%。长链局域频率的误差通过从网络估计出发的直接最小二乘拟合予以消除。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何降低 PINNverse 从测量期望值学习量子哈密顿量参数时网络输出随量子比特数指数增长（4^N）的开销，并将其扩展到长自旋链。</p>
+    <h4>方法</h4><p>针对具有最近邻交换相互作用的自旋链，采用 Jordan-Wigner 变换使动力学在 N×N 单体密度矩阵上闭合，从而将网络输出降至 N^2；数据为五种全局设置下测量的局域可观测量；通过含时 Hartree-Fock 闭合纳入寄生 ZZ 耦合（串扰）；在合成数据上先求解运动方程，再恢复哈密顿量参数，并用从网络估计出发的直接最小二乘拟合修正长链局域频率误差。</p>
+    <h4>主要发现</h4><p>Jordan-Wigner 变换消除了指数开销，网络仅需 N^2 个输出；在合成数据上，同一网络可恢复最多 50 个量子比特链的哈密顿量参数，耦合学习精度优于 0.1%；从网络估计出发的直接最小二乘拟合消除了长链局域频率的误差。</p>
+    <h4>局限与展望</h4><p>结果基于合成数据与最近邻交换相互作用自旋链、含时 Hartree-Fock 闭合的设定；向真实实验数据、其他相互作用形式或更长链的适用性尚待验证（此为推断）。后续可探索将该框架推广到更一般的相互作用与噪声模型（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14044v1">
+  <div class="paper-head">
+    <h2>连续变量孪生场量子密钥分发<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14044v1" rel="noopener noreferrer">2611.14044v1</a>
+  </div>
+  <p class="original-title">CV-TF-QKD</p>
+  <p class="meta"><strong>作者：</strong>Stefano Pirandola</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种连续变量版本的孪生场量子密钥分发方案，采用独立的高斯调制相干态与不可信的单光子中继。通过全记录协商与二进制相位披露协议，在集体攻击下可获得近乎相等的渐近密钥率。在每条臂给定固定的弱输入参考过量噪声时，两种每中继使用密钥率均按 $\sqrt{\eta}$ 缩放，其中 $\eta$ 为端到端透射率。针对相位披露方案，作者利用对制备强度与符号奇偶互补性的有界检验，建立了对一般相干攻击的可组合安全性。在指定装置参数下，有限密钥计算纳入探测器低效、暗计数、相位涨落与参考开销，预测密钥率超过纯损耗界与匹配热损耗中继无中继界。上述结果将孪生场优势推广至高斯调制连续变量量子密码学。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究如何将孪生场量子密钥分发（TF-QKD）推广到连续变量情形，并在不可信中继与集体/相干攻击下评估其密钥率与安全性。</p>
+    <h4>方法</h4><p>采用独立高斯调制相干态与不可信单光子中继；使用全记录协商与二进制相位披露协议；通过有界检验制备强度与符号奇偶互补性建立可组合安全性；并进行纳入探测器低效、暗计数、相位涨落与参考开销的有限密钥计算。</p>
+    <h4>主要发现</h4><p>在集体攻击下，全记录协商与相位披露协议获得近乎相等的渐近密钥率；在每条臂固定弱输入参考过量噪声时，两种每中继使用密钥率均按 $\sqrt{\eta}$ 缩放；相位披露方案对一般相干攻击具有可组合安全性；在指定装置参数下，有限密钥计算预测密钥率超过纯损耗界与匹配热损耗中继无中继界。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论实际部署中的全部限制；有限密钥结果依赖于指定装置参数与所纳入的噪声模型，其适用范围需结合具体参数评估。后续可合理推断的方向包括更广泛的装置参数与攻击模型下的安全性分析及实验实现验证，但这些均非原文明确结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14081v1">
+  <div class="paper-head">
+    <h2>动力学 GKP 码<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14081v1" rel="noopener noreferrer">2611.14081v1</a>
+  </div>
+  <p class="original-title">Dynamical GKP codes</p>
+  <p class="meta"><strong>作者：</strong>Jonathan Pelletier、Baptiste Royer</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>动力学码通过测量序列保护量子信息，推广了静态码的稳定子形式，但此前仅针对量子比特系统发展。Gottesman-Kitaev-Preskill（GKP）码将量子比特编码于振子的连续相空间，是有前景的量子计算候选方案，却尚无对应的动力学形式。本文填补这一空白，提出动力学 GKP 码，将连续变量格点编码与含时平移测量动力学相结合。为得到给定测量序列的更新规则与距离，作者首先利用缩放辛格将 GKP 码推广为子系统 GKP 码；在此基础上，移植原为动力学量子比特码发展的 ancestry、detector 与 benign-error 机制。由此得到一种通用且高效的方法，可从持续稳定子格与有界推断窗口计算动力学 GKP 码的 syndrome 与距离。作者以双模方-六角 Floquet GKP 码为例说明该框架：与方 GKP 码和六角 GKP 码相比，该码的测量权重降低，同时兼具二者的逻辑门集合，从而更易实现完整的单量子比特 Clifford 群。最后，作者表明具有无理辛重叠的测量（在离散量子比特码中无对应物）在单模情形下退化为破坏性零拍探测。这些结果将一项重要的量子比特码工具推广至连续变量系统，并在离散稳定子测量与连续零拍探测之间建立了新的联系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为连续变量的 GKP 码建立动力学码形式，并计算给定测量序列的更新规则与距离？</p>
+    <h4>方法</h4><p>利用缩放辛格将 GKP 码推广为子系统 GKP 码，移植动力学量子比特码的 ancestry、detector 与 benign-error 机制，从持续稳定子格与有界推断窗口计算 syndrome 与距离；以双模方-六角 Floquet GKP 码为例进行说明。</p>
+    <h4>主要发现</h4><p>提出了动力学 GKP 码框架及高效计算 syndrome 与距离的方法；双模方-六角 Floquet GKP 码较方 GKP 码和六角 GKP 码测量权重降低，并兼具二者的逻辑门集合，更易实现完整单量子比特 Clifford 群；无理辛重叠测量在单模情形下退化为破坏性零拍探测。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该框架的适用限制或实验可行性；后续可合理推断的方向包括将框架推广至更多模式与测量序列，以及探索无理辛重叠测量在连续变量系统中的一般作用，但这些均需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14114v1">
+  <div class="paper-head">
+    <h2>通过云服务对量子处理器中GHZ态生成的跨平台基准测试<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14114v1" rel="noopener noreferrer">2611.14114v1</a>
+  </div>
+  <p class="original-title">Cross-Platform Benchmarking of GHZ-State Generation in Quantum Processors via Cloud Services</p>
+  <p class="meta"><strong>作者：</strong>Sergio Hernández、Unai Aseguinolaza、David Aguirre、Marta Gili、Joseba Hernández、Guillermo Valverde、Uxue Ballarin Manso、Uxue Auzmendi、Iker Pastor、Pablo García Bringas、Ane Blázquez García、Rubén Peña、Mikel Sanz</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子计算已迅速发展为由底层技术和运行特性各异的硬件平台组成的多样化生态系统，因此基准测试对于识别量子处理器的优势、比较其性能，以及为特定应用选择合适平台提供了重要依据。本文使用QuSquare套件中的多体纠缠基准，对来自五家厂商的九款商用可访问量子处理器进行基准测试，涵盖超导与离子阱技术。所有实验均通过远程云访问服务完成，采用各提供商默认编译且不使用误差缓解，以反映终端用户实际获得的性能。该基准通过直接保真度估计来评估Greenberger--Horne--Zeilinger（GHZ）态的保真度，并寻找在统计误差范围内其保真度与真正多体纠缠（GME）阈值$F=1/2$相容的最大GHZ态。结果表明，处理器可用物理量子比特总数与通过基准的最大GHZ态规模之间存在显著差距：最佳超导处理器分别达到$N^*=27$和$N^*=24$个量子比特，不足其寄存器规模的四分之一，而12量子比特离子阱处理器则以完整寄存器通过。我们进一步表明，校准数据的中位数对基准结果的预测能力较差，且所报告的规模强烈依赖于统计判定规则：要求认证GME会使在任何测试规模上成功的设备数量从九款降至四款。这些结果为未来量子处理器的跨平台基准测试提供了基线。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在统一、反映终端用户实际体验的条件下，对来自不同厂商、基于超导和离子阱技术的商用量子处理器进行跨平台基准测试，并评估其生成GHZ态及达到真正多体纠缠的能力。</p>
+    <h4>方法</h4><p>使用QuSquare套件中的多体纠缠基准，通过远程云访问服务对九款商用量子处理器进行测试；采用各提供商默认编译且不使用误差缓解；通过直接保真度估计GHZ态保真度，并寻找在统计误差内与GME阈值$F=1/2$相容的最大GHZ态规模$N^*$；同时分析校准数据中位数对基准结果的预测能力以及统计判定规则的影响。</p>
+    <h4>主要发现</h4><p>可用物理量子比特总数与通过基准的最大GHZ态规模之间存在显著差距：最佳超导处理器达到$N^*=27$和$N^*=24$个量子比特，不足其寄存器规模的四分之一，而12量子比特离子阱处理器以完整寄存器通过；校准数据的中位数对基准结果预测能力较差；所报告的规模强烈依赖统计判定规则，要求认证GME时，在任何测试规模上成功的设备数量从九款降至四款。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果为未来量子处理器的跨平台基准测试提供了基线；其局限在于实验仅覆盖九款商用处理器、采用默认编译且未使用误差缓解，结果反映特定云访问条件下的终端用户体验。后续可合理推断的方向包括扩展至更多平台与设备、考察不同编译与误差缓解设置的影响，以及改进校准数据与基准结果之间的关联分析。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14139v1">
+  <div class="paper-head">
+    <h2>量子同步的相干-耗散交叉<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14139v1" rel="noopener noreferrer">2611.14139v1</a>
+  </div>
+  <p class="original-title">Coherent-Dissipative Crossover of Quantum Synchronization</p>
+  <p class="meta"><strong>作者：</strong>Li Liu、Niu Wang、Xun-Wei Xu、Jie-Qiao Liao、Hui Jing、Le-Man Kuang、Changliang Ren</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>开放系统中的量子同步可由相干相互作用与集体耗散共同产生，但二者的相互作用机制仍缺乏充分理解。本文针对通过快速中介耦合的两个量子振子建立了一个通用框架。绝热消除揭示出两条不同的同步通道——相干交换与集体耗散，并给出连接耗散主导区与相干主导区的解析描述。研究表明，同步由相干耦合、耗散与库诱导涨落的联合平衡所支配，而非仅由相干耦合决定。对共享输出场的连续监测进一步将库信息转化为资源，显著增强条件同步，且增益在相干-耗散交叉附近最强。这些结果确立了开放量子系统中相干-耗散量子同步及其测量赋能控制的一般机制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>开放系统中由相干相互作用与集体耗散共同产生的量子同步，其两种机制如何相互影响，尚缺乏清晰认识；本文研究通过快速中介耦合的两个量子振子的同步行为。</p>
+    <h4>方法</h4><p>建立两个量子振子经快速中介耦合的通用框架，通过绝热消除识别相干交换与集体耗散两条同步通道，并给出连接耗散主导与相干主导区域的解析描述；进一步考虑对共享输出场的连续监测。</p>
+    <h4>主要发现</h4><p>绝热消除揭示出相干交换与集体耗散两条不同同步通道，并得到连接两类区域的解析描述；同步由相干耦合、耗散与库诱导涨落的联合平衡支配，而非仅由相干耦合决定；对共享输出的连续监测可将库信息转化为资源，显著增强条件同步，且增益在相干-耗散交叉附近最强。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与适用范围；基于结果可合理推断，该框架适用于以快速中介耦合的开放量子振子系统，连续监测增强条件同步的方案在实验实现上可能受监测效率与中介近似条件限制，后续或可探索更一般中介与多振子情形（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14142v1">
+  <div class="paper-head">
+    <h2>含时电子—离子—光子系统中的多粒子纠缠<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14142v1" rel="noopener noreferrer">2611.14142v1</a>
+  </div>
+  <p class="original-title">Multiparticle entanglement in a time-dependent electron--ion--photon system</p>
+  <p class="meta"><strong>作者：</strong>Axel Stenquist、Jan Marcus Dahlström</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>光电离为时域中的纠缠转移提供了自然场景：出射电子可与剩余离子形成纠缠，而随后的自发辐射可能将这些关联转移至发射光子。本文利用一对多二分（one-versus-rest bipartition）的冯·诺依曼熵量化复合电子—离子—光子系统的纠缠动力学，表明初始纠缠的电子—离子系统会经历一个真正的多粒子纠缠态，随后趋近于纠缠的电子—光子态。对数负性（logarithmic negativity）进一步分辨出两两纠缠，尤其揭示了瞬态的离子—光子纠缠。此外，其对弱占据施密特模的增强敏感性还暴露出与光子能量连续谱相关的高维纠缠。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究光电离过程中电子—离子—光子复合系统的多粒子纠缠动力学，包括纠缠如何在电子、离子与光子之间转移与分布。</p>
+    <h4>方法</h4><p>采用一对多二分（one-versus-rest bipartition）的冯·诺依曼熵量化复合系统的纠缠动力学，并使用对数负性（logarithmic negativity）分辨两两纠缠。</p>
+    <h4>主要发现</h4><p>初始纠缠的电子—离子系统会经历一个真正的多粒子纠缠态，随后趋近于纠缠的电子—光子态；对数负性揭示出瞬态的离子—光子纠缠，并因其对弱占据施密特模的增强敏感性而暴露出与光子能量连续谱相关的高维纠缠。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；可合理推断，该框架适用于描述时域中纠缠转移的光电离场景，其对连续谱高维纠缠的刻画或可推广至其他涉及自发辐射的少体纠缠系统，但此点尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14147v1">
+  <div class="paper-head">
+    <h2>量子程序中的安全信息流<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14147v1" rel="noopener noreferrer">2611.14147v1</a>
+  </div>
+  <p class="original-title">Secure Information Flow in Quantum Programs</p>
+  <p class="meta"><strong>作者：</strong>Zhicheng Zhang、Mingsheng Ying、Lirong Xia</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.CR</span> <span class="tag">cs.PL</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>信息流安全旨在防止程序执行过程中泄露机密信息。对于量子程序，该问题从根本上变得更加微妙，因为其状态可能涉及叠加与纠缠，其执行可能涉及经典变量与量子变量之间复杂的相互作用。本文为量子程序中的安全信息流建立了语义基础与验证方法。我们形式化了两类信息流安全概念：第一类是基于非干扰性的定义，它自然地推广了经典对应物；第二类是基于模拟的定义，它显式地建模攻击者，从而提供清晰的操作性安全解释。我们证明了这两类概念是等价的。为验证量子程序的信息流安全，我们基于量子霍尔逻辑开发了一个证明框架。一个关键挑战在于，标准自组合技术——通过在霍尔逻辑中将程序与其重命名副本组合来表达信息流安全——在量子情形下会因类似于不可克隆定理的障碍而失效。为克服这一挑战，我们引入了自共轭（self-conjugation），这是一种利用延迟测量原理与酉操作性质的新技术。我们在取自量子一次性密码本、量子纠错与匿名纠缠生成的例子上展示了我们的框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为量子程序建立信息流安全的语义基础与验证方法，并克服经典自组合技术在量子设定下因类似不可克隆定理的障碍而失效的问题。</p>
+    <h4>方法</h4><p>形式化基于非干扰性与基于模拟的两类信息流安全定义并证明其等价；基于量子霍尔逻辑开发证明框架，引入利用延迟测量原理与酉操作性质的自共轭技术替代标准自组合技术。</p>
+    <h4>主要发现</h4><p>论文证明基于非干扰性与基于模拟的两类信息流安全概念等价；所提出的基于量子霍尔逻辑与自共轭技术的证明框架可用于验证量子程序的信息流安全，并在量子一次性密码本、量子纠错与匿名纠缠生成等例子上进行了展示。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论框架的局限性与适用范围；自共轭技术依赖延迟测量原理与酉操作性质，其适用边界有待进一步考察，后续可合理推断为将该框架扩展到更广泛的量子程序与安全性质。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14173v1">
+  <div class="paper-head">
+    <h2>互补关联辅助功蒸馏中的量子优势<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14173v1" rel="noopener noreferrer">2611.14173v1</a>
+  </div>
+  <p class="original-title">Quantum Advantage in Assisted Work Distillation from Complementary Correlations</p>
+  <p class="meta"><strong>作者：</strong>Chellasamy Jebarathinam、Debarshi Das、Ray-Kuang Lee</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在微观热力学功提取与二分量子系统中非经典关联的基础刻画之间建立了操作层面的桥梁。在热操作资源理论框架下，我们分析了一种广义的辅助功蒸馏框架，其中可信接收方的系统被划分为独立粒子存储池。我们证明，在互无偏基集合上测量的并发信息论关联可作为局域功提取的显式、可量化的能量资源。基于此范式，我们推导出一类新的基于功的 Einstein-Podolsky-Rosen  steer 不等式，其违反可证明单边设备无关的量子热力学增强。进一步，通过在单边半设备无关信任框架下限制不可信方的维度，我们引入了能够见证超不可引导性的动态缩放功不等式。这使我们能够激活并证明弱关联纠缠态隐藏的热力学效用，而这些态在标准无约束场景中完全不可见。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在热操作资源理论框架下，利用二分量子系统中的互补关联（互无偏基上的关联）作为可量化资源，实现辅助功蒸馏的量子优势，并据此构建功-based 的 EPR steer 不等式及超不可引导性见证？</p>
+    <h4>方法</h4><p>在热操作资源理论中建立广义辅助功蒸馏框架，将可信接收方系统划分为独立粒子存储池；利用互无偏基集合上测量的并发信息论关联作为功提取资源；推导基于功的 EPR steer 不等式；在单边半设备无关框架下限制不可信方维度，引入动态缩放功不等式。</p>
+    <h4>主要发现</h4><p>互无偏基集合上测量的并发信息论关联可作为局域功提取的显式可量化能量资源；推导出一类新的基于功的 EPR steer 不等式，其违反可证明单边设备无关的量子热力学增强；通过限制不可信方维度，引入的动态缩放功不等式能够见证超不可引导性，并可激活和证明弱关联纠缠态隐藏的热力学效用，而这些态在标准无约束场景中完全不可见。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；可合理推断，该框架的适用范围可能受限于特定热操作资源理论假设及维度限制条件，后续或可探索更一般关联结构下的功提取优势及实验实现。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14179v1">
+  <div class="paper-head">
+    <h2>面向 DYRK1A 的量子增强 QSAR：评估互补且实用的 QPU 衍生分子表示<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14179v1" rel="noopener noreferrer">2611.14179v1</a>
+  </div>
+  <p class="original-title">Quantum-Enhanced QSAR for DYRK1A: Evaluating Complementary and Utility QPU-Derived Molecular Representations</p>
+  <p class="meta"><strong>作者：</strong>Alejandro Giraldo、Daniel Ruiz、Mariano Caruso、Hamed Mohammadbagherpoor、Vladyslav Bohun</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在药物发现中，命中识别需要从大量候选化合物中选出有限集合进行实验评估；由于实验室筛选能力有限，这一选择决定了哪些化学系列能够进入后续研究。未被检测的命中不会进入确认或类似物系列，该化学系列也就不会被开启。针对 DYRK1A 激酶，本研究使用相同的 RBF-SVM，分别对基于分子描述符的表格表示和基于量子处理器测量的向量表示对同一批测试分子进行打分。核心问题是两种模型是否提出相同的实验评估集合：结果表明二者提出的化合物不同。基于量子处理器测量向量的模型纳入了表格表示遗漏的化合物，其中包括已有活性标签的化合物；表格表示则纳入了量子处理器测量向量遗漏的活性化合物。本文报告的是该集合：哪些化合物进入、带有何种标签，以及已发表化学文献是否已提及它们。文中未声称形式化的量子优势，也未解释两种向量为何产生不同区分。这些化合物落在两种表示均已覆盖的邻域内，变化在于哪个模型将其标记为活性。由此引出预测分歧的代价：每个模型会将不同的化学系列送入实验评估。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 DYRK1A 激酶的命中识别中，基于表格分子描述符表示与基于量子处理器测量向量的表示，在使用相同 RBF-SVM 时是否提出相同的实验评估化合物集合。</p>
+    <h4>方法</h4><p>对同一批测试分子，分别采用表格分子描述符表示和量子处理器测量的向量表示，并使用相同的 RBF-SVM 进行打分，比较两种模型提出的实验评估集合及其标签与文献提及情况。</p>
+    <h4>主要发现</h4><p>两种模型提出的化合物集合不同：量子处理器向量模型纳入了表格表示遗漏的化合物，其中包括已有活性标签的化合物；表格表示则纳入了量子处理器向量模型遗漏的活性化合物。这些化合物均落在两种表示已覆盖的邻域内，差异在于哪个模型将其标记为活性。</p>
+    <h4>局限与展望</h4><p>原文未声称形式化量子优势，也未解释两种向量区分不同的机制；该结果限于所研究的 DYRK1A 数据集与 RBF-SVM 设置。后续可合理推断的方向包括：在更多靶点与数据集上验证该分歧是否普遍，以及评估预测分歧对实验筛选成本与化学系列选择的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14180v1">
+  <div class="paper-head">
+    <h2>量子增强图分解算法<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14180v1" rel="noopener noreferrer">2611.14180v1</a>
+  </div>
+  <p class="original-title">Quantum-Informed Graph Decomposition</p>
+  <p class="meta"><strong>作者：</strong>Matthew Brunet、Leah Prepchuk、Rebekah Herrman</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子近似优化算法（QAOA）是一种用于求解组合优化问题的近期量子算法，但其精度与资源需求可能随问题规模或结构而显著恶化，从而降低其实际效用。图分解优化算法（GDOA）等方法试图通过迭代缩减输入问题，直至其规模可用QAOA求解且保持相同最优解来缓解该问题。然而，该算法需要求解变量数呈指数增长的整数规划，且由于整数规划可能包含松弛项，可能得到次优解。本文提出一种称为量子增强图分解（QEGD）的启发式算法，其新颖之处在于将QAOA用作通过局部顶点合并来稀疏化图的子程序。当该算法用于稀疏化MaxCut问题并随后用QAOA求解时，在随机5-正则图和6-正则图上，其近似比在所有测试图上均高于GDOA。随后，本文在一组Erdős-Rényi图上比较了QEGD与其他QAOA变体的求解时间与近似比。在所有测试图上，QEGD的平均近似比高于QAOA^2和ParaQAOA；在稀疏Erdős-Rényi图上，其平均近似比高于DC-QAOA，在较稠密的Erdős-Rényi图上则与DC-QAOA相当。然而，其平均实际耗时仅为DC-QAOA平均实际耗时的0.4%至5%。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在保持最优解的前提下缩减组合优化问题规模，使QAOA可用于求解，同时避免GDOA中指数规模整数规划及松弛项导致的次优解问题，并改善QAOA类方法的精度与求解时间权衡。</p>
+    <h4>方法</h4><p>提出量子增强图分解（QEGD）启发式算法，将QAOA作为子程序，通过局部顶点合并对图进行稀疏化；在随机5-正则图、6-正则图上与GDOA比较近似比，并在Erdős-Rényi图上与QAOA^2、ParaQAOA和DC-QAOA比较近似比与实际耗时。</p>
+    <h4>主要发现</h4><p>在随机5-正则图和6-正则图上，QEGD用于稀疏化MaxCut问题并随后用QAOA求解时，所有测试图的近似比均高于GDOA；在所有测试的Erdős-Rényi图上，QEGD平均近似比高于QAOA^2和ParaQAOA；在稀疏Erdős-Rényi图上平均近似比高于DC-QAOA，在较稠密Erdős-Rényi图上与DC-QAOA相当；QEGD平均实际耗时为DC-QAOA平均实际耗时的0.4%至5%。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与适用范围；基于结果可合理推断，QEGD在较稠密Erdős-Rényi图上相对DC-QAOA的近似比优势不明显，其性能可能依赖图结构与稀疏化策略，后续可进一步评估更广泛图族与问题规模下的表现。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14182v1">
+  <div class="paper-head">
+    <h2>面向有界收益不完全信息博弈的量子辅助反事实遗憾最小化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14182v1" rel="noopener noreferrer">2611.14182v1</a>
+  </div>
+  <p class="original-title">Quantum-Assisted Counterfactual Regret Minimization for Bounded-Payoff Imperfect-Information Games</p>
+  <p class="meta"><strong>作者：</strong>Gabriel Maresch、Erik Schulze、Jnan Yalla</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.ET</span> <span class="tag">cs.GT</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>具有分级奖励结构的不完全信息博弈在均衡计算上面临显著的计算挑战，因为收益期望必须在指数级庞大的策略空间上进行估计。反事实遗憾最小化（Counterfactual Regret Minimization, CFR）多年来已被证明能够有效逼近纳什均衡，但当反事实值由采样的博弈树轨迹估计时，其蒙特卡洛变体会产生大量采样开销。本文提出一种新的量子辅助反事实遗憾最小化框架，利用量子振幅估计（Quantum Amplitude Estimation）降低有界收益不完全信息博弈中遗憾更新的计算复杂度，同时保持其经典对应方法的收敛性。文中给出了所得可利用度（exploitability）界的理论分析，讨论了与NISQ兼容的振幅估计变体及其资源需求结构，并概述了在经验上验证潜在优势所需的条件。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在有界收益、具有分级奖励结构的不完全信息博弈中，如何降低反事实遗憾最小化（尤其是蒙特卡洛变体）在估计反事实值时产生的大量采样开销与遗憾更新计算复杂度，同时保持收敛性。</p>
+    <h4>方法</h4><p>提出量子辅助反事实遗憾最小化框架，使用量子振幅估计来降低遗憾更新的计算复杂度；给出可利用度界的理论分析，并讨论NISQ兼容的振幅估计变体及其资源需求结构。</p>
+    <h4>主要发现</h4><p>论文从理论上分析了所提框架的可利用度界，并指出该框架在降低遗憾更新计算复杂度的同时保持经典对应方法的收敛性；文中还讨论了NISQ兼容振幅估计变体的资源需求结构。摘要未给出具体数值实验结果。</p>
+    <h4>局限与展望</h4><p>摘要仅概述了在经验上验证潜在优势所需的条件，未报告实证结果；该框架的实际加速效果、在NISQ硬件上的可行性以及相对经典方法的优势仍需进一步实验验证（此为基于摘要的推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14188v1">
+  <div class="paper-head">
+    <h2>紧致U(1)格点规范理论的低能谱窗截断<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14188v1" rel="noopener noreferrer">2611.14188v1</a>
+  </div>
+  <p class="original-title">Low-energy spectral-window truncation for compact U(1) lattice gauge theory</p>
+  <p class="meta"><strong>作者：</strong>Yi Liang</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对原始纯紧致U(1)格点哈密顿量的整个真空相对低能谱窗，证明了一个非渐近的电通量截断界。在θ=0、每方向格点数N≥3的三维周期立方格点上，于规范不变的零全局通量扇区中，对谱窗内任意归一化向量均成立阶乘平方型尾部范数估计；该估计不依赖物理本征值隔离、谱窗边缘能隙或非简并性假设，也不含谱窗维数因子。该界可控制由同一初态的归一化投影出发的有限时间硬壁演化。本文在该模型中给出一个解析的有限体积强耦合例子，证实存在一个非真空能带，以及在指定有限截断下得以保持的量级为一的元格信号变化。同一估计还可导出依赖精度的充分截断、针对参考纠缠输入的基于极分解的替代线性等距编码，以及局域电平方读出界。在固定正裸耦合、物理体积、谱窗宽度与时长下，取标度为β log N/log log N（β&gt;2）的截断，可使态截断误差与有界读出截断误差在格点细化下趋于零。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究原始纯紧致U(1)格点哈密顿量在真空相对低能谱窗内的电通量截断问题，即能否在不假设本征值隔离、谱窗边缘能隙或非简并性的情况下，对整个低能谱窗给出非渐近的截断误差界。</p>
+    <h4>方法</h4><p>在三维周期立方格点、θ=0、规范不变的零全局通量扇区中，证明谱窗内任意归一化向量的阶乘平方型尾部范数估计；用该估计控制有限时间硬壁演化，并构造解析的有限体积强耦合例子；进一步导出依赖精度的充分截断、基于极分解的线性等距编码以及局域电平方读出界。</p>
+    <h4>主要发现</h4><p>对谱窗内任意归一化向量成立阶乘平方型尾部范数估计，且不含谱窗维数因子，无需物理本征值隔离、窗边能隙或非简并性假设；该估计控制同一初态归一化投影的有限时间硬壁演化；解析强耦合例子证实非真空能带及在指定有限截断下保持的量级为一的元格信号变化；同一估计给出依赖精度的充分截断、针对参考纠缠输入的极分解线性等距编码和局域电平方读出界；在固定正裸耦合、物理体积、谱窗宽度与时长下，标度为β log N/log log N（β&gt;2）的截断使态与有界读出截断误差在格点细化下趋于零。</p>
+    <h4>局限与展望</h4><p>论文结果限于θ=0、三维周期立方格点、每方向N≥3、规范不变零全局通量扇区及纯紧致U(1)模型；向其他边界条件、拓扑扇区、θ≠0或其他规范群的推广在原文中未涉及，仅为可合理推断的后续方向；截断标度的实际常数与有限N下的精度权衡尚需进一步数值或解析评估。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14214v1">
+  <div class="paper-head">
+    <h2>经典相位展开使大时间步酉量子Krylov子空间对角化成为可能<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14214v1" rel="noopener noreferrer">2611.14214v1</a>
+  </div>
+  <p class="original-title">Classical phase unwrapping enables large-time-step unitary quantum Krylov subspace diagonalization</p>
+  <p class="meta"><strong>作者：</strong>Tushar Kumar Jain、Rahul Maitra、Nicholas J. Mayhall</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">physics.chem-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在早期容错硬件上计算分子能量时，酉量子Krylov子空间对角化（UQKSD）通过从投影的实时传播子中提取能量，避免了量子相位估计所需的深电路以及变分方法的Pauli项采样。在较小时间步长τ下，Krylov向量近似线性相关，导致重叠矩阵病态。在固定总演化时间下的测试表明，此时增加Krylov向量并不能提升精度，而阈值化能量对截断阈值的选择愈发敏感。增大时间步长可改善条件数并降低达到目标精度所需的Krylov维数M，但能量只能确定到模2π/τ。本文提出经典展开求解本征值方法（CURE-QKSD），这是一种经典后处理方法，不改变UQKSD电路与广义本征值问题，而是从一次（必要时两次）UQKSD运行的相位一致性景观中恢复缺失的2π/τ整数倍。在12–20量子比特的六个分子上的无噪声测试中，全部28个目标能量均在其混叠区间内被恢复，最终误差至多为1.1×10⁻⁷ Ha。在σ=10⁻⁴的高斯噪声下，当采用较大的混叠时间步长且M=20–65时，基态或第一激发态的中位误差达到化学精度，而未校正的主值分支能量偏差为0.7–115 Ha。因此，CURE-QKSD使混叠时间步长可用于具有更小、条件更好的Krylov基的UQKSD计算。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在早期容错硬件上利用UQKSD计算分子能量时，小时间步长导致Krylov向量近似线性相关、重叠矩阵病态且结果对截断阈值敏感；大时间步长虽改善条件数并降低所需Krylov维数，却使能量只能确定到模2π/τ，如何在不改变UQKSD电路与广义本征值问题的前提下恢复缺失的2π/τ整数倍。</p>
+    <h4>方法</h4><p>提出经典后处理方法CURE-QKSD，保持UQKSD电路和广义本征值问题不变，利用一次或必要时两次UQKSD运行的相位一致性景观，从经典后处理中恢复能量的2π/τ整数倍；并在12–20量子比特的六个分子上进行无噪声测试及σ=10⁻⁴高斯噪声测试。</p>
+    <h4>主要发现</h4><p>无噪声测试中全部28个目标能量均在其混叠区间内被恢复，最终误差至多为1.1×10⁻⁷ Ha；在σ=10⁻⁴高斯噪声下，采用较大混叠时间步长且M=20–65时，基态或第一激发态的中位误差达到化学精度，而未校正的主值分支能量偏差为0.7–115 Ha。</p>
+    <h4>局限与展望</h4><p>原文结果表明CURE-QKSD可使混叠时间步长适用于具有更小、条件更好的Krylov基的UQKSD计算；其测试限于12–20量子比特的六个分子及所述噪声模型，向更大体系、其他噪声类型或真实硬件条件的适用性尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14295v1">
+  <div class="paper-head">
+    <h2>从可分离量子记录中读取长程信息需要纠缠测量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14295v1" rel="noopener noreferrer">2611.14295v1</a>
+  </div>
+  <p class="original-title">Reading long-range information from a separable quantum record requires entangled measurements</p>
+  <p class="meta"><strong>作者：</strong>Qingtian Miao</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子比特探针通过局域相互作用记录相邻且初始无关联的 Ising 自旋的相对取向。每个探针以重叠度为 $1-p$ 的两个状态编码一个键标签，由此得到的探针记录是完全可分离的。接收方获得一份副本，并判断两个相距较远的自旋指向相同还是相反。在方格子上，当 $0&lt;p\le p_0=1-1/\sqrt2$ 时，采用可分离测量效应的最佳读出方案在自旋间距增大时其成功概率趋近于 $1/2$；该结论涵盖所有局域操作与经典通信。对于其效应在探针的每一个割上经部分转置后仍保持正定的任意测量，同一结论亦成立。当 $p_*=0.29181\le p\le1$ 时，对同一记录的联合读出可使成功概率以不依赖于距离的正量高于 $1/2$。重叠区间 $[p_*,p_0]$ 给出了两类读出之间的严格分离。因此，一个局域产生且不含纠缠的记录仍可承载长程信息，而只有具有纠缠效应的测量才能读取这些信息。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>一个完全可分离、局域产生且不含纠缠的量子记录能否承载长程信息，以及读取这类信息是否必须依赖纠缠测量。</p>
+    <h4>方法</h4><p>构造由量子比特探针通过局域相互作用记录相邻初始无关联 Ising 自旋键标签的模型，每个探针以重叠度 $1-p$ 的两个状态编码键标签；分析接收方在方格子上判断两个远距自旋取向相同或相反的任务，比较可分离测量效应（含所有局域操作与经典通信，以及在各割上部分转置后仍正定的测量）与联合读出的成功概率。</p>
+    <h4>主要发现</h4><p>当 $0&lt;p\le p_0=1-1/\sqrt2$ 时，可分离测量效应的最佳读出成功概率随自旋间距增大趋近 $1/2$，该结论涵盖所有局域操作与经典通信及在每一割上部分转置后仍正定的测量；当 $p_*=0.29181\le p\le1$ 时，联合读出以不依赖于距离的正量保持成功概率高于 $1/2$；区间 $[p_*,p_0]$ 给出两类读出之间的严格分离。</p>
+    <h4>局限与展望</h4><p>原文表明可分离记录可承载仅能由纠缠效应测量读取的长程信息；其结论限于所研究的 Ising 探针模型与方格晶格及给定参数区间，向其他晶格、探针编码或噪声模型的推广有待进一步研究（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14308v1">
+  <div class="paper-head">
+    <h2>4H-SiC a面横向pin二极管中V2硅空位的电学斯塔克调谐与原位电场传感<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14308v1" rel="noopener noreferrer">2611.14308v1</a>
+  </div>
+  <p class="original-title">Electrical Stark Tuning and In Situ Field Sensing of $V_{2}$ Silicon Vacancies in a 4H-SiC a-Plane Lateral pin-Diode</p>
+  <p class="meta"><strong>作者：</strong>Jannik H. Schwarberg、Fedor D. Hrunski、Maximilian Hollendonner、Wolfgang Knolle、Mathias Rommel、Fabian J. Magerl、Jan F. Dick、Jörg Schulze</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>碳化硅已成为可扩展量子技术的重要平台，其中硅空位可作为稳健的自旋量子比特和量子传感器。然而，常规c面4H-SiC将实验方案和共振光激发限制于样品几何结构。采用a面衬底可通过晶圆表面实现对色心的更灵活共振光学访问。本文展示在a面4H-SiC晶圆上、利用可扩展的互补金属氧化物半导体（CMOS）工艺制备的横向pin二极管本征区内，对V2（立方晶格位点）硅空位的电学控制与光学寻址。尽管经历了大量半导体工艺步骤，集成色心仍表现出良好的光学质量，零偏压下光学跃迁线宽窄于80 MHz。这些嵌入式量子传感器被用于在低温下通过斯塔克效应原位测量局部电场。与宏观技术计算机辅助设计（TCAD）模拟的比较表明，这些集成量子传感器有助于理解低温器件行为，例如预测高度局域化的电场聚集。此外，为满足量子网络所需的光谱不可区分性，我们通过反向偏压斯塔克效应精确调谐单个发射体的零声子线（ZPL），成功补偿了不同发射体之间的光谱差异。在瞬态电荷涨落弛豫后，经斯塔克调谐的发射体在超过四小时的测量周期内表现出光谱稳定性。我们的结果确立了a面4H-SiC作为未来干涉实验和量子光子集成电路稳健平台的地位。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在a面4H-SiC横向pin二极管中实现V2硅空位的电学控制与光学寻址，并利用其进行低温局部电场原位传感及单个发射体零声子线的精确调谐。</p>
+    <h4>方法</h4><p>采用可扩展CMOS工艺在a面4H-SiC晶圆上制备横向pin二极管，将V2硅空位置入本征区；通过零偏压下光学跃迁线宽表征光学质量，利用斯塔克效应进行低温局部电场原位测量，并与宏观TCAD模拟比较；通过反向偏压斯塔克效应调谐单个发射体的零声子线。</p>
+    <h4>主要发现</h4><p>集成色心在零偏压下光学跃迁线宽窄于80 MHz；嵌入式量子传感器可用于低温局部电场原位测量，并与TCAD模拟比较揭示高度局域化电场聚集；反向偏压斯塔克调谐可补偿不同发射体的光谱差异，经瞬态电荷涨落弛豫后，调谐发射体在超过四小时测量周期内保持光谱稳定。</p>
+    <h4>局限与展望</h4><p>原文指出a面4H-SiC可作为未来干涉实验和量子光子集成电路的平台；摘要未明确讨论局限性与适用范围，相关后续方向（如面向量子网络的规模化集成与干涉实验验证）属于基于原文结论的合理推断，尚需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14314v1">
+  <div class="paper-head">
+    <h2>误差鲁棒性与酉2-设计<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14314v1" rel="noopener noreferrer">2611.14314v1</a>
+  </div>
+  <p class="original-title">Error Resilience and Unitary 2-Designs</p>
+  <p class="meta"><strong>作者：</strong>Zheng-Hang Sun、Fabian Ballar Trigueros、Xhek Turkeshi、Piotr Sierant</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>编码—误差—解码电路为研究量子信息抗误差保护提供了框架：先施加编码酉算符，再经过误差层，随后用其逆算符解码，并对辅助比特进行后选择。当编码器取自酉2-设计系综时，此类电路在低于阈值误差强度的区域呈现误差保护相，此时输入逻辑态与恢复逻辑态之间的保真度趋近于1。本文表明，编码器偏离Haar二阶矩统计会破坏误差保护相的稳定性，并推导出一个普适不等式，将恢复保真度与第二酉框架势联系起来；后者刻画系综与酉2-设计的接近程度。该联系以掺入可调数量非高斯门的matchgate电路为例加以说明。我们通过解析证明，未掺杂电路在热力学极限下缺乏稳定的误差保护相，而随着编码器系综接近近似酉2-设计，增加掺杂可恢复误差保护机制。包括一个具有实验动机的全连接自旋模型在内的哈密顿编码器实例也遵循同一机制。我们的结果将恢复保真度确立为量子多体系统偏离酉2-设计行为的诊断量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>编码器系综偏离酉2-设计（Haar二阶矩）统计时，编码—误差—解码电路中的误差保护相是否稳定，以及恢复保真度与系综接近酉2-设计的程度之间有何定量联系。</p>
+    <h4>方法</h4><p>针对编码酉算符后接误差层、再以逆酉算符解码并进行辅助比特后选择的电路，推导恢复保真度与第二酉框架势之间的普适不等式；以掺入可调数量非高斯门的matchgate电路为具体模型进行解析分析，并考察哈密顿编码器实例（含一个具有实验动机的全连接自旋模型）。</p>
+    <h4>主要发现</h4><p>对取自酉2-设计系综的编码器，电路在阈值误差强度以下存在误差保护相，恢复保真度趋近于1；偏离Haar二阶矩统计会破坏该误差保护相的稳定性；恢复保真度与第二酉框架势满足一个普适不等式；未掺杂matchgate电路在热力学极限下缺乏稳定的误差保护相，增加非高斯门掺杂使编码器系综接近近似酉2-设计并恢复误差保护机制；所考察的哈密顿编码器实例遵循同一机制。</p>
+    <h4>局限与展望</h4><p>论文将恢复保真度定位为量子多体系统偏离酉2-设计行为的诊断量；其结论主要基于所分析的系综与模型，向更一般编码器系综和有限系统规模的推广有待进一步研究（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14339v1">
+  <div class="paper-head">
+    <h2>Floquet驱动Landau极化激元的动力学Casimir辐射：规范不变性禁止超辐射相变<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14339v1" rel="noopener noreferrer">2611.14339v1</a>
+  </div>
+  <p class="original-title">Dynamical Casimir emission from Floquet-driven Landau polaritons: Gauge invariance forbids a superradiant phase transition</p>
+  <p class="meta"><strong>作者：</strong>S. Hughes</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cond-mat.mes-hall</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>线性系统的超强光—物质耦合（例如太赫兹腔中二维电子气形成的Landau极化激元）可由玻色型Hopfield模型描述，而规范不变性禁止超辐射相变（SRPT）。已有预测认为，仅调制磁场即可增强周期平均耦合并诱导Floquet SRPT。我们建立了周期驱动Landau极化激元的精确理论。计入磁通调制所感生的电场（法拉第定律）后，由Kohn定理，问题精确约化为电子质心模式与腔模的耦合，其哈密顿量在每一时刻均为平方和形式。Krein定理随之保证：在可计算的驱动频率（Krein频率）以上，系统在所有阶上稳定，我们对此给出自洽证明。在该频率以下，系统除在共振舌内稳定外，驱动会从真空产生粒子对，即动力学Casimir效应。在高驱动频率下，电子感受到的是平均场加上有质动力势阱（Fock–Darwin问题），而非增强的耦合。一个规范定理排除了任意能带结构（包括Kane非抛物性）下的Floquet光子凝聚，我们为此推导了广义Thomas–Reiche–Kuhn（TRK）求和规则。所预测的相变源于在固定Landau能级基下对耦合取平均，由此得到的有效模型违反TRK求和规则；在驱动下，规范不变性还要求计入感生的法拉第场。对最小耦合哈密顿量本身（而非其投影的参数）进行调制与平均的规则，适用于任何线性、最小耦合系统。磁调制并不产生SRPT，而是产生动力学Casimir辐射：低阈值下由法拉第驱动产生的极化激元—磁等离激元对，以及具有高达5–10 dB双模压缩的双色光子对。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>周期磁场调制的Landau极化激元是否能够产生Floquet超辐射相变，以及规范不变性对此类预测的约束。</p>
+    <h4>方法</h4><p>建立周期驱动Landau极化激元的精确理论；计入磁通调制感生的法拉第电场，利用Kohn定理将问题约化为质心模式与腔模的耦合；借助Krein定理分析稳定性并给出自洽证明；推导广义Thomas–Reiche–Kuhn求和规则与规范定理。</p>
+    <h4>主要发现</h4><p>在Krein频率以上系统对所有阶稳定；在该频率以下，除共振舌外系统稳定，共振舌内驱动从真空产生粒子对（动力学Casimir效应）；高驱动频率下电子感受到平均场加有质动力势阱而非增强耦合；规范定理排除任意能带结构（含Kane非抛物性）下的Floquet光子凝聚；所预测的SRPT源于固定Landau能级基下对耦合取平均，所得有效模型违反TRK求和规则；磁调制产生动力学Casimir辐射，包括低阈值极化激元—磁等离激元对及具5–10 dB双模压缩的双色光子对。</p>
+    <h4>局限与展望</h4><p>论文表明，对最小耦合哈密顿量本身而非其投影参数进行调制与平均的规则适用于任何线性、最小耦合系统；所预测的SRPT依赖于违反TRK求和规则的有效模型且忽略感生法拉第场，因此其适用范围受限。后续方向可包括在具体腔—二维电子气平台上检验Krein频率与共振舌的预测，以及评估动力学Casimir光子对与双模压缩的可观测性（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14358v1">
+  <div class="paper-head">
+    <h2>基于约瑟夫森数字电路皮秒脉冲的Fluxonium量子比特高速控制<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14358v1" rel="noopener noreferrer">2611.14358v1</a>
+  </div>
+  <p class="original-title">High-Speed Control of a Fluxonium Qubit via Picosecond Pulses from Josephson Digital Circuits</p>
+  <p class="meta"><strong>作者：</strong>M. V. Bastrakova、D. S. Pashin、V. A. Vozhakov、N. V. Klenov、I. I. Soloviev</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种基于约瑟夫森数字电路产生的皮秒级单磁通量子（SFQ）脉冲的Fluxonium量子比特控制策略。原为Transmon控制设计的SFQ协议在低频Fluxonium中效率不足：该体系中磁通与电荷耦合的不对称性会导致泄漏过大或门时间过长。我们证明该限制可由两种互补协议克服。第一种协议通过磁通通道施加高频SFQ脉冲包，为高保真单量子比特控制提供简单、解析透明且鲁棒的方法；第二种协议结合相移的磁通与电荷脉冲序列以增强共振驱动并缩短门时长。多能级模拟显示单量子比特门保真度高于99.99%；较简单的协议在量子比特参数与磁通偏置适度变化下保持鲁棒，而组合协议在保持高保真的同时显著加速门操作。这些结果确立了基于SFQ的低温控制作为Fluxonium量子比特快速、精确且可扩展操控的现实途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用约瑟夫森数字电路产生的皮秒级SFQ脉冲，实现对低频Fluxonium量子比特的高保真、快速单量子比特控制，并克服原有Transmon控制协议在Fluxonium中因磁通与电荷耦合不对称而导致的泄漏过大或门时间过长的问题。</p>
+    <h4>方法</h4><p>提出两种互补控制协议：其一通过磁通通道施加高频SFQ脉冲包；其二结合相移的磁通与电荷脉冲序列以增强共振驱动并缩短门时长。采用多能级模拟评估单量子比特门保真度，并考察量子比特参数与磁通偏置适度变化下的鲁棒性。</p>
+    <h4>主要发现</h4><p>多能级模拟表明单量子比特门保真度高于99.99%；较简单的磁通脉冲包协议在量子比特参数与磁通偏置适度变化下保持鲁棒；组合协议在保持高保真的同时显著缩短门时长。</p>
+    <h4>局限与展望</h4><p>原文结果基于多能级模拟，尚未给出实验验证；其适用范围与鲁棒性边界需进一步考察。基于SFQ的低温控制被作者视为Fluxonium量子比特快速、精确且可扩展操控的现实途径，后续可合理推断需开展实验实现与规模化扩展验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14368v1">
+  <div class="paper-head">
+    <h2>不变性可防止量子神经网络中的过拟合与捷径学习<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14368v1" rel="noopener noreferrer">2611.14368v1</a>
+  </div>
+  <p class="original-title">Invariance can prevent overfitting and shortcut learning in Quantum Neural Networks</p>
+  <p class="meta"><strong>作者：</strong>Giuseppe D&#x27;Ambruoso、Giovanni Gramegna、Domenico Pomarico、Giuseppe Magnifico、Cosmo Lupo</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>许多图像分类任务的标签在旋转和反射下保持不变。等变量子神经网络通过设计引入此类对称性，但对称性的具体收益难以单独分离：等变量子电路通常与在门、结构或规模上也有所不同的架构进行比较。本文在受控设置下研究不变性的作用，对标签在二面体群 $D_4$ 下保持不变图像进行分类。我们比较四个八量子比特模型，它们具有相同的编码、电路结构和可训练参数数量，并具有等价的动力学李代数，并在泛化误差、对捷径学习的鲁棒性以及对现实噪声模型的耐受性方面，将不变实现与非不变实现进行基准测试。在四个二分类任务上（包括 MNIST 以及星系和红细胞两个科学数据集），仅用数十张图像训练的不变模型比非不变模型表现出更好的泛化能力。不变性还使模型免受方向捷径的影响：当使用依赖类别的角落水印进行训练时，非不变模型会学习水印，并且在水印移动时准确率往往降至随机水平。我们表明，不变模型的准确率增益在现实噪声模型下依然存在。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在控制编码、电路结构、可训练参数数量和动力学李代数等条件的受控设置下，隔离并评估不变性（对二面体群 $D_4$ 的等变/不变设计）对量子神经网络泛化、捷径学习鲁棒性和噪声耐受性的具体作用。</p>
+    <h4>方法</h4><p>构建四个八量子比特模型，使其具有相同编码、电路结构、可训练参数数量及等价的动力学李代数；在标签于 $D_4$ 下不变的二分类任务（MNIST、星系数据集、红细胞数据集）上，将不变实现与非不变实现进行对比，评估泛化误差、对类相关角落水印捷径的鲁棒性，以及在现实噪声模型下的表现。</p>
+    <h4>主要发现</h4><p>在四个二分类任务上，仅用数十张图像训练时，不变模型比非不变模型泛化更好；不变性使模型免受方向捷径影响，而非不变模型会学习类相关角落水印，并在水印移动时准确率常降至随机水平；不变模型的准确率增益在现实噪声模型下仍然存在。</p>
+    <h4>局限与展望</h4><p>本文结论基于 $D_4$ 对称性、八量子比特受控架构及所选的二分类任务与噪声模型，向其他对称群、更大规模电路和更多任务类型的推广需进一步验证；后续可合理推断的方向包括系统考察其他群不变性在更广泛数据与硬件噪声条件下的作用。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14376v1">
+  <div class="paper-head">
+    <h2>保留量子服务结果的引用更新操作限制<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14376v1" rel="noopener noreferrer">2611.14376v1</a>
+  </div>
+  <p class="original-title">Operational limits of reference renewal for retained quantum-service results</p>
+  <p class="meta"><strong>作者：</strong>Roberto Fernández-Barrios、Iker Pastor-López、Amaia Pikatza-Huerga、Pablo García Bringas</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.SE</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文按照预先设定的协议实施引用更新，以重新审视保留的物理量子服务结果。十二个转换各保留六项结果；其中十个完成更新，八个达到预设终点，五个仅凭保留结果即成功。精确单侧 p=0.0546875 不足以支持恢复假设。不完整引用、绑定失败与顺序等待暴露出操作限制。离线重建可从保留计数中恢复判定。回顾性绑定加预言机检查在不进行更新的情况下接受了全部 60 个可用转换结果。当同一精确预言机还提供校准分数时，本研究未能证明引用更新在数值正确性上具有增量效用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在预先设定的协议下，引用更新能否使保留的物理量子服务结果得到恢复，并带来可证明的数值正确性增量效用。</p>
+    <h4>方法</h4><p>实施引用更新协议：十二个转换各保留六项结果，统计完成更新、达到预设终点及仅凭保留结果成功的数量；进行精确单侧检验；采用离线重建从保留计数恢复判定；并开展回顾性绑定加预言机检查，其中精确预言机同时提供校准分数。</p>
+    <h4>主要发现</h4><p>十个转换完成更新，八个达到预设终点，五个仅凭保留结果成功；精确单侧 p=0.0546875，不足以确立恢复假设；不完整引用、绑定失败与顺序等待构成操作限制；离线重建可从保留计数恢复判定；回顾性绑定加预言机检查在不更新情况下接受全部 60 个可用转换结果；当精确预言机同时提供校准分数时，未证明引用更新具有增量数值正确性效用。</p>
+    <h4>局限与展望</h4><p>原文表明该恢复假设未获统计支持，且引用更新的增量效用未被证明；结果受限于不完整引用、绑定失败与顺序等待等操作条件。后续方向应明确措辞为推断：需在引用完整性与绑定可靠性受控的条件下，采用能区分更新与预言机校准贡献的设计进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14391v1">
+  <div class="paper-head">
+    <h2>利用片上耗散实现超导量子比特的快速复位<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14391v1" rel="noopener noreferrer">2611.14391v1</a>
+  </div>
+  <p class="original-title">Implementing rapid reset of superconducting qubits with on-chip dissipation</p>
+  <p class="meta"><strong>作者：</strong>Feiyu Li、Yang Liu、Zhen Yang、Zhenxing Liu、Jiayu Ding、Yang Gao、Xuehui Liang、Weijie Sun、Yanjun Ma、Chuhong Yang、Guangming Xue、He Wang、Fei Yan</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>快速且高保真的量子比特复位对于量子态初始化与量子纠错至关重要。超导量子比特的传统复位方案通常依赖连接至外部电路的耗散元件，从而使量子比特暴露于来自较高温环境的热噪声。本文实验演示了一种可扩展的复位与泄漏消除方法，在多个 transmon 量子比特上采用由谐振器与片上电阻负载耦合构成的专用耗散单元。该架构在提供 Purcell 保护的同时，将量子比特与较热的外部电路隔离。我们在 |g⟩-|e⟩ 跃迁上实现了约 48 ns 的中位复位时间常数，有效浴温为 30 mK。400 ns 的复位脉冲使初始化为 |g⟩ 和 |e⟩ 的量子比特残余激发态布居分别达到 0.29% 和 0.67%。我们进一步演示了对 |f⟩ 态的高效泄漏消除，将其残余布居降至 0.51%。这些结果为超导量子处理器中的耗散工程建立了一种简单、可复现且易于集成的途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为超导量子比特实现快速、高保真且可扩展的复位与泄漏消除，同时避免量子比特暴露于外部电路带来的热噪声。</p>
+    <h4>方法</h4><p>在多个 transmon 量子比特上使用由谐振器耦合片上电阻负载构成的专用耗散单元，实现片上耗散工程，并提供 Purcell 保护与热隔离；通过测量复位时间常数、有效浴温及不同初态下的残余布居评估性能。</p>
+    <h4>主要发现</h4><p>在 |g⟩-|e⟩ 跃迁上获得约 48 ns 的中位复位时间常数，有效浴温为 30 mK；400 ns 复位脉冲下，初始化为 |g⟩ 和 |e⟩ 的量子比特残余激发态布居分别为 0.29% 和 0.67%；|f⟩ 态残余布居降至 0.51%。</p>
+    <h4>局限与展望</h4><p>原文未讨论该方案在更大规模处理器或不同噪声环境下的扩展性与长期稳定性；后续可合理推断的方向包括在更多量子比特与多模块系统中验证该片上耗散架构，以及将其与量子纠错流程集成，但需进一步实验确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14398v1">
+  <div class="paper-head">
+    <h2>在容错量子计算机上模拟Tavis-Cummings晶格的闭系统与开系统动力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14398v1" rel="noopener noreferrer">2611.14398v1</a>
+  </div>
+  <p class="original-title">Simulating closed- and open-system dynamics of Tavis--Cummings lattices on fault-tolerant quantum computers</p>
+  <p class="meta"><strong>作者：</strong>Soumya Sarkar、Rakshit Gharat、Nam Nguyen、Gavin Brennen</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Tavis-Cummings晶格耦合含多个发射体的腔，承载极化激元多体动力学；在二维情形下，其实时关联函数的经典计算代价高昂，尤其当发射体弛豫或退相位速率不相等而破坏置换对称性时。我们分析了对原子分辨晶格进行容错闭系统与开系统模拟所需的逻辑资源，该晶格含$L$个腔、每腔$N$个发射体、光子截断$n_{\max}$，并计入目标可观测量估计。基于升降算符的块编码，我们构造了光子跃迁与局域光-物质交换的电路，并将二者组合以编码晶格哈密顿量。通过在原地更新源与目标的光子占据数，跃迁电路消除了双寄存器实现所需的辅助$L\lceil\log_2(n_{\max}+1)\rceil$量子比特光子寄存器。在三个均匀系数示例（腔数为$16$至$256$）中，在共享制备、精度、控制与工作区约定相匹配的条件下，受控行走比成对双寄存器实现少用$4.75$--$8.11\%$的Toffoli门。对于闭系统，我们采用广义量子信号处理实现实时演化，并给出估计推迟腔谱函数代价的界。对于含光子损耗、发射体弛豫与退相位的开系统，我们采用采样的一阶膨胀，并给出估计瞬态光子统计量（如$g^{(2)}(0)$）所需运行次数与时间步数的界。在显式计入态制备与测量代价后，这些估计为评估容错光-物质晶格模拟代价提供了参考。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在容错量子计算机上高效模拟原子分辨Tavis-Cummings晶格的闭系统与开系统动力学，并估计目标可观测量（如推迟腔谱函数、瞬态光子统计量）所需的逻辑资源。</p>
+    <h4>方法</h4><p>基于升降算符块编码构造光子跃迁与局域光-物质交换电路并组合编码晶格哈密顿量；通过原地更新源与目标光子占据数消除辅助光子寄存器；闭系统采用广义量子信号处理实现实时演化；开系统采用采样的第一阶膨胀；并显式计入态制备与测量代价。</p>
+    <h4>主要发现</h4><p>在三个均匀系数示例（$16$至$256$个腔）中，匹配共享制备、精度、控制与工作区约定时，受控行走比成对双寄存器实现少用$4.75$--$8.11\%$的Toffoli门；给出了估计推迟腔谱函数以及估计$g^{(2)}(0)$等瞬态光子统计量所需运行次数与时间步数的界。</p>
+    <h4>局限与展望</h4><p>摘要仅报告了均匀系数示例下的门数比较与资源界，未给出非均匀系数或更大规模情形的数值结果；所给界可作为评估容错光-物质晶格模拟代价的参考，其实际紧致程度及向更一般参数区域的推广有待进一步研究（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14406v1">
+  <div class="paper-head">
+    <h2>多维量子分组Turbo码<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14406v1" rel="noopener noreferrer">2611.14406v1</a>
+  </div>
+  <p class="original-title">Multidimensional Quantum Block Turbo Codes</p>
+  <p class="meta"><strong>作者：</strong>Khaled Jebari、Luiz Anet Neto、Ramesh Pyndiah、Jean-Louis de Bougrenet de la Tocnaye</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Turbo迭代译码理论已通过量子串行Turbo码和量子分组Turbo码的发展被引入量子编码框架。本文提出多维量子分组Turbo码的理论，这是一种面向多层乘积码的Turbo译码技术。文中描述了该算法，并在去极化信道上对三维情形进行了性能仿真。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将Turbo迭代译码思想推广到多层乘积码构成的多维量子分组码，并评估其性能。</p>
+    <h4>方法</h4><p>提出多维量子分组Turbo码的理论与译码算法，并在去极化信道上对三维情形进行仿真。</p>
+    <h4>主要发现</h4><p>原文给出了多维量子分组Turbo码的算法描述，并报告了三维情形在去极化信道上的仿真性能；摘要未给出具体数值结果。</p>
+    <h4>局限与展望</h4><p>摘要仅涉及三维情形的仿真，更高维情形及其他信道模型下的性能尚不明确；后续可合理推断的方向包括扩展到更高维度和进一步分析译码复杂度，但这些均属推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14422v1">
+  <div class="paper-head">
+    <h2>量子计算机中加载经典数据的能量代价<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14422v1" rel="noopener noreferrer">2611.14422v1</a>
+  </div>
+  <p class="original-title">The energetic cost of loading classical data in quantum computers</p>
+  <p class="meta"><strong>作者：</strong>Joao F. Doriguello、Alessandro Luongo、Harshit Verma</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.ET</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>机器学习、化学与密码分析中的量子算法通常假定能够以可忽略的物理代价相干访问经典数据。本文将数据加载视为一种硬件过程，量化了超导处理器上量子随机存取存储器（QRAM）查询的动态能量代价。采用度量—噪声—资源（metric-noise-resource）框架，将查询保真度与功率同门持续时间、相对双量子比特驱动强度以及多级制冷机中衰减的分布联系起来，同时考虑热光子与门错误。分析了线性深度多路复用器与抗噪声的 bucket-brigade 架构，将后者适配到原生超导门集合，并利用完全分解的门调度改进了其保真度分析。对于一个具有 $12$ 量子比特地址寄存器的代表性 bucket-brigade QRAM 查询，得到查询保真度为 $0.969$。该查询消耗 $3.51\times10^{-4}\,\mathrm{J}$ 的动态能量，对应平均动态功率 $4.38\,\mathrm{W}$、峰值 $64.4\,\mathrm{W}$。优化结果表明，在固定目标保真度下，工作点与衰减分布可使平均功率变化两倍或更多。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>量子算法通常假定经典数据可被相干访问且物理代价可忽略；本文研究在超导处理器上执行一次 QRAM 查询所需的动态能量代价，并考察其与保真度、功率及硬件参数的关系。</p>
+    <h4>方法</h4><p>采用 metric-noise-resource 框架，将查询保真度与功率同门持续时间、相对双量子比特驱动强度以及多级制冷机中的衰减分布相关联，并计入热光子与门错误；分析线性深度多路复用器与 bucket-brigade 架构，将后者适配到原生超导门集合，并使用完全分解的门调度改进保真度分析。</p>
+    <h4>主要发现</h4><p>对于具有 $12$ 量子比特地址寄存器的代表性 bucket-brigade QRAM 查询，查询保真度为 $0.969$；该查询消耗 $3.51\times10^{-4}\,\mathrm{J}$ 动态能量，对应平均动态功率 $4.38\,\mathrm{W}$、峰值 $64.4\,\mathrm{W}$；在固定目标保真度下，工作点与衰减分布可使平均功率变化两倍或更多。</p>
+    <h4>局限与展望</h4><p>原文结果针对特定超导平台与代表性参数下的 QRAM 查询，其适用范围受硬件参数与架构选择限制；后续可合理推断的方向包括将分析扩展到其他硬件平台或更大地址规模，以及在系统层面权衡保真度与功率。上述推断仅为可能方向，并非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14458v1">
+  <div class="paper-head">
+    <h2>基于非线性环境耦合的量子热晶体管<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14458v1" rel="noopener noreferrer">2611.14458v1</a>
+  </div>
+  <p class="original-title">Quantum Thermal Transistor via Nonlinear Environmental Coupling</p>
+  <p class="meta"><strong>作者：</strong>Laiba Hayat、M. Tahir Naseem</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>热放大可实现对热流的灵敏控制，为量子器件中的热管理与热信号处理提供基础。针对与发射极、集电极和基极热库耦合的谐振子，当系统—热库相互作用仅允许单量子交换时，我们复现了热放大的缺失。受数值稳态解支持的可控弱非线性展开表明，发射极处的双量子交换能够实现放大，并可预测其起始条件。当发射极与集电极处的双量子交换占主导时，改变基极温度会在谐振子的偶宇称与奇宇称扇区之间重新分配布居；相比基极电流，这一过程对发射极与集电极热流的改变要大得多，从而实现大的热放大。我们提出一种利用纵向耦合的辅助二能级系统与热库谱滤波的实现方案，并给出消除该辅助系统以获得所需谐振子动力学的条件。这些结果确立了非线性系统—热库耦合作为控制热流与实现热放大的资源。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在与发射极、集电极和基极热库耦合的谐振子系统中，如何实现热放大（热晶体管行为），以及系统—热库相互作用的非线性（多量子交换）在其中起何作用。</p>
+    <h4>方法</h4><p>对谐振子与三个热库耦合的模型进行分析；在仅允许单量子交换的情形下考察热放大是否存在；采用受数值稳态解支持的可控弱非线性展开，分析发射极与集电极处双量子交换对放大的影响；并提出基于纵向耦合辅助二能级系统与热库谱滤波的实现方案及其消除条件。</p>
+    <h4>主要发现</h4><p>当系统—热库相互作用仅允许单量子交换时，不存在热放大；弱非线性展开表明发射极处的双量子交换可实现放大并预测其起始；当发射极与集电极处双量子交换占主导时，改变基极温度会在偶宇称与奇宇称扇区之间重新分配布居，使发射极与集电极热流的变化远大于基极电流，从而实现大的热放大。</p>
+    <h4>局限与展望</h4><p>原文未给出实验实现或超出弱非线性展开范围的定量结论；所提辅助二能级系统与谱滤波方案的实验可行性、非线性增强后的适用性，以及向其他系统—热库耦合形式的推广，均需进一步研究（此为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14461v1">
+  <div class="paper-head">
+    <h2>QKD辅助无人机边缘计算中的有限密钥就绪与认证密钥补充<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14461v1" rel="noopener noreferrer">2611.14461v1</a>
+  </div>
+  <p class="original-title">Finite-Key Readiness and Authentication-Key Replenishment in QKD-Assisted UAV Edge Computing</p>
+  <p class="meta"><strong>作者：</strong>Dang H. Le、Ban Q. Tran、Susan Mengel</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>需要新鲜量子密钥的服务在受保护计算开始前必须等待密钥释放，且可能被拒绝。本文针对一架为两个地面网关服务的可信固定无人机量化这一代价，每个网关通过一次参数预先固定的有限密钥诱骗态BB84尝试获取密钥。计数级蒙特卡洛模型（由半解析模型复现）将密钥接受与受保护的上传、计算和下载过程联系起来，并计入失败尝试与悬停能耗。在26 dB有效光学损耗下，当认证哈希处于其代理基准的近零成本时，新鲜密钥使两个任务的95百分位完成时间从10.37 s升至28.65 s；悬停能耗按比例增长。本文评估的标量速率模型遗漏了块大小上的截止期限约束。脉冲预算位于一个窗口内，其下界由认证密钥补充决定，上界由截止期限决定；对于固定源、信道和接受模型，认证借记会移动该下界，而哈希成本不会。在35 s截止期限下，具有非空窗口的最大测试损耗在1%失配时为27 dB，在2%失配时为22 dB；在3%失配时，没有测试设置具有非空窗口。在假定捕获概率的条件下，所选配置在留出试验中以96.9–97.3%的同时下置信界满足该截止期限，对应26 dB以及2%失配下的18–20 dB。一个全额计入哈希成本的高成本压力参考会收窄窗口，并在参考处理能力下将这些损耗限值降至26 dB和20 dB。误差率或损耗的小幅上升会使截止期限概率远低于其目标并耗尽认证密钥，而协议的安全参数保持不变。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在QKD辅助的无人机边缘计算中，当服务需要新鲜量子密钥时，密钥释放的等待与被拒绝风险会带来何种完成时间与能耗代价；脉冲预算如何受认证密钥补充与任务截止期限共同约束。</p>
+    <h4>方法</h4><p>针对一架可信固定无人机服务两个地面网关的场景，每个网关通过一次参数预先固定的有限密钥诱骗态BB84尝试获取密钥；建立计数级蒙特卡洛模型并由半解析模型复现，将密钥接受与受保护的上传、计算、下载以及失败尝试和悬停能耗联系起来，并与标量速率模型对比。</p>
+    <h4>主要发现</h4><p>在26 dB有效光学损耗、认证哈希近零成本时，新鲜密钥使两个任务的95百分位完成时间从10.37 s升至28.65 s，悬停能耗按比例增长；标量速率模型遗漏块大小上的截止期限约束；脉冲预算窗口下界由认证密钥补充决定、上界由截止期限决定，认证借记移动下界而哈希成本不移动；35 s截止期限下非空窗口的最大测试损耗在1%失配时为27 dB、2%失配时为22 dB，3%失配时无测试设置具有非空窗口；在假定捕获概率下，所选配置在留出试验中以96.9–97.3%的同时下置信界满足截止期限；全额计入哈希成本的压力参考将损耗限值降至26 dB和20 dB；误差率或损耗小幅上升会使截止期限概率远低于目标并耗尽认证密钥，而安全参数不变。</p>
+    <h4>局限与展望</h4><p>结果依赖于预先固定的BB84参数、假定的捕获概率以及代理基准的近零哈希成本；高成本压力参考表明哈希计费方式会收窄可行窗口。后续可合理推断的方向包括：在更一般的信道与失配条件下检验窗口结论，以及将认证密钥补充策略与任务调度联合优化；这些均为推断，原文未作相应验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14484v1">
+  <div class="paper-head">
+    <h2>超导量子处理器上(2+1)维格点规范理论中的非微扰弦动力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14484v1" rel="noopener noreferrer">2611.14484v1</a>
+  </div>
+  <p class="original-title">Nonperturbative string dynamics in a (2+1)D lattice gauge theory on a superconducting quantum processor</p>
+  <p class="meta"><strong>作者：</strong>Sanziana Stelea、Anthony Gandon、Francesco Tacchino、Jad C. Halimeh、Ivano Tavernelli</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>电场通量弦是规范理论中禁闭现象的物理基础。在二维空间中，其演化涉及电荷运动、对产生与横向形变等相互竞争的过程。超越微扰极限地获取这些动力学对经典方法构成挑战，因为纠缠增长限制了张量网络模拟可及的时间尺度。本文利用量子模拟研究具有动力学物质和显式磁性格点相互作用项的(2+1)维Z2格点规范理论，覆盖强禁闭区与非微扰解禁闭区。我们使用63个超导量子比特（含12个辅助比特），演化初始局域化的弦，其端点电荷为静态或动力学型。空间分辨测量揭示：在解禁闭区电荷与通量快速扩散；在对产生共振附近，弦内部物质占据增强；在强电场下扩散受到抑制。弦路径占据进一步探测由格点操作所连接的构型之间的横向重排。保留物质与规范自由度分离使局域高斯定律约束可直接用于错误检测。结合这些约束、辅助比特校验与噪声重标定，我们测量了包含多达15个二阶Trotter步骤的电路中的动力学。结果表明，量子模拟是探索二维非微扰弦动力学的实用途径，且规范冗余可作为实验资源。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在超越微扰极限的条件下，实验研究(2+1)维Z2格点规范理论中电场通量弦的动力学，包括电荷运动、对产生与横向形变等竞争过程。</p>
+    <h4>方法</h4><p>在包含63个超导量子比特（其中12个为辅助比特）的超导量子处理器上进行量子模拟，构建具有动力学物质与显式磁性格点相互作用项的(2+1)维Z2格点规范理论；演化端点电荷为静态或动力学型的初始局域化弦，进行空间分辨测量与弦路径占据测量；利用局域高斯定律约束、辅助比特校验与噪声重标定进行错误检测，电路最多包含15个二阶Trotter步骤。</p>
+    <h4>主要发现</h4><p>空间分辨测量显示：解禁闭区中电荷与通量快速扩散；对产生共振附近弦内部物质占据增强；强电场下扩散受到抑制；弦路径占据探测到由格点操作连接的构型间的横向重排；保留物质与规范自由度分离使局域高斯定律约束可直接用于错误检测。</p>
+    <h4>局限与展望</h4><p>原文指出纠缠增长限制张量网络模拟可及的时间尺度，本文电路限于最多15个二阶Trotter步骤；结果确立了量子模拟作为探索二维非微扰弦动力学实用途径的地位，并表明规范冗余可作为实验资源。可合理推断，后续方向可能包括扩展至更长演化时间、更大系统或更复杂规范群，但原文未明确给出这些具体计划。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.00626v1">
+  <div class="paper-head">
+    <h2>洛伦兹熵、次高斯矩阵集中与适用于所有拟阵的锐利函数不等式<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.00626v1" rel="noopener noreferrer">2611.00626v1</a>
+  </div>
+  <p class="original-title">Lorentzian entropy, subgaussian matrix concentration, and sharp functional inequalities for all matroids</p>
+  <p class="meta"><strong>作者：</strong>Eren Ercan</p>
+  <p class="meta"><strong>主分类：</strong>math.CO
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.CO</span> <span class="tag">math.PR</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文证明齐次洛伦兹律的完全熵收缩，并由此对每个拟阵导出次高斯矩阵集中与锐利函数不等式。从 r 个粒子中均匀保留 ℓ 个的操作，在任意有限矩阵维数与正域（包括重复标签）下，以最优普适因子 ℓ/r 收缩矩阵熵。矩阵 Laplace 比较保持矩阵方差与任意 Hermitian 偏移，并对具有有界交换差的任意 Hermitian 可观测量给出次高斯界，对基和给出 Chernoff 与 Bernstein 界。每个单位边拟阵的基图满足立方体的小集不等式与 Gross 不等式，等号情形得到分类，最优普适完全熵衰减率为四；其谱位于 {0,2}∪[3,∞)，二点处特征空间由二元直因子对比张成。本文分类极值下-上特征函数，解决 Alaniz Pintos 的一次猜想与 Feder–Mihail 游走的等号问题。对于次数至少为二的情形，每个矩阵熵极值函数由其双粒子边缘唯一延拓；等号仅依赖归一化配对律，非交换性局限于互斥标签。本文分类 1&lt;p&lt;2 的幂熵极值函数，并给出仿射等号的四阶判别准则。保留层级 Gibbs 重构具有锐利的维数无关稳定性。对于生成多项式及其补均为洛伦兹的多仿射律，本文确定精确的同时全字段量子边缘与矩阵 Hölder 区域，并分类锐利半边缘字段。连通的锐利律在秩三以内为行列式型；每个更高秩均存在稳定的非行列式例子。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究齐次洛伦兹律的熵收缩性质，以及由此导出的矩阵集中不等式与拟阵上的锐利函数不等式；同时涉及极值函数分类、等号刻画与量子边缘区域等问题。</p>
+    <h4>方法</h4><p>证明齐次洛伦兹律的完全熵收缩；建立保持矩阵方差与 Hermitian 偏移的矩阵 Laplace 比较；利用基图谱性质与下-上算子分析极值特征函数；通过生成多项式与补多项式的洛伦兹性刻画量子边缘与矩阵 Hölder 区域。</p>
+    <h4>主要发现</h4><p>均匀保留 ℓ/r 粒子以最优普适因子 ℓ/r 收缩矩阵熵；得到任意 Hermitian 可观测量的次高斯界及基和的 Chernoff 与 Bernstein 界；单位边拟阵基图满足小集与 Gross 不等式，谱位于 {0,2}∪[3,∞)，最优完全熵衰减率为四；分类极值下-上特征函数并解决 Alaniz Pintos 一次猜想与 Feder–Mihail 游走等号问题；次数至少为二时矩阵熵极值函数由双粒子边缘唯一延拓；分类 1&lt;p&lt;2 的幂熵极值函数并给出仿射等号四阶准则；保留层级 Gibbs 重构具有维数无关稳定性；确定同时全字段量子边缘与矩阵 Hölder 区域并分类锐利半边缘字段；连通锐利律在秩三以内为行列式型，更高秩存在稳定非行列式例子。</p>
+    <h4>局限与展望</h4><p>论文的结论主要针对齐次洛伦兹律与单位边拟阵基图；高秩非行列式例子的存在性表明行列式刻画不能直接推广，其结构与分类仍是可合理推断的后续方向；全字段量子边缘与矩阵 Hölder 区域的精确描述在更一般多仿射律上的适用范围有待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.12985v1">
+  <div class="paper-head">
+    <h2>面向量子纠错的参数化携带证明编译<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.12985v1" rel="noopener noreferrer">2611.12985v1</a>
+  </div>
+  <p class="original-title">Parametric Proof-Carrying Compilation for Quantum Error-Correction</p>
+  <p class="meta"><strong>作者：</strong>John Zhuoyang Ye、Jens Palsberg</p>
+  <p class="meta"><strong>主分类：</strong>cs.PL
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cs.PL</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出 PC-QEC，一个面向量子纠错的携带证明编译框架，其参数包括码距与校验子提取方案。该框架覆盖 Standard、Flag、Shor 与 Knill 四种方案，并在所声明的故障与读出契约下，为每个已证明族中的每个合法码距给出电路级距离保证。其电路级模型允许在每个操作所作用的量子比特操作数上出现单线 Pauli 故障，从而刻画数据错误、读出错误以及传播为多量子比特钩错误的辅助比特故障。对于每个族与方案，码代数证明与故障感知的 Hoare 证明组合为一个有限符号证书，其规模与码距无关。作者在全部四种方案下展示了五个码族的族级保证。对于旋转 Surface 码，一个 Standard Scheme 证书即可证明每个奇数 $d\ge3$ 的距离下界 $d$，平均检查时间为 214\,s。Lean 4 对元理论以及典型 Surface、超图乘积（HGP）与 Toric 码族的精确电路级距离进行了机器化验证。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为量子纠错编译过程提供同时参数化于码距与校验子提取方案、并具备电路级距离保证的携带证明编译框架。</p>
+    <h4>方法</h4><p>提出 PC-QEC 框架，覆盖 Standard、Flag、Shor 与 Knill 四种校验子提取方案；采用允许单线 Pauli 故障的电路级故障模型，将码代数证明与故障感知的 Hoare 证明组合为规模与码距无关的有限符号证书，并使用 Lean 4 对元理论与部分码族的精确电路级距离进行机器化验证。</p>
+    <h4>主要发现</h4><p>框架在全部四种方案下为五个码族给出族级保证；对于旋转 Surface 码，一个 Standard Scheme 证书可证明每个奇数 $d\ge3$ 的距离下界 $d$，平均检查时间为 214\,s；Lean 4 机器化验证了元理论以及典型 Surface、HGP 与 Toric 码族的精确电路级距离。</p>
+    <h4>局限与展望</h4><p>原文的保证以所声明的故障与读出契约为前提，且电路级模型限定为单线 Pauli 故障；对更一般故障模型、其他码族或非 Pauli 错误的适用性尚需进一步研究。后续方向可合理推断为扩展故障模型与码族覆盖范围，并进一步机械化更多方案的证明。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13032v1">
+  <div class="paper-head">
+    <h2>非谐物质波透镜中的普适折叠焦散<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13032v1" rel="noopener noreferrer">2611.13032v1</a>
+  </div>
+  <p class="original-title">Universal Fold Caustics in Anharmonic Matter-wave Lenses</p>
+  <p class="meta"><strong>作者：</strong>Joachim Guyomard、Julia Pahl、Ernst Rasel、Naceur Gaaloul</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.quant-gas
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.quant-gas</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>焦散在经典射线聚焦与结构化波图样之间提供了一种普适联系。本文在理论上研究由短时非谐透镜聚焦于玻色-爱因斯坦凝聚体的非线性物质波中的这一联系。半经典描述表明，主导的三阶像差如何将谐波焦点转变为折叠焦散，其局部波场由 Airy 标准积分描述。三维 Gross-Pitaevskii 模拟显示，平均场相互作用会改变近焦点密度与纵向动量分布，产生一个非相互作用演化中不存在的次级动量空间特征。我们利用经典 Fisher 信息和最大似然估计，量化了 $1D$ 分布所携带的关于有效相互作用强度的信息。对于沿 $z$ 方向 $10^5$ 个探测点的样本，我们得到 $2.7\times10^{-3}$ 的相对不确定度。这些结果为研究相互作用驱动的对单粒子焦散普适性的偏离建立了框架，并推动物质波透镜成为平均场相互作用的灵敏探针。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究短时非谐透镜聚焦玻色-爱因斯坦凝聚体时，三阶像差如何将谐波焦点转化为折叠焦散，以及平均场相互作用如何改变近焦点波场和动量分布。</p>
+    <h4>方法</h4><p>采用半经典描述分析三阶像差与折叠焦散及 Airy 标准积分的关系；使用三维 Gross-Pitaevskii 模拟研究相互作用对近焦点密度和纵向动量分布的影响；利用经典 Fisher 信息和最大似然估计量化一维分布携带的有效相互作用强度信息。</p>
+    <h4>主要发现</h4><p>半经典描述表明主导三阶像差将谐波焦点转变为折叠焦散，其局部波场由 Airy 标准积分描述；三维 Gross-Pitaevskii 模拟显示平均场相互作用改变近焦点密度和纵向动量分布，并产生非相互作用演化中不存在的次级动量空间特征；对沿 $z$ 方向 $10^5$ 个探测点的样本，有效相互作用强度的相对不确定度为 $2.7\times10^{-3}$。</p>
+    <h4>局限与展望</h4><p>论文建立了研究相互作用驱动的对单粒子焦散普适性偏离的框架，并表明物质波透镜可作为平均场相互作用的灵敏探针；其局限与适用范围原文未明确讨论，后续方向可合理推断为将该框架推广至其他相互作用强度或透镜参数下的系统研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13071v1">
+  <div class="paper-head">
+    <h2>由反射谱与负度谱刻画的三体非局域魔法<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13071v1" rel="noopener noreferrer">2611.13071v1</a>
+  </div>
+  <p class="original-title">Tripartite nonlocal magic from reflected and negativity spectra</p>
+  <p class="meta"><strong>作者：</strong>Sriram Akella</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.str-el</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究三体纯态的非局域魔法（nonlocal magic）刻画问题。研究表明，一个三体纯态在局域酉变换下等价于稳定子态，当且仅当其边缘谱、反射谱与负度谱（在符号意义下）均为平坦的。作者利用反平坦性（anti-flatness）对这些条件进行量化，从而给出一种可计算、并可通过随机测量在实验上测量的三体非局域魔法诊断量。在非阿贝尔量子双模型中，该诊断量仅在三分划的三重点位于面（plaquette）上时出现；在随机张量网络中，它恰好在两个边界区域的纠缠楔相连时出现。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何刻画和量化三体纯态相对于稳定子态的非局域魔法，并给出可计算、可实验测量的判据。</p>
+    <h4>方法</h4><p>利用边缘谱、反射谱与负度谱（在符号意义下）的平坦性作为局域酉等价于稳定子态的充要条件，并以反平坦性对这些条件进行量化，构造三体非局域魔法的诊断量；该诊断量可通过随机测量获得。</p>
+    <h4>主要发现</h4><p>三体纯态局域酉等价于稳定子态当且仅当其边缘谱、反射谱与负度谱（在符号意义下）均为平坦；反平坦性给出可计算且可实验测量的三体非局域魔法诊断量；在非阿贝尔量子双模型中该量仅当三分划的三重点位于面（plaquette）上时出现；在随机张量网络中该量恰好在两个边界区域的纠缠楔相连时出现。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该诊断量的计算复杂度、有限统计误差下的测量精度及更一般多体态或混合态的推广；后续可合理推断的方向包括在实验平台上实现随机测量方案，以及在更一般的任意子模型与张量网络中检验该判据的适用范围。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13088v1">
+  <div class="paper-head">
+    <h2>全息拖曳力与纠缠膜：几何重构与信息传播<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13088v1" rel="noopener noreferrer">2611.13088v1</a>
+  </div>
+  <p class="original-title">Holographic Drag Force and the Entanglement Membrane: Geometric Reconstruction and Information Spreading</p>
+  <p class="meta"><strong>作者：</strong>Dmitry S. Ageev</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">gr-qc</span> <span class="tag">hep-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>全息对偶的核心问题之一是不同边界可观测量如何编码并重构引力对偶的几何。本文揭示强耦合动力学中两个看似不同的方面之间存在精确的几何对应：运动重粒子（夸克）所受的耗散拖曳力，以及支配量子信息传播的纠缠膜。研究表明，两种构造保留相同的底层几何结构，从而在有限速度拖曳力与几何膜张力之间给出可逆变换。该对应表明，非线性动量损失编码了纠缠动力学的详细信息：最低阶非线性修正决定蝴蝶速度，而更高阶项则依次探测视界附近膜的局部几何。作者进一步将该层级结构与标量 pole-skipping 相联系，建立非线性耗散与近视界谱数据之间的全阶关系。共享的几何结构对量子信息恢复亦有启示：五次拖曳系数决定信息速度对初始纠缠的领头依赖；反过来，完整的信息速度曲线可沿物理内部膜分支重构约化体几何，补充由拖曳力给出的外部重构。作者还表明，随机动量展宽提供了重构完整外部度规（至整体标度）所需的额外径向信息。因此，这些结果揭示了耗散、纠缠动力学与谱性质如何互补地获取全息几何，为理解不同边界可观测量所编码的几何信息建立了统一框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在全息对偶中，不同边界可观测量如何编码并重构引力对偶的几何；具体而言，运动重夸克的耗散拖曳力与支配量子信息传播的纠缠膜之间是否存在精确的几何对应。</p>
+    <h4>方法</h4><p>通过全息方法比较有限速度下拖曳力与纠缠膜张力的几何构造，建立二者之间的可逆变换；分析非线性动量损失的各阶修正与蝴蝶速度、视界附近膜局部几何的关系；将层级结构与标量 pole-skipping 联系；并利用随机动量展宽补充径向信息以重构外部度规。</p>
+    <h4>主要发现</h4><p>拖曳力与纠缠膜张力共享相同的底层几何结构，二者之间存在可逆变换；最低阶非线性修正决定蝴蝶速度，更高阶项依次探测视界附近膜的局部几何；非线性耗散与近视界谱数据之间存在全阶关系；五次拖曳系数决定信息速度对初始纠缠的领头依赖；完整信息速度曲线可沿物理内部膜分支重构约化体几何；随机动量展宽提供重构完整外部度规（至整体标度）所需的额外径向信息。</p>
+    <h4>局限与展望</h4><p>论文未明确讨论局限性或适用范围；其结论主要基于全息框架下的强耦合分析。可合理推断，后续工作或可检验该对应在更一般引力背景或有限耦合情形下的稳健性，并进一步探索拖曳力、纠缠动力学与谱性质之间的统一几何信息框架。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13097v1">
+  <div class="paper-head">
+    <h2>BPS Bootstrap<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13097v1" rel="noopener noreferrer">2611.13097v1</a>
+  </div>
+  <p class="original-title">BPS Bootstrap</p>
+  <p class="meta"><strong>作者：</strong>Yiming Chen</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  <p class="warning">⚠ 中文生成失败，本条目需要人工检查。</p>
+  <section>
+    <h3>中文摘要</h3>
+    <p>We apply the large $N$ matrix bootstrap technique to constrain expectation values of simple operators in heavy BPS states that are dual to classical geometries. For states dual to horizonless geometries, their explicit moduli give rise to large allowable regions in the bootstrap, while for black holes, a converging bootstrap should find islands. We explore this method in $\mathcal{N}=4$ $SU(N)$ super Yang-Mills theory at large $N$, working at weak coupling and focusing on BPS states with scaling dimensions of order $N^2$. For the $1/2$, $1/4$, and $1/8$-BPS sectors, the bootstrap finds large regions, in agreement with an eigenvalue description of such states in the limit of large charges. We also present preliminary results for a BMN truncation of the $1/16$-BPS sector, which contains states dual to both horizonless geometries and black holes. Isolating the black hole states in the bootstrap remains a challenge.</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>方法</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>主要发现</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>局限与展望</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13101v1">
+  <div class="paper-head">
+    <h2>量子控制几何作为混沌的度量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13101v1" rel="noopener noreferrer">2611.13101v1</a>
+  </div>
+  <p class="original-title">Quantum Control Geometry as a Metric of Chaos</p>
+  <p class="meta"><strong>作者：</strong>Mahmoud Abdelshafy、Joaquin F. Rodriguez-Nieva</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子混沌系统具有与随机矩阵相同的粗粒化特征（如 Wigner-Dyson 能级间距统计），但其本征态结构与多体动力学（包括弛豫、输运、扰乱和纠缠增长）可以显著不同。这引出一个基本问题：这些更精细的特征是探测量子混沌真正不同的方面，还是共同底层结构的不同表现；以及这种结构能否为判定一个多体量子系统比另一个“更混沌”提供有意义的依据。本文通过引入量子几何框架来回答该问题，该框架量化多体本征态对哈密顿量在物理允许形变下的敏感性，这些形变受空间局域性、对称性和守恒律约束。由此得到的几何敏感度是定量的，提供了超越传统二值诊断的混沌度量；它是内禀的，因为它依赖于允许的哈密顿量形变流形，而非系统的探测方式；它也是统一的，因为它直接将本征态结构与动力学联系起来。对于量子混沌的典型模型，我们发现最小几何敏感度、最大本征态随机性、局域算符的宽谱响应以及非流体力学慢结构的抑制在哈密顿量控制空间的同一区域汇聚。这表明这些看似不同的混沌特征是一个共同底层几何结构的不同表现。该框架为理解物理约束下弛豫与扰乱的极限提供了途径；在应用上，它为在控制受限的可编程量子系统中工程化强混沌区域提供了手段。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>量子混沌系统中粗粒化特征相同而本征态结构与多体动力学显著不同的现象，究竟反映的是量子混沌真正不同的方面，还是共同底层结构的不同表现；以及能否据此判定一个多体量子系统比另一个“更混沌”。</p>
+    <h4>方法</h4><p>引入量子几何框架，量化多体本征态对受空间局域性、对称性和守恒律约束的物理允许哈密顿量形变的敏感性，得到几何敏感度作为混沌度量，并在量子混沌的典型模型中进行检验。</p>
+    <h4>主要发现</h4><p>对于量子混沌的典型模型，最小几何敏感度、最大本征态随机性、局域算符的宽谱响应以及非流体力学慢结构的抑制在哈密顿量控制空间的同一区域汇聚，表明这些看似不同的混沌特征是一个共同底层几何结构的不同表现。</p>
+    <h4>局限与展望</h4><p>该框架为理解物理约束下弛豫与扰乱的极限提供了途径，并可用于在控制受限的可编程量子系统中工程化强混沌区域；其适用范围与在其他模型中的普适性有待进一步检验（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13141v1">
+  <div class="paper-head">
+    <h2>Rényi纠缠熵的动力学与本征态热化<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13141v1" rel="noopener noreferrer">2611.13141v1</a>
+  </div>
+  <p class="original-title">Dynamics of Rényi entanglement entropies and Eigenstate Thermalization</p>
+  <p class="meta"><strong>作者：</strong>Riccardo Senese、Pasquale Calabrese</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究纠缠动力学如何编码于时间演化算符的本征态之中，聚焦任意维度确定性混沌Floquet模型中的Rényi熵动力学。受本征态热化假说（ETH）启发，我们采用约化密度矩阵矩（纯度及其高阶推广）的谱表示，其通过谱退相位产生的衰减刻画非平衡纠缠增长。这些表示与支配局域可观测量动力学的表示高度相似，但涉及复制Hilbert空间中的本征态，且可观测量被替换为子系统置换算符，例如Rényi-2对应的swap算符。以Rényi-2为重点，我们结合精确随机矩阵理论计算、已有ETH结果与一维数值检验，为复制本征基中的子系统swap矩阵元及其与初态重叠统计的交叉关联构建类ETH拟设。在热力学极限下，纯度动力学完全由此类统计中涌现的光滑缓变函数决定，与单副本中的广义ETH表述相平行。在大子系统极限下，这些函数呈现显著的结构简化：动力学局域性与体谱退相位共同将其函数依赖约化为单一基本频率。我们的形式体系提供了一个类ETH陈述可对任意小与任意大子系统尺寸自然共存的框架。我们讨论了结果向更高阶Rényi熵的推广。除澄清纠缠动力学的谱基础外，这些结果为谱滤波方法未来应用于确定性系统中Rényi演化的计算奠定了一定基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>时间演化算符的本征态如何编码纠缠动力学，具体而言，任意维度确定性混沌Floquet模型中Rényi熵（以Rényi-2为重点）的动力学能否借助类ETH的谱表示加以刻画。</p>
+    <h4>方法</h4><p>采用约化密度矩阵矩（纯度及高阶推广）的谱表示，将局域可观测量替换为复制Hilbert空间中的子系统置换算符（Rényi-2对应swap算符）；结合精确随机矩阵理论计算、已有ETH结果与一维数值检验，构建复制本征基中swap矩阵元及其与初态重叠统计交叉关联的类ETH拟设。</p>
+    <h4>主要发现</h4><p>在热力学极限下，纯度动力学完全由从上述统计中涌现的光滑缓变函数决定，与单副本中的广义ETH表述相平行；在大子系统极限下，动力学局域性与体谱退相位使这些函数的结构依赖简化为单一基本频率；该形式体系使类ETH陈述可对任意小与任意大子系统尺寸自然共存。</p>
+    <h4>局限与展望</h4><p>文中讨论了结果向更高阶Rényi熵的推广；所建立的谱基础可合理推断为谱滤波方法未来应用于确定性系统中Rényi演化计算提供一定 groundwork，但具体应用效果尚待后续研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13235v1">
+  <div class="paper-head">
+    <h2>一维量子流体密度依赖性的中子散射研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13235v1" rel="noopener noreferrer">2611.13235v1</a>
+  </div>
+  <p class="original-title">Neutron Scattering studies of the density dependence of One-dimensional Quantum Fluids</p>
+  <p class="meta"><strong>作者：</strong>Sutirtha Paul、Rahul Soni、Garfield Warren、Adrian Del Maestro、Paul E. Sokol</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.mes-hall
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.mes-hall</span> <span class="tag">cond-mat.quant-gas</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>前期工作表明，将 ^4He 限制在经惰性气体预镀以增强维度缩减的模板化多孔材料中，可表现出准一维行为。中子散射显示，受限 ^4He 中的激发与二维和三维超流氦中的激发在性质上明显不同，并与量子蒙特卡罗计算一致。这些模拟提示形成了三个固态层，而一维液体位于孔道中心。本文给出随一维核心填充比例变化的中子散射结果。我们观察到，即使孔道填充增加，一维液体也总是以固定密度形成。我们推测，这是由于随着填充增加，液体的一维延展范围增长，而其密度保持不变。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>受限在一维孔道核心中的 ^4He 液体，其密度如何随孔道填充比例变化。</p>
+    <h4>方法</h4><p>对经惰性气体预镀的模板化多孔材料中受限 ^4He 进行中子散射测量，改变一维核心的填充比例，并与量子蒙特卡罗计算结果对照。</p>
+    <h4>主要发现</h4><p>中子散射显示受限 ^4He 的激发与二维、三维超流氦 qualitatively 不同，并与量子蒙特卡罗一致；模拟提示形成三个固态层且一维液体位于孔道中心；实验观察到一维液体始终以固定密度形成，即使孔道填充增加。</p>
+    <h4>局限与展望</h4><p>作者推测固定密度源于填充增加时一维液体沿孔道方向延展范围的增长而非密度改变；该解释基于推测措辞，尚需进一步实验或理论验证，适用范围限于所研究的模板化多孔材料受限体系。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13475v1">
+  <div class="paper-head">
+    <h2>质子治疗中量子行走输运算子与标量射程统计量的振幅估计<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13475v1" rel="noopener noreferrer">2611.13475v1</a>
+  </div>
+  <p class="original-title">Quantum-walk transport oracles and amplitude estimation of a scalar range statistic in proton therapy</p>
+  <p class="meta"><strong>作者：</strong>Kwangzoo Chung</p>
+  <p class="meta"><strong>主分类：</strong>physics.med-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.med-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子振幅估计（QAE）有望将蒙特卡罗（MC）粒子输运的采样成本降低至平方根量级，但两个障碍使其难以应用于放射治疗物理：缺乏对带电粒子输运的高效酉编码，以及QAE的单标量输出与剂量计算逐体素结构之间的不匹配。本文针对这两个问题展开研究。我们为质子构建了一个离散时间量子行走输运算子，其中能量寄存器由一个能量依赖的硬币驱动，该硬币编码了阻止本领的连续慢化近似，从而使随机能量损失和射程歧离由电路动力学自然产生。该算子是酉的，每步使用一个新鲜硬币量子比特，其门数随能级数线性增长。在此基础上，我们将一个标量射程统计量——质子穿透超过远端深度阈值的概率——表述为可直接标记的振幅，并用带Grover迭代和有限次测量的最大似然振幅估计（MLQAE）对其进行估计。该算子复现了布拉格形状的深度沉积分布，与采用相同规则的经典MC结果吻合在0.27%以内；在k≤32时，Grover放大与sin²((2k+1)θ)在机器精度内一致。在相同预算下，MLQAE误差随N^{-0.93}下降，而采样误差随N^{-0.49}下降，在最大预算下前者小4.8倍。一项三门槛资源分析（输出结构、摊销、纠错墙钟时间）发现，完整剂量图在结构上不利，与硬件无关；而标量统计量在临床规模下尚未达到墙钟时间交叉点：该算子每次调用的推导成本为1.0×10^6个逻辑门（经旋转合成后为3.5×10^7个），主要由多路复用硬币主导，是允许预算的160至5400倍。我们报告了所需的缩减量，并指出了造成该差距的项。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为质子治疗中的带电粒子输运构建高效的酉量子输运算子，并利用量子振幅估计对标量射程统计量进行估计，同时评估其在临床剂量计算中的资源可行性。</p>
+    <h4>方法</h4><p>构建离散时间量子行走输运算子，以能量依赖的硬币编码阻止本领的连续慢化近似；将质子穿透超过远端深度阈值的概率表述为可标记振幅，并采用带Grover迭代和有限次测量的最大似然振幅估计（MLQAE）进行估计；与相同规则的经典蒙特卡罗模拟对比，并进行三门槛资源分析。</p>
+    <h4>主要发现</h4><p>该算子复现布拉格形状的深度沉积分布，与经典MC吻合在0.27%以内；Grover放大在k≤32时与sin²((2k+1)θ)在机器精度内一致；相同预算下MLQAE误差随N^{-0.93}下降，采样误差随N^{-0.49}下降，最大预算下前者小4.8倍；资源分析表明完整剂量图在结构上不利，标量统计量在临床规模下未达到墙钟时间交叉点，算子每次调用推导成本为1.0×10^6个逻辑门（旋转合成后3.5×10^7个），是允许预算的160至5400倍。</p>
+    <h4>局限与展望</h4><p>原文指出完整剂量图在结构上不利且与硬件无关，标量统计量在临床规模下尚未实现墙钟时间优势；所需缩减量及主要成本项（多路复用硬币）已被明确。后续方向可合理推断为降低多路复用硬币的门成本或改进旋转合成，但原文未给出具体实现方案。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13522v1">
+  <div class="paper-head">
+    <h2>全GPU加速的半随机Epstein-Nesbet微扰理论<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13522v1" rel="noopener noreferrer">2611.13522v1</a>
+  </div>
+  <p class="original-title">Fully GPU-accelerated semistochastic Epstein-Nesbet perturbation theory</p>
+  <p class="meta"><strong>作者：</strong>Lizhong Fu、Honghui Shang、Jinlong Yang</p>
+  <p class="meta"><strong>主分类：</strong>physics.comp-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.comp-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>二阶Epstein-Nesbet微扰理论（EN-PT2）是改进选定组态相互作用（SCI）能量的重要工具，但庞大的外部行列式空间在GPU集群上带来显著的内存与通信开销。我们开发了分布式半随机EN-PT2的全GPU加速实现，将激发生成、筛选与PT2权重计算融合于单次内核遍历中。固定大小的随机相位CountSketch数组限制了内存使用，并以有界集合求和替代大规模外部行列式交换。在相同请求统计标准误下，单块A100上的实现完成EN-PT2计算的速度为64核CPU上Arrow的8.21–37.53倍；固定工作负载强扩展测试在跨两个节点的16块GPU上达到93.5%的并行效率。将该方法应用于(60e, 187o)活性空间中的铁氧配合物、每个态含2亿行列式的铁卟啉参考态以及神经网络量子态，表明其在GPU时代对大型参考波函数进行微扰修正的高效性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在GPU集群上高效实现分布式半随机二阶Epstein-Nesbet微扰理论（EN-PT2），以缓解大外部行列式空间带来的内存与通信开销，并加速对选定组态相互作用（SCI）能量的改进。</p>
+    <h4>方法</h4><p>开发全GPU加速的分布式半随机EN-PT2实现，将激发生成、筛选与PT2权重计算融合在单次内核遍历中；采用固定大小的随机相位CountSketch数组限制内存使用，并以有界集合求和替代大规模外部行列式交换；在单块A100上与64核CPU上的Arrow进行对比，并开展跨两个节点16块GPU的固定工作负载强扩展测试。</p>
+    <h4>主要发现</h4><p>在相同请求统计标准误下，单块A100完成EN-PT2计算的速度为64核CPU上Arrow的8.21–37.53倍；固定工作负载强扩展测试在跨两个节点的16块GPU上达到93.5%的并行效率；方法已应用于(60e, 187o)活性空间中的铁氧配合物、每个态含2亿行列式的铁卟啉参考态以及神经网络量子态。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或适用范围；基于所述结果可合理推断，该方法主要面向GPU集群环境，其相对CPU实现的加速幅度随具体体系与统计标准误要求而变化，跨节点扩展效率在更大GPU规模下的表现尚待进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13852v1">
+  <div class="paper-head">
+    <h2>规范不变PEPS拟设跨越拓扑相变的表现能力评估<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13852v1" rel="noopener noreferrer">2611.13852v1</a>
+  </div>
+  <p class="original-title">Assessing the expressive power of a gauge-invariant PEPS ansatz across a topological phase transition</p>
+  <p class="meta"><strong>作者：</strong>Etsuko Itou、Tsuyoshi Okubo</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究规范高斯费米子投影纠缠对态（GGFPEPS）拟设的表现能力，该拟设是面向(2+1)维格点规范理论的显式规范不变张量网络拟设。在GGFPEPS中，每条链上的规范场通过将其构型与置于链两端的虚拟费米子的费米子数耦合来表示。此前工作已用变分蒙特卡洛（VMC）方法研究该拟设，但VMC的统计误差使变分参数的精确确定较为困难，因而无法准确考察该拟设的表现能力。本文将计算重构为Grassmann张量网络（TN），其中整个网络被确定性地收缩，并引入高阶张量重整化群（HOTRG），从而可在最大至L=34的大体积下进行计算；同时使用角转移矩阵重整化群（CTMRG）评估无限体积系统。我们发现，仅含八个复变分参数的拟设能够准确描述纯Z2规范理论，包括拓扑相变区域，不仅在能量上，而且在拓扑纠缠熵上均如此。由相应磁化率峰值得到的临界耦合与连续时间量子蒙特卡洛模拟的预测定量一致。此外，在相变点附近，我们表明该拟设所表示的状态位于plaquette乘积族之外；plaquette乘积族是在构造该拟设时作为强弱耦合极限之间简单插值所假设的一参数态族。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>评估显式规范不变的GGFPEPS拟设在(2+1)维纯Z2格点规范理论中跨越拓扑相变时的表现能力，并克服此前VMC方法因统计误差难以精确确定变分参数的问题。</p>
+    <h4>方法</h4><p>将GGFPEPS的计算重构为Grassmann张量网络并进行确定性收缩，引入HOTRG在最大至L=34的有限体积下计算，并使用CTMRG评估无限体积系统；通过能量与拓扑纠缠熵考察拟设表现，并由磁化率峰值确定临界耦合。</p>
+    <h4>主要发现</h4><p>仅含八个复变分参数的GGFPEPS拟设能够准确描述纯Z2规范理论，包括拓扑相变区域，在能量和拓扑纠缠熵上均表现良好；由磁化率峰值得到的临界耦合与连续时间量子蒙特卡洛模拟的预测定量一致；在相变点附近，该拟设表示的状态位于plaquette乘积族之外。</p>
+    <h4>局限与展望</h4><p>原文结果针对(2+1)维纯Z2规范理论与所考察的GGFPEPS拟设；向其他规范群、更高维度或耦合物质场情形的推广尚未在原文中验证，需进一步研究。基于本文方法可合理推断，确定性Grassmann张量网络收缩结合HOTRG/CTMRG有助于对其他规范不变张量网络拟设进行更精确的表现能力评估。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13886v1">
+  <div class="paper-head">
+    <h2>手征规范理论的格点哈密顿量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13886v1" rel="noopener noreferrer">2611.13886v1</a>
+  </div>
+  <p class="original-title">Lattice Hamiltonians for Chiral Gauge Theories</p>
+  <p class="meta"><strong>作者：</strong>Dorota M. Grabowska</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出了一种定义在板状区域边界上的手征规范理论的格点哈密顿量。该表述采用规范固定，因此规范变量为边界场的物理模式，高斯定律严格成立。体规范场由边界场和一个整数标签确定，该整数标签是边界产生并由体以局域瞬子形式存储的拓扑荷。体作为电介质进入，两个规范反常条件均转化为边界能否独立满足高斯定律的问题。对于背景规范场，我们证明在Pauli-Villars减除后，相差一个体电荷单位的扇区是简并的，且镜像费米子解耦。边界理论没有真空角。哈密顿量中的每一项均由边界规范变量、整数标签和费米子模式定义，为量子线路构造提供了起点。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在格点上构造手征规范理论，使其规范反常条件得到满足且高斯定律严格成立。</p>
+    <h4>方法</h4><p>在板状区域的边界上建立规范固定的格点哈密顿量；体规范场由边界场与整数拓扑荷标签确定；体作为电介质；采用Pauli-Villars减除处理背景规范场。</p>
+    <h4>主要发现</h4><p>两个规范反常条件转化为边界能否独立满足高斯定律的问题；对于背景规范场，相差一个体电荷单位的扇区在Pauli-Villars减除后简并，镜像费米子解耦；边界理论没有真空角；哈密顿量各项由边界规范变量、整数标签和费米子模式定义。</p>
+    <h4>局限与展望</h4><p>该表述为量子线路构造提供了起点；其实际可模拟性、有限格点上的数值验证以及向非背景规范场情形的推广有待进一步研究（后者为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14082v1">
+  <div class="paper-head">
+    <h2>具有强光致偶极相互作用的两原子体系<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14082v1" rel="noopener noreferrer">2611.14082v1</a>
+  </div>
+  <p class="original-title">Two atoms with strong light-induced dipolar interactions</p>
+  <p class="meta"><strong>作者：</strong>Hanzhen Lin、Yoo Kyung Lee、Nabeel Rasheed、Vitaly Fedoseev、Cicely Motamedi、Wolfgang Ketterle</p>
+  <p class="meta"><strong>主分类：</strong>physics.atom-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.atom-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究两个原子在间距小于光波长时的光散射行为，并观察到由激光诱导电偶极矩之间的强相互作用所引发的多种新现象。我们确定了一个狭窄的密度范围，在该范围内部分散射光是相干的，且相较于独立原子呈现出因子为二的集体增强。通过动量分布可以观测双原子波函数的动力学，并揭示共振抛射与耗竭现象。由于紧密束缚，总荧光强度强烈依赖于散射长度，这是因为荧光来源于狭窄的共振（Franck-Condon）区域。此外，我们测量了探测激光强度如何改变散射长度，从而建立了一种移动 Feshbach 共振的新途径。本研究为光镊中光缔合与宇称投影过程中所发生的微观过程提供了洞察。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究两个间距小于光波长的原子在激光诱导电偶极矩强相互作用下的光散射行为及其相关量子动力学。</p>
+    <h4>方法</h4><p>通过分析双原子在紧密束缚条件下的光散射，考察相干散射的集体增强、动量分布所反映的波函数动力学，以及荧光强度对散射长度的依赖，并测量探测激光强度对散射长度的调制。</p>
+    <h4>主要发现</h4><p>识别出部分散射光保持相干且相对独立原子具有因子为二的集体增强的狭窄密度范围；动量分布揭示共振抛射与耗竭；总荧光强度因来源于狭窄的共振（Franck-Condon）区域而强烈依赖散射长度；探测激光强度可改变散射长度，从而提供移动 Feshbach 共振的新方式。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限与适用范围；所提激光强度调控散射长度的方法可合理推断为 Feshbach 共振调控提供新途径，其普适性与定量适用范围有待进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14108v1">
+  <div class="paper-head">
+    <h2>非高斯性揭示长时动力学中的初态记忆<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14108v1" rel="noopener noreferrer">2611.14108v1</a>
+  </div>
+  <p class="original-title">Memory of Initial States in Long-Time Dynamics Revealed by Non-Gaussianity</p>
+  <p class="meta"><strong>作者：</strong>Julia Koczorowska、Lev Vidmar、Patrycja Łydżba</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在二次型系统中少体可观测量的量子动力学中，初始态信息保留在长时间平均值中，这可由广义吉布斯系综刻画。本文表明，这种记忆不仅存在于平均值，还延伸至平均值附近的时间涨落。通过生成非高斯初态的流形，并用相应的熵量化其非高斯性，我们发现时间涨落的幅度是初态非高斯性的光滑函数。该关系解释了量子淬火后观测到的涨落的定性不同标度行为：非高斯初态对应指数小的涨落，高斯初态对应多项式小的涨落。因此，我们的结果将非高斯性确定为揭示超出长时间平均值的初态记忆的关键。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>二次型系统中少体可观测量的长时间动力学里，初态记忆是否仅体现在长时间平均值中，还是也体现在平均值附近的时间涨落中，以及涨落幅度与初态非高斯性之间是否存在定量关系。</p>
+    <h4>方法</h4><p>生成一族非高斯初态构成的流形，用相应的熵量化初态的非高斯性，并考察时间涨落幅度随初态非高斯性的变化；据此分析量子淬火后不同初态下涨落的标度行为。</p>
+    <h4>主要发现</h4><p>时间涨落的幅度是初态非高斯性的光滑函数；该关系解释了量子淬火后观测到的定性不同的涨落标度：非高斯初态下涨落指数小，高斯初态下涨落多项式小；非高斯性因此被视为揭示超出长时间平均值的初态记忆的关键。</p>
+    <h4>局限与展望</h4><p>原文聚焦于二次型系统中少体可观测量的长时间动力学，结论的适用范围受此设定约束；向非二次型系统或更一般可观测量推广时的有效性尚待检验，非高斯性作为初态记忆的定量刻画指标在更广泛动力学场景中的适用性可进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14200v1">
+  <div class="paper-head">
+    <h2>无序诱导的量子涨落对数扩散与局域化<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14200v1" rel="noopener noreferrer">2611.14200v1</a>
+  </div>
+  <p class="original-title">Disorder-Induced Logarithmic Spreading and Localization of Quantum Fluctuations</p>
+  <p class="meta"><strong>作者：</strong>Ang Yang、Jingxuan Zhang、Lei Ying</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.dis-nn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.dis-nn</span> <span class="tag">cond-mat.quant-gas</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>无序可以局域化量子粒子，即使存在相互作用时亦然，但其对平均场动力学之外的量子涨落的影响仍知之甚少。本文通过比较Bose-Hubbard模型与Gross-Pitaevskii方程，研究弱相互作用无序玻色系统中量子涨落的传播。我们发现，与无无序系统中的弹道扩散不同，量子涨落在随机无序和准周期无序下均在中间时间尺度表现出对数扩散，随后最终饱和。扩散速率随无序强度增加按代数方式减小，该行为在不同粒子数下持续存在，并可推广至二维。利用含时Bogoliubov-de Gennes框架，我们识别出局域化的平均场波函数作为含时配对背景，产生量子涨落。涨落产生速率随距离的指数抑制为对数推进的涨落前沿提供了物理机制。我们的结果揭示了一种由无序控制的量子涨落动力学的独特区域，并确立无序作为控制其扩散的手段。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>无序如何影响弱相互作用玻色系统中平均场动力学之外的量子涨落传播，其扩散规律与机制尚不清楚。</p>
+    <h4>方法</h4><p>比较Bose-Hubbard模型与Gross-Pitaevskii方程，在随机和准周期无序下研究量子涨落传播；采用含时Bogoliubov-de Gennes框架分析涨落产生机制。</p>
+    <h4>主要发现</h4><p>量子涨落在中间时间尺度呈现对数扩散而非无无序时的弹道扩散，随后饱和；扩散速率随无序强度代数减小；该行为在不同粒子数下持续并延伸至二维；局域化平均场波函数作为含时配对背景产生量子涨落，涨落产生速率随距离指数抑制，为对数前沿提供机制。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；基于结果可合理推断，该工作确立无序作为调控量子涨落扩散的手段，但推断需进一步验证其适用范围。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14271v1">
+  <div class="paper-head">
+    <h2>有限陈数薄片的边缘量子权重及其拓扑下限<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14271v1" rel="noopener noreferrer">2611.14271v1</a>
+  </div>
+  <p class="original-title">Edge quantum weight of finite Chern flakes and its topological floor</p>
+  <p class="meta"><strong>作者：</strong>Rohit Narula</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.mes-hall
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.mes-hall</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>电路零点能量度量与电路耦合的绝缘体的极化涨落。在晶体中，该量为体量子权重 K_bulk，陈数 C 为其提供下界 |C|。本文表明，有限陈数薄片会引入一个随薄片增大而持续存在的边缘项。其手性边缘的低频跃迁携带偶极权重，即这些跃迁偶极矩阵元平方之和，单位面积满足 K_edge ≥ |C|；该下限源于每个跃迁对两种圆偏振均具有正吸收，以及边缘与体圆二色性相互抵消的已知结果。因此，弱耦合且响应慢于边缘模式的电路测得的是对两个场方向平均后的 K_bulk + K_edge，而响应快于体隙的电路趋近 K_bulk；测量到何种量子权重取决于薄片先增大还是电路先变慢。格点薄片的精确自由费米子计算证实了该下限及对电路频率的依赖。该结果在弱耦合下成立，而固定耦合下不断增大的薄片最终会离开此区域。在下限之上，单一通道的边缘权重是由边界形状和边缘速度确定的数，方形与矩形格点薄片在 0.003 以内符合该值。每增加一个边缘通道便增加其自身的此类数值，而边缘的圆二色性仅计入净手性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>有限陈数薄片的边缘是否对电路测得的量子权重有持续贡献，以及该边缘权重是否存在由陈数决定的下限、其测量如何依赖电路频率。</p>
+    <h4>方法</h4><p>解析论证结合格点薄片的精确自由费米子计算；分析手性边缘低频跃迁的偶极权重、两种圆偏振的吸收以及边缘与体圆二色性的抵消。</p>
+    <h4>主要发现</h4><p>单位面积边缘量子权重满足 K_edge ≥ |C|；弱耦合且慢于边缘模式的电路测得 K_bulk + K_edge（对两个场方向平均），快于体隙的电路趋近 K_bulk；格点计算证实该下限及频率依赖；下限之上单通道边缘权重由边界形状和边缘速度确定，方形与矩形薄片符合至 0.003；每增加一个边缘通道增加一个此类数值，边缘圆二色性仅计净手性。</p>
+    <h4>局限与展望</h4><p>结果仅在弱耦合下成立，固定耦合下增大的薄片最终会离开该区域；超出下限的普适性、多通道叠加及有限温度或无序等实际条件的影响有待进一步研究（后句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14319v1">
+  <div class="paper-head">
+    <h2>电子哈密顿量无自旋平方和能量界的一种新计算模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14319v1" rel="noopener noreferrer">2611.14319v1</a>
+  </div>
+  <p class="original-title">A New Computational Model for the Spin-Free Sum-of-Squares Energy Bounds of Electronic Hamiltonian</p>
+  <p class="meta"><strong>作者：</strong>Yuming Bao、Yancheng Wu、Dongdong Ge、Yinyu Ye</p>
+  <p class="meta"><strong>主分类：</strong>math.OC
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.OC</span> <span class="tag">physics.chem-ph</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>优化电子哈密顿量的无自旋平方和（SOS）能量界会导出半定规划，其展开规模随轨道维数迅速增长。本文将一种已有的无自旋SOS模型精确重构为关于单个对称矩阵的凸二次问题，该矩阵被约束在零与单位矩阵之间。显式的恢复映射将可行的二次规划迭代点与原SOS表述中的证书联系起来，并将Frank–Wolfe间隙识别为恢复出的原始目标与对偶目标之间的间隔。我们通过GPU加速的库仑收缩实现二次作用，并采用全校正Frank–Wolfe的缓存实现（文中称为降维单纯形方法，DRSM）求解重构问题；该方法缓存算子乘积并在小型校正二次规划中优化凸组合权重。数值实验涵盖65个FCIDUMP模型、分子几何结构以及规则氢环，包括在九个实例上的原始坐标恢复检查，以及与FISTA和边界点SDP求解器的比较。在八块H100 GPU上，对具有10,080个空间轨道的C$_{720}$进行冷启动计算，在5.02小时内达到重新计算的Frank–Wolfe间隙$8.82\times10^{-9}$ hartree。全空间氢环计算达到10,000个轨道，循环约化进一步节省了计算量。这些结果表明，精确重构、数据结构利用以及库仑作用的复用如何使所选大规模SOS松弛的优化变得实用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何高效优化电子哈密顿量的无自旋平方和（SOS）能量界，避免半定规划规模随轨道维数迅速膨胀的问题。</p>
+    <h4>方法</h4><p>将已有的无自旋SOS模型精确重构为关于单个对称矩阵（约束在零与单位矩阵之间）的凸二次问题；给出显式恢复映射以连接二次规划迭代点与原SOS证书；通过GPU加速的库仑收缩实现二次作用；采用缓存的全校正Frank–Wolfe实现（降维单纯形方法，DRSM）求解。</p>
+    <h4>主要发现</h4><p>显式恢复映射将Frank–Wolfe间隙识别为恢复出的原始目标与对偶目标之间的间隔；在65个FCIDUMP模型、分子几何结构和规则氢环上的数值实验验证了方法，包括九个实例的原始坐标恢复检查及与FISTA和边界点SDP求解器的比较；在八块H100 GPU上，C$_{720}$（10,080个空间轨道）冷启动计算在5.02小时内达到重新计算的Frank–Wolfe间隙$8.82\times10^{-9}$ hartree；全空间氢环计算达到10,000个轨道，循环约化进一步节省计算量。</p>
+    <h4>局限与展望</h4><p>原文表明精确重构、数据结构利用和库仑作用复用使大规模SOS松弛优化变得实用；其局限与适用范围未在摘要中明确讨论，后续方向可合理推断为将方法推广至其他大规模SOS松弛或进一步结合循环约化等结构利用策略，但需明确验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14460v1">
+  <div class="paper-head">
+    <h2>基于量子信息理论的单-j模型关联结构研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14460v1" rel="noopener noreferrer">2611.14460v1</a>
+  </div>
+  <p class="original-title">Structure of correlations for the single-$j$ model using quantum information theory</p>
+  <p class="meta"><strong>作者：</strong>Javier Faba、Vicente Martín、Luis Robledo</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>当给定哈密顿量的平均场基态随哈密顿量参数变化而自发破缺其对称性时，称系统发生了量子相变。一种被广泛接受的观点认为，这一现象使平均场态能够在不丧失其平均场结构的前提下吸收最大量的关联。然而，这些关联如何被纳入平均场态之中，以及当通过恢复对称性而趋近精确基态时关联结构如何变化，目前仍不确定。本文通过研究单-j模型来回答上述问题；该模型是一个具有阿贝尔与非阿贝尔破缺对称性的现实费米子核模型。研究发现，两类对称性对平均场态内部关联的影响存在显著差异，这使得将对称性破缺过程视为吸收最大量关联之机制的概念变得不清晰。此外，对称性恢复会将配对轨道之间已有的“虚假”关联重新分配到更复杂的子系统之中。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在单-j核模型中，平均场态如何纳入关联，以及通过对称性恢复趋近精确基态时关联结构如何变化；对称性破缺是否确实作为吸收最大量关联的机制。</p>
+    <h4>方法</h4><p>采用量子信息理论研究具有阿贝尔与非阿贝尔破缺对称性的现实费米子核模型——单-j模型，比较两类对称性对平均场态内部关联的影响，并考察对称性恢复对关联结构的重新分配。</p>
+    <h4>主要发现</h4><p>阿贝尔与非阿贝尔两类对称性对平均场态内部关联的影响存在显著差异；这使得将对称性破缺过程视为吸收最大量关联之机制的概念变得不清晰；对称性恢复会将配对轨道之间已有的“虚假”关联重新分配到更复杂的子系统。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；基于结果可合理推断，对称性破缺作为关联吸收机制的概念需要更细致的界定，且对称性恢复后关联在复杂子系统间的重新分配值得进一步研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-11 12:58 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

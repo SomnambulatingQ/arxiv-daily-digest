@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-11-11</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">11</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">5</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">6</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（5）</h3><ol class="toc-list"><li><a href="#paper-2611.12920v1">网络两阶段传染中的振荡：传染结构、更替与连通性</a> <small>2611.12920v1</small></li><li><a href="#paper-2611.13474v1">环形swarmalator稳定性与分岔的统一Ott--Antonsen框架</a> <small>2611.13474v1</small></li><li><a href="#paper-2611.13888v1">二维有限程耦合的惯性群体振子</a> <small>2611.13888v1</small></li><li><a href="#paper-2611.14361v1">与KdV型方程相关的多二次方程</a> <small>2611.14361v1</small></li><li><a href="#paper-2611.14404v1">Yajima-Oikawa-Newell系统的双哈密顿结构与守恒量</a> <small>2611.14404v1</small></li></ol><h3>交叉列表（6）</h3><ol class="toc-list"><li><a href="#paper-2611.12890v1">跨俯冲带汇聚ETAS触发参数：墨西哥的预报迁移、估计稳定性与序列受限技巧</a> <small>2611.12890v1</small></li><li><a href="#paper-2611.13146v1">各得其所：注意力是一种无线电头</a> <small>2611.13146v1</small></li><li><a href="#paper-2611.13591v1">非线性周期运动产生的拓扑平带</a> <small>2611.13591v1</small></li><li><a href="#paper-2611.13605v1">时间分数阶双稳反应扩散方程中渐近行波的存在性与唯一性</a> <small>2611.13605v1</small></li><li><a href="#paper-2611.13918v1">广义Frobenius流形：对称性及其在二维情形下的分类</a> <small>2611.13918v1</small></li><li><a href="#paper-2611.14132v1">通过扩散快反应渐近从细观尺度推导捕食者-猎物动力学：交叉扩散与恐惧效应</a> <small>2611.14132v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.12920v1">
+  <div class="paper-head">
+    <h2>网络两阶段传染中的振荡：传染结构、更替与连通性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.12920v1" rel="noopener noreferrer">2611.12920v1</a>
+  </div>
+  <p class="original-title">Oscillations in two-stage contagion on networks: contagion structure, turnover and connectivity</p>
+  <p class="meta"><strong>作者：</strong>Francisco J. Muñoz、Juan Carlos Nuño、Luca Meacci、Mario Primicerio</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">math.DS</span> <span class="tag">physics.soc-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>两阶段传染描述个体需两次接触采纳者后才采纳的过程，例如观点或技术创新的采用。在人口更替条件下，此类过程可产生采纳与放弃的波动。本文研究一个带更替的两阶段传染模型中的振荡，模型包含非活跃个体库及少量自发激活，并报告四项主要发现。(i) 在平均场描述中，振荡产生于超临界Hopf分岔，且要求以两阶段传染为主（首次接触采纳概率 $Q\lesssim0.17$）以及缓慢更替；自发激活作为扰动会破坏振荡。(ii) 在有限种群中，人口噪声可在该区域之外维持准周期振荡，其谱与方差在远离Hopf分岔处可由线性噪声近似预测。(iii) 降低网络连通性会抑制振荡，因为未采纳节点看到的活跃邻居少于充分混合种群，模拟中测得的关联性证实了该抑制机制；对近似预测在临界平均度 $\kc$ 以下持续周期消失，$\kc$ 随 $Q$ 和更替率降低而减小，最多含 $3.2\times10^5$ 个节点的有限尺寸模拟验证了该阈值。(iv) 在低连通性下振幅不再依赖 $Q$，因而稀疏性抹去了两阶段机制的特征，而更快的更替在任意连通性下均降低相对振幅。模拟中观察到的不规则动力学是噪声驱动的准周期振荡，而非混沌。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究带人口更替与自发激活的两阶段传染模型在网络上产生采纳波动的条件、机制及连通性的作用。</p>
+    <h4>方法</h4><p>采用平均场描述、线性噪声近似、对近似以及有限尺寸网络模拟（最多 $3.2\times10^5$ 个节点）。</p>
+    <h4>主要发现</h4><p>平均场中振荡经超临界Hopf分岔产生，需以两阶段传染为主（$Q\lesssim0.17$）且更替缓慢，自发激活会破坏振荡；有限种群中人口噪声可在该区域外维持准周期振荡；降低网络连通性抑制振荡，对近似预测临界平均度 $\kc$ 以下持续周期消失，模拟验证该阈值；低连通性下振幅不再依赖 $Q$，更快更替在任意连通性下均降低相对振幅；模拟中的不规则动力学为噪声驱动的准周期振荡而非混沌。</p>
+    <h4>局限与展望</h4><p>自发激活在平均场中破坏振荡，其与人口噪声在有限种群中的联合作用尚需进一步厘清；对近似给出的临界平均度阈值仅在所考察的有限尺寸模拟中得到验证，更一般网络结构与参数范围下的适用性有待检验；稀疏性抹去 $Q$ 特征这一结果提示，从宏观时间序列反推两阶段机制在低连通网络中可能受限（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13474v1">
+  <div class="paper-head">
+    <h2>环形swarmalator稳定性与分岔的统一Ott--Antonsen框架<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13474v1" rel="noopener noreferrer">2611.13474v1</a>
+  </div>
+  <p class="original-title">Unified Ott--Antonsen Framework for Stability and Bifurcations in Ring Swarmalators</p>
+  <p class="meta"><strong>作者：</strong>Can Xu、Wenhan Xu、Xingang Wang</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Swarmalator是耦合时间节律与空间集群运动的原型模型，已被广泛用于研究活性物质系统中的集体动力学。尽管数值模拟已揭示多种集体状态，但关于这些状态稳定性与分岔的一般理论框架仍然缺失。本文针对具有一般自然频率与速度分布的一维环形结构swarmalator模型，对模拟中观察到的四种代表性集体状态——去同步态、相位波态、同步态与混合态——进行系统的稳定性与分岔理论分析。研究表明，宏观动力学由低维不变流形即广义Ott--Antonsen流形支配，并进一步确立同一流形也构成高维个体模型的集体动力学基础，从而在统一约化框架下统一了这些看似不同的描述。基于这一联系，本文推导了各集体状态的稳定性条件与分岔边界，并在双参数耦合平面上构造分岔图，理论预测经大规模数值模拟验证。结果阐明了swarmalator系统中状态选择的动力学起源，并为分析具有耦合内部节律与空间运动的活性物质系统中的非平衡相变提供了理论基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>针对一维环形结构、具有一般自然频率与速度分布的swarmalator模型，如何建立统一理论框架以分析去同步态、相位波态、同步态与混合态这四种集体状态的稳定性与分岔。</p>
+    <h4>方法</h4><p>采用广义Ott--Antonsen流形约化方法，将宏观动力学归结为低维不变流形，推导各集体状态的稳定性条件与分岔边界，在双参数耦合平面上构造分岔图，并用大规模数值模拟验证理论预测。</p>
+    <h4>主要发现</h4><p>宏观动力学由广义Ott--Antonsen流形支配；同一流形也构成高维个体模型集体动力学的基础，从而统一了这些描述；据此得到四种集体状态的稳定性条件与分岔边界，并给出双参数耦合平面上的分岔图，理论预测与大规模数值模拟一致。</p>
+    <h4>局限与展望</h4><p>原文针对一维环形结构与一般频率、速度分布展开分析；其结论向其他维度、其他分布或更复杂耦合形式的推广尚需进一步研究。该框架或可为分析具有耦合内部节律与空间运动的活性物质系统中的非平衡相变提供理论基础（此为原文明确表述的潜在应用方向）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13888v1">
+  <div class="paper-head">
+    <h2>二维有限程耦合的惯性群体振子<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.13888v1" rel="noopener noreferrer">2611.13888v1</a>
+  </div>
+  <p class="original-title">Inertial swarmalators with finite-range coupling in two dimensions</p>
+  <p class="meta"><strong>作者：</strong>Anirban Ray、Subhajit Mandal、Asesh RoyChowdhury</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究二维空间中具有惯性与有限程耦合的群体振子（swarmalators）。对于吸引型相位耦合，存在一个能量函数，从而禁止持续运动；对于排斥型耦合，每个稳态都满足一条精确的求和规则。当位置与相位共享质量 $m$ 时，一个模式被惯性失稳当且仅当 $\Re s&gt;-m(\Im s)^2$，其中 $s$ 为该模式的过阻尼本征值；由此可得到一维惯性群体振子 Hopf 边界的闭式表达，其大质量极限对应一个例外点。在二维情形下，均匀相位波在横向上不稳定并破碎为丝状结构。惯性通过超临界 Hopf 分岔使原本无惯性时稳定的丝状结构产生运动，这是对一维 thrashing 波的二维类比；与此同时，在阈值以下还存在一种与静态丝状结构共存的、不规则运动的独立状态。模拟显示，一个运动的丝状网络承载着大量 $\pm1$ 相位缺陷。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究二维空间中具有惯性与有限程耦合的群体振子的动力学行为，包括吸引与排斥相位耦合下的稳态性质、惯性对模式稳定性的影响，以及二维相位波与丝状结构的稳定性与运动。</p>
+    <h4>方法</h4><p>通过构造能量函数与推导精确求和规则进行解析分析；利用过阻尼本征值 $s$ 给出惯性导致模式失稳的判据 $\Re s&gt;-m(\Im s)^2$，并据此推导一维 Hopf 边界的闭式表达；结合线性稳定性分析与数值模拟研究二维均匀相位波的横向不稳定性、丝状结构的 Hopf 分岔及共存状态。</p>
+    <h4>主要发现</h4><p>吸引型相位耦合下能量函数禁止持续运动；排斥型耦合下每个稳态满足精确求和规则；当位置与相位共享质量 $m$ 时，模式被惯性失稳当且仅当 $\Re s&gt;-m(\Im s)^2$，由此得到一维惯性群体振子 Hopf 边界的闭式表达，其大质量极限为例外点；二维均匀相位波横向不稳定并破碎为丝状结构；惯性通过超临界 Hopf 分岔使无惯性时稳定的丝状结构产生运动，构成一维 thrashing 波的二维类比；阈值以下存在与静态丝状结构共存的不规则运动状态；模拟显示运动丝状网络承载大量 $\pm1$ 相位缺陷。</p>
+    <h4>局限与展望</h4><p>本文结果基于二维有限程耦合与特定质量共享假设，其适用范围受此限制；关于共存状态与缺陷群体的定量刻画、以及向其他维度或耦合形式的推广，尚需进一步研究（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14361v1">
+  <div class="paper-head">
+    <h2>与KdV型方程相关的多二次方程<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14361v1" rel="noopener noreferrer">2611.14361v1</a>
+  </div>
+  <p class="original-title">Multi-quadratic equations associated with KdV-type equations</p>
+  <p class="meta"><strong>作者：</strong>M. P. Kolesnikov</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>势KdV方程以dpKdV作为其完全离散化。类似地，大多数KdV型方程以多二次四边形方程作为Bäcklund变换的代数条件。这些四边形方程还给出三点离散对称性，并保证对应于不同格方向的两个对称性的可交换性。在每种情形下，该四边形方程要么是ABS方程，要么是Atkinson--Nieszporski类的多二次方程。对于KdV、mKdV、势Gardner方程和指数Calogero--Degasperis方程，相应的方程分别为$H2^*$、$A1^*$、$Q1^*$和$A2^*$；对于椭圆Calogero--Degasperis方程，则为主导模型$Q4^*$。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究KdV型方程与多二次四边形方程之间的关系，具体考察这些方程如何作为Bäcklund变换的代数条件，并产生三点离散对称性及不同格方向对称性的可交换性。</p>
+    <h4>方法</h4><p>以势KdV方程的完全离散化dpKdV为出发点，将多二次四边形方程作为KdV型方程Bäcklund变换的代数条件进行构造与分析，并判定所得四边形方程属于ABS方程还是Atkinson--Nieszporski类的多二次方程。</p>
+    <h4>主要发现</h4><p>势KdV方程以dpKdV作为完全离散化；大多数KdV型方程以多二次四边形方程作为Bäcklund变换的代数条件；这些四边形方程给出三点离散对称性，并保证对应于不同格方向的两个对称性可交换；每种情形下四边形方程要么是ABS方程，要么是Atkinson--Nieszporski类的多二次方程；KdV、mKdV、势Gardner和指数Calogero--Degasperis方程分别对应$H2^*$、$A1^*$、$Q1^*$和$A2^*$，椭圆Calogero--Degasperis方程对应主导模型$Q4^*$。</p>
+    <h4>局限与展望</h4><p>原文未讨论所得结果的适用范围与局限性；摘要中“大多数KdV型方程”的措辞提示并非所有KdV型方程均被覆盖，具体未覆盖情形需查阅原文。后续方向可合理推断为考察未被覆盖的KdV型方程是否也存在类似的多二次四边形方程描述，但该推断尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14404v1">
+  <div class="paper-head">
+    <h2>Yajima-Oikawa-Newell系统的双哈密顿结构与守恒量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.14404v1" rel="noopener noreferrer">2611.14404v1</a>
+  </div>
+  <p class="original-title">Bi-Hamiltonian structure and conserved quantities of the Yajima-Oikawa-Newell system</p>
+  <p class="meta"><strong>作者：</strong>Marcos Caso-Huerta</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span> <span class="tag">math-ph</span> <span class="tag">math.DG</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究Yajima-Oikawa-Newell（YON）系统的哈密顿与双哈密顿结构。YON系统是描述长波-短波相互作用的一个可积模型，依赖两个实参数α和β，当α=0时退化为Yajima-Oikawa系统，当β=0时退化为Newell系统。对于α≠0，通过对长波作常数平移可将YON系统映射为Newell系统，而后者已知具有两个非局部哈密顿算子。我们证明，当α≠0时，该系统在其自然分次下不存在齐次且关于β多项式的局部哈密顿算子。基于长波势构造的非局部规范变换使已知算子中的第一个在其参数的单一取值下变为局部：变换后的系统对任意α≠0和任意β均关于一个局部、非退化的Poisson算子为哈密顿系统，该算子是sl(2)流代数的Lie-Poisson结构。由一个将层级推进两步的递推算子（以显式弱非局部形式给出），我们构造了第二个弱非局部哈密顿结构，其非局部尾部由系统的三个自治Lie点对称生成，并证明两个结构相容。由于递推算子不存在平方根且第一个结构没有Casimir函数，Lenard-Magri链分裂为两族，分别由两个最简单的守恒量作为种子。两族的每个流均为局部的，且所有相应的哈密顿量相互对合。作为副产品，我们通过Noether定理将系统的Lie点对称与其守恒量联系起来，并通过对Lax对的渐近对角化以闭形式得到守恒密度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究依赖两个实参数α和β的长波-短波相互作用可积模型YON系统的哈密顿与双哈密顿结构，包括局部哈密顿算子的存在性、规范变换下的局部化、递推算子与第二哈密顿结构、Lenard-Magri链的分裂以及守恒量的构造。</p>
+    <h4>方法</h4><p>通过长波常数平移将α≠0的YON系统映射为Newell系统；证明在自然分次下不存在齐次且关于β多项式的局部哈密顿算子；构造基于长波势的非局部规范变换使已知算子局部化；利用显式弱非局部递推算子构造第二哈密顿结构并证明相容性；分析Lenard-Magri链的分裂；借助Noether定理联系Lie点对称与守恒量；通过对Lax对的渐近对角化得到闭形式守恒密度。</p>
+    <h4>主要发现</h4><p>当α≠0时系统不存在自然分次下齐次且关于β多项式的局部哈密顿算子；非局部规范变换使第一个已知算子在参数单一取值下局部化，变换后系统对任意α≠0和β均关于sl(2)流代数的Lie-Poisson结构为哈密顿系统；由递推算子构造的第二个弱非局部哈密顿结构其非局部尾部由三个自治Lie点对称生成，且两个结构相容；递推算子无平方根且第一结构无Casimir函数，故Lenard-Magri链分裂为由两个最简单守恒量种子的两族，每族流均局部且哈密顿量相互对合；通过Noether定理联系Lie点对称与守恒量，并由Lax对渐近对角化得到闭形式守恒密度。</p>
+    <h4>局限与展望</h4><p>原文未讨论α=0或β=0退化情形下所得结构的适用性，也未给出具体物理应用或离散化推广；可合理推断，所构造的局部Poisson算子与弱非局部第二结构或可推广至更一般的多分量长波-短波系统，但此推断尚需进一步验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.12890v1">
+  <div class="paper-head">
+    <h2>跨俯冲带汇聚ETAS触发参数：墨西哥的预报迁移、估计稳定性与序列受限技巧<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.12890v1" rel="noopener noreferrer">2611.12890v1</a>
+  </div>
+  <p class="original-title">Pooling ETAS triggering parameters across subduction margins: forecast transfer, estimator stability and sequence-limited skill in Mexico</p>
+  <p class="meta"><strong>作者：</strong>Ricardo Mansilla Sánchez、Ricardo Mansilla</p>
+  <p class="meta"><strong>主分类：</strong>physics.geo-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.geo-ph</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>将地震触发参数进行跨区域汇聚可降低记录序列较少边缘的估计变异性，但其预报价值需与单纯冻结已拟合定律的稳定性相区分。本研究以Slab2覆盖掩膜为域，对墨西哥国家目录中震级5.0以上事件拟合ETAS模型。在4.7年留出期上，模型相对时间独立空间泊松参考每地震获得1.45比特增益（聚类重采样区间[-0.03, +2.75]比特），其中两个聚类承载了90%的符号增益。利用Global CMT目录，我们拟合了八个互不重叠的俯冲带边缘及一个联合模型，涉及3,210次地震，共享六个触发参数并各边缘具有背景速率；BIC以184个单位支持联合模型，但参数自助法拒绝其精确共享设定。在固定本地背景的条件下迁移至墨西哥，七个外来触发参数集中有六个的评分与本地拟合相差在每事件0.07 nats以内。在留一边缘评估中，被排除池定律的事件加权配对增益为+0.0334 [+0.0002, +0.0670] nats/事件；其下限仅略高于零，且在替代聚类连接规则下跨越零，故我们将其解读为既非结论性优越，也非保证非劣。在28次重叠年度评估中，本地重拟合减去首次震源前冻结的池化定律的均增益为-2.07 nats/年（移动块区间[-6.92, +1.15]），而本地生产率变化达5.4倍。这些区间的覆盖率未测量，且一个可测类比低于名义水平；配对中位数对比的显著性依赖于一个惯例而非实测的Gutenberg-Richter斜率。这些结果支持将汇聚作为本地拟合的正则化替代方案，但尚不足以支持等价性、普适定律或最优更新策略。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>跨俯冲带汇聚地震触发参数能否在记录序列较少的边缘（如墨西哥）提供优于本地拟合的预报价值，以及这种汇聚的估计稳定性与预报技巧如何区分。</p>
+    <h4>方法</h4><p>以Slab2覆盖掩膜为域，对墨西哥国家目录M≥5.0事件拟合ETAS模型；利用Global CMT目录拟合八个互不重叠俯冲带边缘及一个共享六个触发参数的联合模型（各边缘独立背景速率），通过BIC与参数自助法评估共享设定；将外来触发参数集迁移至墨西哥并固定本地背景；采用留一边缘评估与28次重叠年度评估，结合聚类重采样、移动块区间及配对增益分析。</p>
+    <h4>主要发现</h4><p>墨西哥留出期上ETAS相对时间独立空间泊松参考每地震增益1.45比特（区间[-0.03, +2.75]），两个聚类承载90%符号增益；BIC以184单位支持联合模型，但参数自助法拒绝精确共享设定；七个外来触发参数集中六个迁移至墨西哥后评分与本地拟合相差在0.07 nats/事件以内；留一边缘评估中排除池定律事件加权配对增益+0.0334 [+0.0002, +0.0670] nats/事件，下限仅略高于零且在替代聚类连接规则下跨越零；28次年度评估中本地重拟合减冻结池化定律均增益-2.07 nats/年（区间[-6.92, +1.15]），本地生产率变化5.4倍。</p>
+    <h4>局限与展望</h4><p>区间覆盖率未测量且可测类比低于名义水平，配对中位数对比显著性依赖惯例而非实测的Gutenberg-Richter斜率；因此结果仅支持汇聚作为本地拟合的正则化替代，尚不足以支持等价性、普适定律或最优更新策略。后续可合理推断需实测区间覆盖率、检验不同聚类连接规则与斜率设定下的稳健性，并评估动态更新策略的预报价值。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13146v1">
+  <div class="paper-head">
+    <h2>各得其所：注意力是一种无线电头<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13146v1" rel="noopener noreferrer">2611.13146v1</a>
+  </div>
+  <p class="original-title">Everything in its right place: attention is a radio head</p>
+  <p class="meta"><strong>作者：</strong>Lluís Arola-Fernández、Aissam Khadraoui、Alex Arenas</p>
+  <p class="meta"><strong>主分类：</strong>physics.soc-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.soc-ph</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">cs.AI</span> <span class="tag">cs.LG</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>注意力是语言模型的核心，通常被视为对词元的数字计算：指数函数负责选择，除法负责归一化，位置编码负责设定顺序。本文表明，注意力也可以从接收器与其上下文词元的同步中涌现。每个过去的词元是一个振子，其状态携带内容，其频率随年龄漂移。当前词元按内容选择它们，使天线与其查询对齐；并按位置选择它们，用旋钮设定接收器的频率。求解该接收器的 Kuramoto 问题，可得到闭式表示的注意力层，其具有两个相位：在由上下文设定的临界耦合之上，接收器锁定且其权重归一化；在临界耦合之下，接收器保持沉默且其权重之和小于一。训练后的网络利用这两个相位进行选择、弃权和计数，在理论预测之处失效，并在远超训练长度时仍能继续读取。注意力的每个部分都在一个装置——无线电头——中各得其所：它调谐到该听什么、何时听，并在没有相关内容播出时保持沉默。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：语言模型中的注意力机制是否可以被理解为接收器与上下文词元之间的同步过程，而非单纯的数字计算。</p>
+    <h4>方法</h4><p>将每个过去词元建模为状态携带内容、频率随年龄漂移的振子；当前词元按内容对齐天线、按位置设定接收器频率；求解该接收器的 Kuramoto 问题，得到闭式注意力层。</p>
+    <h4>主要发现</h4><p>求解 Kuramoto 问题得到具有两个相位的闭式注意力层：在由上下文设定的临界耦合之上，接收器锁定且权重归一化；在临界耦合之下，接收器保持沉默且权重之和小于一。训练后的网络利用这两个相位进行选择、弃权和计数，在理论预测之处失效，并在远超训练长度时仍能继续读取。</p>
+    <h4>局限与展望</h4><p>论文的局限与适用范围未在摘要中明确说明；基于其理论框架可合理推断，后续方向可能包括将该同步视角推广到其他注意力变体或更长上下文场景，但此类推断需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13591v1">
+  <div class="paper-head">
+    <h2>非线性周期运动产生的拓扑平带<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13591v1" rel="noopener noreferrer">2611.13591v1</a>
+  </div>
+  <p class="original-title">Topological flat bands from nonlinear periodic motion</p>
+  <p class="meta"><strong>作者：</strong>Urei Miura、Hisao Hayakawa</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.mes-hall
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.mes-hall</span> <span class="tag">nlin.CD</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用经典可积系统的Lax表述来刻画非线性周期轨道的拓扑性质。对于单自由度哈密顿系统，我们在频率基下沿周期轨道写出具有手征对称性的Lax算符。能量守恒使所得紧束缚模型的两个能带均严格平坦。谐振子对应于完全二聚化的拓扑Su-Schrieffer-Heeger模型，而非线性则通过高次谐波产生长程跃迁。在对称双势阱中，当阱内周期轨道让位于跨越双阱的轨道时，绕数发生改变，半无限链的零能边缘模消失。我们推导了边缘模的剖面，并表明当趋近分界线时其局域长度呈对数发散。在分界线上，周期与跃迁衰减长度发散，而能隙保持有限；周期运动的这一奇异极限允许无限频率链的绕数发生改变。Lax算符的正则量子化还将手征绕数与超对称量子力学联系起来：对于实轴上具有简单转折点的束缚系统，在共同正能下对所有周期轨道求和所得绕数之和等于Witten指数。我们还将该构造通过行波约化应用于周期非线性波；在其孤立波极限下，有限周期绕数变得未定义。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用经典可积系统的Lax表述刻画单自由度哈密顿系统非线性周期轨道的拓扑性质，并理解其与紧束缚模型平带、边缘模及绕数变化的关系。</p>
+    <h4>方法</h4><p>采用经典可积系统的Lax表述，在频率基下沿周期轨道构造具有手征对称性的Lax算符，将其映射为紧束缚模型；结合谐振子、对称双势阱等具体系统分析能带平坦性、边缘模与绕数；并通过Lax算符的正则量子化联系超对称量子力学与Witten指数，最后通过行波约化推广到周期非线性波。</p>
+    <h4>主要发现</h4><p>能量守恒使所得紧束缚模型的两个能带严格平坦；谐振子对应完全二聚化的拓扑Su-Schrieffer-Heeger模型，非线性通过高次谐波产生长程跃迁；在对称双势阱中，阱内周期轨道让位于跨越双阱的轨道时绕数改变，半无限链的零能边缘模消失；边缘模局域长度在趋近分界线时对数发散；分界线上周期与跃迁衰减长度发散而能隙有限，该奇异极限允许无限频率链绕数改变；对实轴上具有简单转折点的束缚系统，共同正能下所有周期轨道的绕数之和等于Witten指数；周期非线性波的有限周期绕数在孤立波极限下未定义。</p>
+    <h4>局限与展望</h4><p>原文表明该构造适用于单自由度哈密顿系统及经行波约化的周期非线性波，但有限周期绕数在孤立波极限下未定义，提示该拓扑刻画在孤立波情形需要另行处理；将Lax表述推广至更多自由度或非可积系统、以及进一步澄清奇异极限下拓扑不变量的定义，是原文未展开而可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13605v1">
+  <div class="paper-head">
+    <h2>时间分数阶双稳反应扩散方程中渐近行波的存在性与唯一性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13605v1" rel="noopener noreferrer">2611.13605v1</a>
+  </div>
+  <p class="original-title">Existence and uniqueness of asymptotic traveling waves in a time-fractional bistable reaction-diffusion equation</p>
+  <p class="meta"><strong>作者：</strong>Akihiro Kitamachi、Hiroshi Ishii</p>
+  <p class="meta"><strong>主分类：</strong>math.AP
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.AP</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究含 Caputo 时间导数的反应扩散方程的渐近行波。对于一般的 C^1 双稳非平衡非线性项，证明存在连接两个稳定态的渐近行波；其渐近波速唯一，渐近波形严格递增且在平移意义下唯一。证明采用从驻波前（stationary front）出发的延拓方法与滑动方法。对于三次非线性项，进一步给出平衡情形附近波速的渐近公式，并给出显式的主系数。最后通过数值模拟，将渐近公式预测的波速与原始方程中的波前传播速度进行比较。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究含 Caputo 时间导数的双稳反应扩散方程中渐近行波的存在性、唯一性及波速性质。</p>
+    <h4>方法</h4><p>对一般 C^1 双稳非平衡非线性项，采用从驻波前出发的延拓方法与滑动方法证明存在性与唯一性；对三次非线性项推导平衡情形附近波速的渐近公式；并进行数值模拟比较预测波速与原始方程中的波前传播速度。</p>
+    <h4>主要发现</h4><p>证明存在连接两个稳定态的渐近行波；渐近波速唯一；渐近波形严格递增且在平移意义下唯一；对三次非线性项得到平衡情形附近波速的渐近公式并给出显式主系数；数值模拟比较了渐近公式预测的波速与原始方程中的波前传播速度。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限性与适用范围；后续方向可合理推断为将结果推广至更一般的非线性项或时间分数阶导数形式，并对渐近公式的精度与适用范围作进一步数值与理论分析。</p>
+  </section>
+</article><article class="paper" id="paper-2611.13918v1">
+  <div class="paper-head">
+    <h2>广义Frobenius流形：对称性及其在二维情形下的分类<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.13918v1" rel="noopener noreferrer">2611.13918v1</a>
+  </div>
+  <p class="original-title">Generalized Frobenius manifolds: symmetries and their classification in 2-dimensions</p>
+  <p class="meta"><strong>作者：</strong>Andre Bedell、Misha Feigin、Leo Kaminski、Alessandro Proserpio、Ian A. B. Strachan</p>
+  <p class="meta"><strong>主分类：</strong>math.DG
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DG</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文发展了一套广义Frobenius流形的对称性理论，并以此研究位于给定Frobenius流形“之上”的全部广义Frobenius流形所构成的解空间。由于二维（半单）Frobenius流形已被完全分类，作者通过构造与这些流形相关联的全部齐次Legendre场，对二维广义Frobenius流形进行了分类。在此描述下，已知的广义Frobenius流形实例对应于该解空间中的特定点。对于Hurwitz-Frobenius流形，文中给出了Legendre变换在Hurwitz空间数据上的作用，特别是对主微分的作​​用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何定义并利用广义Frobenius流形的对称性，进而分类所有位于已知二维Frobenius流形之上的二维广义Frobenius流形。</p>
+    <h4>方法</h4><p>建立广义Frobenius流形的对称性理论；通过构造与已知二维（半单）Frobenius流形相关联的全部齐次Legendre场来刻画解空间；并将Legendre变换作用于Hurwitz空间数据。</p>
+    <h4>主要发现</h4><p>发展了广义Frobenius流形的对称性理论；构造出与二维Frobenius流形对应的全部齐次Legendre场，从而完成二维广义Frobenius流形的分类；已知的广义Frobenius流形实例对应于所得解空间中的特定点；对Hurwitz-Frobenius流形给出了Legendre变换在Hurwitz空间数据（特别是主微分）上的作用。</p>
+    <h4>局限与展望</h4><p>摘要仅明确处理二维情形，高维推广未在原文中给出；所得分类依赖于二维（半单）Frobenius流形已知这一前提，其适用范围受此限制。后续可合理推断的方向包括将对称性框架推广至更高维，或利用解空间中特定点的刻画研究已知实例之间的关系，但这些均需进一步工作验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.14132v1">
+  <div class="paper-head">
+    <h2>通过扩散快反应渐近从细观尺度推导捕食者-猎物动力学：交叉扩散与恐惧效应<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.14132v1" rel="noopener noreferrer">2611.14132v1</a>
+  </div>
+  <p class="original-title">Mesoscopic derivation of predator-prey dynamics via diffusive fast-reaction asymptotics: cross-diffusion and fear effects</p>
+  <p class="meta"><strong>作者：</strong>Marzia Bisi、Andrea Bondesan、Maria Groppi、Cinzia Soresina</p>
+  <p class="meta"><strong>主分类：</strong>math.AP
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.AP</span> <span class="tag">nlin.AO</span> <span class="tag">q-bio.PE</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种动理学推导方法，用于构建具有交叉扩散相互作用和Beddington-DeAngelis功能反应的空间捕食者-猎物模型。在细观层面，将两个种群划分为不同的行为状态：猎物可处于活跃状态或隐蔽于避难所中，捕食者则可处于搜寻或处理状态。每个子种群的微观状态由群体规模和连续方向速度变量描述，状态转换由适当的Boltzmann型相互作用算子控制。通过将扩散尺度变换与动理学反应算子的慢-快表述相结合，形式化地推导出关于猎物和捕食者总种群密度的宏观反应-交叉扩散系统。所得极限模型一致地恢复了Beddington-DeAngelis功能反应及其相关的非线性扩散项。关键的是，动理学升尺度产生了一个依赖于捕食者的猎物增长项，其呈具有有效环境容纳量的logistic形式。该容纳量随捕食者密度呈非单调变化，因为猎物在活跃状态与避难状态之间重新分布。由于密度依赖竞争分别作用于这些行为状态内部，中等捕食者水平降低了总体拥挤程度，从而提高了总猎物种群的有效环境容纳量。总体而言，本文的推导提供了连接捕食者诱导的行为转变、避难所使用与宏观交叉扩散之间的机制性联系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从细观（动理学）层面机制性地推导出具有交叉扩散和Beddington-DeAngelis功能反应的空间捕食者-猎物模型，并刻画捕食者诱导的行为转变与避难所使用对宏观动力学的影响。</p>
+    <h4>方法</h4><p>将猎物分为活跃与隐蔽两种行为状态、捕食者分为搜寻与处理两种状态，以群体规模和连续方向速度为微观变量，用Boltzmann型相互作用算子描述状态转换；结合扩散尺度变换与反应算子的慢-快表述，形式化推导宏观反应-交叉扩散系统。</p>
+    <h4>主要发现</h4><p>极限模型一致恢复Beddington-DeAngelis功能反应及其非线性扩散项；动理学升尺度产生依赖于捕食者密度的logistic型猎物增长项，其有效环境容纳量随捕食者密度非单调变化，原因是猎物在活跃与避难状态间重新分布，且密度依赖竞争分别作用于各行为状态内部，中等捕食者水平降低总体拥挤并提高总猎物种群的有效环境容纳量。</p>
+    <h4>局限与展望</h4><p>推导为形式化的，未给出严格收敛证明；模型适用范围限于所设定的行为状态划分与尺度假设。后续可合理推断的方向包括：对扩散-快反应极限进行严格数学论证，以及将行为状态转换机制推广至更一般的功能反应或多物种情形。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-11 12:58 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
