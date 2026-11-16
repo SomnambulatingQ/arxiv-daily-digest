@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-16</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">7</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">5</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2611.17800v1">从格点QCD对稀有K介子衰变 $K^+\to\pi^+\ell^+\ell^-$ 的初步认识</a> <small>2611.17800v1</small></li><li><a href="#paper-2611.18038v1">2+1味格点QCD中梯度流标度比√t₀/w₀的确定</a> <small>2611.18038v1</small></li></ol><h3>交叉列表（5）</h3><ol class="toc-list"><li><a href="#paper-2611.17842v1">硬件感知采样与基于量子退火器的QPU信息蒙特卡洛</a> <small>2611.17842v1</small></li><li><a href="#paper-2611.18224v1">基于修正 Taylor 耦合的轻子质量计算</a> <small>2611.18224v1</small></li><li><a href="#paper-2611.18306v1">面向更深入理解 $a_1$ 与 $a_2$ 跃迁形状因子</a> <small>2611.18306v1</small></li><li><a href="#paper-2611.18526v1">含CP破坏的QCD中的三维部分子结构</a> <small>2611.18526v1</small></li><li><a href="#paper-2611.18552v1">φ⁴理论中散射的实时模拟：局域激发、可扩展波包制备及峰值产生伪影</a> <small>2611.18552v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.17800v1">
+  <div class="paper-head">
+    <h2>从格点QCD对稀有K介子衰变 $K^+\to\pi^+\ell^+\ell^-$ 的初步认识<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.17800v1" rel="noopener noreferrer">2611.17800v1</a>
+  </div>
+  <p class="original-title">Emerging understanding of the rare kaon decay $K^+\toπ^+\ell^+\ell^-$ from lattice QCD</p>
+  <p class="meta"><strong>作者：</strong>Zhao-Long Zhang、Xu Feng、Lu-Chang Jin、Bo-Lin Li、Chuan Liu、Christopher T. Sachrajda</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>稀有K介子衰变为检验标准模型及可能的新物理提供了灵敏探针。对于 $K^+\to\pi^+\ell^+\ell^-$，实验衰变率仅确定矢量形状因子的模方 $|V(z)|^2$，其符号无法确定。此前的格点QCD计算或采用非物理的π介子质量，或不确定度过大而无法分辨该符号。本文基于两个具有近物理π介子质量的畴壁费米子系综，给出第一性原理计算。我们发展了一套计算策略，确立了局域与守恒矢量流在紫外有限性及连续极限等价性方面的性质，从而大幅简化了非局域矩阵元的计算。四种独立的减除方案提供了非平凡的一致性检验，而 one-end trick 降低了夸克自环贡献带来的噪声。我们在六个类空与类时动量转移处确定了 $V(z)$。拟合一致给出 $V(0)&lt;0$，在 $M_{\eta_c}=1.1\,\mathrm{GeV}$ 时统计显著性为 $5.8\sigma$--$7.9\sigma$。外推至物理粲夸克质量后，负号在所有拟合形式下均持续存在，显著性为 $2.0\sigma$--$3.4\sigma$。我们的结果为负号解提供了直接的第一性原理证据，并建立了一个用于更精确格点QCD确定的框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究稀有K介子衰变 $K^+\to\pi^+\ell^+\ell^-$ 中矢量形状因子 $V(z)$ 的符号问题：实验衰变率只给出 $|V(z)|^2$，无法确定符号，而此前格点QCD计算因采用非物理π介子质量或不确定度过大而未能分辨该符号。</p>
+    <h4>方法</h4><p>采用两个具有近物理π介子质量的畴壁费米子系综进行第一性原理格点QCD计算；发展计算策略以确立局域与守恒矢量流的紫外有限性和连续极限等价性，简化非局域矩阵元计算；使用四种独立减除方案做一致性检验，并用 one-end trick 降低夸克自环噪声；在六个类空与类时动量转移处确定 $V(z)$，并进行拟合及向物理粲夸克质量的外推。</p>
+    <h4>主要发现</h4><p>在 $M_{\eta_c}=1.1\,\mathrm{GeV}$ 时，拟合一致给出 $V(0)&lt;0$，统计显著性为 $5.8\sigma$--$7.9\sigma$；外推至物理粲夸克质量后，负号在所有拟合形式下持续存在，显著性为 $2.0\sigma$--$3.4\sigma$。结果为负号解提供了直接的第一性原理证据。</p>
+    <h4>局限与展望</h4><p>论文指出其结果建立了更精确格点QCD确定的框架；外推后显著性有所降低（$2.0\sigma$--$3.4\sigma$），提示需进一步减小统计与系统误差、增加系综或改进外推以巩固符号结论。上述关于后续改进方向的表述属于基于原文的合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.18038v1">
+  <div class="paper-head">
+    <h2>2+1味格点QCD中梯度流标度比√t₀/w₀的确定<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.18038v1" rel="noopener noreferrer">2611.18038v1</a>
+  </div>
+  <p class="original-title">The ratio of gradient-flow scales $\sqrt{t_0}/w_0$ in $2+1$ flavor lattice QCD</p>
+  <p class="meta"><strong>作者：</strong>Simon Kuberski、Alejandro Sáez</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在等旋对称的2+1味QCD中，于物理点和连续极限下确定了梯度流标度比√t₀/w₀。分析采用CLS规范系综，涵盖五个格点间距，并结合Wilson流与Zeuthen流数据，以约束味SU(3)对称点处的连续外推。在Edinburgh共识方案下得到√t₀/w₀=0.8264(26)，精度约为0.31%。该结果可用于联系分别以两种流标度给出的测定值，并有助于评估已发表结果之间的张力。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在等旋对称的2+1味格点QCD中，物理点与连续极限下梯度流标度比√t₀/w₀的数值是多少，以及如何以足够精度确定该比值以协调不同流标度的结果。</p>
+    <h4>方法</h4><p>使用CLS规范系综，覆盖五个格点间距；结合Wilson流与Zeuthen流数据，在味SU(3)对称点处约束连续外推，并在Edinburgh共识方案下给出结果。</p>
+    <h4>主要发现</h4><p>在Edinburgh共识方案下得到√t₀/w₀=0.8264(26)，精度约为0.31%；该结果可用于联系以任一梯度流标度表述的测定值，并有助于评估已发表结果之间的张力。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；该结果适用于等旋对称2+1味QCD、物理点及连续极限，并限于Edinburgh共识方案。可合理推断，该比值有助于统一以√t₀或w₀表述的标度并检验不同结果间的一致性，但这一推断需结合具体应用场景进一步验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.17842v1">
+  <div class="paper-head">
+    <h2>硬件感知采样与基于量子退火器的QPU信息蒙特卡洛<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17842v1" rel="noopener noreferrer">2611.17842v1</a>
+  </div>
+  <p class="original-title">Hardware-aware sampling and QPU-informed Monte Carlo with quantum annealers</p>
+  <p class="meta"><strong>作者：</strong>Seungyeob Jwa、Jangho Kim、Sunghee Kim、Sunkyu Lee、Weonjong Lee</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究逻辑模型的物理表示方式如何影响量子退火器的采样，以及该采样在修正蒙特卡洛中的应用。方晶格Ising模型提供了可控的经典参照。采用每个逻辑自旋对应一个物理量子比特的固定嵌入，可达到36×36个自旋。与均匀双量子比特链及混合链长的比较表明，即使平均能量相匹配，磁化强度与关联仍存在差异。扩展范围的条件下预测器改善了对混合嵌入的描述，将其残余关联与所测试的均匀嵌入的残余关联区分开来。独立的校准检验与固定尺度退火扫描表明，仅靠温度偏移并不能决定分布一致性。从QPU样本学习得到的归一化自回归模型，在更大的周期晶格上提供了带有精确Metropolis--Hastings修正与多次尝试修正的建议分布。这些方法保持了目标分布，尽管仅靠块更新会使临界磁化弛豫缓慢。互补的直接QPU更新揭示了块大小与拟合温度修正如何影响接受率和自旋运动。综合而言，这些结果支持优先采用单量子比特表示和短均匀链，同时将硬件采样保真度与修正蒙特卡洛的收敛性区分开来。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>逻辑模型的物理表示方式（嵌入方式）如何影响量子退火器的采样质量，以及这种采样如何用于保持目标分布的修正蒙特卡洛。</p>
+    <h4>方法</h4><p>以方晶格Ising模型为可控经典参照，比较每逻辑自旋一个物理量子比特的固定嵌入、均匀双量子比特链和混合链长嵌入；使用扩展范围条件下预测器描述混合嵌入；进行独立校准检验和固定尺度退火扫描；从QPU样本学习归一化自回归模型，并在更大周期晶格上结合精确Metropolis--Hastings与多次尝试修正；辅以直接QPU更新考察块大小和拟合温度修正的影响。</p>
+    <h4>主要发现</h4><p>固定嵌入可达到36×36个自旋；平均能量匹配时，不同嵌入在磁化强度和关联上仍有差异；扩展范围条件下预测器能区分混合嵌入与所测试均匀嵌入的残余关联；温度偏移单独不能决定分布一致性；自回归提议结合精确Metropolis--Hastings和多次尝试修正可保持目标分布，但仅靠块更新时临界磁化弛豫缓慢；直接QPU更新显示块大小和拟合温度修正影响接受率与自旋运动。</p>
+    <h4>局限与展望</h4><p>结果支持优先采用单量子比特表示和短均匀链，并建议将硬件采样保真度与修正蒙特卡洛的收敛性分开评估；对于更大规模或不同模型的可推广性，原文未作断言，需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.18224v1">
+  <div class="paper-head">
+    <h2>基于修正 Taylor 耦合的轻子质量计算<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.18224v1" rel="noopener noreferrer">2611.18224v1</a>
+  </div>
+  <p class="original-title">Light baryon masses from the modified Taylor coupling</p>
+  <p class="meta"><strong>作者：</strong>A. S. Miramontes、J. Papavassiliou、H. Sanchis-Alepuz</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用由修正 Taylor 有效荷主导的非微扰相互作用，并辅以显式的味相关贡献，计算了正宇称重子八重态与十重态的谱。该框架最初在介子领域建立，现无需进一步参数优化即可无缝推广至重子部分。通过求解相对论性三体 Faddeev 方程，我们提取了相应重子组态基态的质量与振幅。所得谱与实验数据在百分之几的精度内相符。此外，我们给出了核子与 Δ 质量随 π 介子质量变化的演化，将结果直接与格点 QCD 基准进行对比，并评估了格点不确定度向所计算强子可观测量的传播。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否用已在介子领域建立的修正 Taylor 有效荷框架，在不重新优化参数的情况下描述正宇称轻重子八重态与十重态的质量谱，并给出其对 π 介子质量的依赖？</p>
+    <h4>方法</h4><p>采用由修正 Taylor 有效荷主导的非微扰相互作用，并加入显式的味相关贡献；求解相对论性三体 Faddeev 方程以获得基态质量与振幅；计算核子与 Δ 质量随 π 介子质量的变化，并与格点 QCD 结果对比，同时评估格点不确定度的传播。</p>
+    <h4>主要发现</h4><p>该框架从介子领域推广至重子领域无需进一步参数优化；所得到的正宇称重子八重态与十重态谱在百分之几的精度内与实验数据相符；给出了核子与 Δ 质量随 π 介子质量的演化，并完成了与格点 QCD 基准的直接对比及格点不确定度向强子可观测量的传播评估。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性；可合理推断，该框架的适用范围可能受限于所考虑的正宇称基态及所采用的相互作用形式，其向其他重子态或更大 π 介子质量区域的推广有待进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.18306v1">
+  <div class="paper-head">
+    <h2>面向更深入理解 $a_1$ 与 $a_2$ 跃迁形状因子<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.18306v1" rel="noopener noreferrer">2611.18306v1</a>
+  </div>
+  <p class="original-title">Towards an improved understanding of $a_1$ and $a_2$ transition form factors</p>
+  <p class="meta"><strong>作者：</strong>Hannah Schäfer</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>同向矢量轴矢介子态 $a_1$ 与张量介子态 $a_2$ 近年来受到关注，因为它们作为中间态出现在对 $(g-2)_\mu$ 有贡献的强子光-光（HLbL）散射中。迄今为止，其动力学行为（包括跃迁形状因子）仍缺乏充分理解，这也影响 HLbL 贡献的不确定度预算。为改善这一状况，作者将 $a_1$ 与 $a_2$ 构造为 $\rho\pi$ 系统中的共振态，从而可用已知的形状因子与共振态性质来表达相关振幅。据此，作者旨在基于解析性、幺正性与交叉对称性等一般原理，获得具有现象学动机的跃迁形状因子参数化。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何更深入地理解 $a_1$ 与 $a_2$ 介子的跃迁形状因子，以改进其对 HLbL 散射贡献及 $(g-2)_\mu$ 不确定度预算的影响。</p>
+    <h4>方法</h4><p>将 $a_1$ 与 $a_2$ 作为 $\rho\pi$ 系统中的共振态构造，用已知形状因子与共振态性质表达相关振幅，并基于解析性、幺正性与交叉对称性等一般原理建立跃迁形状因子的现象学参数化。</p>
+    <h4>主要发现</h4><p>原文明确支持：$a_1$ 与 $a_2$ 作为中间态出现在 HLbL 对 $(g-2)_\mu$ 的贡献中；其动力学行为与跃迁形状因子至今理解不足，并影响 HLbL 贡献的不确定度；通过 $\rho\pi$ 共振构造可用已知形状因子与共振态性质表达相关振幅。</p>
+    <h4>局限与展望</h4><p>原文仅提出以解析性、幺正性与交叉对称性为基础获得现象学上合理的跃迁形状因子参数化这一目标，未给出定量结果；该参数化对 HLbL 贡献不确定度的实际改进程度尚待后续验证，属可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.18526v1">
+  <div class="paper-head">
+    <h2>含CP破坏的QCD中的三维部分子结构<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.18526v1" rel="noopener noreferrer">2611.18526v1</a>
+  </div>
+  <p class="original-title">Three-dimensional parton structure in QCD with CP-violation</p>
+  <p class="meta"><strong>作者：</strong>Alexandru-Mihail Sturzu、Joe Karpie</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>能量-动量张量刻画系统的力学性质，例如能量、动量、力与粒子通量的内部分布。即使QCD通过引入破坏CP对称性的θ项进行修改，QCD能量-动量张量仍保持CP对称性。在该理论中，总能量-动量张量的洛伦兹分解包含5个独立的广义形状因子，另有3个形状因子仅在对所有味求和时消失。我们引入两个新的光锥GPD，其Mellin矩给出电磁形状因子与引力形状因子。这些量将基于QCD的CP破坏的可观测量（如中子电偶极矩）推广至三维光锥结构。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在引入破坏CP的θ项的QCD中，如何描述能量-动量张量的洛伦兹分解结构，并将基于QCD的CP破坏的可观测量推广到三维光锥部分子结构。</p>
+    <h4>方法</h4><p>对总能量-动量张量进行洛伦兹分解以识别广义形状因子，并引入两个新的光锥广义部分子分布（GPD），其Mellin矩对应电磁形状因子与引力形状因子。</p>
+    <h4>主要发现</h4><p>QCD能量-动量张量在含CP破坏θ项时仍保持CP对称性；总能量-动量张量的洛伦兹分解中有5个独立的广义形状因子，另有3个仅在对所有味求和时消失；所引入的两个新光锥GPD的Mellin矩给出电磁形状因子与引力形状因子。</p>
+    <h4>局限与展望</h4><p>原文未讨论具体数值估计或实验提取方案；后续或可研究这些新GPD在具体过程与格点计算中的可实现性，以及其与中子电偶极矩等CP破坏可观测量的定量联系，但这些均属推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.18552v1">
+  <div class="paper-head">
+    <h2>φ⁴理论中散射的实时模拟：局域激发、可扩展波包制备及峰值产生伪影<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.18552v1" rel="noopener noreferrer">2611.18552v1</a>
+  </div>
+  <p class="original-title">Real-time simulation of scattering in $φ^4$ theory: localized excitation, scalable wave packet preparation, and peak-generating artifacts</p>
+  <p class="meta"><strong>作者：</strong>Boyu Gao、Natalie Klco</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>实时动力学探测对于理解量子场论中的非微扰散射与相互作用至关重要，而实时模拟的一个常见挑战在于制备精确的渐近入射态。本文通过可高效求解的本征值问题，联合优化单粒子动量本征态的叠加与单格点插值算符，以最大化从相互作用真空态出发的制备保真度，从而在相互作用理论中得到类似于位置本征态的局域激发。将该插值算符在格点上作加权求和，可制备任意空间范围的波包。为确保该构造给出正确的连续极限，叠加中各单粒子动量本征态之间的相对相位利用由洛伦兹对称性导出的关系进行校准。通过位置空间剖面分析单粒子波包传播，可观察到振荡性的Airy畸变，其来源于具有相同格点群速度的不同动量鞍点贡献之间的干涉；这些振荡在趋近连续极限时系统性减弱，并给出了依赖于模拟时间与波包动量剖面的可靠区域。本文还实现了相互作用标量场论中的两粒子散射模拟，揭示了由粗粒度局域场数字化或偏离Nyquist-Shannon采样点所导致的人工非弹性。在控制这些伪影后，现有模拟为φ⁴理论中的物理非弹性过程提供了初步证据。本文引入的构造或可为散射量子模拟的态制备提供新的理解。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在量子场论实时模拟中从相互作用真空制备精确的渐近入射态（包括局域激发与任意空间范围的波包），并识别与控制模拟中出现的伪影，进而研究φ⁴理论中的两粒子散射。</p>
+    <h4>方法</h4><p>通过可高效求解的本征值问题联合优化单粒子动量本征态叠加与单格点插值算符以最大化制备保真度；对插值算符在格点上加权求和制备波包；利用洛伦兹对称性导出的关系校准叠加中的相对相位；通过位置空间剖面分析波包传播；并实施相互作用标量场论中的两粒子散射模拟。</p>
+    <h4>主要发现</h4><p>该构造在相互作用理论中得到类似位置本征态的局域激发，并可制备任意空间范围的波包；波包传播中观察到源于相同格点群速度下不同动量鞍点贡献干涉的振荡性Airy畸变，该畸变在趋近连续极限时系统性减弱，并给出了依赖于模拟时间与波包动量剖面的可靠区域；两粒子散射模拟揭示由粗粒度局域场数字化或偏离Nyquist-Shannon采样点引起的人工非弹性，在控制这些伪影后，模拟为φ⁴理论中的物理非弹性过程提供了初步证据。</p>
+    <h4>局限与展望</h4><p>原文指出这些构造或可为散射量子模拟的态制备提供新的理解；Airy畸变的可靠区域依赖于模拟时间与波包动量剖面，粗粒度数字化与采样点偏离会引入人工非弹性，因此相关结论的适用范围受这些因素约束。后续可合理推断的方向包括：在更大格点或更细数字化下检验连续极限行为，以及进一步区分并抑制残余伪影以确认物理非弹性过程（此句为推断）。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-16 13:48 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

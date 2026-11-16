@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-11-16</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">11</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">8</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（3）</h3><ol class="toc-list"><li><a href="#paper-2611.17718v1">$^{71}$Cr的观测及$^{82}$Se碎裂反应截面的扩展测量与分析</a> <small>2611.17718v1</small></li><li><a href="#paper-2611.18015v1">从$^{26}$P的$\beta$衰变解析$^{26}$Si中的同位旋混合异常</a> <small>2611.18015v1</small></li><li><a href="#paper-2611.18080v1">少离子肖特基功率标度与单离子事件的自动重建</a> <small>2611.18080v1</small></li></ol><h3>交叉列表（8）</h3><ol class="toc-list"><li><a href="#paper-2611.16904v1">相对论重离子碰撞中磁场效应为何难以观测</a> <small>2611.16904v1</small></li><li><a href="#paper-2611.17346v1">面向VAMOS++的人工智能：从数据分析到智能仪器</a> <small>2611.17346v1</small></li><li><a href="#paper-2611.17348v1">基于拓扑的快中子本底抑制与分段反应堆反电子中微子探测器的惰性中微子灵敏度</a> <small>2611.17348v1</small></li><li><a href="#paper-2611.17353v1">通过 mCBM 的 Λ 重构建演示 CBM 实验能力</a> <small>2611.17353v1</small></li><li><a href="#paper-2611.17362v1">在IGISOL实现MR-ToF辅助的源内共振电离光谱术</a> <small>2611.17362v1</small></li><li><a href="#paper-2611.17367v1">面向放射性离子应用的快速离子冷却与激光光谱学俘获平台</a> <small>2611.17367v1</small></li><li><a href="#paper-2611.17389v1">Warwick TPC平台的构建与调试</a> <small>2611.17389v1</small></li><li><a href="#paper-2611.17849v1">基于LHC的反缪子-核子对撞机LHμC：核束选项</a> <small>2611.17849v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.17718v1">
+  <div class="paper-head">
+    <h2>$^{71}$Cr的观测及$^{82}$Se碎裂反应截面的扩展测量与分析<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.17718v1" rel="noopener noreferrer">2611.17718v1</a>
+  </div>
+  <p class="original-title">Observation of $^{71}$Cr and expanded cross-section measurements and analysis of $^{82}$Se fragmentation</p>
+  <p class="meta"><strong>作者：</strong>S. Watters、O. B. Tarasov、A. C. Dombos、K. Fukushima、A. Gade、K. Haak、M. Hausmann、D. Kahl、D. Kaloyanov、E. Kwan、H. K. Matthews、P. N. Ostroumov、M. Portillo、I. Richardson、B. M. Sherrill、M. K. Smith、S. Ajayi、J. M. Allmond、H. Arora、A. D. Ayangeakaa、H. C. Berg、J. M. Berkman、D. L. Bleuel、K. Bosmpotinis、M. P. Carpenter、A. Chester、J. M. Christie、S. Coil、I. Cox、B. P. Crider、J. Davis、A. A. Doetsch、J. G. Duarte、A. Estrade、A. Fijalkowska、C. Frantzis、T. Gaballah、H. Gadaria、E. C. Good、T. Gray、R. Grzywacz、S. Hanai、J. T. Harke、C. Harris、A. C. Hartley、K. Hermansen、D. E. M. Hoff、D. Hoskins、J. Huffman、R. V. F. Janssens、R. Jain、M. Karny、T. T. King、N. Kitamura、K. Kolos、S. N. Liddick、B. Longfellow、R. S. Lubna、S. Lyons、M. Madurga、M. Mogannam、S. Neupane、T. H. Ogunbeku、B. Olree、W. -J. Ong、G. Owens-Fryar、J. R. Palomino、M. M. Rajabali、B. C. Rasco、A. L. Richard、E. K. Ronning、G. E. Rose、T. Ruland、K. P. Rykaczewski、H. Schatz、N. D. Scielzo、D. P. Scriven、D. Seweryniak、K. Siegal、A. Spyrou、M. Stepaniuk、A. E. Stuchbery、A. Sweet、V. Tripathi、A. Tsantiri、S. Uthayakumaar、W. B. Walters、M. Wolinska-Cichocka、Z. Y. Xu、R. Yokoyama</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本工作测量了$^{82}$Se碎裂产生的中子丰核素产生截面，其中包括此前未被观测到的同位素$^{71}$Cr。利用能量损失、飞行时间、磁刚度与总动能测量，对每个事件逐一进行了质量数$A$、原子序数$Z$与离子电荷态$q$的粒子鉴别。将这些测量与已有的$^{82}$Se碎裂数据相结合，采用磨损-烧蚀（abrasion-ablation）形式体系以及近期发展的$\Delta BE$系统学进行了分析。两种方法中的模型依赖性均通过基于十一种核质量模型的类贝叶斯模型平均方法加以量化。$\Delta BE$系统学为将核结构信息纳入产率预测提供了一种简便手段，而磨损-烧蚀分析则有助于理解支配中子丰核素产生的反应机制。对于质量模型预言为良好束缚的核素，两种方法的产生截面预言一致；而对于$N=48$附近、对应于纯$Z$移除的核素，两种框架之间存在较大差异。$\Delta BE_{\mathrm{sys}}$与实验数据的一致性以及磨损-烧蚀计算的低估，表明对支配这些同位素产生的反应机制可能存在不完整的描述。$^{71}$Cr的首次观测为$\Delta BE$系统学的预测能力提供了样本外检验：使用HFB-22质量表和在$^{71}$Cr被观测之前确定的$\Delta BE_{\mathrm{sys}}$系数所预言的截面为$1.94\times 10^{-13}$ mb，与本工作报告的测量值$2.20^{+2.10}_{-0.75}\times10^{-13}$ mb相符。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>$^{82}$Se碎裂产生中子丰核素的产生截面如何测量与预测，特别是此前未观测到的同位素$^{71}$Cr能否被观测，以及$\Delta BE$系统学与磨损-烧蚀模型在截面预言上的表现与差异。</p>
+    <h4>方法</h4><p>测量能量损失、飞行时间、磁刚度与总动能，对每个事件逐一鉴别质量数$A$、原子序数$Z$与离子电荷态$q$，测量$^{82}$Se碎裂产生截面；将新数据与已有$^{82}$Se碎裂数据结合，采用磨损-烧蚀形式体系与$\Delta BE$系统学进行分析，并通过基于十一种核质量模型的类贝叶斯模型平均方法量化模型依赖性。</p>
+    <h4>主要发现</h4><p>观测到此前未观测到的同位素$^{71}$Cr，其测量截面为$2.20^{+2.10}_{-0.75}\times10^{-13}$ mb；使用HFB-22质量表及在$^{71}$Cr观测前确定的$\Delta BE_{\mathrm{sys}}$系数预言的截面为$1.94\times 10^{-13}$ mb，与测量值相符。对于质量模型预言为良好束缚的核素，两种方法的截面预言一致；在$N=48$附近（对应纯$Z$移除）差异较大。$\Delta BE_{\mathrm{sys}}$与实验数据一致，而磨损-烧蚀计算存在低估。</p>
+    <h4>局限与展望</h4><p>原文指出，$\Delta BE_{\mathrm{sys}}$与实验数据的一致及磨损-烧蚀计算的低估，提示对支配这些同位素产生的反应机制可能存在不完整的描述；$^{71}$Cr的首次观测为$\Delta BE$系统学提供了样本外检验。后续可合理推断的方向包括改进对$N=48$附近纯$Z$移除相关反应机制的描述，但原文未给出具体后续研究方案。</p>
+  </section>
+</article><article class="paper" id="paper-2611.18015v1">
+  <div class="paper-head">
+    <h2>从$^{26}$P的$\beta$衰变解析$^{26}$Si中的同位旋混合异常<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.18015v1" rel="noopener noreferrer">2611.18015v1</a>
+  </div>
+  <p class="original-title">Resolving the isospin-mixing anomaly in $^{26}$Si from $^{26}$P $β$-decay</p>
+  <p class="meta"><strong>作者：</strong>B. S. O. Johansson、E. A. M. Jensen、J. S. Nielsen、A. Adams、M. J. G. Borge、J. Dopfer、H. O. U. Fynbo、B. Jonson、M. V. Kristensen、M. Madurga、E. D. Nielsen、K. Riisager、C. S. Sumithrarachchi、L. J. Sun、O. Tengblad、L. E. Weghorn、T. Wheeler、C. Wrede</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>质子滴线核$^{26}$P的$\beta$延迟单质子和双质子发射为检验同位旋对称性破缺提供了灵敏探针。近期一项研究报道在$^{26}$Si中观测到一个强同位旋混合的双重态，由$T=2$的同位旋相似态（IAS）与13380 keV处的态构成，并给出创纪录高的同位旋混合矩阵元。本文报道在稀有同位素束流装置（FRIB）上对$^{26}$P的$\beta$延迟带电粒子衰变进行的新高分辨率测量，从而对该衰变中的同位旋混合给出新的认识。利用先进低温气体收集器（ACGS）的低能束流注入，我们获得了干净的单质子和双质子衰变谱。我们的高统计研究显示衰变分支存在差异，且$^{26}$Si中13380 keV态的存在不被我们的数据支持。我们导出的到IAS的分支比与Fermi求和规则的预期完全一致。因此，关于$^{26}$Si中存在强同位旋混合的论断被否定，从而恢复了核中同位旋混合的标准理论预期。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>$^{26}$Si中是否存在由$T=2$ IAS与13380 keV态构成的强同位旋混合双重态，以及此前报道的创纪录高同位旋混合矩阵元是否成立。</p>
+    <h4>方法</h4><p>在FRIB利用ACGS低能束流注入，对质子滴线核$^{26}$P的$\beta$延迟单质子和双质子发射进行高分辨率、高统计测量，并据此提取衰变分支比并与Fermi求和规则比较。</p>
+    <h4>主要发现</h4><p>高统计数据显示衰变分支与先前研究存在差异；$^{26}$Si中13380 keV态的存在不被本数据支持；导出的到IAS的分支比与Fermi求和规则预期完全一致，因而先前关于$^{26}$Si中强同位旋混合的论断被否定。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向；基于结果可合理推断，需进一步独立测量以澄清此前报道的差异来源，并检验本结论在相邻核区的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.18080v1">
+  <div class="paper-head">
+    <h2>少离子肖特基功率标度与单离子事件的自动重建<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.18080v1" rel="noopener noreferrer">2611.18080v1</a>
+  </div>
+  <p class="original-title">Few-Ion Schottky Power Scaling and Automated Reconstruction of Single-Ion Events</p>
+  <p class="meta"><strong>作者：</strong>Moritz Porstendörfer、David Freire-Fernández、Anna Jule Heß、Wolfram Korten、Yury A. Litvinov</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">physics.acc-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>重离子储存环上的非破坏性肖特基诊断被广泛用于测量储存离子的回旋频率与强度。非相干储存离子的平均肖特基功率预期与其数目成正比。在少离子布居下对该响应进行经验性检验，对于解释单个占据数的变化具有重要意义。本文提出一种对时间分辨肖特基谱中选定频带功率的自动阶梯重建方法。该方法应用于GSI实验储存环上共振腔拾取器记录的7008次选定注入，这些数据来自裸^{98}Mo^{42+}第一激发0^+态核双光子衰变实验。自由拟合的能级高度分布呈现出接近单离子功率标度整数倍的极大值，最高约至五个离子。这与当前测量条件下平均功率响应近似可加的预期一致。重建的占据历史还保留了布居停留区间以及可分辨的消失时间，可用于后续寿命分析。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>少离子布居下储存离子的平均肖特基功率是否与离子数目成正比，以及如何从时间分辨肖特基谱中自动重建单个离子的占据事件。</p>
+    <h4>方法</h4><p>提出对时间分辨肖特基谱选定频带功率进行自动阶梯重建的方法，并将其应用于GSI实验储存环共振腔拾取器记录的7008次选定注入数据；数据来自裸^{98}Mo^{42+}第一激发0^+态核双光子衰变实验。</p>
+    <h4>主要发现</h4><p>自由拟合的能级高度分布呈现出接近单离子功率标度整数倍的极大值，最高约至五个离子；这与当前测量条件下平均功率响应近似可加的预期一致。重建的占据历史保留了布居停留区间和可分辨的消失时间。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与适用范围；结果基于特定实验条件与少离子布居，向其他离子种类、储存环或更高占据数的推广需进一步验证。重建的消失时间可用于后续寿命分析，但摘要未给出该分析的具体结果。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.16904v1">
+  <div class="paper-head">
+    <h2>相对论重离子碰撞中磁场效应为何难以观测<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.16904v1" rel="noopener noreferrer">2611.16904v1</a>
+  </div>
+  <p class="original-title">Why magnetic-field effects are difficult to observe in relativistic heavy-ion collisions</p>
+  <p class="meta"><strong>作者：</strong>Stanislaw Mrowczynski、Maciej Pylak</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>相对论重离子碰撞会生成强磁场，理论上预言夸克-胶子等离子体中会出现新现象，但这些预言尚未获得令人信服的实验证实。本文重新分析对上述现象起关键作用的磁场的产生与演化。采用单边傅里叶变换方法，将频率与波矢空间中的描述（这是恰当处理夸克-胶子等离子体电磁性质所必需的）与碰撞瞬间介质产生所带来的初值问题性质相协调。研究表明，夸克-胶子等离子体中维持磁场的感应电流存在延迟发展，因而其有效性低于通常假设；此外，由于等离子体初始主要由电中性的胶子组成，带电夸克在较晚阶段才出现，感应电流的延迟进一步加剧。因此，夸克-胶子等离子体中磁场的量级显著低于此前的估计。这或可解释相对论重离子碰撞中磁场效应为何难以观测。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>相对论重离子碰撞中预言的磁场相关新现象为何至今未获实验证实，其关键在于磁场的产生与演化如何被描述。</p>
+    <h4>方法</h4><p>采用单边傅里叶变换方法，将频率-波矢空间描述与碰撞瞬间介质产生的初值问题性质相协调，重新分析磁场的产生与演化及感应电流的响应。</p>
+    <h4>主要发现</h4><p>夸克-胶子等离子体中维持磁场的感应电流存在延迟发展，有效性低于通常假设；等离子体初始以电中性胶子为主、带电夸克较晚出现，使感应电流延迟进一步加剧；因此等离子体中磁场量级显著低于此前估计。</p>
+    <h4>局限与展望</h4><p>作者据此提出，磁场量级偏低或可解释磁场效应难以观测；该结论基于对感应电流延迟的重新处理，其定量适用范围与对具体观测量（如手征磁效应等）的影响尚需进一步检验，属可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17346v1">
+  <div class="paper-head">
+    <h2>面向VAMOS++的人工智能：从数据分析到智能仪器<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17346v1" rel="noopener noreferrer">2611.17346v1</a>
+  </div>
+  <p class="original-title">Artificial Intelligence for VAMOS++: From Data Analysis to Intelligent Instrumentation</p>
+  <p class="meta"><strong>作者：</strong>Maurycy Rejmund、Antoine Lemasson、Diego Ramos</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>核物理实验日益复杂，需要兼顾精度、效率与可重复性的分析方法。本文综述了将人工智能集成到GANIL的VAMOS++大接受度磁谱仪分析框架中的工作，并讨论其向智能仪器的演进。深度神经网络利用探测器观测量之间的非线性关联来重建离子径迹，并识别原子电荷态与原子序数。这些方法达到与传统方法相当或更优的性能，同时大幅减少人工干预和处理时间。径迹重建的处理速率可达每秒数百万个事件；利用分数标记事件进行粒子鉴别，可将分析流程从数月或数年缩短至数分钟。这些进展支持高分辨率同位素鉴别，并促进跨实验批次的一致分析，有利于核结构、反应动力学和裂变研究。正在进行的发展将该框架扩展到探测器自校准，利用实验数据和物理约束确定探测器响应，减少对专用校准测量或标记参考数据集的依赖。在分段电离室和径迹探测器上的应用展示了整合校准、重建与性能监测的潜力。这些进展共同勾勒出一条通向自适应、自优化仪器的路径，使其能够响应变化的实验条件，并提高复杂核物理实验的科学产出。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将人工智能集成到VAMOS++大接受度磁谱仪的分析框架中，并推动其向智能仪器演进，以应对核物理实验日益增长的复杂性对精度、效率和可重复性的要求。</p>
+    <h4>方法</h4><p>综述性工作：采用深度神经网络，利用探测器观测量之间的非线性关联重建离子径迹，并识别原子电荷态与原子序数；利用分数标记事件进行粒子鉴别；并探索基于实验数据和物理约束的探测器自校准方法，应用于分段电离室和径迹探测器。</p>
+    <h4>主要发现</h4><p>深度神经网络方法在径迹重建和粒子鉴别上达到与传统方法相当或更优的性能，同时大幅减少人工干预和处理时间；径迹重建处理速率可达每秒数百万个事件；利用分数标记事件的粒子鉴别将分析流程从数月或数年缩短至数分钟；这些进展支持高分辨率同位素鉴别并促进跨实验批次的一致分析；自校准应用展示了整合校准、重建与性能监测的潜力。</p>
+    <h4>局限与展望</h4><p>原文指出当前工作为综述与进展报告，自校准等方向仍在发展中；其局限与适用范围原文未明确量化。可合理推断：后续需在更多探测器类型和实验条件下验证自校准与智能仪器的稳健性，并进一步减少对专用校准测量或标记参考数据集的依赖，最终实现能响应变化实验条件的自适应、自优化仪器。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17348v1">
+  <div class="paper-head">
+    <h2>基于拓扑的快中子本底抑制与分段反应堆反电子中微子探测器的惰性中微子灵敏度<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17348v1" rel="noopener noreferrer">2611.17348v1</a>
+  </div>
+  <p class="original-title">Topology-based fast neutron background suppression and sterile-neutrino sensitivity in a segmented reactor ${\overlineν}_{e}$ detector</p>
+  <p class="meta"><strong>作者：</strong>Roni Dey</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>反应堆反电子中微子通常通过逆β衰变相互作用探测，其特征为瞬发正电子信号随后伴随延迟中子俘获。在浅层或地面以上的分段有机闪烁体探测器中，相关快中子构成主要本底，因为质子反冲可模拟瞬发逆β衰变信号。本文以印度闪烁体矩阵反应堆反中微子探测器（ISMRAN）为案例，研究基于拓扑的机器学习方法。利用详细Geant4模拟重建的拓扑观测量训练多层感知机（MLP）。基于F1分数及独立验证样本上的自助重采样，确定固定阈值P_IBD&gt;0.40。将该阈值未经进一步优化应用于独立测试样本时，MLP保留(83.4±0.7)%的逆β衰变事件，并排除(77.3±0.7)%的快中子事件。在使用独立AmBe快中子谱进行的受控能谱基准测试中，该筛选使净候选能谱畸变降低84%。随后将能量相关信号接受度与残余快中子成分纳入分箱似然分析，恢复注入的逆β衰变信号强度为α̂=0.993^{+0.053}_{-0.048}，经验拟合优度概率为0.434。在13 m和18 m基线、每条基线两年曝光条件下，评估了ISMRAN探测器的预期惰性中微子灵敏度。对于标称的MLP前S/B=1:2基准与本底模型，在联合(E_prompt×P_IBD)似然中保留分类器得分，相对于具有相同快中子污染的能量-only似然，在0.1≤Δm_{41}^2≤1 eV^2范围内，将sin^2 2θ_14的95%置信水平灵敏度按对数平均提高7.9%。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在浅层或地面以上的分段有机闪烁体反应堆反电子中微子探测器中，如何抑制相关快中子本底（其质子反冲可模拟逆β衰变瞬发信号），并评估该方法对惰性中微子灵敏度的影响。</p>
+    <h4>方法</h4><p>以ISMRAN探测器为案例，基于详细Geant4模拟重建的拓扑观测量训练多层感知机；利用F1分数和独立验证样本上的自助重采样确定固定阈值P_IBD&gt;0.40；在独立测试样本上评估信号保留与本底排除性能；使用独立AmBe快中子谱进行受控能谱基准测试；将能量相关信号接受度和残余快中子成分纳入分箱似然，并在13 m和18 m基线、每条基线两年曝光条件下评估惰性中微子灵敏度。</p>
+    <h4>主要发现</h4><p>固定阈值P_IBD&gt;0.40在独立测试样本上保留(83.4±0.7)%的逆β衰变事件并排除(77.3±0.7)%的快中子事件；在AmBe快中子谱基准测试中使净候选能谱畸变降低84%；分箱似然恢复注入信号强度为α̂=0.993^{+0.053}_{-0.048}，经验拟合优度概率为0.434；在标称MLP前S/B=1:2基准与本底模型下，联合(E_prompt×P_IBD)似然相对于能量-only似然，在0.1≤Δm_{41}^2≤1 eV^2范围内将sin^2 2θ_14的95%置信水平灵敏度按对数平均提高7.9%。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论该方法的适用范围与局限；结果基于Geant4模拟及特定ISMRAN配置与基准假设，实际探测器系统误差与非理想效应的影响尚待进一步检验。后续可合理推断的方向包括在真实数据中验证拓扑分类器的稳定性，以及将联合似然框架推广至其他分段闪烁体探测器或更广泛的惰性中微子参数空间。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17353v1">
+  <div class="paper-head">
+    <h2>通过 mCBM 的 Λ 重构建演示 CBM 实验能力<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17353v1" rel="noopener noreferrer">2611.17353v1</a>
+  </div>
+  <p class="original-title">Demonstrating CBM Capabilities through $Λ$ Reconstruction with mCBM</p>
+  <p class="meta"><strong>作者：</strong>Yue Hang Leung</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>位于即将建成的反质子与离子研究装置（FAIR）上的压缩重子物质（CBM）实验是一台高计数率固定靶实验，旨在相对论性核-核碰撞中研究极端重子密度下的核物质。为对稀有探针进行高统计量测量，CBM 设计可在最高 10 MHz 的事件率下运行，这要求发展快速且耐辐射的探测器、自触发前端电子学、自由流数据获取架构以及实时事件重建能力。CBM 探测器系统的原型版本与预系列产品已被部署于 mini-CBM 演示装置 mCBM——一个包含 CBM 各主要系统子组件的实验先导装置，安装在 GSI/FAIR 的 SIS18 装置上，属于 FAIR Phase-0 计划。2024 年，成功记录了动能为 1.93 AGeV、平均相互作用率约 500 kHz 的 Ni+Ni 碰撞数据。该数据集可用于详细评估探测器系统的运行性能以及完整的 CBM 数据链，而在 mCBM 有限几何接受度内属于相对稀有信号的 Λ 重子的重建则构成自然的基准检验。本文给出 mCBM 实验首次 Λ 重子重建结果，展示了探测器技术及数据链对即将建成的全尺寸 CBM 实验的可用性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>CBM 实验为在极端重子密度下研究核物质并高统计量测量稀有探针，需在最高 10 MHz 事件率下运行；本文关注其探测器系统与完整数据链能否在真实束流条件下正常工作，并以 Λ 重子重建作为基准检验。</p>
+    <h4>方法</h4><p>在 FAIR Phase-0 计划下，将 CBM 各主要系统的原型与预系列组件集成为 mCBM 演示装置，安装于 GSI/FAIR 的 SIS18；2024 年以约 500 kHz 平均相互作用率记录动能为 1.93 AGeV 的 Ni+Ni 碰撞数据，并基于该数据集评估探测器运行性能与完整 CBM 数据链，同时进行 Λ 重子重建。</p>
+    <h4>主要发现</h4><p>原文明确报告成功记录了 1.93 AGeV Ni+Ni 碰撞数据，平均相互作用率约 500 kHz；该数据集可用于详细评估探测器系统运行性能与完整数据链；并给出 mCBM 实验首次 Λ 重子重建结果，表明探测器技术与数据链对全尺寸 CBM 实验具备可用性。</p>
+    <h4>局限与展望</h4><p>原文未给出 Λ 重建的定量指标或系统误差评估；结果基于 mCBM 有限几何接受度与特定束流条件，向全尺寸 CBM 及更高事件率的推广需进一步验证。后续可合理推断为在更高计数率与完整探测器配置下继续检验数据链与稀有探针重建能力。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17362v1">
+  <div class="paper-head">
+    <h2>在IGISOL实现MR-ToF辅助的源内共振电离光谱术<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17362v1" rel="noopener noreferrer">2611.17362v1</a>
+  </div>
+  <p class="original-title">MR-ToF-assisted In-Source Resonance Ionization Spectroscopy at IGISOL</p>
+  <p class="meta"><strong>作者：</strong>Natalia Ambrosio-Macias、Daniel Bettaney、Saikumar Chinthakayala、Tobias Christen、Marie Deseyn、Tommi Eronen、Zhuang Ge、Phillip Imgram、Arthur Jaries、Anu Kankainen、Brian Kootte、Markus Kortelainen、Sonja Kujanpää、Kara Lynch、Iain Moore、Luis Miguel Motilla、Andrea Raggio、Mikael Reponen、Ville Virtanen、Miikka Winter</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在芬兰于韦斯屈莱大学的离子导向同位素在线分离器（IGISOL）装置上，实现了多反射飞行时间质谱仪（MR-ToF-MS）辅助的源内激光共振电离光谱（RIS）。通过熔合蒸发反应产生的奇异核在热腔收集器中停止并被中性化，随后经多步共振电离方案被选择性激光电离，再传输至MR-ToF-MS装置。该技术组合旨在对$^{100}$Sn紧邻区域的极奇异N=Z核进行光学探测。本文描述了激光系统、热腔离子源、同量异位素纯化与探测各阶段。作为示例，给出了富质子银同位素$^{101}$Ag的代表性超精细结构光谱。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在IGISOL装置上对$^{100}$Sn附近极奇异的N=Z核进行光学探测，并实现高灵敏的共振电离光谱测量。</p>
+    <h4>方法</h4><p>将源内激光共振电离光谱与多反射飞行时间质谱仪联用：熔合蒸发反应产物在热腔收集器中停止并中性化，经多步共振电离后被选择性电离，再传输至MR-ToF-MS进行同量异位素纯化与探测。</p>
+    <h4>主要发现</h4><p>该MR-ToF-MS辅助的源内RIS技术已在IGISOL实现，并给出了富质子银同位素$^{101}$Ag的代表性超精细结构光谱作为案例。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；该技术组合面向$^{100}$Sn邻近极奇异N=Z核的光学研究，其在该区域的适用性有待进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17367v1">
+  <div class="paper-head">
+    <h2>面向放射性离子应用的快速离子冷却与激光光谱学俘获平台<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17367v1" rel="noopener noreferrer">2611.17367v1</a>
+  </div>
+  <p class="original-title">A trap-based platform for cooling and laser spectroscopy of fast ions toward radioactive-ion applications</p>
+  <p class="meta"><strong>作者：</strong>Stefanos Pelonis、Tobias Christen、Wouter Gins、Bram Hendrickx、Phillip Imgram、Angelos Karadimas、Ágota Koszorús、Sandro Kramer、Stef Kunnen、Pierre Lassegues、Andrea Raggio、Robbe Van Duyse、Ruben P. de Groote</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span> <span class="tag">physics.app-ph</span> <span class="tag">physics.atom-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报道了用于精密实验的放射性同位素停止与俘获装置（STRIPE）分段线性保罗阱的首批实验。该装置旨在作为放射性离子束设施所产生放射性同位素的高效俘获与激光冷却阱。我们演示了10 keV离子束的减速、俘获以及激光冷却至库仑晶体。作为初始光谱学基准，驱动了$^{88}$Sr$^+$中偶极禁戒的$5s$ $^2S_{1/2}$ $\rightarrow$ $4d$ $^2D_{5/2}$跃迁，部分分辨了塞曼结构，得到高斯线宽14.5(8) MHz，剩余线宽归因于离子的微运动。亚稳态$4d$ $^2D_{5/2}$的寿命测量值为0.325(5)$_{\mathrm{stat}}$(4)$_{\mathrm{sys}}$ s，未对碰撞猝灭进行修正。此外还进行了若干测量，以量化冷却时间尺度、光子收集区域的探测率以及阱的存储寿命。所发展的技术将允许对放射性离子束进行减速和冷却，以用于精密光谱测量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为放射性离子束设施产生的放射性同位素提供高效的俘获与激光冷却平台，并在此基础上开展精密激光光谱测量。</p>
+    <h4>方法</h4><p>采用STRIPE分段线性保罗阱，对10 keV离子束进行减速、俘获并激光冷却至库仑晶体；以$^{88}$Sr$^+$的偶极禁戒$5s$ $^2S_{1/2}$ $\rightarrow$ $4d$ $^2D_{5/2}$跃迁作为光谱学基准，并测量亚稳态寿命、冷却时间尺度、光子收集区域探测率及阱存储寿命。</p>
+    <h4>主要发现</h4><p>实现了10 keV离子束的减速、俘获与激光冷却至库仑晶体；驱动了$^{88}$Sr$^+$的$5s$ $^2S_{1/2}$ $\rightarrow$ $4d$ $^2D_{5/2}$跃迁，部分分辨塞曼结构，高斯线宽为14.5(8) MHz，剩余线宽归因于离子微运动；测得$4d$ $^2D_{5/2}$亚稳态寿命为0.325(5)$_{\mathrm{stat}}$(4)$_{\mathrm{sys}}$ s（未修正碰撞猝灭）；并量化了冷却时间尺度、光子收集区域探测率与阱存储寿命。</p>
+    <h4>局限与展望</h4><p>原文指出该技术可使放射性离子束被减速和冷却以用于精密光谱测量；亚稳态寿命未修正碰撞猝灭，提示该测量受碰撞猝灭影响，其适用条件与修正需求有待进一步明确。基于原文可合理推断，后续工作可能将该平台应用于放射性同位素的光谱测量，但具体性能与适用范围尚需实验验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17389v1">
+  <div class="paper-head">
+    <h2>Warwick TPC平台的构建与调试<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17389v1" rel="noopener noreferrer">2611.17389v1</a>
+  </div>
+  <p class="original-title">Construction and Commissioning of the Warwick TPC Platform</p>
+  <p class="meta"><strong>作者：</strong>Matthew Snape、Hong-Kai Tan、Gary Barker、Alan Burton、Alexander Deisting、Philip Hamacher-Baumann、Xianguo Lu</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>主动靶气体时间投影室（TPC）有望为未来中微子振荡测量所需的中微子相互作用提供终极测量手段。其研发需要对气体混合物、压强、电场和读出配置进行优化。Warwick TPC（WarTPC）是一个面向中微子物理及其他领域的研发平台，可在约10 bar以下的压强下运行，并采用厚型气体电子倍增器与Timepix3相机相结合的光学读出方案。本文介绍WarTPC平台的构建与调试，描述其各子系统的设计与集成，并报告在不同运行条件下对其光学响应的首批测量结果，表明该平台是一个稳定且可正常工作的研发平台。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构建并调试一个用于中微子物理及相关领域研发的气体时间投影室平台，并验证其在不同运行条件下的光学响应。</p>
+    <h4>方法</h4><p>构建Warwick TPC（WarTPC）研发平台，该平台可在约10 bar以下压强运行，采用厚型气体电子倍增器与Timepix3相机相结合的光学读出；描述各子系统的设计与集成，并开展不同运行条件下的首批光学响应测量。</p>
+    <h4>主要发现</h4><p>原文明确报告了WarTPC平台的构建与调试情况、各子系统的设计与集成，以及在不同运行条件下对其光学响应的首批测量结果，表明该平台稳定且可正常工作。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；基于其作为研发平台的定位可合理推断，后续工作可能围绕气体混合物、压强、电场与读出配置的进一步优化展开，但此推断需以未来研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17849v1">
+  <div class="paper-head">
+    <h2>基于LHC的反缪子-核子对撞机LHμC：核束选项<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17849v1" rel="noopener noreferrer">2611.17849v1</a>
+  </div>
+  <p class="original-title">LHC Based Antimuon-Nucleus Collider LH$μ$C: Nucleus Options</p>
+  <p class="meta"><strong>作者：</strong>Ali Can Canbay、Burak Dagli、Arda Goroglu、Yigitali Karaca、Umit Kaya、Bora Ketenoglu、Saleh Sultansoy、Frank Zimmermann</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span> <span class="tag">physics.acc-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出基于大型强子对撞机（LHC）的反缪子-强子对撞机LHμC的核束方案。利用为μTRISTAN提出的、基于J-PARC缪子g-2/EDM实验技术的超冷μ+束，在μTRISTAN型增强器或置于LHeC能量回收直线加速器隧道中的增强器中加速至1 TeV，并在与LHC相切的3 km主环中与LHC核束对撞。与Pb、Xe、O和Ne束对撞可提供13.1至47.9 TeV的质心能量，即约每核子3.3 TeV。使用AloHEP软件评估了亮度和束-束调谐偏移。对于μ-Pb对撞，采用μTRISTAN型（基于ERL的）增强器时亮度达到2.7×10^30（2.2×10^30）cm^-2s^-1，即每核子5.6×10^32（4.5×10^32）cm^-2s^-1，Brinkmann-Dohlus动态聚焦方案可将其提高2-3倍。文中讨论了物理潜力，包括相对于LHeC将运动学覆盖范围扩展约20倍、在微扰尺度上触及部分子饱和、核部分子分布、光子诱导过程以及带电流味分离。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究基于LHC的反缪子-核子对撞机LHμC在核束选项下的可行性，包括可达到的质心能量、亮度及物理潜力。</p>
+    <h4>方法</h4><p>采用为μTRISTAN提出的超冷μ+束技术，将μ+加速至1 TeV，并与LHC的Pb、Xe、O、Ne核束在3 km主环中对撞；使用AloHEP软件评估亮度和束-束调谐偏移，并讨论Brinkmann-Dohlus动态聚焦方案对亮度的提升。</p>
+    <h4>主要发现</h4><p>与Pb、Xe、O和Ne束对撞的质心能量为13.1至47.9 TeV（约每核子3.3 TeV）；μ-Pb对撞在μTRISTAN型增强器下亮度为2.7×10^30 cm^-2s^-1（每核子5.6×10^32 cm^-2s^-1），在ERL型增强器下为2.2×10^30 cm^-2s^-1（每核子4.5×10^32 cm^-2s^-1）；Brinkmann-Dohlus动态聚焦方案可将亮度提高2-3倍；物理潜力包括相对LHeC将运动学覆盖范围扩展约20倍、触及微扰尺度部分子饱和、研究核部分子分布、光子诱导过程和带电流味分离。</p>
+    <h4>局限与展望</h4><p>论文未给出实验验证或运行参数之外的结论；其局限与适用范围需依据原文进一步评估。基于所述亮度提升方案和运动学扩展，可合理推断后续研究可能聚焦于动态聚焦方案的工程实现及核部分子分布与部分子饱和的定量模拟，但这些推断尚待验证。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-16 13:48 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

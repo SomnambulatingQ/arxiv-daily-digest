@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-ex · 高能实验</h1>
+    <p class="lede">官方公告日：2026-11-16</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">16</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">13</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（3）</h3><ol class="toc-list"><li><a href="#paper-2611.17651v1">基于Super-Kamiokande 5805天数据的⁸B太阳中微子测量：太阳核心尺寸与温度</a> <small>2611.17651v1</small></li><li><a href="#paper-2611.17849v1">基于LHC的反缪子-核子对撞机LHμC：核束选项</a> <small>2611.17849v1</small></li><li><a href="#paper-2611.17904v1">HIAF-HIRIBL 上 $\pi^- p \to K^- X$ 反应对 $\Theta^+$ 产生的灵敏度</a> <small>2611.17904v1</small></li></ol><h3>交叉列表（13）</h3><ol class="toc-list"><li><a href="#paper-2611.17343v1">面向HL-LHC低横动量径迹重建的曲率感知边动态图神经网络</a> <small>2611.17343v1</small></li><li><a href="#paper-2611.17344v1">全张量重力梯度仪中的秩一超轻暗物质响应</a> <small>2611.17344v1</small></li><li><a href="#paper-2611.17345v1">利用四面体超导重力梯度仪进行成分依赖的超轻暗物质探测</a> <small>2611.17345v1</small></li><li><a href="#paper-2611.17347v1">用于高能物理应用的GEM探测器性能与稳定性研究</a> <small>2611.17347v1</small></li><li><a href="#paper-2611.17354v1">用于模拟量能器簇射能量回归的混合量子-经典序列模型</a> <small>2611.17354v1</small></li><li><a href="#paper-2611.17363v1">MID：面向ALICE 3升级项目的缪子探测器</a> <small>2611.17363v1</small></li><li><a href="#paper-2611.17365v1">固体-超流界面非平衡声子损失的观测</a> <small>2611.17365v1</small></li><li><a href="#paper-2611.17368v1">一种提供时间、位置和径迹角度信息的双面LGAD探测器</a> <small>2611.17368v1</small></li><li><a href="#paper-2611.17369v1">PTOLEMY实验中基于回旋辐射发射谱学的电子实时标记</a> <small>2611.17369v1</small></li><li><a href="#paper-2611.17389v1">Warwick TPC平台的构建与调试</a> <small>2611.17389v1</small></li><li><a href="#paper-2611.17432v1">超流³He靶中暗物质自旋无关与自旋相关散射的多体响应</a> <small>2611.17432v1</small></li><li><a href="#paper-2611.18136v1">希格斯轫致辐射的量子层析：希格斯玻色子自耦合与Z玻色子反常耦合</a> <small>2611.18136v1</small></li><li><a href="#paper-2611.18306v1">面向更深入理解 $a_1$ 与 $a_2$ 跃迁形状因子</a> <small>2611.18306v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.17651v1">
+  <div class="paper-head">
+    <h2>基于Super-Kamiokande 5805天数据的⁸B太阳中微子测量：太阳核心尺寸与温度<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.17651v1" rel="noopener noreferrer">2611.17651v1</a>
+  </div>
+  <p class="original-title">$^8$B Solar Neutrino Measurements of Solar Core Size and Temperature from 5805 Days of Super-Kamiokande</p>
+  <p class="meta"><strong>作者：</strong>The Super-Kamiokande Collaboration、:、Y. Jiang、K. Abe、Y. Asaoka、M. Harada、Y. Hayato、K. Hiraide、T. H. Hung、K. Ieki、M. Ikeda、J. Kameda、Y. Kataoka、S. Mine、M. Miura、S. Moriyama、K. Nakagiri、M. Nakahata、S. Nakayama、Y. Noguchi、G. Pronost、K. Sato、H. Sekiya、R. Shinoda、M. Shiozawa、Y. Suzuki、A. Takeda、Y. Takemoto、H. Tanaka、S. Chen、Y. Itow、T. Kajita、R. Nishijima、K. Okumura、T. Tashiro、T. Tomiya、X. Wang、F. J. de Garay Arcones、P. Fernandez、L. Labarga、D. Samudio、C. Yanagisawa、B. Jargowsky、E. Kearns、J. Mirabito、L. Wan、T. Wester、B. W. Pointon、J. Bian、B. Cortez、N. J. Griskevich、M. B. Smy、H. W. Sobel、V. Takhistov、J. Hill、B. D. Xu、D. Jung、D. H. Moon、R. G. Park、B. S. Yang、K. Scholberg、C. W. Walter、A. Chahlaoui、O. Drapier、A. Ershova、M. Ferey、Z. Hu、E. Le Blévec、T. Leplumey、Th. A. Mueller、P. Paganini、C. Quach、R. Rogly、T. Nakamura、J. S. Jang、R. P. Litchfield、L. N. Machado、F. J. P. Soler、J. G. Learned、K. Choi、S. Cao、T. V. Ngoc、L. H. V. Anthony、N. W. Prouse、M. Scott、Y. Uchida、V. Berardi、N. F. Calabria、M. G. Catanesi、N. Ospina、E. Radicioni、A. Langella、G. De Rosa、G. T. Burton、G. Collazuol、M. Feltre、M. Mattiazzi、L. Ludovici、M. Gonin、L. Périssé、B. Quilain、M. Fukazawa、S. Horiuchi、A. Kawabata、Y. M. Liu、Y. Maekawa、Y. Nishimura、A. Oka、H. Tanigawa、Z. Utagawa、R. Akutsu、M. Friend、T. Hasegawa、Y. Hino、T. Ishida、T. Kobayashi、T. Matsubara、T. Nakadaira、Y. Oyama、A. Portocarrero Yrey、K. Sakashita、T. Sekiguchi、N. Bhuiyan、F. Di Lodovico、T. Katori、R. Kralik、N. Latham、R. M. Ramsden、V. Siccardi、S. Aoyama、H. Bambara、Y. Inaba、H. Ito、M. Nishigami、T. Sone、A. T. Suzuki、Y. Takeuchi、S. Wada、H. Zhong、J. Feng、L. Feng、N. Fujimoto、S. Han、J. Hikida、M. Kawaue、T. Kikawa、F. Nakanishi、T. Nakaya、R. A. Wendell、S. J. Jenkins、U. Limbu、N. McCauley、M. Fanì、M. J. Wilking、Z. Xie、Y. Fukuda、H. Menjo、Y. Yoshioka、J. Lagoda、J. Zalipska、T. Yano、M. Mori、J. Jiang、Y. Asano、K. Hamaguchi、H. Ishino、Y. Koshio、S. Ohshita、T. Tada、A. Yuto、T. Ishizuka、G. Barr、D. Barrow、D. Wark、A. Holin、F. Nova、M. Jo、S. Jung、J. Yoo、L. Kneale、T. Peacock、P. Stowell、H. Okazawa、S. M. Lakshmi、S. Hong、E. Kwon、M. W. Lee、J. W. Seo、I. Yu、Y. Ashida、A. K. Ichikawa、S. Kobayashi、K. D. Nakamura、S. Abe、W. Cai、Y. Endo、S. Goto、H. Hayasaki、S. Kodama、Y. Kong、K. Li、Y. Masaki、Y. Mizuno、T. Muro、Y. Nakajima、M. Sekiyama、N. Taniuchi、T. Yamazumi、M. Yokoyama、P. de Perio、S. Fujita、C. Jesús-Valls、K. Martens、Ll. Marti、A. D. Santos、K. M. Tsui、M. R. Vagins、S. Izumiyama、M. Kuze、R. Matsumoto、C. Ise、M. Ishitsuka、M. Sugo、M. Wako、K. Yamauchi、Y. Nakano、A. Yankelevich、F. Cormier、R. Gaur、M. Hartz、A. Konaka、X. Li、B. R. Smithers、S. Chen、Y. Wu、A. Q. Zhang、B. Zhang、H. Adhikary、M. Girgus、P. Govindaraj、M. Posiadala-Zezula、Y. S. Prabhu、S. B. Boyd、R. Edwards、D. Hadley、M. O&#x27;Flaherty、B. Richards、A. Ali、B. Jamieson、C. Bronner、D. Horiguchi、A. Minamino、Y. Sasaki</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">astro-ph.HE</span> <span class="tag">astro-ph.SR</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>太阳中微子的探测为太阳核心正在进行的聚变提供了直接证据，并可作为探测太阳核心的手段。⁸B的产生率对太阳核心温度敏感；⁸B太阳中微子的绝热味转换依赖于局域太阳电子密度。结合太阳电子密度随距日心距离近似指数下降这一事实，可推断太阳核心的尺寸、密度与温度。本文基于Super-Kamiokande I–IV期太阳中微子数据，给出太阳核心尺寸的外边界，并测量太阳核心的密度与温度。在90%置信水平下，对高金属丰度B16+GS98标准太阳模型给出太阳核心外边界为0.499R_⊙，对包含原太阳吸积的K2-A09-MZvar-12模型为0.381R_⊙。与SNO多项式系数联合拟合后，该限制分别改善至B16+GS98的0.268R_⊙和K2-A09-MZvar-12的0.215R_⊙。文中还报告了其他金属丰度情形下的结果。在高金属丰度情形下，假定标称太阳核心密度与核心尺寸，太阳中心温度报告为T_C=(15.599±0.0016)×10⁶ K，⁸B产生剖面峰值半径处为T_npz=(15.492±0.0017)×10⁶ K。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用太阳中微子数据推断太阳核心的尺寸、密度与温度，并给出太阳核心尺寸的观测限制。</p>
+    <h4>方法</h4><p>基于Super-Kamiokande I–IV期共5805天的太阳中微子数据，利用⁸B中微子产生率对核心温度的敏感性以及绝热味转换对局域太阳电子密度的依赖性，结合太阳电子密度随半径近似指数下降的假设进行推断；并与SNO多项式系数进行联合拟合。</p>
+    <h4>主要发现</h4><p>在90%置信水平下给出太阳核心外边界：B16+GS98模型为0.499R_⊙，K2-A09-MZvar-12模型为0.381R_⊙；与SNO联合拟合后分别改善至0.268R_⊙和0.215R_⊙。在高金属丰度情形下假定标称核心密度与尺寸，测得太阳中心温度T_C=(15.599±0.0016)×10⁶ K，⁸B产生剖面峰值半径处温度T_npz=(15.492±0.0017)×10⁶ K。</p>
+    <h4>局限与展望</h4><p>所得核心尺寸限制依赖于所采用的太阳模型（金属丰度及是否包含原太阳吸积）与电子密度近似指数下降的假设；不同金属丰度情形下的结果差异表明系统不确定性仍需进一步研究。后续可通过更多中微子数据与独立模型的联合分析来检验这些推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17849v1">
+  <div class="paper-head">
+    <h2>基于LHC的反缪子-核子对撞机LHμC：核束选项<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.17849v1" rel="noopener noreferrer">2611.17849v1</a>
+  </div>
+  <p class="original-title">LHC Based Antimuon-Nucleus Collider LH$μ$C: Nucleus Options</p>
+  <p class="meta"><strong>作者：</strong>Ali Can Canbay、Burak Dagli、Arda Goroglu、Yigitali Karaca、Umit Kaya、Bora Ketenoglu、Saleh Sultansoy、Frank Zimmermann</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span> <span class="tag">physics.acc-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出基于大型强子对撞机（LHC）的反缪子-强子对撞机LHμC的核束方案。利用为μTRISTAN提出的、基于J-PARC缪子g-2/EDM实验技术的超冷μ+束，在μTRISTAN型增强器或置于LHeC能量回收直线加速器隧道中的增强器中加速至1 TeV，并在与LHC相切的3 km主环中与LHC核束对撞。与Pb、Xe、O和Ne束对撞可提供13.1至47.9 TeV的质心能量，即约每核子3.3 TeV。使用AloHEP软件评估了亮度和束-束调谐偏移。对于μ-Pb对撞，采用μTRISTAN型（基于ERL的）增强器时亮度达到2.7×10^30（2.2×10^30）cm^-2s^-1，即每核子5.6×10^32（4.5×10^32）cm^-2s^-1，Brinkmann-Dohlus动态聚焦方案可将其提高2-3倍。文中讨论了物理潜力，包括相对于LHeC将运动学覆盖范围扩展约20倍、在微扰尺度上触及部分子饱和、核部分子分布、光子诱导过程以及带电流味分离。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究基于LHC的反缪子-核子对撞机LHμC在核束选项下的可行性，包括可达到的质心能量、亮度及物理潜力。</p>
+    <h4>方法</h4><p>采用为μTRISTAN提出的超冷μ+束技术，将μ+加速至1 TeV，并与LHC的Pb、Xe、O、Ne核束在3 km主环中对撞；使用AloHEP软件评估亮度和束-束调谐偏移，并讨论Brinkmann-Dohlus动态聚焦方案对亮度的提升。</p>
+    <h4>主要发现</h4><p>与Pb、Xe、O和Ne束对撞的质心能量为13.1至47.9 TeV（约每核子3.3 TeV）；μ-Pb对撞在μTRISTAN型增强器下亮度为2.7×10^30 cm^-2s^-1（每核子5.6×10^32 cm^-2s^-1），在ERL型增强器下为2.2×10^30 cm^-2s^-1（每核子4.5×10^32 cm^-2s^-1）；Brinkmann-Dohlus动态聚焦方案可将亮度提高2-3倍；物理潜力包括相对LHeC将运动学覆盖范围扩展约20倍、触及微扰尺度部分子饱和、研究核部分子分布、光子诱导过程和带电流味分离。</p>
+    <h4>局限与展望</h4><p>论文未给出实验验证或运行参数之外的结论；其局限与适用范围需依据原文进一步评估。基于所述亮度提升方案和运动学扩展，可合理推断后续研究可能聚焦于动态聚焦方案的工程实现及核部分子分布与部分子饱和的定量模拟，但这些推断尚待验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17904v1">
+  <div class="paper-head">
+    <h2>HIAF-HIRIBL 上 $\pi^- p \to K^- X$ 反应对 $\Theta^+$ 产生的灵敏度<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.17904v1" rel="noopener noreferrer">2611.17904v1</a>
+  </div>
+  <p class="original-title">Sensitivity to $Θ^+$ production in the $π^- p \to K^- X$ reaction at HIAF-HIRIBL</p>
+  <p class="meta"><strong>作者：</strong>Yu Xu、Ju-Jun Xie、Xueheng Zhang、Liangwen Chen、Yuhong Yu、Li Deng、Jiajia Zhai、Pei Yu、He Zhao、Lina Sheng、Guodong Shen、Zhiyu Sun</p>
+  <p class="meta"><strong>主分类：</strong>hep-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>利用 $\pi^- p \to K^- X$ 反应进行缺失质量搜索，可以探测 E19 能量以上所提出的 $N^*(2400)$ 形成区域。本文给出在高强度重离子加速器装置（HIAF）及其高刚度放射性离子束线（HIRIBL）上，对质量为 1.540 GeV/$c^2$ 的窄 $\Theta^+$ 进行缺失质量搜索的灵敏度预期。采用 E19 的分辨率、效率和连续本底，在 $\pi$ 介子动量分别为 2.01 和 2.586 GeV/$c$ 处各进行为期 10 天的独立曝光，在所选高动量分支上对 $2^\circ$ 至 $15^\circ$ 平均的微分截面，给出仅含本底的 90% CL 中位预期上限分别为 0.0293 和 0.0356 $\mu$b/sr；较高动量对应所提出的 $N^*(2400)$ 形成能量。中位局部 $5\sigma$ 发现阈值为 0.0894 和 0.109 $\mu$b/sr。非共振核子交换模型给出的宽度标度为：$J^P=1/2^+$ 时为 0.0039 至 0.079 MeV，$J^P=1/2^-$ 时为 0.045 至 1.47 MeV。所有正宇称变体均可检验 DIANA 宽度标度 $0.34 \pm 0.10$ MeV；负宇称灵敏度取决于具体变体。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 HIAF-HIRIBL 上利用 $\pi^- p \to K^- X$ 反应，对质量 1.540 GeV/$c^2$ 的窄 $\Theta^+$ 进行缺失质量搜索时，其灵敏度如何；该搜索能否探测 E19 能量以上所提出的 $N^*(2400)$ 形成区域。</p>
+    <h4>方法</h4><p>基于 E19 的分辨率、效率和连续本底，对 $\pi$ 介子动量 2.01 和 2.586 GeV/$c$ 处各 10 天的独立曝光进行灵敏度预期；在所选高动量分支上，对 $2^\circ$ 至 $15^\circ$ 平均的微分截面给出仅含本底的 90% CL 中位预期上限和中位局部 $5\sigma$ 发现阈值，并采用非共振核子交换模型估计宽度标度。</p>
+    <h4>主要发现</h4><p>在 $\pi$ 介子动量 2.01 和 2.586 GeV/$c$ 处，仅含本底的 90% CL 中位预期上限分别为 0.0293 和 0.0356 $\mu$b/sr；中位局部 $5\sigma$ 发现阈值分别为 0.0894 和 0.109 $\mu$b/sr；较高动量对应所提出的 $N^*(2400)$ 形成能量。非共振核子交换模型给出的宽度标度为：$J^P=1/2^+$ 时为 0.0039 至 0.079 MeV，$J^P=1/2^-$ 时为 0.045 至 1.47 MeV。所有正宇称变体均可检验 DIANA 宽度标度 $0.34 \pm 0.10$ MeV；负宇称灵敏度取决于具体变体。</p>
+    <h4>局限与展望</h4><p>上述结果为基于 E19 分辨率、效率和连续本底假设的灵敏度预期，并非实际测量；其适用范围受这些假设及非共振核子交换模型变体影响。负宇称情形下的灵敏度依赖具体模型变体，尚不能给出统一结论。后续可通过实际束流实验检验这些预期，并进一步区分不同宇称与模型假设。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.17343v1">
+  <div class="paper-head">
+    <h2>面向HL-LHC低横动量径迹重建的曲率感知边动态图神经网络<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17343v1" rel="noopener noreferrer">2611.17343v1</a>
+  </div>
+  <p class="original-title">Curvature-Aware Edge Dynamic GNNs for Low-$p_T$ Track Reconstruction at HL-LHC</p>
+  <p class="meta"><strong>作者：</strong>Syed Haider Ali、Nouhaila Innan、Muhammad Shafique</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">cs.LG</span> <span class="tag">hep-ex</span> <span class="tag">physics.data-an</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>高能对撞机实验中的粒子径迹重建是一个计算密集的组合问题，传统上由卡尔曼滤波求解，但其随探测器占用率上升而扩展性不佳。图神经网络（GNN）近来成为有前景的替代方案。本文提出Manifold Helical-IN，一种新的交互网络架构，利用曲率感知特征将探测器空间点显式嵌入螺旋流形图卡。该几何投影在数学上展开低动量粒子紧密卷曲的轨迹，使网络能够以较高精度区分真实物理径迹与组合噪声。在TrackML挑战数据集上评估，所提Manifold Helical-IN在实验关键的$p_T &gt; 0.5$ GeV区间达到0.9675的重建效率，接近近期报道的基于Transformer的方法。关键在于，流形嵌入带来0.0037的假径迹率，相较基线Helical-IN（0.0508）提升13倍。此外，模型保持了良好的径迹连贯性，以本文提出的平均命中恢复分数（MHRF）0.858量化，并在单块NVIDIA A100 GPU上实现约150 ms/事件的高效推理延迟。这些结果代表了面向高级触发（HLT）实时软粒子径迹重建的关键一步。通过在实际HLT延迟预算内运行，这种几何感知方法为恢复软异常超出标准模型信号（如未聚类能量模式SUEPs）提供了途径，此类信号通常规避标准硬件滤波器。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在高能对撞机高占用率环境下，如何以可接受的推理延迟实现低横动量（低$p_T$）粒子径迹的高效、低假径迹重建，以服务于HLT实时触发。</p>
+    <h4>方法</h4><p>提出Manifold Helical-IN交互网络架构，利用曲率感知特征将探测器空间点嵌入螺旋流形图卡以展开低动量粒子卷曲轨迹；在TrackML数据集上评估，并引入平均命中恢复分数（MHRF）度量径迹连贯性。</p>
+    <h4>主要发现</h4><p>在$p_T &gt; 0.5$ GeV区间重建效率为0.9675，接近近期Transformer类方法；假径迹率为0.0037，较基线Helical-IN的0.0508提升13倍；MHRF为0.858；单块NVIDIA A100 GPU上推理延迟约150 ms/事件。</p>
+    <h4>局限与展望</h4><p>原文指出该工作面向HLT实时软粒子径迹重建，并可能有助于恢复SUEPs等超出标准模型信号；其局限、泛化范围及在真实触发系统中的部署效果未在摘要中明确说明，需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17344v1">
+  <div class="paper-head">
+    <h2>全张量重力梯度仪中的秩一超轻暗物质响应<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17344v1" rel="noopener noreferrer">2611.17344v1</a>
+  </div>
+  <p class="original-title">Rank-One Ultralight Dark Matter Response in a Full-Tensor Gravity Gradiometer</p>
+  <p class="meta"><strong>作者：</strong>John J. Oh、Ho Jung Paik</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">astro-ph.IM</span> <span class="tag">gr-qc</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究一种全张量超导重力梯度仪对与膨胀子耦合的超轻暗物质信号的响应。该梯度仪包含四个检验质量，按2+2模式采用两种材料组分，从而获得一个依赖于材料组分的探测通道。重构响应为秩一张量 K = gv_φ(t) ⊗ qv，其中 qv 的轴向由材料配置预先固定；该响应满足无参数零条件 K(I − Pq) = 0，而仅靠重力梯度或平台旋转无法满足该条件。当检验质量采用单一材料组分时，该响应消失。对于铜和铅，灵敏度可达 d_m̂ − d_g ≃ 3.4×10⁻⁸；若升级加速度计，灵敏度可达 4.9×10⁻¹⁰。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>全张量超导重力梯度仪能否利用两种材料组分构成的检验质量阵列，形成对膨胀子耦合超轻暗物质的、可与其他引力梯度或平台旋转效应区分的响应通道。</p>
+    <h4>方法</h4><p>采用四个检验质量按2+2模式配置两种材料组分的全张量超导重力梯度仪，重构出秩一张量响应 K = gv_φ(t) ⊗ qv，并分析其无参数零条件 K(I − Pq) = 0；以铜和铅为例评估灵敏度，并讨论升级加速度计后的灵敏度。</p>
+    <h4>主要发现</h4><p>重构响应为秩一张量，其 qv 轴向由材料配置预先固定；该响应满足无参数零条件 K(I − Pq) = 0，而仅靠重力梯度或平台旋转无法满足该条件；当检验质量采用单一材料组分时响应消失。铜与铅情形下灵敏度达到 d_m̂ − d_g ≃ 3.4×10⁻⁸，升级加速度计后可达 4.9×10⁻¹⁰。</p>
+    <h4>局限与展望</h4><p>原文给出的灵敏度为针对铜和铅的具体估计，其适用范围受材料组分差异与加速度计性能约束；升级加速度计可提升灵敏度，但摘要未给出系统误差、背景或实际运行条件的完整评估，相关实验可行性仍需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17345v1">
+  <div class="paper-head">
+    <h2>利用四面体超导重力梯度仪进行成分依赖的超轻暗物质探测<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17345v1" rel="noopener noreferrer">2611.17345v1</a>
+  </div>
+  <p class="original-title">Composition-dependent ultralight dark matter detection with a tetrahedral superconducting gravity gradiometer</p>
+  <p class="meta"><strong>作者：</strong>John J. Oh、Ho Jung Paik</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">astro-ph.IM</span> <span class="tag">gr-qc</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>面向全张量引力波探测设计的四面体超导重力梯度仪（如地面 mSOGRO 方案与拟议的月球 LANGO 天文台）通过四个检验质量重建加速度梯度张量。本文表明，若将四个检验质量按 2+2 方式赋予两种材料成分，则可在同一张量读出中增加一条成分依赖的超轻暗物质（ULDM）通道，而无需单独的暗物质传感器或暗物质专用读出。相干振荡的标量场按各质量的 dilaton charge 成比例地加速各质量；张量重建后，电荷仅保留于一个均值（被共模抑制）以及一个正比于两种材料间电荷对比 Δᾱ_{AB} 的单一矢量 q 中。响应为秩一张量 K_{ULDM}(t)=g_φ(t)⊗q，其幅度由晕决定，与 m_φ 无关。q 的轴向由材料指派预先固定，因此该响应在任意时刻均满足零条件 K_{ULDM}(I−P_q)=0，对任意 g_φ（包括具有随机梯度的维里化场）均成立——这构成对引力波信号的精确张量判别；若为单一成分，则 q=0。在引力波噪声模型下，铜与铅检验质量的耦合灵敏度在基线仪器上达到 d_{m̂}−d_g≃3.4×10^{-8}，在升级加速度计后达到 4.9×10^{-10}。秩一分解与零条件在配套的 Letter 中概述；本文给出推导与探测器层面的分析。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在既有的四面体超导重力梯度仪（全张量引力波探测器）上，不增加专用暗物质传感器或读出，实现对成分依赖的超轻暗物质信号的探测与对引力波信号的判别。</p>
+    <h4>方法</h4><p>将四个检验质量按 2+2 方式赋予两种材料成分，利用相干振荡标量场按 dilaton charge 成比例加速各质量；通过张量重建分析电荷在均值（共模抑制）与正比于材料间电荷对比 Δᾱ_{AB} 的单一矢量 q 中的残留，得到秩一响应张量 K_{ULDM}(t)=g_φ(t)⊗q，并推导零条件 K_{ULDM}(I−P_q)=0；结合引力波噪声模型评估铜/铅检验质量的耦合灵敏度。</p>
+    <h4>主要发现</h4><p>成分依赖的 ULDM 响应为秩一张量 K_{ULDM}(t)=g_φ(t)⊗q，其幅度由晕决定且与 m_φ 无关；q 的轴向由材料指派预先固定，响应在任意时刻满足零条件 K_{ULDM}(I−P_q)=0（对任意 g_φ，包括随机梯度的维里化场），可精确判别引力波信号；单一成分时 q=0。在引力波噪声模型下，铜与铅检验质量的耦合灵敏度在基线仪器达到 d_{m̂}−d_g≃3.4×10^{-8}，升级加速度计后达到 4.9×10^{-10}。</p>
+    <h4>局限与展望</h4><p>本文为探测器层面的推导与分析，秩一分解与零条件的概述见配套 Letter；灵敏度数值基于给定的引力波噪声模型与铜/铅材料组合，实际适用范围受材料电荷对比、加速度计噪声及仪器实现条件限制。后续可合理推断的方向包括：将分析推广至其他材料组合与探测器构型（如 LANGO），以及在真实噪声与系统误差下进一步评估零条件判别的稳健性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17347v1">
+  <div class="paper-head">
+    <h2>用于高能物理应用的GEM探测器性能与稳定性研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17347v1" rel="noopener noreferrer">2611.17347v1</a>
+  </div>
+  <p class="original-title">Performance and Stability Studies of GEM Detectors for High Energy Physics Applications</p>
+  <p class="meta"><strong>作者：</strong>S. Mandal、S. Das、S. Biswas</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Bose Institute的探测器实验室十余年来面向当前与未来的高能物理实验，开展了气体电子倍增器（GEM）、阻性板室（RPC）和稻草管等多种充气探测器的研发工作。本文描述了采用$^{55}$Fe X射线源、以Ar/CO$_2$（70/30）混合气体工作的单掩膜三层GEM探测器的性能研究，重点关注增益、能量分辨率、计数率以及腔室在长期辐照下的稳定性，并给出了实验装置、方法与分析结果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>单掩膜三层GEM探测器在Ar/CO$_2$（70/30）气体中、以$^{55}$Fe X射线源照射时的增益、能量分辨率、计数率及长期辐照稳定性表现如何。</p>
+    <h4>方法</h4><p>使用$^{55}$Fe X射线源与Ar/CO$_2$（70/30）混合气体对单掩膜三层GEM探测器进行性能测试，并开展长期辐照下的稳定性研究；文中给出了实验装置、测试方法与分析结果。</p>
+    <h4>主要发现</h4><p>摘要仅说明研究聚焦于增益、能量分辨率、计数率和长期辐照下的稳定性，并给出了实验装置、方法与分析结果，未在摘要中报告具体数值或明确结论。</p>
+    <h4>局限与展望</h4><p>摘要未讨论局限性或后续方向；可合理推断，该工作可为GEM探测器在高能物理实验中的应用评估提供参考，但具体适用范围需依据原文数据判断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17354v1">
+  <div class="paper-head">
+    <h2>用于模拟量能器簇射能量回归的混合量子-经典序列模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17354v1" rel="noopener noreferrer">2611.17354v1</a>
+  </div>
+  <p class="original-title">Hybrid Quantum-Classical Sequence Models for Sample-Efficient Energy Regression in Simulated Calorimeter Showers</p>
+  <p class="meta"><strong>作者：</strong>Tariq Mahmood、Muhammad Ahsan、Talab Hussain、Grecia Itzel Colín-González、Alfredo Raya、Muhammad Awais Rafique、HassabAlla M. A. Mahmoud</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">cs.AI</span> <span class="tag">cs.LG</span> <span class="tag">hep-ex</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>电磁量能器数据的能量重建是高能物理中粒子鉴别、事例重建与精密测量的基础。机器学习已在该任务上表现良好，但仍有两个问题尚未解决：数据表示的选择有多重要，以及混合量子-经典模型是否能在实践中带来增益。本文在 CaloGAN 数据集（包含 1 至 100 GeV 的 100,000 个模拟电磁簇射事例的公开基准）上，比较经典模型与量子增强模型对入射正电子能量的重建性能。八种架构——SVR、ANN、CNN 和 LSTM 及其对应的量子版本——在三种量能器表示上训练：工程化物理特征、量能器图像和纵向簇射序列。沿簇射纵向发展建模的模型达到最高精度，表明物理启发的表示具有价值。混合 QLSTM 取得最低的重建误差，RMSE 为 0.294 GeV。在仅使用 1,500 个训练事例的匹配数据条件下，QLSTM 相较经典 LSTM 提升 52.7%，并超过在全量数据上训练的 LSTM。这些观察表明纵向表示对量能器能量重建具有核心作用，并初步证明混合量子-经典序列模型在高能物理回归任务中可能具有更高的样本效率。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在电磁量能器模拟簇射的能量回归中，数据表示的选择对精度有多大影响，以及混合量子-经典模型相比经典模型是否具有实际增益（尤其是样本效率）。</p>
+    <h4>方法</h4><p>在 CaloGAN 公开基准（100,000 个 1–100 GeV 模拟电磁簇射事例）上，将 SVR、ANN、CNN、LSTM 及其量子对应版本共八种架构，分别在工程化物理特征、量能器图像和纵向簇射序列三种表示上训练，并比较能量重建误差；另在仅 1,500 个训练事例的匹配数据条件下比较 QLSTM 与经典 LSTM。</p>
+    <h4>主要发现</h4><p>沿簇射纵向发展建模的模型精度最高；混合 QLSTM 取得最低重建误差，RMSE 为 0.294 GeV；在 1,500 个训练事例的匹配数据条件下，QLSTM 较经典 LSTM 提升 52.7%，并优于在全量数据上训练的 LSTM。</p>
+    <h4>局限与展望</h4><p>结果基于单一模拟数据集（CaloGAN）与特定架构配置，向真实探测器数据及其他能量回归任务的泛化性尚待验证；量子优势的证据为初步性，其可扩展性与在更大规模数据下的表现需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17363v1">
+  <div class="paper-head">
+    <h2>MID：面向ALICE 3升级项目的缪子探测器<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17363v1" rel="noopener noreferrer">2611.17363v1</a>
+  </div>
+  <p class="original-title">MID: a muon detector for the ALICE 3 upgrade project</p>
+  <p class="meta"><strong>作者：</strong>Jesus Eduardo Muñoz Mendez</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>ALICE项目的成功使实验室中产生的最热物质态——强相互作用夸克-胶子等离子体（sQGP）——得以研究。然而，即使在大型强子对撞机（LHC）第4运行阶段之后，关于sQGP以及强相互作用其他方面的一些基本问题仍将悬而未决。为此，ALICE合作组提出了对其探测器进行重大升级，即ALICE 3。该升级所考虑的子探测器之一是缪子鉴别探测器（MID），其目标是为重离子碰撞中粲偶素及奇特强子产生的研究作出贡献。基线设计由置于圆柱形磁性铁吸收体周围的塑料闪烁体室构成，同时也在评估用于MID的其他探测器技术，包括多丝正比室。本会议报告介绍了两个基于FNAL-NICADD闪烁体条、Kuraray光纤和Hamamatsu SiPM的MID原型的结果，这些原型在CERN质子同步加速器上利用富含3 GeV/$c$缪子和π介子的束流进行了测试束表征。报告将讨论缪子效率以及利用机器学习技术获得的强子抑制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>面向ALICE 3升级的缪子鉴别探测器（MID）原型在测试束中的缪子探测效率与强子抑制性能如何。</p>
+    <h4>方法</h4><p>采用基于FNAL-NICADD闪烁体条、Kuraray光纤和Hamamatsu SiPM构建的两个MID原型，在CERN质子同步加速器上使用富含3 GeV/$c$缪子和π介子的束流进行测试束表征，并利用机器学习技术进行粒子鉴别以评估强子抑制。</p>
+    <h4>主要发现</h4><p>原文摘要指出将讨论原型的缪子效率以及利用机器学习技术获得的强子抑制，但未在摘要中给出具体数值结果。</p>
+    <h4>局限与展望</h4><p>摘要未明确说明研究局限；可合理推断，这些原型测试结果将为ALICE 3 MID的探测器技术选型与设计优化提供依据，后续可能需进一步评估不同探测器技术方案及在重离子碰撞环境下的性能。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17365v1">
+  <div class="paper-head">
+    <h2>固体-超流界面非平衡声子损失的观测<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17365v1" rel="noopener noreferrer">2611.17365v1</a>
+  </div>
+  <p class="original-title">Observation of Non-Equilibrium Phonon Loss Across a Solid-Superfluid Interface</p>
+  <p class="meta"><strong>作者：</strong>TESSERACT Collaboration、A. Armatol、C. Augier、L. Bergé、J. Billard、H. J. Birch、J. Blé、C. L. Chang、Y. -Y. Chang、L. Chaplinsky、G. Cline、A. Cochard、I. Cojocari、J. Colas、M. De Jesus、P. de Marcillac、K. Dwinger、R. Faure、S. Fiorucci、M. Garcia-Sciveres、J. Gascon、C. Girard-Carillo、W. Guo、L. Haegel、S. J. Haselschwardt、S. A. Hertel、K. Hunter、L. Juigne、A. Juillard、A. Kavner、J. Lamblin、T. Le-Bellec、X. Li、J. Lin、R. Mahapatra、S. Marnieros、C. A. Marrache-Kikuchi、N. Martini、W. Matava、D. N. McKinsey、J. Menu、K. Moraa、V. Novati、E. Olivieri、B. Penning、H. Pinckney、M. Platt、M. Pyle、D. Poda、Y. Qi、M. Reed、R. K. Romani、I. Rydstrom、B. Sadoulet、S. Scorza、B. Serfass、P. Sorensen、S. Steinfeld、H. Su、A. Suzuki、R. L. Vaughn、C. Veihmeyer、V. Velan、G. Wang、P. Vittaz、Y. Wang、M. R. Williams、J. Wuko</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文测量了无热声子量热计在真空中以及与超流^4He热接触时的性能。利用低温光子校准系统，我们表明超流^4He将声子信号的收集抑制超过99%。据此得出结论：浸没式传感器不会使TESSERACT的超流氦暗物质靶受益，但超流氦或可作为辐射及其他自发来源产生的无热声子的吸收池，对超导量子比特有用。本测量首次探测了在高于超流氦可稳定承载能量的条件下固体到超流体的声子透射。文中还讨论了量热计内部的热流，以及另一种校准方案带来的系统效应。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>测量无热声子量热计在真空和与超流^4He热接触时的性能，特别是固体-超流界面的声子透射。</p>
+    <h4>方法</h4><p>使用低温光子校准系统，对比量热计在真空和与超流^4He热接触条件下的声子信号收集；并讨论量热计内部热流及替代校准方案的系统效应。</p>
+    <h4>主要发现</h4><p>超流^4He将声子信号收集抑制超过99%；浸没式传感器不会使TESSERACT的超流氦暗物质靶受益；超流氦或可作为超导量子比特的无热声子吸收池；该测量是首次在高于超流氦可稳定承载能量的条件下探测固体到超流体的声子透射。</p>
+    <h4>局限与展望</h4><p>原文指出浸没式传感器不适用于TESSERACT的超流氦暗物质靶，但超流氦对超导量子比特可能有用；关于超导量子比特应用的适用性属于原文的推断性表述，需进一步实验验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17368v1">
+  <div class="paper-head">
+    <h2>一种提供时间、位置和径迹角度信息的双面LGAD探测器<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17368v1" rel="noopener noreferrer">2611.17368v1</a>
+  </div>
+  <p class="original-title">A Double Sided LGAD-Based Detector Providing Timing, Position, and Track Angle Information</p>
+  <p class="meta"><strong>作者：</strong>Ronald Lipton</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文描述了一种探测器概念，将借助三维传感器—电子学集成实现的小像素与低增益雪崩二极管（LGAD）层提供的增益相结合。该探测器为双面结构：由阴极收集电子并提供时间信息，阳极则采用小像素以提供位置和角度信息。阴极可采用粗粒度设计，以较少的快速放大器实现时间测量，从而限制功耗；阳极层受益于LGAD的增益，信号更大，也有助于降低功耗需求。位置可通过测量阳极上沉积总电荷的图样来重建；电荷沉积的角度和深度可通过阳极脉冲的形状来测量。文中还描述了一种基于三维集成的可能组装技术。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在一个探测器中同时获得时间、位置以及径迹角度信息，并在保证性能的同时限制功耗。</p>
+    <h4>方法</h4><p>提出一种双面LGAD探测器概念：阴极收集电子用于时间测量且可粗粒度化以减少快速放大器数量；阳极采用由三维传感器—电子学集成实现的小像素，并利用LGAD增益获得更大信号；通过阳极总电荷图样重建位置，通过阳极脉冲形状测量电荷沉积的角度与深度；并讨论基于三维集成的组装技术。</p>
+    <h4>主要发现</h4><p>原文明确给出该探测器概念的设计思路：阴极提供时间信息，阳极小像素提供位置和角度信息；阴极粗粒度化与阳极利用LGAD增益均有助于限制功耗；位置可由阳极总电荷图样重建，角度和深度可由阳极脉冲形状测量。</p>
+    <h4>局限与展望</h4><p>原文仅为探测器概念描述，未给出实验测量或性能数据；其实际时间分辨率、位置分辨率、角度与深度测量精度以及功耗表现尚待验证。基于三维集成的组装技术可行性也需进一步研究。上述均为可合理推断的后续方向，并非原文已证实的结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17369v1">
+  <div class="paper-head">
+    <h2>PTOLEMY实验中基于回旋辐射发射谱学的电子实时标记<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17369v1" rel="noopener noreferrer">2611.17369v1</a>
+  </div>
+  <p class="original-title">Real-time Electron Tagging by Cyclotron Radiation Emission Spectroscopy in the PTOLEMY experiment</p>
+  <p class="meta"><strong>作者：</strong>Federico Virzi</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>PTOLEMY项目旨在通过氚端点测量测定中微子质量，并在未来探测宇宙中微子背景。射频（RF）跟踪器是该项目的子探测器，其目标利用回旋辐射发射谱学（Cyclotron Radiation Emission Spectroscopy）对电子进行实时测量。本文概述了PTOLEMY项目，并介绍了RF跟踪器原型——电子陷阱（Electron Trap）的设计、模拟、建造与调试。文中给出了电子陷阱的测量与数据分析，这些工作确立了RF跟踪器发展的主要路径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用回旋辐射发射谱学在PTOLEMY实验中实现对电子的实时标记与测量，并验证RF跟踪器原型的可行性。</p>
+    <h4>方法</h4><p>介绍PTOLEMY项目及RF跟踪器原型电子陷阱的设计、模拟、建造与调试，并对其测量数据进行采集与分析。</p>
+    <h4>主要发现</h4><p>原文明确给出了电子陷阱的测量与数据分析结果，并指出这些工作确立了RF跟踪器发展的主要路径；摘要未给出具体数值或性能指标。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与适用范围；基于摘要可合理推断，后续方向是沿电子陷阱所确立的路径进一步发展RF跟踪器，但具体技术路线与性能目标需以原文后续内容为准。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17389v1">
+  <div class="paper-head">
+    <h2>Warwick TPC平台的构建与调试<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17389v1" rel="noopener noreferrer">2611.17389v1</a>
+  </div>
+  <p class="original-title">Construction and Commissioning of the Warwick TPC Platform</p>
+  <p class="meta"><strong>作者：</strong>Matthew Snape、Hong-Kai Tan、Gary Barker、Alan Burton、Alexander Deisting、Philip Hamacher-Baumann、Xianguo Lu</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>主动靶气体时间投影室（TPC）有望为未来中微子振荡测量所需的中微子相互作用提供终极测量手段。其研发需要对气体混合物、压强、电场和读出配置进行优化。Warwick TPC（WarTPC）是一个面向中微子物理及其他领域的研发平台，可在约10 bar以下的压强下运行，并采用厚型气体电子倍增器与Timepix3相机相结合的光学读出方案。本文介绍WarTPC平台的构建与调试，描述其各子系统的设计与集成，并报告在不同运行条件下对其光学响应的首批测量结果，表明该平台是一个稳定且可正常工作的研发平台。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构建并调试一个用于中微子物理及相关领域研发的气体时间投影室平台，并验证其在不同运行条件下的光学响应。</p>
+    <h4>方法</h4><p>构建Warwick TPC（WarTPC）研发平台，该平台可在约10 bar以下压强运行，采用厚型气体电子倍增器与Timepix3相机相结合的光学读出；描述各子系统的设计与集成，并开展不同运行条件下的首批光学响应测量。</p>
+    <h4>主要发现</h4><p>原文明确报告了WarTPC平台的构建与调试情况、各子系统的设计与集成，以及在不同运行条件下对其光学响应的首批测量结果，表明该平台稳定且可正常工作。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；基于其作为研发平台的定位可合理推断，后续工作可能围绕气体混合物、压强、电场与读出配置的进一步优化展开，但此推断需以未来研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.17432v1">
+  <div class="paper-head">
+    <h2>超流³He靶中暗物质自旋无关与自旋相关散射的多体响应<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.17432v1" rel="noopener noreferrer">2611.17432v1</a>
+  </div>
+  <p class="original-title">Many-body Response to Spin-Independent and Spin-Dependent Dark Matter Scattering in a Superfluid Helium-3 Target</p>
+  <p class="meta"><strong>作者：</strong>A. Ting、N. Darvishi、S. Autti、L. Bloomfield、A. Casey、N. Eng、P. Franchini、R. P. Haley、P. J. Heikkinen、A. Jennings、A. Kemp、E. Leason、J. March-Russell、J. Monroe、D. Münstermann、M. T. Noble、J. R. Prance、X. Rojas、T. Salmon、J. Saunders、J. Smirnov、R. Smith、M. D. Thompson、A. Thomson、V. Tsepelin、S. M. West、L. Whitehead、D. E. Zmeev</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">astro-ph.CO</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>QUEST-DMC实验采用超低温超流³He靶，旨在探测亚GeV暗物质（DM）。此类轻质量暗物质的低动量散射对超流³He的多体结构敏感，因此必须考虑介质的集体行为。本文针对自旋无关和自旋相关相互作用，给出了该量子多体介质中DM散射率的第一性原理计算。这种多体行为的主要后果是：由于超低温靶的费米-狄拉克统计，散射率出现运动学增强。在本文所考虑的基准探测器假设下，计入该效应可将自旋无关和自旋相关相互作用的预期探测范围扩展至更低的DM质量。随着探测器阈值降至亚eV区间，由此带来的灵敏度提升愈发显著：在约31 eV的常规读出阈值下可忽略，但在基于SQUID读出的0.51 eV基准阈值下变得显著。具体而言，在该阈值下，计入多体响应会扩展高能反冲尾部，并使预期低质量探测范围相对于单原子近似提升约2.5%。阈值越低，该提升越明显。达到5 meV阈值有望进一步将QUEST-DMC的灵敏度拓展至亚MeV暗物质领域。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在超低温超流³He靶中，亚GeV暗物质的低动量散射受介质多体结构影响，需评估自旋无关与自旋相关相互作用下多体响应对散射率和探测灵敏度的影响。</p>
+    <h4>方法</h4><p>针对超流³He量子多体介质，对自旋无关和自旋相关DM散射率进行第一性原理计算，并与单原子近似比较；在基准探测器假设下评估预期探测范围，考察不同读出阈值（约31 eV、0.51 eV及5 meV）下的效应。</p>
+    <h4>主要发现</h4><p>多体行为的主要后果是源于超低温靶费米-狄拉克统计的运动学散射率增强；计入该效应可在所考虑基准假设下将自旋无关和自旋相关相互作用的预期探测范围扩展至更低DM质量。该灵敏度提升在约31 eV常规读出阈值下可忽略，在0.51 eV的SQUID基准阈值下显著：高能反冲尾部扩展，预期低质量探测范围相对单原子近似提升约2.5%，且阈值越低提升越明显。</p>
+    <h4>局限与展望</h4><p>上述结论基于本文所考虑的基准探测器假设，提升幅度依赖于读出阈值；原文指出达到5 meV阈值有望将QUEST-DMC灵敏度拓展至亚MeV暗物质领域，但该前景属于基于阈值外推的预期，尚未在实验中实现。</p>
+  </section>
+</article><article class="paper" id="paper-2611.18136v1">
+  <div class="paper-head">
+    <h2>希格斯轫致辐射的量子层析：希格斯玻色子自耦合与Z玻色子反常耦合<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.18136v1" rel="noopener noreferrer">2611.18136v1</a>
+  </div>
+  <p class="original-title">Quantum tomography of Higgsstrahlung: Higgs boson self-coupling and $Z$ boson anomalous couplings</p>
+  <p class="meta"><strong>作者：</strong>Clelia Altomonte、Marco Fabbrichesi、Niko Koivunen、Luca Marzola、Daniele Rizzo</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>希格斯玻色子自耦合在单圈阶进入希格斯轫致辐射过程 e^+e^-→ZH。携带该耦合的三个费曼图投影到两个洛伦兹结构：树级结构（改变反应速率）与 CP 偶反常耦合 b_Z 的结构（改变末态 Z 玻色子的极化）。为评估量子态层析在 FCC-ee 上对 hZZ 反常耦合与三线性耦合的约束能力，我们针对同时包含 CP 奇反常耦合 b_Z~ 的有效顶点，计算了 Z 玻色子的螺旋度密度矩阵，并计入标准模型中完整的单圈修正。在这些修正下且有效顶点不含其他新物理时，量子态层析可将 κ_λ 确定到 ±3.9（利用全部角度信息时为 ±2.9），该结果与速率及顶点归一化无关，且接近量子 Fisher 信息给出的极限 δκ_λ≃1。在不假设新物理形式的情况下，量子层析可直接将反常耦合限制在 10^{-3} 量级，优于现有预期。密度矩阵同时表明 Z 玻色子可视为一个 qutrit。在 365 GeV 下，其中心区域的状态足够纯，可违反 Klyachko–Can–Binicioğlu–Shumovsky 上下文性不等式：θ=π/2 时 CNTXT_5=2.06，而非上下文性界限为 2。我们还使用 mana、稳定子 Rényi 熵以及 magic 鲁棒性量化了 Z 玻色子态的纯度与 magic 量。在固定角度下，纯度、上下文性与 magic 对层析所探测量级的反常耦合是稳健的；而包含态在该检验中既非上下文性的，在螺旋度基下也不具有 magic。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>希格斯玻色子自耦合与 hZZ 反常耦合（含 CP 偶 b_Z 与 CP 奇 b_Z~）如何影响 e^+e^-→ZH 中 Z 玻色子的量子态，以及量子态层析在 FCC-ee 上对这些耦合的约束能力如何。</p>
+    <h4>方法</h4><p>在包含 b_Z 与 b_Z~ 的有效顶点框架下，计算 Z 玻色子的螺旋度密度矩阵，并计入标准模型中完整的单圈修正；基于该密度矩阵开展量子态层析分析，并与量子 Fisher 信息极限比较；同时利用密度矩阵检验 qutrit 描述、Klyachko–Can–Binicioğlu–Shumovsky 上下文性不等式，并用 mana、稳定子 Rényi 熵与 magic 鲁棒性量化纯度与 magic。</p>
+    <h4>主要发现</h4><p>携带希格斯自耦合的单圈图投影到树级洛伦兹结构与 CP 偶反常耦合 b_Z 的结构；在仅含标准模型单圈修正、有效顶点无其他新物理时，量子态层析可将 κ_λ 确定到 ±3.9（利用全部角度信息为 ±2.9），与速率及顶点归一化无关，且接近量子 Fisher 信息极限 δκ_λ≃1；不假设新物理形式时，层析可将反常耦合直接限制在 10^{-3} 量级，优于现有预期；密度矩阵表明 Z 玻色子可视为 qutrit；在 365 GeV 中心区域，其状态足够纯以违反 KCBS 上下文性不等式（θ=π/2 时 CNTXT_5=2.06，非上下文性界限为 2）；固定角度下纯度、上下文性与 magic 对层析所探测量级的反常耦合稳健，而包含态在该检验中非上下文性且在螺旋度基下无 magic。</p>
+    <h4>局限与展望</h4><p>上述约束依赖于有效顶点中除标准模型单圈修正外不存在其他新物理的假设；κ_λ 的确定精度接近但尚未达到量子 Fisher 信息极限，全部角度信息的利用可进一步改善。所给出的数值针对 FCC-ee 的 365 GeV 运行点，向其他能量或非中心区域的推广需另行检验；包含态在所用检验下不呈现上下文性与 magic，提示需探索其他量子性判据或态的选择。后续可合理推断的方向包括放宽有效顶点假设、结合更多观测量以逼近量子 Fisher 信息极限，以及系统评估系统误差对层析精度的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2611.18306v1">
+  <div class="paper-head">
+    <h2>面向更深入理解 $a_1$ 与 $a_2$ 跃迁形状因子<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.18306v1" rel="noopener noreferrer">2611.18306v1</a>
+  </div>
+  <p class="original-title">Towards an improved understanding of $a_1$ and $a_2$ transition form factors</p>
+  <p class="meta"><strong>作者：</strong>Hannah Schäfer</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>同向矢量轴矢介子态 $a_1$ 与张量介子态 $a_2$ 近年来受到关注，因为它们作为中间态出现在对 $(g-2)_\mu$ 有贡献的强子光-光（HLbL）散射中。迄今为止，其动力学行为（包括跃迁形状因子）仍缺乏充分理解，这也影响 HLbL 贡献的不确定度预算。为改善这一状况，作者将 $a_1$ 与 $a_2$ 构造为 $\rho\pi$ 系统中的共振态，从而可用已知的形状因子与共振态性质来表达相关振幅。据此，作者旨在基于解析性、幺正性与交叉对称性等一般原理，获得具有现象学动机的跃迁形状因子参数化。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何更深入地理解 $a_1$ 与 $a_2$ 介子的跃迁形状因子，以改进其对 HLbL 散射贡献及 $(g-2)_\mu$ 不确定度预算的影响。</p>
+    <h4>方法</h4><p>将 $a_1$ 与 $a_2$ 作为 $\rho\pi$ 系统中的共振态构造，用已知形状因子与共振态性质表达相关振幅，并基于解析性、幺正性与交叉对称性等一般原理建立跃迁形状因子的现象学参数化。</p>
+    <h4>主要发现</h4><p>原文明确支持：$a_1$ 与 $a_2$ 作为中间态出现在 HLbL 对 $(g-2)_\mu$ 的贡献中；其动力学行为与跃迁形状因子至今理解不足，并影响 HLbL 贡献的不确定度；通过 $\rho\pi$ 共振构造可用已知形状因子与共振态性质表达相关振幅。</p>
+    <h4>局限与展望</h4><p>原文仅提出以解析性、幺正性与交叉对称性为基础获得现象学上合理的跃迁形状因子参数化这一目标，未给出定量结果；该参数化对 HLbL 贡献不确定度的实际改进程度尚待后续验证，属可合理推断的后续方向。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-16 13:48 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
