@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-11-18</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">11</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">8</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（3）</h3><ol class="toc-list"><li><a href="#paper-2611.22199v1">拓扑边缘态时间路由的实验观测</a> <small>2611.22199v1</small></li><li><a href="#paper-2611.22745v1">修正KP-I方程团块解的构造与正则性</a> <small>2611.22745v1</small></li><li><a href="#paper-2611.23176v1">保持动力学的图稀疏化</a> <small>2611.23176v1</small></li></ol><h3>交叉列表（8）</h3><ol class="toc-list"><li><a href="#paper-2611.21012v1">二维Kowalevski陀螺问题作为亏格二完全Jacobi反演问题——基于Kolossoff变量的表述</a> <small>2611.21012v1</small></li><li><a href="#paper-2611.21983v1">大语言模型作为非线性动力系统：深度、训练与生成的三重时钟</a> <small>2611.21983v1</small></li><li><a href="#paper-2611.21999v1">电路QED中通过共享耗散实现的瞬态同步与纠缠</a> <small>2611.21999v1</small></li><li><a href="#paper-2611.22070v1">为什么持续学习的物理系统需要睡眠？</a> <small>2611.22070v1</small></li><li><a href="#paper-2611.22190v1">通过幻影目标实现领导者-跟随者群体的涌现与崩溃：贝叶斯与逆贝叶斯推理中的惊讶消除机制</a> <small>2611.22190v1</small></li><li><a href="#paper-2611.22204v1">动态网络下非线性Cucker-Smale模型的聚集时间与图体积</a> <small>2611.22204v1</small></li><li><a href="#paper-2611.22918v1">利用储备池计算重构隐藏吸引子</a> <small>2611.22918v1</small></li><li><a href="#paper-2611.23196v1">早期容错阶段保持非线性流动的量子模拟</a> <small>2611.23196v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.22199v1">
+  <div class="paper-head">
+    <h2>拓扑边缘态时间路由的实验观测<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.22199v1" rel="noopener noreferrer">2611.22199v1</a>
+  </div>
+  <p class="original-title">Observation of temporal routing of topological edge states</p>
+  <p class="meta"><strong>作者：</strong>Letian Xu、Muhammad Imran、Yongtao Jia、Ying Liu、Huibin Tao、Rujiang Li</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">cond-mat.mes-hall</span> <span class="tag">physics.optics</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>拓扑边缘态的切换或路由对于抗无序的态传输至关重要。此前的实验观测主要依赖将空间坐标视为等效时间维度的光波导阵列，而在物理时间中直接观测拓扑边缘态的路由动力学仍具挑战性。本文报道了拓扑边缘态时间路由的实验观测。通过构建由两条耦合非线性 Su-Schrieffer-Heeger（SSH）链组成的晶格，拓扑边缘态表现出由非线性控制的时间路由行为。随着激励电压从线性区增大，我们观测到电压强度分布从周期性的链间交换转变为减慢的链间交换，最终转变为链间交换被强烈抑制的局域化，从而验证了时间路由现象。这些动力学是在受电路耗散限制的有限时间窗口内实验观测到的。我们的发现为拓扑边缘态的时间操控提供了有价值的见解。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在物理时间中直接实验观测拓扑边缘态的路由动力学，而非借助将空间坐标视为等效时间维度的光波导阵列。</p>
+    <h4>方法</h4><p>构建由两条耦合非线性 Su-Schrieffer-Heeger（SSH）链组成的晶格，通过改变激励电压从线性区逐步增大，观测电压强度分布在链间的演化，并在受电路耗散限制的有限时间窗口内进行实验测量。</p>
+    <h4>主要发现</h4><p>随着激励电压从线性区增大，电压强度分布从周期性的链间交换转变为减慢的链间交换，最终转变为链间交换被强烈抑制的局域化，从而验证了由非线性控制的拓扑边缘态时间路由现象。</p>
+    <h4>局限与展望</h4><p>实验观测受电路耗散限制，仅在有限时间窗口内进行；该结果是否可推广至更长时标或其他平台尚待验证。后续可合理推断的方向包括延长可观测时间窗口以及在其他非线性拓扑系统中检验类似的时间路由行为。</p>
+  </section>
+</article><article class="paper" id="paper-2611.22745v1">
+  <div class="paper-head">
+    <h2>修正KP-I方程团块解的构造与正则性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.22745v1" rel="noopener noreferrer">2611.22745v1</a>
+  </div>
+  <p class="original-title">Construction and regularity of lump solutions of the modified KP-I equation</p>
+  <p class="meta"><strong>作者：</strong>Tianwei Qiu、Zhen Wang</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文将修正Kadomtsev–Petviashvili-I（mKP-I）方程的标准团块解与高阶团块解的τ函数表示为积分形式的Gram行列式。与KP-I方程不同，mKP-I方程的τ函数为复值，其非零性不能由Hermitian Gram矩阵的正定性推出。我们给出了这些解正则性的显式谱条件；对于高阶团块解，其尖锐条件仅依赖于谱参数与指标向量的最大分量。我们还证明了团块解及其所有空间导数在每个空间方向上均代数衰减，且在紧时间区间上一致成立。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究mKP-I方程标准与高阶团块解的构造及其正则性条件，特别是复值τ函数非零性的判定问题。</p>
+    <h4>方法</h4><p>将标准与高阶团块解的τ函数表示为积分形式的Gram行列式，并据此推导正则性的显式谱条件；同时分析解及其空间导数的衰减性质。</p>
+    <h4>主要发现</h4><p>给出了mKP-I方程团块解正则性的显式谱条件；对于高阶团块解，尖锐条件仅依赖于谱参数与指标向量的最大分量；证明了团块解及其所有空间导数在每个空间方向上代数衰减，且在紧时间区间上一致成立。</p>
+    <h4>局限与展望</h4><p>摘要未讨论所得谱条件在一般初值或更广泛参数范围内的适用性；后续可合理推断的方向包括将Gram行列式方法推广至其他非局部或复值可积系统，但需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23176v1">
+  <div class="paper-head">
+    <h2>保持动力学的图稀疏化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23176v1" rel="noopener noreferrer">2611.23176v1</a>
+  </div>
+  <p class="original-title">Dynamics-preserving graph sparsification</p>
+  <p class="meta"><strong>作者：</strong>Emmie Fitz-Gibbon、Maximilian Jerdee、Yuanzhao Zhang、Rosemary Braun、Cristopher Moore</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">math.DS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>许多动力系统在由边交互耦合的节点网络上展开。本文由以下问题驱动：能否从一个网络化动力系统中移除大部分边而不显著改变其行为？给定一个网络，目标是找到一个更稀疏的网络，使其近似保持节点上的动力学。本文首先研究线性扩散，其中节点值按图拉普拉斯演化。主流的网络稀疏化方法——有效电阻采样——在统一乘性界内保持所有拉普拉斯特征值。本文表明，在有限边预算下，该方法在动力学意义上是低效的：扩散由衰减最慢的模态主导，因此施加统一保证会把边花费在几乎不影响长期动力学的快模态上。基于这一观察，本文推导出扩散谱误差（Diffusion Spectral Error, DSE），它以闭式形式评估在随机初始条件下原始图与稀疏化图之间轨迹的典型误差。最小化该误差会自然优先考虑慢模态，从而得到显式设计用于保持动力学的稀疏网络。在相同稀疏化水平下，DSE 稀疏化通常以比有效电阻采样低数倍的误差保持扩散动力学，在强模块化网络上误差最多可低两个数量级。尽管 DSE 是在线性背景下推导的，本文通过实验发现，DSE 稀疏化在 Kuramoto 模型（一个非线性耦合振子系统中）也带来类似改进：DSE 稀疏化近似保持同步阈值，并在强耦合下保持序参量轨迹。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否从网络化动力系统中移除大部分边，同时近似保持节点上的动力学行为？</p>
+    <h4>方法</h4><p>针对线性扩散（图拉普拉斯动力学），指出有效电阻采样在有限边预算下对动力学保持低效；推导扩散谱误差（DSE），以闭式形式评估随机初始条件下原始图与稀疏化图之间轨迹的典型误差，并通过最小化 DSE 构造稀疏网络；随后在 Kuramoto 非线性耦合振子模型上进行实验验证。</p>
+    <h4>主要发现</h4><p>在相同稀疏化水平下，DSE 稀疏化通常以比有效电阻采样低数倍的误差保持扩散动力学，在强模块化网络上误差最多低两个数量级；实验上，DSE 稀疏化在 Kuramoto 模型中近似保持同步阈值，并在强耦合下保持序参量轨迹。</p>
+    <h4>局限与展望</h4><p>DSE 的推导基于线性扩散背景，其在非线性系统中的有效性目前仅由 Kuramoto 模型的实验支持；对其他非线性动力学系统及更一般网络结构的适用性尚待进一步研究。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.21012v1">
+  <div class="paper-head">
+    <h2>二维Kowalevski陀螺问题作为亏格二完全Jacobi反演问题——基于Kolossoff变量的表述<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.21012v1" rel="noopener noreferrer">2611.21012v1</a>
+  </div>
+  <p class="original-title">Two-Dimensional Kowalevski Top Problem as the Genus Two Full Jacobi Inversion Problem -Formulation Using Kolossoff Variables-</p>
+  <p class="meta"><strong>作者：</strong>Kazuyasu Shigemoto</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对Kowalevski陀螺，在时间变量之外引入另一个变量，将其表述为二维模型。鉴于该双变量Kowalevski陀螺的亏格二完全Jacobi反演问题的已有结果，本文反向利用这些结果，引入Kolossoff变量，从而导出亏格二完全Jacobi反演问题更为清晰的表述。由于使用Kowalevski变量时存在两个隐式运动方程，本文利用Kolossoff变量导出了两个显式运动方程；这与Kolossoff方法不同，后者仅导出一个显式方程并借助Hamilton-Jacobi理论。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用已有的亏格二完全Jacobi反演问题结果，为双变量（二维）Kowalevski陀螺给出更清晰的表述，并得到显式运动方程。</p>
+    <h4>方法</h4><p>在时间变量之外引入另一变量以构造二维模型；反向利用已知的亏格二完全Jacobi反演结果，引入Kolossoff变量进行重新表述。</p>
+    <h4>主要发现</h4><p>由Kowalevski变量下的两个隐式运动方程出发，用Kolossoff变量导出了两个显式运动方程；该做法不同于仅导出一个显式方程并依赖Hamilton-Jacobi理论的Kolossoff方法。</p>
+    <h4>局限与展望</h4><p>原文未讨论该表述的适用范围与局限性；其是否可推广至其他可积陀螺情形或与其他反演框架的联系，尚需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.21983v1">
+  <div class="paper-head">
+    <h2>大语言模型作为非线性动力系统：深度、训练与生成的三重时钟<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.21983v1" rel="noopener noreferrer">2611.21983v1</a>
+  </div>
+  <p class="original-title">Large Language Models as Nonlinear Dynamical Systems: The Three Clocks of Depth, Training, and Generation</p>
+  <p class="meta"><strong>作者：</strong>Maor Farid</p>
+  <p class="meta"><strong>主分类：</strong>cs.LG
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cs.LG</span> <span class="tag">cs.CL</span> <span class="tag">math.DS</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>语言模型可被视为动力系统：Transformer 在其层数上迭代、在训练步骤上迭代、在生成 token 上迭代，而在这三重“时钟”上，它都表现出非线性动力学已研究了一个世纪的行为，包括不动点、分岔、同步、混沌以及噪声驱动的势阱逃逸。由于两个领域鲜有交流，这些行为常以新名称被重新发现。本文旨在搭建二者之间的桥梁。为描述这些现象，作者将约 200 篇论文凝练为“三重时钟词典”，把非线性动力学的十五个概念映射到每一重时钟上，并标注每个对应关系是已证明、已测量还是推测，同时将每个概念在机械系统与语言模型中并置展示。为解释这些现象，作者推导了降阶模型：softmax 是玻尔兹曼分布，梯度下降是非线性弹簧上的欧拉步，loss spike 是被抛出刚性谷底的球，圆上的注意力是 Kuramoto 模型，重复循环是一个在被占据时不断加深的势阱。随后作者在笔记本电脑 CPU 上对开放语言模型检验这些解释：GPT-2 与 Pythia 中重复循环的逃逸遵循 Arrhenius 定律，以 logit gap 作为势垒，且势垒先加深后饱和，因此离开循环所需温度随生成长度 $N$ 以 $1/\ln N$ 下降，并随模型规模上升；连贯文本存在于狭窄的温度窗口内，一个小型推理模型在其推荐温度下也处于该窗口。训练使每个 Pythia 层更具扩张性，一个小型 Transformer 在多模态稳定边缘上训练。第三步——解决语言模型的问题——仍在前方：由逃逸分析导出的控制器能消除循环，但尚未优于最佳固定温度。作者列出了非线性动力学有望在此取得进展的十二个开放问题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文探讨语言模型（尤其是 Transformer）在深度（层迭代）、训练（参数更新）与生成（token 迭代）三重时间尺度上表现出的非线性动力学行为，并试图建立非线性动力学与语言模型研究之间的系统对应关系。</p>
+    <h4>方法</h4><p>将约 200 篇论文凝练为“三重时钟词典”，把十五个非线性动力学概念映射到三重时钟并标注证明/测量/推测状态；推导降阶模型（softmax 对应玻尔兹曼分布、梯度下降对应非线性弹簧上的欧拉步、loss spike 对应势阱逃逸、圆上注意力对应 Kuramoto 模型、重复循环对应加深势阱）；在笔记本 CPU 上对开放语言模型（GPT-2、Pythia 及一个小型推理模型）进行实验检验。</p>
+    <h4>主要发现</h4><p>GPT-2 与 Pythia 中重复循环的逃逸遵循 Arrhenius 定律，以 logit gap 为势垒；势垒先加深后饱和，离开循环所需温度随生成长度 $N$ 以 $1/\ln N$ 下降并随模型规模上升；连贯文本存在于狭窄温度窗口内，小型推理模型在其推荐温度下也处于该窗口；训练使每个 Pythia 层更具扩张性，小型 Transformer 在多模态稳定边缘上训练；由逃逸分析导出的控制器能消除循环，但尚未优于最佳固定温度。</p>
+    <h4>局限与展望</h4><p>论文明确指出第三步（解决语言模型问题）仍在前方，所提控制器尚未超越最佳固定温度，并列出十二个开放问题。其局限包括：词典中部分对应关系仅为推测而非证明；实验主要在开放模型与笔记本 CPU 上进行，适用范围可能受限。后续方向可合理推断为：利用非线性动力学工具改进控制器设计、扩展至更大模型与更多架构，以及验证词典中尚属推测的对应关系。</p>
+  </section>
+</article><article class="paper" id="paper-2611.21999v1">
+  <div class="paper-head">
+    <h2>电路QED中通过共享耗散实现的瞬态同步与纠缠<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.21999v1" rel="noopener noreferrer">2611.21999v1</a>
+  </div>
+  <p class="original-title">Transient Synchronization and Entanglement through Shared Dissipation in Circuit QED</p>
+  <p class="meta"><strong>作者：</strong>Areeda Ayoub、Eric R. Bittner</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种超导电路方案：两个谐振器通过直流偏置的SQUID与一个共同的损耗辅助模式耦合。绝热消除后得到集体阻尼与关联噪声，其重叠度ξ的幅度由磁通偏置调节，符号则跟随耦合的相对符号。完整三模式动力学验证了这一约化描述。对于失谐谐振器，我们推导了例外点条件，在例外点之上平均振幅锁定到共同频率。对于共振模式，不相等的集体衰减产生瞬态同步，其相位（反相或同相）取决于耦合的相对符号，并给出由集体衰减劈裂与初始平均振幅决定的解析同步时间。对于初始可分离的压缩态，同样的弛豫过程将局域压缩转化为瞬态纠缠，以对数负度量化；我们得到了纠缠出现的压缩阈值及纠缠消失时间的闭式表达式。在固定参数下，热噪声会抑制纠缠，但不改变平均振幅的同步时间。对于实际电路参数，这些效应在几百纳秒内发生，并可通过输出场测量观测。因此，单一可调共享通道可同时产生例外点、瞬态同步与瞬态纠缠，并为超导电路提供可控的关联噪声源。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在超导电路QED体系中利用共享耗散通道同时实现例外点、瞬态同步与瞬态纠缠，并给出可解析描述的阈值与时间尺度。</p>
+    <h4>方法</h4><p>提出两个谐振器经直流偏置SQUID耦合到共同损耗辅助模式的超导电路；通过绝热消除得到集体阻尼与关联噪声的约化描述，并用完整三模式动力学验证；对失谐与共振情形分别推导例外点条件、同步时间、压缩阈值及纠缠消失时间的闭式表达式；以对数负度量化纠缠，并考察热噪声影响。</p>
+    <h4>主要发现</h4><p>绝热消除给出的集体阻尼与关联噪声重叠度ξ的幅度由磁通偏置调节、符号跟随耦合相对符号；完整三模式动力学确认该约化描述。失谐时存在例外点条件，其上平均振幅锁定共同频率；共振时不等集体衰减导致瞬态同步，相位由耦合相对符号决定，同步时间由集体衰减劈裂与初始平均振幅解析给出。初始可分离压缩态经弛豫转化为瞬态纠缠，得到纠缠出现的压缩阈值与消失时间的闭式表达式。固定参数下热噪声抑制纠缠但不改变平均振幅同步时间。实际参数下效应在几百纳秒内发生，可通过输出场测量观测。</p>
+    <h4>局限与展望</h4><p>原文表明该方案为超导电路提供可控关联噪声源；其结论基于特定三模式约化模型与理想化绝热消除，实际适用性受电路参数与热噪声水平限制。后续可合理推断的方向包括在更复杂多模或非马尔可夫环境中检验该描述，以及利用输出场测量实验验证所预测的瞬态同步与纠缠。</p>
+  </section>
+</article><article class="paper" id="paper-2611.22070v1">
+  <div class="paper-head">
+    <h2>为什么持续学习的物理系统需要睡眠？<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.22070v1" rel="noopener noreferrer">2611.22070v1</a>
+  </div>
+  <p class="original-title">Why do continual physical learners need sleep?</p>
+  <p class="meta"><strong>作者：</strong>Nada Elmeligy、Nidhi Pashine、J. M. Schwarz</p>
+  <p class="meta"><strong>主分类：</strong>physics.bio-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.bio-ph</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">cond-mat.soft</span> <span class="tag">nlin.AO</span> <span class="tag">q-bio.NC</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>睡眠现象广泛存在于动物界，甚至见于缺乏中枢神经系统的生物中。学习本身是否会在没有生物学基础的系统中产生对睡眠的需求？为探讨这一问题，本文研究一个无序弹簧网络，通过局部改变键刚度使其完成一系列力学变构任务。研究发现，持续学习会随着单个键日益专门化而逐步削弱网络获取新任务的能力。作者识别出键主导性极化与网络剩余学习能力之间的精确代数关系，从而为这种适应性损失提供了定量度量。进一步研究表明，随机内部扰动可使单个键估计自身的力学主导性，并局部调整其刚度以恢复学习能力；然而，主动学习所伴随的力会偏置这些局部测量并干扰恢复过程。将学习与修复分离为类清醒阶段与类睡眠阶段可消除这种干扰，并提升持续学习性能。研究结果提示，对离线修复阶段的需求可能源自物理学习的力学机制，即使在没有生物组分的系统中亦可出现。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在无生物组分的物理学习系统中，持续学习是否会产生对睡眠（离线修复阶段）的需求，以及这种需求如何从学习机制中产生。</p>
+    <h4>方法</h4><p>构建无序弹簧网络，通过局部改变键刚度训练其完成一系列力学变构任务；分析键主导性极化与剩余学习能力的关系；引入随机内部扰动使键估计自身力学主导性并局部调整刚度；比较学习与修复分离为类清醒和类睡眠阶段的效果。</p>
+    <h4>主要发现</h4><p>持续学习使单个键日益专门化，从而逐步降低网络获取新任务的能力；键主导性极化与剩余学习能力之间存在精确代数关系；随机内部扰动可使键估计主导性并局部调整刚度以恢复学习能力，但主动学习相关的力会偏置局部测量并干扰恢复；将学习与修复分为类清醒和类睡眠阶段可消除干扰并改善持续学习性能。</p>
+    <h4>局限与展望</h4><p>结果表明离线修复阶段的需求可源于物理学习的力学机制，而不依赖生物组分；该结论基于特定无序弹簧网络与力学变构任务，向其他物理学习系统或生物系统的推广需进一步验证；后续可探究类睡眠阶段的具体调度方式及其在不同网络结构中的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.22190v1">
+  <div class="paper-head">
+    <h2>通过幻影目标实现领导者-跟随者群体的涌现与崩溃：贝叶斯与逆贝叶斯推理中的惊讶消除机制<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.22190v1" rel="noopener noreferrer">2611.22190v1</a>
+  </div>
+  <p class="original-title">Emergence and Collapse of Leader-Follower Flocks through Phantom Targets: Surprise Nullification in Bayesian and Inverse Bayesian Inference</p>
+  <p class="meta"><strong>作者：</strong>Shuji Shinohara、Daiki Morita、Yoshihiro Nakajima、Takeshi Takano、Masakazu Higuchi、Ung-il Chung、Yukio-Pegio Gunji</p>
+  <p class="meta"><strong>主分类：</strong>cs.MA
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cs.MA</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在贝叶斯与逆贝叶斯（BIB）推理中，较大的预测误差可触发惊讶消除（surprise nullification），即以共同因子扩大信念方差与似然方差，使更新后的方差比与标准贝叶斯更新保持一致。该机制可在保持较低学习率的同时提高信念不确定性。在仿真中，三个智能体使用BIB推理相互预测彼此位置并向预测位置移动，在没有任何对齐规则或指定领导者的情况下反复形成领导者-跟随者群体，随后又发生崩溃。三种领导判定标准（位置靠前、朝向稳定性和群体发起）在89%的合格群体中识别出同一智能体，且不同群体中的领导者可以是不同智能体。当某智能体几乎停止纳入另一智能体的观测（链接切断）并径直朝脱离现实的预测位置（幻影目标）移动时，群体得以形成，从而吸引跟随者。链接切断出现在两次连续重置先后赋予极小和普通似然方差、使似然-信念方差比急剧增大之时。群体在链接恢复时崩溃，或在回归的幻影目标使领导者的前向与后向吸引力达到平衡时崩溃。若无惊讶消除，链接切断在整个分析期内持续存在；仅扩大信念方差可在数步内恢复；同时扩大似然方差则可使链接切断在信念不确定性增长的同时持续存在，从而支持后续重置与恢复。因此，惊讶消除通过保持相对精度使链接切断与群体得以持续，同时通过降低绝对精度促成恢复与崩溃，以单一操作调和了这些看似对立的过程。这些结果表明，在该模型中，个体层面不准确的预测可以产生集体秩序。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在无对齐规则、无指定领导者的多智能体系统中，领导者-跟随者群体如何涌现并崩溃，以及贝叶斯与逆贝叶斯推理中的惊讶消除机制在其中起何作用。</p>
+    <h4>方法</h4><p>构建三个智能体相互预测位置并向预测位置移动的仿真模型，采用贝叶斯与逆贝叶斯（BIB）推理，并引入惊讶消除机制（以共同因子扩大信念方差与似然方差）；通过三种领导判定标准识别领导者，并对比有无惊讶消除及仅扩大信念方差等条件下的链接切断与恢复行为。</p>
+    <h4>主要发现</h4><p>仿真中反复形成领导者-跟随者群体并随后崩溃；三种领导标准在89%的合格群体中识别出同一领导者，且不同群体领导者可不同；群体形成与链接切断及幻影目标吸引有关，崩溃与链接恢复或幻影目标回归导致的前后吸引力平衡有关；无惊讶消除时链接切断持续整个分析期，仅扩大信念方差可在数步内恢复，同时扩大似然方差则使切断持续且信念不确定性增长，从而支持后续重置与恢复。</p>
+    <h4>局限与展望</h4><p>原文结果基于三智能体仿真模型，其适用范围与更大规模系统及真实生物群体的对应关系尚待检验；可合理推断，后续研究或需考察不同智能体数量、参数设置及更复杂环境下的群体动力学，并进一步检验惊讶消除机制在集体秩序形成中的一般性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.22204v1">
+  <div class="paper-head">
+    <h2>动态网络下非线性Cucker-Smale模型的聚集时间与图体积<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.22204v1" rel="noopener noreferrer">2611.22204v1</a>
+  </div>
+  <p class="original-title">Flocking Time and Graph Volume in Nonlinear Cucker-Smale Models with Dynamic Networks</p>
+  <p class="meta"><strong>作者：</strong>Sooyeon Song、Jea-Hyun Park</p>
+  <p class="meta"><strong>主分类：</strong>math.DS
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DS</span> <span class="tag">cs.LG</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种融合动态网络与离散$p$-Laplacian（$p \in (1,2)$）的Cucker-Smale模型，并从理论与实验两方面分析聚集时间约束与图连通性之间的关系。我们证明该模型可在有限时间内实现聚集，并给出聚集时间下界与图体积之间的定量关系。基于这些结果，我们观察到：施加足够小的聚集时间会诱导网络体积增大；在相同时间约束下，初始速度方差越大，所需的体积越大。实验中，我们训练了基于Transformer的PPO策略，用于在每个时间步选择网络结构。在最严格的时间约束下，最大平均连接数急剧增加，证实了阈值效应的存在。收敛时间与平均连接数之间的负相关关系很好地反映了理论结果。本研究为时间约束诱导连接动员这一现象提供了定量证据。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在采用离散$p$-Laplacian（$p \in (1,2)$）的动态网络Cucker-Smale模型中，聚集时间约束与图连通性（图体积）之间存在怎样的定量关系，以及时间约束如何影响网络结构的演化。</p>
+    <h4>方法</h4><p>建立含动态网络与离散$p$-Laplacian的非线性Cucker-Smale模型；从理论上证明有限时间聚集并推导聚集时间下界与图体积的定量关系；实验上训练基于Transformer的PPO策略在每个时间步选择网络结构，考察不同时间约束下的连接数变化。</p>
+    <h4>主要发现</h4><p>模型可在有限时间内实现聚集；聚集时间下界与图体积之间存在定量关系；施加足够小的聚集时间会诱导网络体积增大；相同时间约束下初始速度方差越大所需体积越大；最严格时间约束下最大平均连接数急剧增加，呈现阈值效应；收敛时间与平均连接数呈负相关，与理论结果一致。</p>
+    <h4>局限与展望</h4><p>本文结论建立在特定模型设定（离散$p$-Laplacian、$p \in (1,2)$、动态网络）与所考察的实验条件之上，其向其他$p$范围、连续时间或其他网络更新机制的推广尚待验证；基于Transformer的PPO策略所得实验观察的普适性亦需进一步检验。后续可合理推断的方向包括：放宽$p$的取值限制、分析不同策略学习器对网络结构选择的影响，以及将时间约束诱导连接动员的定量结论应用于具体网络系统设计。</p>
+  </section>
+</article><article class="paper" id="paper-2611.22918v1">
+  <div class="paper-head">
+    <h2>利用储备池计算重构隐藏吸引子<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.22918v1" rel="noopener noreferrer">2611.22918v1</a>
+  </div>
+  <p class="original-title">Reconstructing hidden attractors with reservoir computing</p>
+  <p class="meta"><strong>作者：</strong>Mohammad Zaman、Emel Khan、Thomas Geert de Jong</p>
+  <p class="meta"><strong>主分类：</strong>math.DS
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DS</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>隐藏吸引子的吸引盆不与任何平衡点的任意小邻域相交，因此难以定位。本文考察利用储备池计算从时间序列重构隐藏混沌吸引子的可能性，其中储备池由受驱 Kuramoto 振子网络构建。我们比较了全连接耦合、最近邻环形耦合，以及一种修改了一个振子方程的环形结构——该修改确保任何吸引子都将是隐藏的。数值结果表明，与全连接耦合相比，环形耦合能在更宽的耦合强度和驱动力范围内支持准确重构。然而，在储备池平衡点附近的搜索表明，短期预测与长期统计量的一致并不能证明隐藏性得到了保持。对修改环形的数值实验显示其性能最高，这与我们的直觉相符：重构全局动力学将产生更忠实的吸引子重构。我们还表明，对于常数输入，这种构造排除了对初始条件的全局遗忘，尽管沿非常数信号的局部条件收缩仍然可能。重构吸引子动力学与保持吸引盆结构之间的区分，为评估和设计隐藏吸引子的储备池模型提供了基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>能否利用由受驱 Kuramoto 振子网络构成的储备池，从时间序列中重构隐藏混沌吸引子，以及不同网络耦合结构对重构效果的影响。</p>
+    <h4>方法</h4><p>构建由受驱 Kuramoto 振子组成的储备池，比较全连接耦合、最近邻环形耦合以及修改一个振子方程以确保吸引子隐藏的环形结构；通过数值实验评估重构性能，并在储备池平衡点附近进行搜索以检验隐藏性是否保持。</p>
+    <h4>主要发现</h4><p>环形耦合比全连接耦合在更宽的耦合和驱动力范围内支持准确重构；短期预测和长期统计量的一致不能证明隐藏性得到保持；修改环形结构性能最高；该构造对常数输入排除了初始条件的全局遗忘，但沿非常数信号仍可能存在局部条件收缩。</p>
+    <h4>局限与展望</h4><p>原文指出重构吸引子动力学与保持吸引盆结构之间的区分可作为评估和设计隐藏吸引子储备池模型的基础；关于该框架在其他振子网络或更高维系统中的适用性，以及如何定量保证吸引盆结构的保持，尚需进一步研究（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23196v1">
+  <div class="paper-head">
+    <h2>早期容错阶段保持非线性流动的量子模拟<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23196v1" rel="noopener noreferrer">2611.23196v1</a>
+  </div>
+  <p class="original-title">Nonlinearity-preserving quantum simulation of flows in the early fault-tolerant regime</p>
+  <p class="meta"><strong>作者：</strong>Hansol Noh、Unam Oh、Sangkyu Baek、Doyeol、Ahn</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cs.CE</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>非线性动力学的集合预测需要传播一个概率密度，其线性输运方程保留了非线性漂移项，但依赖网格的线路开销使端到端可行性在早期容错量子计算阶段仍不明确。本文将稀疏非线性动力学辨识（SINDy）拟合的多项式降阶模型与 Walsh 合成的 Koopman-von Neumann（KvN）输运以及表面码资源估计相结合。在固定模型维度和漂移阶数下，单步输运旋转数随每个降阶坐标的网格数呈多对数增长。在模型精度与线路开销之间进行权衡，使降阶模型的多项式阶数成为早期容错量子模拟的设计变量。对于接近饱和的圆柱尾迹，相对于径向模型达到 1% 相对均方根场误差的制备、传播与采样，估计在约 560,000 个物理量子比特上需 1.62 小时。估计的三坐标尾迹运行时间在低于一百万个量子比特的范围内从数小时到数周不等。IBM 硬件实验演示了该尾迹的非线性径向 KvN 输运，并使用参考线路抑制噪声。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在早期容错量子计算阶段，非线性动力学集合预测的端到端量子模拟是否可行，以及网格依赖的线路开销如何影响可行性。</p>
+    <h4>方法</h4><p>将 SINDy 拟合的多项式降阶模型与 Walsh 合成的 Koopman-von Neumann 输运相结合，并进行表面码资源估计；在 IBM 硬件上使用参考线路抑制噪声，演示圆柱尾迹的非线性径向 KvN 输运。</p>
+    <h4>主要发现</h4><p>在固定模型维度和漂移阶数下，单步输运旋转数随每个降阶坐标的网格数呈多对数增长；模型精度与线路开销的权衡使降阶模型多项式阶数成为设计变量；对接近饱和的圆柱尾迹，达到 1% 相对均方根场误差的制备、传播与采样估计需约 560,000 个物理量子比特和 1.62 小时；三坐标尾迹运行时间估计在低于一百万个量子比特下从数小时到数周。</p>
+    <h4>局限与展望</h4><p>上述资源估计针对特定降阶模型与误差阈值，其向其他流动或更高精度要求的推广尚待验证；多项式阶数作为设计变量的权衡，以及参考线路噪声抑制在更大规模线路上的有效性，是值得进一步研究的方向（后者为合理推断）。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-18 14:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
