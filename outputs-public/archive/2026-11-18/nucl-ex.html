@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-11-18</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">3</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2611.23043v1">精密缪子物理</a> <small>2611.23043v1</small></li></ol><h3>交叉列表（3）</h3><ol class="toc-list"><li><a href="#paper-2611.20085v1">未来环形对撞机作为光子-光子对撞机</a> <small>2611.20085v1</small></li><li><a href="#paper-2611.21807v1">超越二次阶的核钟同位素$^{229}$Th结构研究</a> <small>2611.21807v1</small></li><li><a href="#paper-2611.22945v1">等量子激发态集合的普适质量方程 III</a> <small>2611.22945v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.23043v1">
+  <div class="paper-head">
+    <h2>精密缪子物理<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23043v1" rel="noopener noreferrer">2611.23043v1</a>
+  </div>
+  <p class="original-title">Precision Muon Physics</p>
+  <p class="meta"><strong>作者：</strong>Tim Gorringe</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>缪子已成为基础物理研究中的一种多功能工具。缪子衰变测量可确定费米常数，并确立弱相互作用的 chiral 结构。对储存缪子和束缚缪子的测量，使得缪子电荷、质量与磁矩的精密测定成为可能。这些研究还为束缚态 QED 与标准模型提供了具有深远意义的检验，并对超出当前对粒子、力与自然规律认识的物理具有独特灵敏度。本文综述精密缪子物理的整体图景，既强调其物理潜力，也强调其实验广度。我们重点介绍从带电粒子计时、径迹测量与极化测量，到储存环实验、微波共振方法与无多普勒激光光谱等一系列技术手段。我们还描述实验工作与量子电动力学、量子色动力学及有效场论等理论发展之间的相互作用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文综述精密缪子物理领域，关注缪子相关精密测量如何用于确定基本常数、检验束缚态 QED 与标准模型，并探索超出标准模型的新物理。</p>
+    <h4>方法</h4><p>采用综述方式，梳理缪子衰变测量、储存缪子与束缚缪子测量等技术路径，涵盖带电粒子计时、径迹测量、极化测量、储存环实验、微波共振方法和无多普勒激光光谱等手段，并讨论其与 QED、QCD 及有效场论理论工作的互动。</p>
+    <h4>主要发现</h4><p>原文明确指出：缪子衰变测量可确定费米常数并确立弱相互作用的 chiral 结构；储存缪子与束缚缪子测量可实现缪子电荷、质量与磁矩的精密测定；这些研究为束缚态 QED 与标准模型提供检验，并对超出当前理解的物理具有独特灵敏度。</p>
+    <h4>局限与展望</h4><p>原文为综述性介绍，未给出具体实验数值或新结果；其局限与适用范围取决于所综述的各项测量自身条件。可合理推断，后续方向包括继续提升相关精密测量精度、发展储存环与激光光谱等技术，并加强实验与 QED、QCD 及有效场论理论的结合。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.20085v1">
+  <div class="paper-head">
+    <h2>未来环形对撞机作为光子-光子对撞机<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.20085v1" rel="noopener noreferrer">2611.20085v1</a>
+  </div>
+  <p class="original-title">The Future Circular Collider as a photon-photon collider</p>
+  <p class="meta"><strong>作者：</strong>Patricia Rebello Teles、David d&#x27;Enterria</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>欧洲核子研究中心（CERN）的未来环形对撞机（FCC）依托电子-正电子、质子-质子、质子-铅和铅-铅碰撞中带电束流所伴随的高亮度等效光子通量，提供了独特的双光子相互作用研究方案。在等效光子近似下，相对论性带电粒子的电磁场被描述为准实光子通量。FCC各运行模式所提供的互补光子通量、能量与虚度，使得研究可覆盖宽广的双光子不变质量范围及相应的物理测量。本文重点讨论了C-even共振态的独家产生，包括标准模型希格斯玻色子，以及自旋为0的类轴子粒子（ALPs）和自旋为2的类引力子粒子（GLPs）衰变回双光子的搜寻。这些前瞻性研究表明，在所有碰撞模式下均有望观测到希格斯玻色子的光子聚变产生，并对与光子耦合的ALPs和GLPs具有灵敏度，其质量范围可延伸至FCC-ee的运动学极限，并在FCC-hh碰撞中进入多TeV区间，较现有约束有显著改善。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用FCC各碰撞模式（电子-正电子、质子-质子、质子-铅、铅-铅）中带电束流伴随的等效光子通量，开展双光子物理研究，特别是C-even共振态的独家产生、希格斯玻色子的光子聚变产生，以及类轴子粒子和类引力子粒子的搜寻。</p>
+    <h4>方法</h4><p>在等效光子近似框架下，将相对论性带电粒子的电磁场描述为准实光子通量，并综合比较FCC各运行模式所提供的光子通量、能量与虚度，评估双光子不变质量覆盖范围及相应物理过程的探测潜力。</p>
+    <h4>主要发现</h4><p>原文指出，这些前瞻性研究表明在所有碰撞模式下均有望观测到希格斯玻色子的光子聚变产生；对与光子耦合的ALPs和GLPs的灵敏度可延伸至FCC-ee的运动学极限，并在FCC-hh碰撞中进入多TeV质量区间，较现有约束有显著改善。</p>
+    <h4>局限与展望</h4><p>原文未给出具体数值结果或系统误差评估；相关灵敏度为前瞻性估计，其实际可达性取决于探测器性能、本底控制与积分亮度等条件。后续可合理推断的方向包括针对各运行模式开展更详细的模拟与背景分析，以及结合实验数据检验这些预期。</p>
+  </section>
+</article><article class="paper" id="paper-2611.21807v1">
+  <div class="paper-head">
+    <h2>超越二次阶的核钟同位素$^{229}$Th结构研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.21807v1" rel="noopener noreferrer">2611.21807v1</a>
+  </div>
+  <p class="original-title">On the Structure of the Nuclear-Clock Isotope $^{229}$Th Beyond Quadratic Order</p>
+  <p class="meta"><strong>作者：</strong>Chaja Baruch、Doron Gazit、Hans-Werner Hammer、Fiona Kirk、Joachim Kopp、Gil Paz、Ekkehard Peik、Gilad Perez、Yotam Soreq、Konstantin Springmann</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span> <span class="tag">physics.atom-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>对$^{229}$Th极低能核跃迁的精密测量为探测多种新轻场提供了极高的灵敏度。然而，解读此类测量需要超出当前光谱学约束范围的核结构信息。我们建立了描述支配${}^{229}$Th超精细结构的电多极相互作用的系统框架，其中包含十六极贡献，并对晶体环境中由此产生的超精细劈裂进行了基于对称性的分析。超精细光谱通常约束核矩与晶场梯度的组合，当允许更高阶多极相互作用时会导致简并。随后，我们结合实验核可观测量、粒子-转子关系以及形变费米电荷密度模型，研究电磁贡献对核钟探测精细结构常数变化的灵敏度的影响。我们发现，更高阶的核形变以及钟态径向电荷分布随态的变化可显著改变预测灵敏度，引入现有测量无法约束的大不确定性。我们的结果凸显了将核理论与固态理论同互补测量（包括更高自旋态的光谱学）相结合以约束核结构、改进核钟对新物理灵敏度预测的重要性。我们基于对称性的分析也为利用超精细光谱研究晶体基质中局域缺陷对称性提供了框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何系统描述$^{229}$Th的超精细结构（含十六极等高阶多极贡献），并评估核结构不确定性对核钟探测精细结构常数变化灵敏度的影响。</p>
+    <h4>方法</h4><p>建立电多极相互作用（含十六极）的系统描述并进行晶体环境中超精细劈裂的对称性分析；结合实验核可观测量、粒子-转子关系与形变费米电荷密度模型，研究电磁贡献对灵敏度的作用。</p>
+    <h4>主要发现</h4><p>超精细光谱一般约束核矩与晶场梯度的组合，允许更高阶多极相互作用时出现简并；更高阶核形变及钟态径向电荷分布的态依赖差异可显著改变预测灵敏度，并引入现有测量无法约束的大不确定性。</p>
+    <h4>局限与展望</h4><p>现有测量不足以约束相关核结构参数，需结合核与固态理论及互补测量（如更高自旋态光谱学）来约束核结构、改进灵敏度预测；基于对称性的分析或可用于研究晶体基质中的局域缺陷对称性（此为原文明确提出的框架性推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.22945v1">
+  <div class="paper-head">
+    <h2>等量子激发态集合的普适质量方程 III<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.22945v1" rel="noopener noreferrer">2611.22945v1</a>
+  </div>
+  <p class="original-title">Universal Mass Equation for Equal-Quantum Excited-States Sets~III</p>
+  <p class="meta"><strong>作者：</strong>L. David Roper、Igor Strakovsky</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用作者此前提出的简单对数形式普适质量方程，研究重的非 q\bar{q} 介子态。PDG2026 报告了一系列量子数不允许标准 q\bar{q} 态存在的介子。借助格点量子色动力学（LQCD）预言，我们评估了已有预言可用的标量 0^{++} 与张量 2^{++} 胶球序列。该方法使我们能够预言需要未来实验研究的重态。此外，我们还讨论了一些介子态可能被误认的问题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用简单的对数普适质量方程描述重的非 q\bar{q} 介子态，并处理 PDG2026 中量子数不允许标准 q\bar{q} 态的介子系列，以及标量 0^{++} 与张量 2^{++} 胶球序列。</p>
+    <h4>方法</h4><p>采用作者提出的简单对数形式普适质量方程，结合格点量子色动力学（LQCD）对 0^{++} 与 2^{++} 胶球的预言，对相关介子态与胶球序列进行评估，并讨论部分介子态可能被误认的情况。</p>
+    <h4>主要发现</h4><p>原文明确报告：PDG2026 列出了一系列量子数不允许标准 q\bar{q} 态的介子；作者借助 LQCD 预言评估了标量 0^{++} 与张量 2^{++} 胶球序列；该方法可预言需要未来实验研究的重态；并讨论了某些介子态可能被误认的问题。</p>
+    <h4>局限与展望</h4><p>原文未给出具体数值预言或实验验证结果；所预言的重态尚待未来实验研究检验。基于原文可合理推断，后续工作可围绕这些重态的实验搜寻与介子态鉴别的进一步检验展开，但此类推断需明确以未来实验与更细致分析为前提。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-18 14:14 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

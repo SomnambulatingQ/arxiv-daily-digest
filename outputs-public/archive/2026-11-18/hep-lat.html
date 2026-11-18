@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-18</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">3</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2611.21860v1">单纯形 Kähler 费米子的反常流入</a> <small>2611.21860v1</small></li></ol><h3>交叉列表（3）</h3><ol class="toc-list"><li><a href="#paper-2609.24861v5">量子真空反转与非简并双正弦-戈尔登模型中的多扭结解绑</a> <small>2609.24861v5</small></li><li><a href="#paper-2611.21743v1">无需扭曲的中心反常：挠率、精确简并和凝聚</a> <small>2611.21743v1</small></li><li><a href="#paper-2611.22791v1">弱耦合下双色单味矩阵QCD的量子相变与超选择扇区</a> <small>2611.22791v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.21860v1">
+  <div class="paper-head">
+    <h2>单纯形 Kähler 费米子的反常流入<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.21860v1" rel="noopener noreferrer">2611.21860v1</a>
+  </div>
+  <p class="original-title">Anomaly inflow for simplicial Kähler fermions</p>
+  <p class="meta"><strong>作者：</strong>Simon Catterall</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究在有质量 Kähler Dirac 费米子在若干带有一个或多个边界的三维流形的有限三角剖分上传播的情形。为探测这些模型的反常结构，我们将 Kähler 场分解为两个约化 Kähler 场，并选取边界条件以确保任何边缘模式必然无质量。随后证明该系统的 Pfaffian 可分解为体 sector 与边界 sector 的乘积，在同时改变质量符号的费米子整体 $Z_4$ 变换下，每个 sector 可各自获得一个相位。这些相位是拓扑的，仅依赖于该 sector 中格点 Kähler 算符的指数。对边界 sector 而言，非平凡相位标志着 &#x27;t Hooft 反常的存在。我们研究了边界反常但来自体的流入抵消其相位的情形。在无体存在时，对不可定向边界消除该反常可重现拓扑超导体的已知分类。我们还给出这些结果的连续极限解释：其对应于由积掉有质量体 Kähler Dirac 费米子所诱导的引力 Chern-Simons 理论的流入；在存在边界时，后者产生 Wen-Zee 项，从而中介反常流入机制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究有限三角剖分三维流形上带质量 Kähler Dirac 费米子的反常结构，特别是边界 &#x27;t Hooft 反常与体流入之间的关系。</p>
+    <h4>方法</h4><p>将 Kähler 场分解为两个约化 Kähler 场，选取保证边缘模式无质量的边界条件；把系统 Pfaffian 分解为体与边界 sector，分析整体 $Z_4$ 变换下的相位，并借助格点 Kähler 算符的指数刻画拓扑相位；同时给出基于引力 Chern-Simons 理论与 Wen-Zee 项的连续极限解释。</p>
+    <h4>主要发现</h4><p>Pfaffian 可分解为体与边界 sector 的乘积，各 sector 在整体 $Z_4$ 变换下可获得拓扑相位，相位仅依赖该 sector 中格点 Kähler 算符的指数；边界 sector 的非平凡相位标志 &#x27;t Hooft 反常；存在体流入抵消边界反常的情形；无体时对不可定向边界消除反常可重现拓扑超导体的已知分类；连续极限下该机制可由积掉有质量体费米子诱导的引力 Chern-Simons 理论及边界 Wen-Zee 项解释。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论计算复杂度或数值实现细节；其结论主要针对所研究的有限三角剖分与特定边界条件，向更一般流形或相互作用情形的推广需进一步验证。后续工作可合理推断为考察其他维度、边界拓扑或格点离散化方案下该反常流入机制的表现。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2609.24861v5">
+  <div class="paper-head">
+    <h2>量子真空反转与非简并双正弦-戈尔登模型中的多扭结解绑<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2609.24861v5" rel="noopener noreferrer">2609.24861v5</a>
+  </div>
+  <p class="original-title">Quantum vacuum inversion and multi-kink unbinding in the non-degenerate double sine-Gordon model</p>
+  <p class="meta"><strong>作者：</strong>Jonathan Lozano-Mayo</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>量子涨落可以在对其质量修正仍然很小的情况下使复合孤子解绑。本文在非微扰层面证明了这一点，研究对象为非简并双正弦-戈尔登模型的多扭结。在一圈近似下，当耦合强度达到真空经典抬升的量级时，多扭结中心的真空成为真正的真空。对格点理论的张量网络计算表明，这种真空反转在一圈之外仍然存在，并具有连续极限，且高斯有效势能够刻画这一现象。在有限链上，当两半之间中心真空的弦张力降至零时，多扭结发生解绑。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>量子涨落能否在质量修正仍然很小的情况下使复合孤子（多扭结）解绑，以及一圈真空反转是否在非微扰层面成立并具有连续极限。</p>
+    <h4>方法</h4><p>对非简并双正弦-戈尔登模型的多扭结进行一圈分析；对格点理论开展张量网络计算；并考察高斯有效势对该现象的刻画能力。</p>
+    <h4>主要发现</h4><p>一圈下多扭结中心真空在耦合强度达到真空经典抬升量级时成为真正真空；张量网络计算显示该真空反转在一圈之外仍存在并具有连续极限；高斯有效势能够捕捉该反转；在有限链上，当中心真空弦张力降至零时多扭结解绑。</p>
+    <h4>局限与展望</h4><p>原文未讨论该机制在其他模型或更高圈数下的普适性；可合理推断，弦张力作为解绑判据或可推广至有限温度或其他复合孤子体系，但需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.21743v1">
+  <div class="paper-head">
+    <h2>无需扭曲的中心反常：挠率、精确简并和凝聚<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.21743v1" rel="noopener noreferrer">2611.21743v1</a>
+  </div>
+  <p class="original-title">Center anomalies without twists: torsion, exact degeneracies, and condensates</p>
+  <p class="meta"><strong>作者：</strong>Mohamed M. Anber</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>混合中心反常通常通过 &#x27;t Hooft 扭曲边界条件在哈密顿量形式中显现。在 $\mathbb{RP}^3$ 上，挠率使得扭曲不再必要：未扭曲的 $SU(2)$ 希尔伯特空间上的中心算符在 $\theta=\pi$ 的杨-米尔斯理论中与时间反演反交换，在超杨-米尔斯理论中与手征对称性反交换，因此每个能级至少双重简并。相关的半经典对象是 BPST 瞬子，它在 orbifold $\mathbb{R}^4/\mathbb{Z}_2$ 上下降为电荷为 $\tfrac12$ 的鞍点。我们以两种方式完成它：应用共形变换将 orbifold 映射到 $\mathbb{R}\times\mathbb{RP}^3$，其中鞍点描述两个中心扇区之间的隧穿事件；通过消解 orbifold 奇点，我们得到 Eguchi-Hanson 空间，它给出弱耦合值下的 gaugino 凝聚。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究混合中心反常在无需 &#x27;t Hooft 扭曲边界条件的情况下如何显现，特别是在 $\mathbb{RP}^3$ 上由挠率导致的中心算符与时间反演或手征对称性的反交换关系，以及相关的半经典瞬子解和凝聚现象。</p>
+    <h4>方法</h4><p>采用哈密顿量形式分析 $\mathbb{RP}^3$ 上未扭曲的 $SU(2)$ 希尔伯特空间中的中心算符与对称性的对易关系；利用 BPST 瞬子在 orbifold $\mathbb{R}^4/\mathbb{Z}_2$ 上的下降构造电荷-$\tfrac12$ 鞍点；通过共形变换映射到 $\mathbb{R}\times\mathbb{RP}^3$ 描述隧穿事件；通过消解奇点得到 Eguchi-Hanson 空间并计算 gaugino 凝聚。</p>
+    <h4>主要发现</h4><p>在 $\mathbb{RP}^3$ 上，中心算符与时间反演（$\theta=\pi$ 的杨-米尔斯理论）或手征对称性（超杨-米尔斯理论）反交换，导致每个能级至少双重简并；BPST 瞬子下降为 orbifold 上的电荷-$\tfrac12$ 鞍点；共形变换后鞍点描述两个中心扇区间的隧穿；Eguchi-Hanson 空间给出弱耦合值下的 gaugino 凝聚。</p>
+    <h4>局限与展望</h4><p>论文未明确讨论局限性或适用范围；可合理推断，该机制可能推广到其他具有挠率的空间或规范理论，但需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.22791v1">
+  <div class="paper-head">
+    <h2>弱耦合下双色单味矩阵QCD的量子相变与超选择扇区<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.22791v1" rel="noopener noreferrer">2611.22791v1</a>
+  </div>
+  <p class="original-title">Quantum phase transition and superselection sectors in two-color one-flavor matrix QCD at weak coupling</p>
+  <p class="meta"><strong>作者：</strong>Nirmalendu Acharyya、Arkajyoti Bandyopadhyay、Parthsarathi Kondapure、Sachindeo Vaidya</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">hep-lat</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对SU(2)规范理论耦合单味无质量基本夸克的矩阵模型在弱耦合（小g）区域进行了数值研究。该理论具有整体Pauli-Gürsey SU(2)_B对称性，物理态按自旋J组织，并由其表示B标记为不同扇区。我们在多个(B,J)扇区中发现了局域-离域量子相变（QPT），其临界耦合g_*^{BJ}依赖于扇区。对局域化概率的直接计算表明：当g&lt;g_*^{BJ}时，基态主要局域在A_i=0附近；而当g&gt;g_*^{BJ}时，基态几乎完全被排斥出该区域。不同扇区的QPT表现出不同特征，我们确认夸克-胶子相互作用对这些相变至关重要。这些相变是奇异的：当g&lt;g_*^{BJ}时，Tr(A_iA_i)的基态期望值保持有限；而当g从上方趋近g_*^{BJ}时，该期望值发散。我们证明，g_*^{BJ}两侧的两个极限基态属于不同的超选择扇区。此外，当g从上方趋近g_*^{BJ}时，基态局域在规范位形空间的一个余维2子流形上，其胶子分量的自旋与颜色发生锁定。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究SU(2)规范理论耦合单味无质量基本夸克的矩阵模型在弱耦合区域中，不同Pauli-Gürsey SU(2)_B表示扇区(B,J)内是否发生量子相变，以及这些相变与夸克-胶子相互作用、超选择扇区的关系。</p>
+    <h4>方法</h4><p>对矩阵模型在弱耦合（小g）区域进行数值研究；利用整体Pauli-Gürsey SU(2)_B对称性将物理态按表示B和自旋J分扇区；通过直接计算局域化概率以及Tr(A_iA_i)的基态期望值来刻画相变行为。</p>
+    <h4>主要发现</h4><p>在多个(B,J)扇区中发现局域-离域量子相变，临界耦合g_*^{BJ}随扇区而异；g&lt;g_*^{BJ}时基态主要局域在A_i=0附近，g&gt;g_*^{BJ}时几乎完全被排斥出该区域；不同扇区的相变特征不同；夸克-胶子相互作用对相变必不可少；相变是奇异的：Tr(A_iA_i)的基态期望值在g&lt;g_*^{BJ}时有限，在g从上方趋近g_*^{BJ}时发散；g_*^{BJ}两侧的极限基态属于不同超选择扇区；g从上方趋近g_*^{BJ}时基态局域于余维2子流形，且胶子分量的自旋与颜色锁定。</p>
+    <h4>局限与展望</h4><p>原文为数值研究，未给出解析证明或连续极限下的结论；其适用范围限于所研究的矩阵模型弱耦合区域。后续可合理推断的方向包括：对相变奇异性的解析刻画、超选择扇区结构的进一步理论分析，以及向其他规范群或味数的推广；这些均为推断，尚未在原文中建立。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-18 14:14 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
