@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-11-19</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">8</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">6</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2611.23355v1">核反应中的同位旋效应与对称能</a> <small>2611.23355v1</small></li><li><a href="#paper-2611.24673v1">STAR探测器在√s_NN=200 GeV同量异位素碰撞中守恒荷的涨落与关联</a> <small>2611.24673v1</small></li></ol><h3>交叉列表（6）</h3><ol class="toc-list"><li><a href="#paper-2611.23457v1">电子-离子对撞机ePIC探测器的桶部成像量能器</a> <small>2611.23457v1</small></li><li><a href="#paper-2611.23506v1">SPS与RHIC能量下重离子碰撞中的轻子对产生</a> <small>2611.23506v1</small></li><li><a href="#paper-2611.23577v1">质子横向极化分布函数研究展望</a> <small>2611.23577v1</small></li><li><a href="#paper-2611.24118v1">NFS 设施上液体闪烁体探测器快中子响应的表征</a> <small>2611.24118v1</small></li><li><a href="#paper-2611.24538v1">Σ阈值以下的Λ-氘散射</a> <small>2611.24538v1</small></li><li><a href="#paper-2611.24572v1">核格点有效场论对质子滴线附近锡同位素半径的研究</a> <small>2611.24572v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.23355v1">
+  <div class="paper-head">
+    <h2>核反应中的同位旋效应与对称能<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23355v1" rel="noopener noreferrer">2611.23355v1</a>
+  </div>
+  <p class="original-title">Isospin effects and symmetry energy in nuclear reactions</p>
+  <p class="meta"><strong>作者：</strong>Jerzy Łukasik</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>同位旋与对称能在液滴质量公式的对称项以及非对称核物质状态方程的相应项中相互关联。泡利不相容原理导致核结合能公式对称项的动能部分对中子-质子不对称度 (N-Z)/A 的主导二次依赖关系。电荷对称性保证势能部分具有相同的主导二次依赖关系。电荷不变性进一步将这种依赖关系在最低阶上从 T₃² 推广到 T(T+1)。相比之下，对称项的强度由对称能决定。在亚饱和密度下，对称能可由核结构观测量约束，例如中子皮厚度、同位旋矢量集体模式及相关的电偶极极化率、同量异位素相似态的激发能；也可由反应观测量约束，例如电荷交换与弹性散射截面、同位旋标度与同位旋扩散。相反，在超饱和密度下，实验室条件下研究非对称核物质的唯一手段是相对论重离子碰撞，此类研究使用中子/质子流、轻同量异位素比或 π⁻/π⁺ 比等微分观测量。中子星观测（包括引力波）可提供互补信息。本文将介绍对称能刚度（stiffness）的最新测量与分析，以及 NA61/SHINE 关于 kaon 产生中意外大的同位旋对称性破坏的最新观测。文中还将关注在 GSI 近期 ASY-EOS II 实验背景下测量相对论重离子碰撞带电与中性产物的挑战，以及该装置中使用的新探测器。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文讨论核反应中同位旋效应与对称能的关系，重点涉及对称能对中子-质子不对称度的依赖形式、不同密度区域约束对称能的手段，以及相关实验观测与测量挑战。</p>
+    <h4>方法</h4><p>以液滴质量公式和核物质状态方程的对称项为理论框架，结合核结构观测量（中子皮厚度、同位旋矢量集体模式、电偶极极化率、同量异位素相似态激发能）与反应观测量（电荷交换与弹性散射截面、同位旋标度、同位旋扩散）约束亚饱和密度下的对称能；超饱和密度下采用相对论重离子碰撞的微分观测量（中子/质子流、轻同量异位素比、π⁻/π⁺ 比），并辅以中子星观测；同时介绍 NA61/SHINE 的 kaon 产生观测及 ASY-EOS II 实验的探测器与测量挑战。</p>
+    <h4>主要发现</h4><p>泡利不相容原理导致对称项动能部分对 (N-Z)/A 的主导二次依赖；电荷对称性保证势能部分具有相同的主导二次依赖；电荷不变性将最低阶依赖从 T₃² 推广到 T(T+1)；对称项强度由对称能决定；亚饱和密度下对称能可由核结构与反应观测量约束，超饱和密度下相对论重离子碰撞是实验室唯一手段；论文将呈现对称能刚度的最新测量与分析，以及 NA61/SHINE 关于 kaon 产生中意外大的同位旋对称性破坏的观测。</p>
+    <h4>局限与展望</h4><p>摘要未给出具体数值结论或定量约束结果；对称能刚度的最新测量与分析、NA61/SHINE 观测的物理含义以及 ASY-EOS II 的测量挑战需依据论文正文进一步确认。可合理推断，超饱和密度区域对称能的约束仍依赖相对论重离子碰撞与中子星观测的互补，而带电与中性产物的精确测量是相关实验的关键局限之一。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24673v1">
+  <div class="paper-head">
+    <h2>STAR探测器在√s_NN=200 GeV同量异位素碰撞中守恒荷的涨落与关联<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24673v1" rel="noopener noreferrer">2611.24673v1</a>
+  </div>
+  <p class="original-title">Fluctuations and Correlations of Conserved Charges in Isobar Collisions at $\sqrt{s_{NN}}$ = 200 GeV with the STAR Detector</p>
+  <p class="meta"><strong>作者：</strong>Changfeng Li、Hanwen Feng</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文报道了在STAR实验于√s_NN=200 GeV下Ru+Ru与Zr+Zr碰撞中，对实验可及的净重子数、净电荷与净奇异数代理量的二阶累积量与关联的测量结果。在不确定度范围内，两个同量异位素系统的结果呈现相似的中央度依赖关系。重子-奇异数关联C_BS与格点QCD及UrQMD计算结果进行了比较。受近期格点QCD关于外磁场中QCD物质预言的启发，研究了若干守恒荷关联比值随中央度的变化。在边缘碰撞中，所测比值呈现出与格点QCD预言相同的排序；UrQMD中也发现定性相似的层级结构，但该模型低估了观测到的边缘相对中心增强。这些结果有助于进一步定量研究可能的磁场贡献以及观测到的中央度依赖的其他来源。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在√s_NN=200 GeV的Ru+Ru与Zr+Zr同量异位素碰撞中，实验可及的净重子数、净电荷与净奇异数代理量的二阶累积量与关联随中央度如何变化，其重子-奇异数关联及若干守恒荷关联比值能否与格点QCD和UrQMD预言相比较。</p>
+    <h4>方法</h4><p>利用STAR探测器在√s_NN=200 GeV下采集的Ru+Ru与Zr+Zr碰撞数据，测量守恒荷代理量的二阶累积量与关联；将重子-奇异数关联C_BS与格点QCD及UrQMD计算比较；并依据格点QCD对外磁场中QCD物质的预言，研究若干守恒荷关联比值随中央度的依赖，并与UrQMD结果对照。</p>
+    <h4>主要发现</h4><p>在不确定度范围内，两个同量异位素系统呈现相似的中央度依赖关系；C_BS与格点QCD和UrQMD进行了比较；在边缘碰撞中，所测关联比值呈现出与格点QCD预言相同的排序，UrQMD中也发现定性相似的层级结构，但该模型低估了观测到的边缘相对中心增强。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果有助于进一步定量研究可能的磁场贡献以及观测到的中央度依赖的其他来源；关于磁场贡献的具体大小及其他来源的定量结论尚需后续研究，本文未给出确定性判断。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.23457v1">
+  <div class="paper-head">
+    <h2>电子-离子对撞机ePIC探测器的桶部成像量能器<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23457v1" rel="noopener noreferrer">2611.23457v1</a>
+  </div>
+  <p class="original-title">The Barrel Imaging Calorimeter of the ePIC detector at the Electron-Ion Collider</p>
+  <p class="meta"><strong>作者：</strong>Bobae Kim、for the ePIC Barrel Imaging Calorimeter、Detector Subsystem Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>电子-离子对撞机（EIC）是下一代核物理实验装置，预期用于研究核子与原子核中胶子的结构与动力学等基础问题。桶部成像量能器（BIC）是ePIC探测器的电磁量能器，旨在满足EIC的严格性能要求，对散射电子、光子及中性介子进行精确测量与粒子鉴别。BIC是一种高粒度取样量能器，以铅吸收体与闪烁光纤交替排列为基础，并辅以基于AstroPix单片有源像素传感器的像素化成像层。这种混合设计可同时实现能量与位置的精确测量以及三维簇射重建，是发挥EIC全部物理潜力的关键部件。BIC已于去年成功通过初步设计评审，目前正推进至最终设计评审。本报告将概述BIC的设计概念，并重点介绍其当前状态以及来自台式测试、系统集成研究和近期束流测试的性能结果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>ePIC探测器桶部成像量能器（BIC）如何满足EIC对散射电子、光子和中性介子精确测量与粒子鉴别的性能要求，以及其当前研制与性能验证状态如何。</p>
+    <h4>方法</h4><p>采用高粒度取样量能器方案：铅吸收体与闪烁光纤交替排列，并加入基于AstroPix单片有源像素传感器的像素化成像层，以实现能量、位置测量和三维簇射重建；通过台式测试、系统集成研究和束流测试评估性能。</p>
+    <h4>主要发现</h4><p>BIC的混合设计可同时支持精确的能量与位置测量以及三维簇射重建；该量能器已于去年成功完成初步设计评审，目前正推进最终设计评审；摘要提及将报告台式测试、系统集成研究和近期束流测试的性能结果，但未给出具体数值结果。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限或适用范围；可合理推断，后续工作将围绕最终设计评审及进一步验证量能器性能展开，但具体方向需以原文后续内容为准。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23506v1">
+  <div class="paper-head">
+    <h2>SPS与RHIC能量下重离子碰撞中的轻子对产生<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23506v1" rel="noopener noreferrer">2611.23506v1</a>
+  </div>
+  <p class="original-title">The production of lepton pairs in heavy-ion collisions at SPS and RHIC energies</p>
+  <p class="meta"><strong>作者：</strong>Xiang-Yu Wu、Han Gao、Charles Gale、Sangyong Jeon、Ralf Rapp</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对质心能量 $\sqrt{s_{\rm NN}}=17.3$ GeV 的 In+In 碰撞以及 $\sqrt{s_{\rm NN}}=200$ GeV 的同量异位素碰撞中的双轻子产生与椭圆流进行了定量研究，重点关注低不变质量与中等不变质量区域。介质演化采用多阶段 iEBE-MUSIC 框架进行逐事件模拟；电磁辐射首次将强耦合常数下次领头阶（NLO）计算的夸克-胶子等离子体（QGP）辐射与基于强子多体理论计算的介质内辐射相结合，同时计入冻结-out 以及存活的初始 $\rho$ 介子衰变。计算结果与 NA60 合作组测量的高精度双缪子谱以及 STAR 合作组关于双电子谱与椭圆流的初步测量进行了比较。我们由横质量谱提取了有效温度，并计算了不同双轻子源的椭圆流。结果表明，低质量且高 $p_T$ 区域的双轻子测量可为理解 QGP 辐射率的高阶修正提供线索。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 SPS 能量（$\sqrt{s_{\rm NN}}=17.3$ GeV）的 In+In 碰撞与 RHIC 能量（$\sqrt{s_{\rm NN}}=200$ GeV）的同量异位素碰撞中，低与中等不变质量区域的双轻子产生谱及椭圆流如何由 QGP 辐射与强子介质辐射共同描述，以及能否从这些观测量中提取有效温度并约束 QGP 辐射率的高阶修正。</p>
+    <h4>方法</h4><p>采用多阶段 iEBE-MUSIC 框架对介质演化进行逐事件模拟；电磁辐射首次联合使用强耦合常数下 NLO 的 QGP 辐射与强子多体理论计算的介质内辐射，并计入冻结-out 与存活初始 $\rho$ 介子衰变；将计算结果与 NA60 双缪子谱及 STAR 双电子谱和椭圆流的初步测量进行比较，并由横质量谱提取有效温度、计算各双轻子源的椭圆流。</p>
+    <h4>主要发现</h4><p>计算与 NA60 高精度双缪子谱以及 STAR 初步的双电子谱和椭圆流测量进行了比较；由横质量谱提取了有效温度，并给出了不同双轻子源的椭圆流计算结果；结果提示低质量且高 $p_T$ 区域的双轻子测量可为 QGP 辐射率的高阶修正提供洞察。</p>
+    <h4>局限与展望</h4><p>原文指出低质量、高 $p_T$ 区域的双轻子测量有望用于研究 QGP 辐射率的高阶修正；该结论基于当前 NLO QGP 辐射与强子多体辐射相结合的模型以及与现有数据的比较，其适用性受限于所比较数据的精度与覆盖范围，后续需更精确的测量与理论计算加以检验（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23577v1">
+  <div class="paper-head">
+    <h2>质子横向极化分布函数研究展望<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23577v1" rel="noopener noreferrer">2611.23577v1</a>
+  </div>
+  <p class="original-title">Perspective on Proton Transversity Distribution Functions</p>
+  <p class="meta"><strong>作者：</strong>Ke-Xin Zeng、Peng Cheng、Yang Yu、Daniele Binosi、Craig D. Roberts</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用现有的质子张量荷信息以及微扰量子色动力学（QCD）约束，为强子标度下的质子内价夸克横向极化分布函数（transversity DFs）引入若干拟设（Ansaetze）。随后采用 QCD 有效荷概念——该概念定义了一种对共线部分子分布函数与碎裂函数在全阶精确的演化方案——给出这些分布函数在标度 ζ₂ = 2 GeV 下随 x 变化的预言。尽管该方法在很大程度上是代数性的，但其预言在与计算密集型方法所得结果比较后仍然成立。因此，鉴于目前可用于推断质子横向极化分布函数的数据十分稀少，本文结果或可用于为相关实验和唯象拟合提供参考与约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在可用于推断质子横向极化分布函数的数据稀缺的条件下，获得价夸克横向极化分布函数随 x 变化的可靠预言。</p>
+    <h4>方法</h4><p>利用质子张量荷的现有信息与微扰 QCD 约束构造强子标度下价夸克横向极化分布函数的拟设，并借助定义全阶精确共线演化方案的 QCD 有效荷，给出这些分布函数在 ζ₂ = 2 GeV 标度下的预言；随后与计算密集型方法的结果进行比较。</p>
+    <h4>主要发现</h4><p>原文表明，尽管所采用的方法在很大程度上是代数性的，其预言在与计算密集型方法所得结果比较后仍然成立；并指出当前可用于推断质子横向极化分布函数的数据稀少。</p>
+    <h4>局限与展望</h4><p>原文建议，鉴于数据稀缺，本文结果或可用来为相关实验和唯象拟合提供参考与约束。原文未进一步讨论该方法的具体适用范围与局限；其能否推广至其他标度或其他分布函数，尚需后续研究检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24118v1">
+  <div class="paper-head">
+    <h2>NFS 设施上液体闪烁体探测器快中子响应的表征<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24118v1" rel="noopener noreferrer">2611.24118v1</a>
+  </div>
+  <p class="original-title">Characterization of the fast neutron response of liquid scintillator detectors at NFS</p>
+  <p class="meta"><strong>作者：</strong>A. Pérez de Rada Fiol、G. del Río、T. Martínez、X. Ledoux、V. Alcayne、C. Ballesteros、D. Cano-Ott、I. Matea、P. Miriot-Jaubert、J. Plaza、A. Sánchez-Caballero、M. Vandebrouck、D. Villamarín</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用在 GANIL-SPIRAL2 的 Neutrons For Science（NFS）设施上开展的时间飞行测量，研究了 MONSTER 与 sTED 液体闪烁体探测器的快中子响应。实验采用由 40 MeV 氘束轰击厚铍转换靶产生的连续中子束，获得了选定入射中子能量下的脉冲高度分布。通过数字脉冲形状分析区分中子诱发事件并降低堆积效应。对于 MONSTER，结合此前获得的光输出函数，分别使用 Geant4 与 SCINFUL 模式下的 PHITS 研究了最高至 40 MeV 的响应与探测效率；比较分析考察了碳反应道日益增加的重要性以及 20 MeV 以上计算效率之间的差异。对于 sTED，首次确定了该探测器对反冲氘核与 α 粒子的光输出函数，并在最高至 20 MeV 范围内比较了测量效率与计算效率，sTED 效率与模拟结果总体符合良好。上述结果为核数据测量提供了受实验约束的探测器响应信息，并指出了将模拟外推至更高中子能量时须考虑的局限性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>MONSTER 与 sTED 液体闪烁体探测器在快中子能区的响应与探测效率如何表征，以及模拟在高能区是否可靠。</p>
+    <h4>方法</h4><p>在 GANIL-SPIRAL2 的 NFS 设施上利用 40 MeV 氘束轰击厚铍转换靶产生的连续中子束开展时间飞行测量，获取选定中子能量下的脉冲高度分布；采用数字脉冲形状分析区分中子诱发事件并抑制堆积；对 MONSTER 结合已有光输出函数使用 Geant4 与 SCINFUL 模式下的 PHITS 计算响应与效率，对 sTED 确定反冲氘核与 α 粒子的光输出函数并比较测量与计算效率。</p>
+    <h4>主要发现</h4><p>获得了选定入射中子能量下的脉冲高度分布；对 MONSTER 研究了最高至 40 MeV 的响应与效率，并分析了碳反应道重要性上升及 20 MeV 以上计算效率之间的差异；对 sTED 首次确定其反冲氘核与 α 粒子光输出函数，最高至 20 MeV 的测量效率与模拟总体符合良好。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果可为核数据测量提供受实验约束的探测器响应信息，并识别出将模拟扩展至更高中子能量时须考虑的局限性；更高能区模拟的可靠性仍需进一步实验约束，此点属于基于原文的合理推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24538v1">
+  <div class="paper-head">
+    <h2>Σ阈值以下的Λ-氘散射<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24538v1" rel="noopener noreferrer">2611.24538v1</a>
+  </div>
+  <p class="original-title">$Λ$-deuteron scattering below the $Σ$-threshold</p>
+  <p class="meta"><strong>作者：</strong>A. Deltuva</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文完整描述了Σ阈值以下的Λd弹性散射与破裂过程，其中包含到Σ道的虚耦合。通过在动量空间中求解三体跃迁算符的多道散射方程，获得了良好收敛的结果。计算了散射长度、遍举、半遍举及总弹性与破裂截面以及自旋可观测量，旨在研究它们对运动学变量和动力学要素的依赖关系。超子-核子相互作用模型带来的不确定性最为显著。文中识别了有助于约束超子-核子力模型的可观测量与运动学区域。该问题的单道近似在低能与中能区得到验证。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在Σ阈值以下，包含到Σ道虚耦合的Λd弹性散射与破裂过程如何描述，各可观测量对运动学变量和动力学要素（尤其是超子-核子相互作用模型）的依赖如何，以及单道近似在何种能量范围成立。</p>
+    <h4>方法</h4><p>在动量空间中求解三体跃迁算符的多道散射方程，完整纳入到Σ道的虚耦合，计算散射长度、遍举/半遍举/总弹性与破裂截面及自旋可观测量，并考察超子-核子相互作用模型带来的不确定性。</p>
+    <h4>主要发现</h4><p>获得了良好收敛的多道散射结果；超子-核子相互作用模型引起的不确定性最为显著；识别出有助于约束超子-核子力模型的可观测量与运动学区域；单道近似在低能与中能区得到验证。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；基于结果可合理推断，所识别的可观测量与运动学区域可用于进一步约束超子-核子力模型，而单道近似的适用性限于低能与中能区，更高能量下需保留多道耦合。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24572v1">
+  <div class="paper-head">
+    <h2>核格点有效场论对质子滴线附近锡同位素半径的研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24572v1" rel="noopener noreferrer">2611.24572v1</a>
+  </div>
+  <p class="original-title">Radii of Sn Isotopes near the Proton Dripline from Nuclear Lattice Effective Field Theory</p>
+  <p class="meta"><strong>作者：</strong>Fabian Hildenbrand、Serdar Elhatisari、Ulf-G. Meißner</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次采用核格点有效场论，结合高精度两核子与三核子相互作用以及部分针孔算法，对质子滴线附近的锡同位素 $^{96}$Sn、$^{98}$Sn、$^{100}$Sn、$^{102}$Sn 和 $^{104}$Sn 的电荷半径与物质半径进行了从头格点计算。所得半径大于其他从头方法给出的预言。研究发现，三核子相互作用的变化会导致半径出现显著差异，即使这些相互作用具有相近的结合能。文中对不同三体力的选取所带来的影响进行了深入讨论。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究质子滴线附近锡同位素（$^{96}$Sn、$^{98}$Sn、$^{100}$Sn、$^{102}$Sn、$^{104}$Sn）的电荷半径与物质半径，并考察三核子相互作用选择对半径预言的影响。</p>
+    <h4>方法</h4><p>采用核格点有效场论，结合高精度两核子与三核子相互作用以及部分针孔算法，进行从头格点计算。</p>
+    <h4>主要发现</h4><p>给出了上述锡同位素的电荷半径与物质半径的首次从头格点计算结果；所得半径大于其他从头方法的预言；三核子相互作用的变化会导致半径出现显著差异，即使结合能相近。</p>
+    <h4>局限与展望</h4><p>原文明确指出不同三体力的选取对半径有重要影响，并对此进行了深入讨论；其局限与适用范围原文未明确说明，后续可合理推断需进一步约束三核子相互作用并与其他从头方法及实验数据作系统比较，但此点属于推断。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-19 14:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

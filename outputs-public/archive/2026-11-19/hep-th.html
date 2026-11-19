@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-th 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-th · 高能理论</h1>
+    <p class="lede">官方公告日：2026-11-19</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">46</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">24</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">22</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（24）</h3><ol class="toc-list"><li><a href="#paper-2611.23237v1">重访自由玻色共形场论的可交换运动积分：经认证的密度、谱刚性及 c=1 分支点处的精确识别</a> <small>2611.23237v1</small></li><li><a href="#paper-2611.23366v1">矩阵模型与弦理论的精确解：全局构造</a> <small>2611.23366v1</small></li><li><a href="#paper-2611.23369v1">M理论路径积分的局域化：膜瞬子</a> <small>2611.23369v1</small></li><li><a href="#paper-2611.23370v1">四维量子场论上的正定度规</a> <small>2611.23370v1</small></li><li><a href="#paper-2611.23376v1">视界运动学与有限能量霍金辐射诱导的精细结构</a> <small>2611.23376v1</small></li><li><a href="#paper-2611.23377v1">全纯-拓扑Poisson sigma模型与仿射W代数的量子化</a> <small>2611.23377v1</small></li><li><a href="#paper-2611.23379v1">Kaluza-Klein与Einstein-Maxwell-dilaton-axion理论中的Melvin型电磁化Kerr黑洞</a> <small>2611.23379v1</small></li><li><a href="#paper-2611.23381v1">基于Sp$(4,\mathbb Z)$模对称性的非微扰模量稳定化</a> <small>2611.23381v1</small></li><li><a href="#paper-2611.23392v1">标量/轴子虫洞与引力路径积分中的边界条件</a> <small>2611.23392v1</small></li><li><a href="#paper-2611.23396v1">ER=EPR 与量子引力中的 IMP 虫洞</a> <small>2611.23396v1</small></li><li><a href="#paper-2611.23453v1">双标度SYK中折叠的非时序关联函数</a> <small>2611.23453v1</small></li><li><a href="#paper-2611.24160v1">四维全纯费曼图与量子BPS环</a> <small>2611.24160v1</small></li><li><a href="#paper-2611.24250v1">非阿贝尔规范线性sigma模型中D-膜输运的等级限制规则</a> <small>2611.24250v1</small></li><li><a href="#paper-2611.24320v1">仅有圆盘：IIB 型弦论中翘曲 AdS$_6\times S^2$ 的拓扑障碍</a> <small>2611.24320v1</small></li><li><a href="#paper-2611.24396v1">熵单调性的上同调基础：相对循环复形、超渡映射与 d=2 中的熵 c-定理</a> <small>2611.24396v1</small></li><li><a href="#paper-2611.24510v1">膜世界中的3-形式规范场局域化</a> <small>2611.24510v1</small></li><li><a href="#paper-2611.24531v1">QED$_3$、QED$_3$--GNY 与标量 QED$_3$ 中 $\langle TJJ\rangle$ 和 $\langle TTT\rangle$ 的 $1/N$ 修正</a> <small>2611.24531v1</small></li><li><a href="#paper-2611.24666v1">从纠缠动力学深度学习时空</a> <small>2611.24666v1</small></li><li><a href="#paper-2611.24691v1">由费曼图导出的Regge膨胀子引力</a> <small>2611.24691v1</small></li><li><a href="#paper-2611.24752v1">学习任意子图集</a> <small>2611.24752v1</small></li><li><a href="#paper-2611.24753v1">从模数据计算 $F$-符号</a> <small>2611.24753v1</small></li><li><a href="#paper-2611.24779v1">有限分辨率下的全息：AdS/CFT 中的零点长度</a> <small>2611.24779v1</small></li><li><a href="#paper-2611.24874v1">高阶曲率引力中旋转黑洞热力学的次次领头阶修正</a> <small>2611.24874v1</small></li><li><a href="#paper-2611.24897v1">超越隐藏零点与 Tr$(\phi^3)$ 中的唯一性：任意 Tr$(\phi^m)$ 理论中的块零点与杆零点</a> <small>2611.24897v1</small></li></ol><h3>交叉列表（22）</h3><ol class="toc-list"><li><a href="#paper-2611.18828v1">用四夸克算子探测QCD共形窗口</a> <small>2611.18828v1</small></li><li><a href="#paper-2611.23170v1">U(1)自旋液体中竞争磁序与连续变化的临界指数</a> <small>2611.23170v1</small></li><li><a href="#paper-2611.23343v1">中微子传播哈密顿量的能量相关重标度：标准模型扩展识别、物质部分与长基线简并</a> <small>2611.23343v1</small></li><li><a href="#paper-2611.23426v1">带标量多极矩的自旋天体动力学</a> <small>2611.23426v1</small></li><li><a href="#paper-2611.23462v1">通过时空 Kirkwood-Dirac 分布与时空态实现的时空量子 Monge-Kantorovich 最优输运</a> <small>2611.23462v1</small></li><li><a href="#paper-2611.23597v1">对“来自幻影DBI场的精确非奇异黑洞作为原初暗物质”的评论</a> <small>2611.23597v1</small></li><li><a href="#paper-2611.23735v1">Gopakumar-Vafa不变量与Mordell-Weil格</a> <small>2611.23735v1</small></li><li><a href="#paper-2611.23758v1">由四次Casimir与端点方程构造的1+1维带电Schrödinger块</a> <small>2611.23758v1</small></li><li><a href="#paper-2611.23957v1">由特征公式计算仲费米子与仲玻色子宇称算符的谱</a> <small>2611.23957v1</small></li><li><a href="#paper-2611.23978v1">地球中微子（与反应堆中微子）未显现出可见衰变</a> <small>2611.23978v1</small></li><li><a href="#paper-2611.24105v1">无手性阿贝尔拓扑序的稳定子模型</a> <small>2611.24105v1</small></li><li><a href="#paper-2611.24127v1">暴胀期间二次反作用源的规范与尺度依赖性：均匀膨胀规范</a> <small>2611.24127v1</small></li><li><a href="#paper-2611.24420v1">带正则化的动力学Chern-Simons引力中的双黑洞并合</a> <small>2611.24420v1</small></li><li><a href="#paper-2611.24488v1">黑洞例外点附近的边界制备与反常弛豫</a> <small>2611.24488v1</small></li><li><a href="#paper-2611.24624v1">瞬子隧穿作为数字量子模拟的可验证基准：电路结构、经典可模拟性与硬件可复现性</a> <small>2611.24624v1</small></li><li><a href="#paper-2611.24634v1">曲率耦合电动力学中正则中心处的电荷</a> <small>2611.24634v1</small></li><li><a href="#paper-2611.24640v1">一维OTOC$^{(1)}$模拟的一个可证明高效的经典算法</a> <small>2611.24640v1</small></li><li><a href="#paper-2611.24658v1">轻费米子可触发 Brout-Englert-Higgs 效应</a> <small>2611.24658v1</small></li><li><a href="#paper-2611.24671v1">一种新的大统一理论</a> <small>2611.24671v1</small></li><li><a href="#paper-2611.24725v1">Atiyah–Hirzebruch 到 Adams 映射与超上同调的加速 Adams 谱序列</a> <small>2611.24725v1</small></li><li><a href="#paper-2611.24826v1">Whitehead双纽结与AJ猜想的失效</a> <small>2611.24826v1</small></li><li><a href="#paper-2611.24878v1">从几何曲率到有效背景：一、二、三维空间中狄拉克费米子的对应词典</a> <small>2611.24878v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.23237v1">
+  <div class="paper-head">
+    <h2>重访自由玻色共形场论的可交换运动积分：经认证的密度、谱刚性及 c=1 分支点处的精确识别<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23237v1" rel="noopener noreferrer">2611.23237v1</a>
+  </div>
+  <p class="original-title">Commuting integrals of motion for free bosonic CFTs revisited: certified densities, spectral rigidity, and an exact identification at the c=1 branch point</p>
+  <p class="meta"><strong>作者：</strong>Evgueniy Vitchev</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">math.QA</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文以精确算术算子乘积引擎重新考察 hep-th/0404195 中为可积边界态构造的自由玻色共形场论可交换局域运动积分。一个 bootstrap 引理将该超定双线性可交换性系统约化为一个特殊的奇荷 D 加上线性核问题——其前提是偶自旋空缺，这是一个机器验证但仅限有限范围的输入。对于 Z_2×Z_2“回形针”族，我们公布自旋-7 密度 P_8，证明 [I_3,I_5]=[I_3,I_7]=[I_5,I_7]=0 对 n 恒等成立，并在抽样 n 上验证了自旋 7 与 9 的 Lukyanov-Vitchev-Zamolodchikov 四屏蔽刻画。对于 A_2^(2) 族，我们给出到对偶 Phi_{1,2}/Phi_{2,1} 微扰的精确 Coulomb 气体字典（该识别本身是经典的，属 Zamolodchikov；Smirnov），由此所有自旋 6n±1 的无穷层级由 Feigin-Frenkel 仿射 Toda 定理推出；我们的贡献是经认证的字典，而非新的全自旋构造。在 c=1 处，该塔的定义荷恰为 c_{1,4}=-25/2 的量子 KdV——即 Freeman-Hornfeck-West 族的全奇扇区：层级在每个奇自旋处嵌入，等式验证至自旋 15，全自旋重数为 1 仍开放。我们在所测位点排除或不支持所命名的非 KdV 候选，并将自对偶简并识别为 L(1,0)。至自旋 11，对全部三个 Z_2×O(N)“柱状”族，I_3 的一般中心化子在奇自旋为一维、偶自旋为零，并在自旋 7、9、11 给出 Q(t)-符号荷，且在 N=-2 处有一个已解释的纤维跳跃。我们认证了 2004 年发表的低自旋公式并记录五处更正（其中一处为推定）。全自旋陈述仅在已证明处给出，否则为有限范围。最后提出一个余秩特征猜想，将双线性系统的秩亏与屏蔽核的特征标联系起来。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>重访自由玻色共形场论中作为可积边界态输入数据的可交换局域运动积分，检验其密度、可交换性、与已知可积结构的识别，以及中心化子的结构。</p>
+    <h4>方法</h4><p>使用精确算术算子乘积引擎；以 bootstrap 引理将超定双线性可交换性系统约化为奇荷 D 与线性核问题；对 Z_2×Z_2 回形针族显式构造并证明低自旋可交换性；对 A_2^(2) 族建立 Coulomb 气体字典并援引 Feigin-Frenkel 仿射 Toda 定理；在 c=1 处与量子 KdV 及 Freeman-Hornfeck-West 族比对；计算 I_3 的中心化子至自旋 11。</p>
+    <h4>主要发现</h4><p>公布自旋-7 密度 P_8；证明 [I_3,I_5]=[I_3,I_7]=[I_5,I_7]=0 对 n 恒等成立；在抽样 n 上验证自旋 7、9 的 LVZ 四屏蔽刻画；给出 A_2^(2) 族到对偶 Phi_{1,2}/Phi_{2,1} 微扰的精确字典，并由此得到所有自旋 6n±1 的层级；在 c=1 处定义荷恰为 c_{1,4}=-25/2 的量子 KdV（Freeman-Hornfeck-West 族全奇扇区），等式验证至自旋 15；排除或不支持所命名的非 KdV 候选，自对偶简并识别为 L(1,0)；对三个 Z_2×O(N) 柱状族，I_3 的一般中心化子在奇自旋一维、偶自旋为零，给出自旋 7、9、11 的 Q(t)-符号荷及 N=-2 处的纤维跳跃；认证 2004 年低自旋公式并记录五处更正（一处推定）。</p>
+    <h4>局限与展望</h4><p>偶自旋空缺仅为机器验证的有限范围输入，全自旋重数为 1 仍开放；全自旋陈述仅在已证明处成立，其余为有限范围结论。文末提出的余秩特征猜想将双线性系统的秩亏与屏蔽核特征标相联系，可作为后续研究方向；该猜想及任何超出已验证范围的推断均需进一步证明。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23366v1">
+  <div class="paper-head">
+    <h2>矩阵模型与弦理论的精确解：全局构造<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23366v1" rel="noopener noreferrer">2611.23366v1</a>
+  </div>
+  <p class="original-title">Exact Solutions to Matrix Models and String Theories: The Global Construction</p>
+  <p class="meta"><strong>作者：</strong>Jasper Kager、João Rodrigues、Ricardo Schiappa、Maximilian Schwick、Noam Tamarin</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文通过配分函数复苏瞬子级数的离散傅里叶/Zak 变换表示，以闭式形式获得了矩阵模型与弦理论的精确非微扰解。示例涵盖所有厄米单矩阵模型（及其拓扑弦对偶）以及它们的全部多临界与最小弦双标度极限。所得结构是共振的，必然同时包含本征值（D-膜）与反本征值（负张力膜）。在互补的前一篇论文中，这些解已在局域层面得到广泛验证。为在相图上全局研究它们，仍需完整的非线性 Stokes 数据（及相应的连接公式）——本文全部给出。这涉及仔细研究（反）本征值在关联谱曲线完整多叶结构中的隧穿，以及结果如何从多割光滑曲线退化到单割奇异曲线——所有这些都通过大阶分析与矩阵积分计算得到广泛检验。利用所得的精确 Stokes 自同构，非微扰解可在从弱到强 &#x27;t Hooft 耦合、从大到小 N、以及对所有参数的任意复值下得到完整检验，方法是在所有可能 Stokes 线的交叉处正确实施 Stokes 跃迁。文中在从矩阵模型到非临界弦的多个示例中进行了若干解析与数值检验，产生了非常尖锐的数值匹配，充分验证了我们的精确解析表达式。反本征值或负张力 D-膜是获得如此精确一致性的绝对必要部分。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何以闭式形式获得矩阵模型与弦理论的精确非微扰解，并在整个相图上对其进行全局检验。</p>
+    <h4>方法</h4><p>采用配分函数复苏瞬子级数的离散傅里叶/Zak 变换表示；研究（反）本征值在谱曲线多叶结构中的隧穿及从多割光滑曲线到单割奇异曲线的退化；获取完整的非线性 Stokes 数据与连接公式，并利用精确 Stokes 自同构实施 Stokes 跃迁；通过大阶分析与矩阵积分计算进行检验。</p>
+    <h4>主要发现</h4><p>获得了所有厄米单矩阵模型（及其拓扑弦对偶）与全部多临界及最小弦双标度极限的精确非微扰闭式解；所得结构是共振的，必然同时包含本征值与反本征值（负张力膜）；给出了完整的非线性 Stokes 数据与连接公式；在多个示例中解析与数值结果高度一致，且反本征值/负张力 D-膜对精确匹配是必要的。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论解的适用范围与局限；其全局检验依赖于正确实施所有可能 Stokes 线交叉处的 Stokes 跃迁，推断该框架的适用性可能受谱曲线结构与 Stokes 图复杂度的限制，后续可合理推断需在更一般背景或更高维情形中检验该构造。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23369v1">
+  <div class="paper-head">
+    <h2>M理论路径积分的局域化：膜瞬子<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23369v1" rel="noopener noreferrer">2611.23369v1</a>
+  </div>
+  <p class="original-title">Localizing the M-Theory Path Integral: Membrane Instantons</p>
+  <p class="meta"><strong>作者：</strong>Pietro Benetti Genolini、Jerome P. Gauntlett、Jaeha Park、James Sparks</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出了M理论路径积分中M2-瞬子贡献的一个公式，该公式包含了普朗克长度各阶的量子修正。M2-膜的作用量由相对等变局域化确定，而等变Dolbeault特征标用于计算单圈行列式。对于M2-膜的连续族，通过在其模空间上进行等变局域化来处理。对于对偶于ABJM理论的M理论背景，我们计算了来自线性全纯填充的单瞬子对球面配分函数以及与超对称$AdS_4$黑洞相关的拓扑扭曲指标的贡献。我们的结果重现了已知的场论瞬子系数，并给出了在所有Chern-Simons能级下质量和压扁形变的新解析预言。对于$V^{5,2}$理论，我们计算了新的瞬子贡献，并建立了其在特殊压扁下的配分函数与圆$S^3$上ABJM理论配分函数之间的精确关系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何系统计算M理论路径积分中M2-瞬子的贡献，包括普朗克长度各阶量子修正，并将其应用于对偶于ABJM理论及$V^{5,2}$理论的背景。</p>
+    <h4>方法</h4><p>采用相对等变局域化确定M2-膜作用量，用等变Dolbeault特征标计算单圈行列式；对M2-膜的连续族在其模空间上做等变局域化；对ABJM对偶背景计算线性全纯填充的单瞬子贡献。</p>
+    <h4>主要发现</h4><p>得到了包含普朗克长度各阶量子修正的M2-瞬子贡献公式；对ABJM对偶背景计算了单瞬子对球面配分函数和超对称$AdS_4$黑洞拓扑扭曲指标的贡献，重现已知场论瞬子系数，并给出所有Chern-Simons能级下质量和压扁形变的新解析预言；对$V^{5,2}$理论计算了新瞬子贡献，并建立其特殊压扁配分函数与圆$S^3$上ABJM配分函数的精确关系。</p>
+    <h4>局限与展望</h4><p>摘要未讨论方法的局限与适用范围；所提公式的一般性、对非ABJM型背景及多瞬子贡献的适用性尚待进一步检验，这些属于可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23370v1">
+  <div class="paper-head">
+    <h2>四维量子场论上的正定度规<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23370v1" rel="noopener noreferrer">2611.23370v1</a>
+  </div>
+  <p class="original-title">A Positive Metric on Four-Dimensional QFTs</p>
+  <p class="meta"><strong>作者：</strong>Thomas Hartman、Grégoire Mathys、Andreas Stergiou</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Jack 与 Osborn 在关于局域重整化群的经典工作中引入了四维量子场论空间上的一个自然度规。在微扰论中，Jack-Osborn 度规决定 a-反常的流动，其正定性蕴含 a-定理。本文推导出 Jack-Osborn 度规的非微扰推广，并证明该度规在平均零能量条件（ANEC）下非负。由此，ANEC 蕴含强 a-定理，并提供沿流动的单调函数。方法基于对三点函数 ⟨O_I E O_J⟩ 的谱分析，其中 O_I 为相关算子，E 为平均零能量；该三点函数在固定光线上的零旋转谱下分解，从而在每个碰撞参数处给出一个正定性条件。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将微扰论中由 Jack-Osborn 度规正定性导出 a-定理的结论推广到非微扰层面，并找到沿重整化群流动的单调函数。</p>
+    <h4>方法</h4><p>推导 Jack-Osborn 度规的非微扰推广；对三点函数 ⟨O_I E O_J⟩（O_I 为相关算子，E 为平均零能量）进行谱分析，在固定光线的零旋转谱下分解该三点函数，得到每个碰撞参数处的正定性条件，并借助平均零能量条件（ANEC）证明度规非负。</p>
+    <h4>主要发现</h4><p>所推导的非微扰推广的 Jack-Osborn 度规在 ANEC 下非负；由此 ANEC 蕴含强 a-定理，并提供沿流动的单调函数。</p>
+    <h4>局限与展望</h4><p>原文未讨论该推广在非微扰强耦合情形下的具体计算可行性、ANEC 不成立时的适用范围，也未给出显式例子；后续可合理推断的方向包括检验该单调函数在具体四维量子场论流动中的应用，以及考察 ANEC 之外的条件对度规正定性的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23376v1">
+  <div class="paper-head">
+    <h2>视界运动学与有限能量霍金辐射诱导的精细结构<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23376v1" rel="noopener noreferrer">2611.23376v1</a>
+  </div>
+  <p class="original-title">Horizon kinematics and the fine structure induced by finite-energy Hawking radiation</p>
+  <p class="meta"><strong>作者：</strong>M. A. Aguirre Cortés、Moisés Bravo-Gaete、Julio A. Méndez-Zavaleta、Efraín Rojas Marcial</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>霍金辐射可通过质量和整体荷的损失改变黑洞的视界结构。本文通过量子隧穿研究该过程，发展了一套系统策略，用以在有限能量发射下重构视界位移，即使视界半径并未显式已知。对视界条件求逆，可以沿静态几何序列追踪根（视界半径）的位移。作为具体实现，我们考虑 Bañados–Teitelboim–Zanelli（BTZ）族的一个非线性带电推广，其视界结构为探索该过程提供了理想框架。特别关注的是双内视界与单事件视界共存的初始构型。我们表明，中性发射必然将内根分裂为两个单根，揭示出视界精细结构。对于带电发射，提取电荷对发射能量的依赖关系决定了分离规律，并允许保持或随后恢复简并。我们构造了此类通道：它们连接相同的初末态，却具有不同的内部历史，并共享相同的主导半经典因子。随着发射持续，新分离出的内视界中较大者可与事件视界合并，驱动序列趋向极端性，此时温度趋于零但隧穿概率有限。我们发现，在有限边界时间内无法达到零温度，同时均匀绝热性界成立。我们还建立了一个区域，使几何展开与正则热近似在该端点附近保持受控。最后，将该分析应用于再现量子反作用 BTZ 几何的扇区，揭示了主导半经典修正如何相对于经典 BTZ 提高温度并增强中性探针的视界发射因子。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究有限能量霍金辐射（通过质量与整体荷损失）如何改变黑洞视界结构，特别是视界半径未知时如何重构视界位移，以及内视界简并/分裂与极端性趋近的行为。</p>
+    <h4>方法</h4><p>采用量子隧穿方法；对静态几何序列中的视界条件求逆以追踪视界根位移；以非线性带电 BTZ 推广为具体模型，分析中性/带电发射下的根分裂与分离规律，并构造共享主导半经典因子的通道；讨论零温极限、绝热性界与几何展开/正则热近似的受控性。</p>
+    <h4>主要发现</h4><p>中性发射必然使双内视界中的内根分裂为两个单根，形成视界精细结构；带电发射中提取电荷对发射能量的依赖决定分离规律，并可保持或随后恢复简并；新分离内视界中较大者可并入事件视界，驱动序列趋向极端性，温度趋于零但隧穿概率有限；有限边界时间内不能达到零温度，均匀绝热性界成立；在端点附近存在几何展开与正则热近似受控的区域；应用于量子反作用 BTZ 扇区时，主导半经典修正相对经典 BTZ 提高温度并增强中性探针的视界发射因子。</p>
+    <h4>局限与展望</h4><p>原文未明确给出更一般的非 BTZ 黑洞或动态时空中的适用性；可合理推断，该视界条件求逆与根追踪策略或可推广至其他具有多重视界的静态族，但需进一步验证。零温不可在有限边界时间达到及绝热性界的结论，其适用范围可能受模型假设与近似控制条件限制。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23377v1">
+  <div class="paper-head">
+    <h2>全纯-拓扑Poisson sigma模型与仿射W代数的量子化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23377v1" rel="noopener noreferrer">2611.23377v1</a>
+  </div>
+  <p class="original-title">The Holomorphic-Topological Poisson Sigma Model and Quantization of Affine W-algebras</p>
+  <p class="meta"><strong>作者：</strong>Niklas Garner、Brian R. Williams、Paul-Hermann Balduf</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">math.QA</span> <span class="tag">math.RT</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用A. Khan与K. Zeng提出的全纯-拓扑Poisson sigma模型，对每个单李代数\mathfrak g构造了经典主仿射W代数的显式形变量子化。通过线性微分分次表述，将普适体（universal bulk）识别为主幂零背景附近的Chern--Simons理论；在该背景下，全纯规范给出有限且单圈精确的量子化。量子oper边界可观测量构成能级为k-h^\vee\hbar的主仿射W代数；作者亦对仿射流代数直接得到该能级移动。对于\mathfrak{sl}_2，作者证明了Chern--Simons理论与三维手征引力之间的微扰量子等价，包括二者的oper边界条件与Dirichlet边界条件，并确定了二者参数之间的量子关系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为每个单李代数\mathfrak g的经典主仿射W代数构造显式形变量子化，并厘清其与Chern--Simons理论及三维手征引力之间的关系。</p>
+    <h4>方法</h4><p>采用Khan--Zeng的全纯-拓扑Poisson sigma模型；通过线性微分分次表述将普适体识别为主幂零背景附近的Chern--Simons理论，并利用全纯规范进行单圈精确量子化；对\mathfrak{sl}_2情形证明Chern--Simons理论与三维手征引力的微扰量子等价并比较参数关系。</p>
+    <h4>主要发现</h4><p>对每个单李代数\mathfrak g得到经典主仿射W代数的显式形变量子化；量子oper边界可观测量构成能级为k-h^\vee\hbar的主仿射W代数，且该能级移动对仿射流代数亦可直接得到；对\mathfrak{sl}_2证明了Chern--Simons理论与三维手征引力（含oper与Dirichlet边界条件）的微扰量子等价，并确定了二者参数的量子关系。</p>
+    <h4>局限与展望</h4><p>摘要未讨论非单李代数、非主幂零背景或非微扰层面的情形；这些推广及更高秩情形的显式检验是否可行，尚需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23379v1">
+  <div class="paper-head">
+    <h2>Kaluza-Klein与Einstein-Maxwell-dilaton-axion理论中的Melvin型电磁化Kerr黑洞<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23379v1" rel="noopener noreferrer">2611.23379v1</a>
+  </div>
+  <p class="original-title">Melvin-type Electromagnetized Kerr Black Hole in Kaluza-Klein and Einstein-Maxwell-dilaton-axion Theories</p>
+  <p class="meta"><strong>作者：</strong>Liang Ma、Zhi-Chao Li、H. Lu</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在同时存在外部电场与磁场的Kaluza-Klein（KK）理论中，直接套用解生成技术构造Melvin型旋转黑洞通常会引入不期望的Taub-swirling扭曲项。本文研究该扭曲项的来源，并修改电磁化流程，从而在KK理论中构造出不含swirling项的Melvin型电磁化Kerr黑洞精确解。我们还在Einstein-Maxwell-dilaton-axion（EMDA）理论中得到了类似解。修改后的解生成技术允许在这两种理论中，将dyonic电荷与外部电磁场独立地引入Ricci平坦种子度规，同时不产生Taub-NUT或Taub-swirling扭曲。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在Kaluza-Klein理论及Einstein-Maxwell-dilaton-axion理论中，于同时存在外部电场和磁场的情况下构造Melvin型电磁化旋转（Kerr）黑洞精确解，并避免直接套用解生成技术时出现的不期望Taub-swirling扭曲项。</p>
+    <h4>方法</h4><p>分析朴素解生成技术中Taub-swirling扭曲项的来源，修改电磁化流程，并将修改后的解生成技术应用于Ricci平坦种子度规，以独立引入dyonic电荷与外部电磁场；随后将构造推广至EMDA理论。</p>
+    <h4>主要发现</h4><p>直接套用解生成技术一般会引入不期望的Taub-swirling扭曲项；修改后的流程可在KK理论中构造出不含swirling项的Melvin型电磁化Kerr黑洞精确解，并在EMDA理论中得到类似解；修改后的技术可将dyonic电荷与外部电磁场独立引入Ricci平坦种子度规，且不产生Taub-NUT或Taub-swirling扭曲。</p>
+    <h4>局限与展望</h4><p>原文未讨论所构造解的稳定性、热力学性质或可观测效应；这些方面以及将修改后的解生成技术推广至其他理论或种子度规，属于可合理推断的后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23381v1">
+  <div class="paper-head">
+    <h2>基于Sp$(4,\mathbb Z)$模对称性的非微扰模量稳定化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23381v1" rel="noopener noreferrer">2611.23381v1</a>
+  </div>
+  <p class="original-title">Non-Perturbative Moduli Stabilization with Sp$(4,\mathbb Z)$ Modular Symmetry</p>
+  <p class="meta"><strong>作者：</strong>Miguel Hernandez-Segura、Xiang-Gan Liu、Hans Peter Nilles、Saul Ramos-Sanchez</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究在异弦理论得到的$\mathcal N=1$超引力模型中，通过gaugino凝聚稳定与Sp$(4,\mathbb Z)$模对称性相关的三个复模量；其中单圈阈值修正同时固定超势的模权重与奇点结构。针对每一类阈值，我们利用Sp$(4,\mathbb Z)$的基本模不变比值及其syzygy给出相容超势的完整参数化，推广了仅依赖其绝对不变量的多项式、因而并不充分的SL$(2,\mathbb Z)$启发式方法。该结构支持丰富的超对称Minkowski真空景观。与SL$(2,\mathbb Z)$情形不同，高阶零点产生超对称Minkowski真空的连续曲面与曲线；而在六个孤立不动点中，只有具有$S_4$与$D_{12}$剩余对称性的不动点能够稳定全部三个模量。我们还构造了远离不动点的孤立真空，其中一些位于亏格二模味拟合所偏好的模量取值处，并考察了增强对称性点附近几何模量质量的压低。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在异弦理论导出的$\mathcal N=1$超引力模型中，借助gaugino凝聚与Sp$(4,\mathbb Z)$模对称性，非微扰地稳定三个复模量，并刻画相应的超对称Minkowski真空结构。</p>
+    <h4>方法</h4><p>利用单圈阈值修正确定超势的模权重与奇点结构；对每一类阈值，以Sp$(4,\mathbb Z)$基本模不变比值及其syzygy完整参数化相容超势，替代仅基于SL$(2,\mathbb Z)$绝对不变量的多项式方法；分析高阶零点、孤立不动点及非不动点真空，并考察增强对称性点附近的模量质量。</p>
+    <h4>主要发现</h4><p>该参数化支持丰富的超对称Minkowski真空景观；与SL$(2,\mathbb Z)$情形不同，高阶零点给出连续曲面与曲线形式的超对称Minkowski真空；六个孤立不动点中仅具有$S_4$与$D_{12}$剩余对称性者能稳定全部三个模量；存在远离不动点的孤立真空，部分位于亏格二模味拟合偏好的模量取值处；并给出增强对称性点附近几何模量质量被压低的考察。</p>
+    <h4>局限与展望</h4><p>摘要未给出真空唯一性、模量质量谱的完整数值结果或宇宙学约束；所构造真空的稳定性与现象学可行性需进一步检验。后续可合理推断的方向包括：系统比较不同阈值类的真空分布、研究增强对称性点附近质量压低的唯象后果，以及将亏格二模味拟合偏好的取值与具体真空对应起来。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23392v1">
+  <div class="paper-head">
+    <h2>标量/轴子虫洞与引力路径积分中的边界条件<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23392v1" rel="noopener noreferrer">2611.23392v1</a>
+  </div>
+  <p class="original-title">Scalar/axion Wormholes and Boundary Conditions in Gravitational Path Integrals</p>
+  <p class="meta"><strong>作者：</strong>Jason Hallsten、Jesse Held、Zhenyu Heng、Donald Marolf、Zhencheng Wang</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>近期工作指出，给定一类时空虫洞是否对引力路径积分有贡献，可能强烈依赖于边界条件的选择。特别地，对于具有球面边界的渐近AdS标量/轴子虫洞，有建议认为存在某些参数区域，使得同一虫洞对通过对标量/轴子场施加Neumann边界条件所定义的配分函数$Z_N$的欧几里得低能有效场论计算有贡献，而对通过施加Dirichlet边界条件所定义的相应配分函数$Z_D$则无贡献。本文研究与相关虫洞对应的玩具模型，包括耦合标量场的JT引力、具有环面边界条件的渐近AdS引力耦合轴子/标量场，以及渐近平坦引力耦合轴子/标量场。在所有情形中，我们通过适当的受约束虫洞积分，在截断的低能有效理论中比较$Z_D$与$Z_N$的计算结果。我们发现，在每种情形下，尽管$Z_D$与$Z_N$通过积分变换相联系，二者通常从不同的鞍点集合获得贡献。在此过程中，我们还揭示了与$Z_D$和$Z_N$的半经典贡献相关的多种额外有趣微妙之处。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究引力路径积分中，标量/轴子虫洞对配分函数的贡献是否依赖于标量场边界条件的选择，具体比较Neumann边界条件定义的$Z_N$与Dirichlet边界条件定义的$Z_D$在不同虫洞模型中的鞍点贡献。</p>
+    <h4>方法</h4><p>构造并研究三类玩具模型：耦合标量场的JT引力、具有环面边界条件的渐近AdS引力耦合轴子/标量场、以及渐近平坦引力耦合轴子/标量场；在截断的低能有效理论中，通过对受约束虫洞的适当积分分别计算$Z_D$与$Z_N$并进行比较。</p>
+    <h4>主要发现</h4><p>在每种情形下，尽管$Z_D$与$Z_N$通过积分变换相联系，二者通常从不同的鞍点集合获得贡献；此外还发现与$Z_D$和$Z_N$的半经典贡献相关的多种额外微妙之处。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性与后续方向；基于结果可合理推断，边界条件的选择在低能有效理论截断下会实质影响虫洞鞍点的贡献集合，后续或需进一步厘清积分变换与鞍点选择之间的关系，但此推断尚待验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23396v1">
+  <div class="paper-head">
+    <h2>ER=EPR 与量子引力中的 IMP 虫洞<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23396v1" rel="noopener noreferrer">2611.23396v1</a>
+  </div>
+  <p class="original-title">ER=EPR and IMP wormholes in quantum gravity</p>
+  <p class="meta"><strong>作者：</strong>Eyoab Bahiru</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在 AdS/CFT 语境下，通过研究量子场论与量子引力中的 IMP（Isenberg、Mazzeo 与 Pollack）虫洞，对 ER=EPR 猜想进行分析与细化。IMP 虫洞是爱因斯坦方程的特定解：借助共形方法，在具有常平均曲率的 Cauchy 切片上粘接一个把手（handle），从而由爱因斯坦方程的另一一般解构造而成，并使得切片上远离把手区域的初始数据保持不变。同一共形方法亦可用于在量子引力中恢复定义良好的微扰理论，尤其适用于渐近 AdS 时空。据此，本文在这些背景上构造微扰理论，并分别在 G_N=0、引力耦合微扰小以及超出微扰论的范围内探讨 ER=EPR。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 AdS/CFT 框架下，如何通过 IMP 虫洞理解并细化 ER=EPR 猜想，以及如何在相应背景上建立量子引力微扰理论。</p>
+    <h4>方法</h4><p>利用共形方法，在常平均曲率 Cauchy 切片上粘接把手以构造 IMP 虫洞解，并借助该方法在渐近 AdS 时空中建立量子引力的微扰理论；在 G_N=0、微扰小耦合及非微扰情形下考察 ER=EPR。</p>
+    <h4>主要发现</h4><p>IMP 虫洞可由爱因斯坦方程的一般解经共形方法粘接构造，且切片上远离把手区域的初始数据保持不变；同一共形方法可用于在量子引力中、特别是渐近 AdS 时空中恢复定义良好的微扰理论；论文在这些背景上构造了微扰理论，并在所述三种情形下探讨了 ER=EPR。</p>
+    <h4>局限与展望</h4><p>摘要未给出具体定量结论或适用性边界；其局限与后续方向需结合正文进一步确认。可合理推断，该工作为在更一般的虫洞背景上检验 ER=EPR 及发展非微扰量子引力方法提供了框架，但这一推断尚待原文明确支持。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23453v1">
+  <div class="paper-head">
+    <h2>双标度SYK中折叠的非时序关联函数<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23453v1" rel="noopener noreferrer">2611.23453v1</a>
+  </div>
+  <p class="original-title">Folded out-of-time-order correlators in double-scaled SYK</p>
+  <p class="meta"><strong>作者：</strong>Joseph D. Lykken、Madeline Mooney、Maria Spiropulu</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Harlow与Zhao（arXiv:2607.14215）将“反扰乱”识别为de Sitter空间宇宙学视界的特征信号，并提出可通过欧几里得时间对非时序关联函数（OTOC）进行“折叠”在有限能量量子系统中实现。我们在DSSYK模型中实施该方案。利用arXiv:2303.03474定义无穷温度（β=0）的DSSYK OTOC，其在双标度参数λ较小的半经典极限下重现通常的AdS eikonal冲击波行为及其特征时间延迟；随后施加Harlow-Zhao折叠，以“虚假”的DSSYK逆温度β_f扮演β的角色。我们通过数值与解析方法证明所得折叠OTOC呈现反扰乱。精确DSSYK计算在扰乱区域跟踪半经典de Sitter eikonal公式，包括以时间超前替代时间延迟。折叠方向选择延拓eikonal振幅趋近其分支割线的方向。我们说明结果与近期“no-go”约束的一致性。我们将折叠关联函数与arXiv:2607.14215的双壳分析比较：双壳dilaton不变量的增长项在DSSYK中以相同指数出现，但表现为虚部；而其实部——本应指示导致crunch的反作用——对热尺度探针仅移动O(λ)。我们还推广至有限β；发现在足够高温度下与de Sitter eikonal形式合理一致，但在较低温度下折叠关联函数由一对复共轭鞍点主导，该anti-Stokes交叉阻止从折叠OTOC中恢复eikonal行为。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在DSSYK模型中实现Harlow-Zhao提出的欧几里得时间折叠OTOC方案，以刻画de Sitter视界的反扰乱特征，并检验其与半经典de Sitter eikonal行为及双壳分析的关系。</p>
+    <h4>方法</h4><p>利用arXiv:2303.03474定义无穷温度（β=0）DSSYK OTOC，在λ较小的半经典极限下验证其重现AdS eikonal冲击波行为；再以虚假逆温度β_f施加Harlow-Zhao折叠，结合数值与解析方法计算折叠OTOC，并与半经典de Sitter eikonal公式、arXiv:2607.14215的双壳dilaton不变量分析以及有限β推广进行比较。</p>
+    <h4>主要发现</h4><p>折叠OTOC在数值与解析上均显示反扰乱；精确DSSYK结果在扰乱区域跟踪半经典de Sitter eikonal公式，表现为时间超前而非时间延迟；折叠方向决定延拓eikonal振幅趋近分支割线的方向；结果与近期no-go约束一致；双壳dilaton不变量的增长项以相同指数出现但为虚部，其实部对热尺度探针仅移动O(λ)；有限β下高温时与de Sitter eikonal形式合理一致，低温时折叠关联函数由一对复共轭鞍点主导，anti-Stokes交叉阻止恢复eikonal行为。</p>
+    <h4>局限与展望</h4><p>原文未讨论折叠OTOC在更一般DSSYK参数区域或非热态下的适用性；低温下复共轭鞍点主导所导致的anti-Stokes交叉限制了从折叠OTOC提取eikonal行为的范围，如何在该区域恢复或替代eikonal描述有待进一步研究；双壳分析中实部仅移动O(λ)是否意味着反作用在DSSYK中难以显现，原文未给出结论，需谨慎推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24160v1">
+  <div class="paper-head">
+    <h2>四维全纯费曼图与量子BPS环<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24160v1" rel="noopener noreferrer">2611.24160v1</a>
+  </div>
+  <p class="original-title">Holomorphic Feynman diagrams in four dimensions and the quantum BPS ring</p>
+  <p class="meta"><strong>作者：</strong>Botao Li、Kangning Liu、Chi-Ming Chang</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在所有圈数上计算了全纯费曼图的核心，这些图承载着四维 $\mathcal N=1$ 超对称规范理论全纯扭曲中超对称变换的圈修正以及局部算子正则化乘积的圈修正。这些全纯图积分的流方程对应于一个电网络：Schwinger 参数为电阻，全纯动量为注入电流。通过在 Schwinger 空间上迭代串联、并联与星—三角化简，得到了所有圈数下的扇、蜘蛛与三次乘积森林核。在假定扭曲与量子化对这些复合算子可交换的前提下，我们将扭曲微分等同于其圈修正的超对称变换。我们给出了 $\mathcal N=4$ Yang--Mills 理论中超对称变换的每一阶微扰修正，包括其作用于带任意全纯导数的算子。利用 Gaiotto、Kulp 与 Wu 的带标记高阶运算，我们还构造并计算了算子的量子乘积，并证明其在 $\mathbf Q$-上同调上满足结合律、分次交换律与单位性，从而给出量子 BPS 环的乘法。由此，每个多引力子算子都具有到完整量子超荷上闭链的显式有限完备化。我们的计算机普查在若干规范群的 $\mathcal N=4$ Yang--Mills 理论中发现了新的偶然类与单圈提升；在所检验的扇区中未发现两圈提升。我们还在 $\mathcal N=4$ Yang--Mills 理论的 Leigh--Strassler 与 $\beta$-形变中发现了双圈提升。在其他理论中，我们在阿贝尔规范理论中发现了双圈、三圈与四圈提升，并在 $\mathcal N=2$ $SU(2)$ 与 $SU(3)$ 规范理论及其单态形变中发现了双圈与三圈提升。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在全圈阶计算四维 $\mathcal N=1$ 超对称规范理论全纯扭曲中承载超对称变换圈修正与局部算子正则化乘积的全纯费曼图核，并由此构造量子 BPS 环的乘法？</p>
+    <h4>方法</h4><p>将全纯图积分的流方程映射为电网络（Schwinger 参数为电阻、全纯动量为注入电流），在 Schwinger 空间迭代串联、并联与星—三角化简以得到扇、蜘蛛与三次乘积森林核；假定扭曲与量子化可交换，将扭曲微分等同于圈修正超对称变换；利用 Gaiotto、Kulp 与 Wu 的带标记高阶运算构造并计算算子量子乘积；并结合计算机普查检验多圈提升。</p>
+    <h4>主要发现</h4><p>得到所有圈数下的扇、蜘蛛与三次乘积森林核；给出 $\mathcal N=4$ Yang--Mills 理论中超对称变换的每一阶微扰修正及其对带任意全纯导数的算子的作用；证明量子乘积在 $\mathbf Q$-上同调上满足结合律、分次交换律与单位性，从而给出量子 BPS 环乘法；每个多引力子算子具有到完整量子超荷闭链的显式有限完备化；计算机普查在若干规范群的 $\mathcal N=4$ Yang--Mills 理论中发现新的偶然类与单圈提升，在所检验扇区未发现两圈提升；在 Leigh--Strassler 与 $\beta$-形变中发现双圈提升；在阿贝尔规范理论中发现双圈、三圈与四圈提升，在 $\mathcal N=2$ $SU(2)$、$SU(3)$ 及其单态形变中发现双圈与三圈提升。</p>
+    <h4>局限与展望</h4><p>量子乘积的结合律等性质依赖于扭曲与量子化可交换的假设，其适用范围受此前提约束；计算机普查仅覆盖所检验的扇区与理论，未发现两圈提升不构成普遍不存在性的证明；后续可合理推断的方向包括放宽或验证该交换性假设，以及将电网络化简方法推广至更一般的理论或算子类。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24250v1">
+  <div class="paper-head">
+    <h2>非阿贝尔规范线性sigma模型中D-膜输运的等级限制规则<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24250v1" rel="noopener noreferrer">2611.24250v1</a>
+  </div>
+  <p class="original-title">Grade Restriction Rule For D-Brane Transport In Non-Abelian Gauged Linear Sigma Models</p>
+  <p class="meta"><strong>作者：</strong>Richard Eager、Kentaro Hori、Johanna Knapp、Mauricio Romo</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">math.AG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究非阿贝尔规范线性sigma模型中B型D-膜的低能行为，核心问题是确定D-膜沿路径从一个相输运到另一个相时的等级限制规则。我们分析半球配分函数积分的收敛条件，并在一个具有两个相（一个弱耦合相、一个强耦合相，二者均对应Calabi-Yau三维流形）的特定模型中进行了详尽分析。研究中发展的一般方法被成功应用于其他模型。对一组特殊Chan-Paton表示的积分在每个相边界的奇点附近表现出临界行为；从这些点发出“禁入区”，在其中收敛围道丢失或被迫穿过Gamma函数极点。特殊表示与禁入区的知识足以唯一确定等级限制规则。研究过程中遇到收敛围道的Weyl不变性问题，这迫使我们对等级限制判据作出修改。特殊表示在奇点周围的单值性中起重要作用。我们还获得了超对称QCD边界条件的精确结果，并将其用于理解强耦合相中D-膜的低能行为。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何确定非阿贝尔规范线性sigma模型中B型D-膜沿路径从一个相输运到另一个相时的等级限制规则。</p>
+    <h4>方法</h4><p>分析半球配分函数积分的收敛条件；在一个具有弱耦合与强耦合两个相、均对应Calabi-Yau三维流形的特定模型中作详尽分析，并发展可推广到其他模型的一般方法；考察特殊Chan-Paton表示积分在相边界奇点附近的临界行为与禁入区；处理收敛围道的Weyl不变性问题并据此修改等级限制判据；获得超对称QCD边界条件的精确结果。</p>
+    <h4>主要发现</h4><p>特殊Chan-Paton表示积分在相边界各奇点附近呈现临界行为，并从这些点发出收敛围道丢失或被迫穿过Gamma函数极点的禁入区；特殊表示与禁入区的知识足以唯一确定等级限制规则；收敛围道的Weyl不变性问题迫使修改等级限制判据；特殊表示在奇点周围的单值性中起重要作用；得到超对称QCD边界条件的精确结果并用于理解强耦合相中D-膜的低能行为。</p>
+    <h4>局限与展望</h4><p>原文在特定双相Calabi-Yau三维流形模型中完成详尽分析，并称所发展的一般方法可成功应用于其他模型，但摘要未给出这些应用的具体范围与验证细节；收敛围道Weyl不变性导致的判据修改对其他模型与相结构的普适性有待进一步检验；超对称QCD精确边界结果向更一般规范群或物质内容的推广属于可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24320v1">
+  <div class="paper-head">
+    <h2>仅有圆盘：IIB 型弦论中翘曲 AdS$_6\times S^2$ 的拓扑障碍<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24320v1" rel="noopener noreferrer">2611.24320v1</a>
+  </div>
+  <p class="original-title">Only the disk: topological obstructions for warped AdS$_6\times S^2$ in Type IIB</p>
+  <p class="meta"><strong>作者：</strong>Nakwoo Kim</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>IIB 型超引力的超对称 AdS$_6\times S^2$ 解是黎曼面 $\Sigma$ 上的翘曲乘积，由 $\Sigma$ 上的两个全纯微分决定，五维膜位于其边界上的极点处。本文推导了对 $\Sigma$ 的亏格与边界分支数的限制。在无七维膜或 orientifold 的情形下，假定微分在 $\Sigma$ 上单值。正则性要求其中一个微分的内零点数等于两个微分之比沿边界的相位总旋转，并且该旋转在每个边界分支上受该分支极点数的限制。结合 $\Sigma$ 的双重覆盖上已知的零点计数，这两条结论迫使 $\Sigma$ 为圆盘。当存在相互局域的七维膜与 orientifold 作为内部穿孔时，在对微分的整体结构及其在穿孔处行为的附加假设下，可得到相同结论；此时圆盘至多允许一个 orientifold 穿孔。在无穿孔的圆盘上，将上述界应用于相邻极点之间，还可重新得到五维膜电荷沿边界的已知循环次序。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>IIB 型超引力中翘曲 AdS$_6\times S^2$ 解所依赖的黎曼面 $\Sigma$ 在亏格与边界分支数上受何种拓扑限制，以及在含七维膜与 orientifold 时该限制如何变化。</p>
+    <h4>方法</h4><p>将解由 $\Sigma$ 上两个全纯微分刻画，利用正则性把其中一个微分的内零点数与两微分之比沿边界的相位旋转相联系，并给出每个边界分支上该旋转受极点数目限制的界；再结合 $\Sigma$ 的双重覆盖上已知的零点计数进行论证。对含内部七维膜与 orientifold 的情形，在关于微分整体结构及穿孔处行为的附加假设下作类似分析。</p>
+    <h4>主要发现</h4><p>在微分单值（无七维膜或 orientifold）的情形下，上述零点计数与相位旋转界共同迫使 $\Sigma$ 为圆盘；在含相互局域七维膜与 orientifold 作为内部穿孔、并满足附加假设时得到相同结论，且圆盘至多含一个 orientifold 穿孔；在无穿孔圆盘上，相邻极点间的界可重新导出五维膜电荷沿边界的已知循环次序。</p>
+    <h4>局限与展望</h4><p>含七维膜与 orientifold 的结论依赖于关于微分整体结构及其在穿孔处行为的附加假设，其适用范围受此限制；本文未讨论这些假设能否放宽。后续可合理推断的方向包括检验这些附加假设的必要性，以及将类似的相位旋转与零点计数论证推广到其他翘曲紧化背景，但这属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24396v1">
+  <div class="paper-head">
+    <h2>熵单调性的上同调基础：相对循环复形、超渡映射与 d=2 中的熵 c-定理<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24396v1" rel="noopener noreferrer">2611.24396v1</a>
+  </div>
+  <p class="original-title">Cohomological Foundations of Entropic Monotonicity: The Relative Cyclic Complex, the Transgression Map, and the Entropic $c$-Theorem in $d = 2$</p>
+  <p class="meta"><strong>作者：</strong>R. C. Rashkov</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文基于一对冯·诺依曼代数的相对循环复形以及与忠实正规态相伴的超渡映射，为二维熵 c-定理建立了一个上同调框架。该框架将熵证明所依赖的正性识别为相对模余循环零频分量的 Borchers 正性，并指出这是量子零能条件（QNEC）在算子代数层面的起源。相关正性结果与维数无关：它们仅依赖于分裂性质、模 p-核性以及半侧模包含结构。论文的主要结果包括：(i) 将纠缠上同调等同于限制映射的核（定理 2.6）；(ii) 相对模余循环的 Borchers 正性（命题 3.8）；(iii) 熵流的有限维正性（推论 3.9）；以及 (iv) d=2 中的熵 c-定理（定理 4.3），后者由 (iii) 与单变量分析推出。该 c-定理的证明在任何中间步骤均不使用紫外正则化。文中还提出两个开放问题：超渡的上链层正性（猜想 3.5）与 QNEC 的上同调解释（猜想 3.11）。二者均作为研究方向陈述，而非本文结果；特别地，c-定理的证明不依赖于其中任何一个。将该框架推广至 d=3 的 F-定理以及一般维数纲领，是配套论文 \cite{Rashkov:2026b} 的主题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在二维量子场论中为熵 c-定理建立上同调框架，并阐明熵证明中正性的算子代数起源及其与量子零能条件（QNEC）的关系。</p>
+    <h4>方法</h4><p>基于一对冯·诺依曼代数的相对循环复形，以及忠实正规态相伴的超渡映射；利用分裂性质、模 p-核性与半侧模包含结构，并结合单变量分析。</p>
+    <h4>主要发现</h4><p>论文明确给出：(i) 纠缠上同调等同于限制映射的核（定理 2.6）；(ii) 相对模余循环的 Borchers 正性（命题 3.8）；(iii) 熵流的有限维正性（推论 3.9）；(iv) d=2 中的熵 c-定理（定理 4.3），由 (iii) 与单变量分析推出，且证明在任何中间步骤均不使用紫外正则化。正性结果与维数无关。</p>
+    <h4>局限与展望</h4><p>论文将超渡的上链层正性（猜想 3.5）与 QNEC 的上同调解释（猜想 3.11）列为开放问题，二者均非本文结果，c-定理证明不依赖它们；将框架推广至 d=3 的 F-定理及一般维数纲领是配套论文的主题（据原文陈述）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24510v1">
+  <div class="paper-head">
+    <h2>膜世界中的3-形式规范场局域化<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24510v1" rel="noopener noreferrer">2611.24510v1</a>
+  </div>
+  <p class="original-title">Localization of a 3-form gauge field in a braneworld</p>
+  <p class="meta"><strong>作者：</strong>Pratik Chattopadhyay、M. J. Neves</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在附加于4+1维AdS度规的额外维度中研究3-形式规范场的局域化问题。作者提出一个5维中标量场与3-形式规范场同引力场耦合的模型，时空由AdS度规设定，其几何引入第五空间坐标的翘曲函数。假定标量场也仅依赖于额外坐标，得到模型各场分量的运动方程。在3秩规范扇区中采用变量分离技术，依据翘曲函数探讨动力学部分的局域化。作者还将初始模型推广至复标量场与3秩规范场对应的对偶场强张量进行最小耦合的情形，由此耦合常数对新型p-形式规范场在膜域上的局域化起基础性作用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究3-形式规范场在4+1维AdS翘曲额外维度（膜世界）中的局域化，并考察复标量场与对偶场强张量最小耦合时耦合常数对新型p-形式规范场局域化的作用。</p>
+    <h4>方法</h4><p>构建5维中标量场、3-形式规范场与引力场耦合的模型，采用AdS度规并引入第五空间坐标的翘曲函数；假定标量场仅依赖额外坐标，导出运动方程；在3秩规范扇区使用变量分离技术，按翘曲函数分析动力学部分的局域化；并将模型推广到复标量场与对偶场强张量最小耦合的情形。</p>
+    <h4>主要发现</h4><p>原文明确给出模型各场的运动方程，并在3秩规范扇区通过变量分离依据翘曲函数探讨了动力学部分的局域化；在推广模型中，耦合常数对新型p-形式规范场在膜域上的局域化起基础性作用。</p>
+    <h4>局限与展望</h4><p>原文未给出具体的局域化判据或数值结果；其适用范围限于所设定的AdS翘曲几何与标量场仅依赖额外坐标的假设。后续可合理推断的方向包括：针对具体翘曲函数求解并检验局域化条件，以及系统分析耦合常数取值对局域化的影响（此为由原文措辞推断，非原文结论）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24531v1">
+  <div class="paper-head">
+    <h2>QED$_3$、QED$_3$--GNY 与标量 QED$_3$ 中 $\langle TJJ\rangle$ 和 $\langle TTT\rangle$ 的 $1/N$ 修正<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24531v1" rel="noopener noreferrer">2611.24531v1</a>
+  </div>
+  <p class="original-title">$1/N$ corrections to $\langle TJJ\rangle$ and $\langle TTT\rangle$ in QED$_3$, QED$_3$--GNY and scalar QED$_3$</p>
+  <p class="meta"><strong>作者：</strong>Yongwei Guo、Zhijin Li、Ke Ren</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.str-el</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>三维阿贝尔规范理论在去禁闭量子临界性、狄拉克自旋液体和铜氧化物超导性中有广泛应用。守恒流 $J$ 与能动张量 $T$ 的关联函数携带关于这些理论的基本信息。本文计算了 QED$_3$、QED$_3$--Gross--Neveu--Yukawa 以及临界标量 QED$_3$ 中宇称偶三阶关联函数 $\langle TJJ\rangle$ 与 $\langle TTT\rangle$ 的首个次领头大味数修正。对于 $\langle TJJ\rangle$，我们同时研究整体味流与拓扑 $U(1)$ 流，后者度量动力学规范场的磁通量。我们在领头自由场剖面消失的方向上计算平直空间能量通量。在首个次领头阶，这些方向上的通量由四粒子产生决定，从而给出对共形对撞机参数的解析修正。我们通过压扁球面自由能导数独立复现了这些修正。结合已知的两点归一化，对撞机参数确定了每个关联函数中两个独立张量结构的系数。本文结果可用于研究量子临界点附近的电导率与剪切响应，以及强耦合规范理论中守恒流与能动张量关联函数的共形 bootstrap 研究。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究三维阿贝尔规范理论（QED$_3$、QED$_3$--GNY、临界标量 QED$_3$）中守恒流与能动张量的三阶关联函数 $\langle TJJ\rangle$ 和 $\langle TTT\rangle$ 的大味数展开次领头修正，并由此确定共形对撞机参数及关联函数张量结构的系数。</p>
+    <h4>方法</h4><p>采用大 $N$ 味数展开计算首个次领头阶修正；在领头自由场能量通量消失的方向上，通过四粒子产生过程计算平直空间能量通量；并利用压扁球面自由能的导数独立复现所得到的共形对撞机参数修正。</p>
+    <h4>主要发现</h4><p>在首个次领头阶，所选取方向上的能量通量由四粒子产生决定，给出对共形对撞机参数的解析修正；该修正可由压扁球面自由能导数独立复现；结合已知两点归一化，对撞机参数确定了每个关联函数中两个独立张量结构的系数。</p>
+    <h4>局限与展望</h4><p>结果适用于所研究的三维阿贝尔规范理论在大味数极限下的微扰展开范围；作者指出其可用于量子临界点附近电导率与剪切响应的研究，以及强耦合规范理论中守恒流与能动张量关联函数的共形 bootstrap 研究（后者为原文明确提出的应用方向，并非本文已完成的结论）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24666v1">
+  <div class="paper-head">
+    <h2>从纠缠动力学深度学习时空<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24666v1" rel="noopener noreferrer">2611.24666v1</a>
+  </div>
+  <p class="original-title">Deep learning spacetime from entanglement dynamics</p>
+  <p class="meta"><strong>作者：</strong>Hyun-Sik Jeong、Keun-Young Kim、Gaya Yun、Kwan Yun</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在永恒 AdS 黑洞中，热场双态的纠缠由爱因斯坦—罗森桥几何地实现，这与 ER=EPR 猜想一致。穿过该桥的 Hartman—Maldacena 曲面位于事件视界之后，因此，分别位于两个边界上的一对半直线的含时纠缠熵 $S(t)$ 可以探测黑洞内部。我们反过来利用这一关系，提出一个问题：利用神经常微分方程直接从纠缠数据学习度规，能够从 $S(t)$ 中重建多少体时空。我们证明，$S(t)$ 仅通过单一函数依赖于几何，即用类时 Killing 范数表示的局部表面引力。这足以确定一个含一个未知函数的度规：对于带电 BTZ 黑洞，网络在曲面所探测的区域内（包括部分内部）重建该度规，且学习到的度规还给出霍金温度以及限制可及内部的临界曲面的位置。然而，当存在两个未知函数时则不然：两个二维 $(t,z)$ 扇区经微分同胚相联系但物理上不同的几何会产生相同的 $S(t)$。最后，尽管未施加零能量条件，网络能够复现满足纠缠速度因果界 $v_E\le 1$ 的数据，但不能复现违反该界的数据。因此，我们的结果为时空（包括黑洞内部）如何从量子纠缠中涌现提供了数据驱动的视角，并刻画了仅凭纠缠能够确定几何的哪些特征。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>从边界半直线的含时纠缠熵 $S(t)$ 中能够重建多少体时空几何，以及纠缠数据能确定几何的哪些特征。</p>
+    <h4>方法</h4><p>利用神经常微分方程从纠缠熵数据直接学习度规；分析 $S(t)$ 对几何的依赖关系，并在带电 BTZ 黑洞等情形下检验重建效果。</p>
+    <h4>主要发现</h4><p>$S(t)$ 仅通过局部表面引力（以类时 Killing 范数表示）这一单函数依赖几何；对带电 BTZ 黑洞，网络在曲面探测区域（含部分内部）重建度规，并给出霍金温度与临界曲面位置；当存在两个未知函数时，经微分同胚联系的物理不同几何可产生相同 $S(t)$；未施加零能量条件时，网络能复现满足 $v_E\le 1$ 的数据，但不能复现违反该界的数据。</p>
+    <h4>局限与展望</h4><p>结果表明仅凭纠缠熵不足以确定含两个未知函数的度规，其适用范围受微分同胚等价性与因果界约束；后续可合理推断需引入额外物理条件或观测数据以消除简并，并进一步检验该数据驱动方法在其他黑洞背景下的适用性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24691v1">
+  <div class="paper-head">
+    <h2>由费曼图导出的Regge膨胀子引力<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24691v1" rel="noopener noreferrer">2611.24691v1</a>
+  </div>
+  <p class="original-title">Regge Dilaton Gravity from Feynman Diagrams</p>
+  <p class="meta"><strong>作者：</strong>Florian Girelli、Christopher Pollack</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Baratin与Freidel曾证明，三维和四维欧几里得空间中的闭合费曼图可表示为Regge型拓扑模型中可观测量的期望值。本文将他们的分析推广到具有球面、平坦或双曲背景几何的二维情形。具体而言，我们证明任意闭合（平面）标量图的约化费曼振幅，均可表示为如下两种配分函数中的可观测量插入：其一是规范群为背景等距群的离散化BF理论，其二是线性膨胀子引力的均匀Regge离散化。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将Baratin与Freidel关于闭合费曼图与Regge型拓扑模型期望值对应关系的结果，从三维和四维欧几里得情形推广到具有球面、平坦或双曲背景几何的二维情形。</p>
+    <h4>方法</h4><p>将闭合（平面）标量图的约化费曼振幅表示为离散化BF理论（规范群取背景的等距群）或线性膨胀子引力的均匀Regge离散化的配分函数中的可观测量插入，并据此建立对应关系。</p>
+    <h4>主要发现</h4><p>原文证明：任意闭合（平面）标量图的约化费曼振幅，均可表示为规范群为背景等距群的离散化BF理论配分函数中的可观测量插入，或表示为线性膨胀子引力的均匀Regge离散化配分函数中的可观测量插入；该结果覆盖球面、平坦与双曲三类二维背景几何。</p>
+    <h4>局限与展望</h4><p>原文仅讨论二维闭合（平面）标量图及上述两类离散模型，未涉及非平面图、更高维推广或非均匀离散化等情形；这些方向是否可行尚需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24752v1">
+  <div class="paper-head">
+    <h2>学习任意子图集<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24752v1" rel="noopener noreferrer">2611.24752v1</a>
+  </div>
+  <p class="original-title">Learning the Anyon Atlas</p>
+  <p class="meta"><strong>作者：</strong>Jonah Berean-Dutcher、Clay Cordova、Julio Parra-Martinez、Richard Tuddenham、Zekai Zhu</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.str-el</span> <span class="tag">cs.LG</span> <span class="tag">math.QA</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文将此前在2+1维拓扑量子场论中搜索模数据的工作从22个任意子扩展到42个任意子，新识别出150,679个模数据。为此，我们在算法中加入了三个拒绝门，其中两个基于逻辑回归，用于丢弃不太可能产生模数据的SL(2,Z)表示。我们估计，在按已知构造封闭后，秩23至42之间的模数据约有80%已被识别。基于这些数据，我们找到了Geiko与Moore一个猜想的反例，该猜想认为高次Gauss和的实际性足以保证Chern-Simons理论中的时间反演对称性；我们据此提出了一个改进的判据。我们通过识别秩100处不由任何Chern-Simons理论实现的素模数据，展示了该门控实现的可扩展性。截至秩42的已识别数据已在https://AnyonAtlas.org上公开，后续发现的数据将继续加入。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在2+1维拓扑量子场论中高效搜索更高秩的模数据，并检验高次Gauss和实际性与时间反演对称性之间的关系。</p>
+    <h4>方法</h4><p>将搜索范围从22个任意子扩展到42个任意子；在算法中加入三个拒绝门（其中两个基于逻辑回归）以丢弃不太可能产生模数据的SL(2,Z)表示；按已知构造封闭后估计覆盖率；并利用所得数据检验猜想、提出改进判据，以及在秩100处演示可扩展性。</p>
+    <h4>主要发现</h4><p>新识别出150,679个模数据；估计秩23至42之间约80%的模数据已被识别；找到Geiko-Moore猜想的反例，表明高次Gauss和的实际性并不足以保证Chern-Simons理论中的时间反演对称性；识别出秩100处不由任何Chern-Simons理论实现的素模数据。</p>
+    <h4>局限与展望</h4><p>原文指出截至秩42的数据已公开并将持续更新；基于反例提出的改进判据有待进一步检验。更高秩搜索的完备性、拒绝门对召回率的影响，以及所得模数据与可实现Chern-Simons理论之间的对应关系，是原文未完全解决、可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24753v1">
+  <div class="paper-head">
+    <h2>从模数据计算 $F$-符号<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24753v1" rel="noopener noreferrer">2611.24753v1</a>
+  </div>
+  <p class="original-title">Computing $F$-Symbols from Modular Data</p>
+  <p class="meta"><strong>作者：</strong>Jonah Berean-Dutcher、Clay Cordova、Julio Parra-Martinez、Richard Tuddenham</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.str-el</span> <span class="tag">math.QA</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种策略，用于从模数据出发计算具有自对偶单生成元的酉模范畴的 $F$-符号，该策略几乎完全避免了五边形方程的非线性求解。算法沿着生成元上 successively 更多股辫群表示的阶梯逐级攀升，直至确定足够多的 $F$-符号，从而将其传播为完整解。所提出的策略在秩 11 和 12 的困难情形中均取得成功，包括 $\operatorname{Z}(\mathrm{Haagerup}_3)$，且不要求范畴是无重数的。尽管算法以数值方式实现，我们描述了一种可靠的方法来恢复精确的 $F$-符号，其前提是在某种规范下它们位于给定的数域中，并精确验证每个五边形方程和六边形方程。以最大的融合系数为 4 的奇异秩 11 各向异性模范畴 B11-00119（https://anyonatlas.org/data/B11-00119）作为动机示例，其求解在笔记本电脑上约需 10 分钟。我们将继续把已完成的 $F$-符号解添加到 https://AnyonAtlas.org。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从酉模范畴的模数据计算其 $F$-符号，并尽量避免求解非线性的五边形方程。</p>
+    <h4>方法</h4><p>利用生成元上逐级增加股数的辫群表示阶梯确定部分 $F$-符号，再将其传播为完整解；数值实现后，在假定某种规范下 $F$-符号位于给定数域中的条件下恢复精确值，并精确验证五边形与六边形方程。</p>
+    <h4>主要发现</h4><p>该策略在秩 11 和 12 的困难情形中成功，包括 $\operatorname{Z}(\mathrm{Haagerup}_3)$，且不要求范畴无重数；对最大融合系数为 4 的秩 11 各向异性模范畴 B11-00119，在笔记本电脑上求解约需 10 分钟。</p>
+    <h4>局限与展望</h4><p>原文未系统讨论算法的一般复杂度或适用边界；精确恢复依赖“某种规范下 $F$-符号位于给定数域”这一假设。作者表示将继续把 $F$-符号解添加到 AnyonAtlas.org，可合理推断该策略将用于扩充更多模范畴的 $F$-符号数据。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24779v1">
+  <div class="paper-head">
+    <h2>有限分辨率下的全息：AdS/CFT 中的零点长度<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24779v1" rel="noopener noreferrer">2611.24779v1</a>
+  </div>
+  <p class="original-title">Holography at finite resolution: zero-point length in AdS/CFT</p>
+  <p class="meta"><strong>作者：</strong>Ankit Anand、Kimet Jusufi、Amir A. Khodahami、Adrinil Paul、Ahmad Sheykhi</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文探讨由 T-对偶启发的有效场论中的零点长度 \(l_0\) 在全息框架下的两种解读。作为边界分辨率尺度，\(l_0\) 对反德西特空间中体标量的源进行过滤，给出一个可精确求解的边界响应；该响应无需硬截断即紫外有限，并继承零点长度核的幂律尾部。我们证明该过滤器等价于 \(\nu=1\) 标量在径向深度 \(z=l_0\) 处、按源归一化的体到边界传递函数。将 Ryu-Takayanagi 曲面锚定在同一径向面上，可得到保持周长律与普适球面自由能的有限纠缠熵。对于 AdS\(_3\) 中的两个区间，该方案以闭式给出任意区间长度下的互信息连通性转变；在固定总长度下等长区间使连通窗口最大化，而在亚分辨率区域，临界间距呈现普适标度律，重标度后的互信息坍缩为分段线性剖面。作为 AdS 不变的体固有长度，\(l_0\) 使单圈蝌蚪图有限，同时保持边界两点函数的共形形式；然而其精确的 Källén-Lehmann 分解自阈值起出现负的连续谱权重，妨碍对该传播子作幺正解释。比值 \(L/l_0\) 标识的是形状因子的交叉尺度，而非某个幺正完备理论所导出的谱。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究 T-对偶启发的有效场论中零点长度 \(l_0\) 在全息（AdS/CFT）框架下的物理含义，区分其作为边界分辨率尺度与作为 AdS 不变体固有长度两种解读。</p>
+    <h4>方法</h4><p>将 \(l_0\) 作为边界分辨率尺度时，用其过滤 AdS 体中标量的边界源，并证明该过滤器等价于 \(\nu=1\) 标量在 \(z=l_0\) 处按源归一的体到边界传递函数；将 Ryu-Takayanagi 曲面锚定于同一径向面以计算纠缠熵，并在 AdS\(_3\) 中对双区间互信息作解析处理。将 \(l_0\) 作为体固有长度时，分析单圈蝌蚪图与边界两点函数，并作 Källén-Lehmann 分解。</p>
+    <h4>主要发现</h4><p>作为边界分辨率尺度，\(l_0\) 给出无需硬截断即紫外有限的精确边界响应，并继承零点长度核的幂律尾部；锚定后的 Ryu-Takayanagi 曲面给出有限纠缠熵，且保留周长律与普适球面自由能。AdS\(_3\) 双区间情形下得到任意区间长度下互信息连通性转变的闭式结果；等长区间在固定总长度下最大化连通窗口；亚分辨率区域临界间距呈普适标度律，重标度互信息坍缩为分段线性剖面。作为体固有长度，\(l_0\) 使单圈蝌蚪图有限并保持边界两点函数的共形形式，但其精确 Källén-Lehmann 分解自阈值起具有负的连续谱权重，妨碍幺正解释；\(L/l_0\) 标识形状因子的交叉尺度而非导出的幺正谱。</p>
+    <h4>局限与展望</h4><p>原文表明负连续谱权重阻碍将该传播子解释为幺正理论，且 \(L/l_0\) 只是形状因子的交叉尺度，并非某个幺正完备理论的导出谱；因此该方案作为有效描述有其适用范围，能否构造避免负权重的幺正完备理论属于原文未解决、可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24874v1">
+  <div class="paper-head">
+    <h2>高阶曲率引力中旋转黑洞热力学的次次领头阶修正<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24874v1" rel="noopener noreferrer">2611.24874v1</a>
+  </div>
+  <p class="original-title">Rotating black hole thermodynamics at NNLO in higher-curvature gravity</p>
+  <p class="meta"><strong>作者：</strong>Cristobal Laporte</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用微扰欧几里得作用量方法，研究拟拓扑引力中黑洞热力学的高阶曲率修正。静态球对称黑洞为作用量展开提供了基准，而主要应用则针对五维、渐近平直、具有等角动量的旋转黑洞。对于在爱因斯坦引力基础上补充Gauss–Bonnet与三次拟拓扑相互作用的理论，我们计算了直至次次领头阶（NNLO）的吉布斯自由能，同时保留二次与三次修正。结果完整保留了背景自旋参数的依赖，未采用慢旋转展开，并可推广至二次与三次曲率不变量的任意耦合。我们导出了修正后的质量、熵与角动量，并展示了旋转如何影响修正的大小与符号。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的是在含Gauss–Bonnet与三次拟拓扑高阶曲率相互作用的引力理论中，五维渐近平直等角动量旋转黑洞的热力学量（吉布斯自由能、质量、熵、角动量）在次次领头阶的修正，以及旋转对修正大小与符号的影响。</p>
+    <h4>方法</h4><p>采用微扰欧几里得作用量方法；以静态球对称黑洞作为作用量展开的基准，主要计算针对五维渐近平直等角动量旋转黑洞，在爱因斯坦引力基础上加入Gauss–Bonnet与三次拟拓扑相互作用，计算至NNLO的吉布斯自由能，保留二次与三次曲率修正，不采用慢旋转展开，并推广至任意耦合。</p>
+    <h4>主要发现</h4><p>原文明确给出：计算了直至NNLO的吉布斯自由能，同时保留二次与三次修正；结果完整保留背景自旋参数依赖，未做慢旋转展开，并适用于二次与三次曲率不变量的任意耦合；导出了修正后的质量、熵与角动量，并表明旋转会影响修正的大小与符号。</p>
+    <h4>局限与展望</h4><p>论文的适用范围限于五维、渐近平直、等角动量的旋转黑洞以及拟拓扑引力框架下的微扰展开；对于非等角动量、其他维度或非渐近平直情形，原文未作结论。后续可合理推断的方向包括将方法推广至更一般的旋转黑洞或考察更高阶修正，但这些均需进一步研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24897v1">
+  <div class="paper-head">
+    <h2>超越隐藏零点与 Tr$(\phi^3)$ 中的唯一性：任意 Tr$(\phi^m)$ 理论中的块零点与杆零点<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24897v1" rel="noopener noreferrer">2611.24897v1</a>
+  </div>
+  <p class="original-title">Beyond hidden zeros and uniqueness in Tr$(φ^3)$: Block and rod zeros in any Tr$(φ^m)$</p>
+  <p class="meta"><strong>作者：</strong>Laurentiu Rodina</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>隐藏零点已被证明是重构 Tr$(\phi^3)$（一种具有三次相互作用的带色标量理论）中振幅的有力工具。本文表明这些结构可推广至任意 Tr$(\phi^m)$ 理论。对于奇数 $m$，我们由连续动量的正交和构造\emph{块零点}，推广了原有的三次隐藏零点。对于所有 $m\geq4$（包括偶数 $m$），我们通过一个杆填充问题描述第二族非线性\emph{杆零点}。在 Tr$(\phi^4)$ 中，该构造约化为动量缩并矩阵上的一个简单秩一条件。我们将这一新零点与 Voloshin 的经典阈值零化零点联系起来：在带质量 $\phi^4$ 理论中，当所有产生粒子均静止时某些振幅消失。最后，我们展示这些零点的重构能力。在假定定域性的前提下，我们证明杆零点在归一化意义下唯一确定所有 $m\geq4$ 的 Tr$(\phi^m)$ 树图振幅。我们还猜想，对于任意奇数 $m$ 的 Tr$(\phi^m)$ 理论，块零点同时强制定域性与幺正性。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>隐藏零点结构能否从 Tr$(\phi^3)$ 推广到任意 Tr$(\phi^m)$ 理论，以及这些零点是否足以重构振幅并约束理论的基本性质。</p>
+    <h4>方法</h4><p>对奇数 $m$ 由连续动量的正交和构造块零点；对所有 $m\geq4$ 通过杆填充问题构造杆零点，并在 Tr$(\phi^4)$ 中将其表述为动量缩并矩阵的秩一条件；在假定定域性下证明杆零点的唯一重构能力，并以猜想形式提出块零点对定域性与幺正性的约束。</p>
+    <h4>主要发现</h4><p>隐藏零点结构可推广至任意 Tr$(\phi^m)$ 理论；奇数 $m$ 存在块零点，所有 $m\geq4$ 存在杆零点；Tr$(\phi^4)$ 中的杆零点约化为秩一条件并与 Voloshin 的阈值零化零点相联系；在假定定域性下，杆零点在归一化意义下唯一确定所有 $m\geq4$ 的 Tr$(\phi^m)$ 树图振幅。</p>
+    <h4>局限与展望</h4><p>块零点同时强制定域性与幺正性目前仅为猜想，尚待证明；杆零点的唯一重构结论依赖于定域性假设；这些零点结构在其他理论中的适用性及与阈值零化现象的更一般联系有待进一步研究。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.18828v1">
+  <div class="paper-head">
+    <h2>用四夸克算子探测QCD共形窗口<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.18828v1" rel="noopener noreferrer">2611.18828v1</a>
+  </div>
+  <p class="original-title">Probing the QCD Conformal Window with Four-Quark Operators</p>
+  <p class="meta"><strong>作者：</strong>Junchen Rong、Emmanuel Stamou、Tom Steudtner</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>类QCD理论的红外命运及其关于不同味数与色数的共形窗口仍是一个开放问题，其应用范围从高能物理延伸到凝聚态系统。从共形相到对称性破缺相的相变，其标志之一可能是存在经典上无关、但在红外提供相关形变的算子。本文在Veneziano QCD框架下研究这一情形，计算了所有四夸克算子（含手征对称性与不含手征对称性）在四圈阶的反常维度，以及六维胶子算子在三圈阶的反常维度。标度维度通过系统的共形展开得到。我们采用多种重求和技术改进这些结果，并估计其不确定度。我们未发现具体证据表明存在某个复合算子能够有效描述与QCD不动点的合并。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>类QCD理论的红外命运及共形窗口问题；具体而言，是否存在经典上无关、在红外变为相关的复合算子，从而标志共形相到对称性破缺相的转变，以及能否用复合算子有效描述与QCD不动点的合并。</p>
+    <h4>方法</h4><p>在Veneziano QCD中计算所有四夸克算子（含与不含手征对称性）的四圈阶反常维度，以及六维胶子算子的三圈阶反常维度；通过系统的共形展开导出标度维度，并用多种重求和技术改进结果、估计不确定度。</p>
+    <h4>主要发现</h4><p>原文明确报告：未发现具体证据表明存在某个复合算子能够有效描述与QCD不动点的合并。</p>
+    <h4>局限与展望</h4><p>原文未给出明确的后续方向；基于其结论可谨慎推断，所计算的算子维度与重求和结果可作为检验其他味数、色数或不同理论设定下共形窗口判据的输入，但这一推断尚需进一步研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23170v1">
+  <div class="paper-head">
+    <h2>U(1)自旋液体中竞争磁序与连续变化的临界指数<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23170v1" rel="noopener noreferrer">2611.23170v1</a>
+  </div>
+  <p class="original-title">Competing Magnetic Orders and Continuously Varying Exponents in $U(1)$ Spin Liquids</p>
+  <p class="meta"><strong>作者：</strong>Vira Shyta、Flavio S. Nogueira</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>不等耦合于共同涌现规范场为U(1)自旋液体混合物的有效描述提供了一种连续调节竞争磁不稳定性的途径。本文在2+1维量子电动力学中研究该机制，体系包含两族四分量狄拉克费米子。结合主导的大N处理与Schwinger-Dyson方程，我们得到代表两个扇区中Néel序的手征凝聚。在固定费米子数下，耦合比κ=e_2^2/e_1^2控制哪些凝聚会形成。依赖于N，仅存在单一凝聚的相之间通过共存相或两族费米子均保持无能隙的有限区间相连。质量产生阈值互为倒数，费米子能隙以Miransky本质奇异性关闭。重整化群流具有由不变量比κ参数化的圆形不动点线。在计算阶数下，规范不变的交错磁化关联在无能隙区域具有连续变化的指数，而两个扇区之间关联的指数与κ无关。这些结果将磁序之间的竞争与连续族临界理论联系起来，并识别出中间无能隙区域的磁关联特征。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在U(1)自旋液体混合物的有效描述中，两族狄拉克费米子与共同涌现规范场的不等耦合如何连续调节竞争磁序（Néel序）的稳定性及临界行为。</p>
+    <h4>方法</h4><p>采用2+1维量子电动力学，包含两族四分量狄拉克费米子；结合主导的大N展开与Schwinger-Dyson方程，计算手征凝聚、质量产生阈值、重整化群流及规范不变交错磁化关联的临界指数。</p>
+    <h4>主要发现</h4><p>在固定费米子数下，耦合比κ=e_2^2/e_1^2控制哪个扇区形成手征凝聚；依N不同，单一凝聚相之间可通过共存相或两族费米子均无能隙的有限区间相连；质量产生阈值互为倒数，费米子能隙以Miransky本质奇异性关闭；重整化群流存在由κ参数化的圆形不动点线；在计算阶数下，无能隙区域中规范不变交错磁化关联的指数随κ连续变化，而两扇区之间关联的指数与κ无关。</p>
+    <h4>局限与展望</h4><p>结果基于主导大N处理与Schwinger-Dyson方程，属于特定阶数的近似，未给出非微扰或有限N下的严格结论；连续变化指数的结论限于所计算阶数。后续可合理推断的方向包括：检验更高阶修正下不动点线与指数连续性的稳健性，以及将磁关联特征与具体自旋液体候选材料的实验测量相联系。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23343v1">
+  <div class="paper-head">
+    <h2>中微子传播哈密顿量的能量相关重标度：标准模型扩展识别、物质部分与长基线简并<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23343v1" rel="noopener noreferrer">2611.23343v1</a>
+  </div>
+  <p class="original-title">An energy-dependent rescaling of the neutrino propagation Hamiltonian: Standard Model Extension identification, matter sector, and long-baseline degeneracy</p>
+  <p class="meta"><strong>作者：</strong>Neda Razzaghi</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究将中微子传播哈密顿量乘以实且能量相关的标量因子 $H_\eta(E)=f(E)H_0(E)$ 的后果，其中 $f(E)=1-\eta_0(E/E_0)^2$ 为最小长度假设。其真空部分对应于标准模型扩展中一个四维、CPT 偶的洛伦兹破坏项，系数为 $(\cL)_{ii}=-\eta_0(m_i^2-m_1^2)/(2E_0^2)$，在质量本征态下对角且由质量矩阵固定，因而可通过重参数化移除。物质势的重标度表现为五维行为且为 CPT 奇。对于 $f=1-\eta_0(E/E_0)^p$，真空项表现为 $p+2$ 维算符，物质项表现为 $p+3$ 维，因此仅 $p=2$ 给出边缘真空算符；$p=0$ 被吸收进已测量的质量平方差，非整数 $p$ 不允许局域算符。取 $\eta_0=0.02$、$E_0=2.5$~GeV 时得到 $|(\cL)_{33}|\simeq4\times10^{-24}$，与当前大气中微子界限相当；而 Planck 压低的形变在 $\beta_0=\mathcal{O}(1)$ 时给出 $3.2\times10^{-58}$。在常密度下该效应等价于 $L\to f(E)L$：混合角与 Dirac 相位不变，CP 不对称性被重参数化而非产生，主要可观测效应是 $\dm_{31}$ 的重标度。在 $1297$~km 处，仅重拟合 $\dm_{31}$ 可吸收平方概率差的 $23$\%，四参数重拟合可吸收 $41.5$\%。本文未进行统计分析；简并指概率空间中的距离，而非置信区间。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究将中微子传播哈密顿量乘以能量相关标量因子 $f(E)=1-\eta_0(E/E_0)^p$ 的物理含义，包括其在标准模型扩展中的算符识别、物质势部分的量纲行为，以及长基线实验中的参数简并程度。</p>
+    <h4>方法</h4><p>通过解析推导将真空部分与物质部分分别映射到标准模型扩展中的洛伦兹破坏算符，分析不同 $p$ 对应的算符量纲；在常密度近似下将效应等价为 $L\to f(E)L$，并数值评估 $\eta_0=0.02$、$E_0=2.5$~GeV 时的系数大小及 $1297$~km 基线下的概率差异与重拟合吸收比例。</p>
+    <h4>主要发现</h4><p>真空部分为四维、CPT 偶、质量本征态对角的洛伦兹破坏项，可由重参数化移除；物质部分为五维、CPT 奇。仅 $p=2$ 给出边缘真空算符，$p=0$ 被质量平方差吸收，非整数 $p$ 无局域算符对应。$\eta_0=0.02$ 时 $|(\cL)_{33}|\simeq4\times10^{-24}$，与大气界限相当；Planck 压低情形给出 $3.2\times10^{-58}$。常密度下混合角与 Dirac 相位不变，CP 不对称性不被产生，主要可观测效应为 $\dm_{31}$ 重标度；$1297$~km 处仅重拟合 $\dm_{31}$ 吸收 $23$\% 的平方概率差，四参数重拟合吸收 $41.5$\%。</p>
+    <h4>局限与展望</h4><p>原文未进行统计分析，简并仅表示概率空间中的距离而非置信区间，因此所得吸收比例不能直接解释为参数限制。该分析限于常密度近似与特定基线，实际变密度传播及多基线联合拟合下的简并结构有待进一步检验；后续工作可在此基础上开展正式的统计推断，并评估与其他洛伦兹破坏或非标准相互作用参数的区分能力。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23426v1">
+  <div class="paper-head">
+    <h2>带标量多极矩的自旋天体动力学<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23426v1" rel="noopener noreferrer">2611.23426v1</a>
+  </div>
+  <p class="original-title">Dynamics of a spinning body with scalar multipoles</p>
+  <p class="meta"><strong>作者：</strong>Jacopo Lestingi、Thomas P. Sotiriou、Andrew Spiers、Andrea Maselli</p>
+  <p class="meta"><strong>主分类：</strong>gr-qc
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">astro-ph.HE</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对含无质量、非最小耦合标量场的引力理论，构造了自旋致密天体的有效世界线作用量。为此，作者将广义相对论中用于描述小体在背景时空中应力-能量张量的标准骨架化方法推广，使多极结构携带标量场信息。在极-偶极近似下，推导出修正的Mathisson-Papapetrou-Dixon自旋天体运动方程，以及标量场与度规的场方程；讨论同时涵盖宇称偶与宇称奇标量。为描述非对称双星（如极端质量比旋近，EMRIs）的演化，作者按双星质量比系统展开相关方程，得到至一阶后绝热（1PA）阶的动力学，并给出确定粒子加速度所需的自力方程。结果表明：对宇称偶标量，1PA动力学仅依赖于次级天体的质量、自旋与标量荷，外加一个自耦合常数；对赝标量，双星动力学在1PA阶与广义相对论一致。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在含无质量、非最小耦合标量场（包括宇称偶标量与赝标量）的引力理论中，如何描述自旋致密天体的多极结构并推导其运动方程，进而刻画非对称双星（如EMRIs）至1PA阶的动力学？</p>
+    <h4>方法</h4><p>将广义相对论中的骨架化方法推广至带标量场的理论，构造自旋天体的有效世界线作用量，在极-偶极近似下推导修正的Mathisson-Papapetrou-Dixon方程及标量场与度规场方程；并按双星质量比展开，得到1PA阶动力学与自力方程。</p>
+    <h4>主要发现</h4><p>对宇称偶标量，1PA动力学仅依赖次级天体的质量、自旋、标量荷以及一个自耦合常数；对赝标量，双星动力学在1PA阶与广义相对论一致。</p>
+    <h4>局限与展望</h4><p>原文未讨论更高阶后绝热修正、非极-偶极多极矩或强场/高自旋情形；这些可作为后续推广方向，但需进一步验证。1PA阶结果对标量场耦合参数空间给出限制，其可观测性有待结合具体波形建模评估。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23462v1">
+  <div class="paper-head">
+    <h2>通过时空 Kirkwood-Dirac 分布与时空态实现的时空量子 Monge-Kantorovich 最优输运<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23462v1" rel="noopener noreferrer">2611.23462v1</a>
+  </div>
+  <p class="original-title">Quantum Monge-Kantorovich optimal transport in spacetime through spatiotemporal Kirkwood-Dirac distributions and spatiotemporal states</p>
+  <p class="meta"><strong>作者：</strong>Zhian Jia</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.FA</span> <span class="tag">math.MP</span> <span class="tag">math.PR</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Monge-Kantorovich 最优输运是一个数学框架，用于确定在最小化给定代价函数的前提下将一个概率分布变换为另一个概率分布的最有效方式，其核心构造包括刻画概率分布空间的 Wasserstein 距离以及与凸分析相联系的对偶表述。其标准量子推广以密度算子替代概率分布、以半正定代价算子替代代价函数，应被视为空间量子最优输运。本文借助时空相空间 Kirkwood-Dirac 准概率分布与时空态，提出时空中的量子最优输运问题。我们证明这两种表述等价，并通过时空算子框架相互关联。在 Kirkwood-Dirac 相空间表述中，时空分布与代价函数为复值，时空耦合为 Kirkwood-Dirac 准概率分布，并给出局部态的正确边缘分布。在时空态表述中，代价算子一般非厄米，时空耦合一般非厄米，并给出正确的约化局部态。Margenau-Hill 相空间分布给出时空相空间中的实值最优输运；在时空态表述中，这对应于厄米时空耦合态。我们给出严格定义并对其对偶性进行细致讨论。我们还基于时空相空间中的度量引入时空量子 Wasserstein 度量，并证明其满足度量公理。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将标准（空间）量子最优输运推广到时空情形，并在相空间准概率分布与时空态两种表述下建立等价且具有对偶结构的量子最优输运理论。</p>
+    <h4>方法</h4><p>以时空相空间 Kirkwood-Dirac 准概率分布和时空态为基本对象构造时空量子最优输运问题；通过时空算子框架建立两种表述的等价关系；给出严格定义并讨论对偶性；基于时空相空间度量定义时空量子 Wasserstein 度量并验证度量公理。</p>
+    <h4>主要发现</h4><p>论文表明两种表述等价且经时空算子框架相互关联；Kirkwood-Dirac 表述中时空分布与代价函数为复值，时空耦合为给出正确局部边缘分布的 Kirkwood-Dirac 准概率分布；时空态表述中代价算子与时空耦合一般非厄米并给出正确的约化局部态；Margenau-Hill 分布对应实值时空相空间最优输运，在时空态表述中对应厄米时空耦合态；所引入的时空量子 Wasserstein 度量满足度量公理。</p>
+    <h4>局限与展望</h4><p>原文未讨论具体物理应用与计算可行性；其非厄米代价算子与复值准概率分布带来的解释与数值实现问题有待进一步研究；后续可合理推断的方向包括将该框架应用于时空中的量子信息与场论问题，以及考察其他相空间分布所对应的输运形式。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23597v1">
+  <div class="paper-head">
+    <h2>对“来自幻影DBI场的精确非奇异黑洞作为原初暗物质”的评论<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23597v1" rel="noopener noreferrer">2611.23597v1</a>
+  </div>
+  <p class="original-title">Comment on &quot;Exact, nonsingular black holes from a phantom DBI field as primordial dark matter&quot;</p>
+  <p class="meta"><strong>作者：</strong>Mustapha Azreg-Aïnou、Marco A. A. de Paula</p>
+  <p class="meta"><strong>主分类：</strong>gr-qc
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文指出，参考文献[1]所提出的度规与标量场构型，在包含事件视界的径向区域上并不满足Dirac-Born-Infeld（DBI）场论与广义相对论最小耦合后的完整场方程组。对于该引力背景，物理的DBI分支在事件视界之外即告终止。因此，该构型不能描述该理论下的黑洞解。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>参考文献[1]提出的幻影DBI场与广义相对论最小耦合的精确非奇异黑洞构型，是否满足该理论的完整场方程并构成黑洞解。</p>
+    <h4>方法</h4><p>通过检验所提度规与标量场构型在包含事件视界的径向区域上是否满足DBI场论与广义相对论最小耦合的完整场方程组，并分析相应DBI分支的定义域。</p>
+    <h4>主要发现</h4><p>所提构型在包含事件视界的径向区域上不满足完整场方程组；该引力背景下的物理DBI分支在事件视界之外终止，因此该构型不构成该理论的黑洞解。</p>
+    <h4>局限与展望</h4><p>原文未讨论其他参数区间或替代分支是否可能给出有效解；若需构造该理论下的黑洞解，或需重新考察场方程的解空间与分支结构，但这属于可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23735v1">
+  <div class="paper-head">
+    <h2>Gopakumar-Vafa不变量与Mordell-Weil格<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23735v1" rel="noopener noreferrer">2611.23735v1</a>
+  </div>
+  <p class="original-title">Gopakumar-Vafa invariants and Mordell-Weil lattices</p>
+  <p class="meta"><strong>作者：</strong>Lutian Zhao</p>
+  <p class="meta"><strong>主分类：</strong>math.AG
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.AG</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>设 $X\to B$ 是从光滑 Calabi--Yau 三维体到 del Pezzo 曲面的 Weierstrass 纤维化，且纤维为整纤维。对于 $B$ 中一条光滑曲线 $D\subset B$，若其原像 $Y$ 光滑，本文分解了欧拉示性数为一、投影循环为 $D$ 的稳定层的模空间纤维。在纤维次数 $k$ 下，其分支由 $Y\to D$ 的所有满足 $\tfrac12\langle C,C\rangle\leq k$ 的截面 $C$ 标定，其中 $\langle\, ,\,\rangle$ 为 Mordell--Weil 高度配对。对于无穷小刚性截面，本文计算了 GV 贡献，并在一条 $(-1)$-曲线上重新得到 $E_8$ theta 乘积。文中还针对截面族提出了相应的猜想。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究 Weierstrass 纤维化 $X\to B$（从光滑 Calabi--Yau 三维体到 del Pezzo 曲面、整纤维）上稳定层模空间纤维的结构，以及无穷小刚性截面的 Gopakumar-Vafa 贡献与 Mordell-Weil 格之间的关系。</p>
+    <h4>方法</h4><p>对欧拉示性数为一、投影循环为给定光滑曲线 $D$ 的稳定层模空间纤维按纤维次数 $k$ 进行分解，用 Mordell--Weil 高度配对 $\langle\, ,\,\rangle$ 刻画分支指标；并对无穷小刚性截面计算 GV 贡献。</p>
+    <h4>主要发现</h4><p>在纤维次数 $k$ 下，模空间纤维的分支由 $Y\to D$ 的所有满足 $\tfrac12\langle C,C\rangle\leq k$ 的截面 $C$ 标定；对无穷小刚性截面计算了 GV 贡献，并在一条 $(-1)$-曲线上重新得到 $E_8$ theta 乘积。</p>
+    <h4>局限与展望</h4><p>原文对截面族仅提出相应猜想，尚未证明；摘要未讨论非整纤维、非光滑原像或非无穷小刚性截面等情形，这些可视为适用范围上的限制，后续方向可包括验证截面族猜想及推广到更一般的纤维化情形。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23758v1">
+  <div class="paper-head">
+    <h2>由四次Casimir与端点方程构造的1+1维带电Schrödinger块<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23758v1" rel="noopener noreferrer">2611.23758v1</a>
+  </div>
+  <p class="original-title">Charged Schrödinger blocks in $1+1$ dimensions from the quartic Casimir and endpoint equations</p>
+  <p class="meta"><strong>作者：</strong>Hirohiko Shimada</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-th</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在无需任何动力学实现的前提下，构造了一维空间中的电荷二Schrödinger共形块。考虑维度为1/2的基本场的有序真空四点函数，在最早与最晚插入点施加齐次Schrödinger方程，并允许中间两粒子区间内的相互作用。对于在带符号空间坐标上解析、且在同时空间反演下为偶的约化块，时间交叉比的两个函数决定了完整的空间依赖：共线值与一个重标度的混合空间导数。由合流超几何函数构成的精确Kummer提升给出了这一重构。一个算符恒等式将四次Casimir方程在模去端点方程后约化为该函数对的等价耦合系统。在一般交换维度下，OPE条件对每种初级宇称唯一确定一个块（至归一化）。我们得到共线${}_4F_3$函数与Kummer乘积之和，包括shadow分支。这些块依赖于带符号坐标的相对符号，从而区分具有拐点的分段线性世界线与具有单调段速度的世界线。在Calogero模型中，我们恢复了此前导出的玻色子四点函数并得到其费米子对应物，并给出独立的积分检验。在$A+B\to\emptyset$的扩散限制不动点处，两个相反初级宇称的块给出相同的共线异种响应。对所有位置与有序时间的非负性选择偶族，从而确立按种类求和的响应包含维度为$Δ=1,2$的偶shadow对。该非负性论证展示了超越共线数据的Schrödinger bootstrap的一个具体约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在不依赖具体动力学实现的情况下，构造一维空间中电荷二的Schrödinger共形块，并刻画其空间依赖、OPE选择条件及物理解释。</p>
+    <h4>方法</h4><p>研究维度1/2基本场的有序真空四点函数，在端点插入处施加齐次Schrödinger方程并允许中间两粒子区间相互作用；利用时间交叉比的两个函数（共线值与重标度混合空间导数）结合Kummer提升重构空间依赖；通过算符恒等式将四次Casimir方程模端点方程约化为耦合系统；用OPE条件在一般交换维度下选择块；并在Calogero模型与$A+B\to\emptyset$扩散限制不动点处进行检验。</p>
+    <h4>主要发现</h4><p>两个时间交叉比函数决定完整空间依赖，精确Kummer提升由合流超几何函数给出；四次Casimir方程在模端点方程下等价于该函数对的耦合系统；一般交换维度下OPE条件对每种初级宇称唯一确定块（至归一化）；得到共线${}_4F_3$函数与Kummer乘积之和（含shadow分支）；块依赖带符号坐标的相对符号，区分有拐点的分段线性世界线与单调段速度世界线；在Calogero模型中恢复玻色子四点函数并得到费米子对应物，且有独立积分检验；在$A+B\to\emptyset$扩散限制不动点处，两个相反初级宇称块给出相同共线异种响应，非负性选择偶族，按种类求和的响应包含维度$Δ=1,2$的偶shadow对。</p>
+    <h4>局限与展望</h4><p>非负性论证给出了超越共线数据的Schrödinger bootstrap的一个具体约束；原文未进一步讨论该约束在高维、其他电荷或更一般交换维度下的适用性，相关推广属于可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23957v1">
+  <div class="paper-head">
+    <h2>由特征公式计算仲费米子与仲玻色子宇称算符的谱<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23957v1" rel="noopener noreferrer">2611.23957v1</a>
+  </div>
+  <p class="original-title">Spectrum of the parity operator for parafermions and parabosons from character formulas</p>
+  <p class="meta"><strong>作者：</strong>N. I. Stoilova、J. Van der Jeugt</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">hep-th</span> <span class="tag">math.MP</span> <span class="tag">math.RT</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在近期一篇论文[J. Phys. A: Math. Theor. 59 175201 (2026)]中，仲费米子与仲玻色子的Green三重关系被扩展，引入了一个称为宇称算符的新算符P。该文利用仲费米子（或仲玻色子）产生与湮灭算符的作用，计算了P在Fock空间表示中的谱。本文采用不同方法计算P的谱，即使用特征公式。对于n个仲费米子的情形，P的作用由so(2n+2)的特征公式导出。对于n个仲玻色子的情形，已知的P谱给出了特定osp(2|2n)表示的新特征公式。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用特征公式这一不同方法计算仲费米子与仲玻色子体系中宇称算符P在Fock空间表示中的谱。</p>
+    <h4>方法</h4><p>利用so(2n+2)的特征公式导出n个仲费米子情形下P的作用；并利用已知的P谱推导特定osp(2|2n)表示的新特征公式。</p>
+    <h4>主要发现</h4><p>对于n个仲费米子，P的作用可由so(2n+2)的特征公式导出；对于n个仲玻色子，已知的P谱给出了特定osp(2|2n)表示的新特征公式。</p>
+    <h4>局限与展望</h4><p>原文未讨论该方法的适用范围与局限；可合理推断，该特征公式方法或可推广至其他para统计体系或相关李超代数表示的特征公式研究，但这尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23978v1">
+  <div class="paper-head">
+    <h2>地球中微子（与反应堆中微子）未显现出可见衰变<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23978v1" rel="noopener noreferrer">2611.23978v1</a>
+  </div>
+  <p class="original-title">Geoneutrinos (and reactor neutrinos) do not visibly decay</p>
+  <p class="meta"><strong>作者：</strong>Mauricio Bustamante</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在到达探测器途中发生衰变的中微子会表现为通量亏损，且低能端亏损更显著，因为时间膨胀对寿命的延长在低能时最弱。地球中微子是由地球内部铀、钍放射性衰变产生的电子反中微子，能量为几 MeV，传播距离可达地球直径。本文首次利用地球中微子检验中微子衰变。我们针对可见衰变情形（即衰变产生的子中微子本身也被探测到），计算了 Borexino、KamLAND、SNO+ 和 JUNO 处的地球中微子信号，并与各实验已发表的数据进行比较。我们未发现能够在不同地球模型下均成立的衰变证据。联合四个实验，在倒质量顺序下对衰变 $\nu_1 \to \nu_3$ 给出 90% C.L. 的限制：当地球放射性生热功率取为自由参数时，$\tau_1/m_1 &gt; 3.7 \times 10^{-9}$ s eV$^{-1}$；当该功率取自地球模型时，$\tau_1/m_1 &gt; 4.4 \times 10^{-9}$ 至 $1.6 \times 10^{-8}$ s eV$^{-1}$。在假定地球模型的情况下，限制由地球中微子给出；而在功率自由时，这些实验探测到的核反应堆反中微子与地球中微子的贡献相当。这是首批基于地球中微子对 $\nu_1$ 可见衰变给出的地面限制。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>中微子在传播途中是否会发生可见衰变；能否利用低能、长基线且传播距离可达地球直径的地球中微子，对中微子衰变给出限制。</p>
+    <h4>方法</h4><p>针对可见衰变（子中微子也被探测）计算 Borexino、KamLAND、SNO+ 和 JUNO 处的地球中微子信号，并与各实验已发表数据比较；分别在地球放射性生热功率自由和取自地球模型的两种情形下，联合四个实验对倒质量顺序下的 $\nu_1 \to \nu_3$ 衰变给出 90% C.L. 限制。</p>
+    <h4>主要发现</h4><p>未发现能够在不同地球模型下均成立的衰变证据。联合四个实验在 90% C.L. 下得到：功率自由时 $\tau_1/m_1 &gt; 3.7 \times 10^{-9}$ s eV$^{-1}$；功率取自地球模型时 $\tau_1/m_1 &gt; 4.4 \times 10^{-9}$ 至 $1.6 \times 10^{-8}$ s eV$^{-1}$。假定地球模型时限制由地球中微子给出；功率自由时反应堆反中微子与地球中微子贡献相当。这是首批基于地球中微子对 $\nu_1$ 可见衰变的地面限制。</p>
+    <h4>局限与展望</h4><p>所得限制依赖于所采用的地球模型及其放射性生热功率假设；在功率自由情形下，反应堆反中微子的贡献与地球中微子相当，因此限制并非单独由地球中微子决定。后续可通过更精确的地球模型与生热功率约束、更多地球中微子数据以及与其他中微子源的联合分析来改进限制（此点为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24105v1">
+  <div class="paper-head">
+    <h2>无手性阿贝尔拓扑序的稳定子模型<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24105v1" rel="noopener noreferrer">2611.24105v1</a>
+  </div>
+  <p class="original-title">Stabilizer models of achiral abelian topological orders</p>
+  <p class="meta"><strong>作者：</strong>Marvin Qi、Wilbur Shirley</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文构造了连续变量稳定子码，用以实现所有无手性的二维阿贝尔拓扑序，包括玻色型和费米型。从任意符号为零的整数 $K$-矩阵出发，我们证明：相应的拓扑序可通过在 $\mathbb{R}^N$ 规范理论中凝聚一个两两互编织为平凡的晶格双荷子（dyon）来获得。我们在微观上通过规范化 $\mathbb{R}^N$ 环面码的一个非在位 1-形式对称性来实现该凝聚。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用连续变量稳定子码实现所有无手性二维阿贝尔拓扑序（玻色型与费米型）。</p>
+    <h4>方法</h4><p>从任意符号为零的整数 $K$-矩阵出发，在 $\mathbb{R}^N$ 规范理论中凝聚两两互编织平凡的晶格双荷子；微观上通过规范化 $\mathbb{R}^N$ 环面码的非在位 1-形式对称性实现该凝聚。</p>
+    <h4>主要发现</h4><p>原文明确表明：所构造的连续变量稳定子码可实现每一个无手性二维阿贝尔拓扑序，涵盖玻色型与费米型；任意符号为零的整数 $K$-矩阵对应的拓扑序均可由上述双荷子凝聚获得，且该凝聚可在微观上通过规范化 $\mathbb{R}^N$ 环面码的非在位 1-形式对称性实现。</p>
+    <h4>局限与展望</h4><p>原文未讨论具体局限与后续方向；可合理推断，该构造的适用范围限于无手性（符号为零 $K$-矩阵）的二维阿贝尔拓扑序，对有手性情形及非阿贝尔拓扑序的推广尚待研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24127v1">
+  <div class="paper-head">
+    <h2>暴胀期间二次反作用源的规范与尺度依赖性：均匀膨胀规范<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24127v1" rel="noopener noreferrer">2611.24127v1</a>
+  </div>
+  <p class="original-title">Gauge and scale dependence of the quadratic backreaction source during inflation: Uniform-expansion gauge</p>
+  <p class="meta"><strong>作者：</strong>Inyong Cho</p>
+  <p class="meta"><strong>主分类：</strong>gr-qc
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>宇宙学反作用最直接地通过时空叶理（foliation）的局部膨胀来表达，因此均匀膨胀（uniform-expansion，UE）切片为考察慢滚暴胀期间标量扰动的二次有效能动张量（2EMT）提供了自然的几何框架。我们施加完整的标量规范条件 $\kappa=0$ 与 $E=0$。均匀膨胀条件在构型空间中给出关于移位 $Q$ 的微分约束，并对每个傅里叶模式满足 $Q_{\mathrm{UE}}(k)=-3(\Psi&#x27;+\mathcal H\Psi)/(k^2+3\varepsilon\mathcal H^2)$。在严格红外区，UE 源在零梯度处消失，其首个非零项在慢滚领头阶为 $\widehat{\tau}_{00}^{\mathrm{UE}}/\mathcal F_{\mathrm{LW}} \simeq 8\sigma_1^2/\varepsilon$ 与 $\widehat{\tau}_{ii}^{\mathrm{UE}}/\mathcal F_{\mathrm{LW}} \simeq -8\sigma_1^2/(3\varepsilon)$。因此 $w_{\rm raw}^{\mathrm{UE}}\simeq-1/3$，但其首个有限梯度系数与共动规范及均匀密度规范不同。在梯度主导的中间红外区足够深处，UE 的领头行为趋近空间平坦结果；而严格红外区与中间红外区之间的过渡区域则需要 2EMT 的完整表达式。在紫外区，有 $\widehat{\tau}_{00}^{\mathrm{UE}}\simeq 2\mathcal F_{\mathrm{SW}}$ 与 $\widehat{\tau}_{ii}^{\mathrm{UE}}\simeq (2/3)\mathcal F_{\mathrm{SW}}$，给出 $w_{\mathrm{raw}}\simeq 1/3$。此外，我们论证了 2EMT 在一般标量规范变换下的规范依赖性，并讨论了 UE 规范的完全固定问题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究慢滚暴胀期间标量扰动的二次有效能动张量（2EMT）在均匀膨胀（UE）规范下的具体形式，包括其在红外、中间红外与紫外各尺度区域的行为，以及 2EMT 在一般标量规范变换下的规范依赖性。</p>
+    <h4>方法</h4><p>施加完整标量规范条件 $\kappa=0$、$E=0$ 并引入均匀膨胀条件，导出移位 $Q$ 在构型空间中的微分约束及其傅里叶模式表达式 $Q_{\mathrm{UE}}(k)=-3(\Psi&#x27;+\mathcal H\Psi)/(k^2+3\varepsilon\mathcal H^2)$；随后在严格红外、梯度主导的中间红外和紫外区域分别计算 2EMT 分量与状态参数 $w_{\mathrm{raw}}$，并分析一般标量规范变换下 2EMT 的变换性质。</p>
+    <h4>主要发现</h4><p>严格红外区 UE 源在零梯度处消失，首个非零项为 $\widehat{\tau}_{00}^{\mathrm{UE}}/\mathcal F_{\mathrm{LW}} \simeq 8\sigma_1^2/\varepsilon$、$\widehat{\tau}_{ii}^{\mathrm{UE}}/\mathcal F_{\mathrm{LW}} \simeq -8\sigma_1^2/(3\varepsilon)$，对应 $w_{\rm raw}^{\mathrm{UE}}\simeq-1/3$，且首个有限梯度系数与共动规范、均匀密度规范不同；在梯度主导的中间红外区足够深处，领头行为趋近空间平坦结果，而两区域之间的过渡需完整 2EMT 表达式；紫外区 $\widehat{\tau}_{00}^{\mathrm{UE}}\simeq 2\mathcal F_{\mathrm{SW}}$、$\widehat{\tau}_{ii}^{\mathrm{UE}}\simeq (2/3)\mathcal F_{\mathrm{SW}}$，给出 $w_{\mathrm{raw}}\simeq 1/3$；并论证了 2EMT 在一般标量规范变换下的规范依赖性。</p>
+    <h4>局限与展望</h4><p>论文表明 2EMT 及其状态参数依赖于规范选择，因此不同规范下的结果不宜直接比较；严格红外与中间红外之间的过渡区域需要完整 2EMT 表达式才能描述，这构成该分析的适用范围限制。可合理推断，后续工作或需系统比较各规范下的完整 2EMT 并澄清 UE 规范的完全固定条件，但论文未给出具体的物理观测后果。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24420v1">
+  <div class="paper-head">
+    <h2>带正则化的动力学Chern-Simons引力中的双黑洞并合<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24420v1" rel="noopener noreferrer">2611.24420v1</a>
+  </div>
+  <p class="original-title">Black hole binary mergers in dynamical Chern-Simons gravity with regularisation</p>
+  <p class="meta"><strong>作者：</strong>Llibert Aresté Saló、Maxence Corman、Pau Figueras、Áron D. Kovács、Shunhui Yao</p>
+  <p class="meta"><strong>主分类：</strong>gr-qc
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次利用数值相对论研究Chern-Simons引力的非线性动力学。作者采用正则化方案，在数值相对论常用的规范下获得适定的初值表述，并在有效场论的适用范围内模拟了正面碰撞与双黑洞并合，提取了相应的标量波与引力波。该工作为利用引力波检验一般有效场论引力理论（包括运动方程高于二阶的理论）开辟了可能途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在数值相对论框架下对Chern-Simons引力进行非线性动力学模拟，并获得适定的初值表述。</p>
+    <h4>方法</h4><p>采用正则化方案，在数值相对论常用规范下建立适定的初值表述，并在有效场论适用范围内对正面碰撞和双黑洞并合进行数值模拟，提取标量波与引力波。</p>
+    <h4>主要发现</h4><p>作者首次实现了Chern-Simons引力的数值相对论非线性模拟，在有效场论适用范围内成功模拟了正面碰撞与双黑洞并合，并提取出相应的标量波和引力波。</p>
+    <h4>局限与展望</h4><p>该工作为利用引力波检验一般有效场论引力理论（包括运动方程高于二阶的理论）提供了可能；其适用范围受有效场论有效性条件限制，后续可合理推断将扩展至更一般的理论或更广泛的参数区域。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24488v1">
+  <div class="paper-head">
+    <h2>黑洞例外点附近的边界制备与反常弛豫<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24488v1" rel="noopener noreferrer">2611.24488v1</a>
+  </div>
+  <p class="original-title">Boundary preparation and anomalous relaxation near a black hole exceptional point</p>
+  <p class="meta"><strong>作者：</strong>Yu Shi、Sheng Long</p>
+  <p class="meta"><strong>主分类：</strong>gr-qc
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究平面Schwarzschild AdS黑洞稳定例外点附近Robin标量场的弛豫行为。在该例外点处，有限边界驱动可控制恢复时间，而在线性阶不改变主导衰减率。例外点处，源的两个加权矩决定主导响应的时间依赖：当零阶矩消失而一阶矩非零时，线性时间因子被消除，仅剩普通指数衰减。通过适当的边界制备，释放时保留更多能量的扰动反而能更早达到共同恢复阈值。在例外点处，相对于保留线性因子的固定参考，其恢复时间优势随共同振幅阈值 $\theta\to 0$ 按 $\gamma_*^{-1}\log\log(1/\theta)$ 增长，其中 $\gamma_*$ 为共同衰减率；源矩亦决定该渐近时间差的常数项。固定背景上例外点附近的完整标量场演化表明，在谱分裂尚未分辨的时间窗口内，对于持续时间、边界任务、源代价与注入功均匹配的脉冲，上述反转现象出现。注入功还通过引力加热修正最终谱。当弱驱动始于处于例外点的黑洞时，温升与源振幅的平方成正比，而最终极点分裂与其幅度成线性关系；该分裂限制了例外点恢复律可被观测的时间窗口。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究平面Schwarzschild AdS黑洞稳定例外点附近Robin标量场的弛豫行为，特别是有限边界驱动如何影响恢复时间而不改变线性阶主导衰减率。</p>
+    <h4>方法</h4><p>采用Robin标量场在固定背景上的完整演化分析，结合例外点处源的两个加权矩对主导响应时间依赖的解析刻画，并考察弱驱动下引力加热对最终谱的修正。</p>
+    <h4>主要发现</h4><p>例外点处源的两个加权矩决定主导响应的时间依赖；零阶矩消失而一阶矩非零时线性时间因子被消除，仅剩指数衰减；适当边界制备下保留更多能量的扰动可更早达到共同恢复阈值；恢复时间优势随阈值 $\theta\to 0$ 按 $\gamma_*^{-1}\log\log(1/\theta)$ 增长；源矩决定渐近时间差的常数项；完整演化在谱分裂未分辨的时间窗口内展示匹配脉冲的反转；弱驱动下温升与源振幅平方成正比，最终极点分裂与幅度成线性关系并限制观测窗口。</p>
+    <h4>局限与展望</h4><p>例外点恢复律的可观测性受最终极点分裂限制，仅适用于谱分裂尚未分辨的时间窗口；本文结论基于固定背景与弱驱动近似，超出该范围的强驱动或背景反作用情形有待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24624v1">
+  <div class="paper-head">
+    <h2>瞬子隧穿作为数字量子模拟的可验证基准：电路结构、经典可模拟性与硬件可复现性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24624v1" rel="noopener noreferrer">2611.24624v1</a>
+  </div>
+  <p class="original-title">Instanton tunnelling as a verifiable benchmark for digital quantum simulation: circuit structure, classical simulability and hardware reproducibility</p>
+  <p class="meta"><strong>作者：</strong>Gerhard Hellstern、Marc Maussner</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文以四次双势阱中由瞬子介导的隧穿作为数字量子模拟的基准，该基准在每一步都可与精确答案核对：瞬子通过经典分析引入，而硬件检验的是格点模型的动力学。采用一元（单激发）编码将 N 个格点映射到 N 个量子比特，单激发动力学作为参考，在任何 N 下都保持经典计算廉价。对于每条键上相邻、等角 XX/YY 对的二阶 Trotter 电路，我们证明任意割上的 Schmidt 秩在每个门边界至多为 4，在每对门之后至多为 2，且与 N 无关。该门序列的矩阵乘积态模拟在 N = 48 以内重现了精确的能级劈裂。对于这种逐键公式，可容许的 Trotter 步长大致按 N^-2 缩小，因此一个隧穿周期约需 N^3.3 个两比特门；动能/势能分离可使步长在 N = 128 以内保持在 0.065 附近，因此上述标度属于逐键分离动能项的情形。在较粗且单独有界的步长下，我们在两台超导处理器上于 N = 8 测量了完整转移，将格点劈裂恢复到百分之几的精度，并恢复其对势垒高度的依赖；在此分辨率下，该依赖由格点而非瞬子决定。在 9 次重复中，相隔数分钟的运行在散粒噪声范围内一致，而相隔数小时至数周、即使在固定量子比特集合上的运行则最多相差 6.1%；以会话为采样单位时，两台处理器在阻尼上存在差异，而劈裂的差异尚未确立。用测得的单激发布居进行归一化可将可用深度扩展约 4 倍，但不改善劈裂。高斯初始态无需对角化，其重现基于本征向量的初始态的劈裂，误差在 1.6 个百分点以内。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构建一个在每一步都可与精确答案核对的数字量子模拟基准，并以四次双势阱中的瞬子隧穿为例检验其电路结构、经典可模拟性与硬件可复现性。</p>
+    <h4>方法</h4><p>采用一元（单激发）编码将 N 个格点映射到 N 个量子比特；对每条键上相邻、等角 XX/YY 对的二阶 Trotter 电路分析 Schmidt 秩；用矩阵乘积态模拟该门序列并与精确劈裂比较；在超导处理器上于 N = 8 测量完整转移，并考察重复运行、归一化与高斯初始态的影响。</p>
+    <h4>主要发现</h4><p>证明任意割上的 Schmidt 秩在每个门边界至多为 4、每对门之后至多为 2，且与 N 无关；矩阵乘积态模拟在 N = 48 以内重现精确劈裂；逐键公式的可容许 Trotter 步长大致按 N^-2 缩小，一个隧穿周期约需 N^3.3 个两比特门，而动能/势能分离使步长在 N = 128 以内保持在 0.065 附近；在 N = 8 上恢复格点劈裂至百分之几精度及其对势垒高度的依赖，该依赖在此分辨率下由格点而非瞬子决定；相隔数分钟的运行在散粒噪声范围内一致，相隔数小时至数周最多相差 6.1%；以会话为采样单位时处理器在阻尼上存在差异，劈裂差异尚未确立；归一化扩展可用深度约 4 倍但不改善劈裂；高斯初始态重现基于本征向量的劈裂误差在 1.6 个百分点以内。</p>
+    <h4>局限与展望</h4><p>逐键 Trotter 公式的 N^-2 步长收缩与 N^3.3 门数标度是该特定分离方式的属性，换用动能/势能分离可缓解；硬件结果限于 N = 8 与较粗步长，劈裂的处理器间差异尚未确立，长时间尺度上的 6.1% 差异来源需进一步区分；高斯初始态与归一化的作用提示后续可探索更省资源的初始态制备与误差缓解策略，但这些方向属于合理推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24634v1">
+  <div class="paper-head">
+    <h2>曲率耦合电动力学中正则中心处的电荷<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24634v1" rel="noopener noreferrer">2611.24634v1</a>
+  </div>
+  <p class="original-title">Charge at regular centers in curvature-coupled electrodynamics</p>
+  <p class="meta"><strong>作者：</strong>Ye Zhou</p>
+  <p class="meta"><strong>主分类：</strong>gr-qc
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">gr-qc</span> <span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>通过收缩对称球面的电通量或磁通量通常会产生 $r^{-4}$ 的 Maxwell 应力和奇异的中心。本文考察当 Maxwell 不变量乘以任意标量曲率响应 $h(R)$ 时，这一障碍如何改变。对于实的、静态的、球对称解，径向与时间引力方程之差给出关于一个复合响应变量的线性方程。结合迹方程，只要 Kretschmann 标量有界，该方程即可约束响应加权的 Maxwell 源，而无需假定 Ricci 标量的极限或导数有界。磁荷与电位移荷不能共存；若 $h$ 有界且有正下界，则两种电荷均不可能存在。在任一存活的带电分支上，Ricci 标量收敛且加权源趋于零。磁荷要求 $h=o(r^4)$，而电位移要求 $r^4|h|\to\infty$。精确解表明这些阈值是尖锐的，并对光滑几何中心实现 $r^6$ 的磁性和 $r^{-6}$ 的电性速率。本文还分类了零响应扇区，其中电场即使其位移荷消失也可能存活。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 Maxwell 不变量乘以任意标量曲率响应 $h(R)$ 的曲率耦合电动力学中，通过收缩对称球面的电通量或磁通量是否仍然必然导致 $r^{-4}$ Maxwell 应力和奇异中心，以及电荷存活与 $h(R)$ 的渐近行为之间的关系。</p>
+    <h4>方法</h4><p>针对实的、静态、球对称解，利用径向与时间引力方程之差得到关于复合响应变量的线性方程，并结合迹方程，在 Kretschmann 标量有界的条件下约束响应加权的 Maxwell 源；辅以精确解检验阈值尖锐性，并对零响应扇区进行分类。</p>
+    <h4>主要发现</h4><p>磁荷与电位移荷不能共存；若 $h$ 有界且有正下界，则两种电荷均不可能存在。在存活的带电分支上，Ricci 标量收敛且加权源趋于零。磁荷要求 $h=o(r^4)$，电位移要求 $r^4|h|\to\infty$；精确解表明这些阈值是尖锐的，并对光滑几何中心实现 $r^6$ 磁性和 $r^{-6}$ 电性速率。零响应扇区中电场可在位移荷消失时存活。</p>
+    <h4>局限与展望</h4><p>上述结论限于实的、静态、球对称解，且关键约束依赖 Kretschmann 标量有界这一前提；对非球对称、非静态或 Kretschmann 标量无界的情形，本文未作断言。后续可合理推断的方向包括检验这些阈值在更一般对称性破缺或含时背景下的适用性，但需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24640v1">
+  <div class="paper-head">
+    <h2>一维OTOC$^{(1)}$模拟的一个可证明高效的经典算法<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24640v1" rel="noopener noreferrer">2611.24640v1</a>
+  </div>
+  <p class="original-title">A provably efficient classical algorithm for simulating OTOC$^{(1)}$ in 1D</p>
+  <p class="meta"><strong>作者：</strong>Laura Lewis、Antonio A. Mele、Ronald de Wolf、Jarrod R. McClean、Amira Abbas</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>乱序时序关联函数（OTOCs）因与信息扰乱和量子混沌的关联而在多体物理中受到广泛关注。近期，在随机量子线路中估计高阶OTOC被提出作为量子优势的一条有前景的途径，但该任务的经典困难性仍知之甚少。即使对于一阶OTOC——越来越多的证据表明其经典可处理——迄今也尚无具有严格保证的高效经典算法。本文提出“窗口传播”（window propagation），这是首个可证明的多项式时间经典算法，用于在任意深度、以逆多项式均方误差近似一维Haar随机砖墙线路中的一阶OTOC。我们还开展了数值实验，将模拟结果与精确计算进行比较：对于含$768$个$T$门的Clifford线路，规模达$512$个量子比特；对于Haar随机线路，规模达$22$个量子比特。我们强调，本文结果并不直接适用于二维二阶OTOC，而后者正是近期量子优势提案的主题。尽管如此，本文工作为理解OTOC估计的经典复杂性提供了严格的一步，并给出了一类现已已知具有可证明多项式时间算法的非平凡量子线路，为理解这些广泛使用的量子混沌诊断量奠定了基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：一维Haar随机砖墙线路中一阶OTOC（OTOC$^{(1)}$）的经典模拟是否具有可证明的高效算法；此前即使对于一阶OTOC也缺乏具有严格保证的高效经典算法。</p>
+    <h4>方法</h4><p>作者提出名为“窗口传播”的经典算法，用于在任意深度下以逆多项式均方误差近似一维Haar随机砖墙线路中的一阶OTOC；并开展数值实验，将模拟结果与精确计算进行对比，实验覆盖含$768$个$T$门的Clifford线路（最多$512$个量子比特）以及Haar随机线路（最多$22$个量子比特）。</p>
+    <h4>主要发现</h4><p>原文明确给出：窗口传播是首个可证明的多项式时间经典算法，可在任意深度、以逆多项式均方误差近似一维Haar随机砖墙线路中的一阶OTOC；数值实验将模拟结果与精确计算进行了比较。原文同时强调，结果不直接适用于二维二阶OTOC。</p>
+    <h4>局限与展望</h4><p>原文指出其结果不直接适用于二维二阶OTOC，而后者是近期量子优势提案的主题；作者称本工作为理解OTOC估计的经典复杂性提供了严格的一步，并给出了一类已知具有可证明多项式时间算法的非平凡量子线路。可合理推断，将窗口传播推广至更高阶OTOC或二维情形是后续可能的研究方向，但原文未给出此类保证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24658v1">
+  <div class="paper-head">
+    <h2>轻费米子可触发 Brout-Englert-Higgs 效应<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24658v1" rel="noopener noreferrer">2611.24658v1</a>
+  </div>
+  <p class="original-title">Light fermions can trigger a Brout-Englert-Higgs effect</p>
+  <p class="meta"><strong>作者：</strong>Axel Maas、Sofie Martins、Georg Wieland</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Brout-Englert-Higgs 机制产生标准模型粒子的质量，但其成因仍不清楚。超出标准模型的理论试图寻找该效应的来源，例如采用复合 Higgs 并动力学地产生其真空期望值。本文给出格点模拟证据：在矢量耦合费米子且无 Yukawa 耦合的情形下，Brout-Englert-Higgs 效应可能由费米子的轻质量触发。这暗示一种完全在标准模型内部的解释或许是可能的。此外，我们的结果与弱耦合一致，且费米子只能在对数下一阶（NNLO）影响 Higgs 势。这意味着在 SU(2) 标量-费米子-规范系统中存在一个迄今未被识别的机制，可产生非零真空期望值。我们还发现，从类 QCD 行为到类 Higgs 行为的转变发生在费米子质量降至 W/Z 质量两倍以下时；该阈值取整数值，但与其他临界物理行为无关。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>Brout-Englert-Higgs 效应的成因未知；本文探究在无 Yukawa 耦合、矢量耦合费米子的情形下，轻费米子质量是否能触发该效应。</p>
+    <h4>方法</h4><p>采用格点模拟，研究矢量耦合费米子且无 Yukawa 耦合的系统。</p>
+    <h4>主要发现</h4><p>格点模拟给出证据表明 Brout-Englert-Higgs 效应可能由费米子的轻质量触发；结果与弱耦合一致，费米子只能在对数下一阶（NNLO）影响 Higgs 势；从类 QCD 行为到类 Higgs 行为的转变发生在费米子质量低于 W/Z 质量两倍时，该阈值为整数值但与其他临界物理行为无关。</p>
+    <h4>局限与展望</h4><p>原文指出这暗示完全在标准模型内部的解释或许可能，并表明 SU(2) 标量-费米子-规范系统中存在迄今未被识别的产生非零真空期望值的机制；这些属于原文的推断性表述，尚需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24671v1">
+  <div class="paper-head">
+    <h2>一种新的大统一理论<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24671v1" rel="noopener noreferrer">2611.24671v1</a>
+  </div>
+  <p class="original-title">A New GUT</p>
+  <p class="meta"><strong>作者：</strong>Prateek Agrawal、Michael Nee、Mario Reig</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出了一类新的四维大统一理论，其中标准模型的规范扇区在统一群中具有一种新颖的嵌入方式，该嵌入不经过 $SU(5)$ 子群分解。最小的例子其规范代数为 $\frak{su}(12)$，具有无反常谱，恰好产生三代标准模型费米子且不引入额外手征物质。该嵌入预言了轴子-光子反常比 $E/N=2/3$ 以及统一能标处的弱混合角 $\sin^2\theta_W=1/2$。规范介导的质子衰变通过类翻转 $SU(5)$ 算符进行，最小电荷的平滑单极子携带两个狄拉克电荷单位。整体规范群可为 $SU(12)$ 或 $SU(12)/\mathbb{Z}_2$，前者允许半整数电荷的色单态存在。我们发展了一种大统一自举方法，用于约束具有三代费米子且无额外手征物质的 $SU(n)$ 嵌入。对于处于至多两指标表示的统一费米子，我们证明所有新的嵌入均来自 $SU(8m+4)$ 族，其中包括 $m\geq 2$ 时的味统一模型。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的是：是否存在不经过 $SU(5)$ 子群分解的标准模型规范扇区四维大统一嵌入，以及如何系统约束具有三代费米子且无额外手征物质的 $SU(n)$ 嵌入。</p>
+    <h4>方法</h4><p>构造最小的 $\frak{su}(12)$ 统一模型并分析其无反常谱与预言；发展大统一自举方法，对处于至多两指标表示的统一费米子证明所有新嵌入来自 $SU(8m+4)$ 族。</p>
+    <h4>主要发现</h4><p>最小例子为规范代数 $\frak{su}(12)$，其无反常谱恰好给出三代标准模型费米子且无额外手征物质；预言 $E/N=2/3$ 与统一能标处 $\sin^2\theta_W=1/2$；质子衰变通过类翻转 $SU(5)$ 算符进行，最小电荷平滑单极子带两个狄拉克电荷单位；整体规范群可为 $SU(12)$ 或 $SU(12)/\mathbb{Z}_2$，前者允许半整数电荷色单态；对至多两指标表示的统一费米子，证明所有新嵌入来自 $SU(8m+4)$ 族，包括 $m\geq 2$ 的味统一模型。</p>
+    <h4>局限与展望</h4><p>原文未讨论该框架的定量唯象约束（如质子寿命与单极子丰度）及与实验数据的对比；自举证明限于至多两指标表示的统一费米子，更高指标表示或更复杂费米子内容是否带来新嵌入尚不明确，可作为后续研究方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24725v1">
+  <div class="paper-head">
+    <h2>Atiyah–Hirzebruch 到 Adams 映射与超上同调的加速 Adams 谱序列<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24725v1" rel="noopener noreferrer">2611.24725v1</a>
+  </div>
+  <p class="original-title">An Atiyah--Hirzebruch to Adams map and the hastened Adams spectral sequence for supercohomology</p>
+  <p class="meta"><strong>作者：</strong>Arun Debray、Weicheng Ye、Matthew Yu</p>
+  <p class="meta"><strong>主分类：</strong>math.AT
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.AT</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文构造了一个滤过谱之间的映射，该映射诱导出从 Atiyah–Hirzebruch 谱序列（AHSS）到 $\mathit{ko}$-模 $M$ 的 Baker–Lazarev Adams 谱序列的映射。结合该构造与 Bruner–Rognes 的一个定理，作者为 $\mathit{ko}$ 的 Postnikov 截断以及连通 Adams 直和项构造了加速 Adams 谱序列（HASS）。受量子场论、物质拓扑相与张量范畴论中问题的启发，作者将 HASS 应用于超上同调，即上同调理论 $I_{\mathbb{C}^\times}(\tau_{\le 2}\mathit{ko})$，并观察到在所关注的例子中，HASS 比 AHSS 或通常的 Adams 谱序列更易于计算。文中还包含 HASS 使用指南、若干详细算例，以及许多常见 $\mathcal{A}(1)$-模的加速 Adams 图表。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构造从 Atiyah–Hirzebruch 谱序列到 $\mathit{ko}$-模的 Baker–Lazarev Adams 谱序列的映射，并利用它为 $\mathit{ko}$ 的 Postnikov 截断、连通 Adams 直和项以及超上同调 $I_{\mathbb{C}^\times}(\tau_{\le 2}\mathit{ko})$ 建立更易计算的加速 Adams 谱序列（HASS）。</p>
+    <h4>方法</h4><p>构造滤过谱之间的映射以诱导 AHSS 到 Baker–Lazarev Adams 谱序列的映射；结合 Bruner–Rognes 定理构造 HASS；将 HASS 应用于超上同调，并给出使用指南、算例与 $\mathcal{A}(1)$-模的加速 Adams 图表。</p>
+    <h4>主要发现</h4><p>成功构造了从 AHSS 到 $\mathit{ko}$-模 $M$ 的 Baker–Lazarev Adams 谱序列的映射；为 $\mathit{ko}$ 的 Postnikov 截断与连通 Adams 直和项构造了 HASS；在所关注的超上同调例子中，HASS 比 AHSS 或通常的 Adams 谱序列更易于计算。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或适用范围；摘要所述计算优势限于所考察的例子，其一般适用性尚待进一步检验。后续可合理推断的方向包括将 HASS 推广至其他模谱或上同调理论，并系统化加速 Adams 图表的计算。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24826v1">
+  <div class="paper-head">
+    <h2>Whitehead双纽结与AJ猜想的失效<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24826v1" rel="noopener noreferrer">2611.24826v1</a>
+  </div>
+  <p class="original-title">Whitehead doubles and the failure of the AJ conjecture</p>
+  <p class="meta"><strong>作者：</strong>Jinzheng Li、Yuqi Li、Hao-Yu Sun</p>
+  <p class="meta"><strong>主分类：</strong>math.GT
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.GT</span> <span class="tag">hep-th</span> <span class="tag">math.QA</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究参数互素的环面纽结（$2\le r&lt;s$）的带标记Whitehead双纽结，证明AJ猜想在两种扣环符号、两种伴随纽结手性以及任意整数扭转下均失效。零标架带符号未约化有色Jones序列具有非零的有理饱和零化子。每个非零本原代表在$t=-1$处非平凡特殊化，且经线变量$M$独立。以$L$表示经线变量，该特殊化在负扣环情形包含不可约二次多项式$E=L^2-(M^4-4M^2+1)L+M^4$，在正扣环情形包含$M^4E(M^{-1},L)$。相应的二次多项式在$\mathbb{Q}(M)[L^{\pm1}]$上与完整的经典$A$-多项式互素（包括$L-1$），因此即使每个不可约因子只计一次，这种差异仍然存在。曲线$E=0$来自带标记Whitehead链环外部及其完备的轴尖点。对于所展示的首一多项式，$\pi m(E)$等于该二尖点外部的无符号体积。我们利用实际的Jones序列选取卫星转移算子的一个右因子。有理因子检验表明该二次多项式在该因子中存活，而两个带标记伴随纽结填充将其排除为卫星边界曲线的分量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究带标记Whitehead双纽结的有色Jones序列是否满足AJ猜想，并刻画其零化子的特殊化行为与经典$A$-多项式之间的差异。</p>
+    <h4>方法</h4><p>对互素参数$2\le r&lt;s$的环面纽结的带标记Whitehead双纽结，分析零标架带符号未约化有色Jones序列的有理饱和零化子；考察其在$t=-1$处的特殊化，并与经典$A$-多项式在$\mathbb{Q}(M)[L^{\pm1}]$上作互素性比较；利用实际Jones序列选取卫星转移算子的右因子，并通过有理因子检验与带标记伴随纽结填充进行验证。</p>
+    <h4>主要发现</h4><p>AJ猜想在两种扣环符号、两种伴随纽结手性及任意整数扭转下均失效；零化子非零且有理饱和；每个非零本原代表在$t=-1$处非平凡特殊化且$M$独立；特殊化包含二次多项式$E=L^2-(M^4-4M^2+1)L+M^4$（负扣环）或$M^4E(M^{-1},L)$（正扣环）；该二次多项式与完整经典$A$-多项式（含$L-1$）互素，故按不可约因子计一次时差异仍存在；$E=0$来自带标记Whitehead链环外部且轴尖点完备；对所展示首一多项式，$\pi m(E)$等于该二尖点外部的无符号体积；有理因子检验表明该二次多项式在所选右因子中存活，两个带标记伴随纽结填充将其排除为卫星边界曲线的分量。</p>
+    <h4>局限与展望</h4><p>原文未讨论该失效现象对其他卫星构造或更一般纽结类的适用范围；后续可合理推断的方向包括考察该二次因子在更广卫星算子中的存活性，以及将互素性论证推广至其他带标记链环外部，但这些均需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24878v1">
+  <div class="paper-head">
+    <h2>从几何曲率到有效背景：一、二、三维空间中狄拉克费米子的对应词典<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24878v1" rel="noopener noreferrer">2611.24878v1</a>
+  </div>
+  <p class="original-title">From geometric curvature to effective backgrounds: a dictionary for Dirac fermions in one, two and three spatial dimensions</p>
+  <p class="meta"><strong>作者：</strong>David Valenzuela、Alfredo Raya</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">gr-qc</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>弯曲背景上的狄拉克方程可改写为平直空间方程，其中几何以张量型费米速度及一组背景场的形式出现。本文从单一克利福德代数恒等式出发推导这一对应关系，并沿一维、二维和三维空间逐一追踪。将自旋联络用里奇旋转系数表示后，只可能出现两种缩并。其迹缩并在各维度均产生具有矢量势指标结构的项；该项以虚因子 i 进入，正是在费米速度依赖位置时保持算子厄米性的项。全反对称缩并产生的对象取决于列维-奇维塔符号可用的指标数：一维为迹、二维为赝标量质量、三维为轴矢量势。两种缩并均不在定域标架旋转下不变，本文给出其变换律。在二维曲面上，迹项的旋度总可通过标架旋转消除，而其散度正比于高斯曲率。本文将对应关系应用于：高斯隆起，其中中心处局域态密度低于平直值并在低能下满足闭式表达；一维线，其中非均匀 lapse 可在能隙内束缚态而非均匀速度不能；曲面上的定常标架，其中循环拖曳使狄拉克质量发生局域移动且符号可正可负；以及三维中的扭转与旋转标架，其中轴向项表现为仅由标架产生的手征化学势，或在旋转样品中分离外尔节点。本文还将几何贡献与主导应变样品响应的晶格赝规范场相区分。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将弯曲背景上的狄拉克方程系统改写为平直空间中含张量型费米速度与背景场的有效方程，并在不同空间维度下刻画几何所诱导的有效背景场。</p>
+    <h4>方法</h4><p>从单一克利福德代数恒等式出发推导对应关系；将自旋联络用里奇旋转系数表示，分析迹缩并与全反对称缩并在不同维度下的结构；给出两种缩并在定域标架旋转下的变换律；并将该对应应用于高斯隆起、一维线、曲面定常标架及三维扭转与旋转标架等具体情形。</p>
+    <h4>主要发现</h4><p>迹缩并在各维度均产生矢量势指标结构的项，以虚因子 i 进入并保持算子厄米性；全反对称缩并在二维为赝标量质量、三维为轴矢量势；两种缩并均非定域标架旋转不变；二维曲面上迹项的旋度可由标架旋转消除，其散度正比于高斯曲率；高斯隆起中心局域态密度低于平直值并在低能下满足闭式表达；一维线中非均匀 lapse 可在能隙内束缚态而非均匀速度不能；曲面定常标架中循环拖曳使狄拉克质量局域移动且符号可正可负；三维扭转与旋转标架中轴向项表现为标架产生的手征化学势或在旋转样品中分离外尔节点；几何贡献与主导应变样品响应的晶格赝规范场可相区分。</p>
+    <h4>局限与展望</h4><p>摘要未给出定量误差估计或实验验证；对应关系的适用范围受限于所考虑的一、二、三维空间及所采用的自旋联络表示。可合理推断，后续工作或可将该词典推广至其他维度或更一般标架，并进一步厘清几何贡献与晶格赝规范场在具体材料响应中的相对权重。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-19 14:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

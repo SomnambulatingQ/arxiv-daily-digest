@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-th 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-th · 核理论</h1>
+    <p class="lede">官方公告日：2026-11-19</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">8</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">2</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2611.23506v1">SPS与RHIC能量下重离子碰撞中的轻子对产生</a> <small>2611.23506v1</small></li><li><a href="#paper-2611.24303v1">粲-奇异共振态对相对论重离子碰撞中粲介子复合产生的影响</a> <small>2611.24303v1</small></li><li><a href="#paper-2611.24345v1">核物质中重整化群密度泛函理论</a> <small>2611.24345v1</small></li><li><a href="#paper-2611.24538v1">Σ阈值以下的Λ-氘散射</a> <small>2611.24538v1</small></li><li><a href="#paper-2611.24572v1">核格点有效场论对质子滴线附近锡同位素半径的研究</a> <small>2611.24572v1</small></li><li><a href="#paper-2611.24825v1">超允许β衰变中δ_NS的三核子势及其矩阵元</a> <small>2611.24825v1</small></li></ol><h3>交叉列表（2）</h3><ol class="toc-list"><li><a href="#paper-2611.23355v1">核反应中的同位旋效应与对称能</a> <small>2611.23355v1</small></li><li><a href="#paper-2611.23577v1">质子横向极化分布函数研究展望</a> <small>2611.23577v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.23506v1">
+  <div class="paper-head">
+    <h2>SPS与RHIC能量下重离子碰撞中的轻子对产生<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23506v1" rel="noopener noreferrer">2611.23506v1</a>
+  </div>
+  <p class="original-title">The production of lepton pairs in heavy-ion collisions at SPS and RHIC energies</p>
+  <p class="meta"><strong>作者：</strong>Xiang-Yu Wu、Han Gao、Charles Gale、Sangyong Jeon、Ralf Rapp</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对质心能量 $\sqrt{s_{\rm NN}}=17.3$ GeV 的 In+In 碰撞以及 $\sqrt{s_{\rm NN}}=200$ GeV 的同量异位素碰撞中的双轻子产生与椭圆流进行了定量研究，重点关注低不变质量与中等不变质量区域。介质演化采用多阶段 iEBE-MUSIC 框架进行逐事件模拟；电磁辐射首次将强耦合常数下次领头阶（NLO）计算的夸克-胶子等离子体（QGP）辐射与基于强子多体理论计算的介质内辐射相结合，同时计入冻结-out 以及存活的初始 $\rho$ 介子衰变。计算结果与 NA60 合作组测量的高精度双缪子谱以及 STAR 合作组关于双电子谱与椭圆流的初步测量进行了比较。我们由横质量谱提取了有效温度，并计算了不同双轻子源的椭圆流。结果表明，低质量且高 $p_T$ 区域的双轻子测量可为理解 QGP 辐射率的高阶修正提供线索。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在 SPS 能量（$\sqrt{s_{\rm NN}}=17.3$ GeV）的 In+In 碰撞与 RHIC 能量（$\sqrt{s_{\rm NN}}=200$ GeV）的同量异位素碰撞中，低与中等不变质量区域的双轻子产生谱及椭圆流如何由 QGP 辐射与强子介质辐射共同描述，以及能否从这些观测量中提取有效温度并约束 QGP 辐射率的高阶修正。</p>
+    <h4>方法</h4><p>采用多阶段 iEBE-MUSIC 框架对介质演化进行逐事件模拟；电磁辐射首次联合使用强耦合常数下 NLO 的 QGP 辐射与强子多体理论计算的介质内辐射，并计入冻结-out 与存活初始 $\rho$ 介子衰变；将计算结果与 NA60 双缪子谱及 STAR 双电子谱和椭圆流的初步测量进行比较，并由横质量谱提取有效温度、计算各双轻子源的椭圆流。</p>
+    <h4>主要发现</h4><p>计算与 NA60 高精度双缪子谱以及 STAR 初步的双电子谱和椭圆流测量进行了比较；由横质量谱提取了有效温度，并给出了不同双轻子源的椭圆流计算结果；结果提示低质量且高 $p_T$ 区域的双轻子测量可为 QGP 辐射率的高阶修正提供洞察。</p>
+    <h4>局限与展望</h4><p>原文指出低质量、高 $p_T$ 区域的双轻子测量有望用于研究 QGP 辐射率的高阶修正；该结论基于当前 NLO QGP 辐射与强子多体辐射相结合的模型以及与现有数据的比较，其适用性受限于所比较数据的精度与覆盖范围，后续需更精确的测量与理论计算加以检验（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24303v1">
+  <div class="paper-head">
+    <h2>粲-奇异共振态对相对论重离子碰撞中粲介子复合产生的影响<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24303v1" rel="noopener noreferrer">2611.24303v1</a>
+  </div>
+  <p class="original-title">Effects of charm-strange resonances on charmed meson production by recombination in relativistic heavy ion collisions</p>
+  <p class="meta"><strong>作者：</strong>Sungtae Cho、Su Houng Lee</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文讨论重离子碰撞中的粲介子，重点关注其在夸克-胶子等离子体中通过夸克复合机制的产生。我们不仅考虑 $D$、$D^*$、$D_s$ 和 $D_s^*$ 的产生，还考虑 $D_{s0}^*(2317)$、$D_{s1}(2460)$、$D_{s1}(2536)$ 和 $D_{s2}^*(2573)$ 的产生，从而考察较重的粲-奇异共振态在理解大型强子对撞机 $\sqrt{s_{NN}}=5.02$ TeV 下 $D$ 与 $D_s$ 介子测量中的重要作用。我们计算这些介子的产额与横动量分布，并评估不同粲介子之间横动量分布的比值，即 $D_s$ 与 $D^0$、$D_s$ 与 $D^+$、$D_s^*$ 与 $D^{*0}$、$D_s^*$ 与 $D^{*+}$ 的比值。通过该分析，我们尝试更细致地理解 $\sqrt{s_{NN}}=5.02$ TeV 重离子碰撞中奇异数增强对粲介子产生的影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在相对论重离子碰撞中，夸克-胶子等离子体通过夸克复合产生粲介子时，较重的粲-奇异共振态（$D_{s0}^*(2317)$、$D_{s1}(2460)$、$D_{s1}(2536)$、$D_{s2}^*(2573)$）对 $D$ 与 $D_s$ 介子产额、横动量分布及其比值的影响，以及奇异数增强在 $\sqrt{s_{NN}}=5.02$ TeV 下如何体现。</p>
+    <h4>方法</h4><p>在夸克复合框架下计算 $D$、$D^*$、$D_s$、$D_s^*$ 及上述四个粲-奇异共振态的产额与横动量分布，并计算 $D_s/D^0$、$D_s/D^+$、$D_s^*/D^{*0}$、$D_s^*/D^{*+}$ 的横动量分布比值，与大型强子对撞机 $\sqrt{s_{NN}}=5.02$ TeV 的测量进行对照分析。</p>
+    <h4>主要发现</h4><p>原文计算了上述粲介子与粲-奇异共振态的产额和横动量分布，并给出了 $D_s$ 与 $D^0$、$D_s$ 与 $D^+$、$D_s^*$ 与 $D^{*0}$、$D_s^*$ 与 $D^{*+}$ 之间的横动量分布比值；据此分析奇异数增强对 $\sqrt{s_{NN}}=5.02$ TeV 重离子碰撞中粲介子产生的影响。摘要未给出具体数值结论。</p>
+    <h4>局限与展望</h4><p>该分析聚焦于夸克复合机制，未在摘要中讨论其他产生机制或模型依赖的不确定性；较重的粲-奇异共振态在理解 $D$ 与 $D_s$ 测量中的作用仍需结合具体数据进一步检验，后续可望通过更细致的产额与比值测量加以约束（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24345v1">
+  <div class="paper-head">
+    <h2>核物质中重整化群密度泛函理论<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24345v1" rel="noopener noreferrer">2611.24345v1</a>
+  </div>
+  <p class="original-title">Density functional theory of renormalization group in nuclear matter</p>
+  <p class="meta"><strong>作者：</strong>Yong-rui Chen、Yang-yang Tan、Wei-jie Fu</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出密度泛函重整化群（density-fRG）方法：将密度涨落与真空中的量子涨落分离，并在泛函重整化群框架内依次积分掉。该方法可用于量化介质效应并研究高重子密度物理。作者将其应用于核子-介子有效场论（即 Walecka 模型），其中核子-介子 Yukawa 耦合的密度依赖性由其流方程自洽地生成。研究发现，吸引与排斥两类核子-介子相互作用均被稠密介质屏蔽。由此得到的对称核物质状态方程在 ρ0≲ρ≲2.5ρ0 区间内比相对论平均场近似更硬，而在 ρ≳2.5ρ0 时变软，其中 ρ0 为饱和密度。此外，研究还发现一种称为费米面锁定的新现象：准核子的有效能量始终靠近费米面，且二者均随重整化群标度演化。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在泛函重整化群框架中分离并逐次积分掉密度涨落，以量化介质效应并研究高重子密度核物质物理。</p>
+    <h4>方法</h4><p>提出密度泛函重整化群（density-fRG），将密度涨落与真空量子涨落分离并依次积分掉；应用于核子-介子有效场论（Walecka 模型），由流方程自洽生成核子-介子 Yukawa 耦合的密度依赖性。</p>
+    <h4>主要发现</h4><p>吸引与排斥的核子-介子相互作用均被稠密介质屏蔽；对称核物质状态方程在 ρ0≲ρ≲2.5ρ0 内比相对论平均场近似更硬，在 ρ≳2.5ρ0 时更软；发现费米面锁定现象，即准核子有效能量始终靠近费米面，且二者均随重整化群标度演化。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；该方法目前仅在 Walecka 模型框架下给出结果，其适用范围与向更真实核力模型的推广有待进一步检验（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24538v1">
+  <div class="paper-head">
+    <h2>Σ阈值以下的Λ-氘散射<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24538v1" rel="noopener noreferrer">2611.24538v1</a>
+  </div>
+  <p class="original-title">$Λ$-deuteron scattering below the $Σ$-threshold</p>
+  <p class="meta"><strong>作者：</strong>A. Deltuva</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文完整描述了Σ阈值以下的Λd弹性散射与破裂过程，其中包含到Σ道的虚耦合。通过在动量空间中求解三体跃迁算符的多道散射方程，获得了良好收敛的结果。计算了散射长度、遍举、半遍举及总弹性与破裂截面以及自旋可观测量，旨在研究它们对运动学变量和动力学要素的依赖关系。超子-核子相互作用模型带来的不确定性最为显著。文中识别了有助于约束超子-核子力模型的可观测量与运动学区域。该问题的单道近似在低能与中能区得到验证。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在Σ阈值以下，包含到Σ道虚耦合的Λd弹性散射与破裂过程如何描述，各可观测量对运动学变量和动力学要素（尤其是超子-核子相互作用模型）的依赖如何，以及单道近似在何种能量范围成立。</p>
+    <h4>方法</h4><p>在动量空间中求解三体跃迁算符的多道散射方程，完整纳入到Σ道的虚耦合，计算散射长度、遍举/半遍举/总弹性与破裂截面及自旋可观测量，并考察超子-核子相互作用模型带来的不确定性。</p>
+    <h4>主要发现</h4><p>获得了良好收敛的多道散射结果；超子-核子相互作用模型引起的不确定性最为显著；识别出有助于约束超子-核子力模型的可观测量与运动学区域；单道近似在低能与中能区得到验证。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；基于结果可合理推断，所识别的可观测量与运动学区域可用于进一步约束超子-核子力模型，而单道近似的适用性限于低能与中能区，更高能量下需保留多道耦合。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24572v1">
+  <div class="paper-head">
+    <h2>核格点有效场论对质子滴线附近锡同位素半径的研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24572v1" rel="noopener noreferrer">2611.24572v1</a>
+  </div>
+  <p class="original-title">Radii of Sn Isotopes near the Proton Dripline from Nuclear Lattice Effective Field Theory</p>
+  <p class="meta"><strong>作者：</strong>Fabian Hildenbrand、Serdar Elhatisari、Ulf-G. Meißner</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次采用核格点有效场论，结合高精度两核子与三核子相互作用以及部分针孔算法，对质子滴线附近的锡同位素 $^{96}$Sn、$^{98}$Sn、$^{100}$Sn、$^{102}$Sn 和 $^{104}$Sn 的电荷半径与物质半径进行了从头格点计算。所得半径大于其他从头方法给出的预言。研究发现，三核子相互作用的变化会导致半径出现显著差异，即使这些相互作用具有相近的结合能。文中对不同三体力的选取所带来的影响进行了深入讨论。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究质子滴线附近锡同位素（$^{96}$Sn、$^{98}$Sn、$^{100}$Sn、$^{102}$Sn、$^{104}$Sn）的电荷半径与物质半径，并考察三核子相互作用选择对半径预言的影响。</p>
+    <h4>方法</h4><p>采用核格点有效场论，结合高精度两核子与三核子相互作用以及部分针孔算法，进行从头格点计算。</p>
+    <h4>主要发现</h4><p>给出了上述锡同位素的电荷半径与物质半径的首次从头格点计算结果；所得半径大于其他从头方法的预言；三核子相互作用的变化会导致半径出现显著差异，即使结合能相近。</p>
+    <h4>局限与展望</h4><p>原文明确指出不同三体力的选取对半径有重要影响，并对此进行了深入讨论；其局限与适用范围原文未明确说明，后续可合理推断需进一步约束三核子相互作用并与其他从头方法及实验数据作系统比较，但此点属于推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24825v1">
+  <div class="paper-head">
+    <h2>超允许β衰变中δ_NS的三核子势及其矩阵元<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24825v1" rel="noopener noreferrer">2611.24825v1</a>
+  </div>
+  <p class="original-title">Three-nucleon potentials and their matrix elements for $δ_{\mathrm{NS}}$ in superallowed $β$ decays</p>
+  <p class="meta"><strong>作者：</strong>Graham Chambers-Wall、Maria Dawid、Emanuele Mereghetti、Saori Pastore、Maria Piarulli</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在手性有效场论框架下推导了用于辐射修正的三核子势，阶数为 O(αε_χ^2)，其中 α 为电磁耦合常数，ε_χ 为手性展开参数。这些修正对核结构相关项 δ_NS 有贡献，而 δ_NS 用于从超允许核 β 衰变确定 Cabibbo-Kobayashi-Maskawa 矩阵元 V_ud。我们采用量子蒙特卡罗方法计算了 O(α^2) 和 O(αε_χ^2) 阶三核子贡献的矩阵元。结果显示，O(α^2) 阶矩阵元较大，对 V_ud 的提取在 10^{-4} 量级上产生影响。对于 ^{10}C，O(αε_χ^2) 阶三核子算符的矩阵元对 δ_NS 给出 2% 的修正，因而超出当前精度目标。在中等质量核中，两体贡献往往较小，三核子修正对 δ_NS 的相对大小仍有待研究。随后我们利用这些结果从超允许跃迁 ^{10}C→^{10}B 确定 V_ud。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究超允许核 β 衰变中核结构相关项 δ_NS 的三核子势及其矩阵元，并据此确定 CKM 矩阵元 V_ud。</p>
+    <h4>方法</h4><p>在手性有效场论中推导 O(αε_χ^2) 阶三核子势，并用量子蒙特卡罗方法计算 O(α^2) 与 O(αε_χ^2) 阶三核子贡献的矩阵元。</p>
+    <h4>主要发现</h4><p>O(α^2) 阶矩阵元较大，对 V_ud 提取的影响在 10^{-4} 量级；对 ^{10}C，O(αε_χ^2) 阶三核子算符矩阵元对 δ_NS 给出 2% 修正，超出当前精度目标；中等质量核中三核子修正的相对大小尚待研究；并利用上述结果从 ^{10}C→^{10}B 超允许跃迁确定了 V_ud。</p>
+    <h4>局限与展望</h4><p>论文指出中等质量核中三核子修正对 δ_NS 的相对大小仍需进一步研究；当前结果基于特定核（如 ^{10}C）与量子蒙特卡罗计算，适用范围受所用相互作用与计算方法限制，后续可合理推断需扩展至更多核素并评估更高阶贡献。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.23355v1">
+  <div class="paper-head">
+    <h2>核反应中的同位旋效应与对称能<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23355v1" rel="noopener noreferrer">2611.23355v1</a>
+  </div>
+  <p class="original-title">Isospin effects and symmetry energy in nuclear reactions</p>
+  <p class="meta"><strong>作者：</strong>Jerzy Łukasik</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>同位旋与对称能在液滴质量公式的对称项以及非对称核物质状态方程的相应项中相互关联。泡利不相容原理导致核结合能公式对称项的动能部分对中子-质子不对称度 (N-Z)/A 的主导二次依赖关系。电荷对称性保证势能部分具有相同的主导二次依赖关系。电荷不变性进一步将这种依赖关系在最低阶上从 T₃² 推广到 T(T+1)。相比之下，对称项的强度由对称能决定。在亚饱和密度下，对称能可由核结构观测量约束，例如中子皮厚度、同位旋矢量集体模式及相关的电偶极极化率、同量异位素相似态的激发能；也可由反应观测量约束，例如电荷交换与弹性散射截面、同位旋标度与同位旋扩散。相反，在超饱和密度下，实验室条件下研究非对称核物质的唯一手段是相对论重离子碰撞，此类研究使用中子/质子流、轻同量异位素比或 π⁻/π⁺ 比等微分观测量。中子星观测（包括引力波）可提供互补信息。本文将介绍对称能刚度（stiffness）的最新测量与分析，以及 NA61/SHINE 关于 kaon 产生中意外大的同位旋对称性破坏的最新观测。文中还将关注在 GSI 近期 ASY-EOS II 实验背景下测量相对论重离子碰撞带电与中性产物的挑战，以及该装置中使用的新探测器。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文讨论核反应中同位旋效应与对称能的关系，重点涉及对称能对中子-质子不对称度的依赖形式、不同密度区域约束对称能的手段，以及相关实验观测与测量挑战。</p>
+    <h4>方法</h4><p>以液滴质量公式和核物质状态方程的对称项为理论框架，结合核结构观测量（中子皮厚度、同位旋矢量集体模式、电偶极极化率、同量异位素相似态激发能）与反应观测量（电荷交换与弹性散射截面、同位旋标度、同位旋扩散）约束亚饱和密度下的对称能；超饱和密度下采用相对论重离子碰撞的微分观测量（中子/质子流、轻同量异位素比、π⁻/π⁺ 比），并辅以中子星观测；同时介绍 NA61/SHINE 的 kaon 产生观测及 ASY-EOS II 实验的探测器与测量挑战。</p>
+    <h4>主要发现</h4><p>泡利不相容原理导致对称项动能部分对 (N-Z)/A 的主导二次依赖；电荷对称性保证势能部分具有相同的主导二次依赖；电荷不变性将最低阶依赖从 T₃² 推广到 T(T+1)；对称项强度由对称能决定；亚饱和密度下对称能可由核结构与反应观测量约束，超饱和密度下相对论重离子碰撞是实验室唯一手段；论文将呈现对称能刚度的最新测量与分析，以及 NA61/SHINE 关于 kaon 产生中意外大的同位旋对称性破坏的观测。</p>
+    <h4>局限与展望</h4><p>摘要未给出具体数值结论或定量约束结果；对称能刚度的最新测量与分析、NA61/SHINE 观测的物理含义以及 ASY-EOS II 的测量挑战需依据论文正文进一步确认。可合理推断，超饱和密度区域对称能的约束仍依赖相对论重离子碰撞与中子星观测的互补，而带电与中性产物的精确测量是相关实验的关键局限之一。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23577v1">
+  <div class="paper-head">
+    <h2>质子横向极化分布函数研究展望<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23577v1" rel="noopener noreferrer">2611.23577v1</a>
+  </div>
+  <p class="original-title">Perspective on Proton Transversity Distribution Functions</p>
+  <p class="meta"><strong>作者：</strong>Ke-Xin Zeng、Peng Cheng、Yang Yu、Daniele Binosi、Craig D. Roberts</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用现有的质子张量荷信息以及微扰量子色动力学（QCD）约束，为强子标度下的质子内价夸克横向极化分布函数（transversity DFs）引入若干拟设（Ansaetze）。随后采用 QCD 有效荷概念——该概念定义了一种对共线部分子分布函数与碎裂函数在全阶精确的演化方案——给出这些分布函数在标度 ζ₂ = 2 GeV 下随 x 变化的预言。尽管该方法在很大程度上是代数性的，但其预言在与计算密集型方法所得结果比较后仍然成立。因此，鉴于目前可用于推断质子横向极化分布函数的数据十分稀少，本文结果或可用于为相关实验和唯象拟合提供参考与约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在可用于推断质子横向极化分布函数的数据稀缺的条件下，获得价夸克横向极化分布函数随 x 变化的可靠预言。</p>
+    <h4>方法</h4><p>利用质子张量荷的现有信息与微扰 QCD 约束构造强子标度下价夸克横向极化分布函数的拟设，并借助定义全阶精确共线演化方案的 QCD 有效荷，给出这些分布函数在 ζ₂ = 2 GeV 标度下的预言；随后与计算密集型方法的结果进行比较。</p>
+    <h4>主要发现</h4><p>原文表明，尽管所采用的方法在很大程度上是代数性的，其预言在与计算密集型方法所得结果比较后仍然成立；并指出当前可用于推断质子横向极化分布函数的数据稀少。</p>
+    <h4>局限与展望</h4><p>原文建议，鉴于数据稀缺，本文结果或可用来为相关实验和唯象拟合提供参考与约束。原文未进一步讨论该方法的具体适用范围与局限；其能否推广至其他标度或其他分布函数，尚需后续研究检验。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-19 14:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

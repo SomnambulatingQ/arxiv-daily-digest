@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-19</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">8</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（4）</h3><ol class="toc-list"><li><a href="#paper-2611.23399v1">格点场论中的生成扩散模型</a> <small>2611.23399v1</small></li><li><a href="#paper-2611.23982v1">正定性、噪声与锥</a> <small>2611.23982v1</small></li><li><a href="#paper-2611.24374v1">欧氏关联子谱泛函界的可解释不确定性</a> <small>2611.24374v1</small></li><li><a href="#paper-2611.24658v1">轻费米子可触发 Brout-Englert-Higgs 效应</a> <small>2611.24658v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2611.23577v1">质子横向极化分布函数研究展望</a> <small>2611.23577v1</small></li><li><a href="#paper-2611.23586v1">临界性的拓扑特征：伊辛模型情形</a> <small>2611.23586v1</small></li><li><a href="#paper-2611.24435v1">强子谱中的总角动量指派</a> <small>2611.24435v1</small></li><li><a href="#paper-2611.24572v1">核格点有效场论对质子滴线附近锡同位素半径的研究</a> <small>2611.24572v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.23399v1">
+  <div class="paper-head">
+    <h2>格点场论中的生成扩散模型<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23399v1" rel="noopener noreferrer">2611.23399v1</a>
+  </div>
+  <p class="original-title">Generative diffusion models for lattice field theory</p>
+  <p class="meta"><strong>作者：</strong>Gert Aarts、Diaa E. Habibi、Lingxiao Wang、Kai Zhou</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>生成扩散模型为格点场论中的系综生成提供了一条新途径。这类模型所依赖的反向（去噪）过程是一个具有学习得到的时间依赖漂移项的随机过程，由此与随机量子化建立了清晰的联系。在回顾这一对应关系之后，本文转向存在符号问题的理论。在这类理论中，复玻尔兹曼权重阻碍直接采样，但复朗之万动力学有时可以通过在复化流形上生成按实且半正定分布分布的构型来规避符号问题。该分布没有已知的闭式形式。本文讨论了如何利用基于分数（score-based）的扩散模型、特别是基于能量（energy-based）的扩散模型，从复朗之万数据中学习该分布。后者可直接获得未归一化分布本身，随后可将其用作标准马尔可夫链蒙特卡洛模拟中的权重。文中给出了一个具有复作用的简单四次模型的结果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在格点场论中利用生成扩散模型进行系综生成，特别是在存在符号问题、复玻尔兹曼权重阻碍直接采样的情况下，如何学习复朗之万动力学所产生的未知实且半正定分布。</p>
+    <h4>方法</h4><p>建立扩散模型反向（去噪）过程与随机量子化之间的对应关系；针对符号问题，利用复朗之万动力学在复化流形上生成构型；采用基于分数以及基于能量的扩散模型从复朗之万数据中学习该分布，并将基于能量模型得到的未归一化分布用作标准马尔可夫链蒙特卡洛模拟的权重；在一个具有复作用的简单四次模型上进行演示。</p>
+    <h4>主要发现</h4><p>扩散模型的反向过程是一个具有学习得到的时间依赖漂移项的随机过程，与随机量子化存在清晰联系；复朗之万动力学有时可规避符号问题并生成按实且半正定分布分布的构型；基于能量的扩散模型可直接获得未归一化分布本身，并可作为标准马尔可夫链蒙特卡洛模拟的权重；文中给出了具有复作用的简单四次模型的结果。</p>
+    <h4>局限与展望</h4><p>原文仅在一个具有复作用的简单四次模型上展示了结果，其向更高维或更复杂格点场论模型的适用性尚待检验；复朗之万动力学仅‘有时’能规避符号问题，其适用范围受此限制；基于能量扩散模型学习所得分布用于马尔可夫链蒙特卡洛的可行性在更一般情形下的表现有待进一步研究（此点为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23982v1">
+  <div class="paper-head">
+    <h2>正定性、噪声与锥<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23982v1" rel="noopener noreferrer">2611.23982v1</a>
+  </div>
+  <p class="original-title">Positivity, Noise, and Cones</p>
+  <p class="meta"><strong>作者：</strong>Ryan Abbott、Claire X. Davis、Sarah Fields、William I. Jay、Patrick Oare、Matteo Saccardi</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>作为因果性的结果，量子场论中的欧几里得时间关联函数受到某些 Hankel 矩阵正定条件的约束。这些条件定义了凸锥结构。使用 Monte Carlo 技术数值计算的关联函数通常包含违反正定条件的统计涨落。本文描述了一种投影方法，该方法基于正定条件与统计协方差矩阵所诱导的凸锥几何，可用于恢复正定性，并将含噪关联函数唯一分解为因果分量与非因果分量。与已有文献不同，本文显式利用因果空间的锥结构，而不仅是其凸性。该投影可通过原始-对偶内点法计算。在文献 [Phys. Rev. D 114, 074510 (2026)] 的因果 bootstrap 中，约束投影给出了针对涂抹谱密度的、依赖于可观测量的频率学派置信区间。解析结果得到了数值示例的支持。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用因果性所要求的 Hankel 矩阵正定条件（凸锥结构）处理 Monte Carlo 计算的欧几里得关联函数中违反正定性的统计涨落，并给出因果与非因果分量的分解及相应的置信区间。</p>
+    <h4>方法</h4><p>基于正定条件与统计协方差矩阵诱导的凸锥几何构造投影程序，显式利用锥结构；采用原始-对偶内点法计算投影，并结合因果 bootstrap 框架。</p>
+    <h4>主要发现</h4><p>该投影可恢复正定性，并对含噪关联函数给出唯一的因果/非因果分解；约束投影在因果 bootstrap 中产生针对涂抹谱密度的、依赖于可观测量的频率学派置信区间；解析结果得到数值示例支持。</p>
+    <h4>局限与展望</h4><p>摘要未讨论该方法在高维或强噪声情形下的计算成本与收敛性，也未给出与其它正定恢复方法的系统比较；其适用范围与数值可行性有待进一步检验，后续可合理推断需评估内点法的可扩展性及投影对置信区间覆盖性质的影响。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24374v1">
+  <div class="paper-head">
+    <h2>欧氏关联子谱泛函界的可解释不确定性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24374v1" rel="noopener noreferrer">2611.24374v1</a>
+  </div>
+  <p class="original-title">Interpretable uncertainties for bounds on spectral functionals from Euclidean correlators</p>
+  <p class="meta"><strong>作者：</strong>Christoph Lehner</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>谱密度的正定性，结合与数据的χ²相容性度量，将欧氏关联子的谱密度任意线性泛函限制在一个区间内。本文说明如何将该区间转化为具有明确统计误差与系统误差的中心值。首先证明，在典型精度下，含噪数据的最佳正定拟合满足χ²_min&gt;0，其概率下界由无噪数据到正谱数据集合边界的距离给出；数值上该概率不依赖于态数，因此阈值须相对于χ²_min设定。取Δχ²=1时，若正定性不起作用，该区间可重现高斯误差传播，而正定性只会使其收窄。统计误差由jackknife定义，系统误差取区间中剩余的非高斯部分，该部分在高统计量极限下不随统计量增大而减小。对关联子以及涂抹谱密度和阶跃函数的覆盖检验表明，由数据决定的输出达到名义覆盖，其余情形多为保守覆盖；例外是统计误差对误差估计的影响，该影响随统计量增加而消失。来自微扰论等对谱密度的额外约束可在不损失覆盖的情况下显著减小系统误差。对于长距离关联子，该方法所用信息与bounding method相同，其误差在bounds之间剩余间隙的范围内与bounding method一致。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将谱密度正定性与χ²相容性所给出的谱泛函区间，转化为具有明确统计误差和系统误差的中心值，并评估其覆盖性质。</p>
+    <h4>方法</h4><p>利用谱密度正定性构造线性泛函的区间；分析最佳正定拟合的χ²_min行为并据此设定阈值；取Δχ²=1；用jackknife定义统计误差，将区间剩余非高斯部分作为系统误差；对关联子、涂抹谱密度和阶跃函数进行覆盖检验；并与bounding method比较。</p>
+    <h4>主要发现</h4><p>典型精度下最佳正定拟合的χ²_min&gt;0，其概率下界由无噪数据到正谱数据集合边界的距离给出，数值上不依赖态数；Δχ²=1时区间在正定性不起作用时重现高斯误差传播，正定性只会收窄区间；系统误差在高统计量极限下不随统计量减小；覆盖检验对数据决定的输出达到名义覆盖，其余多为保守覆盖，例外为统计误差对误差估计的影响且随统计量增加而消失；额外谱密度约束可显著减小系统误差而不损失覆盖；长距离关联子情形与bounding method信息相同，误差在剩余间隙内一致。</p>
+    <h4>局限与展望</h4><p>摘要未讨论非正定或强噪声等超出典型精度情形的适用性；额外约束（如微扰论）减小系统误差的效果依赖于约束本身的有效性；统计误差对误差估计的影响虽随统计量增加而消失，但在有限统计量下的具体表现需进一步检验；与bounding method的一致性仅到bounds间剩余间隙，该间隙的进一步缩小可作为后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24658v1">
+  <div class="paper-head">
+    <h2>轻费米子可触发 Brout-Englert-Higgs 效应<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24658v1" rel="noopener noreferrer">2611.24658v1</a>
+  </div>
+  <p class="original-title">Light fermions can trigger a Brout-Englert-Higgs effect</p>
+  <p class="meta"><strong>作者：</strong>Axel Maas、Sofie Martins、Georg Wieland</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>Brout-Englert-Higgs 机制产生标准模型粒子的质量，但其成因仍不清楚。超出标准模型的理论试图寻找该效应的来源，例如采用复合 Higgs 并动力学地产生其真空期望值。本文给出格点模拟证据：在矢量耦合费米子且无 Yukawa 耦合的情形下，Brout-Englert-Higgs 效应可能由费米子的轻质量触发。这暗示一种完全在标准模型内部的解释或许是可能的。此外，我们的结果与弱耦合一致，且费米子只能在对数下一阶（NNLO）影响 Higgs 势。这意味着在 SU(2) 标量-费米子-规范系统中存在一个迄今未被识别的机制，可产生非零真空期望值。我们还发现，从类 QCD 行为到类 Higgs 行为的转变发生在费米子质量降至 W/Z 质量两倍以下时；该阈值取整数值，但与其他临界物理行为无关。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>Brout-Englert-Higgs 效应的成因未知；本文探究在无 Yukawa 耦合、矢量耦合费米子的情形下，轻费米子质量是否能触发该效应。</p>
+    <h4>方法</h4><p>采用格点模拟，研究矢量耦合费米子且无 Yukawa 耦合的系统。</p>
+    <h4>主要发现</h4><p>格点模拟给出证据表明 Brout-Englert-Higgs 效应可能由费米子的轻质量触发；结果与弱耦合一致，费米子只能在对数下一阶（NNLO）影响 Higgs 势；从类 QCD 行为到类 Higgs 行为的转变发生在费米子质量低于 W/Z 质量两倍时，该阈值为整数值但与其他临界物理行为无关。</p>
+    <h4>局限与展望</h4><p>原文指出这暗示完全在标准模型内部的解释或许可能，并表明 SU(2) 标量-费米子-规范系统中存在迄今未被识别的产生非零真空期望值的机制；这些属于原文的推断性表述，尚需进一步研究确认。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.23577v1">
+  <div class="paper-head">
+    <h2>质子横向极化分布函数研究展望<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23577v1" rel="noopener noreferrer">2611.23577v1</a>
+  </div>
+  <p class="original-title">Perspective on Proton Transversity Distribution Functions</p>
+  <p class="meta"><strong>作者：</strong>Ke-Xin Zeng、Peng Cheng、Yang Yu、Daniele Binosi、Craig D. Roberts</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用现有的质子张量荷信息以及微扰量子色动力学（QCD）约束，为强子标度下的质子内价夸克横向极化分布函数（transversity DFs）引入若干拟设（Ansaetze）。随后采用 QCD 有效荷概念——该概念定义了一种对共线部分子分布函数与碎裂函数在全阶精确的演化方案——给出这些分布函数在标度 ζ₂ = 2 GeV 下随 x 变化的预言。尽管该方法在很大程度上是代数性的，但其预言在与计算密集型方法所得结果比较后仍然成立。因此，鉴于目前可用于推断质子横向极化分布函数的数据十分稀少，本文结果或可用于为相关实验和唯象拟合提供参考与约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在可用于推断质子横向极化分布函数的数据稀缺的条件下，获得价夸克横向极化分布函数随 x 变化的可靠预言。</p>
+    <h4>方法</h4><p>利用质子张量荷的现有信息与微扰 QCD 约束构造强子标度下价夸克横向极化分布函数的拟设，并借助定义全阶精确共线演化方案的 QCD 有效荷，给出这些分布函数在 ζ₂ = 2 GeV 标度下的预言；随后与计算密集型方法的结果进行比较。</p>
+    <h4>主要发现</h4><p>原文表明，尽管所采用的方法在很大程度上是代数性的，其预言在与计算密集型方法所得结果比较后仍然成立；并指出当前可用于推断质子横向极化分布函数的数据稀少。</p>
+    <h4>局限与展望</h4><p>原文建议，鉴于数据稀缺，本文结果或可用来为相关实验和唯象拟合提供参考与约束。原文未进一步讨论该方法的具体适用范围与局限；其能否推广至其他标度或其他分布函数，尚需后续研究检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23586v1">
+  <div class="paper-head">
+    <h2>临界性的拓扑特征：伊辛模型情形<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23586v1" rel="noopener noreferrer">2611.23586v1</a>
+  </div>
+  <p class="original-title">Topological signatures of criticality: the Ising case</p>
+  <p class="meta"><strong>作者：</strong>Tak-Shing Chan、Paweł Dłotko、Jacek Gulgowski、Biagio Lucini、Mateusz Masłowski、Davide Vadacchino</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">hep-lat</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>微观构型的拓扑性质可能为相变提供超越常规热力学观测量的额外洞见。本文在正方与三角晶格上的二维伊辛模型中研究这一思路：将正、负自旋畴分别与胞腔复形相联系，并由二者之差构造欧拉示性数观测量。我们给出该量与伊辛模型常规观测量之间的关系式，由此可在物理上理解其预期行为。作为副产品，我们证明在任意有限正温度下欧拉示性数的期望值均超过一个与晶格尺寸无关的正下界，从而否证了此前提出的一个猜想。结合多直方图重加权的蒙特卡罗模拟表明，这一自旋奇性拓扑观测量在铁磁转变附近表现出类序参量行为；其磁化率的有限尺寸标度给出的赝临界温度在两种晶格几何下均收敛至已知临界温度。在正方晶格上，由拓扑观测量得到的临界指数领头阶估计对拟合区间的依赖强于磁化强度估计，这与更强的次领头有限尺寸修正相一致，并得到包含额外修正项拟合的支持；在三角晶格上，相应估计与伊辛理论值保持一致。本研究表明，诸如欧拉示性数这类拓扑定义的量可为所考察系统提供定位有序—无序相变的替代途径；由于其定义是纯几何的，在无法构造序参量的情形下亦可提供有用洞见。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>微观构型的拓扑性质（具体为欧拉示性数）能否作为二维伊辛模型中探测和定位铁磁相变的观测量，以及它与常规热力学观测量的关系如何。</p>
+    <h4>方法</h4><p>在正方与三角晶格二维伊辛模型中，将正、负自旋畴与胞腔复形相联系，由二者欧拉示性数之差构造自旋奇性拓扑观测量；推导该量与常规观测量的关系式；结合蒙特卡罗模拟与多直方图重加权，进行有限尺寸标度分析，并比较含额外修正项的拟合。</p>
+    <h4>主要发现</h4><p>推导出拓扑观测量与常规观测量之间的关系式；证明任意有限正温度下欧拉示性数期望值超过一个与晶格尺寸无关的正下界，否证了此前的一个猜想；模拟显示该拓扑观测量在铁磁转变附近呈类序参量行为，其磁化率有限尺寸标度给出的赝临界温度在两种晶格上均收敛至已知临界温度；正方晶格上临界指数领头阶估计对拟合区间依赖强于磁化强度估计，与更强次领头有限尺寸修正一致，三角晶格上估计与伊辛理论值一致。</p>
+    <h4>局限与展望</h4><p>拓扑观测量的临界指数估计在正方晶格上受拟合区间与次领头修正影响较大，其精度与适用范围需进一步检验；由于定义纯几何，该方法或可推广至难以构造序参量的系统，但这一推广属于合理推断，尚待验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24435v1">
+  <div class="paper-head">
+    <h2>强子谱中的总角动量指派<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24435v1" rel="noopener noreferrer">2611.24435v1</a>
+  </div>
+  <p class="original-title">Total Angular Momentum Assignments in the Hadron Spectrum</p>
+  <p class="meta"><strong>作者：</strong>The HADLENS Collaboration、S. Rostami、Omid Zamani Jamshidi、B. Dehghanzad、K. Azizi</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>对于自旋尚未由实验确定的强子共振态，预测其总角动量 J 是观测强子谱学研究中的重要一步。本研究基于 PDG 中已知介子和重子的数据集（包含夸克组分、同位旋、宇称、质量及其他谱学特征），构建数据驱动模型，以预测自旋未知的强子的 J 值。具体而言，我们采用 XGBoost 分类器并结合嵌套优化，以发现不同强子扇区中的谱学模式。我们还整理了 J 值未知或确定不佳的强子系统列表，并研究这些强子的自旋-宇称指派。由于宇称假设作为模型的输入，本模型是在给定宇称假设的条件下预测 J 值，而非独立确定完整的 J^P 指派。对若干已有理论研究的状态，我们的预测与夸克模型、QCD 求和规则、分子模型及其他唯象方法的结果符合良好；而对另一些状态的预测则与现有理论指派不同。这些差异可推动进一步的理论研究，并可能由未来的实验测量加以检验。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为自旋尚未由实验确定的强子共振态预测总角动量 J，并系统整理 J 值未知或确定不佳的强子及其自旋-宇称指派。</p>
+    <h4>方法</h4><p>利用 PDG 中已知介子和重子的数据集（含夸克组分、同位旋、宇称、质量等谱学特征），构建数据驱动模型，采用 XGBoost 分类器结合嵌套优化来发现不同强子扇区中的谱学模式；宇称假设作为模型输入，模型在给定宇称条件下预测 J 值。</p>
+    <h4>主要发现</h4><p>模型对若干已有理论研究的状态给出的预测与夸克模型、QCD 求和规则、分子模型及其他唯象方法的结果符合良好；对另一些状态的预测则与现有理论指派不同。</p>
+    <h4>局限与展望</h4><p>由于宇称假设作为输入，模型仅条件性地预测 J 而非独立确定完整 J^P；预测与现有理论指派的差异可推动进一步理论研究，并可能由未来实验测量检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24572v1">
+  <div class="paper-head">
+    <h2>核格点有效场论对质子滴线附近锡同位素半径的研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24572v1" rel="noopener noreferrer">2611.24572v1</a>
+  </div>
+  <p class="original-title">Radii of Sn Isotopes near the Proton Dripline from Nuclear Lattice Effective Field Theory</p>
+  <p class="meta"><strong>作者：</strong>Fabian Hildenbrand、Serdar Elhatisari、Ulf-G. Meißner</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文首次采用核格点有效场论，结合高精度两核子与三核子相互作用以及部分针孔算法，对质子滴线附近的锡同位素 $^{96}$Sn、$^{98}$Sn、$^{100}$Sn、$^{102}$Sn 和 $^{104}$Sn 的电荷半径与物质半径进行了从头格点计算。所得半径大于其他从头方法给出的预言。研究发现，三核子相互作用的变化会导致半径出现显著差异，即使这些相互作用具有相近的结合能。文中对不同三体力的选取所带来的影响进行了深入讨论。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究质子滴线附近锡同位素（$^{96}$Sn、$^{98}$Sn、$^{100}$Sn、$^{102}$Sn、$^{104}$Sn）的电荷半径与物质半径，并考察三核子相互作用选择对半径预言的影响。</p>
+    <h4>方法</h4><p>采用核格点有效场论，结合高精度两核子与三核子相互作用以及部分针孔算法，进行从头格点计算。</p>
+    <h4>主要发现</h4><p>给出了上述锡同位素的电荷半径与物质半径的首次从头格点计算结果；所得半径大于其他从头方法的预言；三核子相互作用的变化会导致半径出现显著差异，即使结合能相近。</p>
+    <h4>局限与展望</h4><p>原文明确指出不同三体力的选取对半径有重要影响，并对此进行了深入讨论；其局限与适用范围原文未明确说明，后续可合理推断需进一步约束三核子相互作用并与其他从头方法及实验数据作系统比较，但此点属于推断。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-19 14:32 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
