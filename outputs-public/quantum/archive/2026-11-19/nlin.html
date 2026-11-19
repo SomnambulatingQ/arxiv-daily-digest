@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-11-19</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">13</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">7</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2611.23433v1">具有对流与扩散耦合的耦合映象的混沌动力学</a> <small>2611.23433v1</small></li><li><a href="#paper-2611.23434v1">用循环潜在状态从稀疏传感器复现混沌动力学</a> <small>2611.23434v1</small></li><li><a href="#paper-2611.23486v1">大脑的物质世界作为一个受间歇动力学支配的复杂系统，如何产生诸如思维等所谓“非物质”的心理过程世界</a> <small>2611.23486v1</small></li><li><a href="#paper-2611.23515v1">一类具有指数非线性的多用途常微分方程组</a> <small>2611.23515v1</small></li><li><a href="#paper-2611.23582v1">自由旋转弹性环的相对周期轨道</a> <small>2611.23582v1</small></li><li><a href="#paper-2611.24268v1">耦合的放大或再分配：稀疏自适应振子网络中的同步</a> <small>2611.24268v1</small></li></ol><h3>交叉列表（7）</h3><ol class="toc-list"><li><a href="#paper-2611.23237v1">自由玻色共形场论中交换运动积分再研究：经认证的密度、谱刚性及 c=1 分支点处的精确识别</a> <small>2611.23237v1</small></li><li><a href="#paper-2611.23238v1">图极限上动力系统的谱降维</a> <small>2611.23238v1</small></li><li><a href="#paper-2611.23366v1">矩阵模型与弦理论的精确解：全局构造</a> <small>2611.23366v1</small></li><li><a href="#paper-2611.23526v1">将动力学时间尺度与实验设计关联到时间序列观测中的参数可辨识性</a> <small>2611.23526v1</small></li><li><a href="#paper-2611.23539v1">可部署硬约束湍流闭合模型的构建</a> <small>2611.23539v1</small></li><li><a href="#paper-2611.23870v1">具有固定连边的共演化投票者模型中的局域活跃相</a> <small>2611.23870v1</small></li><li><a href="#paper-2611.24523v1">具有一般状态方程的流体-泊松等离子体中离子声孤子的基本导数临界性</a> <small>2611.24523v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.23433v1">
+  <div class="paper-head">
+    <h2>具有对流与扩散耦合的耦合映象的混沌动力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23433v1" rel="noopener noreferrer">2611.23433v1</a>
+  </div>
+  <p class="original-title">The Chaotic Dynamics of Coupled Maps with Convection and Diffusion</p>
+  <p class="meta"><strong>作者：</strong>M. R. Paul、A. Raj</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究对流耦合与扩散耦合对环上一维大尺度耦合映象格点系统时空混沌的基本作用。在数值稳定动力学所对应的几乎整个空间耦合强度范围内，系统持续表现出强混沌动力学。空间耦合影响Lyapunov指数谱的形状：随着对流耦合增强，最大的Lyapunov指数增大，而绝对值较大的负Lyapunov指数进一步减小，导致动力学的分形维数显著增加。对流耦合增强了主导Lyapunov向量的局域化，并显著增加协变Lyapunov向量谱中高波数分量的功率，同时增强这些向量之间的纠缠。在存在非线性对流耦合的情况下，扩散耦合矩阵的特征值与特征向量仍是具有启发性的量。文中还讨论了这些结果对大型输运系统高维混沌动力学的意义。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究对流耦合与扩散耦合如何影响环上一维大尺度耦合映象格点系统的时空混沌，包括Lyapunov指数谱、分形维数、Lyapunov向量局域化与纠缠等性质。</p>
+    <h4>方法</h4><p>对环上一维大尺度耦合映象格点系统进行数值研究，分析空间耦合强度对动力学稳定性的影响，计算并比较Lyapunov指数谱、分形维数、主导Lyapunov向量的局域化、协变Lyapunov向量谱及其纠缠，并考察扩散耦合矩阵的特征值与特征向量在非线性对流耦合下的作用。</p>
+    <h4>主要发现</h4><p>在数值稳定动力学所对应的几乎整个空间耦合强度范围内，系统持续表现出强混沌动力学；空间耦合影响Lyapunov指数谱形状，对流耦合增强时最大Lyapunov指数增大、绝对值较大的负Lyapunov指数进一步减小，使分形维数显著增加；对流耦合增强主导Lyapunov向量的局域化，增加协变Lyapunov向量谱中高波数分量的功率并增强其纠缠；在非线性对流耦合存在时，扩散耦合矩阵的特征值与特征向量仍是具有启发性的量。</p>
+    <h4>局限与展望</h4><p>原文讨论这些结果对大型输运系统高维混沌动力学的意义；其局限与适用范围未在摘要中明确给出，后续可合理推断的方向包括将分析推广至其他耦合构型或实际输运系统，但需进一步研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23434v1">
+  <div class="paper-head">
+    <h2>用循环潜在状态从稀疏传感器复现混沌动力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23434v1" rel="noopener noreferrer">2611.23434v1</a>
+  </div>
+  <p class="original-title">Replicating chaotic dynamics from sparse sensors with recurrent latent states</p>
+  <p class="meta"><strong>作者：</strong>Jan P. Williams、J. Nathan Kutz、Krithika Manohar</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">math.DS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>从少量点传感器预测高维非线性系统，需要估计当前状态并建立其演化模型。降阶模型通常以完整状态为输入，因此在仅有稀疏传感器时，需要借助辅助的完整状态估计，而该估计的误差会被潜在表示继承。本文改为仅利用传感器测量构建潜在状态：使用浅层循环解码器（SHRED）网络编码点测量的历史，并训练回声状态网络以自主推进该潜在状态。我们表明，所得的潜在动力学复现了底层系统的长期动力学不变量，而不仅仅是追踪其短期轨迹。对于 Kuramoto-Sivashinsky 方程，该自主潜在模型仅利用 128 个状态分量中的 25 个，并以分量数为完整状态 6–14% 的潜在状态，复现了完整系统的主要 Lyapunov 指数。由于 Lyapunov 指数在光滑坐标变换下不变，这与循环编码器恢复吸引子嵌入（契合 Takens 延迟嵌入定理的思想）相一致。循环编码还使预测能力与重构精度解耦：在给定完整状态时，SHRED 的重构精度低于卷积自编码器，但在较简单的混沌情形下预测表现相当，在更复杂的情形下则更优。对于 Kolmogorov 流，在传感器位于 6% 的网格点、潜在状态规模为涡量场 0.3% 的条件下，该自主模型在长时程上仍保持在学得的潜在流形上。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在仅有少量稀疏点传感器测量的条件下，估计高维非线性混沌系统的状态并预测其长期演化，同时避免辅助完整状态估计的误差被潜在表示继承。</p>
+    <h4>方法</h4><p>仅用传感器测量构建潜在状态：采用浅层循环解码器（SHRED）网络编码点测量历史，并训练回声状态网络自主推进该潜在状态；在 Kuramoto-Sivashinsky 方程和 Kolmogorov 流上进行评估，并与卷积自编码器比较重构与预测表现。</p>
+    <h4>主要发现</h4><p>自主潜在模型复现了底层系统的长期动力学不变量而非仅追踪短期轨迹；对 Kuramoto-Sivashinsky 方程，用 128 个状态分量中的 25 个、潜在状态分量为完整状态的 6–14%，复现了主要 Lyapunov 指数；循环编码使预测能力与重构精度解耦，SHRED 重构精度低于给定完整状态的卷积自编码器，但在较简单混沌情形预测相当、在更复杂情形更优；对 Kolmogorov 流，传感器位于 6% 网格点、潜在状态为涡量场 0.3% 时，自主模型在长时程上仍处于学得的潜在流形。</p>
+    <h4>局限与展望</h4><p>作者将 Lyapunov 指数的复现解释为与循环编码器恢复吸引子嵌入（Takens 延迟嵌入思想）相一致，但这是解释性推断而非严格证明；方法的适用范围与在其他系统、传感器配置及噪声条件下的稳健性尚待检验；后续可合理推断的方向包括从理论上刻画潜在嵌入的条件，以及在更多高维混沌系统中验证长期不变量的保持情况。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23486v1">
+  <div class="paper-head">
+    <h2>大脑的物质世界作为一个受间歇动力学支配的复杂系统，如何产生诸如思维等所谓“非物质”的心理过程世界<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23486v1" rel="noopener noreferrer">2611.23486v1</a>
+  </div>
+  <p class="original-title">How the material world of the brain, as a complex system governed by intermittent dynamics, gives rise to the supposedly &quot;immaterial&quot; world of mental processes such as thought</p>
+  <p class="meta"><strong>作者：</strong>Yiannis F. Contoyiannis、Alexandros K. Karlis</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">physics.bio-ph</span> <span class="tag">q-bio.NC</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出，大脑是一个处于临界态的复杂动力系统，其临界态类似于三维Ising模型的临界态。作者强调了大脑的若干性质，包括该临界态内的共振现象、与长记忆相符的长程自相关、提示大脑内存在一种尚未探测到的“奇异”物质的滞回区，以及神经网络微管中可能的量子现象。后者提示这些结构表现出一种组合形式的“逻辑叠加”：在所提出的模型中，“AND”逻辑要求两个不同的量子态同时被占据，而“OR”逻辑允许若干量子态中的任意一个在某一时刻被占据。此外，作者提出扭结与反扭结孤子可能介导微管中被占据量子态之间的耦合，从而促成神经网络中的模式形成；这一机制很可能正是大脑得以灵活支持复杂思维及其他认知功能的原因。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>大脑这一物质系统如何产生思维等通常被视为“非物质”的心理过程，以及临界动力学、微管量子现象与神经网络模式形成之间可能存在何种联系。</p>
+    <h4>方法</h4><p>以复杂动力系统和临界态（类比三维Ising模型）为理论框架，结合共振、长程自相关、滞回区等性质进行论证，并提出微管中量子态的“逻辑叠加”（AND/OR逻辑）以及扭结—反扭结孤子介导耦合的模型设想。</p>
+    <h4>主要发现</h4><p>原文明确提出：大脑处于类似三维Ising模型临界态的临界状态；存在临界态内的共振现象、与长记忆一致的长程自相关，以及提示尚未探测到的“奇异”物质的滞回区；微管中可能存在量子现象并表现“逻辑叠加”；扭结与反扭结孤子可能介导微管量子态耦合并促成神经网络模式形成，该机制可能支持复杂思维等认知功能。</p>
+    <h4>局限与展望</h4><p>原文所述“奇异”物质尚未被探测，微管量子现象与孤子耦合机制属于模型设想，其物理实在性与因果作用仍需实验检验；该框架的适用范围和可证伪性有待进一步明确。后续可合理推断的方向包括：针对滞回区与“奇异”物质的实验探测、微管量子效应的实证检验，以及将临界动力学与量子层面机制联系起来的定量模型构建。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23515v1">
+  <div class="paper-head">
+    <h2>一类具有指数非线性的多用途常微分方程组<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23515v1" rel="noopener noreferrer">2611.23515v1</a>
+  </div>
+  <p class="original-title">A multipurpose system of ordinary differential equations with exponential nonlinearity</p>
+  <p class="meta"><strong>作者：</strong>Piotr P. Goldstein</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文详细讨论了一类常微分方程组 $\ddot{y}_k=\sum_{l=1}^n M_{kl}\exp y_l,~k=1,...,n$，其中 $M$ 为 $n\times n$ 非奇异对称矩阵。文中给出并证明了一个双参数精确解族，并证明该解族对一般 $n$ 是不稳定的。作者进一步表明 Adler 与 Moerbeke 的一个结果适用于此类系统：该结果指出，此系统完全可积的情形均等价于包含非最近邻相互作用的 Toda 格。最后，文中针对若干特殊的 $n$ 给出了若干有趣的应用。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究一类由非奇异对称矩阵耦合、具有指数非线性的二阶常微分方程组 $\ddot{y}_k=\sum_{l=1}^n M_{kl}\exp y_l$ 的解结构、稳定性与可积性。</p>
+    <h4>方法</h4><p>构造并证明一个双参数精确解族；分析该解族的稳定性；引用并应用 Adler 与 Moerbeke 关于完全可积性的结果；对若干特殊 $n$ 讨论具体应用。</p>
+    <h4>主要发现</h4><p>找到了一个双参数精确解族，并证明其对一般 $n$ 不稳定；Adler–Moerbeke 的结果适用于该系统，即其完全可积情形均等价于含非最近邻相互作用的 Toda 格；对若干特殊 $n$ 给出了应用。</p>
+    <h4>局限与展望</h4><p>摘要未给出稳定性分析的具体条件与适用范围，也未说明特殊 $n$ 应用的具体内容；后续可合理推断的方向包括刻画该双参数解族在何种参数或 $n$ 下失去稳定性，以及将可积性分类结果推广到更一般的矩阵或边界条件，但这些均需原文进一步支持。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23582v1">
+  <div class="paper-head">
+    <h2>自由旋转弹性环的相对周期轨道<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.23582v1" rel="noopener noreferrer">2611.23582v1</a>
+  </div>
+  <p class="original-title">Relative periodic orbits of a free spinning loop</p>
+  <p class="meta"><strong>作者：</strong>Nicholas B. Tufillaro</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CD
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CD</span> <span class="tag">physics.class-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>无外力作用的闭合弹性弦可以保持任意形状，同时其材料沿曲线稳定运动（稳态轴向运动），这是因为张力与使材料绕过弯曲所需的力均与曲率成正比。本文以最简单的此类运动——旋转圆环——为起点，通过牛顿法在质量链模型上计算由此生长出的周期运动。这些运动包括以材料旋转速率两倍转动的旋转波、具有二至五个瓣的驻波式“拍动”模式，以及周期加倍和周期三倍的轨道。质量链仅是对弦的近似：这些轨道及其强不稳定性随质量数增加变化很小，属于连续弦的性质；而多数弱不稳定性随质量数变化，是有限链近似弦所产生的伪影。对于拉伸至自然长度130%的环，鞍型拍动模式在小高度下为中性稳定，在大高度下不稳定；不稳定的鞍型拍动模式与面内椭圆轨道之间来回交换能量，在大振幅下能量扩散至链的最短波。对于Keller线性弦（张力与拉伸长度成正比），所有运动均为周期运动，且每个结点都携带一个严格周期的拍动模式。对于Hookean弦，结点的曲率将波纹与以不同速度传播的拉伸波耦合，模拟中滑动结点上的波纹不会恢复到初始形状；Hookean结点是否携带任何周期拍动模式仍是一个开放问题。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>无外力闭合弹性弦（自由旋转环）在稳态轴向运动基础上能生长出哪些周期运动，以及这些运动在多大程度上属于连续弦而非有限质量链近似的伪影。</p>
+    <h4>方法</h4><p>以旋转圆环为起点，在质量链模型上用牛顿法计算周期轨道，并比较不同质量数下轨道与稳定性的变化；同时讨论Keller线性弦与Hookean弦两种本构关系下的周期性与耦合行为。</p>
+    <h4>主要发现</h4><p>计算得到以材料旋转速率两倍转动的旋转波、二至五个瓣的驻波式拍动模式，以及周期加倍和周期三倍轨道。强不稳定性随质量数增加变化很小，属于连续弦性质；多数弱不稳定性随质量数变化，是有限链近似的伪影。拉伸30%的环的鞍型拍动模式在小高度下中性稳定、大高度下不稳定，并与面内椭圆轨道交换能量，大振幅时能量扩散至最短波。Keller线性弦的所有运动均为周期运动，每个结点都有严格周期的拍动模式；Hookean弦中结点曲率耦合波纹与不同速度的拉伸波，模拟中滑动结点上的波纹不恢复初始形状。</p>
+    <h4>局限与展望</h4><p>Hookean结点是否携带任何周期拍动模式在原文中明确为开放问题。有限质量链的弱不稳定性可能随离散化改变，因此基于弱不稳定性的结论需谨慎对待；强不稳定性可合理推断为连续弦的稳健性质。后续可围绕Hookean弦的周期拍动模式存在性及更精细的离散化验证展开。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24268v1">
+  <div class="paper-head">
+    <h2>耦合的放大或再分配：稀疏自适应振子网络中的同步<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24268v1" rel="noopener noreferrer">2611.24268v1</a>
+  </div>
+  <p class="original-title">Amplifying or Redistributing Coupling: Synchronization in Sparse Adaptive Oscillator Networks</p>
+  <p class="meta"><strong>作者：</strong>Yousef Jamali</p>
+  <p class="meta"><strong>主分类：</strong>nlin.AO
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.AO</span> <span class="tag">cond-mat.stat-mech</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>同步——不同单元落入共同节律——在从发电机到神经元群体的系统中都具有重要意义。但当协调其时序的连接本身也可变化时会发生什么？若两个单元相位更趋一致且其连接增强，这种额外影响既可能增加一个单元接收的总耦合，也可能在固定总量中占据更大份额。我们在一个由振子构成的数学网络中考察这两种可能，每个振子代表一个重复周期，振子间通过稀疏有向连边相连。我们比较恒定连接与两种偏好相位对齐邻居的自适应规则：无约束的 Hebbian 耦合，以及保持每个振子总输入有效耦合不变的内稳态归一化。精确关系确立了这种守恒，并表明平均 Hebbian 权重会松弛到由沿网络连边的对齐程度所设定的值。在匹配的数值实验中，无约束自适应在较弱的外加耦合下即可达到给定水平的集体同步，而归一化网络在同一观测窗口内则需要更强的耦合。更长时间的观测揭示了不同的个体轨迹，包括相干性上升、持续和下降。核心结论是：自适应的集体后果不仅取决于哪些连边被增强，还取决于其增强是增加影响还是在再分配影响。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在稀疏有向振子网络中，当连边强度可随相位对齐自适应变化时，连边增强是增加单元接收的总耦合还是在固定总量内再分配，这两种情形对集体同步有何不同影响。</p>
+    <h4>方法</h4><p>构建由重复周期振子经稀疏有向连边相连的数学网络；比较恒定连接与两种偏好相位对齐邻居的自适应规则——无约束 Hebbian 耦合与保持每个振子总输入有效耦合不变的内稳态归一化；通过精确关系分析守恒性质与平均 Hebbian 权重的松弛行为，并进行匹配的数值实验。</p>
+    <h4>主要发现</h4><p>精确关系确立了归一化下的耦合守恒，并表明平均 Hebbian 权重松弛到由沿网络连边的对齐程度设定的值；匹配数值实验中，无约束自适应在较弱外加耦合下达到给定集体同步水平，而归一化网络在同一观测窗口内需要更强耦合；更长观测显示个体轨迹存在相干性上升、持续与下降等不同形态。</p>
+    <h4>局限与展望</h4><p>结果表明自适应的集体后果取决于连边增强是增加影响还是再分配影响；该结论基于特定稀疏有向振子网络与两种自适应规则，向其他网络拓扑、振子模型或自适应规则的推广需进一步验证；后续可合理推断的方向包括考察不同归一化约束或时变拓扑下同步阈值的系统比较。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.23237v1">
+  <div class="paper-head">
+    <h2>自由玻色共形场论中交换运动积分再研究：经认证的密度、谱刚性及 c=1 分支点处的精确识别<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23237v1" rel="noopener noreferrer">2611.23237v1</a>
+  </div>
+  <p class="original-title">Commuting integrals of motion for free bosonic CFTs revisited: certified densities, spectral rigidity, and an exact identification at the c=1 branch point</p>
+  <p class="meta"><strong>作者：</strong>Evgueniy Vitchev</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">math.QA</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文以精确算术算子乘积引擎重新考察 hep-th/0404195 中为可积边界态构造的自由玻色共形场论交换局域运动积分。一个 bootstrap 引理将该超定双线性交换系统约化为一个特殊的奇荷 D 与线性核问题，其前提为偶自旋空缺，这是一个经机器验证但仅限有限范围的输入。对于 Z_2×Z_2“回形针”族，我们公布自旋 7 密度 P_8，证明 [I_3,I_5]=[I_3,I_7]=[I_5,I_7]=0 在 n 中恒等成立，并在抽样 n 处验证自旋 7 与 9 的 Lukyanov–Vitchev–Zamolodchikov 四屏蔽刻画。对于 A_2^(2) 族，我们给出到对偶 Phi_{1,2}/Phi_{2,1} 微扰的精确库仑气体字典（该识别本身是经典的，属 Zamolodchikov；Smirnov），由此所有自旋 6n±1 的无穷层级由 Feigin–Frenkel 仿射 Toda 定理推出；我们的贡献是经认证的字典，而非新的全自旋构造。在 c=1 处，该塔的定义荷恰为 c_{1,4}=-25/2 的量子 KdV——Freeman–Hornfeck–West 族的全奇扇区：层级在每个奇自旋嵌入，等式验证至自旋 15，全自旋重数为 1 仍开放。我们在所测位点排除或不支持所命名的非 KdV 候选，并将自对偶退化识别为 L(1,0)。至自旋 11，对于全部三个 Z_2×O(N)“柱状”族，I_3 的一般中心化子在奇自旋为一维、偶自旋为零，并给出自旋 7、9、11 的 Q(t) 符号荷以及 N=-2 处有解释的纤维跳跃。我们认证 2004 年发表的低自旋公式并记录五处更正（其中一处为推测）。全自旋陈述仅在已证明处给出，否则为有限范围。最后提出一个余秩特征猜想，将双线性系统的秩亏与屏蔽核的特征标联系起来。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>重新审视自由玻色共形场论中作为可积边界态输入数据的交换局域运动积分，检验其密度、交换性、族结构及在 c=1 分支点处的精确识别。</p>
+    <h4>方法</h4><p>使用精确算术算子乘积引擎；引入 bootstrap 引理将超定双线性交换系统约化为奇荷 D 与线性核问题；对 Z_2×Z_2 族显式构造并证明交换性；对 A_2^(2) 族建立库仑气体字典并借助 Feigin–Frenkel 仿射 Toda 定理；在 c=1 处与量子 KdV 比较；对 Z_2×O(N) 族计算中心化子维数与符号荷。</p>
+    <h4>主要发现</h4><p>公布自旋 7 密度 P_8 并证明 [I_3,I_5]=[I_3,I_7]=[I_5,I_7]=0 恒等成立；在抽样 n 处验证自旋 7、9 的四屏蔽刻画；给出 A_2^(2) 族到对偶微扰的精确字典，由此全自旋 6n±1 层级成立；c=1 处定义荷精确等于 c_{1,4}=-25/2 的量子 KdV 全奇扇区，等式验证至自旋 15；排除或不支持所命名非 KdV 候选，自对偶退化识别为 L(1,0)；三个 Z_2×O(N) 族的 I_3 中心化子在奇自旋一维、偶自旋为零，并给出自旋 7、9、11 的符号荷及 N=-2 处纤维跳跃；认证 2004 年低自旋公式并记录五处更正（一处为推测）。</p>
+    <h4>局限与展望</h4><p>全自旋重数为 1 仍为开放问题；偶自旋空缺仅为有限范围机器验证输入；全自旋陈述仅在已证明处成立，其余为有限范围；文末提出的余秩特征猜想将双线性系统秩亏与屏蔽核特征标联系，尚待证明。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23238v1">
+  <div class="paper-head">
+    <h2>图极限上动力系统的谱降维<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23238v1" rel="noopener noreferrer">2611.23238v1</a>
+  </div>
+  <p class="original-title">Spectral dimension reduction of dynamical systems on graphons</p>
+  <p class="meta"><strong>作者：</strong>Naoki Masuda、Bisna Mary Eldo</p>
+  <p class="meta"><strong>主分类：</strong>math.DS
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DS</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>谱降维通过一个低维系统来近似大型网络上的动力系统，该低维系统的变量是节点状态的加权平均，权重由网络的主特征向量给出；其有效性密切关联于交互矩阵的低秩结构。本文针对稠密图极限上的动力系统，建立了该降维方法的图极限（graphon）类比。对于图极限动力系统，我们借助与图极限相关联的紧自伴积分算子来表述降维。这一算子论框架为有限网络所用的基于谱/SVD 的框架提供了连续类比：特征函数给出降维基，相应奇异值的衰减量化被舍弃模态的影响。对于有限秩图极限，我们针对两类图极限动力系统证明了精确降维结果；并进一步表明，对于有限秩图极限，降维系统保持平衡点、线性稳定性与局部分岔。对于无限秩图极限，我们给出了谱降维的误差界。使用有限秩与无限秩图极限的数值算例展示了该理论的精确与近似两种情形。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将大型网络动力系统的谱降维推广到稠密图极限（graphon）上的动力系统，并刻画降维的精确性与误差。</p>
+    <h4>方法</h4><p>利用与图极限相关联的紧自伴积分算子，将有限网络中的谱/SVD 降维框架推广为连续类比：以特征函数作为降维基，以奇异值衰减量化被舍弃模态的影响；对有限秩图极限证明精确降维及平衡点、线性稳定性和局部分岔的保持性，对无限秩图极限推导误差界，并用数值算例验证。</p>
+    <h4>主要发现</h4><p>对有限秩图极限上的两类图极限动力系统证明了精确降维结果；有限秩图极限下降维系统保持平衡点、线性稳定性与局部分岔；对无限秩图极限给出了谱降维的误差界；数值算例展示了理论的精确与近似两种情形。</p>
+    <h4>局限与展望</h4><p>原文的精确降维与结构保持结果限于有限秩图极限，无限秩情形仅有误差界；误差界的具体形式与紧性、适用范围需以原文为准。可合理推断的后续方向包括将分析推广到更一般的图极限或非自伴情形，但原文未作此断言。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23366v1">
+  <div class="paper-head">
+    <h2>矩阵模型与弦理论的精确解：全局构造<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23366v1" rel="noopener noreferrer">2611.23366v1</a>
+  </div>
+  <p class="original-title">Exact Solutions to Matrix Models and String Theories: The Global Construction</p>
+  <p class="meta"><strong>作者：</strong>Jasper Kager、João Rodrigues、Ricardo Schiappa、Maximilian Schwick、Noam Tamarin</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文通过配分函数复苏瞬子级数的离散傅里叶/Zak 变换表示，以闭式形式获得了矩阵模型与弦理论的精确非微扰解。示例涵盖所有厄米单矩阵模型（及其拓扑弦对偶）以及它们的全部多临界与最小弦双标度极限。所得结构是共振的，必然同时包含本征值（D-膜）与反本征值（负张力膜）。在配套的前一篇论文中，这些解已在局部层面得到广泛验证。为在相图上全局研究它们，仍需完整的非线性 Stokes 数据（及相应的连接公式），本文给出了所有这些数据。这涉及仔细研究（反）本征值在关联谱曲线的完整多叶结构中的隧穿，以及结果如何从多割光滑曲线退化到单割奇异曲线；所有这些都通过大阶分析与矩阵积分计算得到广泛检验。利用所得的精确 Stokes 自同构，通过在穿越所有可能 Stokes 线时正确实施 Stokes 跃迁，可以在从弱到强 &#x27;t Hooft 耦合、从大到小 N、以及所有参数取任意复值的范围内，对非微扰解进行完整检验。文中在从矩阵模型到非临界弦的多个示例中进行了若干解析与数值检验，产生了非常尖锐的数值匹配，充分验证了我们的精确解析表达式。反本征值或负张力 D-膜是获得如此精确一致性的绝对必要组成部分。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何以闭式形式获得矩阵模型与弦理论的精确非微扰解，并在整个相图上全局检验这些解。</p>
+    <h4>方法</h4><p>采用配分函数复苏瞬子级数的离散傅里叶/Zak 变换表示构造闭式解；研究（反）本征值在谱曲线多叶结构中的隧穿，获得完整的非线性 Stokes 数据与连接公式；利用精确 Stokes 自同构实施 Stokes 跃迁，并结合大阶分析与矩阵积分计算进行检验。</p>
+    <h4>主要发现</h4><p>获得了所有厄米单矩阵模型及其拓扑弦对偶、多临界与最小弦双标度极限的精确非微扰闭式解；解的结构是共振的，必然同时包含本征值与反本征值（负张力膜）；给出了完整的非线性 Stokes 数据与连接公式；在多个示例中解析与数值结果高度一致，且反本征值/负张力 D-膜对精确匹配不可或缺。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论解的局限性或适用范围；可合理推断，所得框架的全局检验依赖于正确实施所有可能 Stokes 线交叉处的 Stokes 跃迁，其向更一般模型或背景的推广有待进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23526v1">
+  <div class="paper-head">
+    <h2>将动力学时间尺度与实验设计关联到时间序列观测中的参数可辨识性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23526v1" rel="noopener noreferrer">2611.23526v1</a>
+  </div>
+  <p class="original-title">Linking Dynamical Time Scales and Experimental Design to Parameter Identifiability from Time-Series Observations</p>
+  <p class="meta"><strong>作者：</strong>Sara Shamekh、Viviana Acquaviva</p>
+  <p class="meta"><strong>主分类：</strong>physics.ao-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ao-ph</span> <span class="tag">nlin.CD</span> <span class="tag">physics.data-an</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>混沌模型中的参数估计通常依赖预先指定的汇总统计量，而这些统计量能否约束参数往往难以事先确定。不同参数影响动力学中不同的特征和时间尺度，因此约束它们所需的记录长度和采样间隔可能不同。本文选择直接从轨迹中学习一种表示，并将其作为汇总统计量。产生该表示的循环编码器与条件归一化流联合训练，用于摊销式后验估计。我们使用 Lorenz-63 和双尺度 Lorenz-96 系统，研究推断如何依赖于观测变量、记录长度和采样间隔，并与最先进的 Calibrate–Emulate–Sample 方法进行比较。在 Lorenz-96 中，对于若干参数，基于 2 个模型时间单位（MTU）记录的学习汇总所达到的估计技能，与基于显著更长记录的预设二阶矩统计量相当。在所测试的 2 至 100 MTU 窗口内，快过程参数始终难以被慢变量记录约束；而加入快场平均值后，可从 2 MTU 起改善其恢复。较粗的采样会削弱基于快场观测的推断，但更长的时间覆盖可部分补偿。针对给定观测设置训练完成后，所开发的估计器无需进一步模型积分即可为兼容记录返回后验。这些概念验证结果说明了如何利用数据驱动的汇总学习来指导动力系统中的观测设计。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在混沌模型中，如何根据动力学时间尺度与观测设计（观测变量、记录长度、采样间隔）来评估和实现参数可辨识性，并避免依赖难以事先确定约束能力的预设汇总统计量。</p>
+    <h4>方法</h4><p>从轨迹中直接学习表示作为汇总统计量；使用循环编码器与条件归一化流联合训练进行摊销式后验估计；在 Lorenz-63 和双尺度 Lorenz-96 系统上考察推断对观测变量、记录长度和采样间隔的依赖，并与 Calibrate–Emulate–Sample 方法比较。</p>
+    <h4>主要发现</h4><p>在 Lorenz-96 中，对于若干参数，基于 2 MTU 记录的学习汇总达到与显著更长记录的预设二阶矩统计量相当的估计技能；在所测试的 2 至 100 MTU 窗口内，快过程参数始终难以被慢变量记录约束，而加入快场平均值可从 2 MTU 起改善其恢复；较粗采样削弱基于快场观测的推断，但更长覆盖可部分补偿；估计器训练完成后无需进一步模型积分即可为兼容记录返回后验。</p>
+    <h4>局限与展望</h4><p>结果为概念验证性质；快过程参数在慢变量记录下的弱约束、粗采样对快场推断的削弱等局限在测试范围内存在，适用范围可能受系统与观测设置限制。后续可合理推断的方向包括：将学习汇总用于指导观测设计，以及在更广泛动力系统和观测配置中检验该框架的泛化性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23539v1">
+  <div class="paper-head">
+    <h2>可部署硬约束湍流闭合模型的构建<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23539v1" rel="noopener noreferrer">2611.23539v1</a>
+  </div>
+  <p class="original-title">Construction of a Deployable Hard-Constrained Turbulence Closure</p>
+  <p class="meta"><strong>作者：</strong>Tamerlan Hajiyev、Emre Sefer、Ivan Otić、Ismail Ari、Özgür Ertunç</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">cond-mat.dis-nn</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一个用于构建可部署硬约束湍流闭合模型的框架，该闭合模型针对雷诺应力与湍流耗散率输运方程中的未闭合项。框架由执行单一任务的模块组成：闭合模块以小规模网络表示闭合项，状态模块表示训练过程中的流动状态；闭合网络通过控制方程残差与状态网络耦合，从而无需以参考闭合值作为训练数据即可学习闭合项。坐标模块学习单调输入坐标，帮助两个网络分辨急剧变化。在网络架构内，边界条件（BC）模块利用泛函连接理论精确施加边界值，可实现性模块保持闭合项的可实现性。我们将该框架应用于衰减均匀各向同性湍流（HIT），使用实验与直接数值模拟轨迹。其中，状态模块为深度算子网络（DeepONet），BC 模块施加初始状态以及闭合项的低、高雷诺数极限，可实现性模块确保泰勒微尺度增长。在十个随机种子下，相对于无约束模型，该框架在训练范围与留出范围内将种子间闭合项的均方根变化降低约 95%。部署的 18 参数闭合网络仅需泰勒尺度雷诺数，并可导出为独立的 C 函数。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何构建可部署、满足硬约束且无需参考闭合值作为训练数据的湍流闭合模型，用于雷诺应力与湍流耗散率输运方程中的未闭合项。</p>
+    <h4>方法</h4><p>提出模块化框架：闭合模块用小网络表示闭合项，状态模块表示流动状态，二者通过控制方程残差耦合；坐标模块学习单调输入坐标；BC 模块基于泛函连接理论精确施加边界值；可实现性模块保持可实现性。在衰减均匀各向同性湍流上，以 DeepONet 作为状态模块，结合实验与直接数值模拟轨迹进行训练与评估。</p>
+    <h4>主要发现</h4><p>在十个随机种子下，相对于无约束模型，该框架在训练范围与留出范围内将种子间闭合项的均方根变化降低约 95%；部署的 18 参数闭合网络仅需泰勒尺度雷诺数，并可导出为独立的 C 函数。</p>
+    <h4>局限与展望</h4><p>原文仅在衰减均匀各向同性湍流上验证该框架，其向其他流动构型与更高雷诺数条件的适用性尚待检验；框架对模块选择与约束设计的敏感性、以及导出闭合网络在实际求解器中的部署表现，是后续可合理探索的方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.23870v1">
+  <div class="paper-head">
+    <h2>具有固定连边的共演化投票者模型中的局域活跃相<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.23870v1" rel="noopener noreferrer">2611.23870v1</a>
+  </div>
+  <p class="original-title">Localized active phase in the coevolving voter model with fixed links</p>
+  <p class="meta"><strong>作者：</strong>Hoseung Jang、Maxi San Miguel、Byungjoon Min</p>
+  <p class="meta"><strong>主分类：</strong>physics.soc-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.soc-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>共演化投票者模型（CVM）通过复制与重连动力学描述节点状态与网络拓扑的协同演化，传统上假设所有连边均可重连，忽略了家庭或亲密友谊等不可断裂的现实关系。为此，本文引入不可重连的固定连边，研究此类结构约束如何改变 CVM 的集体动力学。除 CVM 原有的活跃相与冻结相外，作者发现了一个新的局域活跃相：在该相中，活跃性在逾渗转变之后由固定连边构成的巨连通分支维持。该新相的存在由一种超越标准对近似的矩闭合近似所预测。该相在有限系统中的表现形式为非对称碎片化相。此外，CVM 的活跃—冻结转变（在有限系统中表现为碎片化转变）因固定连边的存在而被推迟至更大的重连率。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>当网络中部分连边不可重连（固定连边）时，共演化投票者模型的集体动力学与相变行为如何被结构约束改变。</p>
+    <h4>方法</h4><p>在 CVM 中引入不可重连的固定连边，并结合超越标准对近似的矩闭合近似进行理论预测，辅以有限系统的数值分析。</p>
+    <h4>主要发现</h4><p>除活跃相与冻结相外，发现一个新的局域活跃相，其活跃性在逾渗转变之后由固定连边的巨连通分支维持；该相的存在由矩闭合近似预测，其有限尺寸表现为非对称碎片化相；固定连边使活跃—冻结转变（有限系统中表现为碎片化转变）推迟到更大的重连率。</p>
+    <h4>局限与展望</h4><p>原文未讨论固定连边比例、网络结构等参数的系统性影响，也未给出实验验证；后续可合理推断的方向包括检验矩闭合近似在更一般网络与参数区间下的适用性，以及将固定连边机制推广至其他共演化网络模型。</p>
+  </section>
+</article><article class="paper" id="paper-2611.24523v1">
+  <div class="paper-head">
+    <h2>具有一般状态方程的流体-泊松等离子体中离子声孤子的基本导数临界性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.24523v1" rel="noopener noreferrer">2611.24523v1</a>
+  </div>
+  <p class="original-title">Fundamental-derivative criticality of ion-acoustic solitons in fluid-Poisson plasmas with general equations of state</p>
+  <p class="meta"><strong>作者：</strong>Hernán Pastenes、Juan F. Marín</p>
+  <p class="meta"><strong>主分类：</strong>physics.plasm-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.plasm-ph</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>非理想离子可压缩性会改变离子声波的非线性。本文在具有玻尔兹曼电子和正压离子状态方程的流体-泊松等离子体中，将二次KdV系数与有效声压的基本导数联系起来；该系数的消失标志着真正非线性性的丧失。状态方程的高阶导数决定三次约化是聚焦还是散焦，并支配同时临界时的四次通量约化。精确的Sagdeev表述区分了压缩与稀疏孤子分支及其Gardner展开。精确延拓识别出一个由状态方程控制的稀疏双层边界，该边界既不同于三次临界点，也不同于逐轨道压力斜率阈值。当接近该边界时，孤子形成对数展宽的平顶，精确Sagdeev求积定量再现了标准鞍点通过规律。沿该边界趋向声学余维二点时，指数局域长度发散而振幅消失。完整的流体-泊松模拟证实了所选精确驻定剖面的有限时间传播。本文结果将声学临界性、精确轨道可容许性与色散等离子体中状态方程控制的孤立波联系起来。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>非理想离子可压缩性如何通过状态方程影响流体-泊松等离子体中离子声波的非线性，以及二次KdV系数消失所标志的临界性、高阶约化与孤子分支结构如何由状态方程决定。</p>
+    <h4>方法</h4><p>采用具有玻尔兹曼电子和正压离子状态方程的流体-泊松模型，将二次KdV系数与有效声压的基本导数相联系，利用状态方程高阶导数分析三次与四次通量约化，并使用精确Sagdeev表述与精确延拓区分孤子分支、识别稀疏双层边界，辅以完整流体-泊松模拟验证驻定剖面的传播。</p>
+    <h4>主要发现</h4><p>二次KdV系数与有效声压的基本导数相关，其消失标志真正非线性性丧失；状态方程高阶导数决定三次约化的聚焦或散焦性质并支配同时临界时的四次通量约化；精确Sagdeev表述区分压缩与稀疏孤子分支及其Gardner展开；精确延拓识别出由状态方程控制的稀疏双层边界，该边界不同于三次临界点和逐轨道压力斜率阈值；接近该边界时孤子出现对数展宽平顶，精确Sagdeev求积定量再现标准鞍点通过规律；沿边界趋向声学余维二点时指数局域长度发散而振幅消失；完整流体-泊松模拟证实所选精确驻定剖面的有限时间传播。</p>
+    <h4>局限与展望</h4><p>本文结果限于具有玻尔兹曼电子和正压离子状态方程的流体-泊松模型；所识别的临界性与边界在更一般动理学或非正压条件下的适用性尚待检验，后续可合理推断需进一步研究状态方程形式对临界点附近孤子稳定性和动力学演化的影响。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-19 14:41 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
