@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-20</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">8</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">4</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（4）</h3><ol class="toc-list"><li><a href="#paper-2611.25241v1">对 D234 Dirac 算符的检验</a> <small>2611.25241v1</small></li><li><a href="#paper-2611.25943v1">利用复朗之万方程研究物理点处热密QCD的状态方程</a> <small>2611.25943v1</small></li><li><a href="#paper-2611.26415v1">U(1)量子链接模型退禁闭相变中的半弦</a> <small>2611.26415v1</small></li><li><a href="#paper-2611.26443v1">从格点QCD计算π介子与核子胶子部分子分布函数综述</a> <small>2611.26443v1</small></li></ol><h3>交叉列表（4）</h3><ol class="toc-list"><li><a href="#paper-2611.25062v1">手征微扰理论中的自然性标度推断与手征对数</a> <small>2611.25062v1</small></li><li><a href="#paper-2611.25573v1">基于物理点格点QCD的近幺正NΩ相互作用下pnΩ⁻系统的结构与束缚</a> <small>2611.25573v1</small></li><li><a href="#paper-2611.25749v1">手征费米子的二阶表述与局域边界条件</a> <small>2611.25749v1</small></li><li><a href="#paper-2611.26257v1">从时间谱中快速提取普适数据：应用于Haagerup共形场论与单极子散射</a> <small>2611.26257v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.25241v1">
+  <div class="paper-head">
+    <h2>对 D234 Dirac 算符的检验<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.25241v1" rel="noopener noreferrer">2611.25241v1</a>
+  </div>
+  <p class="original-title">Testing the D234 Dirac operator</p>
+  <p class="meta"><strong>作者：</strong>Jorge Baeza-Ballesteros、Andreas Risch、Mattis Roost、Stefan Schaefer、Rainer Sommer</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究一种 D234 费米子作用量。该作用量在非微扰 O(a) 改进的基础上，还在树图层次对 O(a^2) 进行了改进。所考虑的版本还采用一级 stout smearing 对规范链进行平滑，并以指数化形式引入 clover 项。我们在淬火近似下将该作用量与 clover 改进的 Wilson 作用量进行比较。结果表明，所提出的作用量在显著程度上减小了离散化效应和旋转对称性破坏，同时也减少了 Dirac 算符谱中异常小本征值的存在。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>检验一种在非微扰 O(a) 改进基础上进一步做树图级 O(a^2) 改进、并采用一级 stout smearing 与指数化 clover 项的 D234 费米子作用量，评估其相对于 clover 改进 Wilson 作用量的表现。</p>
+    <h4>方法</h4><p>在淬火近似下，将所考虑的 D234 作用量与 clover 改进的 Wilson 作用量进行对比研究。</p>
+    <h4>主要发现</h4><p>原文明确指出：所提出的作用量在显著程度上减小了离散化效应和旋转对称性破坏，并减少了 Dirac 算符谱中异常小本征值的存在。</p>
+    <h4>局限与展望</h4><p>原文仅在淬火近似下进行比较，尚未涉及动力学费米子情形；其结论的适用范围受此限制。后续可合理推断的方向包括在含动力学夸克的模拟中进一步检验该作用量，但原文未对此作出结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.25943v1">
+  <div class="paper-head">
+    <h2>利用复朗之万方程研究物理点处热密QCD的状态方程<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.25943v1" rel="noopener noreferrer">2611.25943v1</a>
+  </div>
+  <p class="original-title">Equation of state of hot and dense QCD at the physical point via the complex Langevin equation</p>
+  <p class="meta"><strong>作者：</strong>Michael Mandl、Dénes Sexty、Daniel Unterhuber</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本研究首次给出了利用复朗之万方程（complex Langevin equation）得到的2+1+1味QCD在物理点处的状态方程结果。我们计算了经连续极限外推的热力学量，包括重子数密度、压强、声速和绝热压缩率。模拟在等旋对称、奇异数与粲数均为零的设定下进行，温度高于交叉温度，并达到了前所未有的大的重子化学势。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究物理点处2+1+1味QCD在有限重子化学势下的状态方程，即重子数密度、压强、声速与绝热压缩率等热力学量。</p>
+    <h4>方法</h4><p>采用复朗之万方程对2+1+1味QCD进行数值模拟，设定为等旋对称、奇异数与粲数中性，温度高于交叉温度且重子化学势很大；并对热力学量作连续极限外推。</p>
+    <h4>主要发现</h4><p>原文明确报告：首次给出该设定下物理点处2+1+1味QCD状态方程的结果，并给出经连续极限外推的重子数密度、压强、声速和绝热压缩率；模拟在高于交叉温度、前所未有的大重子化学势下完成。</p>
+    <h4>局限与展望</h4><p>原文未讨论局限性或后续方向。可合理推断：复朗之万方法在此类大化学势模拟中的系统误差与适用范围仍需进一步检验；所得状态方程可与其它方法或实验相关观测量作交叉验证，但以上均为推断，非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26415v1">
+  <div class="paper-head">
+    <h2>U(1)量子链接模型退禁闭相变中的半弦<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.26415v1" rel="noopener noreferrer">2611.26415v1</a>
+  </div>
+  <p class="original-title">Half-strings across the deconfinement transition of a $U(1)$ quantum link model</p>
+  <p class="meta"><strong>作者：</strong>Indrajit Sau、Arnab Sen、Debasish Banerjee</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.str-el</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>禁闭现象是高能物理与凝聚态物理中规范理论研究的核心特征之一，它使量子色动力学（QCD）中的强子作为夸克（和胶子）的束缚态稳定存在，并在纯规范理论中表现为弦。量子模拟器实现此类弦的前景推动了对大量较简单格点规范理论（LGT）的研究。量子链接模型（QLM）推广了Wilson格点规范理论，并给出更丰富的禁闭情形。例如，在自旋-1/2的U(1) QLM中，连接两个静态电荷的弦会发生分数化，从而产生自发破坏点群与内部对称性的禁闭相。此前PRL 130, 071901 (2023)的工作进一步表明，向该模型加入退火（annealed）Q=±2电荷会定性改变禁闭-退禁闭相变。本文通过细致提取临界温度T_c与临界指数，考察存在与不存在退火电荷两种情形下的有限温度相变；并比较有、无退火电荷的理论在零温与有限温下的（有效）弦张力σ。含退火电荷的QLM的T_c/√σ与通常的Z_2规范理论相近，而不含该电荷的理论给出一个新的普适值。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究自旋-1/2 U(1)量子链接模型中，加入退火Q=±2电荷与否对有限温度禁闭-退禁闭相变的影响，包括临界温度、临界指数以及零温与有限温下（有效）弦张力的行为。</p>
+    <h4>方法</h4><p>通过细致提取临界温度T_c与临界指数来考察有限温度相变，并比较有、无退火电荷两种理论在零温与有限温下的（有效）弦张力σ，进而比较无量纲比值T_c/√σ。</p>
+    <h4>主要发现</h4><p>含退火电荷的QLM的T_c/√σ与通常的Z_2规范理论相近；不含退火电荷的理论则给出一个新的普适值。</p>
+    <h4>局限与展望</h4><p>摘要未讨论局限性或适用范围；后续可合理推断的方向包括在量子模拟器平台上检验这些临界行为，但该推断需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26443v1">
+  <div class="paper-head">
+    <h2>从格点QCD计算π介子与核子胶子部分子分布函数综述<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.26443v1" rel="noopener noreferrer">2611.26443v1</a>
+  </div>
+  <p class="original-title">Review of Pion and Nucleon Gluon Parton Distribution Functions from Lattice QCD</p>
+  <p class="meta"><strong>作者：</strong>William Good、Huey-Wen Lin</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>胶子在量子色动力学（QCD）描述的强相互作用中起着关键作用，是将夸克束缚为强子的重要媒介。理解QCD的基本动力学如何产生强子结构，仍是核物理与粒子物理领域的重大挑战之一。部分子分布函数（PDFs）为描述涉及强子的高能散射过程提供了成功的理论框架。然而，由于直接约束强子胶子结构在实验上存在困难，人们对胶子PDFs的认识相对有限。近年来，一项重要突破使得直接从格点QCD计算PDFs的Bjorken-$x$依赖成为可能。在现有方法中，大动量有效理论（LaMET）与赝-PDF框架已成为应用最广泛的方法，并产生了大多数格点部分子分布的确定结果。这些进展推动了强子$x$依赖结构的第一性原理研究快速发展，其中包括核子与赝标量介子的胶子PDFs。本综述总结了利用LaMET与赝-PDF方法进行胶子PDFs格点QCD计算的最新进展，讨论了当前状况及这些发展的影响，并指出了尚存的挑战与未来机遇。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从第一性原理（格点QCD）出发，计算核子与赝标量介子（如π介子）中胶子的Bjorken-$x$依赖部分子分布函数，并评估LaMET与赝-PDF两类方法的现状、影响与挑战。</p>
+    <h4>方法</h4><p>综述性总结：梳理近年来基于格点QCD、采用大动量有效理论（LaMET）与赝-PDF框架计算胶子PDFs的方法与结果，并讨论这些方法在强子$x$依赖结构研究中的应用。</p>
+    <h4>主要发现</h4><p>原文指出，直接通过实验约束强子胶子结构存在困难，导致胶子PDFs的知识相对有限；近年来已实现从格点QCD直接计算PDFs的Bjorken-$x$依赖；在现有方法中，LaMET与赝-PDF框架应用最广，并产生了大多数格点部分子分布确定结果；这些进展推动了包括核子与赝标量介子胶子PDFs在内的强子$x$依赖结构第一性原理研究的快速发展。</p>
+    <h4>局限与展望</h4><p>原文明确指出仍存在挑战与未来机遇，但未在摘要中具体展开。可合理推断：后续工作需进一步应对胶子PDFs格点计算中的系统误差与方法适用范围等问题；具体挑战内容需参见综述正文，摘要本身未作断言。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.25062v1">
+  <div class="paper-head">
+    <h2>手征微扰理论中的自然性标度推断与手征对数<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.25062v1" rel="noopener noreferrer">2611.25062v1</a>
+  </div>
+  <p class="original-title">Naturalness scale inference in chiral perturbation theory and chiral logarithms</p>
+  <p class="meta"><strong>作者：</strong>Tara Hassanzadeh、Martin Hoferichter、Lucas Platter、Jacobo Ruiz de Elvira、Matthias R. Schindler</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文采用扩展后的贝叶斯方法推断介子区手征微扰理论的自然性标度，该方法显式纳入手征对数项。为演示该框架，作者考察了π介子衰变常数 $F_\pi$ 的手征展开以及 $\pi\pi$ 散射的阈参数与阈下参数。结果表明，推断出的自然性标度具有显著的观测量依赖性，且这些标度不必与手征展开逐阶层级关系失效处的π介子质量相重合。作为应用，文中讨论了格点QCD对 $O(p^6)$ 低能常数两个组合施加约束所需的条件：在当前将Roy方程分析与手征微扰理论匹配的工作中，这两个组合需借助共振饱和进行估计，但原则上可由 $\pi\pi$ 散射参数对π介子质量的依赖关系中提取。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用显式包含手征对数的贝叶斯方法推断手征微扰理论介子区的自然性标度，并考察这些标度是否与手征展开失效处的π介子质量一致。</p>
+    <h4>方法</h4><p>将贝叶斯推断技术扩展至显式纳入手征对数，并应用于 $F_\pi$ 的手征展开以及 $\pi\pi$ 散射的阈参数和阈下参数。</p>
+    <h4>主要发现</h4><p>推断出的自然性标度强烈依赖于所考察的观测量；这些标度不必与手征展开逐阶层级关系失效处的π介子质量相重合。</p>
+    <h4>局限与展望</h4><p>文中讨论了格点QCD约束 $O(p^6)$ 低能常数两个组合所需的条件，这两个组合目前需由共振饱和估计，但或可从 $\pi\pi$ 散射参数的π介子质量依赖中提取；该方向的可行性取决于格点QCD精度等条件，属原文讨论的应用前景而非已实现结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.25573v1">
+  <div class="paper-head">
+    <h2>基于物理点格点QCD的近幺正NΩ相互作用下pnΩ⁻系统的结构与束缚<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.25573v1" rel="noopener noreferrer">2611.25573v1</a>
+  </div>
+  <p class="original-title">Structure and Binding of the \texorpdfstring{$pnΩ^-$}{pnOmega} System with a Near-Unitary \texorpdfstring{$NΩ$}{NOmega} Interaction from Physical-Point Lattice QCD</p>
+  <p class="meta"><strong>作者：</strong>Faisal Etminan</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在I(J^P)=0(5/2^+)道中，采用物理点HAL QCD的NΩ(^{5}S_2)相互作用，研究pnΩ⁻系统的束缚性质与空间结构。两体哈密顿量包含自旋三重态pn相互作用以及pΩ⁻对中的有限体积库仑吸引。利用高斯展开法（GEM）求解三体薛定谔方程，并纳入全部三种雅可比重排构型。对于t/a=14处的中心HAL QCD势，计算得到的三体束缚能为18.63 MeV，相对于d+Ω⁻阈值的分离能为16.39 MeV。通过粒子间均方根距离、对关联与旁观者径向分布以及两个雅可比坐标之间的关联考察空间结构。与冻结氘核折叠参考相比，完整三体解给出显著更紧凑的旁观者分布以及收缩的pn对。本文还评估了结果对HAL QCD势欧几里得时间选择的依赖性。上述结果刻画了在所采用的两体模型框架内由吸引性NΩ相互作用诱导的三体重排。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在物理点HAL QCD的NΩ(^{5}S_2)相互作用下，I(J^P)=0(5/2^+)道中pnΩ⁻三体系统是否束缚，其束缚能、分离能及空间结构如何，以及结果对HAL QCD势的欧几里得时间选择是否敏感。</p>
+    <h4>方法</h4><p>采用物理点HAL QCD NΩ(^{5}S_2)相互作用，两体哈密顿量包含自旋三重态pn相互作用与pΩ⁻对的有限体积库仑吸引；用高斯展开法（GEM）求解三体薛定谔方程，纳入全部三种雅可比重排构型；通过粒子间均方根距离、对与旁观者径向分布及两个雅可比坐标的关联分析空间结构，并与冻结氘核折叠参考比较；同时评估对HAL QCD势欧几里得时间选择的依赖性。</p>
+    <h4>主要发现</h4><p>对t/a=14处的中心HAL QCD势，三体束缚能为18.63 MeV，相对d+Ω⁻阈值的分离能为16.39 MeV；与冻结氘核折叠参考相比，完整三体解的旁观者分布显著更紧凑，pn对出现收缩；结果刻画了在所采用两体模型框架内由吸引性NΩ相互作用诱导的三体重排。</p>
+    <h4>局限与展望</h4><p>结果依赖于所采用的两体模型与特定HAL QCD势（如t/a=14的中心势），并受有限体积库仑处理及欧几里得时间选择的影响；后续可进一步检验不同欧几里得时间与势模型下结论的稳健性，并拓展至其他道或更完整的相互作用（此句为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.25749v1">
+  <div class="paper-head">
+    <h2>手征费米子的二阶表述与局域边界条件<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.25749v1" rel="noopener noreferrer">2611.25749v1</a>
+  </div>
+  <p class="original-title">Second-order formulation of chiral fermions with a local boundary condition</p>
+  <p class="meta"><strong>作者：</strong>Kazuya Yonekura</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在 $d$ 维中，手征费米子可自然地实现为 $d+1$ 维有质量费米子在局域边界条件下的边界模式。当不存在反常时，该构造可用于定义内禀的 $d$ 维手征费米子理论。然而，即使是在连续极限下，用带此边界条件的一阶 Dirac 算子定义路径积分在技术上也并不方便。我们提出一种用二阶微分算子表述的形式，它在连续极限下与原始表述完全等价。其自然的格点离散化会自动生成 Wilson 项并避免费米子倍增。我们的格点表述与 Shamir 的边界费米子构造十分相似，并为一般 Wilson 参数的情形提供了一定的洞察。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何用技术上更方便的方式表述带局域边界条件的手征费米子，并给出其格点离散化。</p>
+    <h4>方法</h4><p>将原本基于一阶 Dirac 算子的边界条件表述改写为二阶微分算子表述，并进行自然格点离散化。</p>
+    <h4>主要发现</h4><p>二阶表述在连续极限下与原始一阶表述完全等价；其自然格点离散化生成 Wilson 项并避免费米子倍增；该格点表述与 Shamir 的边界费米子构造十分相似，并对一般 Wilson 参数情形提供一定洞察。</p>
+    <h4>局限与展望</h4><p>原文未讨论非微扰数值结果或具体误差分析；可合理推断该表述可用于研究一般 Wilson 参数下的边界费米子性质，但需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26257v1">
+  <div class="paper-head">
+    <h2>从时间谱中快速提取普适数据：应用于Haagerup共形场论与单极子散射<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26257v1" rel="noopener noreferrer">2611.26257v1</a>
+  </div>
+  <p class="original-title">Fast extraction of universal data from temporal spectrum: Applications to Haagerup CFT and monopole scattering</p>
+  <p class="meta"><strong>作者：</strong>Tokiro Numasawa、Boris De Vos、Masataka Watanabe、Atsushi Ueda</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.str-el
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.str-el</span> <span class="tag">hep-lat</span> <span class="tag">hep-th</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在格点上精确提取共形场论（CFT）的普适数据传统上需要对临界系统的基态和激发态进行大规模模拟。本文提出一种替代性的精确快速算法，通过在短时间虚时演化后从无限矩阵乘积态的转移矩阵谱中读取CFT谱。我们将该方法应用于提取Haagerup CFT的电荷分辨谱至更高能级，并得到中心电荷 c = 2.137(27)。此外，我们表明Maldacena--Ludwig单极子边界可以在时空旋转后实现为Fidkowski--Kitaev哈密顿量的基态。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从格点模型中快速、精确地提取共形场论的普适数据（如中心电荷和能谱），并应用于Haagerup CFT及单极子边界。</p>
+    <h4>方法</h4><p>提出一种基于无限矩阵乘积态（iMPS）的算法：先进行短时间虚时演化，然后从转移矩阵的谱中读取CFT谱；应用于Haagerup CFT的电荷分辨谱提取，并利用时空旋转将Maldacena--Ludwig单极子边界实现为Fidkowski--Kitaev哈密顿量的基态。</p>
+    <h4>主要发现</h4><p>成功提取了Haagerup CFT的电荷分辨谱至更高能级，得到中心电荷 c = 2.137(27)；表明Maldacena--Ludwig单极子边界可作为Fidkowski--Kitaev哈密顿量在时空旋转后的基态实现。</p>
+    <h4>局限与展望</h4><p>该方法为格点CFT谱提取提供了高效途径，但原文未讨论其误差来源和适用条件；未来可能推广至其他CFT或边界态的研究（此为合理推断）。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-20 14:12 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

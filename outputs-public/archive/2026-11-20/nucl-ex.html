@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-11-20</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">2</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2611.24957v1">ALICE数据中pp碰撞的Renyi熵研究——与UrQMD模拟及AI辅助建模的比较</a> <small>2611.24957v1</small></li><li><a href="#paper-2611.25487v1">STAR实验在√s_NN=14.6、17.3、19.6和27 GeV Au+Au碰撞中包容性J/ψ产生的测量</a> <small>2611.25487v1</small></li></ol><h3>交叉列表（2）</h3><ol class="toc-list"><li><a href="#paper-2611.25933v1">基于Pythia8框架的LHC pPb碰撞中包容性与衍射D介子光产生</a> <small>2611.25933v1</small></li><li><a href="#paper-2611.26404v1">形变原子核中计算之后的解释</a> <small>2611.26404v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.24957v1">
+  <div class="paper-head">
+    <h2>ALICE数据中pp碰撞的Renyi熵研究——与UrQMD模拟及AI辅助建模的比较<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.24957v1" rel="noopener noreferrer">2611.24957v1</a>
+  </div>
+  <p class="original-title">A Study of Renyi Entropy in pp Collisions by ALICE Data- A Comparison with UrQMD Simulation and AI-Assisted Modeling</p>
+  <p class="meta"><strong>作者：</strong>Swarnapratim Bhattacharyya</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文对ALICE合作组在质心能量√s=2.76、7和13 TeV的pp碰撞中、于其选定的赝快度区间与横动量范围内测得的带电粒子多重数分布，开展了Renyi熵的阶数依赖性与能量依赖性的系统研究。ALICE合作组曾用PYTHIA 8.306与EPOS-LHC模型比较该带电粒子多重数分布，因此本文亦基于ALICE合作组所报告的相应PYTHIA 8.306与EPOS-LHC模型结果计算了Renyi熵。作者还针对相同碰撞能量与运动学接受度独立生成了UrQMD模拟，并据此进行了独立比较。此外，本文引入一种AI辅助的多重数分布，作为Renyi熵估计的辅助统计参考。在所有情形下，Renyi熵均随阶数q增大而呈下降趋势，表明pp碰撞中存在多重分形性。对于给定阶数，Renyi熵的数值随碰撞能量从√s=2.76 TeV增至13 TeV而系统性增大，反映出粒子产生过程的无序度与动力学涨落增强。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究pp碰撞中带电粒子多重数分布所计算的Renyi熵对阶数q的依赖性与对碰撞能量（√s=2.76、7、13 TeV）的依赖性，并将ALICE实验数据与PYTHIA 8.306、EPOS-LHC模型结果、作者自行生成的UrQMD模拟以及AI辅助多重数分布进行比较。</p>
+    <h4>方法</h4><p>基于ALICE合作组在选定赝快度区间与横动量范围内测得的带电粒子多重数分布计算Renyi熵；同时利用ALICE报告的PYTHIA 8.306与EPOS-LHC模型结果、作者针对相同能量与运动学接受度独立生成的UrQMD模拟，以及一种AI辅助多重数分布作为辅助统计参考，进行系统比较。</p>
+    <h4>主要发现</h4><p>在所有情形下，Renyi熵均随阶数q增大而下降，表明pp碰撞中存在多重分形性；对于给定阶数，Renyi熵数值随碰撞能量从√s=2.76 TeV增至13 TeV而系统性增大，反映出粒子产生过程的无序度与动力学涨落增强。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；基于其比较框架可合理推断，AI辅助多重数分布仅作为辅助统计参考，其物理含义与适用性有待进一步检验，且结论限于ALICE所选赝快度区间与横动量范围内的pp碰撞。上述推断需谨慎对待。</p>
+  </section>
+</article><article class="paper" id="paper-2611.25487v1">
+  <div class="paper-head">
+    <h2>STAR实验在√s_NN=14.6、17.3、19.6和27 GeV Au+Au碰撞中包容性J/ψ产生的测量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.25487v1" rel="noopener noreferrer">2611.25487v1</a>
+  </div>
+  <p class="original-title">Measurements of inclusive $J/ψ$ production in Au+Au collisions at $\sqrt{s_{\rm NN}}$ = 14.6, 17.3, 19.6, and 27 GeV with the STAR experiment</p>
+  <p class="meta"><strong>作者：</strong>The STAR Collaboration</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>利用相对论重离子对撞机（RHIC）上的STAR探测器，测量了质心系每核子-核子对能量√s_NN=14.6、17.3、19.6和27 GeV的Au+Au碰撞中中快度区（|y|&lt;1.0）的包容性J/ψ产生。采用核修正因子R_AA量化J/ψ产生相对于插值p+p参考的修改。测得的R_AA显示出从外围到中心碰撞略微下降的趋势，在所有碰撞能量下0-20%中心度区间约为0.5。与√s_NN=200 GeV Au+Au碰撞中J/ψ R_AA对横动量p_T依赖很弱的类似测量不同，14.6-27 GeV较低碰撞能量下的相应R_AA呈现出随p_T增加的趋势。此外，对J/ψ p_T积分后的中心碰撞包容性J/ψ R_AA在14.6至200 GeV能量范围内于不确定度内无显著变化。这些结果可由包含热核物质效应和冷核物质效应的输运模型定性描述。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在√s_NN=14.6、17.3、19.6和27 GeV的Au+Au碰撞中，包容性J/ψ产生相对于p+p参考如何被修改，以及核修正因子R_AA对中心度、横动量和碰撞能量的依赖关系。</p>
+    <h4>方法</h4><p>使用RHIC上的STAR探测器测量中快度区（|y|&lt;1.0）Au+Au碰撞中的包容性J/ψ产生，并以插值p+p参考计算核修正因子R_AA。</p>
+    <h4>主要发现</h4><p>R_AA显示出从外围到中心碰撞略微下降的趋势，在所有碰撞能量下0-20%中心度区间约为0.5；与200 GeV下R_AA对p_T依赖很弱不同，14.6-27 GeV下R_AA呈现随p_T增加的趋势；对p_T积分后的中心碰撞R_AA在14.6至200 GeV范围内于不确定度内无显著变化。</p>
+    <h4>局限与展望</h4><p>原文指出这些结果可由包含热核物质效应和冷核物质效应的输运模型定性描述；摘要未给出定量约束或对模型细节的进一步检验，相关推断需谨慎。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.25933v1">
+  <div class="paper-head">
+    <h2>基于Pythia8框架的LHC pPb碰撞中包容性与衍射D介子光产生<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.25933v1" rel="noopener noreferrer">2611.25933v1</a>
+  </div>
+  <p class="original-title">Inclusive and diffractive D meson photoproduction in $pPb$ collisions at the LHC using Pythia8 framework</p>
+  <p class="meta"><strong>作者：</strong>Victor P. Goncalves、Luana Santana、Wolfgang Schäfer</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在Pythia8框架内系统分析了ep与超周边pPb碰撞中包容性和衍射D介子光产生。我们将采用不同质子PDF与Pomeron PDF得到的预言与HERA上H1实验的包容性和衍射D*光产生测量进行了比较，并给出了LHC上包容性和衍射D0光产生的快度分布与横动量分布预言。分析表明，在低p_T和前向快度区域，衍射贡献超过15%，这提示衍射D0光产生在未来LHC运行中可能具有可观测性。此外，超周边pPb碰撞中包容性和衍射D0光产生的测量有助于约束质子PDF与Pomeron PDF。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在Pythia8框架下，ep和超周边pPb碰撞中包容性与衍射D介子光产生的描述及其对质子PDF和Pomeron PDF的约束能力。</p>
+    <h4>方法</h4><p>基于Pythia8框架，采用不同质子PDF与Pomeron PDF计算包容性和衍射D介子光产生，并与HERA上H1的D*光产生测量比较，进而给出LHC上D0光产生的快度与横动量分布预言。</p>
+    <h4>主要发现</h4><p>与H1测量的比较用于检验所用PDF；预言显示在低p_T和前向快度区域衍射贡献超过15%，表明衍射D0光产生在未来LHC运行中可能可及；超周边pPb碰撞中包容性和衍射D0光产生的测量可帮助约束质子PDF与Pomeron PDF。</p>
+    <h4>局限与展望</h4><p>上述结论基于Pythia8框架及所选取的PDF集合，其适用范围受模型与PDF选择限制；衍射D0光产生在未来LHC运行中的可观测性以及利用pPb测量约束PDF的可行性，仍需实验数据检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26404v1">
+  <div class="paper-head">
+    <h2>形变原子核中计算之后的解释<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26404v1" rel="noopener noreferrer">2611.26404v1</a>
+  </div>
+  <p class="original-title">Interpretation follows computation for deformed atomic nuclei</p>
+  <p class="meta"><strong>作者：</strong>G. Hagen、T. Papenbrock</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在实验与从头计算中解释核能级具有挑战性，因为这需要产生并分析大量期望值与跃迁强度。本文提出一种可直接给出可解释态的方法。我们的从头耦合簇计算从具有轴对称性和正宇称的参考态出发，随后通过运动方程技术得到具有确定宇称并沿对称轴进行角动量投影的内禀态，最后投影到好角动量，从而得到基于这些内禀态的转动带。在仅已知基态带的丰中子核 $^{34}$Mg 中，我们发现了若干低激发正宇称和负宇称带。其中最低的 $K^\pi=3^-$ 带主要由单中子粒子-空穴激发主导，而非八极集体性。这些结果挑战了关于原子核中形变与对关联如何运作的常见认识。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在实验与从头计算中直接获得可解释的原子核能级（包括形变核的转动带与宇称、K 量子数等），并据此理解丰中子核 $^{34}$Mg 的低激发结构。</p>
+    <h4>方法</h4><p>采用基于轴对称、正宇称参考态的从头耦合簇计算；用运动方程技术得到具有确定宇称并沿对称轴投影角动量的内禀态；再投影到好角动量以构造转动带。</p>
+    <h4>主要发现</h4><p>在 $^{34}$Mg 中，除已知的基态带外，计算得到若干低激发正宇称和负宇称带；最低的 $K^\pi=3^-$ 带由单中子粒子-空穴激发主导，而非八极集体性；作者据此认为这些结果挑战了关于核中形变与对关联的常见认识。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与后续方向；可合理推断，该方法对其他形变核的适用性、以及单粒子-空穴激发与集体自由度在低激发带中的相对作用，值得进一步检验。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-20 14:12 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
