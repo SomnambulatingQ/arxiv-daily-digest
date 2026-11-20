@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-11-20</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">8</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">7</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2611.26354v1">KP与BKP方程族的椭圆类比及其tau函数</a> <small>2611.26354v1</small></li></ol><h3>交叉列表（7）</h3><ol class="toc-list"><li><a href="#paper-2611.25343v1">Lieb-Liniger模型中量子暗孤子的半经典平均与时间涨落</a> <small>2611.25343v1</small></li><li><a href="#paper-2611.26006v1">量子疤痕对玻姆混沌起始的影响</a> <small>2611.26006v1</small></li><li><a href="#paper-2611.26182v1">长期发散指数与步间扰动的时序结构：两项被动行走模型的仿真研究</a> <small>2611.26182v1</small></li><li><a href="#paper-2611.26215v1">预测还是持续：退相干如何塑造自旋量子比特量子储备池中的学习</a> <small>2611.26215v1</small></li><li><a href="#paper-2611.26236v1">径向几何中通量诱导的凝聚</a> <small>2611.26236v1</small></li><li><a href="#paper-2611.26263v1">可积自旋链特定扇区中的 Wigner-Dyson 关联</a> <small>2611.26263v1</small></li><li><a href="#paper-2611.26285v1">来自箭图共形场论（Quiver CFTs）的动态 Temperley-Lieb 代数</a> <small>2611.26285v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.26354v1">
+  <div class="paper-head">
+    <h2>KP与BKP方程族的椭圆类比及其tau函数<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.26354v1" rel="noopener noreferrer">2611.26354v1</a>
+  </div>
+  <p class="original-title">Elliptic analogues of KP and BKP hierarchies and their tau functions</p>
+  <p class="meta"><strong>作者：</strong>Changyan Shi、Bao-Feng Feng</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文针对与Kadomtsev–Petviashvili（KP）方程族及其B型对应（BKP）相关的椭圆背景上的孤子解，建立了tau函数框架。从椭圆型离散KP（dKP）与离散BKP（dBKP）方程出发，通过Darboux变换与二元Darboux变换为椭圆dKP构造Casorati与Gram行列式tau函数，并通过Moutard变换为dBKP构造椭圆Pfaffian tau函数。进一步，利用Pfaffian恒等式构造高阶离散KP与BKP方程族及其tau函数。随后，通过Miwa变换给出连续的椭圆KP、修正KP与BKP方程族及其tau函数。对谱参数或波数施加适当约束，可约化为Korteweg–de Vries（KdV）、聚焦与非聚焦修正Korteweg–de Vries（mKdV）以及Sawada–Kotera（SK）方程，并得到其在椭圆背景上的解。本文还构造了KP线孤子解，并获得KP-I方程的lump解。对选定的行列式族，建立了实值与全局非奇异的充分条件。所得框架为椭圆tau函数、其离散与连续双线性恒等式以及通过约化构造解提供了统一途径。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为KP方程族及其B型对应BKP在椭圆背景上的孤子解建立统一的tau函数框架，并给出离散与连续方程族、约化方程及解构造。</p>
+    <h4>方法</h4><p>从椭圆型离散KP与离散BKP方程出发，分别利用Darboux变换、二元Darboux变换构造Casorati与Gram行列式tau函数，利用Moutard变换构造椭圆Pfaffian tau函数；借助Pfaffian恒等式构造高阶离散方程族；通过Miwa变换得到连续椭圆KP、mKP与BKP方程族；对谱参数或波数施加约束实现约化；并对选定行列式族建立实值与全局非奇异的充分条件。</p>
+    <h4>主要发现</h4><p>构造了椭圆dKP的Casorati与Gram行列式tau函数以及dBKP的椭圆Pfaffian tau函数；得到高阶离散KP与BKP方程族及其tau函数；通过Miwa变换给出连续椭圆KP、mKP与BKP方程族及其tau函数；适当约束下约化为KdV、聚焦与非聚焦mKdV及SK方程并给出椭圆背景上的解；构造了KP线孤子解并获得KP-I方程的lump解；对选定行列式族建立了实值与全局非奇异的充分条件。</p>
+    <h4>局限与展望</h4><p>原文未讨论所得框架在更一般背景或更高维情形下的适用性；其局限与推广范围需进一步研究。基于现有结果可合理推断，该统一框架或可应用于其他可积方程族的椭圆类比及约化解的构造，但此推断尚待验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.25343v1">
+  <div class="paper-head">
+    <h2>Lieb-Liniger模型中量子暗孤子的半经典平均与时间涨落<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.25343v1" rel="noopener noreferrer">2611.25343v1</a>
+  </div>
+  <p class="original-title">Semiclassical Averaging and Temporal Fluctuations of Quantum Dark Solitons in the Lieb-Liniger Model</p>
+  <p class="meta"><strong>作者：</strong>Kota Kaneko、Kohei Motegi、Jun Sato</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究Lieb-Liniger模型中量子暗孤子态的时间演化及其与Gross-Pitaevskii（GP）孤子的关系。所考虑的量子暗孤子态由Sato-Kanamoto-Kaminishi-Deguchi引入，是单空穴yrast态的等权叠加。我们考虑弱耦合与大系统同时成立的极限：排斥耦合常数$c\to 0$，粒子数$N\to\infty$，环周长$L\to\infty$，同时保持平均密度$\bar n=N/L$与标度周长$\Lambda=L\sqrt{c\bar n}$固定。我们猜想，在此极限下，归一化量子密度及其在固定标度时间$\tau=c\bar n t$的演化可由归一化周期单孤子GP密度关于正则动量的平均来描述，其中每个GP孤子以其自身速度演化。我们显式地以正则动量参数化GP族，并给出支持该对应关系的数值证据。不同孤子速度的差异解释了平均密度凹陷的展宽，尽管单个孤子保持形状不变。在无限直线极限下，我们导出初始平均剖面的解析表达式，证明其密度亏损随距孤子中心距离呈五次方反比衰减，并将该剖面对背景偏离的傅里叶变换表示为Bickley-Naylor函数$\operatorname{Ki}_3$的级数。在初始凹陷展宽之后，我们研究量子暗孤子的时间密度涨落，提出长时间模式方差与GP傅里叶系数二阶矩之间的关系，并通过单个模式方差与总方差的数值比较予以支持。Yrast跃迁频率将初始退相位时间尺度与涨落有限时间平均所关联的更长时间尺度区分开来。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究Lieb-Liniger模型中由单空穴yrast态等权叠加定义的量子暗孤子态的时间演化，以及该演化在弱耦合、大系统极限下与Gross-Pitaevskii孤子的关系，并考察其密度涨落。</p>
+    <h4>方法</h4><p>考虑$c\to0$、$N,L\to\infty$且$\bar n=N/L$与$\Lambda=L\sqrt{c\bar n}$固定的同时极限；猜想归一化量子密度及其在标度时间$\tau=c\bar n t$的演化等于归一化周期单孤子GP密度关于正则动量的平均；显式以正则动量参数化GP族，并进行数值验证；在无限直线极限下解析推导初始平均剖面、其密度亏损的衰减与傅里叶变换；通过数值比较研究长时间模式方差与GP傅里叶系数二阶矩的关系。</p>
+    <h4>主要发现</h4><p>数值证据支持所提出的量子密度与GP正则动量平均之间的对应关系；不同孤子速度的差异解释了平均密度凹陷的展宽，而单个孤子保持形状；在无限直线极限下得到初始平均剖面的解析表达式，其密度亏损随距离呈五次方反比衰减，偏离背景的傅里叶变换可表示为Bickley-Naylor函数$\operatorname{Ki}_3$的级数；数值比较支持长时间模式方差与GP傅里叶系数二阶矩之间的关系；Yrast跃迁频率可区分初始退相位时间尺度与涨落有限时间平均所关联的更长时间尺度。</p>
+    <h4>局限与展望</h4><p>所提出的对应关系以猜想形式给出，其严格性尚待证明；结果依赖于弱耦合与大系统同时成立的特定标度极限及环几何，向其他耦合区域或几何的推广需进一步检验；模式方差与GP傅里叶系数二阶矩的关系目前仅有数值支持，其适用范围与解析依据有待明确。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26006v1">
+  <div class="paper-head">
+    <h2>量子疤痕对玻姆混沌起始的影响<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26006v1" rel="noopener noreferrer">2611.26006v1</a>
+  </div>
+  <p class="original-title">The influence of quantum scarring on the onset of Bohmian chaos</p>
+  <p class="meta"><strong>作者：</strong>Athanasios C. Tzemos、George Contopoulos</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究受扰二维振子的稳定与不稳定周期轨道如何影响相应量子系统的玻姆轨迹。研究发现，在所考察的系统中，所有玻姆轨迹在长时间下均趋于混沌；我们考察了这些轨迹趋近其遍历模式所需的时间。结果表明，与同一周期的稳定周期轨道附近的轨迹相比，靠近不稳定周期轨道的轨迹所需时间系统性地更短。我们进一步表明，这一行为与不稳定及稳定周期轨道均相关的疤痕效应有关。此外，我们还研究了当一条稳定周期轨道经历分岔并变为不稳定时，玻姆动力学如何变化。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>受扰二维振子的稳定与不稳定周期轨道如何影响对应量子系统的玻姆轨迹，尤其是玻姆轨迹趋近遍历行为所需的时间，以及稳定周期轨道分岔为不稳定时玻姆动力学的变化。</p>
+    <h4>方法</h4><p>针对受扰二维振子的量子系统计算玻姆轨迹，比较靠近同周期稳定与不稳定周期轨道的轨迹趋近遍历模式所需时间，并结合与两类周期轨道相关的疤痕效应进行分析；同时考察稳定周期轨道经分岔变为不稳定后的玻姆动力学变化。</p>
+    <h4>主要发现</h4><p>在所研究系统中，所有玻姆轨迹长时间下均变为混沌；靠近不稳定周期轨道的轨迹趋近遍历模式的时间系统性地短于靠近同周期稳定周期轨道的轨迹；该行为与不稳定及稳定周期轨道相关的疤痕效应有关；并给出了稳定周期轨道分岔为不稳定时玻姆动力学的变化。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限与适用范围；结果基于所考察的受扰二维振子系统，向其他量子系统的推广需进一步验证。后续可合理推断的方向包括：更系统地考察不同类型分岔对玻姆混沌起始时间的影响，以及将疤痕效应与趋遍历时间的联系推广至更高维或更一般的混沌系统（此句为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26182v1">
+  <div class="paper-head">
+    <h2>长期发散指数与步间扰动的时序结构：两项被动行走模型的仿真研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26182v1" rel="noopener noreferrer">2611.26182v1</a>
+  </div>
+  <p class="original-title">The long-term divergence exponent and the temporal structure of step-to-step perturbations: a simulation study in two passive walking models</p>
+  <p class="meta"><strong>作者：</strong>Philippe Terrier</p>
+  <p class="meta"><strong>主分类：</strong>q-bio.QM
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">q-bio.QM</span> <span class="tag">nlin.CD</span> <span class="tag">physics.bio-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>目的：发散指数常用于评估步态的局部动态稳定性。人体实验已将长期指数（λ_L）与步态波动的复杂性联系起来；而模型研究通常采用未控制时序结构的扰动。本文探讨的问题是：在缺乏神经肌肉控制的行走模型中，λ_L 是否会对扰动的时序结构产生响应。方法：采用两个被动行走模型 M1（预试验）和 M2（探索性），分别施加五种幅度（σ）和九种时序结构（ARFIMA 参数 d）的步间扰动，并纳入自由行走与节拍器行走的人体步幅序列。结果：在幅度恒定时，两个模型的 λ_L 均随 d 增大而升高；自由序列的 λ_L 高于节拍器序列或替代数据序列；λ_L 在 M1 中不随 σ 变化，在 M2 中随 σ 变化；λ_L 与短期指数的双重分离仅在 M1 中得到支持。在一项描述性分析中，λ_L 的条件均值与步时标度指数相关（M1 中 r = 0.980，M2 中 r = 0.906）。结论：在力学结构固定的两个被动行走模型中，λ_L 随扰动的时序结构变化，其特异性取决于模型。这一响应支持将人体实验中的 λ_L 命名为吸引子复杂性指数（ACI）。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在无神经肌肉控制的被动行走模型中，长期发散指数 λ_L 是否响应步间扰动的时序结构，以及这种响应是否具有模型特异性。</p>
+    <h4>方法</h4><p>对两个被动行走模型 M1 和 M2 施加五种幅度 σ、九种时序结构（ARFIMA 参数 d）的步间扰动，并分析自由行走与节拍器行走的人体步幅序列；比较 λ_L 与 σ、d 的关系，检验其与短期指数的双重分离，并进行 λ_L 条件均值与步时标度指数的描述性相关分析。</p>
+    <h4>主要发现</h4><p>在幅度恒定时，两个模型的 λ_L 均随 d 增大而升高；自由序列的 λ_L 高于节拍器序列或替代数据序列；λ_L 在 M1 中不随 σ 变化，在 M2 中随 σ 变化；λ_L 与短期指数的双重分离仅在 M1 中得到支持；描述性分析中 λ_L 条件均值与步时标度指数相关（M1 中 r = 0.980，M2 中 r = 0.906）。</p>
+    <h4>局限与展望</h4><p>λ_L 对扰动时序结构的响应在两个模型中均出现，但其特异性依赖模型，因此结果的外推需谨慎；双重分离仅在 M1 中得到支持，提示结论的稳健性有限。后续研究可考虑在更多被动行走模型或含神经肌肉控制的模型中检验该响应，并进一步验证将 λ_L 称为吸引子复杂性指数（ACI）的合理性（此方向为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26215v1">
+  <div class="paper-head">
+    <h2>预测还是持续：退相干如何塑造自旋量子比特量子储备池中的学习<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26215v1" rel="noopener noreferrer">2611.26215v1</a>
+  </div>
+  <p class="original-title">To predict or to persist: how decoherence shapes learning in a spin-qubit quantum reservoir</p>
+  <p class="meta"><strong>作者：</strong>Nikolaos Petropoulos、Elena Blokhina</p>
+  <p class="meta"><strong>主分类：</strong>quant-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">quant-ph</span> <span class="tag">cond-mat.mes-hall</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究了在具有马尔可夫耗散和精确期望值读出的模拟六量子比特自旋链中，退相位与测量可观测量选择如何影响学习。对于外部驱动的非线性自回归滑动平均信号，在可比的多项式特征数下，结合单量子比特与双量子比特可观测量比仅使用布居数读出给出更好的预测。我们测试的大多数配置比禁用弛豫与退相位的参考情形更准确，在 $T_2=1\,\mu$s 时最为显著，此时总记忆容量下降；在 $T_2=5$-$10\,\mu$s 时仍然如此，此时记忆仅在延迟之间重新分配。对于自主生成，我们采用计划采样与迭代数据集聚合训练读出层，使其暴露于自身反馈下到达的状态。在储备池系综中，我们未发现极限环持续性对相干性存在明确的系统性依赖。相比之下，对于混沌预测，在全部 10 个储备池实现中，$T_2=1\,\mu$s 时的预测时域均相对于该参考缩短。对于噪声驱动的奇异非混沌吸引子，模型产生一条光滑、近似闭合的轨道，既未捕捉目标的散布，也未逐点跟随其轨迹。我们得出结论：在该模拟储备池内，相干性的影响强烈依赖于任务。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究在模拟六量子比特自旋链储备池中，退相位（退相干）与测量可观测量的选择如何影响不同任务（外部驱动信号预测、自主生成、混沌预测及噪声驱动奇异非混沌吸引子）的学习表现。</p>
+    <h4>方法</h4><p>构建具有马尔可夫耗散和精确期望值读出的六量子比特自旋链模拟储备池；对外部驱动的非线性自回归滑动平均信号比较单/双量子比特可观测量与仅布居数读出；自主生成采用计划采样与迭代数据集聚合训练读出层；在 10 个储备池实现中评估混沌预测时域，并考察噪声驱动奇异非混沌吸引子的生成行为。</p>
+    <h4>主要发现</h4><p>在可比多项式特征数下，结合单量子比特与双量子比特可观测量比仅布居数读出给出更好的预测；多数测试配置比禁用弛豫与退相位的参考更准确，在 $T_2=1\,\mu$s 时最显著且总记忆容量下降，在 $T_2=5$-$10\,\mu$s 时记忆仅在延迟间重新分配；未发现极限环持续性对相干性有明确的系统性依赖；混沌预测在 $T_2=1\,\mu$s 时全部 10 个实现预测时域均缩短；对噪声驱动奇异非混沌吸引子，模型产生光滑近似闭合轨道，未捕捉目标散布也未逐点跟随轨迹。</p>
+    <h4>局限与展望</h4><p>作者结论为相干性的影响强烈依赖于任务；本文结果限于该模拟六量子比特储备池与所测任务，向其他量子比特数、噪声模型或实验平台的推广需进一步验证；后续可合理推断的方向包括系统考察不同测量策略与任务类型下相干性作用的差异。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26236v1">
+  <div class="paper-head">
+    <h2>径向几何中通量诱导的凝聚<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26236v1" rel="noopener noreferrer">2611.26236v1</a>
+  </div>
+  <p class="original-title">Flux-induced condensation in a radial geometry</p>
+  <p class="meta"><strong>作者：</strong>Yoav Tsori</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.PS</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>搅拌与剪切通常会抑制相分离，但通过边界的输运却可以诱导相分离。本文研究一种在静止状态下处处稳定的二元混合物，其充满二维圆环区域。内边界为半透膜，与处于固定化学势的渗透液交换物质，从而使一种组分的稳态通量穿过圆环。尽管该驱动系统携带稳态电流并产生熵，但在 Model B 动力学框架内，其稳态对应于一个有效外场中的平衡分布，该外场随距中心距离呈对数变化。该外场的强度并非由外部施加，而是由渗透液和边界渗透率决定。当驱动通量超过阈值时，内边界周围会形成一个凝聚环带。该环带由静止前沿界定，其半径与体驱动力的通量之比呈指数依赖关系。该前沿被有效外场钉扎，不发生粗化，且阈值通量仅随系统尺寸的倒数对数缓慢减小。驱动通量使相界线移动，但不改变临界温度。界面张力导致临界核以及一个折叠点，在该点凝聚态不再存在，其阈值以闭式形式给出。数值解证实了这些预测，并揭示出由两个鞍结分岔界定的滞后回线。根据对称性，该理论也可描述汇点周围的空化现象。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究在二维圆环中，通过半透膜内边界维持的稳态组分通量如何影响原本处处稳定的二元混合物的相行为，特别是能否诱导凝聚。</p>
+    <h4>方法</h4><p>采用 Model B 动力学描述二元混合物；将驱动稳态映射为有效对数外场中的平衡分布；结合解析推导（阈值通量、前沿半径、临界核与折叠点的闭式阈值）与数值求解验证。</p>
+    <h4>主要发现</h4><p>驱动系统虽携带稳态电流并产生熵，但其稳态为有效对数外场中的平衡分布；超过阈值通量后内边界周围形成凝聚环带，前沿被钉扎且不粗化；阈值通量随系统尺寸的倒数对数缓慢减小；驱动通量移动相界线但不改变临界温度；界面张力导致临界核与折叠点；数值解证实预测并揭示由两个鞍结分岔界定的滞后回线；理论经对称性可描述汇点周围的空化。</p>
+    <h4>局限与展望</h4><p>原文未讨论三维几何、非 Model B 动力学或强驱动下的适用性；后续可检验这些推广是否成立，并探索该机制在受控膜输运或空化实验中的可能实现（此句为推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26263v1">
+  <div class="paper-head">
+    <h2>可积自旋链特定扇区中的 Wigner-Dyson 关联<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26263v1" rel="noopener noreferrer">2611.26263v1</a>
+  </div>
+  <p class="original-title">Wigner-Dyson correlations in selected sectors of an integrable spin chain</p>
+  <p class="meta"><strong>作者：</strong>Balázs Pozsgay</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在量子多体物理中，谱统计常被用作区分可积模型与混沌模型的探针。本文发现一个具有异常谱性质的可积自旋链特例。在开边界条件下，该模型具有均匀的指数简并；这些简并在周期边界条件下被劈裂。在后一情形中，我们发现少数由整体对称性选定的扇区呈现出 Wigner-Dyson 谱统计，而该统计通常被视为量子混沌的信号。该模型是干净的、具有平移不变性，并纳入标准的 Yang-Baxter 框架。我们将希尔伯特空间碎裂识别为这些谱性质背后的关键机制。该碎裂是非局域的，且其程度在开边界与周期边界条件下不同。我们论证，尽管存在异常的谱关联，该模型的动力学并非混沌。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究一个可积自旋链在开边界与周期边界条件下的谱统计性质，特别是为何某些对称性选定扇区会呈现通常指示量子混沌的 Wigner-Dyson 谱统计。</p>
+    <h4>方法</h4><p>对开边界与周期边界条件下的可积自旋链进行谱统计分析，利用整体对称性划分扇区，并将模型置于标准 Yang-Baxter 框架中；通过识别希尔伯特空间碎裂机制来解释谱性质。</p>
+    <h4>主要发现</h4><p>开边界条件下模型具有均匀的指数简并，周期边界条件下这些简并被劈裂；在周期边界情形中，少数由整体对称性选定的扇区呈现 Wigner-Dyson 谱统计；希尔伯特空间碎裂被识别为这些谱性质的关键机制，且该碎裂是非局域的，其程度在开边界与周期边界条件下不同；作者论证该模型动力学并非混沌。</p>
+    <h4>局限与展望</h4><p>论文指出谱关联虽呈现 Wigner-Dyson 统计，但动力学并不混沌，提示谱统计作为混沌判据在存在非局域希尔伯特空间碎裂时可能失效；后续可合理推断需进一步考察碎裂程度与边界条件对谱统计的影响，但原文未给出具体后续工作。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26285v1">
+  <div class="paper-head">
+    <h2>来自箭图共形场论（Quiver CFTs）的动态 Temperley-Lieb 代数<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26285v1" rel="noopener noreferrer">2611.26285v1</a>
+  </div>
+  <p class="original-title">Dynamical Temperley-Lieb algebras from Quiver CFTs</p>
+  <p class="meta"><strong>作者：</strong>Rob Klabbers、Elli Pomoni、Ana L. Retore、Paul Ryan、Konstantinos Zoubos</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究平面超共形规范理论的一圈膨胀算符所满足的代数结构。该算符可写成局域生成元的和，而这些生成元所满足的代数是对谱问题的重要组织原则。作者针对类 SU(2) 玻色子子扇区证明，该代数可直接从费曼图读出，并将费曼图视为该代数的自然图形语言。对于 N=4 超杨-米尔斯理论，这一做法恰好重现 XXX 自旋链的 Temperley-Lieb（TL）代数。在轨道折叠并边缘变形到 N=2 超共形箭图理论后，同样的规则给出 TL 代数的动态推广：图中面按箭图节点着色，并由对应双基本场的畴壁分隔。存在两个不等价的类 SU(2) 子扇区，分别导致两种不同的 TL 代数。其一只由两个双基本标量构成，在最简单情形下给出二次关系中圈逸度依赖于颜色的动态 TL 代数；其二由一个双基本标量与一个伴随标量构成，总是给出一种新代数，其中三次 TL 关系变为动态的。在后一情形中，作者证明新代数的每个生成元都通过依赖颜色的扭曲与标准 XXZ TL 生成元相联系；该扭曲是局域的且不是代数同态，可写成动态 Drinfeld 扭曲。在两个扇区中，TL 结构都为谱问题提供了自然的图形方法，并澄清了这些链的不可约表示结构。最后，作者对所关联的圈模型给出了初步描述。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>平面超共形规范理论的一圈膨胀算符所满足的代数结构是什么，特别是在 N=2 超共形箭图理论中该代数如何从费曼图读出并推广？</p>
+    <h4>方法</h4><p>将一圈膨胀算符写成局域生成元之和，利用费曼图作为图形语言直接读出生成元代数；对 N=4 超杨-米尔斯理论重现 XXX 自旋链的 Temperley-Lieb 代数，再通过轨道折叠与边缘变形推广到 N=2 超共形箭图理论，分析两个类 SU(2) 子扇区并构造相应的动态 TL 代数与扭曲关系。</p>
+    <h4>主要发现</h4><p>对 N=4 超杨-米尔斯理论，该规则重现 XXX 自旋链的 TL 代数；对 N=2 超共形箭图理论，两个不等价的类 SU(2) 子扇区分别给出两种 TL 代数：由两个双基本标量构成的扇区（在最简单情形下）给出二次关系含颜色依赖圈逸度的动态 TL 代数；由一个双基本标量与一个伴随标量构成的扇区总是给出新代数，其中三次 TL 关系变为动态的，且每个生成元通过颜色依赖的局域扭曲（非代数同态，可写成动态 Drinfeld 扭曲）与标准 XXZ TL 生成元相联系。TL 结构为谱问题提供图形方法并澄清不可约表示结构，同时给出关联圈模型的初步描述。</p>
+    <h4>局限与展望</h4><p>文中对圈模型的描述仅为初步；动态 TL 代数的一般表示论、谱问题的完整求解以及圈模型的具体性质尚待进一步研究。上述后续方向为基于原文措辞的合理推断。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-20 14:20 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
