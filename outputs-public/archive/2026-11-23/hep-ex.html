@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-ex · 高能实验</h1>
+    <p class="lede">官方公告日：2026-11-23</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">10</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">0</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">10</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>交叉列表（10）</h3><ol class="toc-list"><li><a href="#paper-2611.26718v1">电子-正电子对撞中双喷注产生的NNLO+PS精度计算</a> <small>2611.26718v1</small></li><li><a href="#paper-2611.26817v1">辐射μ子俘获实验数据研究及其对μ子转换实验的意义</a> <small>2611.26817v1</small></li><li><a href="#paper-2611.27026v1">计算波形：连接引力波与高能物理软件（含模块化 ROOT 扩展）</a> <small>2611.27026v1</small></li><li><a href="#paper-2611.27079v1">粒子物理模型编辑中的权重空间编程与机制可解释性</a> <small>2611.27079v1</small></li><li><a href="#paper-2611.27363v1">Mass Spectra and Radiative Decay Widths of \(D_{s0}^{*}(2317)^+\), \(D_{s1}(2460)^+\) and \(D&#x27;_{s1}(2536)^+\)</a> <small>2611.27363v1</small></li><li><a href="#paper-2611.27549v1">nuSTORM：一台独特的GeV电子（反）中微子装置</a> <small>2611.27549v1</small></li><li><a href="#paper-2611.27602v1">探测暗维度中的大统一：质子衰变与对撞机信号</a> <small>2611.27602v1</small></li><li><a href="#paper-2611.27636v1">基于纳米复合材料的色度量热学：现状与未来挑战</a> <small>2611.27636v1</small></li><li><a href="#paper-2611.27786v1">重味平衡：质子-质子碰撞中粲与美粒子的量子数补偿</a> <small>2611.27786v1</small></li><li><a href="#paper-2611.27985v1">中微子消失道对非对称物质分布下的T破坏是否敏感？</a> <small>2611.27985v1</small></li></ol></section>
+    <h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.26718v1">
+  <div class="paper-head">
+    <h2>电子-正电子对撞中双喷注产生的NNLO+PS精度计算<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26718v1" rel="noopener noreferrer">2611.26718v1</a>
+  </div>
+  <p class="original-title">Dijet production in $e^+e^-$ collisions at NNLO+PS accuracy</p>
+  <p class="meta"><strong>作者：</strong>Florian König、Marius Wiesemann、Giulia Zanderighi</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出了首个针对轻子对撞的、具有次次领头阶（NNLO）QCD精度的完整蒙特卡罗事件产生器。该方法基于MiNNLO形式的新表述，并应用于双喷注产生过程。从三喷注分辨变量y_3的求和出发，本文给出了相应的MiNNLO主公式，并在Powheg框架内实现。文中讨论了对LEP及未来正负电子对撞机相关的唯象学结果。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何为轻子对撞中的双喷注产生构建首个完整的NNLO+PS精度蒙特卡罗事件产生器。</p>
+    <h4>方法</h4><p>基于MiNNLO形式的新表述，从三喷注分辨变量y_3的求和出发导出MiNNLO主公式，并在Powheg框架内实现。</p>
+    <h4>主要发现</h4><p>构建了首个具有NNLO QCD精度的轻子对撞完整蒙特卡罗事件产生器，并将其应用于双喷注产生；给出了相应的MiNNLO主公式及在Powheg框架内的实现，并讨论了对LEP和未来正负电子对撞机相关的唯象学结果。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性；该工作针对轻子对撞中的双喷注产生，其框架原则上可推广至其他轻子对撞过程，但此点属于合理推断，尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.26817v1">
+  <div class="paper-head">
+    <h2>辐射μ子俘获实验数据研究及其对μ子转换实验的意义<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26817v1" rel="noopener noreferrer">2611.26817v1</a>
+  </div>
+  <p class="original-title">Study of Radiative Muon Capture Experimental Data and its Implications for Muon-Conversion Experiments</p>
+  <p class="meta"><strong>作者：</strong>Yury Kolomensky、Michael MacKenzie、Ryan Plestid、Matthew Stortini、Ajla Trumic</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>辐射μ子俘获（RMC）是寻找μ子在原子核场中无中微子转换为电子，尤其是寻找破坏轻子味与轻子数的μ子到正电子转换过程的重要本底。RMC光子谱的高能尾部在理论上仍缺乏充分研究，导致对即将运行的μ子转换实验的本底预测存在较大不确定性。本文重新分析已发表的RMC数据，以改进高能尾部的建模。我们建立了一个以不同核子敲出末态为特征的模型，每个末态具有相应的多体相空间和运动学端点。该框架被应用于TRIUMF的光子数据和SINDRUM II的正电子数据，并将结果与先前使用的闭合近似进行比较。我们发现，对不同核子敲出末态分别建模能更好地描述端点附近现有的RMC数据，并讨论了对COMET和Mu2e实验的意义。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>RMC光子谱高能尾部理论建模不足，导致μ子转换实验（尤其是μ→e⁺转换）本底预测不确定性大；如何改进高能尾部建模并评估其对COMET和Mu2e的影响。</p>
+    <h4>方法</h4><p>重新分析已发表的RMC数据；建立以不同核子敲出末态为特征的模型，每个末态配以多体相空间和运动学端点；将该框架应用于TRIUMF的光子数据和SINDRUM II的正电子数据，并与闭合近似比较。</p>
+    <h4>主要发现</h4><p>对不同核子敲出末态分别建模能更好地描述端点附近现有的RMC数据；文中讨论了对COMET和Mu2e实验的意义。</p>
+    <h4>局限与展望</h4><p>原文指出高能尾部理论上仍研究不足；分别建模末态可改善端点附近描述，但该结论基于TRIUMF和SINDRUM II的已有数据，向COMET、Mu2e等实验的推广需进一步验证（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.27026v1">
+  <div class="paper-head">
+    <h2>计算波形：连接引力波与高能物理软件（含模块化 ROOT 扩展）<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.27026v1" rel="noopener noreferrer">2611.27026v1</a>
+  </div>
+  <p class="original-title">Computing the Wave: Bridging Gravitational Wave and High-Energy-Physics software (with modular ROOT extensions)</p>
+  <p class="meta"><strong>作者：</strong>Marco Meyer-Conde、Hirotaka Takahashi、Nobuyuki Kanda、Ken-ichi Oohara、Kazuki Sakai</p>
+  <p class="meta"><strong>主分类：</strong>astro-ph.IM
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">astro-ph.IM</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>高能物理（HEP）与引力波（GW）天文学的科学目标不同，但面临高度相似的計算挑战，并可通过共享软件相互促进。基于 ACAT 2024 展示的原型，本文报告将该工作整合为 CERN ROOT 数据分析框架的单一模块化扩展，以 RIOPlus 名义自由发布。该库现由一组可选、可动态加载的扩展组成，涵盖配置与文件格式解析（包括引力波 Frame（GWF）格式和 HDF5）、基于令牌凭证的远程与联邦数据访问（OSDF/Pelican、S3、Kafka）、增强的动态显示管理器、基于 KFR 库的高级信号处理层，以及由 LibTorch 支持并具备 ONNX 互操作性的复数张量层。本文概述各扩展的设计，说明其面向瞬态噪声（glitch）检测与分类的预期应用，并更新比较 KFR 与 FFTW 的 FFT 性能基准。最后介绍这些扩展所支持的以 ROOT 为中心的端到端工作流、其当前状态，以及对按列存储的 RNTuple 的前景展望。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何通过共享软件弥合高能物理与引力波天文学在计算方面的共性挑战，并将前期原型整合为 CERN ROOT 的模块化扩展。</p>
+    <h4>方法</h4><p>将 ACAT 2024 原型整合为 RIOPlus 下可动态加载的 ROOT 扩展，包括 GWF/HDF5 解析、基于令牌的远程与联邦数据访问、动态显示管理、基于 KFR 的信号处理层，以及基于 LibTorch 并支持 ONNX 的复数张量层；并更新 KFR 与 FFTW 的 FFT 性能基准。</p>
+    <h4>主要发现</h4><p>论文报告了各扩展的设计，说明了其面向瞬态噪声（glitch）检测与分类的预期应用，给出了 KFR 与 FFTW 的 FFT 性能基准更新，并描述了以 ROOT 为中心的端到端工作流及其当前状态。</p>
+    <h4>局限与展望</h4><p>论文提出对按列存储的 RNTuple 的展望；其局限与适用范围需结合原文进一步确认，后续方向可合理推断为继续完善各扩展的集成与端到端工作流。</p>
+  </section>
+</article><article class="paper" id="paper-2611.27079v1">
+  <div class="paper-head">
+    <h2>粒子物理模型编辑中的权重空间编程与机制可解释性<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.27079v1" rel="noopener noreferrer">2611.27079v1</a>
+  </div>
+  <p class="original-title">Weight-space programming and mechanistic interpretability for model editing in particle physics</p>
+  <p class="meta"><strong>作者：</strong>Raphaël Bonnet-Guerrini、Johann Ioannou-Nikolaides、Troels Petersen</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">cs.AI</span> <span class="tag">cs.LG</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文表明，权重空间编程以及由稀疏自编码器引导的编辑，可以通过直接修改权重来移除粒子物理基础模型中不期望的某些特性。在一个基于喷注训练的基础模型中，我们观察到加入单个软中性粒子会导致喷注分类发生大幅变化，从而违反红外安全性。我们通过机制分析定位了负责的注意力头，并将该缺陷的起源追溯到在不同重建阈值数据集上的预训练。随后我们提出两种有针对性的修复方法：一是移除由稀疏自编码器识别出的三个潜在方向；二是让语言模型智能体直接编辑权重，无需梯度且仅对模型进行50次查询。两种编辑各自几乎完全消除了该缺陷，同时使模型其余响应几乎保持不变。与微调相比，两种方法改变的参数数量都少得多。尽管仅基于 $W$ 玻色子和QCD喷注构建，这些编辑可迁移到所有信号类别、预训练生成器以及新训练的回归头。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在不显著改变模型其余行为的前提下，移除粒子物理基础模型中由软中性粒子引发的、违反红外安全性的喷注分类缺陷。</p>
+    <h4>方法</h4><p>在基于喷注训练的基础模型上进行机制分析以定位负责的注意力头并追溯缺陷来源；提出两种权重空间编辑方法：移除稀疏自编码器识别的三个潜在方向，以及由语言模型智能体在无梯度、仅50次查询条件下直接编辑权重；并与微调比较参数改变量。</p>
+    <h4>主要发现</h4><p>加入单个软中性粒子会导致喷注分类大幅变化，违反红外安全性；缺陷可追溯到不同重建阈值数据集上的预训练；两种编辑各自几乎完全消除该缺陷，且模型其余响应几乎不变；相比微调，两种方法改变的参数少得多；编辑可迁移到所有信号类别、预训练生成器和新训练的回归头。</p>
+    <h4>局限与展望</h4><p>原文仅基于 $W$ 玻色子和QCD喷注构建编辑，其他基础模型或任务上的适用性尚待验证；可合理推断，将权重空间编程与稀疏自编码器引导的机制分析结合，或可推广至其他模型缺陷的定位与修复，但此方向需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.27363v1">
+  <div class="paper-head">
+    <h2>Mass Spectra and Radiative Decay Widths of \(D_{s0}^{*}(2317)^+\), \(D_{s1}(2460)^+\) and \(D&#x27;_{s1}(2536)^+\)<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.27363v1" rel="noopener noreferrer">2611.27363v1</a>
+  </div>
+  <p class="original-title">Mass Spectra and Radiative Decay Widths of \(D_{s0}^{*}(2317)^+\), \(D_{s1}(2460)^+\) and \(D&#x27;_{s1}(2536)^+\)</p>
+  <p class="meta"><strong>作者：</strong>Shirui Zhao、Yuxuan Du、Manying Pan、Hongxia Huang、Jialun Ping</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-th</span></div>
+  <p class="warning">⚠ 中文生成失败，本条目需要人工检查。</p>
+  <section>
+    <h3>中文摘要</h3>
+    <p>Inspired by recent experimental reports on the radiative decay \(D_{s1}(2460)^{+}\to D_s^{*+}γ\) and the branching-fraction ratio \(\mathcal{B}[D_{s1}(2460)^{+}\to D_s^{*+}γ]/\mathcal{B}[D_{s1}(2460)^{+}\to D_s^{+}γ]\), we investigate the mass spectra and radiative decay widths of \(D_{s0}^{*}(2317)^+\), \(D_{s1}(2460)^+\) and \(D_{s1}&#x27;(2536)^+\). Within the chiral quark model combined with the Gaussian Expansion Method, the mass spectra obtained agree reasonably well with the experimental data. Besides, the branching-fraction ratio obtained in this work is \(\mathcal{B}[D_{s1}(2460)^{+}\to D_s^{*+}γ]/\mathcal{B}[D_{s1}(2460)^{+}\to D_s^{+}γ] = 0.57\) and \(Γ(D_{s0}^{*}(2317)^{+}\to D_s^{*+}γ) = 3.80\,\mathrm{keV}\). By analyzing our theoretical results against the latest experimental measurements, we conclude that the \(D_{s1}(2460)^{+}\) can be treated as a mixed state of \(1^1P_1\) and \(1^3P_1\), and it may contain both the \(c\bar{s}\) component and the tetraquark component. In addition, we also obtain \(Γ(D&#x27;_{s1}(2536)^{+}\to D_s^{*+}γ) = 9.14\,\mathrm{keV}\) and \(Γ(D&#x27;_{s1}(2536)^{+}\to D_s^{+}γ) = 8.59\,\mathrm{keV}\) by treating \(D&#x27;_{s1}(2536)^+\) as a meson state. More precise experimental data are required to pin down the internal structure of these states.</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>方法</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>主要发现</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+    <h4>局限与展望</h4><p>本条目的中文生成失败，暂时保留英文信息，请人工检查。</p>
+  </section>
+</article><article class="paper" id="paper-2611.27549v1">
+  <div class="paper-head">
+    <h2>nuSTORM：一台独特的GeV电子（反）中微子装置<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.27549v1" rel="noopener noreferrer">2611.27549v1</a>
+  </div>
+  <p class="original-title">nuSTORM: a unique GeV electron-(anti)neutrino machine</p>
+  <p class="meta"><strong>作者：</strong>Xianguo Lu</p>
+  <p class="meta"><strong>主分类：</strong>physics.acc-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.acc-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文为一篇会议报告，简要回顾了当前利用加速器中微子测量狄拉克CP相位δCP的实验计划。作者指出，基于μ子储存环产生中微子束的nuSTORM概念，可为δCP测量所需的截面输入提供高质量的电子（反）中微子束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>当前利用加速器中微子测量狄拉克CP相位δCP的实验计划需要高质量的电子（反）中微子束截面输入，而现有条件是否能够满足这一需求。</p>
+    <h4>方法</h4><p>会议报告形式的简要综述：回顾当前测量δCP的加速器中微子实验计划，并论证nuSTORM（基于μ子储存环的中微子束）概念在提供所需电子（反）中微子束方面的作用。</p>
+    <h4>主要发现</h4><p>原文明确指出，nuSTORM概念可提供δCP测量所需截面输入的高质量电子（反）中微子束。</p>
+    <h4>局限与展望</h4><p>原文仅为会议报告层面的概念论证，未给出具体性能指标或实验数据；其局限与适用范围原文未展开。可合理推断，后续需进一步量化nuSTORM束流特性及其对δCP测量截面输入的实际改善程度，但这属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.27602v1">
+  <div class="paper-head">
+    <h2>探测暗维度中的大统一：质子衰变与对撞机信号<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.27602v1" rel="noopener noreferrer">2611.27602v1</a>
+  </div>
+  <p class="original-title">Probing grand unification in the dark dimension: proton decay and collider signatures</p>
+  <p class="meta"><strong>作者：</strong>Waqas Ahmed、George K. Leontaris</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">hep-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究一个受暗维度启发的区间模型中，被拉伸的大统一态、质子衰变与电弱Kaluza–Klein（KK）共振之间的几何联系。引力长度设定五维普朗克标度，而较短的规范区间控制KK谱与被拉伸态的质量。我们构造归一化的费米子与希格斯剖面，对角化中性矢量扇区，并确定其费米子宽度。质子部分寿命采用双算符、受SU(5)启发的有效匹配方案进行评估。单圈四维MSSM与分裂超对称参考跑动确定电弱耦合交叉标度以及残余的强耦合失配。一个选定的共同阈值基准给出重态质量$1.137\times10^{16}$ GeV、参考交叉$1.139\times10^{16}$ GeV，以及条件性质子部分寿命$8.72\times10^{35}$年。在微米尺度引力长度下，受抑制的重子破坏匹配振幅可满足质子限制，尽管高标度质量匹配条件选择了扫描几何中的另一区域。独立地，一个$5$ TeV中性矢量基准在$13.6$ TeV对撞机能量下、探测器选择之前，于$4.5$--$5.5$ TeV范围内给出包容性领头阶双电子截面$0.183$ fb。该分析提供了定量的有效模型基准，并指出了剩余的高标度匹配与实验检验。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在暗维度启发的区间模型中，被拉伸的大统一态、质子衰变与电弱Kaluza–Klein共振之间存在怎样的几何联系，以及该框架能否同时满足质子衰变限制并给出可检验的对撞机信号。</p>
+    <h4>方法</h4><p>构建具有引力长度与较短规范区间的五维区间模型；构造归一化费米子与希格斯剖面并对角化中性矢量扇区、计算费米子宽度；采用双算符、SU(5)启发的有效匹配方案评估质子部分寿命；利用单圈四维MSSM与分裂超对称参考跑动确定电弱耦合交叉标度及残余强耦合失配；并对$5$ TeV中性矢量基准计算$13.6$ TeV下领头阶双电子截面。</p>
+    <h4>主要发现</h4><p>选定共同阈值基准给出重态质量$1.137\times10^{16}$ GeV、参考交叉$1.139\times10^{16}$ GeV及条件性质子部分寿命$8.72\times10^{35}$年；在微米尺度引力长度下，受抑制的重子破坏匹配振幅可满足质子限制，但高标度质量匹配条件选择扫描几何中的另一区域；$5$ TeV中性矢量基准在探测器选择前于$4.5$--$5.5$ TeV给出包容性领头阶双电子截面$0.183$ fb。</p>
+    <h4>局限与展望</h4><p>原文指出分析提供了定量的有效模型基准，并识别出剩余的高标度匹配问题与实验检验需求；质子寿命结果为条件性基准，其适用性依赖于所选阈值与匹配方案，微米尺度引力长度下满足质子限制与高标度质量匹配条件所选取的几何区域并不重合，后续需进一步研究高标度匹配并开展实验检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.27636v1">
+  <div class="paper-head">
+    <h2>基于纳米复合材料的色度量热学：现状与未来挑战<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.27636v1" rel="noopener noreferrer">2611.27636v1</a>
+  </div>
+  <p class="original-title">Chromatic calorimetry using nanocomposites: status and future challenges</p>
+  <p class="meta"><strong>作者：</strong>Anne-Mazarine Lyon、Etiennette Auffray、Marco Caporale、Katerina Decka、Michael Doser、Jean-Louis Faure、Greta Gajdan、Yacine Haddad、Jan Kral、Joseph Mariano、Loris Martinazzoli、Emanuele Mazzola、Eva Mihokova、Solangel Rojas Torres、Matteo Salomoni、Vojtech Zabloudil</p>
+  <p class="meta"><strong>主分类：</strong>physics.ins-det
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.ins-det</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>先进探测器技术的发展对未来高能物理实验（如FCC-ee）具有关键作用。在此背景下，色度量热学（chromatic calorimetry）是电磁量能器的一种新兴概念，有望将均匀量能器的精确能量测量与粒子簇射的纵向重建结合起来。本文综述了色度量热学的研究现状，包括原理验证原型的实验结果以及针对基于量子点构型的模拟研究，并讨论了纳米复合材料研制方面的近期进展与当前挑战。最后，本文概述了色度量热学的未来前景。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>面向未来高能物理实验（如FCC-ee），如何发展色度量热学这一电磁量能器新概念，使其兼具均匀量能器的精确能量测量能力与粒子簇射纵向重建能力。</p>
+    <h4>方法</h4><p>综述性研究：梳理色度量热学的研究现状，涵盖原理验证原型的实验结果与针对量子点构型的模拟研究，并讨论纳米复合材料研制的进展与挑战。</p>
+    <h4>主要发现</h4><p>原文指出色度量热学是电磁量能器的新兴概念，具有将均匀量能器的精确能量测量与粒子簇射纵向重建相结合的潜力；综述纳入了原理验证原型的实验结果和基于量子点的模拟研究，并讨论了纳米复合材料的近期进展与当前挑战。</p>
+    <h4>局限与展望</h4><p>原文仅概述了未来前景，未给出具体结论；可合理推断，色度量热学的进一步发展取决于纳米复合材料研制的突破以及原型实验与模拟研究的进一步验证，其适用范围与性能尚待后续研究明确。</p>
+  </section>
+</article><article class="paper" id="paper-2611.27786v1">
+  <div class="paper-head">
+    <h2>重味平衡：质子-质子碰撞中粲与美粒子的量子数补偿<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.27786v1" rel="noopener noreferrer">2611.27786v1</a>
+  </div>
+  <p class="original-title">Balancing heavy flavour: Quantum number compensation in the hadronisation of charm and beauty particles in proton-proton collisions</p>
+  <p class="meta"><strong>作者：</strong>Iñaki Pardo Zambrana、Paul Veen、K. Keri Vos、Panos Christakoglou</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>重夸克的强子化仍是量子色动力学（QCD）中理解最不充分的过程之一。重夸克对的产生可在QCD中微扰计算，但随后强子的形成涉及非微扰过程。这些过程的描述主要依赖模型，并对色重联与弦碎裂的底层机制敏感。特别是，味、重子数与电荷的守恒对重味强子的形成及其在末态中的平衡方式施加了约束。本文利用PYTHIA-8事件生成器模拟的事件，研究质子-质子碰撞中与粲、美产生相关的量子数如何被平衡。从微扰产生的(c\bar{c})与(b\bar{b})对出发，我们考察重味介子与重子（包括D^0、B^+、Λ_c^+与Λ_b^0）的形成如何伴随其他位置上的补偿粒子。分析聚焦于已识别重强子与负责平衡其守恒量子数的强子系统之间的关联。我们比较PYTHIA中实现的三种强子化配置：Monash调谐、包含弦结（SJ）的色重联模型以及密堆积（CP）方法。我们发现，与Monash调谐相比，SJ与CP调谐在粲与美平衡产额中显示出显著增强的重子贡献；该增强在高多重数事件中更为明显。本研究提出了一个刻画重味产生中量子数补偿的框架，并提供了一种利用已识别粲、美强子关联检验强子化动力学的新途径，可在当前与未来的对撞机实验中探索。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在质子-质子碰撞中，粲与美夸克产生所伴随的味、重子数与电荷等量子数如何在末态强子间被平衡，以及不同强子化模型对此的描述差异。</p>
+    <h4>方法</h4><p>使用PYTHIA-8事件生成器模拟质子-质子碰撞，从微扰产生的c\bar{c}与b\bar{b}对出发，分析已识别重味强子（D^0、B^+、Λ_c^+、Λ_b^0）与负责平衡其守恒量子数的强子系统之间的关联，并比较Monash调谐、含弦结（SJ）的色重联模型与密堆积（CP）方法三种强子化配置。</p>
+    <h4>主要发现</h4><p>与Monash调谐相比，SJ与CP调谐在粲与美平衡产额中显示出显著增强的重子贡献；该增强在高多重数事件中更为明显。</p>
+    <h4>局限与展望</h4><p>研究基于PYTHIA-8模拟，结论依赖于所采用的强子化模型与调谐参数，尚未与实验数据直接对比；所提出的量子数补偿框架与重味强子关联方法可在当前与未来对撞机实验中用于检验强子化动力学（此为实现方向的合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.27985v1">
+  <div class="paper-head">
+    <h2>中微子消失道对非对称物质分布下的T破坏是否敏感？<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.27985v1" rel="noopener noreferrer">2611.27985v1</a>
+  </div>
+  <p class="original-title">Is Neutrino Disappearance Sensitive to T-Violation for Asymmetric Matter Profiles ?</p>
+  <p class="meta"><strong>作者：</strong>Gabriela Barenboim、Stephen J. Parke、Alberto Sánchez Vargas</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>文献中通常认为中微子消失道中的T破坏为零。本文指出该论断并不普遍成立：它仅适用于对称物质分布，或T/CP破坏相位δ为0或π（即Jarlskog不变量为零）的情形。ν_μ与ν_τ（而非ν_e）的存活概率含有一个依赖sinδ的项，该项在非对称物质中不为零，构成真正的T不对称性。这一混淆源于不恰当的T检验——将某一概率与其自身相减，这只是数学恒等式而非物理结果。本文针对一般任意物质分布，厘清了恰当与不恰当的T检验以及恰当与不恰当的CP、CPT检验之间的区别。对于由两层不同恒定密度构成的玩具模型，作者发现当一层接近太阳共振、另一层接近大气共振时可获得最大的T破坏。本文进一步讨论DUNE与Hyper-Kamiokande实验中的物质不对称是否足以在ν_μ存活概率中探测sinδ依赖，并探讨未来可在ν_μ存活概率中探测T/CP破坏的实验方案。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>中微子消失道是否对T破坏敏感，以及文献中“消失道T破坏为零”的常见论断是否普遍成立。</p>
+    <h4>方法</h4><p>在一般任意物质分布下区分恰当与不恰当的T、CP、CPT检验；解析考察ν_μ、ν_τ、ν_e存活概率中的sinδ项；并用两层不同恒定密度的玩具模型分析T破坏的最大化条件，进而评估DUNE与Hyper-Kamiokande的物质不对称是否足以探测sinδ依赖。</p>
+    <h4>主要发现</h4><p>“消失道T破坏为零”仅在对称物质分布或δ=0、π（Jarlskog不变量为零）时成立；ν_μ与ν_τ（而非ν_e）的存活概率在非对称物质中含有依赖sinδ的项，构成真正的T不对称性；常见混淆来自将概率与自身相减的不恰当T检验；在两层恒定密度玩具模型中，当一层接近太阳共振、另一层接近大气共振时T破坏最大。</p>
+    <h4>局限与展望</h4><p>原文讨论了DUNE与Hyper-Kamiokande的物质不对称是否足以在ν_μ存活概率中探测sinδ依赖，并提出未来可探测T/CP破坏的实验方案；这些探测的可行性与具体灵敏度需依据原文给出的定量评估，本文不对此作额外推断。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-23 16:08 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

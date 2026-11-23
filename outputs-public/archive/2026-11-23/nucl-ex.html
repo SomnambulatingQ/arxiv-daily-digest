@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-11-23</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">1</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">3</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（1）</h3><ol class="toc-list"><li><a href="#paper-2611.27880v1">HADES实验对√s_NN=2.55 GeV下Ag+Ag碰撞中双光子飞秒关联的研究</a> <small>2611.27880v1</small></li></ol><h3>交叉列表（3）</h3><ol class="toc-list"><li><a href="#paper-2611.26817v1">辐射μ子俘获实验数据研究及其对μ子转换实验的意义</a> <small>2611.26817v1</small></li><li><a href="#paper-2611.27549v1">nuSTORM：一台独特的GeV电子（反）中微子装置</a> <small>2611.27549v1</small></li><li><a href="#paper-2611.27971v1">重离子碰撞中的软-硬贝叶斯推断</a> <small>2611.27971v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.27880v1">
+  <div class="paper-head">
+    <h2>HADES实验对√s_NN=2.55 GeV下Ag+Ag碰撞中双光子飞秒关联的研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.27880v1" rel="noopener noreferrer">2611.27880v1</a>
+  </div>
+  <p class="original-title">Study of two-photon femtoscopic correlations in Ag+Ag collisions at $\mathbf{\sqrt{s_{NN}}}$ = 2.55 GeV with HADES</p>
+  <p class="meta"><strong>作者：</strong>HADES Collaboration、R. Abou Yassine、J. Adamczewski-Musch、C. Asal、M. Becker、A. Belounnas、A. Blanco、C. Blume、Y. Bondar、L. Chlad、P. Chudoba、I. Ciepał、J. Dreyer、W. Esmail、L. Fabbietti、H. Floersheimer、J. Förtsch、P. Fonte、J. Friese、I. Fröhlich、T. Galatyuk、R. Greifenhagen、M. Grunwald、M. Gumberidze、S. Harabasz、T. Heinz、C. Höhne、F. Hojeij、R. Holzmann、H. Huck、M. Idzik、B. Kämpfer、K. -H. Kampert、B. Kardan、V. Kedych、S. Kim、A. Kodym、I. Koenig、W. Koenig、M. Kohls、J. Kolas、A. Koperwas-Władyszewska、G. Kornakov、R. Kotte、I. Kres、W. Krueger、A. Kugler、R. Lalik、E. Lang、S. Lebedev、T. Leontiou、S. Linev、F. Linz、L. Lopes、M. Lorenz、A. Malige、J. Markert、T. Matulewicz、S. Maurus、S. Mehat、V. Metag、J. Michel、J. Mousa、C. Müntz、A. Mukherjee、M. Nabroth、L. Naumann、K. Nowakowski、A. Opíchal、J. Orliński、J. -H. Otto、Y. Parpottas、M. Parschau、C. Pauly、D. Pawlowska-Szymanska、V. Pechenov、O. Pechenova、J. Phan、K. Piasecki、J. Pietraszko、T. Povar、M. Prędota、K. Prościński、A. Prozorov、W. Przygoda、K. Pysz、B. Ramstein、N. Rathod、J. Ritman、A. Rost、A. Rustamov、P. Salabura、J. Saraiva、K. Scharmann、N. Schild、E. Schwab、F. Scozzi、F. Seck、I. Selyuzhenkov、U. Singh、J. Smyrski、S. Spies、A. Sreejith、H. Ströbele、J. Stroth、P. Subramani、K. Sumara、O. Svoboda、P. Tlusty、M. Traxler、S. Treliński、I. C. Udrea、F. Ulrich-Pur、V. Wagner、A. A. Weber、E. Weiler、C. Wendisch、D. Wielanek、J. Wirth、H. P. Zbroszczyk、M. Zieliński、P. Zumbruch</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>双光子关联可提供独特的飞秒尺度信息，补充带电粒子关联所获得的结果，并可用于估计低横动量（p_T）区域的直接光子产额。本文报道了HADES实验在√s_NN=2.55 GeV的Ag+Ag碰撞中采集的γ-γ关联实验结果。光子由电磁量能器（ECAL）测量，双光子关联被表示为以不变相对动量q_inv为变量的一维函数CF(q_inv)。文中讨论了观测到的结构及其可能来源，并在两个置信水平下估计了直接光子关联强度的上限，所得数值量级为10^-4至10^-3。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在√s_NN=2.55 GeV的Ag+Ag碰撞中，双光子（γ-γ）飞秒关联呈现何种结构，并能否据此约束低p_T区域直接光子的关联强度。</p>
+    <h4>方法</h4><p>利用HADES实验的电磁量能器（ECAL）测量光子，将双光子关联构建为以不变相对动量q_inv为变量的一维关联函数CF(q_inv)，并对观测结构及直接光子关联强度上限进行估计。</p>
+    <h4>主要发现</h4><p>给出了Ag+Ag碰撞中γ-γ关联的一维关联函数CF(q_inv)实验结果；讨论了观测到的结构及其可能来源；在两个置信水平下估计出直接光子关联强度上限，量级为10^-4至10^-3。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限性或后续方向；该上限结果对直接光子关联强度的约束较为宽松，其适用范围受统计量与所设置信水平限制，相关推断需谨慎对待。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.26817v1">
+  <div class="paper-head">
+    <h2>辐射μ子俘获实验数据研究及其对μ子转换实验的意义<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.26817v1" rel="noopener noreferrer">2611.26817v1</a>
+  </div>
+  <p class="original-title">Study of Radiative Muon Capture Experimental Data and its Implications for Muon-Conversion Experiments</p>
+  <p class="meta"><strong>作者：</strong>Yury Kolomensky、Michael MacKenzie、Ryan Plestid、Matthew Stortini、Ajla Trumic</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>辐射μ子俘获（RMC）是寻找μ子在原子核场中无中微子转换为电子，尤其是寻找破坏轻子味与轻子数的μ子到正电子转换过程的重要本底。RMC光子谱的高能尾部在理论上仍缺乏充分研究，导致对即将运行的μ子转换实验的本底预测存在较大不确定性。本文重新分析已发表的RMC数据，以改进高能尾部的建模。我们建立了一个以不同核子敲出末态为特征的模型，每个末态具有相应的多体相空间和运动学端点。该框架被应用于TRIUMF的光子数据和SINDRUM II的正电子数据，并将结果与先前使用的闭合近似进行比较。我们发现，对不同核子敲出末态分别建模能更好地描述端点附近现有的RMC数据，并讨论了对COMET和Mu2e实验的意义。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>RMC光子谱高能尾部理论建模不足，导致μ子转换实验（尤其是μ→e⁺转换）本底预测不确定性大；如何改进高能尾部建模并评估其对COMET和Mu2e的影响。</p>
+    <h4>方法</h4><p>重新分析已发表的RMC数据；建立以不同核子敲出末态为特征的模型，每个末态配以多体相空间和运动学端点；将该框架应用于TRIUMF的光子数据和SINDRUM II的正电子数据，并与闭合近似比较。</p>
+    <h4>主要发现</h4><p>对不同核子敲出末态分别建模能更好地描述端点附近现有的RMC数据；文中讨论了对COMET和Mu2e实验的意义。</p>
+    <h4>局限与展望</h4><p>原文指出高能尾部理论上仍研究不足；分别建模末态可改善端点附近描述，但该结论基于TRIUMF和SINDRUM II的已有数据，向COMET、Mu2e等实验的推广需进一步验证（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.27549v1">
+  <div class="paper-head">
+    <h2>nuSTORM：一台独特的GeV电子（反）中微子装置<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.27549v1" rel="noopener noreferrer">2611.27549v1</a>
+  </div>
+  <p class="original-title">nuSTORM: a unique GeV electron-(anti)neutrino machine</p>
+  <p class="meta"><strong>作者：</strong>Xianguo Lu</p>
+  <p class="meta"><strong>主分类：</strong>physics.acc-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.acc-ph</span> <span class="tag">hep-ex</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文为一篇会议报告，简要回顾了当前利用加速器中微子测量狄拉克CP相位δCP的实验计划。作者指出，基于μ子储存环产生中微子束的nuSTORM概念，可为δCP测量所需的截面输入提供高质量的电子（反）中微子束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>当前利用加速器中微子测量狄拉克CP相位δCP的实验计划需要高质量的电子（反）中微子束截面输入，而现有条件是否能够满足这一需求。</p>
+    <h4>方法</h4><p>会议报告形式的简要综述：回顾当前测量δCP的加速器中微子实验计划，并论证nuSTORM（基于μ子储存环的中微子束）概念在提供所需电子（反）中微子束方面的作用。</p>
+    <h4>主要发现</h4><p>原文明确指出，nuSTORM概念可提供δCP测量所需截面输入的高质量电子（反）中微子束。</p>
+    <h4>局限与展望</h4><p>原文仅为会议报告层面的概念论证，未给出具体性能指标或实验数据；其局限与适用范围原文未展开。可合理推断，后续需进一步量化nuSTORM束流特性及其对δCP测量截面输入的实际改善程度，但这属于推断而非原文结论。</p>
+  </section>
+</article><article class="paper" id="paper-2611.27971v1">
+  <div class="paper-head">
+    <h2>重离子碰撞中的软-硬贝叶斯推断<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.27971v1" rel="noopener noreferrer">2611.27971v1</a>
+  </div>
+  <p class="original-title">Soft--hard Bayesian inference in heavy-ion collisions</p>
+  <p class="meta"><strong>作者：</strong>L. Du、S. A. Bass、M. Chartier、Y. Chen、Y. -C. Chen、R. Datta、R. Dolan、R. Ehlers、H. Elfner、R. J. Fries、C. Gale、D. A. Hangal、B. V. Jacak、P. M. Jacobs、S. Jaiswal、S. Jeon、Y. Ji、S. A. Kirchner、E. Kolbusz、M. Kordell、A. Kumar、R. Kunnawalkam-Elayavalli、J. Latessa、Y. -J. Lee、M. Luzum、A. Majumder、S. Mak、A. Mankolli、C. Martin、H. Mehryar、C. Nattrass、J. Norman、M. Ockleton、J. -F. Paquet、C. Parker、J. H. Putschke、H. Roch、G. Roland、B. Schenke、L. Schwiebert、A. Sengupta、C. Shen、M. Singh、C. Sirimanna、R. A. Soltz、I. Soudi、Y. Tachibana、J. Velkovska、G. Vujanovic、X. Wu、J. Zhang</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>喷注淬火的贝叶斯分析通常采用由软扇区标定得到的固定夸克-胶子等离子体（QGP）背景来约束喷注-介质相互作用参数。这种做法忽略了介质的不确定性，并使硬观测量无法对介质性质提供额外约束。我们在 √s_NN = 2.76 TeV 的 Pb-Pb 碰撞中，于一个约化的三参数空间内采用序贯贝叶斯推断研究这些效应。我们同时改变介质的初始归一化与核子宽度以及喷注-介质耦合，将 JETSCAPE 介质演化与 MATTER+LBT 对高 p_T 强子和单举喷注压低的计算相结合。我们首先仅用硬观测量约束全部三个参数，然后通过序贯推断引入一个投影的软扇区后验。我们发现硬观测量对介质性质敏感，并揭示其与喷注-介质耦合存在显著关联，反映出二者对喷注淬火的补偿效应。传播软扇区信息会使偏好耦合相对于固定介质提取发生移动，该更新主要由强子压低测量驱动。尽管仅用硬观测量与序贯推断所偏好的介质参数和耦合存在显著差异，二者的压低预测量在大部分测量范围内仍相近。这些结果凸显了仅凭单举压低测量难以区分 QGP 介质变化与微观喷注-介质相互作用强度变化。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在喷注淬火的贝叶斯分析中，采用固定 QGP 背景是否会忽略介质不确定性，并使硬观测量无法额外约束介质性质；硬观测量对介质参数与喷注-介质耦合的敏感性及二者关联如何。</p>
+    <h4>方法</h4><p>在 √s_NN = 2.76 TeV 的 Pb-Pb 碰撞中，于约化三参数空间（介质初始归一化、核子宽度、喷注-介质耦合）进行序贯贝叶斯推断，结合 JETSCAPE 介质演化与 MATTER+LBT 计算的高 p_T 强子和单举喷注压低；先仅用硬观测量约束参数，再引入投影的软扇区后验。</p>
+    <h4>主要发现</h4><p>硬观测量对介质性质敏感，并与喷注-介质耦合存在显著关联，反映二者对喷注淬火的补偿效应；传播软扇区信息使偏好耦合相对于固定介质提取发生移动，该更新主要由强子压低测量驱动；尽管仅用硬观测量与序贯推断偏好的介质参数和耦合差异显著，二者的压低预测量在大部分测量范围内仍相近。</p>
+    <h4>局限与展望</h4><p>结果表明仅凭单举压低测量难以区分 QGP 介质变化与微观喷注-介质相互作用强度变化；后续可合理推断需引入更多互补观测量或更精细的喷注子结构测量以打破参数简并，但原文未对此作明确结论。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-23 16:08 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
