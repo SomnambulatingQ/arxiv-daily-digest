@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-ex 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-ex · 核实验</h1>
+    <p class="lede">官方公告日：2026-11-26</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">2</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">1</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（2）</h3><ol class="toc-list"><li><a href="#paper-2611.34355v1">自共轭核94Ag高自旋同质异能态的直接质量测量</a> <small>2611.34355v1</small></li><li><a href="#paper-2611.34503v1">ALICE 实验中 pO 与 OO 碰撞中 $\pi^0$ 产生的核修正</a> <small>2611.34503v1</small></li></ol><h3>交叉列表（1）</h3><ol class="toc-list"><li><a href="#paper-2611.34804v1">中子和原子核β衰变中α^2阶的QED修正</a> <small>2611.34804v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.34355v1">
+  <div class="paper-head">
+    <h2>自共轭核94Ag高自旋同质异能态的直接质量测量<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.34355v1" rel="noopener noreferrer">2611.34355v1</a>
+  </div>
+  <p class="original-title">Direct mass measurements of the high-spin isomers in self-conjugate 94Ag</p>
+  <p class="meta"><strong>作者：</strong>Ville Virtanen、Mikael Reponen、Duy Duc Dao、Frédéric Nowacki、Tommi Eronen、Anu Kankainen、Olga Beliuskina、Lucia Caceres、Saikumar Chinthakayala、Ruben P. de Groote、Zhuang Ge、Jason D. Holt、Baishan Hu、Arthur Jaries、Brian Kootte、Gabriella Kripkó-Koncz、Sonja Kujanpää、Gwendal Loaëc、Iain D. Moore、Luis Miguel Motilla、Maxime Mougeot、Stylianos Nikas、Ilkka Pohjalainen、Andrea Raggio、Wirunchana Rattanasakuldilok、Nicolas Richterich、Jouni Ruotsalainen、Marek Stryjczyk、Juha Äystö</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>二十年前，曾有报道称自共轭核$^{94}$Ag中一个$(21^+)$同质异能态发生双质子发射，这是核素图上唯一一例质子数为奇数的原子核中可能存在的双质子放射性。由于该同质异能态的质量未知，关于该衰变模式是否成立的争论持续至今。本文采用热腔捕集器中的态选择性激光电离技术，对$^{94}$Ag长寿命同质异能态及其单质子衰变子核$^{93}$Pd进行了多反射飞行时间质谱测量。研究首次直接测量了$(7^+)$和$(21^+)$同质异能态的质量，为独立讨论这些衰变的能量学问题奠定了基础。研究排除了此前报道的$(21^+)$态双质子发射，并揭示其单质子衰变能量显著低于先前报道值。当前先进的壳模型计算再现了$(7^+)$与$(21^+)$态之间的能隙以及$(21^+)$态的寿命，暗示该$(21^+)$态可能接近球形，这与此前对双质子放射性的解释相矛盾。本文所采用的技术为首次对质子发射态开展激光光谱研究奠定了基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究$^{94}$Ag中$(7^+)$和$(21^+)$同质异能态的质量，以检验此前报道的$(21^+)$态双质子发射是否成立，并厘清相关衰变的能量学。</p>
+    <h4>方法</h4><p>在热腔捕集器中采用态选择性激光电离，结合多反射飞行时间质谱，对$^{94}$Ag的长寿命同质异能态及其单质子衰变子核$^{93}$Pd进行直接质量测量，并与壳模型计算进行比较。</p>
+    <h4>主要发现</h4><p>首次直接测量了$(7^+)$和$(21^+)$同质异能态的质量；排除了此前报道的$(21^+)$态双质子发射；测得单质子衰变能量显著低于先前报道值；壳模型计算再现了$(7^+)$与$(21^+)$态的能隙及$(21^+)$态寿命，暗示$(21^+)$态可能接近球形，与此前对双质子放射性的解释相矛盾。</p>
+    <h4>局限与展望</h4><p>原文指出所用技术为首次对质子发射态开展激光光谱研究奠定了基础；关于$(21^+)$态接近球形的判断来自壳模型计算的推断，其适用范围与模型依赖需进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34503v1">
+  <div class="paper-head">
+    <h2>ALICE 实验中 pO 与 OO 碰撞中 $\pi^0$ 产生的核修正<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.34503v1" rel="noopener noreferrer">2611.34503v1</a>
+  </div>
+  <p class="original-title">Nuclear Modification of $π^0$ Production in pO and OO Collisions with ALICE</p>
+  <p class="meta"><strong>作者：</strong>Nicolas Strangmann</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>高动量部分子的能量损失是重离子碰撞中形成的夸克-胶子等离子体的关键特征之一。通过测量核修正因子 $R_{\rm AA}$，在 LHC 的 Pb-Pb 碰撞中已观测到高 $p_{\rm T}$ 粒子产额的强烈压低，从而确认了部分子能量损失。然而，在 pp 和 p-Pb 等小碰撞系统中，能量损失尚未得到确认。本报告给出了在 $\sqrt{s_{\rm NN}} = 5.36$ TeV 的 OO 碰撞和 $\sqrt{s_{\rm NN}} = 9.62$ TeV 的 pO 碰撞中 $\pi^0$ 的 $R_{\rm AA}$ 测量结果。这些结果基于使用 ALICE 电磁量能器测得的 OO、pO 和 pp 碰撞中的 $\pi^0$ $p_{\rm T}$ 谱。$R_{\rm pO}$ 的测量可对冷核物质效应给出精确约束；结合 $R_{\rm OO}$，可分离冷、热核物质的贡献，并定量确定 OO 碰撞中的部分子能量损失。测量结果与同时包含冷、热核物质效应的理论模型计算进行了比较。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在小碰撞系统（pO 和 OO）中，高动量部分子的能量损失是否能够被确认，以及如何分离冷核物质效应与热核物质效应的贡献。</p>
+    <h4>方法</h4><p>利用 ALICE 电磁量能器测量 OO（$\sqrt{s_{\rm NN}} = 5.36$ TeV）、pO（$\sqrt{s_{\rm NN}} = 9.62$ TeV）和 pp 碰撞中的 $\pi^0$ $p_{\rm T}$ 谱，并据此计算 $\pi^0$ 的核修正因子 $R_{\rm AA}$；通过 $R_{\rm pO}$ 约束冷核物质效应，再结合 $R_{\rm OO}$ 分离冷、热核物质贡献，并与包含冷、热核物质效应的理论模型比较。</p>
+    <h4>主要发现</h4><p>摘要明确报告了 OO 和 pO 碰撞中 $\pi^0$ 的 $R_{\rm AA}$ 测量结果，并指出 $R_{\rm pO}$ 的测量可对冷核物质效应给出精确约束，结合 $R_{\rm OO}$ 可分离冷、热核物质贡献并定量确定 OO 碰撞中的部分子能量损失；测量结果与包含冷、热核物质效应的理论模型计算进行了比较。摘要未给出具体的数值结果或能量损失的确切结论。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限性。可合理推断：该分析依赖于电磁量能器测量的 $\pi^0$ 谱及理论模型对冷、热核物质效应的描述，其定量结论的可靠性可能受模型依赖性与实验系统误差影响；后续或可扩展至其他小碰撞系统或更高精度测量以进一步检验部分子能量损失的解释。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.34804v1">
+  <div class="paper-head">
+    <h2>中子和原子核β衰变中α^2阶的QED修正<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.34804v1" rel="noopener noreferrer">2611.34804v1</a>
+  </div>
+  <p class="original-title">QED corrections to neutron and nuclear $β$-decay at order $α^2$</p>
+  <p class="meta"><strong>作者：</strong>Zehua Cao、Richard J. Hill、Ryan Plestid、Peter Vander Griend</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文计算了中子和原子核β衰变的两圈QED修正，包含完整的电子质量依赖以及实辐射贡献。对于中子，得到 δ_{R,static} = (29.199 ± 0.001) × 10^{-3}，相较于此前在大能量/小电子质量极限 m_e/(m_n−m_p) → 0 下所得结果，低能辐射修正的不确定度约降低至原来的1/70。对于超允许核衰变，我们发现与Z无关的α^2阶修正处于 (0.1–0.5) × 10^{-4} 范围，即大致为预期量级，并与当前的不确定度估计相当。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：中子和原子核β衰变中α^2阶（两圈）QED辐射修正的精确计算，特别是完整保留电子质量依赖和实辐射贡献，并评估其对低能辐射修正不确定度的影响。</p>
+    <h4>方法</h4><p>采用两圈QED修正计算，纳入完整的电子质量依赖与实辐射贡献；将结果与先前在大能量/小电子质量极限 m_e/(m_n−m_p) → 0 下得到的结果进行比较，并分别给出中子与超允许核衰变的数值结果。</p>
+    <h4>主要发现</h4><p>原文明确给出：中子情形 δ_{R,static} = (29.199 ± 0.001) × 10^{-3}，相比先前极限结果，低能辐射修正的不确定度约降低至原来的1/70；对超允许核衰变，与Z无关的α^2阶修正处于 (0.1–0.5) × 10^{-4} 范围，大致为预期量级，并与当前不确定度估计相当。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向。可合理推断：该计算适用于中子与超允许核β衰变，其精度提升可能有助于相关精密检验；对于更广泛核素或更高阶修正的适用性，尚需进一步研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-26 15:27 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

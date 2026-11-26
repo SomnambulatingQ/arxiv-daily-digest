@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv hep-lat 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>hep-lat · 格点量子色动力学</h1>
+    <p class="lede">官方公告日：2026-11-26</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">3</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">1</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（3）</h3><ol class="toc-list"><li><a href="#paper-2611.33970v1">基于N³LO协变手征微扰理论的八重态重子质量与梯度流标度设定</a> <small>2611.33970v1</small></li><li><a href="#paper-2611.34367v1">利用非平衡副本交换解除拓扑冻结</a> <small>2611.34367v1</small></li><li><a href="#paper-2611.34836v1">夸克偶素势的 $1/m_Q$ 与 $1/m_Q^2$ 修正的格点规范理论计算</a> <small>2611.34836v1</small></li></ol><h3>交叉列表（1）</h3><ol class="toc-list"><li><a href="#paper-2611.33280v1">介子态的部子结构：张量网络研究</a> <small>2611.33280v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.33970v1">
+  <div class="paper-head">
+    <h2>基于N³LO协变手征微扰理论的八重态重子质量与梯度流标度设定<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.33970v1" rel="noopener noreferrer">2611.33970v1</a>
+  </div>
+  <p class="original-title">Gradient-flow scale setting from octet baryon masses in N$^3$LO covariant chiral perturbation theory</p>
+  <p class="meta"><strong>作者：</strong>Xiu-Lei Ren</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">hep-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在协变重子手征微扰理论框架下，将计算推进至次次次领头阶（N³LO），通过分析协调格点模拟（CLS）N_f=2+1系综上的最低八重态重子质量来确定梯度流标度 t_0。研究中自洽地纳入有限体积修正，并考虑来自 Symanzik 有效场论的离散化效应，从而对 RQCD 数据给出良好描述，并将梯度流标度确定为 √(8t_{0,ph})=0.4120(14)_stat.(16)_sys. fm，精度达到亚百分比量级。所预测的八重态重子质量在等旋极限下与实验值吻合良好。利用 Feynman-Hellmann 定理，本文还估计了核子 sigma 项，其结果与同一 CLS 系综上由三点关联函数直接确定的结果一致。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何利用 CLS N_f=2+1 系综上的最低八重态重子质量，在协变重子手征微扰理论至 N³LO 的框架下确定梯度流标度 t_0，并检验所得参数化对重子质量与核子 sigma 项的描述能力。</p>
+    <h4>方法</h4><p>采用协变重子手征微扰理论计算至 N³LO，分析 CLS N_f=2+1 系综上的八重态重子质量；自洽地纳入有限体积修正，并引入 Symanzik 有效场论给出的离散化效应；拟合 RQCD 数据以确定梯度流标度，并利用 Feynman-Hellmann 定理估计核子 sigma 项。</p>
+    <h4>主要发现</h4><p>对 RQCD 数据给出良好描述；确定梯度流标度为 √(8t_{0,ph})=0.4120(14)_stat.(16)_sys. fm，达到亚百分比精度；预测的八重态重子质量在等旋极限下与实验值吻合良好；估计的核子 sigma 项与同一 CLS 系综上三点关联函数的直接确定结果一致。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论局限性；所得标度与 sigma 项估计的适用范围受所用 CLS 系综、N³LO 截断及离散化处理方式约束。后续可合理推断的方向包括：在更多系综或更广参数区域检验该标度设定的稳健性，以及进一步评估高阶截断与离散化效应带来的系统不确定性。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34367v1">
+  <div class="paper-head">
+    <h2>利用非平衡副本交换解除拓扑冻结<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.34367v1" rel="noopener noreferrer">2611.34367v1</a>
+  </div>
+  <p class="original-title">Unfreezing topology using out-of-equilibrium replica exchanges</p>
+  <p class="meta"><strong>作者：</strong>C. Bonanno、A. Bulgarelli、E. Cellini、R. Dionisio、A. Nada、D. Panfalone、D. Vadacchino、L. Verzichelli</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span> <span class="tag">cond-mat.stat-mech</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>边界条件并行回火（PTBC）通过在周期性边界与开边界之间插值的小缺陷上交换副本构型，缓解拓扑冻结。本文将 PTBC 推广为用短时非平衡协议替代瞬时交换：两个副本的缺陷耦合被逐步交换，同时缺陷周围的场被更新。我们证明，借助 Crooks 与 Jarzynski 涨落关系，交换率仅取决于沿非平衡轨迹消耗的平均功。通过理论推导功随副本数、协议长度和缺陷大小的标度行为，我们预测了交换率与最优协议长度，并在 N=21 的二维 CP^{N-1} 模型中检验这些预测。最优设置与实测结果一致；在所有考察的格点间距下，固定统计精度所需的总计算成本相对标准 PTBC 降低 ≳40%，固定接受率下所需副本数减半。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何缓解格点场论中因拓扑荷难以改变而导致的拓扑冻结，并降低边界条件并行回火（PTBC）的计算成本。</p>
+    <h4>方法</h4><p>将 PTBC 中的瞬时副本交换替换为短时非平衡协议：逐步交换两个副本的缺陷耦合并更新缺陷周围场；利用 Crooks 与 Jarzynski 涨落关系分析交换率，理论推导功随副本数、协议长度与缺陷大小的标度，并在 N=21 的二维 CP^{N-1} 模型中进行数值检验。</p>
+    <h4>主要发现</h4><p>交换率仅由非平衡轨迹上的平均功决定；理论预测的交换率与最优协议长度同数值测量一致；在固定统计精度下，总计算成本相对标准 PTBC 降低 ≳40%，固定接受率下所需副本数减半。</p>
+    <h4>局限与展望</h4><p>摘要仅报告了二维 CP^{N-1} 模型（N=21）的检验结果，方法在其他模型与维度中的适用性尚待验证；非平衡协议引入的额外功与协议长度之间的权衡可能影响更大系统上的最优参数选择，相关推断需进一步研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34836v1">
+  <div class="paper-head">
+    <h2>夸克偶素势的 $1/m_Q$ 与 $1/m_Q^2$ 修正的格点规范理论计算<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.34836v1" rel="noopener noreferrer">2611.34836v1</a>
+  </div>
+  <p class="original-title">Lattice gauge theory computation of $1/m_Q$ and $1/m_Q^2$ corrections to the quarkonium potential</p>
+  <p class="meta"><strong>作者：</strong>Michael Eichberg、Marc Wagner</p>
+  <p class="meta"><strong>主分类：</strong>hep-lat
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-lat</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在 SU(3) 格点规范理论中计算了静态夸克-反夸克势及其 $1/m_Q$ 与 $1/m_Q^2$ 修正，即 $1/m_Q$ 势和全部 $1/m_Q^2$ 势；后者可由两个场强插入的关联函数表示。作者给出了夸克-反夸克间距 $0.2\,\text{fm} \lesssim r \lesssim 0.7\,\text{fm}$ 范围内的参数化。广义 Wilson 圈中的场强插入采用梯度流进行重整化，这也使统计不确定度较小。所有势均被外推至零流时，并（与以往格点研究不同）利用三个格点间距和四个流时外推至连续极限。自旋相关势在 NLO 精度下匹配到 $\overline{\text{MS}}$ 方案，并在 $\mu = 3\,\text{GeV}$ 处给出，可方便地转换为特定重夸克质量下的结果，例如用于夸克偶素的 Born-Oppenheimer 有效场论研究。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在 SU(3) 格点规范理论中计算静态夸克-反夸克势及其 $1/m_Q$、$1/m_Q^2$ 修正（包括可由两个场强插入关联函数表示的全部 $1/m_Q^2$ 势），并给出适用于夸克偶素研究的势参数化。</p>
+    <h4>方法</h4><p>在格点规范理论中计算广义 Wilson 圈内两个场强插入的关联函数；使用梯度流对场强插入进行重整化以减小统计不确定度；采用三个格点间距和四个流时，将所有势外推至零流时与连续极限；将自旋相关势在 NLO 精度下匹配到 $\overline{\text{MS}}$ 方案并在 $\mu=3\,\text{GeV}$ 处给出。</p>
+    <h4>主要发现</h4><p>得到了静态势、$1/m_Q$ 势及全部 $1/m_Q^2$ 势，并提供了 $0.2\,\text{fm} \lesssim r \lesssim 0.7\,\text{fm}$ 范围内的参数化；梯度流重整化使统计不确定度较小；所有势均完成了零流时外推和连续极限外推；自旋相关势已在 NLO 精度下匹配到 $\overline{\text{MS}}$ 方案并在 $\mu=3\,\text{GeV}$ 处给出，可转换为特定重夸克质量下的结果。</p>
+    <h4>局限与展望</h4><p>原文给出的参数化仅覆盖 $0.2\,\text{fm} \lesssim r \lesssim 0.7\,\text{fm}$ 的间距范围，其在此范围之外的适用性未在原文中说明；结果可方便地转换为特定重夸克质量下的势，原文明确指出可用于夸克偶素的 Born-Oppenheimer 有效场论研究。其他后续方向需进一步研究，原文未作明确讨论。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.33280v1">
+  <div class="paper-head">
+    <h2>介子态的部子结构：张量网络研究<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.33280v1" rel="noopener noreferrer">2611.33280v1</a>
+  </div>
+  <p class="original-title">Parton structure of mesonic states with tensor networks</p>
+  <p class="meta"><strong>作者：</strong>Jack Y. Araz、Yamil Cahuana Medrano、Peter L. Nguyen、Zhong-Bo Kang、Jian-Wei Qiu、David Richards、Nobuo Sato、Marco Zaccheddu、Jia-Yue Zhang</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">hep-lat</span> <span class="tag">quant-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文在(1+1)维双味Nambu-Jona-Lasinio模型中，针对类π介子的同位旋三重态，首次给出了味分辨的部子分布函数（PDF）的直接张量网络计算。该模型中的四费米子相互作用使介子束缚，但不含禁闭。我们采用交错费米子和电荷对称化哈密顿量制备束缚态，并通过实时演化计算光锥关联函数。所得夸克与反夸克PDF在带电π介子之间满足$u \leftrightarrow d$交换下预期的同位旋关系，并在中性π介子中呈现u与d分布相等。对场序作与味无关的反对称化处理，可去除真空减除的对易子贡献，并在数值精度内恢复三重态中关联函数与PDF的电荷共轭关系。这些结果为介子部子结构的量子模拟提供了基准。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何在无禁闭的(1+1)维双味Nambu-Jona-Lasinio模型中，直接计算类π介子同位旋三重态的味分辨部子分布函数，并检验其同位旋与电荷共轭关系。</p>
+    <h4>方法</h4><p>采用交错费米子与电荷对称化哈密顿量制备介子束缚态，利用张量网络进行实时演化以计算光锥关联函数，并对场序作与味无关的反对称化处理以去除真空减除的对易子贡献。</p>
+    <h4>主要发现</h4><p>所得夸克与反夸克PDF在带电π介子间满足$u \leftrightarrow d$交换下的预期同位旋关系，中性π介子中u与d分布相等；反对称化处理在数值精度内恢复了三重态关联函数与PDF的电荷共轭关系。</p>
+    <h4>局限与展望</h4><p>该工作限于(1+1)维无禁闭模型，结果可作为介子部子结构量子模拟的基准；向更高维或含禁闭相互作用的推广尚待进一步研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-26 15:27 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>

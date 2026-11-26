@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nucl-th 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nucl-th · 核理论</h1>
+    <p class="lede">官方公告日：2026-11-26</p>
+    <nav><a href="index.html">总览</a><a href="hep-th-latest.html">hep-th</a> <a href="hep-ph-latest.html">hep-ph</a> <a href="hep-lat-latest.html">hep-lat</a> <a href="hep-ex-latest.html">hep-ex</a> <a href="nucl-ex-latest.html">nucl-ex</a> <a href="nucl-th-latest.html">nucl-th</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">9</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">6</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">3</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（6）</h3><ol class="toc-list"><li><a href="#paper-2611.33217v1">Skyrme与Fayans泛函自洽方法中Ca核电荷半径的剖析</a> <small>2611.33217v1</small></li><li><a href="#paper-2611.33379v1">中子诱发裂变中总动能分布的概率机器学习研究</a> <small>2611.33379v1</small></li><li><a href="#paper-2611.33662v1">在TRENTo-Sea模型中引入部分子级涨落</a> <small>2611.33662v1</small></li><li><a href="#paper-2611.34413v1">基于BSkG3的大规模裂变性质研究 I：裂变路径与自发裂变半衰期</a> <small>2611.34413v1</small></li><li><a href="#paper-2611.34562v1">Au+Au碰撞中横动量关联的平衡基线：守恒律、共振衰变、量子统计与集体流</a> <small>2611.34562v1</small></li><li><a href="#paper-2611.34752v1">中子弹性与非弹性截面微观方法研究</a> <small>2611.34752v1</small></li></ol><h3>交叉列表（3）</h3><ol class="toc-list"><li><a href="#paper-2611.33292v1">更硬、更好、更快、更强：超新星QCD轴子发射中的Δ(1232)共振</a> <small>2611.33292v1</small></li><li><a href="#paper-2611.34355v1">自共轭核94Ag高自旋同质异能态的直接质量测量</a> <small>2611.34355v1</small></li><li><a href="#paper-2611.34804v1">中子和原子核β衰变中α^2阶的QED修正</a> <small>2611.34804v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.33217v1">
+  <div class="paper-head">
+    <h2>Skyrme与Fayans泛函自洽方法中Ca核电荷半径的剖析<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.33217v1" rel="noopener noreferrer">2611.33217v1</a>
+  </div>
+  <p class="original-title">Anatomy of charge radii of Ca nuclei in self-consistent approaches with Skyrme and Fayans functionals</p>
+  <p class="meta"><strong>作者：</strong>H. Nakada、T. Inakura、N. Hinohara</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>已知$^{40-48}$Ca核的电荷半径具有反常的$N$依赖性。多数自洽计算难以再现这一行为，而Fayans泛函能够再现$^{42,44,46}$Ca中的抛物线行为，尽管它倾向于高估中子贫乏核$^{38}$Ca的电荷半径。本文通过将Fayans泛函给出的$N$依赖性分解为径向贡献，并将其追溯至单粒子势与中子对密度，从而研究其起源。结果与被视为常规泛函代表的Skyrme泛函SkM$^\ast$的结果进行了比较。研究发现，在Fayans泛函的结果中，$^{42,44,46}$Ca的抛物线行为与$^{38}$Ca电荷半径的错误增强具有共同的起源。要完全解决$^{42,44,46}$Ca抛物线电荷半径之谜，同时再现中子贫乏区域至关重要。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>$^{40-48}$Ca核电荷半径的反常$N$依赖性（特别是$^{42,44,46}$Ca的抛物线行为）在自洽计算中难以再现，其起源尚不清楚。</p>
+    <h4>方法</h4><p>采用Fayans泛函进行自洽计算，将电荷半径的$N$依赖性分解为径向贡献，并追溯至单粒子势和中子对密度；同时与Skyrme泛函SkM$^\ast$的结果进行比较。</p>
+    <h4>主要发现</h4><p>Fayans泛函能再现$^{42,44,46}$Ca的抛物线行为，但高估$^{38}$Ca的电荷半径；在Fayans泛函结果中，$^{42,44,46}$Ca的抛物线行为与$^{38}$Ca电荷半径的错误增强具有共同起源。</p>
+    <h4>局限与展望</h4><p>要完全解决$^{42,44,46}$Ca抛物线电荷半径之谜，需同时正确再现中子贫乏区域；这一结论提示后续研究应关注对中子贫乏核性质的联合约束。</p>
+  </section>
+</article><article class="paper" id="paper-2611.33379v1">
+  <div class="paper-head">
+    <h2>中子诱发裂变中总动能分布的概率机器学习研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.33379v1" rel="noopener noreferrer">2611.33379v1</a>
+  </div>
+  <p class="original-title">Probabilistic Machine Learning for Total Kinetic Energy Distributions in Neutron-Induced Fission</p>
+  <p class="meta"><strong>作者：</strong>Vaia Prassa、Martha Papadopoulou、Christos Bompotas</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span> <span class="tag">cs.LG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>中子入射能量对裂变后总动能（TKE）分布的影响，尤其是多道裂变区域中分布宽度的变化，为检验裂变计算提供了敏感探针。本文研究了裂变观测量通用描述（GEF）以及基于GEF训练的概率机器学习模型对实测TKE分布的再现能力，重点关注高入射中子能量下的分布宽度及训练范围外的外推表现。我们在统一的计算数据集上评估了高斯过程回归（GPR）、带白噪声核的GPR、混合密度网络（MDN）和贝叶斯混合密度网络（BMDN）。扩展的MDN/BMDN分析使用了来自20个靶核的1,025条GEF能谱和60条实测分布。比较了训练能量上限分别为20、40和约76 MeV的情形，并与保持每个靶核能谱数不变的、扩展至30或40 MeV的等规模对照实验进行对比。在40 MeV以上，BMDN宽度相对实验的平均绝对误差从训练至20 MeV时的5.63 MeV降至两个等规模30 MeV对照的2.70和2.53 MeV，以及等规模40 MeV对照的1.77 MeV。40 MeV以上相对GEF的预测区间覆盖率在20 MeV训练范围与完整训练范围之间由52.3%升至92.3%。与实测平均TKE及宽度的符合程度依赖于靶核，GEF、MDN与BMDN之间不存在一致的优劣排序。结果表明高能区宽度对训练能量覆盖范围具有敏感性，且改进在30 MeV时已显现。GEF宽度在高能区变化相对缓慢，这限制了将这些改进归因于学习到非平凡能量依赖关系的程度。充分的训练能量覆盖对于再现计算得到的高能演化至关重要，而与实验的符合程度仍受制于底层裂变模型。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>中子诱发裂变中，裂变后总动能（TKE）分布随入射中子能量的变化（尤其是多道裂变区域中的分布宽度）能否被GEF计算和基于GEF训练的概率机器学习模型再现；训练能量范围对外推至高入射中子能量时的预测能力有何影响。</p>
+    <h4>方法</h4><p>在统一的计算数据集上评估高斯过程回归（GPR）、带白噪声核的GPR、混合密度网络（MDN）和贝叶斯混合密度网络（BMDN）；扩展的MDN/BMDN分析使用来自20个靶核的1,025条GEF能谱和60条实测分布；比较训练能量上限为20、40和约76 MeV的情形，并设置保持每个靶核能谱数不变、扩展至30或40 MeV的等规模对照。</p>
+    <h4>主要发现</h4><p>在40 MeV以上，BMDN宽度相对实验的平均绝对误差从训练至20 MeV时的5.63 MeV降至两个等规模30 MeV对照的2.70和2.53 MeV，以及等规模40 MeV对照的1.77 MeV；相对GEF的预测区间覆盖率在40 MeV以上由20 MeV训练范围的52.3%升至完整训练范围的92.3%；与实测平均TKE及宽度的符合程度依赖于靶核，GEF、MDN与BMDN之间无一致优劣排序；高能区宽度的改进在30 MeV时已显现。</p>
+    <h4>局限与展望</h4><p>GEF宽度在高能区变化相对缓慢，限制了将改进归因于学习到非平凡能量依赖关系的程度；与实验的符合程度仍受底层裂变模型制约。后续可合理推断的方向包括：在更广靶核与能量范围上检验训练能量覆盖的影响，以及结合更准确的裂变模型以改善与实验的符合程度（此点为推断，非原文结论）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.33662v1">
+  <div class="paper-head">
+    <h2>在TRENTo-Sea模型中引入部分子级涨落<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.33662v1" rel="noopener noreferrer">2611.33662v1</a>
+  </div>
+  <p class="original-title">Introducing Parton-Level Fluctuations in the TRENTo-Sea Model</p>
+  <p class="meta"><strong>作者：</strong>Jacob Reinach、Andreas Kirchner</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>多种实验与理论数据表明，重离子碰撞的初始条件模型包含一定程度的亚核子涨落。现有模型通常将这类涨落的数目与尺度拟合到数据，而我们利用核部分子分布函数（nPDF）来约束TRENTo-Sea（TRENTo的扩展模型）中的亚核子结构与涨落。我们通过对重离子中夸克与胶子的动量分数分布进行抽样，使用微扰量子色动力学在部分子层面碰撞原子核，并引入一个红外质心系阻尼标度，该标度依据质子-质子截面进行调节。我们发现，除中心碰撞外，该模型成功复现了经数据校准模型的$ε_2\{2\}$；对预平衡火球功率谱与颗粒度的分析表明，核子中低-$x$部分子的数目对局部横向几何有显著影响。模型对红外参数的变化基本不敏感，因为此类变化会被红外调节器的校准所吸收。我们预期本工作将有助于软-硬关联的未来研究以及对不同nPDF集的约束。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>重离子碰撞初始条件模型中的亚核子涨落如何由核部分子分布函数约束，而非仅拟合到数据；以及在TRENTo-Sea中引入部分子级涨落后能否复现数据校准模型的椭圆流特征。</p>
+    <h4>方法</h4><p>对重离子中夸克与胶子的动量分数分布进行抽样，利用微扰量子色动力学在部分子层面碰撞原子核，并引入按质子-质子截面调节的红外质心系阻尼标度；随后分析预平衡火球的功率谱与颗粒度。</p>
+    <h4>主要发现</h4><p>除中心碰撞外，模型成功复现了经数据校准模型的$\varepsilon_2\{2\}$；预平衡火球的功率谱与颗粒度分析表明，核子中低-$x$部分子的数目对局部横向几何有显著影响；模型对红外参数变化基本不敏感，因为此类变化被红外调节器的校准所吸收。</p>
+    <h4>局限与展望</h4><p>原文指出中心碰撞区域未能复现数据校准模型的$\varepsilon_2\{2\}$，这是模型的已知局限；作者预期该工作有助于软-硬关联研究及约束不同nPDF集，但具体后续验证尚未在原文中给出。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34413v1">
+  <div class="paper-head">
+    <h2>基于BSkG3的大规模裂变性质研究 I：裂变路径与自发裂变半衰期<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.34413v1" rel="noopener noreferrer">2611.34413v1</a>
+  </div>
+  <p class="original-title">Large-scale fission properties with BSkG3 I : fission paths and spontaneous fission half-lives</p>
+  <p class="meta"><strong>作者：</strong>Adrián Sánchez-Fernández、Wouter Ryssens、Stéphane Goriely</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文基于BSkG3能量密度泛函，首次开展核裂变性质的大规模系统分析。该模型在锕系区基态可观测量与裂变数据上具有前所未有的符合度。我们系统考察了80≤Z≤118、位于预言质子与中子滴线之间的近3300个核素，计算了数千个显式包含三轴与八极形变的势能面；采用由BSkG3自洽导出的微观集体惯量确定相应的最小作用量裂变路径，并在半经典WKB近似下计算自发裂变（SF）半衰期。结果表明，裂变路径拓扑具有丰富的多样性，远超反应程序通常采用的传统双峰图像；沿路径的核形状亦呈现广泛变化，凸显仅考察单一集体自由度的局限性。特别地，三轴性不仅影响锕系区内垒，也影响超重核若干区域的外垒与单垒。我们预言的SF半衰期总体趋势与以往大规模研究相似，但在中子滴线附近出现显著差异。所得数据集（包括裂变位垒、SF半衰期与鞍点核能级密度）已纳入TALYS反应程序与BRUSLIB数据库，为核反应计算与天体物理应用（尤其是需要远离稳定谷核素可靠裂变性质的快中子俘获模拟）提供了微观基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>基于BSkG3能量密度泛函，系统研究大范围内核素的裂变路径拓扑与自发裂变半衰期，并考察三轴与八极形变及多集体自由度对裂变性质的影响。</p>
+    <h4>方法</h4><p>对80≤Z≤118、位于预言质子与中子滴线之间的近3300个核素计算显式包含三轴与八极形变的势能面；采用BSkG3自洽导出的微观集体惯量确定最小作用量裂变路径；在半经典WKB近似下计算自发裂变半衰期。</p>
+    <h4>主要发现</h4><p>裂变路径拓扑呈现丰富多样性，超出传统双峰图像；沿路径核形状变化广泛，表明仅考察单一集体自由度存在局限；三轴性不仅影响锕系区内垒，也影响超重核若干区域的外垒与单垒；预言的SF半衰期趋势与以往大规模研究相似，但在中子滴线附近出现显著差异；所得数据集已纳入TALYS与BRUSLIB。</p>
+    <h4>局限与展望</h4><p>摘要未明确讨论模型局限；可合理推断，三轴与八极形变及多自由度路径的纳入对远离稳定谷核素的裂变性质预言尤为重要，所得微观数据集可支撑快中子俘获等天体物理模拟，但摘要未给出具体后续研究计划。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34562v1">
+  <div class="paper-head">
+    <h2>Au+Au碰撞中横动量关联的平衡基线：守恒律、共振衰变、量子统计与集体流<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.34562v1" rel="noopener noreferrer">2611.34562v1</a>
+  </div>
+  <p class="original-title">Equilibrium baseline for transverse-momentum correlations in Au+Au collisions at $\sqrt{s_{NN}} = 3$-$39$ GeV: Conservation laws, resonance decays, quantum statistics, and collective flow</p>
+  <p class="meta"><strong>作者：</strong>Oleh Savchuk</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>STAR在Au+Au碰撞中测量的事件逐事件横动量关联呈现出非单调的能量依赖性：在$\sqrt{s_{NN}} \approx 5$-$8$ GeV附近出现极小值，并向$3$ GeV方向陡升。在将这些特征解释为状态方程软化或QCD临界点之前，必须先建立平衡强子共振气体所给出的基线。本文在热平衡与化学平衡条件下，计算了$\sqrt{s_{NN}} = 3$至$39$ GeV、0-5%与30-40%碰撞中的两粒子关联量$\langle \Delta p_{T,i}\Delta p_{T,j} \rangle$，并纳入共振衰变、Bose-Einstein统计、Bjorken纵向流与横向径向流，以及能量、重子数、电荷、奇异数与横动量的整体守恒。通过微正则系综的鞍点展开施加守恒律，可将任意可加观测量的方差表示为巨正则协方差的Schur补。尽管平衡气体经历了从重子主导到介子主导的转变，组分涨落会抵消事件逐事件固定粒子种类多重数时出现的大负“混合”项，仅留下小得多的负守恒残余。在$\sqrt{s_{NN}} = 11.5$-$39$ GeV范围内，包含强流的平衡基线在0-5%碰撞中低于数据约3-4倍，在30-40%碰撞中低于数据约6.5倍；在固定靶能量（$3$-$5.2$ GeV）下，数据最大且为正，而基线转为负值。若要在固定能量下通过径向流涨落解释数据，则需在中心碰撞中取$\sigma_\beta/\beta_s \approx 6$-$10\%$，在30-40%对撞机能量碰撞中取$\approx 22\%$，且其随中心度降低的增长快于独立源标度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>STAR在Au+Au碰撞中观测到的横动量关联非单调能量依赖性，能否由平衡强子共振气体基线解释；在解释为状态方程软化或QCD临界点信号之前，需要先确定该基线。</p>
+    <h4>方法</h4><p>在$\sqrt{s_{NN}} = 3$-$39$ GeV、0-5%与30-40%碰撞中计算热平衡与化学平衡下的两粒子关联量$\langle \Delta p_{T,i}\Delta p_{T,j} \rangle$，纳入共振衰变、Bose-Einstein统计、Bjorken纵向流与横向径向流，以及能量、重子数、电荷、奇异数和横动量的整体守恒；通过微正则系综的鞍点展开施加守恒律，将可加观测量的方差表示为巨正则协方差的Schur补。</p>
+    <h4>主要发现</h4><p>组分涨落抵消了固定粒子种类多重数时出现的大负混合项，仅留下较小的负守恒残余；在$\sqrt{s_{NN}} = 11.5$-$39$ GeV，含强流的平衡基线在0-5%碰撞中低于数据3-4倍，在30-40%碰撞中低于数据约6.5倍；在固定靶能量$3$-$5.2$ GeV，数据最大且为正，而基线为负；若用固定能量下的径向流涨落解释数据，需$\sigma_\beta/\beta_s \approx 6$-$10\%$（中心碰撞）和$\approx 22\%$（30-40%对撞机能量碰撞），且其随中心度降低的增长快于独立源标度。</p>
+    <h4>局限与展望</h4><p>平衡基线在固定靶能量下为负而数据为正，且在对撞机能量下显著低于数据，表明仅靠平衡强子共振气体加集体流不足以描述观测到的关联；径向流涨落可作为一种可能的补充机制，但其所需幅度及中心度依赖是否物理上可实现，尚需进一步检验。本文结果不构成对状态方程软化或QCD临界点的直接证据，相关解释仍需额外研究。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34752v1">
+  <div class="paper-head">
+    <h2>中子弹性与非弹性截面微观方法研究<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.34752v1" rel="noopener noreferrer">2611.34752v1</a>
+  </div>
+  <p class="original-title">Microscopic Approach to Neutron Elastic and Inelastic Cross Sections</p>
+  <p class="meta"><strong>作者：</strong>Ibrahim Abdurrahman、Chloe Hebborn、Filomena Nunes、Gregory Potel</p>
+  <p class="meta"><strong>主分类：</strong>nucl-th
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>反应时标因所涉核素与束流能量不同而差异巨大，目前常针对不同时标采用不同模型，并依赖能级密度或分宽度等唯象输入，限制了预测能力。本工作旨在从中等质量核结构的微观预测出发，统一描述低能中子弹性与非弹性反应道，构建既足够通用以覆盖不同反应区、又根植于微观理论的框架。作为示例，研究聚焦于 n+²⁰Ne 的弹性与非弹性反应道：利用 ²¹Ne 的壳模型共振态预测及其谱振幅，在两种单粒子渐近近似下构建 S 矩阵；随后分析壳模型给出的能级密度与单粒子分宽度预测，并将最终截面与评价数据比较。该方法在定性上重现了 ENDF 评价的 ²⁰Ne(n,el) 与 ²⁰Ne(n,n&#x27;) 截面。本研究还将该模型得到的 Shannon 熵与高斯正交系综（GOE）进行了比较。未来该框架将扩展至双核子与伽马等更复杂的反应道，从而更准确地预测中子诱导反应，例如具有天体物理意义的反应。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从微观核结构预测出发，统一描述低能中子弹性与非弹性反应道，以减少对能级密度、分宽度等唯象输入的依赖。</p>
+    <h4>方法</h4><p>以 n+²⁰Ne 弹性与非弹性道为例，基于 ²¹Ne 的壳模型共振态预测与谱振幅，在两种单粒子渐近近似下构建 S 矩阵；分析壳模型能级密度与单粒子分宽度预测，并将截面与评价数据比较，同时将模型得到的 Shannon 熵与 GOE 比较。</p>
+    <h4>主要发现</h4><p>该方法在定性上重现了 ENDF 评价的 ²⁰Ne(n,el) 与 ²⁰Ne(n,n&#x27;) 截面；并给出了模型 Shannon 熵与 GOE 的比较。</p>
+    <h4>局限与展望</h4><p>当前工作仅针对 n+²⁰Ne 的弹性与非弹性道进行示例性研究，截面重现为定性层面；未来拟扩展至双核子与伽马等更复杂反应道，以更准确预测中子诱导反应（如天体物理相关反应）。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.33292v1">
+  <div class="paper-head">
+    <h2>更硬、更好、更快、更强：超新星QCD轴子发射中的Δ(1232)共振<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.33292v1" rel="noopener noreferrer">2611.33292v1</a>
+  </div>
+  <p class="original-title">Harder, Better, Faster, Stronger: The $Δ(1232)$ Resonance in Supernova QCD Axion Emission</p>
+  <p class="meta"><strong>作者：</strong>Paolo Arcangeli、Konstantin Springmann、Michael Stadlbauer、Stefan Stelzl、Andreas Weiler</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>超新星轴子发射的高能尾部决定了那些响应随轴子能量增强的搜寻实验的灵敏度。我们识别出一个新的产生通道：轴子通过中间Δ(1232)共振态发射，从而在能谱中增加一个硬成分。我们在手征有效场论中计算了核子-核子轫致辐射产生轴子的速率，精度达到次领头阶。相对于仅包含核子的计算，纳入Δ(1232)后，在反弹后一秒时轴子光度约翻倍，并在前九秒内使能量高于200 MeV的逃逸轴子数增加约3倍。加入这一新产生通道后，前身星磁场中转换产生的γ射线计数约翻倍，并通过对发射与吸收的联合效应使水切伦科夫计数增加约一个数量级。在γ射线能谱拟合中，同一硬成分可能被误认为更高的核心温度或热π介子发射。因此，Δ(1232)共振对于预测超新星轴子信号及解释其能谱至关重要。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>超新星轴子发射的高能尾部如何影响依赖轴子能量的搜寻实验，以及是否存在被忽略的硬谱产生通道。</p>
+    <h4>方法</h4><p>在手征有效场论中计算核子-核子轫致辐射产生轴子的速率至次领头阶，并引入中间Δ(1232)共振态；进一步评估该通道对γ射线转换计数和水切伦科夫计数的影响。</p>
+    <h4>主要发现</h4><p>纳入Δ(1232)后，反弹后一秒的轴子光度约翻倍；前九秒内能量高于200 MeV的逃逸轴子数约增加3倍；γ射线计数约翻倍，水切伦科夫计数约增加一个数量级；该硬成分在γ射线能谱拟合中可能被误认为更高的核心温度或热π介子发射。</p>
+    <h4>局限与展望</h4><p>摘要未讨论计算的理论不确定度或更广泛参数空间；基于其结论可合理推断，未来超新星轴子能谱分析需纳入Δ(1232)通道以避免参数简并，但该推断仍需进一步定量研究验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34355v1">
+  <div class="paper-head">
+    <h2>自共轭核94Ag高自旋同质异能态的直接质量测量<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.34355v1" rel="noopener noreferrer">2611.34355v1</a>
+  </div>
+  <p class="original-title">Direct mass measurements of the high-spin isomers in self-conjugate 94Ag</p>
+  <p class="meta"><strong>作者：</strong>Ville Virtanen、Mikael Reponen、Duy Duc Dao、Frédéric Nowacki、Tommi Eronen、Anu Kankainen、Olga Beliuskina、Lucia Caceres、Saikumar Chinthakayala、Ruben P. de Groote、Zhuang Ge、Jason D. Holt、Baishan Hu、Arthur Jaries、Brian Kootte、Gabriella Kripkó-Koncz、Sonja Kujanpää、Gwendal Loaëc、Iain D. Moore、Luis Miguel Motilla、Maxime Mougeot、Stylianos Nikas、Ilkka Pohjalainen、Andrea Raggio、Wirunchana Rattanasakuldilok、Nicolas Richterich、Jouni Ruotsalainen、Marek Stryjczyk、Juha Äystö</p>
+  <p class="meta"><strong>主分类：</strong>nucl-ex
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>二十年前，曾有报道称自共轭核$^{94}$Ag中一个$(21^+)$同质异能态发生双质子发射，这是核素图上唯一一例质子数为奇数的原子核中可能存在的双质子放射性。由于该同质异能态的质量未知，关于该衰变模式是否成立的争论持续至今。本文采用热腔捕集器中的态选择性激光电离技术，对$^{94}$Ag长寿命同质异能态及其单质子衰变子核$^{93}$Pd进行了多反射飞行时间质谱测量。研究首次直接测量了$(7^+)$和$(21^+)$同质异能态的质量，为独立讨论这些衰变的能量学问题奠定了基础。研究排除了此前报道的$(21^+)$态双质子发射，并揭示其单质子衰变能量显著低于先前报道值。当前先进的壳模型计算再现了$(7^+)$与$(21^+)$态之间的能隙以及$(21^+)$态的寿命，暗示该$(21^+)$态可能接近球形，这与此前对双质子放射性的解释相矛盾。本文所采用的技术为首次对质子发射态开展激光光谱研究奠定了基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究$^{94}$Ag中$(7^+)$和$(21^+)$同质异能态的质量，以检验此前报道的$(21^+)$态双质子发射是否成立，并厘清相关衰变的能量学。</p>
+    <h4>方法</h4><p>在热腔捕集器中采用态选择性激光电离，结合多反射飞行时间质谱，对$^{94}$Ag的长寿命同质异能态及其单质子衰变子核$^{93}$Pd进行直接质量测量，并与壳模型计算进行比较。</p>
+    <h4>主要发现</h4><p>首次直接测量了$(7^+)$和$(21^+)$同质异能态的质量；排除了此前报道的$(21^+)$态双质子发射；测得单质子衰变能量显著低于先前报道值；壳模型计算再现了$(7^+)$与$(21^+)$态的能隙及$(21^+)$态寿命，暗示$(21^+)$态可能接近球形，与此前对双质子放射性的解释相矛盾。</p>
+    <h4>局限与展望</h4><p>原文指出所用技术为首次对质子发射态开展激光光谱研究奠定了基础；关于$(21^+)$态接近球形的判断来自壳模型计算的推断，其适用范围与模型依赖需进一步检验。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34804v1">
+  <div class="paper-head">
+    <h2>中子和原子核β衰变中α^2阶的QED修正<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.34804v1" rel="noopener noreferrer">2611.34804v1</a>
+  </div>
+  <p class="original-title">QED corrections to neutron and nuclear $β$-decay at order $α^2$</p>
+  <p class="meta"><strong>作者：</strong>Zehua Cao、Richard J. Hill、Ryan Plestid、Peter Vander Griend</p>
+  <p class="meta"><strong>主分类：</strong>hep-ph
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">hep-ph</span> <span class="tag">nucl-ex</span> <span class="tag">nucl-th</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文计算了中子和原子核β衰变的两圈QED修正，包含完整的电子质量依赖以及实辐射贡献。对于中子，得到 δ_{R,static} = (29.199 ± 0.001) × 10^{-3}，相较于此前在大能量/小电子质量极限 m_e/(m_n−m_p) → 0 下所得结果，低能辐射修正的不确定度约降低至原来的1/70。对于超允许核衰变，我们发现与Z无关的α^2阶修正处于 (0.1–0.5) × 10^{-4} 范围，即大致为预期量级，并与当前的不确定度估计相当。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>论文研究的问题是：中子和原子核β衰变中α^2阶（两圈）QED辐射修正的精确计算，特别是完整保留电子质量依赖和实辐射贡献，并评估其对低能辐射修正不确定度的影响。</p>
+    <h4>方法</h4><p>采用两圈QED修正计算，纳入完整的电子质量依赖与实辐射贡献；将结果与先前在大能量/小电子质量极限 m_e/(m_n−m_p) → 0 下得到的结果进行比较，并分别给出中子与超允许核衰变的数值结果。</p>
+    <h4>主要发现</h4><p>原文明确给出：中子情形 δ_{R,static} = (29.199 ± 0.001) × 10^{-3}，相比先前极限结果，低能辐射修正的不确定度约降低至原来的1/70；对超允许核衰变，与Z无关的α^2阶修正处于 (0.1–0.5) × 10^{-4} 范围，大致为预期量级，并与当前不确定度估计相当。</p>
+    <h4>局限与展望</h4><p>原文未明确讨论局限或后续方向。可合理推断：该计算适用于中子与超允许核β衰变，其精度提升可能有助于相关精密检验；对于更广泛核素或更高阶修正的适用性，尚需进一步研究。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-26 15:27 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
