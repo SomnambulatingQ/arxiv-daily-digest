@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self' https://cdn.jsdelivr.net data:; img-src 'self' data:; object-src 'none'; base-uri 'self'">
+  <title>arXiv nlin 每日论文</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Noto Sans SC", system-ui, sans-serif; }
+    body { margin: 0; background: #f4f6f8; color: #1f2933; line-height: 1.7; }
+    header, main, footer { width: min(1080px, calc(100% - 24px)); margin: auto; }
+    header { padding: 40px 0 18px; }
+    h1 { margin: 0 0 8px; line-height: 1.25; }
+    .lede { color: #465563; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    nav a, .tag { border-radius: 999px; background: #e7eef8; padding: 3px 10px; text-decoration: none; color: #244c7a; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin: 28px 0 48px; }
+    .card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; background: white; border-radius: 18px; padding: 40px 36px 32px; text-decoration: none; color: inherit; box-shadow: 0 8px 24px rgba(31,41,51,.08); border: 1px solid transparent; }
+    a.card:hover { border-color: #3266a8; }
+    .card.disabled { opacity: .62; cursor: default; box-shadow: none; }
+    .card-code { font-size: 1.7rem; color: #3266a8; font-weight: 700; letter-spacing: .02em; }
+    .card-name { margin-top: 10px; color: #465563; font-size: 1.35rem; }
+    .card-count { margin-top: 28px; font-size: 3.6rem; font-weight: 750; line-height: 1; }
+    .card-count span { font-size: 1.35rem; font-weight: 500; color: #667; margin-left: 8px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 22px 0 8px; }
+    .stat { background: white; border-radius: 12px; padding: 14px 16px; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .stat-label { color: #667; font-size: .9rem; }
+    .stat-value { font-size: 1.7rem; font-weight: 700; line-height: 1.2; }
+    .toc { background: white; border-radius: 14px; padding: 20px 24px 10px; margin: 22px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .toc h2 { margin: 0 0 8px; }
+    .toc h3 { margin: 16px 0 6px; font-size: 1.05rem; color: #244c7a; }
+    .toc-list { padding-left: 22px; }
+    .toc-list a { color: #1f2933; }
+    .toc-list small { color: #667; }
+    .section-title { margin: 36px 0 0; }
+    .paper { background: white; border-radius: 14px; padding: 24px; margin: 18px 0; box-shadow: 0 5px 18px rgba(31,41,51,.07); }
+    .paper-head { display: flex; justify-content: space-between; gap: 18px; align-items: baseline; }
+    .paper h2 { margin: 0; line-height: 1.35; }
+    .paper h3 { border-left: 4px solid #3266a8; padding-left: 10px; margin-top: 24px; }
+    .paper h4 { margin-bottom: 0; color: #345; }
+    .paper p { margin-top: 7px; }
+    .original-title { color: #566574; font-style: italic; }
+    .meta { color: #465563; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: .85rem; }
+    .badge { display: inline-block; margin-left: 8px; font-size: .75rem; border-radius: 999px; padding: 1px 8px; background: #e7eef8; color: #244c7a; vertical-align: middle; }
+    .evaluation { background: #f7f9fc; border-radius: 10px; padding: 1px 16px 10px; }
+    .warning { color: #8a3d00; background: #fff4e5; border-radius: 8px; padding: 8px 12px; }
+    footer { padding: 24px 0 46px; color: #667; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 180px; padding: 32px 28px 26px; }
+      .card-count { font-size: 3rem; }
+      .paper { padding: 18px; }
+      .paper-head { display: block; }
+      .stats { grid-template-columns: 1fr; }
+    }
+</style>
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <h1>nlin · 非线性科学</h1>
+    <p class="lede">官方公告日：2026-11-26</p>
+    <nav><a href="index.html">总览</a><a href="quant-ph-latest.html">quant-ph</a> <a href="nlin-latest.html">nlin</a></nav>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">论文总数</div><div class="stat-value">13</div></div>
+      <div class="stat"><div class="stat-label">主分类</div><div class="stat-value">4</div></div>
+      <div class="stat"><div class="stat-label">交叉列表</div><div class="stat-value">9</div></div>
+    </div>
+  </header>
+  <main>
+    <section class="toc"><h2>目录</h2><h3>主分类（4）</h3><ol class="toc-list"><li><a href="#paper-2611.33199v1">含时修正色散水波系统的点等价、李对称与Laurent相容性</a> <small>2611.33199v1</small></li><li><a href="#paper-2611.33216v1">半单-幂零分解与F_2上线性元胞自动机的精确阶</a> <small>2611.33216v1</small></li><li><a href="#paper-2611.33412v1">表面运动影响下的点涡动力学</a> <small>2611.33412v1</small></li><li><a href="#paper-2611.34522v1">非零边界条件下N分量Gerdjikov-Ivanov方程的逆散射变换</a> <small>2611.34522v1</small></li></ol><h3>交叉列表（9）</h3><ol class="toc-list"><li><a href="#paper-2611.33566v1">层级的相：自适应群体中层级深度的动力学相理论</a> <small>2611.33566v1</small></li><li><a href="#paper-2611.33569v1">层级食物网中的噪声诱导灭绝</a> <small>2611.33569v1</small></li><li><a href="#paper-2611.33602v1">层间耦合差异驱动神经场中的图灵斑图形成：帕金森病与深部脑刺激的一种机制</a> <small>2611.33602v1</small></li><li><a href="#paper-2611.33944v1">二维量子流体波湍流中的能量级联谱</a> <small>2611.33944v1</small></li><li><a href="#paper-2611.34110v1">八字结的着色琼斯多项式与非微扰拓扑递归</a> <small>2611.34110v1</small></li><li><a href="#paper-2611.34444v1">AdS$_3$ 中 Sine-Gordon 孤子晶格的角完整性与黑洞熵</a> <small>2611.34444v1</small></li><li><a href="#paper-2611.34454v1">二次非线性晶体中孤子作为转换事件</a> <small>2611.34454v1</small></li><li><a href="#paper-2611.34628v1">Kadomtsev-Petviashvili 型方程 Dirac-Bergmann 分析中的零模约束</a> <small>2611.34628v1</small></li><li><a href="#paper-2611.34784v1">作为元胞自动机的领地冲突：风险衍生局部规则中的冻结域与活跃前线</a> <small>2611.34784v1</small></li></ol></section>
+    <h2 class="section-title">主分类</h2><article class="paper" id="paper-2611.33199v1">
+  <div class="paper-head">
+    <h2>含时修正色散水波系统的点等价、李对称与Laurent相容性<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.33199v1" rel="noopener noreferrer">2611.33199v1</a>
+  </div>
+  <p class="original-title">Point Equivalence, Lie Symmetries, and Laurent Compatibility of the Time-Dependent Modified Dispersive Water-Wave System</p>
+  <p class="meta"><strong>作者：</strong>Manjit Singh</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究含两个处处非零实解析含时系数的(2+1)维修正色散水波方程类，对其成员之间的局部点变换进行分类。通过时间变量变换，可将该类约化为仅含单一系数 q 的形式；借助可逆微分替换，将该类与一个已分类耦合系统的切片等同，并由此得到一族点映射。在原始场变量下直接计算表明，诱导的系数作用 q̃(F(T))=q(T)/k（其中 F&#x27;&gt;0，k≠0 为常数）穷尽了所有局部点等同。利用首个非零导数的阶数与相对符号对非恒定带点系数芽进行分类：常数芽允许任意时间生成元；正则非恒定芽在模去零时间分量子代数后允许一个独立时间生成元；临界非恒定芽在基时间方向上不允任何时间生成元。在满足 φ_xφ_y≠0 的可移动解析超曲面上，双极点与正则 V 的 Laurent 分支在共振 j=2 处均存在正比于 q&#x27; 的障碍；两分支形式相容的充要条件是 q 为常数，而这也正是与标准系统点等价的精确判据。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何对含两个处处非零实解析含时系数的(2+1)维修正色散水波方程类进行局部点变换分类，并刻画其李对称与Laurent展开的相容性。</p>
+    <h4>方法</h4><p>通过时间变量变换将方程类约化为单系数 q 形式；利用可逆微分替换将该类与已分类耦合系统的切片等同以获得点映射族；在原始场变量下直接计算诱导系数作用；按首个非零导数的阶数与相对符号对带点系数芽分类；在可移动解析超曲面上分析双极点与正则 V 的 Laurent 分支在共振 j=2 处的障碍。</p>
+    <h4>主要发现</h4><p>诱导系数作用 q̃(F(T))=q(T)/k（F&#x27;&gt;0，k≠0 常数）穷尽所有局部点等同；常数芽允许任意时间生成元，正则非恒定芽模去零时间分量子代数后允许一个独立时间生成元，临界非恒定芽在基时间方向上不允任何时间生成元；双极点与正则 V 的 Laurent 分支在共振 j=2 处均存在正比于 q&#x27; 的障碍，两分支形式相容的充要条件为 q 为常数，且该条件恰是与标准系统点等价的精确判据。</p>
+    <h4>局限与展望</h4><p>摘要未讨论所得分类在更一般系数情形或更高维系统中的推广；后续可合理推断的方向包括考察 q 非常数时共振障碍的可积性含义，以及将点等价与Laurent相容性判据推广至其他含时可积系统，但这些均需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.33216v1">
+  <div class="paper-head">
+    <h2>半单-幂零分解与F_2上线性元胞自动机的精确阶<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.33216v1" rel="noopener noreferrer">2611.33216v1</a>
+  </div>
+  <p class="original-title">Semisimple-Unipotent Decomposition and the Exact Order of a Linear Cellular Automaton over F_2</p>
+  <p class="meta"><strong>作者：</strong>Ana Bojić</p>
+  <p class="meta"><strong>主分类：</strong>nlin.CG
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.CG</span> <span class="tag">math.CO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究循环图 C_n 上、定义在 F_2 上、由局部规则 v_i(t+1)=v_{i-1}(t)⊕v_i(t)⊕v_{i+1}(t) 给出的线性元胞自动机（即周期边界条件下的 Wolfram 规则 150）。将构型空间 V_n=F_2^n 与 R_n=F_2[x]/⟨x^n-1⟩ 等同后，演化算子对应于乘以 G(x)=1+x+x^{n-1}。本文重新推导了可逆性判据 3∤n，对周期行为与瞬态行为进行了分类，并证明对每个 n≥3，Hamming 重量均非单调。随后利用中国剩余定理分解 x^n-1，将受有限域乘法阶控制的半单贡献与受 Frobenius 平方控制的幂零贡献分离，确定了精确的局部幂零阶，并得到闭形式的全局阶 r(A)：当 n=2^m（m≥2）时 r(A)=2^{m-1}；当 n=2^m q，q&gt;1 为奇数且 3∤n 时，r(A)=2^m lcm(m_2,…,m_r)。文中以 n=5,7,8,16 说明该理论，并对小维度进行了计算验证。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究循环图 C_n 上 F_2 上由规则 v_i(t+1)=v_{i-1}(t)⊕v_i(t)⊕v_{i+1}(t) 定义的线性元胞自动机的可逆性、周期与瞬态行为、Hamming 重量单调性，以及演化算子的精确阶。</p>
+    <h4>方法</h4><p>将构型空间与 F_2[x]/⟨x^n-1⟩ 等同，把演化算子表示为乘以 G(x)=1+x+x^{n-1}；利用中国剩余定理分解 x^n-1，将半单贡献（由有限域乘法阶控制）与幂零贡献（由 Frobenius 平方控制）分离，确定局部幂零阶并导出全局阶的闭形式；以 n=5,7,8,16 为例说明，并对小维度进行计算验证。</p>
+    <h4>主要发现</h4><p>重新推导了可逆性判据 3∤n；对周期与瞬态行为进行了分类；证明对每个 n≥3，Hamming 重量均非单调；确定了精确的局部幂零阶，并得到全局阶 r(A) 的闭形式：当 n=2^m（m≥2）时 r(A)=2^{m-1}；当 n=2^m q，q&gt;1 为奇数且 3∤n 时 r(A)=2^m lcm(m_2,…,m_r)。</p>
+    <h4>局限与展望</h4><p>原文的闭形式阶结果以 3∤n 等条件为前提，其适用范围受这些数论条件限制；计算验证仅覆盖小维度，更大规模或更一般图结构上的情形尚待考察。后续可合理推断的方向包括：将半单-幂零分解框架推广到其他局部规则或非循环图，以及研究 3|n 等未覆盖情形下的阶与动力学行为。</p>
+  </section>
+</article><article class="paper" id="paper-2611.33412v1">
+  <div class="paper-head">
+    <h2>表面运动影响下的点涡动力学<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.33412v1" rel="noopener noreferrer">2611.33412v1</a>
+  </div>
+  <p class="original-title">Point vortex dynamics influenced by the surface motion</p>
+  <p class="meta"><strong>作者：</strong>Delia Ionescu-Kruse、Rossen I. Ivanov、Michail D. Todorov</p>
+  <p class="meta"><strong>主分类：</strong>nlin.PS
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.PS</span> <span class="tag">physics.flu-dyn</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究一个耦合微分方程组，用于刻画带自由表面的流体以及流体内部一个点涡的动力学。针对小振幅长表面波，在 Boussinesq 框架下对波与点涡之间的相互作用效应进行建模。结果表明，表面孤立波不会因与点涡的相互作用而被破坏；事实上，在相当宽的点涡强度范围内，孤立波几乎不受影响。基于这一结果，本文进一步提出模型的简化方案：在表面传播的孤立子作用下，点涡的运动可由一个解耦的常微分方程组确定。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究自由表面流体中表面波与流体内部点涡相互作用的耦合动力学，并考察该相互作用对表面孤立波与点涡运动的影响。</p>
+    <h4>方法</h4><p>在小振幅长波条件下，于 Boussinesq 框架内建立描述自由表面流体与点涡耦合的微分方程组，并分析波与涡的相互作用；随后基于观察到的弱影响提出解耦的常微分方程简化模型。</p>
+    <h4>主要发现</h4><p>表面孤立波在与点涡相互作用后不会被破坏，且在相当宽的点涡强度范围内几乎不受影响；据此可将点涡在表面孤立子作用下的运动简化为由解耦常微分方程组确定。</p>
+    <h4>局限与展望</h4><p>原文的结论基于小振幅长波与 Boussinesq 框架，其适用范围受此限制；对于短波、强非线性或点涡强度超出所考察范围的情形，简化模型是否仍然适用尚需进一步验证（此为合理推断）。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34522v1">
+  <div class="paper-head">
+    <h2>非零边界条件下N分量Gerdjikov-Ivanov方程的逆散射变换<span class="badge">主分类</span></h2>
+    <a href="https://arxiv.org/abs/2611.34522v1" rel="noopener noreferrer">2611.34522v1</a>
+  </div>
+  <p class="original-title">Inverse scattering transform for the $N$-component Gerdjikov-Ivanov equation with nonzero boundary conditions</p>
+  <p class="meta"><strong>作者：</strong>Feng Zhang、Kun Zhu、Yi Zhang</p>
+  <p class="meta"><strong>主分类：</strong>nlin.SI
+     <strong>公告类型：</strong>new</p>
+  <div class="tags"><span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究非零边界条件下N分量Gerdjikov-Ivanov方程的逆散射理论。文中分析了Jost本征函数的解析性，并利用张量积与广义叉积构造辅助本征函数，从而得到建立逆问题所需的一组解析本征函数。建立了本征函数与散射数据所满足的三个基本对称关系，并考察了二者的渐近行为。通过对相关矩阵的秩进行分析，完整刻画了离散谱并导出了相应的留数条件。随后将逆问题表述为矩阵Riemann-Hilbert问题，并利用其解重构位势。在无反射情形下，得到了显式解公式。最后以四分量情形为例，说明了孤子、呼吸子及其相互作用的结构特征。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究非零边界条件下N分量Gerdjikov-Ivanov方程的逆散射理论，包括本征函数的解析性、离散谱刻画、逆问题表述及解的结构。</p>
+    <h4>方法</h4><p>采用逆散射变换方法：分析Jost本征函数的解析性，借助张量积与广义叉积构造辅助本征函数；建立本征函数与散射数据的对称关系并考察渐近行为；通过矩阵秩分析刻画离散谱并导出留数条件；将逆问题化为矩阵Riemann-Hilbert问题以重构位势，并在无反射情形下给出显式解公式。</p>
+    <h4>主要发现</h4><p>得到了建立逆问题所需的一组解析本征函数；建立了本征函数与散射数据满足的三个基本对称关系并给出其渐近行为；完整刻画了离散谱并导出了相应留数条件；将逆问题表述为矩阵Riemann-Hilbert问题并用于重构位势；在无反射情形下获得了显式解公式；以四分量情形为例说明了孤子、呼吸子及其相互作用的结构特征。</p>
+    <h4>局限与展望</h4><p>原文以四分量情形为例展示解的结构特征，一般N分量情形下孤子、呼吸子及相互作用的具体结构尚未展开；本文结果依赖于非零边界条件与无反射等设定，其适用范围受此限制。后续可合理推断的方向包括将分析推广至一般N分量情形下解结构的系统刻画，以及考察反射情形下的相关问题，但这些均需进一步研究验证。</p>
+  </section>
+</article><h2 class="section-title">交叉列表</h2><article class="paper" id="paper-2611.33566v1">
+  <div class="paper-head">
+    <h2>层级的相：自适应群体中层级深度的动力学相理论<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.33566v1" rel="noopener noreferrer">2611.33566v1</a>
+  </div>
+  <p class="original-title">The Phases of Hierarchy</p>
+  <p class="meta"><strong>作者：</strong>Gerard McCaul</p>
+  <p class="meta"><strong>主分类：</strong>cond-mat.stat-mech
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">cond-mat.stat-mech</span> <span class="tag">cs.SY</span> <span class="tag">eess.SY</span> <span class="tag">nlin.AO</span> <span class="tag">physics.soc-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文提出一种关于层级的动力学相理论：在一个规模为 N、会修正自身环境的人群中，层级深度决定其能否在不发生过校正的情况下完成修正。使大群体得以检测微小偏差的统计机制——即孔多塞陪审团定理的基础——同时也使其响应幅度按 √N 增长。当这一被放大的响应反馈到其所判断的环境中时，会在临界环路增益处通过翻转分岔破坏匹配态；我们针对一类称为自适应规范形的模型解析地得到了该临界增益。研究表明，这种不稳定性可通过层级分层得到衰减，且所需深度随 N 对数增长，从而由动力学稳定性条件直接导出组织经济学中已知的对数界。然而层级深度本身亦有代价：通过分析沿层级向上的信号链传输，我们表明超过某一有限深度后，修正无法在截止时间前到达顶层；而低于该深度时，到达成本随深度指数增长。因此，过于扁平的层级会振荡，过深的层级则无法及时被操控，从而在不稳定的扁平相与冻结的惯性相之间留下一个有界的深度窗口。进一步地，可将每一层视为一次实空间重整化步骤来推广上述结果，并按聚合规则传递偏差的方式对其进行分类。这将这些动力学结果与 Transformer 中的注意力机制联系起来：其中残差更新是 token 图上的扩散，深度扮演尺度的角色。最后，我们表明这些相边界可在有限采样中被观测到，并提出可用于在真实自适应系统中刻画所提出相的测量方案。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究一个规模为 N、会修正自身环境的人群中，层级深度如何决定其能否在不发生过校正的情况下完成修正，以及层级深度带来的稳定性收益与信号传输代价之间的权衡。</p>
+    <h4>方法</h4><p>建立层级动力学相理论；针对一类称为自适应规范形的模型解析求得翻转分岔的临界环路增益；分析层级分层对不稳定性的衰减作用及信号链沿层级向上的传输；将每一层视为实空间重整化步骤以推广结果并对聚合规则分类；讨论与 Transformer 注意力机制的联系及有限采样下的相边界观测方案。</p>
+    <h4>主要发现</h4><p>使大群体检测微小偏差的统计机制同时使响应按 √N 增长，反馈到环境后在临界环路增益处通过翻转分岔破坏匹配态；层级分层可衰减该不稳定性，所需深度随 N 对数增长，并由此直接导出组织经济学中已知的对数界；超过有限深度后修正无法在截止时间前到达顶层，低于该深度时到达成本随深度指数增长；因此存在介于不稳定扁平相与冻结惯性相之间的有界深度窗口；每层可视为实空间重整化步骤，并据此按偏差传递方式对聚合规则分类；这些相边界可在有限采样中观测。</p>
+    <h4>局限与展望</h4><p>摘要未给出具体模型参数范围或实证验证结果；所提出的相边界测量方案尚待真实自适应系统中的检验。将每层视为实空间重整化步骤并与 Transformer 注意力机制的联系目前属于概念性类比，其定量适用性需进一步研究；自适应规范形之外的一般模型是否具有相同的临界行为亦有待考察。</p>
+  </section>
+</article><article class="paper" id="paper-2611.33569v1">
+  <div class="paper-head">
+    <h2>层级食物网中的噪声诱导灭绝<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.33569v1" rel="noopener noreferrer">2611.33569v1</a>
+  </div>
+  <p class="original-title">Noise-induced Extinction in Hierarchical Food Webs</p>
+  <p class="meta"><strong>作者：</strong>Varun Nevash、Eric Forgoston、M. Ani Hsieh</p>
+  <p class="meta"><strong>主分类：</strong>q-bio.PE
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">q-bio.PE</span> <span class="tag">cond-mat.stat-mech</span> <span class="tag">math.DS</span> <span class="tag">math.PR</span> <span class="tag">nlin.AO</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>任何有限种群最终都会因人口噪声而灭绝，即使确定性动力学具有稳定的共存态。本文针对任意规模的层级食物网发展了这一过程的大偏差理论。在由 $N$ 个物种组成的群落中，基础物种 $X_1$ 进行内禀繁殖，每个消费者均可捕食其下方的所有物种，因此杂食性被内置于相互作用图中。在单位转化效率且自限制仅局限于基础物种的条件下，平均场动力学至多有 $2^{N-1}+1$ 个可行不动点。我们证明：每个被动特征值的符号等于相应灭绝物种在扩大群落中的密度符号；每个包含 $X_1$ 的部分群落均为鞍点，且每灭绝一个消费者就对应一个不稳定方向；共存态是唯一稳定不动点。对主方程作 WKB 处理可得到 $2N$ 维哈密顿量，其涨落不动点具有闭式解。由此得到的灭绝网络包含 $3^{N-1}$ 个涨落驱动的跃迁，其粗粒化动力学给出每个平均灭绝时间的精确递推关系。我们完整分析了三物种杂食模块，包括一组极小存在条件、共存态的全局稳定性、全部九个跃迁的数值瞬子作用量以及最可能的灭绝路径，并用随机模拟加以验证。最后，我们展示了删除单条营养链接如何重塑灭绝网络。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>研究有限层级食物网中由人口噪声驱动的物种灭绝过程，特别是确定性动力学存在稳定共存态时，噪声如何诱导灭绝以及灭绝路径与平均灭绝时间的结构。</p>
+    <h4>方法</h4><p>针对任意规模层级食物网建立大偏差理论；在单位转化效率且自限制仅局限于基础物种的假设下分析平均场不动点及其稳定性；对主方程作 WKB 处理得到 $2N$ 维哈密顿量并求闭式涨落不动点；构建灭绝网络并推导平均灭绝时间的精确递推；对三物种杂食模块进行完整分析，包括存在条件、全局稳定性、数值瞬子作用量和最可能灭绝路径，并用随机模拟验证。</p>
+    <h4>主要发现</h4><p>平均场动力学至多有 $2^{N-1}+1$ 个可行不动点；每个被动特征值的符号等于相应灭绝物种在扩大群落中的密度符号；每个包含 $X_1$ 的部分群落均为鞍点，且每灭绝一个消费者对应一个不稳定方向；共存态是唯一稳定不动点；灭绝网络包含 $3^{N-1}$ 个涨落驱动跃迁，其粗粒化动力学给出每个平均灭绝时间的精确递推；三物种杂食模块的全部九个跃迁的数值瞬子作用量与最可能灭绝路径得到确认；删除单条营养链接会重塑灭绝网络。</p>
+    <h4>局限与展望</h4><p>原文结果依赖于单位转化效率与自限制仅局限于基础物种等假设，其适用范围需在这些条件下理解；对更大规模食物网的数值瞬子作用量与灭绝路径的系统计算、以及更一般转化效率和自限制形式的推广，是原文未展开而可合理推断的后续方向。</p>
+  </section>
+</article><article class="paper" id="paper-2611.33602v1">
+  <div class="paper-head">
+    <h2>层间耦合差异驱动神经场中的图灵斑图形成：帕金森病与深部脑刺激的一种机制<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.33602v1" rel="noopener noreferrer">2611.33602v1</a>
+  </div>
+  <p class="original-title">Differential coupling drives Turing pattern formation in neural fields: a mechanism for Parkinson&#x27;s disease and deep brain stimulation</p>
+  <p class="meta"><strong>作者：</strong>Ju Kang、Anmin Zheng</p>
+  <p class="meta"><strong>主分类：</strong>q-bio.NC
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">q-bio.NC</span> <span class="tag">nlin.PS</span> <span class="tag">physics.bio-ph</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>深部脑刺激（DBS）可有效缓解帕金森病（PD）的运动症状，但其作用机制仍未完全阐明。基底节及丘脑皮层环路中异常的β波段同步是PD的标志性特征，然而尚缺乏将网络同步与空间斑图形成联系起来的理论框架。本文表明，具有层间耦合差异的双层神经场模型可发生图灵不稳定性，自发产生包括条纹、斑点、环和螺旋波在内的多种空间有序斑图。该模型给出了此不稳定性的临界条件与波长，并定量预测了所观察到的斑图形态。关键在于，作为同步性的自然度量，层间差异呈现出强烈的参数区域依赖性动力学。这些结果建立了一个将空间斑图形成与病理性β波段同步相联系的动力学框架，为DBS调控网络状态提供了理论机制，并为优化刺激参数提供了数学基础。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>DBS治疗PD运动症状的机制尚不完全清楚；基底节与丘脑皮层环路的异常β波段同步是PD标志，但缺乏将网络同步与空间斑图形成相联系的理论框架。</p>
+    <h4>方法</h4><p>构建具有层间耦合差异的双层神经场模型，分析其图灵不稳定性，推导临界条件与波长，并与观察到的斑图形态进行定量比较；同时考察作为同步性度量的层间差异的动力学。</p>
+    <h4>主要发现</h4><p>模型可发生图灵不稳定性并自发产生条纹、斑点、环和螺旋波等多种空间有序斑图；模型给出的临界条件与波长可定量预测所观察到的斑图形态；层间差异的动力学强烈依赖于参数区域。</p>
+    <h4>局限与展望</h4><p>原文指出该框架为DBS调控网络状态提供理论机制并为优化刺激参数提供数学基础；其局限与适用范围（如模型简化程度、与实验数据的对应关系）原文未明确讨论，后续方向（如用于刺激参数优化）属可合理推断，尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.33944v1">
+  <div class="paper-head">
+    <h2>二维量子流体波湍流中的能量级联谱<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.33944v1" rel="noopener noreferrer">2611.33944v1</a>
+  </div>
+  <p class="original-title">Energy cascade spectrum in wave turbulence of a two-dimensional quantum fluid</p>
+  <p class="meta"><strong>作者：</strong>Ying Zhu、Jason Laurie、Giorgio Krstulovic、Sergey Nazarenko</p>
+  <p class="meta"><strong>主分类：</strong>physics.flu-dyn
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.flu-dyn</span> <span class="tag">cond-mat.quant-gas</span> <span class="tag">nlin.CD</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>在描述玻色气体的二维 Gross-Pitaevskii 模型中，直接能量级联的朴素量纲非平衡波湍流幂律预测与热平衡相重合，因此不携带能量通量。我们通过推导一个对数修正谱来解决这一简并，该谱支持向小尺度输运的正的恒定能量通量。对波动力学碰撞积分进行系统的渐近展开，确定对数指数为 1/3，而小尺度耗散尺度设定了对数修正中的上截断。对驱动尺度处边缘红外发散的正则化，给出了在驱动与耗散尺度渐近分离情形下谱前因子的估计。Gross-Pitaevskii 方程与波动力学方程的模拟支持所预测的谱形。在有限谱范围内，该修正产生比量纲预测更陡的 apparent 幂律，为二维玻色气体实验中观测到的陡谱提供了一种可能解释。我们的方法为在幂律预测与热力学平衡简并时构造波湍流级联谱提供了系统框架。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在二维 Gross-Pitaevskii 模型中，直接能量级联的朴素量纲波湍流幂律预测与热平衡重合、不携带能量通量，如何解决这一简并并给出携带恒定能量通量的级联谱？</p>
+    <h4>方法</h4><p>对波动力学碰撞积分进行系统渐近展开，推导带对数修正的谱并确定对数指数；对小尺度耗散截断与驱动尺度处边缘红外发散进行正则化以估计谱前因子；并通过 Gross-Pitaevskii 方程与波动力学方程的数值模拟检验谱形。</p>
+    <h4>主要发现</h4><p>推导出的对数修正谱支持向小尺度输运的正的恒定能量通量；渐近展开确定对数指数为 1/3；小尺度耗散尺度设定对数修正的上截断；驱动尺度处边缘红外发散的正则化给出渐近分离尺度下谱前因子的估计；模拟结果支持预测的谱形；在有限谱范围内修正产生比量纲预测更陡的 apparent 幂律，可能解释二维玻色气体实验中的陡谱。</p>
+    <h4>局限与展望</h4><p>该框架适用于幂律预测与热力学平衡简并时的波湍流级联谱构造；其定量预测依赖驱动与耗散尺度渐近分离的假设，有限谱范围内的 apparent 幂律与实验陡谱的对应仅为原文所述的可能解释，尚需进一步验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34110v1">
+  <div class="paper-head">
+    <h2>八字结的着色琼斯多项式与非微扰拓扑递归<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.34110v1" rel="noopener noreferrer">2611.34110v1</a>
+  </div>
+  <p class="original-title">Colored Jones polynomial of figure eight knot and non-perturbative topological recursion</p>
+  <p class="meta"><strong>作者：</strong>Alexander Hock、Sergey Shadrin</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">hep-th</span> <span class="tag">math.AG</span> <span class="tag">math.GT</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文证明，八字结的着色琼斯多项式的渐近展开与底层椭圆谱曲线上的非微扰拓扑递归相关联，从而验证了 Borot 与 Eynard 提出的相应设想。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>八字结的着色琼斯多项式的渐近展开是否与底层椭圆谱曲线上的非微扰拓扑递归相联系。</p>
+    <h4>方法</h4><p>对八字结着色琼斯多项式的渐近展开进行证明，并将其与底层椭圆谱曲线上的非微扰拓扑递归建立联系，沿循 Borot 与 Eynard 的设想。</p>
+    <h4>主要发现</h4><p>原文证明该渐近展开与底层椭圆谱曲线上的非微扰拓扑递归相关联。</p>
+    <h4>局限与展望</h4><p>原文仅针对八字结这一情形给出证明；该结论能否推广至其他结或更一般的谱曲线，需进一步研究，原文未作断言。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34444v1">
+  <div class="paper-head">
+    <h2>AdS$_3$ 中 Sine-Gordon 孤子晶格的角完整性与黑洞熵<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.34444v1" rel="noopener noreferrer">2611.34444v1</a>
+  </div>
+  <p class="original-title">Black hole entropy from angular holonomies of Sine-Gordon soliton lattices in AdS$_3$</p>
+  <p class="meta"><strong>作者：</strong>Marcela Cárdenas、Francisco Correa、Nicolás Salazar</p>
+  <p class="meta"><strong>主分类：</strong>hep-th
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">hep-th</span> <span class="tag">gr-qc</span> <span class="tag">math-ph</span> <span class="tag">math.MP</span> <span class="tag">nlin.PS</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文为 AdS$_3$ 引力构造了一类能够实现 Sine-Gordon 动力学的边界条件。对于固定绕数下的周期孤子晶格，作者通过将 Bloch 动量延拓穿过与晶格刚性平移相对应的零频带边，把角完整性与精确的声学色散关系联系起来。在适当的嵌入角下，稳定真空具有规则的 BTZ 几何。当仅有一个手征扇区携带绕数时，作者构造了一族渐近区域延伸至 BTZ 黑洞的解；随着绕数扇区的谱参数趋于相应的带边，该黑洞趋近于极端状态。极端熵的首阶修正与相对于实验室时间定义的 Hawking 温度成线性关系，其系数与晶格声速成反比。一维量子流体的低温熵中也出现相同的反比速度依赖关系。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从 AdS$_3$ 引力的边界条件出发实现 Sine-Gordon 动力学，并由此刻画孤子晶格的角完整性与 BTZ 黑洞（尤其是极端极限及熵修正）之间的关系。</p>
+    <h4>方法</h4><p>构造实现 Sine-Gordon 动力学的 AdS$_3$ 引力边界条件；对固定绕数的周期孤子晶格，将 Bloch 动量穿过零频带边延拓，以联系角完整性与精确声学色散；在单手征扇区携带绕数的情形下构造渐近为 BTZ 黑洞的解族，并分析谱参数趋于带边时的极端极限与熵修正。</p>
+    <h4>主要发现</h4><p>在适当嵌入角下稳定真空具有规则 BTZ 几何；仅一个手征扇区携带绕数时可构造渐近区域延伸至 BTZ 黑洞的解族；当绕数扇区的谱参数趋于相应带边时黑洞趋近极端；极端熵的首阶修正与相对于实验室时间定义的 Hawking 温度成线性关系，系数与晶格声速成反比；一维量子流体的低温熵中也出现相同的反比速度依赖。</p>
+    <h4>局限与展望</h4><p>原文未讨论非周期或非固定绕数情形、高维推广及修正系数的微观起源；所观察到的反比速度依赖与一维量子流体的相似性提示可能存在更一般的对应关系，但这一点需进一步研究确认。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34454v1">
+  <div class="paper-head">
+    <h2>二次非线性晶体中孤子作为转换事件<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.34454v1" rel="noopener noreferrer">2611.34454v1</a>
+  </div>
+  <p class="original-title">Solitons as conversion events in quadratic crystals</p>
+  <p class="meta"><strong>作者：</strong>Francesco Beccarini、Claudio Conti</p>
+  <p class="meta"><strong>主分类：</strong>physics.optics
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">physics.optics</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文研究具有时间走离且色散可忽略的 $\chi^{(2)}$ 晶体中信号、闲频与泵浦脉冲的演化。在此条件下，三波相互作用是可积的。针对具有中间群速度的泵浦脉冲，作者将每个孤子描述为一次转换事件：信号—闲频对在晶体内某一确定深度处融合为泵浦脉冲，或泵浦脉冲在该深度处衰变。通常用三个独立的 $2\times2$ 散射问题处理的渐近 $\mathrm{sech}$ 脉冲，实为同一事件的各分支，对应于 $3\times3$ 问题的一个单极点。对于单个事件，作者给出转换曲线的闭式表达及最小晶体长度；对于多个事件，给出它们相互位移所遵循的规则。泵浦脉冲是不稳定的，其增长模即衰变事件的尾部：沿该模式携带光子比例 $\varepsilon$ 的种子会使脉冲在 $\Gamma^{-1}\ln(c_+/\varepsilon)$ 之后衰变，其中 $\Gamma$ 为转换速率，$c_+$ 为量级为一的常数。不匹配的信号与闲频脉冲构成 Kaup–Reiman–Bers 共振；作者表明该共振是一次融合继以一次衰变，二者均在一个转换长度内完成，并给出其泵浦光子数的闭式表达。由于输入脉冲之间的延迟决定顶点的深度，这些量可在单块晶体的输出面上读出；作者给出了周期极化 KTiOPO$_4$ 的相应尺度。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>在具有时间走离、色散可忽略的 $\chi^{(2)}$ 晶体中，如何统一描述信号、闲频与泵浦脉冲所形成的孤子及其相互作用，特别是孤子的产生、衰变与多孤子位移，以及泵浦脉冲不稳定性和 Kaup–Reiman–Bers 共振的结构。</p>
+    <h4>方法</h4><p>利用三波相互作用的可积性，将孤子表述为 $3\times3$ 散射问题中的单个极点，从而把通常分开处理的三个 $2\times2$ 散射问题统一为一次转换事件；对单事件给出转换曲线与最小晶体长度的闭式结果，对多事件给出位移规则，并分析泵浦脉冲增长模与 Kaup–Reiman–Bers 共振。</p>
+    <h4>主要发现</h4><p>每个孤子可视为晶体内确定深度处的一次转换事件（信号—闲频对融合为泵浦脉冲，或泵浦脉冲衰变）；渐近 $\mathrm{sech}$ 脉冲是该事件的各分支，对应 $3\times3$ 问题的单极点。单事件的转换曲线与最小晶体长度有闭式表达，多事件之间存在确定的相互位移规则。泵浦脉冲不稳定，其增长模为衰变事件的尾部；携带比例 $\varepsilon$ 光子的种子使脉冲在 $\Gamma^{-1}\ln(c_+/\varepsilon)$ 后衰变。Kaup–Reiman–Bers 共振由一次融合继以一次衰变构成，各在一个转换长度内完成，其泵浦光子数有闭式表达。输入脉冲延迟决定顶点深度，因而这些量可在单晶输出面读出；文中给出了周期极化 KTiOPO$_4$ 的尺度。</p>
+    <h4>局限与展望</h4><p>上述结果基于时间走离存在且色散可忽略的可积三波相互作用框架，其适用范围受该近似条件约束；向色散不可忽略或损耗显著的实际晶体推广时，可积描述与闭式结果是否保持需进一步检验。作者给出的周期极化 KTiOPO$_4$ 尺度提示可在单块晶体输出面通过脉冲延迟读取转换事件参数，但具体实验可行性与精度尚未在原文中验证。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34628v1">
+  <div class="paper-head">
+    <h2>Kadomtsev-Petviashvili 型方程 Dirac-Bergmann 分析中的零模约束<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.34628v1" rel="noopener noreferrer">2611.34628v1</a>
+  </div>
+  <p class="original-title">The Zero Mode Constraint in the Dirac-Bergmann Analysis of Kadomtsev-Petviashvili Type Equations</p>
+  <p class="meta"><strong>作者：</strong>Ali Pazarci</p>
+  <p class="meta"><strong>主分类：</strong>math-ph
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math-ph</span> <span class="tag">hep-th</span> <span class="tag">math.MP</span> <span class="tag">nlin.SI</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文利用 Dirac-Bergmann 算法，从奇异拉格朗日量出发推导 Kadomtsev-Petviashvili（KP）方程的哈密顿表述。该拉格朗日量含有一个辅助场，由此产生一个非正规的次级约束。在能够重现 KP 方程的分支上，所有约束均为第二类约束，Dirac 括号给出已知的哈密顿量与 Poisson 算子；作者进一步用 Faddeev-Jackiw 方法确认了这些结果。随后考虑在第一个空间坐标上具有周期性的场：此时导数算子的零模导致对势函数均值的一个附加次级约束，该约束将逆导数替换为其零均值对应物，所得哈密顿量与 Reiman 和 Semenov-Tyan-Shanskii 的结果在归一化约定意义下一致。对于衰减场，同一条件也是快速衰减势保持快速衰减的必要条件。作者表明该约束出现在一般的一类 KP 型方程中，并对辅助场作用量的光滑解进行了分类，还将结果与 KP 方程的一种已有量子化联系起来，该量子化中势拉格朗日量提供了作用量。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何从含辅助场的奇异拉格朗日量出发，用 Dirac-Bergmann 算法建立 KP 方程的哈密顿表述，并处理周期或衰减场情形下导数算子零模所导致的约束问题。</p>
+    <h4>方法</h4><p>采用 Dirac-Bergmann 约束算法从奇异拉格朗日量推导哈密顿表述，并用 Faddeev-Jackiw 方法进行交叉验证；针对第一个空间坐标上的周期场分析导数算子零模产生的附加次级约束，并推广到一般 KP 型方程；同时对辅助场作用量的光滑解进行分类。</p>
+    <h4>主要发现</h4><p>在重现 KP 方程的分支上所有约束均为第二类，Dirac 括号给出已知的哈密顿量与 Poisson 算子；周期场情形下零模导致对势函数均值的附加次级约束，使逆导数被零均值对应物替换，所得哈密顿量与 Reiman 和 Semenov-Tyan-Shanskii 的结果在归一化约定下一致；对衰减场，同一条件是快速衰减势保持快速衰减的必要条件；该约束出现在一般 KP 型方程中；作者还给出了辅助场作用量光滑解的分类，并将结果与 KP 方程的一种已有量子化相联系。</p>
+    <h4>局限与展望</h4><p>摘要未讨论非周期、非衰减等更一般边界条件下零模约束的处理方式，也未给出该约束对量子化方案的具体影响；后续工作或可考察该约束在更广泛 KP 型方程族及相应量子理论中的系统作用，但这属于推断。</p>
+  </section>
+</article><article class="paper" id="paper-2611.34784v1">
+  <div class="paper-head">
+    <h2>作为元胞自动机的领地冲突：风险衍生局部规则中的冻结域与活跃前线<span class="badge">交叉列表</span></h2>
+    <a href="https://arxiv.org/abs/2611.34784v1" rel="noopener noreferrer">2611.34784v1</a>
+  </div>
+  <p class="original-title">Territorial Conflict as a Cellular Automaton: Frozen Domains and Active Fronts in a Risk-Derived Local Rule</p>
+  <p class="meta"><strong>作者：</strong>Maria Teresa Arias</p>
+  <p class="meta"><strong>主分类：</strong>math.DS
+     <strong>公告类型：</strong>cross</p>
+  <div class="tags"><span class="tag">math.DS</span> <span class="tag">nlin.CG</span></div>
+  
+  <section>
+    <h3>中文摘要</h3>
+    <p>本文将《风险》（Risk）游戏中的进攻与筑防规则表述为图上的同步元胞自动机，战斗结果由精确骰子概率决定。我们证明并在 Lean 中验证：在默认交换比下，该规则的半径为 6；对于具有正进攻阈值的确定性战斗，半径为 5，且两者均可达到。其确定性形式除在最高进攻阈值且无兵力增长、筑防缺失或未激活的情形外均不可逆；在无兵力增长时于有限时间内冻结；界面附近的动力学由局部决定。所有权场与兵力场的耦合将冻结域与活跃前线分离：在正进攻阈值下，饱和域无法被征服，而兵力异质的界面则持续交战。在 14252 次运行中，按 Wolfram 方案对吸引子进行操作性分类，提高进攻阈值使系统从单一派系主导转变为冻结的碎片化分割。在 L=128 及以下各规模中，最大派系份额在相同的两个阈值之间下降，在连续阈值下（L=64–96）呈现约 0.5 宽的阶跃；而完全合并的概率是由饱和少数域支配的规模依赖交叉现象。长周期吸引子由空间固定的局部振子组合而成；表面上的 class-IV 滑翔机是指标序决胜的伪影。直线前线在长达 500,000 步内保持在其初始位置两格以内，在此期间它们是一维自动机，具有非循环、不可压缩的动力学和正的 Lyapunov 速度，且在 L&gt;=48 时保持恒定。与平均场和随机正则图对照相比，格点将冲突延长约二十倍并使征服聚集：紧邻新征服格的单元下一步被征服的概率约为平均值的五倍，而对照组为 1.1–1.5。</p>
+  </section>
+  <section class="evaluation">
+    <h3>结构化评述</h3>
+    <h4>研究问题</h4><p>如何将《风险》游戏的进攻与筑防规则形式化为图上的同步元胞自动机，并刻画其确定性动力学、吸引子结构及空间格点对冲突动态的影响。</p>
+    <h4>方法</h4><p>将《风险》规则表述为图上的同步元胞自动机，战斗由精确骰子概率决定；证明并在 Lean 中验证半径、不可逆性与有限时间冻结等性质；通过 14252 次数值运行，按 Wolfram 方案对吸引子进行操作性分类，并与平均场和随机正则图对照进行比较。</p>
+    <h4>主要发现</h4><p>默认交换比下规则半径为 6，确定性战斗且正进攻阈值时为 5，两者均可达到；确定性形式除最高进攻阈值且无增长、筑防缺失或未激活外不可逆；无兵力增长时有限时间冻结；界面附近动力学局部决定；所有权场与兵力场耦合分离冻结域与活跃前线；提高进攻阈值使系统从单派系主导转为冻结碎片化分割，最大派系份额在 L&lt;=128 时于两阈值间下降，连续阈值下阶跃约 0.5 宽（L=64–96）；完全合并概率为规模依赖交叉；长周期吸引子由空间固定局部振子组合，class-IV 滑翔机为指标序决胜伪影；直线前线在 500,000 步内保持初始位置两格以内，为一维自动机且具正 Lyapunov 速度（L&gt;=48 恒定）；格点使冲突延长约二十倍并聚集征服，紧邻新征服格被征服概率约为平均值五倍，对照组为 1.1–1.5。</p>
+    <h4>局限与展望</h4><p>原文未讨论规则在非默认交换比或非规则图上的推广；其结论主要基于特定阈值范围与 L&lt;=128 的数值规模，更大规模或不同图结构下的行为尚待检验。关于 class-IV 滑翔机为指标序决胜伪影的结论提示，后续研究可考虑采用其他决胜规则以排除该伪影；格点延长冲突与聚集征服的机制是否可推广至其他局部规则，需进一步验证。</p>
+  </section>
+</article>
+  </main>
+  <footer>
+    生成时间：2026-11-26 15:43 UTC。中文内容由模型辅助生成，请以论文原文为准。
+  </footer>
+</body>
+</html>
